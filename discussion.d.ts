@@ -1,4 +1,5 @@
-interface Discussions {
+type Discussions = Discussion[];
+interface Discussion {
   id: string;
   createdAt: string;
   title: string;

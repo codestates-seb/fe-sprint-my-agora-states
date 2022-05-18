@@ -1,4 +1,4 @@
-const agoraStatesData = [
+const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",
@@ -803,48 +803,3 @@ const agoraStatesData = [
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
   }
 })
-
-// const newData = agoraStatesData.map((dis) => {
-//   const newNode = dis.node;
-
-//   let newDis = {
-//     ...newNode,
-//     author: newNode.author?.login,
-//     avatarUrl: newNode.author?.avatarUrl,
-//   };
-
-//   if (!newNode.answer) {
-//     newDis.answer = null;
-//     return newDis;
-//   }
-
-//   if (!newNode.answer.author) {
-//     newDis = {
-//       ...newNode,
-//       author: newNode.author?.login,
-//       avatarUrl: newNode.author?.avatarUrl,
-//       answer: {
-//         ...newNode.answer,
-//         author: null,
-//       },
-//     };
-//     return newDis;
-//   }
-
-//   newDis = {
-//     ...newNode,
-//     author: newNode.author?.login,
-//     avatarUrl: newNode.author?.avatarUrl,
-//     answer: {
-//       ...newNode.answer,
-//       author: newNode.answer.author.login,
-//       avatarUrl: newNode.answer.author.avatarUrl,
-//     },
-//   };
-//   return newDis;
-// });
-
-if (typeof window === "undefined") {
-  const fs = require("fs");
-  fs.writeFileSync("./sth", JSON.stringify(newData));
-}
