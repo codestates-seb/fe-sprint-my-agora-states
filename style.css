@@ -1,1 +1,88 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 모든 요소에 border-box 속성을 주었다. */
+}
+
+body{
+    /* 앞으로 생길 바디 요소안에 있는 자식 요소들은 새로로 배치될 것이고, 상하좌우 를 가운데로 배치하게 할것이다.  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+li,.discussion__container {
+    list-style: none;
+}
+
+/*자식요소들을 화면 중앙에 배치하기 위해 justify-content 속성을 center로 주었다.  */
+.discussion__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+/* discussions__container를 가운데로 배치하였다. */
+.discussions__container{
+    margin: 10px auto;
+}
+
+.discussion__container{
+    padding: 20px;
+    border: 1px solid brown;
+    /* background-color: ; */
+    width: 540px;
+    /* 각 컴포넌트의 넓이를 540px로 지정해 주었다. */
+    display: flex;
+    /* 자식요소들의 배치를 위해 부모요소에 flex속성을 주었다.*/
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    align-items: center;
+    /* 이미지가 상하 기준 가운데로 오기 위해 display:flex, align-item:center 속성을 이용 */
+    flex-basis: min-content;
+    /*  discussion__container의 첫번째 자식요소인 해당 컨텐츠는 본인의 크기만큼만 넓이를 가져갈 수 있게 해주었다.*/
+}
+
+.discussion__avatar--image{
+    width: 48px;
+    border-radius: 100%;
+    /* 이미지의 넓이를 48px로 고정, 동그랗게 만들어 주었다. */
+}
+
+.discussion__content{
+    display: flex;
+    /* 두개의 컨텐츠의 위치 분배를 위해 주었다. */
+    flex-direction: column;
+    /* row 로 할 수 있었으나, 줄바꿈 등 불편함이 있어 세로 정렬을 주었고, 각각 컨텐츠를 text-content 로 좌우로 이동시켜 주었다. */
+    /* justify-content: space-between; */
+    flex-grow: 1;
+    /* discussion__content가 남은 모든 공간을 차지 할 수 있게 flrx-grow 속성을 주었다. */
+}
+
+.discussion__title{
+    text-align: left;
+    /* 제목 요소를 왼쪽 정렬해주었다. */
+    padding-left: 10px;
+    /* 이미지와 너무 붙어있길래 차후 내용변경을 고려하여 padding 값으로 주었다. */
+}
+
+.discussion__information{
+    text-align: right;
+    /* 정보 요소를 오른쪽 정렬해주었다. */
+    padding-right: 10px;
+    /* 더 우측에 있는 컨텐츠와 겸치지도 하고, 이 후 디자인 작업을 더 진행 할 때 알아보기 쉽게 미리 넣어 주었다. */
+}
+
+.discussion__answered{
+    flex-basis: 48px;
+    /* 이미지와 같은 넓이를 고정으로 주었다. ( 좌우대칭이 보기 좋아보여서. ) */
+    display: flex;
+    justify-content: center;
+    /* 체크이미지를 좌우기준 가운데로 올 수 있게 해주었다. */
+    align-items: center;
+    /* 체크이미지를 상하 기준 가운데로 올 수 있게 해주었다. */
+}
