@@ -1,6 +1,10 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+// 댭변 상태에 따라 아이콘 사용
+const ANSWERED_MARK = "☑︎";
+const UNANSERED_MARK = "◻︎";
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -25,6 +29,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionUrl = document.createElement("a");
 
+  discussionUrl.href = obj.url;
   discussionUrl.textContent = obj.title;
 
   discussionTitle.append(discussionUrl);
@@ -41,7 +46,12 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   const discussionIcon = document.createElement("p");
-  discussionIcon.textContent = "☑";
+  if (obj.answer === null) {
+    discussionIcon.textContent = UNANSERED_MARK;
+  } else {
+    discussionIcon.textContent = ANSWERED_MARK;
+  }
+
   discussionAnswered.append(discussionIcon);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
