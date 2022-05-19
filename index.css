@@ -1,0 +1,297 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+
+li
+{
+    list-style: none;
+}
+
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f7fb;
+}
+
+
+button
+{
+    border: none;
+    cursor: pointer;
+}
+
+
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+input
+{
+    border: none;
+}
+
+
+input:focus
+{
+    outline: 1px solid #1d98f5;
+}
+
+
+textarea
+{
+    resize: none;
+}
+
+
+textarea:focus
+{
+    outline: 1px solid #1d98f5;
+}
+
+
+.hide
+{
+    display: none;
+    visibility: hidden;
+}
+
+.on
+{
+    z-index: 999;
+}
+
+
+/* title ui */
+
+
+
+.header-title
+{
+    position: relative;
+    margin-bottom: 140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.add-btn
+{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 800;
+    background-color: #c4ecec;
+    position: relative;
+    top: 30px;
+    right: 30px;
+}
+
+
+
+/* form ui */
+@keyframes fadeIn {
+    from {  
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fadeIn {
+    animation: fadeIn 0.7s;
+  }
+
+
+.form__overlay
+{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.form__container
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    
+}
+
+
+.form
+{
+    width: 600px;
+    z-index: 999;
+    
+}
+
+
+.form__textbox > textarea
+{
+    height: 150px;
+}
+
+
+.form__input--wrapper
+{
+    margin-bottom: 30px;
+}
+
+
+.form__input--name > input,
+.form__input--title > input,
+.form__textbox > textarea
+{
+    padding: 6px 10px;
+    width: 100%;
+    font-size: 1.2rem;
+    border: 1px solid #cec8c8;
+    border-radius: 5px;
+    margin: 8px 0;
+}
+
+
+.form__submit
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.close-modal,
+.form__submit > input
+{
+    flex-grow: 2;
+    padding: 14px 0;
+    border-radius: 5px;
+    background-color: #1d98f5;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+
+.close-modal
+{
+    flex-grow: 1;
+    background-color: #eb5252;
+    margin-left: 10px;
+}
+
+
+.form label
+{
+    color: #fff;
+}
+
+
+
+
+/* card ui */
+.discussion__container
+{
+    position: relative;
+    width: calc(25% - 15px);
+    /* flex-grow: 1; */
+    height: 260px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.discussions__container
+{
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+}
+
+
+.discussion__avatar--wrapper
+{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: -26px;
+    left: 10%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+
+.discussion__avatar--image
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+.discussion__title
+{
+    font-size: 1rem;
+}
+
+
+.discussion__container:not(:nth-of-type(4n))
+{
+    margin-right: 20px;
+}
+
+
+.discussion__content
+{
+    /* height: 80%; */
+    margin-top: 40px;
+    flex-grow: 1;
+}
+
+
+.discussion__information
+{
+    font-size: 0.8rem;
+}
+
+
+.discussion__answered
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
