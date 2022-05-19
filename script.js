@@ -34,7 +34,9 @@ const convertToDiscussion = (obj) => {
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
 
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  const createQuestionDate = new Date(obj.createdAt).toLocaleString();
+
+  discussionInformation.textContent = `${obj.author} / ${createQuestionDate}`;
 
   discussionContent.append(discussionTitle, discussionInformation);
 
@@ -96,10 +98,11 @@ const convertToDiscussion = (obj) => {
 
     // 답변한 날짜
     answerDate.className = "discussion__answer__date";
+    const createAnswerDate = new Date(obj.answer.createdAt).toLocaleString();
 
     answerAvatarImage.src = obj.answer.avatarUrl;
     answerAvatarImage.alt = "avatar of" + obj.answer.author;
-    answerDate.textContent = `${obj.answer.author} / ${obj.answer.createdAt}`;
+    answerDate.textContent = `${obj.answer.author} / ${createAnswerDate}`;
 
     // 답변 내용
     discussionAnswerDescription.className = "discussion__answer__description";
