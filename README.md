@@ -15,3 +15,10 @@
 - 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다. ✅
 4. 오른쪽 체크 표시
 - 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. ✅
+
+
+## Bare Minimum Requirement
+- agoraStatesDiscussions 배열의 모든 디스커션을 화면에 렌더링합니다. ✅
+
+## Advanced Challenge
+- 답변이 있는 경우, 답변도 화면에 렌더링합니다.
