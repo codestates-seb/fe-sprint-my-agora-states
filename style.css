@@ -51,9 +51,8 @@ button:hover {
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
-  padding-top: 2rem;
+  padding-top: 5rem;
   color: #c9d1da;
   background-color: #0e1217;
 }
@@ -75,6 +74,10 @@ body {
   background-color: #238636;
   border-radius: 6px;
   cursor: pointer;
+}
+
+#new__discussion:hover {
+  background-color: #48a35a;
 }
 
 .form > h2 {
@@ -115,6 +118,7 @@ body {
 #submit__btn:disabled {
   color: rgba(255,255,255,0.5);
   background-color: rgba(35,134,54,0.6);
+  cursor: auto;
 }
 
 /* discussion-container */
@@ -126,6 +130,7 @@ body {
 .discussion__container {
   display: flex;
   justify-content: space-between;
+  height: 75px;
   padding: 0.8rem;
   border-bottom: 1px solid #808892;
 }
@@ -168,6 +173,7 @@ body {
   justify-content: center;
   align-items: center;
   color: rgb(27, 196, 27);
+  font-size: 1.5rem;
 }
 
 /* pagination button */
