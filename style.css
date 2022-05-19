@@ -68,7 +68,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.new__discussion {
+#new__discussion {
   margin: 1rem 0;
   padding: 5px 16px;
   color: white;
@@ -115,6 +115,7 @@ body {
 
 /* discussion-container */
 .discussion__wrapper {
+  display: flex;
   width: 540px;
 }
 
@@ -163,4 +164,23 @@ body {
   justify-content: center;
   align-items: center;
   color: rgb(27, 196, 27);
+}
+
+/* pagination button */
+#paging__btn__container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+#prev__page {
+  color: white;
+  background-color: #0e1217;
+  cursor: pointer;
+}
+
+#next__page {
+  color: white;
+  background-color: #0e1217;
+  cursor: pointer;
 }

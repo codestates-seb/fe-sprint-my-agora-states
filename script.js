@@ -53,23 +53,25 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const render = (element, num1, num2) => {
+  for (let i = num1; i < num2; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+let min = 0;
+let max = 10;
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, min, max);
 
 // form
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputStory = document.querySelector("#story");
 const submitBtn = document.querySelector("#submit__btn");
-const newDiscussionBtn = document.querySelector('.new__discussion');
+const newDiscussionBtn = document.querySelector('#new__discussion');
 const formContainer = document.querySelector('.form__container');
 
 const formValidate = () => {
@@ -117,3 +119,27 @@ submitBtn.addEventListener("click", (e) => {
   ul.insertBefore(convertToDiscussion(newDiscussion), ul.firstChild);
 });
 
+
+// pagenation
+const nextPageBtn = document.querySelector('#next__page');
+const prevPageBtn = document.querySelector('#prev__page');
+
+nextPageBtn.addEventListener('click', () => {
+  if(max > agoraStatesDiscussions.length) return;
+  while(ul.firstChild) {
+    ul.firstChild.remove()
+  }
+  min += 10;
+  max += 10;
+  render(ul, min, max);
+})
+
+prevPageBtn.addEventListener('click', () => {
+  if(min <= 0) return;
+  while(ul.firstChild) {
+    ul.firstChild.remove()
+  }
+  min -= 10;
+  max -= 10;
+  render(ul, min, max);
+})
