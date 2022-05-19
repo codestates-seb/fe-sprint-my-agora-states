@@ -37,7 +37,7 @@ const convertToDiscussion = (obj) => {
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
 
-  discussionInformation.textContent = obj.createdAt;
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
 
   discussionContent.append(discussionTitle, discussionInformation);
 
@@ -54,26 +54,77 @@ const convertToDiscussion = (obj) => {
 
   discussionAnswered.append(discussionIcon);
 
+  // 자세히 보기 버튼
   const discussionAnswerButton = document.createElement("button");
   discussionAnswerButton.className = "discussion__answer__button";
   discussionAnswerButton.textContent = "자세히 보기";
 
+  // 자세히 보기 버튼을 누르면 보이는 컨텐츠 영역
   const discussionAnswerContent = document.createElement("div");
   discussionAnswerContent.className = "discussion__answer__content";
 
-  const discussionAnswerTitle = document.createElement("h2");
-  discussionAnswerTitle.className = "discussion__anwer__title";
+  // 질문 제목
+  const discussionQuestionTitle = document.createElement("h2");
+  discussionQuestionTitle.className = "discussion__question__title";
 
-  const discussionDescription = document.createElement("p");
-  discussionDescription.className = "discussion__anwer__description";
+  discussionQuestionTitle.textContent = `🙋‍♀️ ${obj.title}`;
+
+  // 질문한 사람 / 날짜
+  const discussionQuestionDate = document.createElement("p");
+  discussionQuestionDate.className = "discussion__question__date";
+  discussionQuestionDate.textContent = `${obj.author} / ${obj.createdAt}`;
+
+  // 질문 내용
+  const discussionQuestionDescription = document.createElement("div");
+  discussionQuestionDescription.className = "discussion__question__description";
+
+  discussionQuestionDescription.innerHTML = obj.bodyHTML;
+
+  const discussionAnswerTitle = document.createElement("h2");
+  const discussionAnswerInfo = document.createElement("div");
+  const answerAvatarImage = document.createElement("img");
+  const answerDate = document.createElement("p");
+
+  discussionAnswerInfo.className = "discussion__answer__information";
+
+  const discussionAnswerDescription = document.createElement("div");
+
+  discussionAnswerTitle.textContent = "❣️ 답변";
 
   if (obj.answer != null) {
-    discussionAnswerContent.innerHTML = obj.answer.bodyHTML;
-  } else {
-    discussionAnswerContent.textContent = "답변이 없네요 😢";
+    discussionAnswerInfo.append(answerDate, answerAvatarImage);
+
+    discussionAnswerDescription.innerHTML = obj.answer.bodyHTML;
+
+    // 답변 제목
+    discussionAnswerTitle.className = "discussion__answer__title";
+
+    // 답변한 사람 아바타
+    answerAvatarImage.className = "discussion__answer__avatar--image";
+
+    // 답변한 날짜
+    answerDate.className = "discussion__answer__date";
+
+    answerAvatarImage.src = obj.answer.avatarUrl;
+    answerAvatarImage.alt = "avatar of" + obj.answer.author;
+    answerDate.textContent = `${obj.answer.author} / ${obj.answer.createdAt}`;
+
+    // 답변 내용
+    discussionAnswerDescription.className = "discussion__answer__description";
+  }
+  // 답변 내용이 없으면 보여줄 화면
+  else {
+    discussionAnswerDescription.textContent = "앗 답변이 없네요 😢";
   }
 
-  discussionAnswerContent.append(discussionAnswerTitle, discussionDescription);
+  discussionAnswerContent.append(
+    discussionQuestionTitle,
+    discussionQuestionDate,
+    discussionQuestionDescription,
+    discussionAnswerTitle,
+    discussionAnswerInfo,
+    discussionAnswerDescription
+  );
 
   li.append(avatarWrapper, discussionContent, discussionAnswered, discussionAnswerButton, discussionAnswerContent);
 
