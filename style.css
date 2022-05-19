@@ -7,11 +7,21 @@
 body {
   margin: 0;
   padding: 0;
+  line-height: 1.5;
 }
 
 ul {
   list-style: none;
   padding: 0;
+}
+
+ol {
+  padding: 0;
+  list-style-position: inside;
+}
+
+img {
+  width: 100%;
 }
 
 /* style */
@@ -87,8 +97,38 @@ section .discussion__answer__button {
 section .discussion__answer__content {
   grid-column: 1/4;
   display: none;
+  padding: 0 10px;
 }
 
 section .discussion__answer__content.show {
   display: block;
+}
+
+section .discussion__question__date,
+.discussion__answer__date {
+  text-align: end;
+}
+
+section .discussion__answer__information {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+section img.discussion__answer__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+pre,
+code {
+  overflow: scroll;
+  background-color: #cecece;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+a {
+  word-break: break-all;
 }
