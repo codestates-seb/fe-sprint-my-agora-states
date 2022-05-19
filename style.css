@@ -1,1 +1,140 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import "reset.css";
+
+/* global CSS */
+
+* {
+    font : 14px/1.8 "Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+}
+
+body {
+    background-color: #eae7de;
+}
+
+h1 {
+    text-align: center;
+    margin: 15px;
+    font-size: 30px;
+}
+
+/* 질문 입력 영역 CSS */
+
+.form__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 107, 0);
+    padding: 20px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input__area {
+    width: 250px;
+    border: solid 1px black;
+    margin: 5px;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+input::placeholder, textarea::placeholder {
+    font-size: 12px;
+}
+
+/* 제출 버튼 */
+
+.form__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+}
+
+.form__submit--btn {
+    background-color: black;
+    color: white;
+    font-size: smaller;
+    border-radius: 7px;
+    padding: 7px 15px;
+    border: solid 1px black;
+    cursor: pointer;
+}
+
+/* 제출 버튼 CSS 수도 클래스 */
+
+.form__submit--btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.form__submit--btn:active {
+    transform: scale(95%);
+}
+
+/* 리스트 영역 */
+
+.discussions__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    height: 200px;
+    border: solid 1px white;
+    padding: 20px;
+}
+
+.discussion__container:hover {
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-weight: 800;
+}
+
+a:hover {
+    color:rgb(255, 107, 0);
+}
+
+.discussion__information {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+span.content__name {
+    background-color: rgba(3, 127, 3, 0.736);
+    color: white;
+    font-size: smaller;
+    border-radius: 7px;
+    padding: 2px 5px;
+}
+
+span.content__date {
+    display: block;
+}
+
+.answered {
+    color: green;
+}
