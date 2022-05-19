@@ -2,18 +2,37 @@
 * {
     box-sizing: border-box;
 }
+body{
+    margin: 0;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+
 ul{
     list-style: none;
     padding-left: 15px;
 }
 
+.fixedRow{
+    position: fixed;
+    background-color: white;
+    border-bottom: 1px solid black;
+    width: 550px;
+}
+
 .discussion__wrapper{
+    margin-top: 200px;
     width: 540px;
+    display: flex;
+    justify-content: center;
+
 }
 
 /* 컨테이너 박스 내부 */
 .discussion__container{
-
+    
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

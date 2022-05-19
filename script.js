@@ -20,7 +20,7 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = `avatar of ${obj.author}`;
 
   //제목 추가
-  const discussionTitle = document.createElement("h2");
+  const discussionTitle = document.createElement("h3");
   discussionTitle.className = "discussion__title";
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
@@ -31,7 +31,12 @@ const convertToDiscussion = (obj) => {
 
   //체크표시
   const answerChecked = document.createElement("p")
-  answerChecked.textContent = "☑"
+  if (obj.answer === null) {
+    answerChecked.textContent = "ㅁ"
+  } else answerChecked.textContent = "☑"
+
+  //information 추가
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
 
   avatarWrapper.append(avatarImg)
   discussionTitle.append(pageLink)
