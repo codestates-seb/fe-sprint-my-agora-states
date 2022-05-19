@@ -1,5 +1,12 @@
 let discussionAnswerButtons = document.querySelectorAll(".discussion__answer__button");
 let discussionAnswerContents = document.querySelectorAll(".discussion__answer__content");
+const inputName = document.querySelector("#name");
+const inputTitle = document.querySelector("#title");
+const inputStory = document.querySelector("#story");
+const form = document.querySelector(".form");
+const submitButton = document.querySelector(".submit-button");
+
+const titleFixedBar = document.querySelector(".main-title");
 
 // 버튼에 맞는 게시글 보이게 하기
 discussionAnswerButtons.forEach((button, i) =>
@@ -13,12 +20,6 @@ discussionAnswerButtons.forEach((button, i) =>
     }
   })
 );
-
-const inputName = document.querySelector("#name");
-const inputTitle = document.querySelector("#title");
-const inputStory = document.querySelector("#story");
-const form = document.querySelector(".form");
-const submitButton = document.querySelector(".submit-button");
 
 // 기본 동작 이벤트 막기
 form.addEventListener("submit", (e) => {
@@ -48,3 +49,11 @@ function inputValue(e) {
 }
 
 submitButton.addEventListener("click", inputValue);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY <= 40) {
+    titleFixedBar.classList.remove("active");
+  } else {
+    titleFixedBar.classList.add("active");
+  }
+});
