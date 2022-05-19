@@ -39,8 +39,7 @@ const convertToDiscussion = (obj) => {
 
   discussionInformation.textContent = obj.createdAt;
 
-  discussionContent.append(discussionTitle);
-  discussionContent.append(discussionInformation);
+  discussionContent.append(discussionTitle, discussionInformation);
 
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -57,9 +56,26 @@ const convertToDiscussion = (obj) => {
 
   const discussionAnswerButton = document.createElement("button");
   discussionAnswerButton.className = "discussion__answer__button";
-  discussionAnswerButton.textContent = "답변 보기";
+  discussionAnswerButton.textContent = "자세히 보기";
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered, discussionAnswerButton);
+  const discussionAnswerContent = document.createElement("div");
+  discussionAnswerContent.className = "discussion__answer__content";
+
+  const discussionAnswerTitle = document.createElement("h2");
+  discussionAnswerTitle.className = "discussion__anwer__title";
+
+  const discussionDescription = document.createElement("p");
+  discussionDescription.className = "discussion__anwer__description";
+
+  if (obj.answer != null) {
+    discussionAnswerContent.innerHTML = obj.answer.bodyHTML;
+  } else {
+    discussionAnswerContent.textContent = "답변이 없네요 😢";
+  }
+
+  discussionAnswerContent.append(discussionAnswerTitle, discussionDescription);
+
+  li.append(avatarWrapper, discussionContent, discussionAnswered, discussionAnswerButton, discussionAnswerContent);
 
   return li;
 };
