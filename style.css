@@ -1,10 +1,75 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 *{
+  /* margin: 0;
+  padding: 0; */
   box-sizing: border-box;
 }
 
 li{
   list-style: none;
+}
+
+/* 전체 틀 */
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 질문 작성 화면 */
+.form__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  */
+form{
+  display: flex;
+  justify-content: center;
+  width: 540px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.form__input--wrapper{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  flex-basis: 80%;
+}
+
+.form__input--name, .form__input--title, .form__textbox{
+  display: flex;
+  margin: 5px;
+  flex-basis: 80%;
+}
+
+.form__textbox{
+  flex-direction: column;
+}
+
+.form__submit{
+  display: flex;
+  padding: 10px;
+}
+
+.form__submit > input{
+  flex-basis: 20%;
+}
+
+label[for=name], label[for=story], #name{
+  flex-basis: 100%;
+}
+
+
+/* 질문 리스트 화면 */
+.discussion__wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .discussion__container{
@@ -14,16 +79,31 @@ li{
   width: 540px;
 }
 
+.discussion__avatar--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 10%;
+}
+
 .discussion__avatar--image{
   border-radius: 50%;
   width: 48px;
   margin-right: 20px;
 }
 
-.discussion__title{
-  margin-right: 80px;
+.discussion__content{
+  flex-basis: 80%;
 }
 
 .discussion__information{
   text-align: right;
+}
+
+.discussion__answered{
+  flex-basis: 10%;
+}
+
+.discussion__answered > p{
+  font-size: 40px;
 }
