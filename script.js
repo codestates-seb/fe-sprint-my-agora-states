@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // 댭변 상태에 따라 아이콘 사용
 const ANSWERED_MARK = "☑︎";
 const UNANSERED_MARK = "◻︎";
@@ -69,11 +66,6 @@ const convertToDiscussion = (obj) => {
 
   discussionQuestionTitle.textContent = `🙋‍♀️ ${obj.title}`;
 
-  // 질문한 사람 / 날짜
-  const discussionQuestionDate = document.createElement("p");
-  discussionQuestionDate.className = "discussion__question__date";
-  discussionQuestionDate.textContent = `${obj.author} / ${obj.createdAt}`;
-
   // 질문 내용
   const discussionQuestionDescription = document.createElement("div");
   discussionQuestionDescription.className = "discussion__question__description";
@@ -119,7 +111,6 @@ const convertToDiscussion = (obj) => {
 
   discussionAnswerContent.append(
     discussionQuestionTitle,
-    discussionQuestionDate,
     discussionQuestionDescription,
     discussionAnswerTitle,
     discussionAnswerInfo,
