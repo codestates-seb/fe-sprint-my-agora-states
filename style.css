@@ -85,6 +85,7 @@ section .discussion__answer__button {
 }
 
 section .discussion__answer__content {
+  grid-column: 1/4;
   display: none;
 }
 
