@@ -32,7 +32,7 @@ input {
 
 input:focus {
   outline: none;
-  border: 2px solid rgb(61, 175, 221);
+  border: 1px solid rgb(61, 175, 221);
 }
 
 
@@ -97,7 +97,7 @@ body {
 }
 
 #story:focus {
-  border: 2px solid rgb(61, 175, 221);
+  border: 1px solid rgb(61, 175, 221);
 }
 
 #submit__btn {

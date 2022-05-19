@@ -43,6 +43,11 @@ const convertToDiscussion = (obj) => {
   obj.answer
     ? (checkAnswered.textContent = "☑")
     : (checkAnswered.textContent = "☒");
+  if(checkAnswered.textContent === "☒") {
+    checkAnswered.style.color = 'red';
+  }
+
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -59,8 +64,7 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-// Bare Minimum
-
+// form
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputStory = document.querySelector("#story");
@@ -76,16 +80,12 @@ const formValidate = () => {
   }
 }
 
-inputName.addEventListener('keyup', () => {
-  formValidate();
-})
+const inputArr = [inputName, inputTitle, inputStory];
 
-inputTitle.addEventListener('keyup', () => {
-  formValidate();
-})
-
-inputStory.addEventListener('keyup', () => {
-  formValidate();
+inputArr.forEach((el) => {
+  el.addEventListener('keyup', () => {
+    formValidate();
+  })
 })
 
 newDiscussionBtn.addEventListener('click', () => {
@@ -97,7 +97,7 @@ submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const newDiscussion = {
     id: Date.now(),
-    createdAt: new Date().toLocaleString('ko-KR'),
+    createdAt: new Date(),
     title: inputTitle.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: inputName.value,
