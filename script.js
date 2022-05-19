@@ -34,7 +34,9 @@ const convertToDiscussion = (obj) => {
   // content-information
   const contentInformation = document.createElement("div");
   contentInformation.className = "discussion__information";
-  contentInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR')}`;
+  contentInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString("ko-KR")}`;
   discussionContent.append(contentInformation);
 
   // answer
@@ -43,14 +45,13 @@ const convertToDiscussion = (obj) => {
   obj.answer
     ? (checkAnswered.textContent = "☑")
     : (checkAnswered.textContent = "☒");
-  if(checkAnswered.textContent === "☒") {
-    checkAnswered.style.color = 'red';
+  if (checkAnswered.textContent === "☒") {
+    checkAnswered.style.color = "red";
   }
-
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
-};
+  };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element, num1, num2) => {
@@ -71,29 +72,29 @@ const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputStory = document.querySelector("#story");
 const submitBtn = document.querySelector("#submit__btn");
-const newDiscussionBtn = document.querySelector('#new__discussion');
-const formContainer = document.querySelector('.form__container');
+const newDiscussionBtn = document.querySelector("#new__discussion");
+const formContainer = document.querySelector(".form__container");
 
 const formValidate = () => {
-  if(inputName.value && inputTitle.value && inputStory.value) {
+  if (inputName.value && inputTitle.value && inputStory.value) {
     submitBtn.disabled = false;
   } else {
     submitBtn.disabled = true;
   }
-}
+};
 
 const inputArr = [inputName, inputTitle, inputStory];
 
 inputArr.forEach((el) => {
-  el.addEventListener('keyup', () => {
+  el.addEventListener("keyup", () => {
     formValidate();
-  })
-})
+  });
+});
 
-newDiscussionBtn.addEventListener('click', () => {
-  formContainer.classList.toggle('hide');
+newDiscussionBtn.addEventListener("click", () => {
+  formContainer.classList.toggle("hide");
   inputName.focus();
-})
+});
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -109,37 +110,41 @@ submitBtn.addEventListener("click", (e) => {
       "https://avatars.githubusercontent.com/u/95295766?s=64&u=85d493e0be0d2ca55965efd9f6c5b268c9dca168&v=4",
   };
 
-  inputName.value = '';
-  inputTitle.value = '';
-  inputStory.value = '';
-  formContainer.classList.add('hide');
+  inputName.value = "";
+  inputTitle.value = "";
+  inputStory.value = "";
+  formContainer.classList.add("hide");
   submitBtn.disabled = true;
 
   agoraStatesDiscussions.unshift(newDiscussion);
   ul.insertBefore(convertToDiscussion(newDiscussion), ul.firstChild);
+
+  while (ul.firstChild) {
+    ul.firstChild.remove();
+  }
+  render(ul, MIN, MAX);
 });
 
+// pagination
+const nextPageBtn = document.querySelector("#next__page");
+const prevPageBtn = document.querySelector("#prev__page");
 
-// pagenation
-const nextPageBtn = document.querySelector('#next__page');
-const prevPageBtn = document.querySelector('#prev__page');
-
-nextPageBtn.addEventListener('click', () => {
-  if(MAX > agoraStatesDiscussions.length) return;
-  while(ul.firstChild) {
-    ul.firstChild.remove()
+nextPageBtn.addEventListener("click", () => {
+  if (MAX > agoraStatesDiscussions.length) return;
+  while (ul.firstChild) {
+    ul.firstChild.remove();
   }
   MIN += 10;
   MAX += 10;
   render(ul, MIN, MAX);
-})
+});
 
-prevPageBtn.addEventListener('click', () => {
-  if(MIN <= 0) return;
-  while(ul.firstChild) {
-    ul.firstChild.remove()
+prevPageBtn.addEventListener("click", () => {
+  if (MIN <= 0) return;
+  while (ul.firstChild) {
+    ul.firstChild.remove();
   }
   MIN -= 10;
   MAX -= 10;
   render(ul, MIN, MAX);
-})
+});

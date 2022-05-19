@@ -51,6 +51,7 @@ button:hover {
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   padding-top: 2rem;
   color: #c9d1da;
@@ -105,6 +106,10 @@ body {
   background-color: #238636;
   border-radius: 6px;
   cursor: pointer;
+}
+
+#submit__btn:hover {
+  background-color: #48a35a;
 }
 
 #submit__btn:disabled {
