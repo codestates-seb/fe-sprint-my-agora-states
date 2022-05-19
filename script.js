@@ -61,10 +61,10 @@ const render = (element, num1, num2) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-let min = 0;
-let max = 10;
+let MIN = 0;
+let MAX = 10;
 const ul = document.querySelector("ul.discussions__container");
-render(ul, min, max);
+render(ul, MIN, MAX);
 
 // form
 const inputName = document.querySelector("#name");
@@ -125,21 +125,21 @@ const nextPageBtn = document.querySelector('#next__page');
 const prevPageBtn = document.querySelector('#prev__page');
 
 nextPageBtn.addEventListener('click', () => {
-  if(max > agoraStatesDiscussions.length) return;
+  if(MAX > agoraStatesDiscussions.length) return;
   while(ul.firstChild) {
     ul.firstChild.remove()
   }
-  min += 10;
-  max += 10;
-  render(ul, min, max);
+  MIN += 10;
+  MAX += 10;
+  render(ul, MIN, MAX);
 })
 
 prevPageBtn.addEventListener('click', () => {
-  if(min <= 0) return;
+  if(MIN <= 0) return;
   while(ul.firstChild) {
     ul.firstChild.remove()
   }
-  min -= 10;
-  max -= 10;
-  render(ul, min, max);
+  MIN -= 10;
+  MAX -= 10;
+  render(ul, MIN, MAX);
 })

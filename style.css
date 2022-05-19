@@ -1,5 +1,4 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -170,17 +169,20 @@ body {
 #paging__btn__container {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin: 20px;
+  padding-bottom: 20px;
 }
 
-#prev__page {
-  color: white;
-  background-color: #0e1217;
+#paging__btn__container > button {
+  padding: 10px 20px;
+  color: #c9d1d9;
+  background-color: #21262d;
+  border-radius: 8px;
+  font-size: 10px;
   cursor: pointer;
 }
 
-#next__page {
-  color: white;
-  background-color: #0e1217;
-  cursor: pointer;
+#paging__btn__container > button:hover {
+  background-color: #3b3f45;
 }
+
