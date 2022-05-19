@@ -1,1 +1,97 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --main-Bg-color: #f4eee8;
+  --sub-Bg-color: #325288;
+  --list-Bg-color: rgb(249, 249, 249);
+  --point-color: #f5cebe;
+}
+/* -------------- 기본 세팅 -------------- */
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nanum Gothic", sans-serif;
+  color: #232323;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #232323;
+}
+body {
+  width: 540px;
+  background-color: var(--main-Bg-color);
+  padding: 50px 0;
+}
+
+/* -------------- 메인 제목 -------------- */
+h1 {
+  font-family: "Koulen", cursive;
+  font-size: 70px;
+  text-align: center;
+}
+
+/* -------------- 폼 박스 -------------- */
+.form__container {
+  /* display: none; */
+  background-color: var(--sub-Bg-color);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.form__container form div label {
+  color: #fff;
+}
+.form__submit input {
+  background-color: var(--point-color);
+  width: 200px;
+  border: 1px solid var(--point-color);
+}
+
+/* -------------- 질문 리스트 -------------- */
+.discussion__wrapper {
+  margin-top: 35px;
+}
+.discussion__wrapper ul li {
+  display: flex;
+  flex-basis: 0;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  background-color: var(--list-Bg-color);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+
+/* -------------- 질문 리스트 메인-------------- */
+
+/* 프로필사진 */
+.discussion__avatar--wrapper img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+/* 제목 */
+.discussion__content {
+  flex-grow: 1;
+  margin: 0 30px;
+}
+.discussion__content .discussion__title {
+  font-size: 20px;
+}
+.discussion__content .discussion__information {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+/* -------------- 질문 리스트 답변-------------- */
+.discussion__answered__show {
+  background-color: #ccc;
+  /* flex-grow: 2; */
+}
