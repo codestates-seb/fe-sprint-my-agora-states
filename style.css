@@ -63,6 +63,8 @@ section .discussion__title {
 section .discussion__title a {
   font-size: 18px;
   display: -webkit-box;
+
+  /* see : https://paperblock.tistory.com/215 */
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
@@ -80,4 +82,12 @@ section .discussion__answered p {
 
 section .discussion__answer__button {
   grid-column: 1 / 4;
+}
+
+section .discussion__answer__content {
+  display: none;
+}
+
+section .discussion__answer__content.show {
+  display: block;
 }
