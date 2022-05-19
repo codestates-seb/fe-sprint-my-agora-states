@@ -51,7 +51,7 @@ const convertToDiscussion = (obj) => {
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
-  };
+};
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element, num1, num2) => {
@@ -96,6 +96,23 @@ newDiscussionBtn.addEventListener("click", () => {
   inputName.focus();
 });
 
+// local storage
+
+// const DISCUSSIONS_KEY = "discussions";
+
+// const saveDiscussion = () => {
+//   localStorage.setItem(DISCUSSIONS_KEY, JSON.stringify(agoraStatesDiscussions));
+// };
+// const savedDiscussions = localStorage.getItem(DISCUSSIONS_KEY);
+// const parsedDiscussions = JSON.parse(savedDiscussions);
+
+// const renderLocalStorage = (element, num1, num2) => {
+//   for (let i = num1; i < num2; i += 1) {
+//     element.append(convertToDiscussion(parsedDiscussions[i]));
+//   }
+//   return;
+// };
+
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const newDiscussion = {
@@ -116,12 +133,16 @@ submitBtn.addEventListener("click", (e) => {
   formContainer.classList.add("hide");
   submitBtn.disabled = true;
 
-  agoraStatesDiscussions.unshift(newDiscussion);
-  ul.insertBefore(convertToDiscussion(newDiscussion), ul.firstChild);
-
   while (ul.firstChild) {
     ul.firstChild.remove();
   }
+
+  agoraStatesDiscussions.unshift(newDiscussion);
+  // ul.insertBefore(convertToDiscussion(newDiscussion), ul.firstChild);
+
+  // add to Local Storage
+  // saveDiscussion();
+
   render(ul, MIN, MAX);
 });
 
@@ -136,6 +157,7 @@ nextPageBtn.addEventListener("click", () => {
   }
   MIN += 10;
   MAX += 10;
+
   render(ul, MIN, MAX);
 });
 
@@ -146,5 +168,6 @@ prevPageBtn.addEventListener("click", () => {
   }
   MIN -= 10;
   MAX -= 10;
+
   render(ul, MIN, MAX);
 });
