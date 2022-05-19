@@ -1,3 +1,5 @@
+
+
 const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
@@ -803,3 +805,48 @@ const agoraStatesDiscussions = [
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
   }
 })
+
+const convertToDiscussion = (obj) => {
+  const li = document.createElement('li');
+  const avatarWrapper = document.createElement('div');
+  const discussionContent = document.createElement('div');
+  const discussionAnswered = document.createElement('div');
+  const discussionInfo = document.createElement('div')
+  const avatarImg = document.createElement('img');
+  const h2 = document.createElement('h2');
+  const a = document.createElement('a');
+  const p = document.createElement('p')
+  const ul = document.querySelector('ul.discussions__container');
+
+  li.className = 'discussion__container';
+  avatarWrapper.className = 'discussion__avatar--wrapper';
+  discussionContent.className = 'discussion__content';
+  discussionAnswered.className = 'discussion__answered';
+  avatarImg.className = 'discussion__avatar--image';
+  h2.className = 'discussion__title';
+  discussionInfo.className = 'discussion__information';
+
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  h2.textContent = obj.title
+  a.href = obj.url;
+  discussionInfo.textContent = obj.author + " / " + obj.createdAt;
+  p.textContent = "☑"
+
+  discussionAnswered.append(p);
+  h2.append(a);
+  avatarWrapper.append(avatarImg);
+  discussionContent.append(h2, discussionInfo);
+  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  return li;
+};
+
+const render = (element) => {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
