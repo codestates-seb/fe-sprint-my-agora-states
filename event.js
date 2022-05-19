@@ -44,7 +44,6 @@ function inputValue(e) {
       avatarUrl: "https://avatars.githubusercontent.com/u/76990149?v=4",
     });
     ul.prepend(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length - 1]));
-    console.log(agoraStatesDiscussions);
   }
 }
 
