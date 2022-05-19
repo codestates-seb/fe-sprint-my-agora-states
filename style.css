@@ -44,7 +44,8 @@ h1 {
 }
 
 .discussion__information {
-  text-align: end;
+  float: right;
+  /* text-align: end; */
 }
 
 /* 답변체크부분 */
