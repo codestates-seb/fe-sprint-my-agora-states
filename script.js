@@ -34,7 +34,7 @@ const convertToDiscussion = (obj) => {
   // content-information
   const contentInformation = document.createElement("div");
   contentInformation.className = "discussion__information";
-  contentInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  contentInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR')}`;
   discussionContent.append(contentInformation);
 
   // answer
@@ -97,7 +97,7 @@ submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const newDiscussion = {
     id: Date.now(),
-    createdAt: new Date().toString(),
+    createdAt: new Date().toLocaleString('ko-KR'),
     title: inputTitle.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: inputName.value,
@@ -111,6 +111,7 @@ submitBtn.addEventListener("click", (e) => {
   inputTitle.value = '';
   inputStory.value = '';
   formContainer.classList.add('hide');
+  submitBtn.disabled = true;
 
   agoraStatesDiscussions.unshift(newDiscussion);
   ul.insertBefore(convertToDiscussion(newDiscussion), ul.firstChild);
