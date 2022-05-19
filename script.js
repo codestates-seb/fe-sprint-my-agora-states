@@ -46,6 +46,7 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   const discussionIcon = document.createElement("p");
+
   if (obj.answer === null) {
     discussionIcon.textContent = UNANSERED_MARK;
   } else {
@@ -54,7 +55,11 @@ const convertToDiscussion = (obj) => {
 
   discussionAnswered.append(discussionIcon);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const discussionAnswerButton = document.createElement("button");
+  discussionAnswerButton.className = "discussion__answer__button";
+  discussionAnswerButton.textContent = "답변 보기";
+
+  li.append(avatarWrapper, discussionContent, discussionAnswered, discussionAnswerButton);
 
   return li;
 };
