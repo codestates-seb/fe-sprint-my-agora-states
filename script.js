@@ -3,6 +3,7 @@ console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
+
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -13,9 +14,27 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
+  const avatarImg = document.createElement('img');
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  const link = document.createElement("a");
+  link.href = obj.url;
+  link.textContent = obj.title;
+  discussionTitle.append(link);
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
+  discussionContent.append(discussionTitle, discussionInformation);
+  const checkBox = document.createElement("p")
+  checkBox.textContent = "☑";
+  discussionAnswered.append(checkBox);
+
+
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
