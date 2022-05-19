@@ -14,26 +14,24 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <h1>MY AGORA STATES</h1>
+    <button class="new__discussion">New discussion</button>
     <section class="form__container">
       <form action="" method="get" class="form">
+        <h2>Start a new discussion</h2>
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" placeholder="Name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="title" id="title" placeholder="Title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <textarea id="story" name="story"
+              placeholder="Ask a question, start a conversation, or make an announcement" required></textarea>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
+        <button id="submit__btn" disabled>Start discussion</button>
       </form>
     </section>
     <section class="discussion__wrapper">
@@ -45,10 +43,13 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / asd2022-04-22T14:08:33Z</div>
+            <h2 class="discussion__title"><a
+                href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered">
+            <p>☑</p>
+          </div>
         </li>
       </ul>
     </section>
