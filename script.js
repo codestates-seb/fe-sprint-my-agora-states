@@ -1,14 +1,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 
-let newObj = {
-  title: `${localStorage.getItem('title')}`,
-  author: `${localStorage.getItem('author')}`,
-  createdAt: `${localStorage.getItem('createdAt')}`,
-  avatarUrl: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/325/ninja_1f977.png",
-}
-
-agoraStatesDiscussions.unshift(newObj);
 console.log(agoraStatesDiscussions);
+const LIST = 'boardlist';
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -55,7 +48,10 @@ const convertToDiscussion = (obj) => {
 
   let answerChecked = document.createElement("div");
   answerChecked.className = "answered";
-  answerChecked.textContent = "🟢 답변 완료";
+  if(obj.answer === null) {
+    answerChecked.textContent = "⚪️ 답변 없음";
+  } else {answerChecked.textContent = "🟢 답변 완료";
+  }
   discussionAnswered.append(answerChecked);
 
   li.append(discussionContent, avatarWrapper, discussionAnswered);
@@ -63,19 +59,24 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+let lists = JSON.parse(localStorage.getItem('boardlist'));
+if (!lists) {
+  lists = agoraStatesDiscussions;
+} 
+
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < lists.length; i += 1) {
+    element.append(convertToDiscussion(lists[i]));
   }
   return;
-};
+}
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 const submitBtn = document.querySelector(".form__submit--btn");
-submitBtn.onclick = function () {
+submitBtn.onclick = function (event) {
   let inputName = document.querySelector(".name");
   let newName = inputName.value;
   let inputTitle = document.querySelector(".title");
@@ -83,18 +84,23 @@ submitBtn.onclick = function () {
   let today = new Date();
   let year = today.getFullYear();
   let month = today.getMonth();
-  let day = today.getDay();
+  let date = today.getDate();
   let hour = today.getHours();
   let minute = today.getMinutes();
-  let dateString = '';
-
-  if (hour > 12) {
-    dateString = `${year}년 ${month}월 ${day}일 오후 ${hour-12}시 ${minute}분`;
+  let dateString = ''
+  if (hour > 12){
+    dateString = `${year}년 ${month+1}월 ${date}일 오후 ${hour-12}시 ${minute}분`;
   } else {
-    dateString = `${year}년 ${month}월 ${day}일 오전 ${hour}시 ${minute}분`;
+    dateString = `${year}년 ${month+1}월 ${date}일 오전 ${hour}시 ${minute}분`;
   }
 
-  localStorage.setItem("author", newName);
-  localStorage.setItem("title", newTitle);
-  localStorage.setItem("createdAt", dateString);
-}
+  lists.unshift({
+  title: `${newTitle}`,
+  author: `${newName}`,
+  createdAt: `${dateString}`,
+  answer: null,
+  avatarUrl: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/325/ninja_1f977.png",
+  });
+  
+  localStorage.setItem(LIST, JSON.stringify(lists));
+} 
