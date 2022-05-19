@@ -24,7 +24,13 @@ img {
   width: 100%;
 }
 
+a {
+  text-decoration: none;
+  word-break: break-all;
+}
+
 /* style */
+
 main {
   display: flex;
   flex-direction: column;
@@ -50,15 +56,13 @@ section .discussion__container {
   display: grid;
   grid-template-columns: 50px 1fr 20px;
   align-items: center;
-  gap: 10px;
+  gap: 4px 12px;
 }
 
 section .discussion__avatar--wrapper {
   /* img 태그의 여백 제거 */
   font-size: 0;
   line-height: 0;
-
-  border: 1px solid;
 }
 
 section .discussion__avatar--image {
@@ -104,9 +108,19 @@ section .discussion__answer__content.show {
   display: block;
 }
 
-section .discussion__question__date,
-.discussion__answer__date {
-  text-align: end;
+section .discussion__question__date {
+  text-align: start;
+}
+
+section .discussion__question__description,
+.discussion__answer__description {
+  border: 2px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+section .discussion__answer__title {
+  margin: 20px 0;
 }
 
 section .discussion__answer__information {
@@ -128,7 +142,7 @@ code {
   padding: 2px 8px;
   border-radius: 10px;
 }
-
-a {
-  word-break: break-all;
+.discussion__question__title,
+.discussion__answer__title {
+  border-bottom: 5px solid blue;
 }
