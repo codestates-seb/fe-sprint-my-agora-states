@@ -6,8 +6,10 @@ discussionAnswerButtons.forEach((button, i) =>
   button.addEventListener("click", function () {
     if (discussionAnswerContents[i].classList[1] === "show") {
       discussionAnswerContents[i].classList.remove("show");
+      discussionAnswerButtons[i].textContent = "자세히 보기";
     } else {
       discussionAnswerContents[i].classList.add("show");
+      discussionAnswerButtons[i].textContent = "닫기";
     }
   })
 );
@@ -46,4 +48,4 @@ function inputValue(e) {
   }
 }
 
-submitButton.addEventListener("click", inputValue); // { a: 'b' }
+submitButton.addEventListener("click", inputValue);

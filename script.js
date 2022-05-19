@@ -117,7 +117,7 @@ const convertToDiscussion = (obj) => {
     discussionAnswerDescription
   );
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered, discussionAnswerButton, discussionAnswerContent);
+  li.append(avatarWrapper, discussionContent, discussionAnswered, discussionAnswerContent, discussionAnswerButton);
 
   return li;
 };
