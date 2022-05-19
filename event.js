@@ -1,10 +1,12 @@
-const discussionAnswerButton = document.querySelector(".discussion__answer__button");
-const discussionAnswerContent = document.querySelector(".discussion__answer__content");
+const discussionAnswerButtons = document.querySelectorAll(".discussion__answer__button");
+const discussionAnswerContents = document.querySelectorAll(".discussion__answer__content");
 
-discussionAnswerButton.addEventListener("click", function () {
-  if (discussionAnswerContent.classList[1] === "show") {
-    discussionAnswerContent.classList.remove("show");
-  } else {
-    discussionAnswerContent.classList.add("show");
-  }
-});
+discussionAnswerButtons.forEach((button, i) =>
+  button.addEventListener("click", function () {
+    if (discussionAnswerContents[i].classList[1] === "show") {
+      discussionAnswerContents[i].classList.remove("show");
+    } else {
+      discussionAnswerContents[i].classList.add("show");
+    }
+  })
+);
