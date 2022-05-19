@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&family=Sunflower:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -15,32 +21,34 @@
   </head>
 
   <body>
+    <header>
+      <h1 class="main-title">My Agora States</h1>
+    </header>
     <main>
-      <h1>My Agora States</h1>
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
             <div class="form__input--name">
-              <label for="name">Enter your name: </label>
+              <label for="name">이름을 입력해주세요</label>
               <input type="text" name="name" id="name" required />
             </div>
             <div class="form__input--title">
-              <label for="title">Enter your title: </label>
+              <label for="title">제목을 입력해주세요</label>
               <input type="text" name="title" id="title" required />
             </div>
             <div class="form__textbox">
-              <label for="story">Your question: </label>
+              <label for="story">질문을 입력해주세요</label>
               <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
             </div>
           </div>
           <div class="form__submit">
-            <button type="submit" class="submit-button">submit</button>
+            <button type="submit" class="submit-button">제출</button>
           </div>
         </form>
       </section>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
-          <li class="discussion__container">
+          <!-- <li class="discussion__container">
             <div class="discussion__avatar--wrapper">
               <img
                 class="discussion__avatar--image"
@@ -56,7 +64,9 @@
                 <p class="discussion__question__date">kimploo / 2022-04-22T14:08:33Z</p>
               </div>
             </div>
-            <div class="discussion__answered"><p>☑</p></div>
+            <div class="discussion__answered">
+              <p>☑</p>
+            </div>
 
             <div class="discussion__answer__content">
               <h2 class="discussion__question__title">title입니다.</h2>
@@ -75,22 +85,21 @@
                   alt="avatar of kimploo"
                 />
               </div>
+
               <div class="discussion__answer__description">
                 본문내용 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis assumenda unde similique
-                ut impedit vero iusto quis quos laborum asperiores nulla voluptatem, sed, cum quaerat incidunt quas
-                nesciunt suscipit omnis?
+                ut i mpedit vero iusto quis quos laborum asperiores nulla voluptatem, sed, cum quaerat incidunt quas
+                nesciunt suscipit omn is?
               </div>
             </div>
             <button class="discussion__answer__button">답변 보기</button>
-          </li>
+          </li> -->
         </ul>
       </section>
-      <nav class="wrapper">
-        <div class="btn-container navigation"></div>
-      </nav>
     </main>
   </body>
   <script src="data.js"></script>
   <script src="script.js"></script>
   <script src="event.js"></script>
+  <script src="pagenation.js"></script>
 </html>
