@@ -2,23 +2,42 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.discussion__wrapper {
+body {
+  width: 100vw;
+  height: 100wh;
+}
+
+h1 {
   width: 540px;
 }
 
+/* form CSS */
+.form__container {
+  width: 540px;
+}
+
+/* discussion CSS */
+
 .discussion__container {
   display: flex;
+  width: 540px;
+  margin: 1rem 0;
   justify-content: space-between;
   align-items: center;
+  background-color: whitesmoke;
   list-style: none;
 }
 
 .discussion__avatar--wrapper {
   display: flex;
   align-items: center;
-  flex-basis: 48px;
+  justify-content: center;
+  flex: 0 0 0;
+  padding: 1rem;
 }
 
 .discussion__avatar--image {
@@ -27,10 +46,21 @@
 }
 
 .discussion__content {
-  flex: 1 0 1;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .discussion__title {
   top: 0;
   left: 0;
+}
+
+.discussion__information {
+  left: 0;
+}
+
+.discussion__answered {
+  padding: 0 1rem;
 }
