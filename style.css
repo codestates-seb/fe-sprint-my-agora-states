@@ -8,11 +8,6 @@ body {
     background-color: #1B262C;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 h1 {
     text-align: center;
@@ -26,6 +21,8 @@ h1 {
     border: 0;
     outline: 0;
     border-radius: 10px;
+    position: sticky;
+    top: 0px;
 }
 
 .form__submit {
