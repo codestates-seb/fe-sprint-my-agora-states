@@ -1,4 +1,6 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -100,4 +102,49 @@ main > h1{
 
 .active{
     color: green;
+}
+
+.discussions__pagination{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.prev_btn,
+.next_btn{
+    cursor: pointer;
+    display: flex;
+    font-size: 25px;
+    margin: 5px;
+}
+
+.discussions__pagination--nums{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussions__pagination--num{
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    font-weight: 900;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height : 21px;
+    border: 1px solid #000;
+    border-radius: 100%;
+    margin: 5px;
+    color: #fff;
+    background: #000;
+}
+
+.btn_active{
+    border: 1px solid #fff;
+    color: #000;
+    background: #fff;
+}
+
+.hide{
+    visibility: hidden;
 }
