@@ -29,6 +29,9 @@ a {
   word-break: break-all;
 }
 
+button {
+  cursor: pointer;
+}
 /* style */
 
 main {
@@ -40,6 +43,7 @@ main {
 main h1 {
   margin: 30px 0;
   font-size: 3em;
+  letter-spacing: 14px;
 }
 
 section.form__container {
