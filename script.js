@@ -3,19 +3,52 @@ console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
+  
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
+
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  
+  // avatar
+  const avatarImg = document.createElement('img');
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
+  
+  // title
+  const contentTitle = document.createElement('h2');
+  contentTitle.className = "discussion__title";
+  const contentTitleA = document.createElement('a');
+  contentTitleA.href = obj.url;
+  contentTitleA.innerHTML = obj.title;
+  
+  discussionContent.append(contentTitle);
+  contentTitle.append(contentTitleA);
+  
+  //info
+  const contentInfo = document.createElement('div');
+  contentInfo.className = "discussion__information";
+  contentInfo.innerHTML = obj.author + ' / ' + (obj.createdAt).slice(11,19);
+  contentTitle.append(contentInfo);
 
-
+  //answered
+  const answer = document.createElement('div');
+  const answerP = document.createElement('div');
+  answer.className = "discussion__answered";
+  answerP.innerHTML = '☑';
+  discussionAnswered.append(answer);
+  answer.append(answerP);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;

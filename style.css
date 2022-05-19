@@ -1,1 +1,73 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main > h1{
+    padding: 40px 0;
+}
+/* section */
+.discussion__wrapper{
+    /* border: 1px solid red; */
+    /* 1. 모든 요소에 border-box를 적용 */
+    box-sizing: border-box;
+    /* 1. <li> 요소의 기본 스타일인 점을 보이지 않게 */
+    list-style: none;
+    /* 1. Discussion 컴포넌트 전체의 폭을 540px */
+    width: 540px;
+}
+
+/* section > ul > li */
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+
+    /* 2. 아바타의 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬 */
+    align-items: center;
+}
+
+/* section > ul > li> div */
+.discussion__avatar--wrapper{
+    padding: 20px 10px;
+    flex-grow: 1;
+}
+
+/* section > ul > li> div > img */
+.discussion__avatar--image{
+    /* 2. 아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현 */
+    border-radius: 50px;
+
+    /* 2. 아바타 사진의 너비를 48px로 설정. */
+    width: 48px;
+}
+
+/* section > ul > li> div */
+.discussion__content{
+    /* flex-grow: 6; */
+    flex-basis: 450px;
+}
+.discussion__content a{
+    font-size: 16px;
+}
+/* section > ul > li> div > div*/
+.discussion__information{
+    /*3. 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다.*/
+    text-align: right;
+    
+    /* 3. Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* section > ul > li> div */
+.discussion__answered{
+    flex-grow: 0.5;
+    padding: 10px;
+}
+
