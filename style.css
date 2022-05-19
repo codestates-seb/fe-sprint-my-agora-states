@@ -36,9 +36,10 @@ section.discussion__wrapper {
 section .discussion__container {
   border: 1px solid black;
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 48px 1fr 20px;
   align-items: center;
+  gap: 10px;
 }
 
 section .discussion__avatar--wrapper {
@@ -54,12 +55,7 @@ section .discussion__avatar--image {
   width: 48px;
 }
 
-section .discussion__content {
-  width: 75%;
-}
-
 section .discussion__title {
-  /* margin: 10px 0; */
   margin: 0;
 }
 
@@ -70,4 +66,8 @@ section .discussion__information {
 
 section .discussion__answered p {
   font-size: 25px;
+}
+
+section .discussion__answer__button {
+  grid-column: 1 / 4;
 }
