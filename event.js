@@ -35,7 +35,15 @@ inputName.focus();
 
 // submit 버튼 누르면 정보가 객체 안에 저장되고 화면에 렌더되게 하는 함수
 function inputValue(e) {
-  if (e.target.type === "submit") {
+  if (inputTitle.value === "") {
+    return;
+  }
+  if (inputName.value === "") {
+    return;
+  }
+  if (inputStory.value === "") {
+    return;
+  } else if (e.target.type === "submit") {
     agoraStatesDiscussions.push({
       createdAt: new Date().toISOString(),
       title: inputTitle.value,
