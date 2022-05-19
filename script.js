@@ -33,11 +33,8 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionTitle, discussionInformation);
   // answer 작성
   const checkIcon = document.createElement("i");
-  if(obj.answer === null){
-    checkIcon.className = "fa-regular fa-circle-check";
-  } else {
-    checkIcon.className = "fa-solid fa-circle-check active";
-  }
+  if(obj.answer === null) checkIcon.className = "fa-regular fa-circle-check"; 
+  else checkIcon.className = "fa-solid fa-circle-check active";
   // answer 추가
   discussionAnswered.append(checkIcon);
 
@@ -47,10 +44,13 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+let pageIndex = 0;
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
+  let targetLength = agoraStatesDiscussions.length;
+  // 마지막 페이지 구별
+  if(pageIndex !== Math.floor(agoraStatesDiscussions.length / 10)) targetLength = (pageIndex * 10) + 10;
+  // pageindex에 따라 element를 출력
+  for (let i = pageIndex * 10; i < targetLength; i += 1) element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   return;
 };
 
@@ -81,6 +81,8 @@ document.querySelector("#submit").addEventListener("click", () => {
 
   // 화면에 출력
   ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+  // 마지막 li 제거
+  ul.childNodes[ul.childNodes.length - 1].remove();
   // Discussins에 데이터 추가
   addDiscussion();
 })
@@ -101,4 +103,77 @@ const getCurrentTime = (currentTime) => {
 const addDiscussion = () =>{
   window.localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions));
   agoraStatesDiscussions = JSON.parse(window.localStorage.getItem("agoraStatesDiscussions"));
+}
+
+// pagination 숫자 추가
+if(agoraStatesDiscussions.length > 10){
+  for(let i = 0; i < agoraStatesDiscussions.length / 10; i++){
+    const discussionsNums = document.querySelector(".discussions__pagination--nums");
+    const pageNum = document.createElement("span");
+
+    pageNum.className = "discussions__pagination--num";
+    if(i === 0) pageNum.className = `${pageNum.className} btn_active`;
+    pageNum.setAttribute("targetNum", i + 1);
+    pageNum.textContent = i + 1;
+    discussionsNums.append(pageNum);
+  }
+} else console.log("not over 10");
+
+// pagination 기능 구현
+const prevBtn = document.querySelector(".prev_btn");
+const nextBtn = document.querySelector(".next_btn");
+
+document.querySelectorAll(".discussions__pagination--num").forEach((e) => {
+  e.addEventListener("click", (e) => {
+    const maxNumber = Math.floor(agoraStatesDiscussions.length / 10);
+
+    pageIndex = (e.target.textContent) - 1;
+    prevBtn.classList.remove("hide");
+    nextBtn.classList.remove("hide");
+
+    if(Number(pageIndex) === 0) prevBtn.classList.add("hide");
+    if(Number(pageIndex) === maxNumber) nextBtn.classList.add("hide");
+
+    document.querySelector(".btn_active").classList.remove("btn_active");
+    e.target.classList.add("btn_active");
+
+    reRender();
+  })
+})
+
+// prev, next 기능 구현
+prevBtn.addEventListener("click", (e) => {
+  activeBtnReset();
+  nextBtn.classList.remove("hide");
+
+  if(pageIndex !== 0) reRender("-");
+  if(pageIndex === 0) e.target.parentNode.className = `${e.target.parentNode.className} hide`;
+})
+
+nextBtn.addEventListener("click", (e) => {
+  const maxNumber = Math.floor(agoraStatesDiscussions.length / 10);
+
+  activeBtnReset();
+  prevBtn.classList.remove("hide");
+
+  if(pageIndex !== maxNumber) reRender("+");
+  if(pageIndex === maxNumber) e.target.parentNode.className = `${e.target.parentNode.className} hide`;
+})
+
+// reRender function
+const reRender = (op) => {
+  if(op === "+") pageIndex++;
+  else if(op === "-") pageIndex--;
+  ul.innerHTML = "";
+  render(ul);
+}
+
+// prev, next 활성화된 element reset
+const activeBtnReset = () => {
+  const targetNum = document.querySelector(".btn_active").textContent;
+  const currnetTarget = document.querySelector(".btn_active");
+  const nextTarget = document.querySelector(`span[targetnum='${Number(targetNum) + 1}']`);
+
+  currnetTarget.classList.remove("btn_active");
+  nextTarget.classList.add("btn_active");
 }
