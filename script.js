@@ -1,7 +1,19 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+
+// 질문작성하면 추가되게하는곳
+// submit을 누르면 그내용들이 agoraStatesDiscussions 배열에 들어가게끔 하려고 한다
+const submitQuetion = document.querySelector('div.form__submit >input');//submit 버튼을 가져오고
+submitQuetion.addEventListener('click', submitfunction); 
+//submit 버튼을 클릭시 submitfunction(내용들을 agoraStatesDiscussions배열에 추가하는 함수) 함수가실행되게한다
+function submitfunction(){
+  
+}
+
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -14,8 +26,26 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement("img");
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of" + obj.author;
+  avatarWrapper.append(avatarImg);
 
 
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+  
+  const discussionInfomation = document.createElement("div");
+  discussionInfomation.className = "discussion__information";
+  discussionInfomation.textContent= obj.author +' / '+ obj.createdAt;
+  discussionContent.append(discussionTitle, discussionInfomation);
+  
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "▢" : "☑"
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
