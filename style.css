@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarina&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -12,6 +14,7 @@ body {
 h1 {
     color: whitesmoke;
     font-size: 40px;
+    font-family: 'Sarina';
 }
 
 a {
@@ -34,15 +37,16 @@ a {
 main {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .form__container{
     position: fixed;
-    right: 70px;
-    margin-top: 20px;
+    right: 180px;
+    margin-top: 30px;
     background-color: #22272E;
+    border-radius: 20px;
 }
 
 .form {
@@ -51,23 +55,27 @@ main {
     justify-content: center;
     align-items: center;
 
-    width: 400px;
-    height: 500px;
+    width: 360px;
+    height: 520px;
+    padding: 10px;
 }
 
 #nick {
     width: 300px;
     height: 50px;
+    font-family: 'Yeon Sung';
 }
 
 #title {
     width: 300px;
     height: 50px;
+    font-family: 'Yeon Sung';
 }
 
 #story {
     width: 300px;
     height: 300px;
+    font-family: 'Yeon Sung';
 }
 
 #subBtn {
@@ -76,7 +84,10 @@ main {
     align-items: center;
     width: 100px;
     height: 40px;
+    margin-top: 20px;
     border-radius: 50px;
+    font-family: 'Yeon Sung';
+    font-size: 15px;
 }
 
 .discussions__container {
@@ -118,6 +129,8 @@ main {
     width: 400px;
     display: flex;
     flex-direction: column;
+    font-family: 'Yeon Sung';
+    font-size: 15px;
 }
 
 .discussion__information {
