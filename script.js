@@ -40,6 +40,11 @@ const convertToDiscussion = (obj) => {
     answeredP.textContent = "☒";
   }
   discussionAnswered.append(answeredP);
+  const deleteP = document.createElement("p");
+  deleteP.textContent = "🗑";
+  deleteP.className = "delete";
+  deleteP.addEventListener("click", deleteInformation);
+  discussionAnswered.append(deleteP);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
 
@@ -58,6 +63,11 @@ let questionArea = document.querySelector("#story");
 let submitArea = document.querySelector(".submit");
 submitArea.addEventListener("click", addInformation);
 let checkArea = document.querySelector(".check");
+
+function deleteInformation() {
+  agoraStatesDiscussions.shift();
+  render(ul);
+}
 
 function addInformation() {
   let today = new Date();
@@ -84,9 +94,8 @@ function addInformation() {
 }
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-
 const render = (element) => {
-  element.innerHTML = ``;
+  element.innerHTML = "";
 
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
