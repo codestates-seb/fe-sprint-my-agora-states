@@ -73,5 +73,5 @@ submit.onclick = () => {
   console.log(addAgoraStates.author);
   console.log(addAgoraStates.title);
   agoraStatesDiscussions.unshift(addAgoraStates);
-  return render(ul);
+  render(ul);
 }
