@@ -49,6 +49,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  element.innerHTML = ""; // 초기화하는 코드
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -58,3 +59,26 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+//새로운 데이터를 추가
+const submit = document.querySelector(".form__submit");
+submit.onclick = function (e) {
+  e.preventDefault(); // 기본 이벤트 방지 
+  const inputName = document.querySelector("#name");
+  const inputTitle = document.querySelector("#title");
+  const newObj =
+  {
+    id: "",
+    createdAt: new Date().toLocaleDateString(), //현재 작성 시간 표현  
+    title: inputTitle.value,
+    url: null,
+    author: inputName.value,
+    answer: null,
+    bodyHTML: "",
+    avatarUrl: "https://img.icons8.com/ios/500/css.png"
+  }
+  
+  agoraStatesDiscussions.unshift(newObj);
+  render(ul);
+}
