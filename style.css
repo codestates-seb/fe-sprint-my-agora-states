@@ -1,1 +1,132 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+main{
+  padding-right: 40px;
+  color: white;
+}
+
+form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+div > label{
+  font-size: 20px;
+}
+
+.form__textbox{
+  margin-top: 10px;
+}
+
+.form__input--wrapper{
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  width: 360px;
+}
+
+.form__input--wrapper > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+a{
+  font-size: 20px;
+}
+a:link {
+  color : white;
+  text-decoration: none;
+}
+a:visited {
+  color : whitesmoke;
+  text-decoration: none;
+}
+a:hover {
+  color : lightgoldenrodyellow;
+  text-decoration: none;
+}
+h1, .form__container{
+  text-align: center;
+  /* background-color: lightgoldenrodyellow; */
+  
+}
+
+
+li.discussion__container{
+  width: 540px;
+  list-style-type: none;
+  border: solid black 1px;
+  background-color: rgb(226,118,198);
+  margin-bottom:30px;
+  border-radius: 5%;
+  /* justify-content: space-between; */
+  
+}
+
+h2{
+  text-align: center;
+  margin-top: 50px;
+}
+
+li > div{
+  border: white solid 5px;
+  border-radius: 5%;
+}
+
+.discussion__container{
+  display:flex;
+  justify-content: space-between;
+  flex-flow: row;
+
+}
+.discussion__content{
+  width: 400px;
+}
+
+
+.discussion__content > div{
+  text-align: right;
+  
+}
+
+div.discussion__avatar--wrapper > img{
+  border-radius: 100%;
+  width: 48px;
+}
+
+div.discussion__avatar--wrapper{
+  display : flex ;
+  justify-content: center;
+  align-items: center;
+  flex:0 0 0;
+  padding: 1rem;
+}
+
+div.discussion__answered {
+  display : flex ;
+  justify-content: center;
+  align-items: center;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+div.discussion__content > h2{
+  padding-bottom: 30px;
+}
+
+
