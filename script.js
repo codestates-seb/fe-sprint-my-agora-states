@@ -60,48 +60,59 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 //디스커션 추가 기능
+const inputWrapper = document.querySelector(".form__input--wrapper")
 const inputId = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputStory = document.querySelector("#story");
-const submitBtn = document.querySelector(".form__submit input");
+const submitBtn = document.querySelector(".form__submit input[type='submit']");
+
+//입력창에 빈 부분 없으면 submit 버튼 활성화
+const submitBtnAbled = function() {
+  if (inputId.value.trim() && inputTitle.value.trim() && inputStory.value.trim()){
+    submitBtn.removeAttribute("disabled");
+  } else {
+    submitBtn.setAttribute("disabled", true);
+  }
+}
+inputId.addEventListener("change", submitBtnAbled);
+inputTitle.addEventListener("change", submitBtnAbled);
+inputStory.addEventListener("change", submitBtnAbled);
+
 
 //submit 버튼 이벤트핸들러
 submitBtn.addEventListener("click", function(event){
   event.preventDefault();
-  if(!(inputId.value && inputTitle.value && inputStory.value)){
-    alert("내용을 모두 채워야합니다.");
-  } else {
-    //타임스탬프 생성
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = ('0' + (today.getMonth() + 1)).slice(-2);
-    let day = ('0' + today.getDate()).slice(-2);
-    let hours = ('0' + today.getHours()).slice(-2); 
-    let minutes = ('0' + today.getMinutes()).slice(-2);
-    let seconds = ('0' + today.getSeconds()).slice(-2);
-    
-    let createdAt = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 
-    const newdiscussion = {
-      id: "new" + String(counting()),
-      createdAt,
-      title: inputTitle.value,
-      url: null,
-      author: inputId.value,
-      answer: null,
-      bodyHTML:
-        `<p dir="auto">${inputStory.value}</p>`,
-      avatarUrl: "https://picsum.photos/100",
-    };
+  //타임스탬프 생성
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = ('0' + (today.getMonth() + 1)).slice(-2);
+  let day = ('0' + today.getDate()).slice(-2);
+  let hours = ('0' + today.getHours()).slice(-2); 
+  let minutes = ('0' + today.getMinutes()).slice(-2);
+  let seconds = ('0' + today.getSeconds()).slice(-2);
+  
+  let createdAt = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 
-    agoraStatesDiscussions.unshift(newdiscussion);
+  const newdiscussion = {
+    id: "new" + String(counting()),
+    createdAt,
+    title: inputTitle.value,
+    url: null,
+    author: inputId.value,
+    answer: null,
+    bodyHTML:
+      `<p dir="auto">${inputStory.value}</p>`,
+    avatarUrl: "https://picsum.photos/100",
+  };
 
-    //discussions__container 요소 안에 자식 모두 제거
-    removeList(ul)
+  agoraStatesDiscussions.unshift(newdiscussion);
 
-    //다시 li 랜더하기
-    render(ul);
-  }
+  //discussions__container 요소 안에 자식 모두 제거
+  removeList(ul)
+
+  //다시 li 랜더하기
+  render(ul);
 
 })
 
