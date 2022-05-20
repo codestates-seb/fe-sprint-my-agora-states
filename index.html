@@ -34,13 +34,22 @@
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <div class="tools">
-          <span>페이지 당 게시글 수 </span>
-          <select name="perArticles" id="selection">
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select>
+          <label for="filtering">답변 완료
+            <select name="filtering" id="filtering">
+              <option value="all">전체</option>
+              <option value="notAnswered">미완료</option>
+              <option value="answered">완료</option>
+            </select>
+          </label>
+          <label for="selection">페이지 당
+            <select name="perArticles" id="selection">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            개</label>
         </div>
       </ul>
     </section>
@@ -48,10 +57,6 @@
       <span id="prev"></span>
       <div class="page-number">
         <span id="current-page">1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
       </div>
       <span id="next"></span>
     </div>
