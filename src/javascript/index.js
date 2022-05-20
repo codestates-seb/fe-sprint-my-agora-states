@@ -41,6 +41,7 @@ function App() {
         discussion.$discussionsWrapper.appendChild(discussion.createDiscussions(data[currentPage]));
         checkedBtn();
     }
+
     this.init = () => {
         render();
         // 데이터 추가 함수
@@ -54,6 +55,7 @@ function App() {
             storge.setData("data", data);
             render();
         });
+
         // 페이징네이션 네비게이터 함수
         pages.$pagesWrapper.addEventListener("click", (e) => {
             const checkedBtn = e.target.classList;
@@ -74,7 +76,16 @@ function App() {
             if (isNaN(pageNumber)) return;
             currentPage = pageNumber - 1;
             render();
-        })
+        });
+        
+        // 데이터 삭제 함수 기능
+        discussion.$discussionsWrapper.addEventListener("click", (e) => {
+            const itemIndex = Number(e.target.dataset.index);
+            if(isNaN(itemIndex)) return;
+            data[currentPage].splice(itemIndex, 1);
+            storge.setData("data", data);
+            render();
+        });
     }
     // Css 색깔 입히기
     const checkedBtn = () => {

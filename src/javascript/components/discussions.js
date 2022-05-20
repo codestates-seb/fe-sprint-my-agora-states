@@ -32,8 +32,16 @@ export default function Discussions() {
       const $discussionAnswered = document.createElement("div");
       $discussionAnswered.className = "discussion__answered";
       $discussionAnswered.appendChild(createDiscussionAnswered(answer));
+
+      const deleteDiscussionBtn = () => {
+        const $div = document.createElement("div");
+        $div.className = "discussion__Delete";
+        $div.textContent = "X";
+        $div.setAttribute("data-index", i);
+        return $div;
+      }
     
-      $li.append($avatarWrapper, $discussionContent, $discussionAnswered);
+      $li.append($avatarWrapper, $discussionContent, $discussionAnswered, deleteDiscussionBtn());
       $ul.appendChild($li);
     }
     return $ul;
