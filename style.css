@@ -24,7 +24,7 @@ main{
     border-radius: 20px;
     background-color: #1F1D36;
     /* box-shadow: 10px 20px 30px rgba(84, 74, 197, 1.2); */
-    box-shadow: 5px 5px 10px 1px rgba(109, 67, 234), -4px -5px 10px 1px rgb(0,0,255,0.5);
+    box-shadow: 5px 5px 10px 1px rgba(109, 67, 233), -4px -5px 10px 1px rgb(0,0,255,0.5);
 }
 .title{
     margin-top: 20px;
