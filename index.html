@@ -14,25 +14,40 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <div class="status-bar">
+      <div class="status-bar__column">
+        <span>No Service</span>
+        <!-- To do: Wifi Icon --> <i class="fa-solid fa-wifi"></i>
+    </div>
+    <div class="status-bar__column time">
+        00:00:00
+    </div>
+    <div class="status-bar__column">
+        <span>110%</span>
+        <!-- To do: Battery Icon --><i class="fa-solid fa-battery-full"></i>
+        <!-- To do: lightening Icon --><i class="fa-solid fa-bolt"></i>
+    </div>
+    </div>
+      <h1>My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+          <div class="form__input--name input">
+            <label for="name">Enter your name </label>
             <input type="text" name="name" id="name" required>
           </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+          <div class="form__input--title input">
+            <label for="name">Enter your title </label>
+            <input type="text" name="name" id="title" required>
           </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
+          <div class="form__textbox input">
+            <label for="story">Your question </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <button>
+         submit <i class="fa-regular fa-paper-plane fa-lg"></i></button>
         </div>
       </form>
     </section>
@@ -56,5 +71,7 @@
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<!-- font awesome 아이콘 무료키트코드 -->
+<script src="https://kit.fontawesome.com/b9ac9bfbfc.js" crossorigin="anonymous"></script>
 
 </html>
