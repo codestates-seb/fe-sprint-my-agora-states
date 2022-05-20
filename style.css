@@ -8,7 +8,8 @@
 
 body {
   margin: 3em 0 0 0;
-  background-color: #9C45E3;
+  background-image: url(./purple_bg.jpg);
+  background-size: cover;
   display: flex;
   justify-content: center;
 }
@@ -23,7 +24,7 @@ h1.title {
 .form__container {
   font-family: 'Comfortaa', cursive;
   width: 700px;
-  background-color: #0d155bc1;
+  background-color: #343a4089;
   border-radius: 20px;
   margin-bottom: 2em;
   padding: 3em;
@@ -76,22 +77,24 @@ h1.title {
 .form__textbox textarea {
   border: 0;
   border-radius: 7px;
-  height: 50px;
+  height: 60px;
   padding: 0.4em;
   resize: none;
 }
 
-.form__submit input {
-  border-radius: 10px;
-  background-color: #DBDFFD;
+.submit__btn {
+  border-radius: 15px;
+  background-color: #9d84b777;
+  color: #fff;
   border-style: none;
   font-size: 17px;
   width: 100px;
   height: 100%;
+  cursor: pointer;
 }
 
 .discussion__wrapper {
-  background-color: #060739;
+  background-color: #1c0c5bbd;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -143,7 +146,7 @@ li.discussion__container {
 }
 
 .discussion__title > a {
-  color: #001B66;
+  color: #1C0C5B;
   font-family: 'Gowun Dodum', sans-serif;
 }
 

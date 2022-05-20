@@ -65,3 +65,4 @@ render(ul);
 
 
 // 질문 추가 기능 구현
+const submitBtn = document.querySelector('.submit__btn');
