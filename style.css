@@ -1,1 +1,135 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* CSS reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+    color: skyblue;
+}
+
+.form__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.form__input--wrapper{
+    flex: 8 0 auto;
+    padding: 0 0.5rem;
+}
+
+div.form__input--name,
+div.form__input--title{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+div.form__textbox{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+div.form__submit{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.text{
+    background: white;
+}
+
+a{
+    color: #73777B;
+}
+
+.sub_btn{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    background: yellow;
+}
+
+form.form{
+    display:flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: lightgreen;
+}
+
+div.discussion__answered{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.discussion__information{
+    text-align: right;
+    margin-top: 10px;;
+}
+
+div.discussion__content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 1 0 0;
+    padding: 0.5rem;
+}
+
+/*ul.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}*/
+
+li.discussion__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    list-style-type: none;
+    border: 1px solid black;
+    background-color: #F4BFBF;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+}
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+/* 중간 Discussion 콘톈츠 
+ Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. 
+ 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다. 
+   오른쪽 체크 표시 
+ 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. 
