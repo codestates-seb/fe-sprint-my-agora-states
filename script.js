@@ -56,17 +56,6 @@ const convertToDiscussion = (obj) => {
   
 }
 
-
-const inputButton = document.querySelector('#button');
-const nameValue = document.querySelector('#name1');
-const tilteValue = document.querySelector('#name2');
-
-//버튼 클릭시 agoraStatesDiscussions배열 맨 앞에 {id title createdAt} 객체가 추가 된다
-inputButton.onclick = function(){
-  agoraStatesDiscussions.unshift({author: nameValue.textContent, title: tilteValue.textContent, createdAt: new Date()});
-}
-
-
 li.append(avatarWrapper, discussionContent, discussionAnswered);
 return li;
 };
@@ -82,3 +71,30 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const inputButton = document.querySelector('#button');
+const elName = document.querySelector('#name');
+const elTilte = document.querySelector('#title');
+const elQuestion = document.querySelector('#question');
+const elTime = new Date();
+let NewObj = {};
+
+
+function create(e) {
+  e.preventDefault()
+  NewObj = {
+    id: "",
+    createdAt: "",
+    title: elTilte.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: elName.value,
+    answer: null,
+    bodyHTML: elQuestion.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+  };
+  agoraStatesDiscussions.unshift(NewObj);
+  let li = convertToDiscussion(NewObj);
+  ul.prepend(li);
+}
+
+inputButton.addEventListener("click", create);
