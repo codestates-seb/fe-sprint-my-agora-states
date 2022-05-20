@@ -33,7 +33,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(contentTitle);
 
   contentInfo.className = 'discussion__information';
-  contentInfo.textContent = obj.createdAt;
+  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
   discussionContent.append(contentInfo);
   
   // 답변확인
@@ -48,6 +48,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  // element.innerHTML = "";
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -57,3 +58,44 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// 입력한 데이터 출력
+const SUBMIT = document.querySelector(".form__submit");
+
+SUBMIT.addEventListener('click', function(event){
+  event.preventDefault();
+
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = String(today.getMonth() + 1).padStart(2,'0');
+  let date = String(today.getDate()).padStart(2,'0');
+  let day = today.getDay();
+  let week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
+  let hour = String(today.getHours()).padStart(2,'0');
+  let minutes = String(today.getMinutes()).padStart(2,'0');
+  let seconds = String(today.getSeconds()).padStart(2,'0');
+  
+  let current = `${year}-${month}-${date} ${week[day]} ${hour}:${minutes}:${seconds}`;
+
+  const inputName = document.querySelector(".form__input--name input");
+  const inputTitle = document.querySelector(".form__input--title input");
+  const addDiscussion = {
+    id: "작성해야함",
+    createdAt: current,
+    title: inputTitle.value,
+    url: "#",
+    author: inputName.value,
+    answer: null,
+    bodyHTML: '',
+    avatarUrl: "#",
+  }
+  agoraStatesDiscussions.unshift(addDiscussion);
+  
+  const discussion__container = document.querySelectorAll(".discussion__container");
+  discussion__container.forEach(function(i) {
+    i.remove();
+  })
+  render(ul);
+  
+})
+

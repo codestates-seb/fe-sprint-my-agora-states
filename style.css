@@ -17,12 +17,16 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
   background-color: var(--bg-color4);
+  margin: 0 auto;
 }
 
 /* form */
 .form__container {
   width: 80%;
+  max-width: 750px;
+  min-width: 440px;
   background-color: var(--bg-color1);
   color: var(--bg-color4);
   border-radius: 10px;
@@ -45,21 +49,41 @@ main {
   border-radius: 5px;
 }
 .form__submit input:hover {
-  background-color: var(--bg-color4);
+  background-color: var(--bg-color3);
 }
 .form__textbox textarea {
   display: block;
   width: 100%;
 }
+.form__input--name {
+  position: relative;
+}
+.form__input--name input {
+  width: 50%;
+  position: absolute;
+  right: 0;
+}
+.form__input--title {
+  position: relative;
+}
+.form__input--title input {
+  width: 50%;
+  position: absolute;
+  right: 0;
+}
 
 /* discussion */
+.discussion__wrapper {
+  width: 80%;
+  max-width: 750px;
+  min-width: 440px;
+}
 .discussion__avatar--image {
   width: 48px;
   height: 48px;
   border-radius: 100%;
 }
 .discussion__container {
-  width: 80%;
   padding: 0 15px;
   margin: 10px auto;
   border-radius: 10px;
