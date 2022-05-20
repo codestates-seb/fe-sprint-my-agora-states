@@ -77,10 +77,6 @@ function openclose() {
 
 // submit버튼 눌렀을 때 작동
 
-let inputName= document.getElementsByClassName('form__input--name')[0];
-let inputTitle= document.getElementsByClassName('form__input--title')[0];
-let inputTextbox= document.getElementsByClassName('form__textbox')[0];
-
-function submit (){
-  
-}
+//let inputName= document.getElementsByClassName('form__input--name')[0];
+//let inputTitle= document.getElementsByClassName('form__input--title')[0];
+//let inputTextbox= document.getElementsByClassName('form__textbox')[0];

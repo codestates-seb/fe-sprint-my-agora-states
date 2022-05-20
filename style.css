@@ -43,11 +43,6 @@ a{
 }
 
 /********************** 댓글 입력창 **********************/
-
-#post-box{
-    display:  none;
-}
-
 .form__input--wrapper{
     display: flex;
     flex-direction: column;
@@ -152,14 +147,13 @@ div.discussion__avatar--wrapper > img{
 
 .discussion__content{
     position: relative;
-    background-color: lightpink;
     width: 440px;
     height: 70px;
 }
 
 .discussion__content>h2{
     font-size: 18px;
-    background-color: aqua;
+    background-color: lightpink;
 
     position: absolute;
     top: 0;
