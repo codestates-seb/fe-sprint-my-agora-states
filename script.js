@@ -61,24 +61,37 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 //이벤트를 받아서 배열에 추가해보자
-const addContainer = () => {
-  let authorName = document.getElementById("name").value;
-  let authorTitle = document.getElementById("title").value;
-  // let authorStory = document.getElementById("story").value;
-  console.log(authorName, authorTitle)
-  console.log(typeof authorName, typeof authorTitle)
+const InputSubmit = document.querySelector(".btn-submit");
+const author = document.querySelector(".form__input--name #name");
+const title = document.querySelector(".form__input--title #name");
+const story = document.querySelector("#story");
+
+const newobj = {
+  id: "D_kwDOHOApLM4APewe",
+  createdAt: "2022-05-07T08:33:57Z",
+  author: author.value,
+  title: title.value,
+  url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
+  bodyHTML: story.value,
+  avatarUrl:
+    "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
+};
+const addClickDiscussion = (e) => {
+  e.preventDefault(); //submit이벤트가 실행되면 다시 로드됨? 그래서 해주는것 같음.....
+  newobj.title = title.value;
+  newobj.author = author.value;
+  // newobj.createdAt = addNowTime();
+  agoraStatesDiscussions.push(newobj);
+
+  ul.prepend(
+    convertToDiscussion(
+      agoraStatesDiscussions[agoraStatesDiscussions.length - 1]
+    )
+  );
+};
+
+InputSubmit.addEventListener('click', addClickDiscussion)
 
 
-  let authorQuestion = {
-    title: authorTitle,
-    author: authorName,
-    answer: null,
-    avatarUrl: agoraStatesDiscussions[0].avatarUrl
-  }
-
-  agoraStatesDiscussions.unshift(authorQuestion);
 
 
-}
-
-document.getElementById("btn-submit").addEventListener('click', addContainer)
