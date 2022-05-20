@@ -3,11 +3,43 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
 }
 
 .page-wrapper { 
-    margin: 0 auto;
+    padding: 20px;
+    background-color: #E6E9EB;
     
+}
+
+textarea {
+    font-family: 'Gowun Dodum', sans-serif;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+
+
+#name{
+    flex-basis: 60%;
+    height: 30px;
+    margin-bottom: 5px;
+
+}
+
+.space {
+    display: flex;
+    justify-content: center;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form__input--wrapper {
+    flex-basis: 80%;
 }
 
 .form__container { 
@@ -24,16 +56,22 @@
 .form {
     display: flex;
     justify-content: space-between;
+    width: 540px;
 }
 
 .form__submit { 
     display: flex;
+    flex-basis: 25%;
     align-items: stretch;
+    justify-content: end;
 }
 
 .form__submit > input{
-    margin-left: 10px;
-    width: 60px
+    width: 100px;
+    border: none;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
 }
 
 h1 { 
@@ -49,15 +87,31 @@ h1 {
 
 ul.discussions__container {
     list-style: none;
+    margin-top: 20px;
+    padding-bottom: 100px;
 
 }
 
 li.discussion__container {
+    /* border: 1px solid ;
+    border-color: blue; */
     width: 540px;
     display: flex;
     justify-content: space-between;
+    background-color: #F8F8F8;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 5px;
+    min-height: 120px;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 1.2rem;
+}
 
 div.discussion__avatar--wrapper {
     /* border: 1px solid ;
@@ -79,9 +133,9 @@ div.discussion__avatar--wrapper > img {
     border-color: green; */
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     flex-basis: 80%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
 
 }
 

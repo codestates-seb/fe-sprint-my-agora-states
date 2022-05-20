@@ -23,13 +23,14 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg);
 
   const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title discussion_back"
   const titleAnchor = document.createElement("a");
   titleAnchor.href = obj.url;
   titleAnchor.textContent = obj.title;
   discussionTitle.append(titleAnchor);
 
   const discussionInformation = document.createElement("div");
-  discussionInformation.className = "discussion__information";
+  discussionInformation.className = "discussion__information discussion_back";
   discussionInformation.textContent = `${obj.Author} / ${new Date(
     obj.createAt
   ).toLocaleTimeString()}`
@@ -73,14 +74,12 @@ const newobj = {
   title: title.value,
   url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
   bodyHTML: story.value,
-  avatarUrl:
-    "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
+  avatarUrl:agoraStatesDiscussions[agoraStatesDiscussions.length - 1].avatarUrl
 };
 const addClickDiscussion = (e) => {
   e.preventDefault();
   newobj.title = title.value;
   newobj.author = author.value;
-  // newobj.createdAt = addNowTime();
   agoraStatesDiscussions.push(newobj);
 
   ul.prepend(
