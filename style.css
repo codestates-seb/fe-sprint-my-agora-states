@@ -22,6 +22,22 @@ form{
   justify-content: center;
 }
 
+.form__submit > input{
+  width: 70px;
+  height: 70px;
+  margin-top: 15px;
+  margin-left: 40px;
+  justify-content: center;
+}
+
+input , #story{
+  background-color: lightgoldenrodyellow;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 5px solid black;
+}
+
 div > label{
   font-size: 20px;
 }
@@ -84,7 +100,7 @@ h2{
 }
 
 li > div{
-  border: white solid 5px;
+  border: lightgoldenrodyellow solid 5px;
   border-radius: 5%;
 }
 

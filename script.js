@@ -22,7 +22,7 @@ console.log(agoraStatesDiscussions);
     obj1.avatarUrl = "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
     obj1.url = "https://github.com/codestates-seb/agora-states-fe/discussions/45"
     agoraStatesDiscussions.unshift(obj1);
-    return obj1;
+    return agoraStatesDiscussions;
   })
 
 
