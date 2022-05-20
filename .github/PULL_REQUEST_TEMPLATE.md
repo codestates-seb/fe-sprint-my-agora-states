@@ -52,4 +52,3 @@ Github Page 배포 링크를 아래 작성합니다.
 - [✔️] 답변이 없는 질문에는 '답변을 기다리는 질문입니다.'라는 문구가 나오게 했다.
 
 ### 배포 시연 화면
-<img src='https://github.com/y0ungg/fe-sprint-my-agora-states/blob/46894290275cc45bbe15d6c595b10917951d5674/myagora.gif'>
