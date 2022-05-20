@@ -72,7 +72,7 @@ function openclose() {
 // submit버튼 눌렀을 때 작동
 
 // 01. 먼저 index에 있는 시멘틱요소들을 DOM으로 바꾼다.
-const submitBtn = document.querySelector(".form"); // form action버튼 왜필요하지?
+const submitBtn = document.querySelector(".form"); // form action버튼? 왜필요하지?
 // (form태그의 action속성)
   inputId = document.querySelector(".form__input--name > input"); // 이름입력란
   inputTitle = document.querySelector(".form__input--title > input"); // 제목입력란
@@ -86,26 +86,25 @@ function discussionObj(author, title, text) { // 입력되는 값들을 매개�
   return { 
     // 이 값들이 들어오면 다음과 같은 객체를 리턴한다. 
     // data.js에 있는 객체 key값 참고
-    id: String(Date.now()), //
+    id: String(Date.now()), // id는 
     createdAt: new Date().toISOString(),
-    answer: null,
-    avatarUrl:
-    "https://avatars.githubusercontent.com/u/79903256?s=64&v=4", // 같은사진
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-    author,
-    title,
-    text,
+    answer: null, // 답변은 없는걸로 한다. (값이 없음)
+    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4", // 같은사진
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45", // 해당 글 링크주소
+    author, // 글쓴이 이름
+    title, // 제목
+    text, // 내용
   };
 }
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const discussions = discussionObj(
-    inputId.value,
-    inputTitle.value,
-    inputQuestion.value
+function handleSubmit(e) {  // e??
+  e.preventDefault(); // ???
+  const discussions = discussionObj( // discussions라는 변수에 함수 discussionObj를 할당한다.
+    inputId.value, // 첫번째 매개변수(author)는 inputID에 들어간 내용
+    inputTitle.value, // 두번째 매개변수(title)는 inputTitle에 들어간 내용
+    inputQuestion.value // 세번째 매개변수(text)는 inputQuestion에 들어간 내용
   );
-  agoraStatesDiscussions.unshift(discussions); //배열에 추가
+  agoraStatesDiscussions.unshift(discussions); // 배열에 추가
 
   paintObj(discussions);
   inputId.value = "";
@@ -122,11 +121,11 @@ function paintObj(task) {
   saveObj();
 }
 
+// 이 밑에부터 모르겠음
 
-
-function saveObj() {
-  const objString = JSON.stringify(newObjs);
-  localStorage.setItem(NEWOBJ_LS, objString);
+function saveObj() { // 저장 함수 만들기
+  const objString = JSON.stringify(newObjs); // ?
+  localStorage.setItem(NEWOBJ_LS, objString); // ?
 }
 
 
