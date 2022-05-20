@@ -7,15 +7,14 @@ const KEY = "spurs";
 let arr = [];
 
 const deleteList = (event) => {
-  const li = event.target.parentElement;
+  const li = event.target;
   li.remove();
+  // .closest
   arr = arr.filter((item) => item.id !== parseInt(li.id));
   localStorage.setItem(KEY, JSON.stringify(arr));
 };
 
 const writeToDiscussion = (event) => {
-  ul.remove();
-  event.preventDefault();
   const name = document.getElementById("name");
   const title = document.getElementById("title");
 
@@ -27,9 +26,9 @@ const writeToDiscussion = (event) => {
     createdAt: new Date(Date.now()).toISOString(),
   };
 
-  agoraStatesDiscussions.unshift(newObj);
-  localStorage.setItem(KEY, JSON.stringify(agoraStatesDiscussions));
-  return render(ul);
+  arr.unshift(newObj);
+  localStorage.setItem(KEY, JSON.stringify(arr));
+  render(ul);
 };
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
