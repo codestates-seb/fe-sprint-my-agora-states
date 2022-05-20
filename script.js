@@ -1,5 +1,22 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+let currentPage = 0;
+const limit = 10;
+
+function isAM(date) {
+  return date.getHours() < 12;
+}
+
+function formattingTimes(date) {
+  const dateObj = new Date(date);
+
+  const amPm = isAM(dateObj) ? "오전" : "오후";
+  const hours = (dateObj.getHours() % 12).toString().padStart(2, '0');
+  const minutes = dateObj.getMinutes().toString().padStart(2, '0');
+  const seconds = dateObj.getSeconds().toString().padStart(2, '0');
+
+  return `${amPm} ${hours}:${minutes}:${seconds}`;
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -26,7 +43,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.append(link);
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${formattingTimes(obj.createdAt)}`;
   discussionContent.append(discussionTitle, discussionInformation);
   const checkBox = document.createElement("p");
   checkBox.textContent = "☑";
@@ -38,12 +55,15 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// agoraStatesDiscussions 배열의 일부 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   element.innerHTML = '';
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+
+  for (let i = currentPage * limit; i < (currentPage + 1) * limit; i += 1) {
+    if (agoraStatesDiscussions[i] === undefined) break;
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
+
   return;
 };
 
@@ -60,7 +80,7 @@ function addDiscussions(event) {
   console.log("잘 되나?");
   agoraStatesDiscussions.unshift({
     id: "D_kwDOHOApLM4APjJu",
-    createdAt: new Date(),
+    createdAt: new Date().toISOString().split(".")[0]+"Z",
     title: inputTitleValue.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: inputNameValue.value,
@@ -71,33 +91,30 @@ function addDiscussions(event) {
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   });
   console.log(agoraStatesDiscussions);
+  localStorage.setItem('discussions', JSON.stringify(agoraStatesDiscussions))
   render(ul);
 }
 
-  // const today = new Date();
-  // const amPm = today.getHours() < 12 ? '오전' : '오후';
-  // console.log(amPm);
-
-  // const result = `${amPm} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-  // console.log(result);
-
-  function formattingTime (date) {
-  const today = new Date();
-  const amPm = today.getHours() < 12 ? '오전' : '오후';
-  const result = `${amPm} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+function movePrevDiscussions() {
+  if (currentPage > 0) {
+    currentPage -= 1;
+    render(ul);
   }
-  console.log(formattingTime("2022-05-16T01:02:17Z")); 
+}
 
-/**
- * 현재상황 : submit 버튼 클릭시 날짜가 포매팅이 됨
- * 단, 날짜가 정상적으로 바뀌지 않음
- * 이미 기존에 추가되어있던 discussion들은 여전히 날짜가 바뀌지 않음
- * 개선해야되는 점 : 모든 discussion들이 포매팅이 되어야 함
- * 그리고 오전, 오후가 출력되니까 시간이 12시간이 되어야 함
- */
-  
-
+function moveNextDiscussions() {
+  if ((currentPage + 1) * limit < agoraStatesDiscussions.length) {
+    currentPage += 1;
+    render(ul);
+  }
+}
 
 const addInputEvent = document.querySelector("#submitBtn");
 console.log(addInputEvent);
 addInputEvent.addEventListener("click", addDiscussions);
+
+const prevBtnEvent = document.querySelector("#prevBtn");
+prevBtnEvent.addEventListener("click", movePrevDiscussions);
+
+const nextBtnEvent = document.querySelector("#nextBtn");
+nextBtnEvent.addEventListener("click", moveNextDiscussions);
