@@ -1,1 +1,141 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: rgb(255, 255, 255);
+	font-size: 15px;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-top: 20px;
+	text-align: center;
+}
+
+hr {
+	color: rgb(34, 85, 70);
+	width: 233px;
+	height: 4px;
+	background-color: rgb(34, 85, 70);
+	border: none;
+}
+
+#name,
+#title {
+	border: 1px solid black;
+	background-color: white;
+	width: 233px;
+	height: 30px;
+	padding: 10px;
+}
+
+#story {
+	border: 1px solid black;
+	background-color: white;
+	width: 233px;
+	height: 100px;
+	padding: 10px;
+}
+
+#submit {
+	font-size: 1rem;
+	border: none;
+	width: 233px;
+	height: 30px;
+	color: white;
+	background-color: rgb(34, 85, 70);
+}
+
+.form__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 20px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form__input--wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form__input--wrapper > div {
+	margin: 5px;
+}
+
+.discussion__wrapper {
+	width: 540px;
+}
+
+li {
+	margin-bottom: 20px;
+}
+
+.discussion__container {
+	/* flex-wrap: wrap; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-basis: 540px;
+	list-style: none;
+}
+
+.discussion__avatar--wrapper {
+	flex: 0 1 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.discussion__avatar--image {
+	border-radius: 35px;
+	width: 48px;
+}
+
+.discussion__content {
+	flex: 1 1 auto;
+	padding-left: 20px;
+}
+
+.discussion__title > a {
+	font-size: 1.4rem;
+	text-decoration-line: none;
+}
+
+a:link {
+	color: black;
+}
+a:visited {
+	color: grey;
+}
+
+.discussion__answered {
+	flex: 0 1 60px;
+	/* font-size: 50px; */
+	/* text-align: center; */
+}
+
+.discussion__answered > p {
+	/* flex: 0 1 60px; */
+	font-size: 30px;
+	text-align: right;
+}
+
+.discussion__information {
+	text-align: right;
+	font-size: 1rem;
+	font-style: italic;
+}
