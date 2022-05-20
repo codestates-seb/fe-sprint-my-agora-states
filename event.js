@@ -31,7 +31,6 @@ form.addEventListener("submit", (e) => {
 });
 
 // name 입력창에 커서 가도록 하기
-inputName.focus();
 
 // submit 버튼 누르면 정보가 객체 안에 저장되고 화면에 렌더되게 하는 함수
 function inputValue(e) {
@@ -52,7 +51,10 @@ function inputValue(e) {
       bodyHTML: inputStory.value,
       avatarUrl: "https://avatars.githubusercontent.com/u/76990149?v=4",
     });
-    window.location.href = `${window.location.origin}${window.location.pathname}?pageNo=1`;
+
+    const focus = true; // 제출 후, 인풋폼에 포커싱
+    const pageNo = 1; // 추가된 디스커션을 보기위해 첫 페이지로 이동
+    window.location.href = `${window.location.origin}${window.location.pathname}?pageNo=${pageNo}&focus=${focus}`;
   }
 }
 
