@@ -1,38 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-
-
-/* submit */
-const form = document.createElement('form');
-form.className = 'form';
-form.action = '';
-form.method = 'get';
-document.body.append(form);
-
-const addPost = function(event){
-  event.preventDefault();
-
-  const newName = document.getElementsByName('name').value;
-  const newTitle = document.getElementsByName('title').value;
-  const newText = document.getElementsByName('story').value;
-
-  agoraStatesDiscussions.unshift({
-    id: null,
-    createdAt: Date(),
-    title: newTitle,
-    url: null,
-    author: newName,
-    answer: null,
-    bodyHTML: newText
-  });
-
-  return false;
-};
-form.addEventListener('submit', addPost);
-
-
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -66,6 +34,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(contentTitle);
 
   /* 시 간 설 정 */
+  const timeInKR = new Date(obj.createdAt).toLocaleTimeString();
 
   /* 사 용 자 ID, 이 름, 시 간*/
   const userId = document.createElement('div');
@@ -73,7 +42,7 @@ const convertToDiscussion = (obj) => {
   const usernameAndTime = document.createElement('div');
   usernameAndTime.className = 'user_name_time';
   userId.textContent = 'ID: ' + obj.id;
-  usernameAndTime.textContent = obj.author + ' / ' + obj.createdAt;
+  usernameAndTime.textContent = `${obj.author} / ${timeInKR}`;
   discussionContent.append(userId);
   discussionContent.append(usernameAndTime);
 
@@ -123,8 +92,9 @@ const convertToDiscussion = (obj) => {
     answerAvatar.src = obj.answer.avatarUrl;
     answerAvatarWrapper.append(answerAvatar);
     /* 답 변 자 ID, 이 름, 시 간*/ 
+    const answerTimeInKR = new Date(obj.answer.createdAt).toLocaleTimeString();
     answererId.textContent = 'ID: ' + obj.id
-    answererNameAndTime.textContent = obj.answer.author + ' / ' + obj.answer.createdAt;
+    answererNameAndTime.textContent = `${obj.answer.author} / ${answerTimeInKR}`;
     /* 답 변 내 용 */
     answerUrl.href = obj.answer.url;
     answerUrl.innerHTML = obj.answer.bodyHTML;
@@ -140,8 +110,6 @@ const convertToDiscussion = (obj) => {
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   qnA.append(li, discussionTextContainer, answerContainer);
-
-
 
   /* 내 용 펼 치 기 이 벤 트 */
   const openContent = function(){
@@ -161,7 +129,12 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// element요소를 전체 비우는 조건으로 render하면 html내 적혀있던 li요소들이 보이지 않기 때문에
+// element.append(li)를 해주어야 한다.
+const li = document.querySelector('li.discussion__container');
 const render = (element) => {
+  element.innerHTML=''
+  element.append(li)
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -171,3 +144,27 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container"); 
 render(ul);
+
+/* submit */
+// 변수선언 쿼리셀렉터로 가져와서, 함수밖에, form태그를 가져온다
+const newContent = document.querySelector('.form__container form');
+const newName = document.querySelector('div.form__input--name input');
+const newTitle = document.querySelector('div.form__input--title input');
+const newText = document.querySelector('div.form__textbox textarea');
+
+const addPost = function(event){
+  event.preventDefault();
+  agoraStatesDiscussions.unshift({
+    id: '비공개',
+    createdAt: new Date(),
+    title: newTitle.value,
+    url: null,
+    author: newName.value,
+    answer: null,
+    bodyHTML: newText.value,
+    avatarUrl: "https://img.icons8.com/dusk/64/000000/new.png",
+  });
+  render(ul);
+};
+
+newContent.addEventListener('submit', addPost);

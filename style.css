@@ -152,7 +152,7 @@ li.discussion__text__container {
     padding: 5px;
     flex-direction: column;
     flex: 1;
-    margin: 50px 30px 0px 0px;   
+    margin: 30px 30px 0px 0px;   
 }
 .discussion__title,
 .discussion__content > h2 {
