@@ -1,23 +1,123 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Dongle', sans-serif;
 }
 
 main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  height: 100vh;
+  width: 600px;
+  background-color: #F0EFE9;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+h1 {
+  background-color: #927A67;
+  color: #F0EFE9;
+  border-radius: 10px;
+}
+
+.form__container {
+  padding: 5px 10px;
+  width: 540px;
+  background-color: #d09b73;
+  border-radius: 10px;
+  font-size: large;
+  display: flex;
+  justify-content: flex-end;
+}
+
+form.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  width: 200px;
+  height: 20px;
+  border-radius: 10px;
+  border: #927A67;
+}
+
+textarea {
+  width: 400px;
+  height: 20px;
+  border-radius: 10px;
+  border: #927A67;
+  text-align: center;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: end;
+}
+
+.form__submit > input {
+  border: solid 1px #927A67;
+  font-size: 20px;
+  height: 100%;
+  text-align: center;
+  color: #927A67;
+  background-color: bisque;
+}
+
+.form__submit > input:hover {
+  background-color: #927A67;
+  color: #F0EFE9;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+a {
+  font-size: 22px;
+  text-decoration: none;
+  color: #F0EFE9;
+}
+
+a:visited { text-decoration: none; }
+
+a:hover {
+  color: #8E9E90;
+  transition: 1s;
+}
+
+.discussion__wrapper {
+  background-color: #927A67;
+  border-radius: 10px;
+  height: 500px;
+  overflow: scroll;
+}
+
 li.discussion__container {
   width: 540px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
+  border-bottom: solid 0.5px #F0EFE9;
+  color: #F0EFE9;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .discussion__content {
@@ -28,6 +128,11 @@ li.discussion__container {
 
 .discussion__information {
   text-align: right;
+}
+
+.discussion__title {
+  margin-bottom: 10px;
+  font-size: large;
 }
 
 .discussion__avatar--wrapper {
@@ -46,3 +151,4 @@ li.discussion__container {
   align-items: center;
   flex-basis: 5%;
 }
+
