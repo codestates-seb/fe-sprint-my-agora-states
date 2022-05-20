@@ -6,8 +6,9 @@ li.discussion__container {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    border: 1px solid rgb(180, 202, 234);
+    border: 1px solid white;
     padding: 10px;
+    background-color: rgb(180, 202, 234);
 }
 
 .discussion__avatar--wrapper > img {
@@ -33,6 +34,10 @@ li.discussion__container {
     font-size: 25px
 }
 
+main {
+    width: 540px;
+}
+
 h1 {
     text-align: center;
 }
@@ -40,10 +45,36 @@ h1 {
 .form__container {
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(180, 202, 234);
+    padding: 10px;
+    padding: 10px;
+    width: 540px;
+    margin-left: 40px;
+    background-color: rgb(180, 202, 234);
 }
 
 .form__input--wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+#name {
+    margin-left: 23px;
+    margin-bottom: 10px;
+}
+
+#title {
+    margin-left: 33px;
+    margin-bottom: 10px;
+}
+
+.form__submit {
+    width: 100px;
+}
+
+a{
+    text-decoration-line: none;
+    color: rgb(18, 71, 150);
 }
