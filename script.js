@@ -225,10 +225,10 @@ const article = document.querySelector(".article");
 const switchBtn = document.querySelector(".switch-button input");
 const convertText = document.querySelector(".convertText");
 render(ul); // 스크롤 모드
+
 var toggle = (function () {
   var isShow = false;
   return function () {
-    // box.style.display = isShow ? 'block' : 'none';
     if (!isShow) {
       discussionWrapper.style.display = 'none';
       article.style.display = 'block';
@@ -246,3 +246,29 @@ var toggle = (function () {
 })();
 switchBtn.onclick = toggle;
 
+// 음성인식 기능
+const soundBtn = document.querySelector(".sound-button input");
+const speech = new webkitSpeechRecognition;
+const story = document.getElementById('story');
+var toggleSound = (function () {
+  var on = false;
+  return function () {
+    if (!on) {
+      speech.start();
+      console.log("sound mode on");
+    }
+    else {
+      speech.stop();
+      console.log("sound mode off");
+    }
+    on = !on;
+  };
+})();
+soundBtn.onclick = toggleSound;
+
+speech.addEventListener("result", (e) => {
+  const { transcript } = e["results"][0][0];
+  console.log(transcript);
+  story.textContent = transcript;
+  soundBtn.click();
+})
