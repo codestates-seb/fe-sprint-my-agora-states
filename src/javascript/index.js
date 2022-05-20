@@ -52,12 +52,19 @@ function App() {
             const $textTitle = document.querySelector("#textTitle");
             const userData = createUserData($textName.value, $textTitle.value);
             // 페이지 방어 코드
-            if(data[dataLastIndex].length === 10) {
+            if(data[dataLastIndex].length >= 10) {
                 data.push([]);
                 data[dataLastIndex + 1].push(userData);
+                console.log(data[dataLastIndex + 1]);
+                storge.setData("data", data);
                 currentPage += 1;
+            } else {
+                data[dataLastIndex].push(userData);
+                console.log(data[dataLastIndex]);
+                storge.setData("data", data);
             }
-            storge.setData("data", data);
+            $textName.value = null;
+            $textTitle.value = null;
             render();
         });
 
