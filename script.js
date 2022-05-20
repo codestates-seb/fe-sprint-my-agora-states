@@ -1,25 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-const addContainer = () => {
-  let authorName = document.getElementById("name").value;
-  let authorTitle = document.getElementById("title").value;
-  let authorStory = document.getElementById("story").value;
-  console.log(authorName, authorTitle)
-
-  let authorQuestion = {
-    title: authorTitle,
-    author: authorName,
-    answer: null,
-    avatarUrl: agoraStatesDiscussions[0].avatarUrl
-  }
-
-  agoraStatesDiscussions.unshift(authorQuestion)
-
-}
-
-document.getElementById("btn-submit").addEventListener('click', addContainer())
-
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -77,7 +58,27 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-
 render(ul);
 
 //이벤트를 받아서 배열에 추가해보자
+const addContainer = () => {
+  let authorName = document.getElementById("name").value;
+  let authorTitle = document.getElementById("title").value;
+  // let authorStory = document.getElementById("story").value;
+  console.log(authorName, authorTitle)
+  console.log(typeof authorName, typeof authorTitle)
+
+
+  let authorQuestion = {
+    title: authorTitle,
+    author: authorName,
+    answer: null,
+    avatarUrl: agoraStatesDiscussions[0].avatarUrl
+  }
+
+  agoraStatesDiscussions.unshift(authorQuestion);
+
+
+}
+
+document.getElementById("btn-submit").addEventListener('click', addContainer)
