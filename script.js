@@ -5,16 +5,19 @@ const elBtn = document.querySelector('.btn');
 const NewObj = {};
 const elName = document.querySelector('#name');
 const elTitle = document.querySelector('#title');
+const elTextArea = document.querySelector('#story')
 
 
 elBtn.onclick = function() {
+    notice();
     Add();
-    console.log(agoraStatesDiscussions);
+    render(ul);
+    reset();
 }
 
 function Add () {
   NewObj.id = "D_kwDOHOApLM4APXTN";
-  const date = new Date().toLocaleDateString();
+  const date = new Date();
   NewObj.createdAt = date;
   NewObj.title = document.querySelector('#title').value;
   NewObj.author = document.querySelector('#name').value;
@@ -25,7 +28,15 @@ function Add () {
   console.log(agoraStatesDiscussions)
 }
 
+function reset () {
+  elName.value = '';
+  elTitle.value = '';
+  elTextArea.value = '';
+}
 
+function notice () {
+  alert("Submit")
+}
 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
