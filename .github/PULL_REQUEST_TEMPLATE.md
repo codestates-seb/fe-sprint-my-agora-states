@@ -54,9 +54,7 @@ git@github.com:0SCAR0421/fe-sprint-my-agora-states.git
 
 ### 배포 시연 화면
 
-아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
-
- ![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+ <img src = "https://velog.velcdn.com/images/oscar0421/post/78c294a7-bdb0-4d1e-bbdc-be4adf4ccc0d/image.png" width="50%">
  
 ### 가장 자랑하고 싶은 기능
 
