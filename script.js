@@ -36,9 +36,10 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInformation);
 
   // 답변
-  if (obj.answer !== null) {
-    discussionAnswered.textContent = '☑';
-  }
+  // if (obj.answer !== null) {
+    // discussionAnswered.textContent = '☑';
+  // }
+  discussionAnswered.textContent = obj.answer !== null ? '☑' : '☒';
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -56,3 +57,21 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+// 디스커션 추가 기능
+const submit = document.querySelector('.btn');
+submit.onclick = () => {
+  console.log('눌리냐?')
+  let enterName = document.querySelector('#name');
+  let enterTitle = document.querySelector('#title');
+  let yourQuestion = document.querySelector('#story');
+  let addAgoraStates = {
+    author: enterName.textContent,
+    title: enterTitle.textContent
+  };
+  console.log(addAgoraStates.author);
+  console.log(addAgoraStates.title);
+  agoraStatesDiscussions.unshift(addAgoraStates);
+  return render(ul);
+}
