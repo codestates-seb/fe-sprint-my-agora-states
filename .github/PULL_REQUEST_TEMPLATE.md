@@ -8,6 +8,8 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 Github Page 배포 링크를 아래 작성합니다.
 
+http://127.0.0.1:5500/index.html?name=12&name=%EC%9D%B4%EC%8A%B9%EB%AF%B8&story=34  (미완성)
+
 ## Bare Minimum Requirement Self Checklist
 
 스스로 구현 완료한 부분까지 체크하여 제출합니다.
@@ -21,13 +23,13 @@ Github Page 배포 링크를 아래 작성합니다.
 - [ ] 디스커션 추가 기능   //이름, 타이틀 입력하고 submit 눌렀을 때만 추가됨.
     - [ ] `script.js`를 수정하여 디스커션 추가 기능을 구현합니다.
     - [v ] `section.form__container` 요소에 새로운 아고라 스테이츠 질문을 추가할 수 있는 입력 폼을 제작합니다. 형식은 자유입니다.
-    - [v ] 아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
+    - [ ] 아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
     - [v ] `agoraStatesDiscussions` 배열에 추가한 데이터가 실제 쌓여야 합니다.
-- [ ] Github Page 배포
-  - [ ] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
-- [ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
-  - [ ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
-  - [ ] 주어진 Pull request 형식에 따라주세요.
+- [v ] Github Page 배포
+  - [v ] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
+- v[ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
+  - [v ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
+  - [v ] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
 
@@ -56,4 +58,4 @@ Github Page 배포 링크를 아래 작성합니다.
 
 아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
 
- ![image]
+ ![image]http://127.0.0.1:5500/index.html?name=12&name=%EC%9D%B4%EC%8A%B9%EB%AF%B8&story=34
