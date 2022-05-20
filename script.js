@@ -3,9 +3,10 @@ console.log(agoraStatesDiscussions);
 
 
 // 질문작성하면 추가되게하는곳
-const submitQuetion = document.querySelector('div.form__submit >input');
-submitQuetion.addEventListener('click', submitfunction);
-
+// submit을 누르면 그내용들이 agoraStatesDiscussions 배열에 들어가게끔 하려고 한다
+const submitQuetion = document.querySelector('div.form__submit >input');//submit 버튼을 가져오고
+submitQuetion.addEventListener('click', submitfunction); 
+//submit 버튼을 클릭시 submitfunction(내용들을 agoraStatesDiscussions배열에 추가하는 함수) 함수가실행되게한다
 function submitfunction(){
   
 }
@@ -29,24 +30,7 @@ const convertToDiscussion = (obj) => {
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of" + obj.author;
   avatarWrapper.append(avatarImg);
-<<<<<<< HEAD
 
-  const discussionTitle = document.createElement("h2");
-  const titleAnchor = document.createElement("a");
-  titleAnchor.href = obj.url;
-  titleAnchor.textContent = obj.title;
-  discussionTitle.append(titleAnchor);
-  
-  const discussionInfomation = document.createElement("div");
-  discussionInfomation.className = "discussion__information";
-  discussionInfomation.textContent= obj.author +' / '+ obj.createdAt;
-  discussionContent.append(discussionTitle, discussionInfomation);
-  
-  const checked = document.createElement("p");
-  checked.textContent = obj.answer ? "▢" : "☑"
-  discussionAnswered.append(checked);
-=======
->>>>>>> dd68418ed7fb3d715fa863dbc21daed547de4832
 
   const discussionTitle = document.createElement("h2");
   const titleAnchor = document.createElement("a");
