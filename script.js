@@ -58,33 +58,39 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// 글쓰기
 document.querySelector("#submit").addEventListener("click", () => {
   const name = document.querySelector("#name");
   const title = document.querySelector("#title");
   const content = document.querySelector("#story");
   const currentTime = getCurrentTime(new Date());
+  if(title.value === "" || name.value === "") return alert("이름과 제목을 입력해주세요.");
 
   // agoraStatesDiscussions[0]에 데이터 추가
   agoraStatesDiscussions.unshift({
     id: "D_kwDOHOApLM4APjJi",
     createdAt: currentTime,
     title: title.value,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    url: "#",
     author: name.value,
-    answer: {
-    },
-    bodyHTML:
-      '<p dir="auto">--------------- 여기서부터 복사하세요 ---------------</p>\n<p dir="auto">운영 체제: 예) macOS</p>\n<p dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에 부딪혔나요?<br>\nPair 과제 / JavaScript Koans</p>\n<p dir="auto">npm install 명령어 입력 시 env: node: No such file or directory 라고 뜹니다</p>\n<p dir="auto">에러 발생하여 아래 명령어 실행 했는데도 불구하고 똑같은 에러가 발생했습니다<br>\nnpm cache clean --force</p>\n<p dir="auto">rm package-lock.json</p>\n<p dir="auto">rm -rf ./node_modules/</p>\n<p dir="auto">npm --verbose install</p>\n<p dir="auto">폴더 자체가 문제가 있다고 생각하여 github에서 다시 fork 후 진행했는데도 같은 에러가 발생했습니다<br>\n리눅스 기초 챕터 때 npm 설치해서 마지막 submit까지는 잘 됐는데 현재 짝수 생성기 폴더도 똑같이 npm install 시 no such file or directory가 발생합니다</p>\n<p dir="auto">에러가 출력된 곳에서, 이유라고 생각하는 부분을 열 줄 이내로 붙여넣기 해 주세요. (잘 모르겠으면 에러라고 생각하는 곳을 넣어주세요)</p>\n<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="minjun@dubi fe-sprint-javascript-koans-main % pwd \n/Users/minjun/Documents/fe_frontand_39/fe-sprint-javascript-koans-main\nminjun@dubi fe-sprint-javascript-koans-main % npm install \nenv: node: No such file or directory"><pre><span class="pl-s1">minjun</span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">pwd</span> \n<span class="pl-c1">/</span><span class="pl-v">Users</span><span class="pl-c1">/</span><span class="pl-s1">minjun</span><span class="pl-c1">/</span><span class="pl-v">Documents</span><span class="pl-c1">/</span><span class="pl-s1">fe_frontand_39</span><span class="pl-c1">/</span><span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span>\n<span class="pl-s1">minjun</span><span class="pl-kos"></span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">npm</span> <span class="pl-s1">install</span> \nenv: node: <span class="pl-v">No</span> <span class="pl-s1">such</span> <span class="pl-s1">file</span> <span class="pl-s1">or</span> <span class="pl-s1">directory</span></pre></div>\n<p dir="auto">검색했던 링크가 있다면 첨부해 주세요.<br>\n<a href="https://mia-dahae.tistory.com/89" rel="nofollow">https://mia-dahae.tistory.com/89</a></p>\n<p dir="auto"><a href="https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory" rel="nofollow">https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory</a></p>\n<p dir="auto"><a href="https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0" rel="nofollow">https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0</a></p>\n<p dir="auto"><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346" rel="nofollow">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346</a></p>\n<p dir="auto"><a href="https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80" rel="nofollow">https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80</a></p>\n<p dir="auto"><a href="https://hellowworlds.tistory.com/57" rel="nofollow">https://hellowworlds.tistory.com/57</a></p>',
+    answer: null,
+    bodyHTML: content.value,
     avatarUrl:
       "https://avatars.githubusercontent.com/u/104333720?s=40&v=4",
   });
+
+  addDiscussion();
 
   // 화면에 출력
   ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
   // 마지막 li 제거
   ul.childNodes[ul.childNodes.length - 1].remove();
   // Discussins에 데이터 추가
-  addDiscussion();
+  pageIndex = 0;
+
+  paginationBtnReset();
+
+  reRender();
 })
 
 // 현재시간 함수
@@ -143,7 +149,7 @@ document.querySelectorAll(".discussions__pagination--num").forEach((e) => {
 
 // prev, next 기능 구현
 prevBtn.addEventListener("click", (e) => {
-  activeBtnReset();
+  activeBtnReset("prev");
   nextBtn.classList.remove("hide");
 
   if(pageIndex !== 0) reRender("-");
@@ -153,7 +159,7 @@ prevBtn.addEventListener("click", (e) => {
 nextBtn.addEventListener("click", (e) => {
   const maxNumber = Math.floor(agoraStatesDiscussions.length / 10);
 
-  activeBtnReset();
+  activeBtnReset("next");
   prevBtn.classList.remove("hide");
 
   if(pageIndex !== maxNumber) reRender("+");
@@ -166,14 +172,103 @@ const reRender = (op) => {
   else if(op === "-") pageIndex--;
   ul.innerHTML = "";
   render(ul);
+  showPreview();
 }
 
-// prev, next 활성화된 element reset
-const activeBtnReset = () => {
-  const targetNum = document.querySelector(".btn_active").textContent;
+// paginationBtnReset
+const paginationBtnReset = () => {
+  const activetNum = document.querySelector(".btn_active");
+  const nextTarget = document.querySelector("span[targetnum='1']");
+
+  prevBtn.classList.remove("show");
+  prevBtn.classList.add("hide");
+  nextBtn.classList.remove("hide");
+  nextBtn.classList.add("show");
+
+  activetNum.classList.remove("btn_active");
+  nextTarget.classList.add("btn_active");
+
+  reRender();
+}
+
+// prev, next 활성화된 element의 active 클래스 재설정
+const activeBtnReset = (op) => {
+  let targetNum = document.querySelector(".btn_active").textContent;
+  if(op === "next") targetNum = Number(targetNum) + 1
+  else if(op === "prev") targetNum = Number(targetNum) - 1
   const currnetTarget = document.querySelector(".btn_active");
-  const nextTarget = document.querySelector(`span[targetnum='${Number(targetNum) + 1}']`);
+  const nextTarget = document.querySelector(`span[targetnum='${targetNum}']`);
 
   currnetTarget.classList.remove("btn_active");
   nextTarget.classList.add("btn_active");
+}
+
+// answer preview
+// create answer preview
+const createPreview = (index) => {
+  const previewBox = document.createElement("div");
+  const previewTitle = document.createElement("div");
+  const previewDis = document.createElement("div");
+  const previewAnswer = document.createElement("div");
+  const previewLine = document.createElement("div");
+  const body = document.querySelector("body");
+  let target = agoraStatesDiscussions[Number((pageIndex * 10) + index)];
+  if(pageIndex === 0) target = agoraStatesDiscussions[Number((pageIndex * 10) + index) - 1];
+
+  previewBox.className = "previewBox answerBoxHide";
+  previewTitle.className = "previewTitle";
+  previewDis.className = "previewDis";
+  previewAnswer.className = "previewAnswer";
+
+  const extractTextPattern = /(<([^>]+)>)/gi;
+  let orginalDis = target.bodyHTML;
+  let orginalAnswer = "";
+  if(target.answer === null) orginalAnswer = "아직 답변이 없어요 :(";
+  else orginalAnswer = target.answer.bodyHTML;
+  let extractedDis = orginalDis.replace(extractTextPattern, ' ');
+  let extractedAnswer = orginalAnswer.replace(extractTextPattern, ' ');
+
+  previewTitle.textContent = "제목\n" + target.title;
+  previewDis.textContent = "본문\n" + extractedDis;
+  previewAnswer.textContent = "답변\n" + extractedAnswer;
+  previewBox.append(previewTitle, previewLine, previewDis, previewLine, previewAnswer);
+
+  body.append(previewBox);
+}
+
+// delete answer preview
+const deletePreview = () => {
+  const target = document.querySelector(".previewBox");
+  if(target === null) return ;
+  target.remove();
+}
+
+// show answer preview
+const showPreview = () => {
+  document.querySelectorAll(".discussion__title").forEach((e) => {
+    e.addEventListener("mousemove", (e) => {
+      let index = getIndex(e.target.closest("li.discussion__container"));
+      if(index === 0 && pageIndex === 0) index = 1;
+      if(document.querySelector(".previewBox") === null) createPreview(index);
+      const target = document.querySelector(".previewBox");
+      target.classList.remove("answerBoxHide");
+      target.classList.add("answerBoxShow")
+      target.style.top = `${e.pageY + 20}px`;
+      target.style.left = `${e.pageX}px`;
+      if(window.innerHeight / 2 < e.clientY) target.style.top = `${e.pageY - target.offsetHeight - 10}px`;
+    })
+    e.addEventListener("mouseout", (e) => {
+      deletePreview();
+    })
+  });
+}
+
+showPreview();
+
+function getIndex(selector) {
+  for(var i = 0; i < selector.parentNode.childNodes.length; i++) {
+    if (selector.parentNode.childNodes[i] === selector) {
+      return i;
+    }
+  }
 }
