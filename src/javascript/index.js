@@ -12,7 +12,7 @@ function App() {
     const discussion = new Discussions();
     const pages = new Pages();
     const $form = document.querySelector("form");
-    const data = storge.getData("data");
+    let data = storge.getData("data");
     let currentPage = 0;
     // 데이터 생성 함수
     const createUserData = (author, title) => {
@@ -35,8 +35,8 @@ function App() {
     }
     // 랜더링 함수
     const render = () => {
-        discussion.deleteDiscussions();
         pages.deletePages();
+        discussion.deleteDiscussions();
         pages.$pagesWrapper.appendChild(pages.createPages(data.length));
         discussion.$discussionsWrapper.appendChild(discussion.createDiscussions(data[currentPage]));
         checkedBtn();
@@ -51,7 +51,12 @@ function App() {
             const $textName = document.querySelector("#textName");
             const $textTitle = document.querySelector("#textTitle");
             const userData = createUserData($textName.value, $textTitle.value);
-            data[dataLastIndex].push(userData);
+            // 페이지 방어 코드
+            if(data[dataLastIndex].length === 10) {
+                data.push([]);
+                data[dataLastIndex + 1].push(userData);
+                currentPage += 1;
+            }
             storge.setData("data", data);
             render();
         });
@@ -83,8 +88,20 @@ function App() {
             const itemIndex = Number(e.target.dataset.index);
             if(isNaN(itemIndex)) return;
             data[currentPage].splice(itemIndex, 1);
+            // 페이징 방어 코드
+            if (data[currentPage].length === 0) {
+                data[currentPage].pop();
+                currentPage -= 1;
+            }
+            console.log(data);
+            // 페이징 리셋 코드
+            const reset = [];
+            for(let i = 0; i < data.length; i++) reset.push(...data[i]);
+            data = reset.divide(10);
+            // 스토어 업데이트
             storge.setData("data", data);
             render();
+
         });
     }
     // Css 색깔 입히기
