@@ -71,6 +71,9 @@ const submitName = document.querySelector('#name');
 const submitTitle = document.querySelector('#title');
 const submitStory = document.querySelector('#story');
 let today = new Date();
+let month = ('00'+(today.getMonth()+1)).slice(-2);
+let date = ('00'+(today.getDate())).slice(-2);
+let time = today.toLocaleString('kr-KR', { hour: 'numeric', minute: 'numeric', second:'numeric', hour12: true });
 const submitYourQuestion = () => {
   if (submitName.value === '') {
     return alert('이름을 입력하세요')
@@ -81,7 +84,7 @@ const submitYourQuestion = () => {
   } else {
     localAgoraStatesDiscussions.unshift({
       id: "D_kwDOHOApLM4APnEw",
-      createdAt: `${today.getFullYear()}-${00+today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}Z`,
+      createdAt: `${today.getFullYear()}-${month}-${date} ${time}`,
       title: submitTitle.value,
       url: "",
       author: submitName.value,

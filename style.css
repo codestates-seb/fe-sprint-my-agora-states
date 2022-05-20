@@ -23,9 +23,11 @@ a{
     position: fixed;
     background-color: white;
     border-bottom: 1px solid black;
-    width: 560px;
+    width: 600px;
+    border-radius: 10px;
     background-color: rgb(248, 203, 46);
-    
+    box-shadow: 0 4px 4px -4px black;
+    padding-bottom: 5px;
 }
 h1{
     color: rgb(238, 80, 7);
