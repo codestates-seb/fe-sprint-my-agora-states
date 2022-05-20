@@ -130,7 +130,7 @@ form > div:nth-of-type(4) {
 .form__submit input {
     cursor: pointer;
     width:100px;
-    height: 180px;
+    height: 176px;
     font-family: 'WooridaumR';
     font-weight:bolder;
     font-size: 1.1rem;
