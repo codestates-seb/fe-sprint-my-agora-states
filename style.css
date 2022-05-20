@@ -23,6 +23,7 @@ h1 {
   background: linear-gradient(to right, #3768f1, #d6234a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
 }
 
 body {
@@ -32,13 +33,42 @@ body {
   background-color: #22272e;
 }
 
+.hide {
+  display: none;
+}
+
+.new-discussion-message {
+  border-radius: 5px;
+  background-color: #74818e;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 5px 15px;
+}
+
 .form__container {
   background-color: #2d333b;
-  margin-bottom: 20px;
-  height: 300px;
+  margin-bottom: 23px;
+  height: 220px;
   display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  color: #adbac7;
+  /* overflow: auto; */
+  /* padding-bottom: 5px; */
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+#title {
+  width: 380px;
+}
+
+textarea#story {
+  width: 400px;
+  height: 100px;
 }
 
 /* 제출버튼 */
@@ -50,12 +80,18 @@ input[type='submit' i] {
   border-radius: 5px;
   font-weight: 500;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 디스커션 컴포넌트 부모 */
-/* .discussion__wrapper {
-  margin: 5px;
-} */
+.discussion__wrapper {
+  height: 800px;
+  display: flex;
+  flex-flow: column wrap;
+  overflow: scroll;
+}
 
 /* discussion 컴포넌트인 부모요소 */
 li.discussion__container {
@@ -110,7 +146,7 @@ li.discussion__container {
 }
 
 /* 페이지네이션 */
-.pagination {
+/* .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,4 +182,4 @@ li.discussion__container {
   font-size: 13px;
   font-weight: 500;
   color: #0366d6;
-}
+} */

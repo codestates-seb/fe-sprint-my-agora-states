@@ -30,7 +30,9 @@
 
   <body>
     <main>
-      <h1>My Agora States</h1>
+      <div class="title">
+        <h1>My Agora States</h1>
+      </div>
 
       <section class="form__container">
         <form action="" method="get" class="form">
@@ -55,9 +57,13 @@
           </div>
           <div class="form__submit">
             <input type="submit" value="New discussion" id="submit-button" />
+            <span class="form__submit--trans"></span>
           </div>
         </form>
       </section>
+      <div class="new-discussion-message hide">
+        새로운 질문이 등록되었습니다.
+      </div>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
           <li class="discussion__container">
@@ -85,7 +91,7 @@
           </li>
         </ul>
       </section>
-      <div class="pagination">
+      <!-- <div class="pagination">
         <a href="#">&lt;&lt;</a>
         <ol>
           <li><a href="#">1</a></li>
@@ -95,7 +101,7 @@
           <li><a href="#">5</a></li>
         </ol>
         <a href=""> &gt;&gt;</a>
-      </div>
+      </div> -->
     </main>
   </body>
   <script src="data.js"></script>

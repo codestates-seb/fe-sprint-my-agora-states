@@ -42,6 +42,14 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement('div');
   discussionAnswered.className = 'discussion__answered';
   const discussionCheckbox = document.createElement('i');
+
+  const discussionArticle = document.createElement('div');
+  discussionArticle.className = 'discussion__article';
+  discussionArticle.textContent = obj.bodyHTML;
+  if (discussionArticle.textContent) {
+    discussionArticle.classList.add('hide');
+  }
+
   // 답변이 달린 경우 분기(체크표시, 답변 렌더링)
   if (obj.answer) {
     discussionCheckbox.className = 'fa-solid fa-square-check';
@@ -50,7 +58,12 @@ const convertToDiscussion = (obj) => {
   }
   discussionAnswered.append(discussionCheckbox);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(
+    avatarWrapper,
+    discussionContent,
+    discussionAnswered,
+    discussionArticle
+  );
   return li;
 };
 
@@ -68,8 +81,11 @@ const ul = document.querySelector('ul.discussions__container');
 render(ul);
 
 // 디스커션 추가 기능 구현
+const nameInput = document.querySelector('#name');
 const titleInput = document.querySelector('#title');
+const questionInput = document.querySelector('#story');
 const submitButton = document.querySelector('#submit-button');
+const newDiscussionMsg = document.querySelector('.new-discussion-message');
 const newObj = {
   id: 'D_kwDOHOApLM4APewe',
   createdAt: '2022-05-07T08:33:57Z',
@@ -85,48 +101,127 @@ const newObj = {
 
 const onClickSubmit = (e) => {
   e.preventDefault();
+  if (titleInput.value === '') {
+    return alert('질문 제목을 입력하세요.');
+  }
+  if (nameInput.value === '') {
+    return alert('작성자명을 입력하세요.');
+  }
+  if (questionInput.value === '') {
+    return alert('질문 내용을 입력하세요.');
+  }
   newObj.title = titleInput.value;
+  newObj.author = nameInput.value;
+  newObj.bodyHTML = questionInput.value;
+  console.log(newObj.bodyHTML);
   newObj.createdAt = addTime();
   agoraStatesDiscussions.unshift(newObj);
   let li = convertToDiscussion(newObj);
   ul.prepend(li);
+  nameInput.value = '';
+  titleInput.value = '';
+  questionInput.value = '';
+  newDiscussionMsg.classList.remove('hide');
+  // const objString = JSON.stringify(newObj);
+  window.localStorage.setItem('id', newObj.id);
+  window.localStorage.setItem('createdAt', newObj.createdAt);
+  window.localStorage.setItem('title', newObj.title);
+  window.localStorage.setItem('url', newObj.url);
+  window.localStorage.setItem('author', newObj.author);
+  window.localStorage.setItem('answer', newObj.answer);
+  window.localStorage.setItem('bodyHTML', newObj.bodyHTML);
+  window.localStorage.setItem('avatarUrl', newObj.avatarUrl);
+  console.log(window.localStorage);
   return render(ul);
 };
 
 submitButton.addEventListener('click', onClickSubmit);
 
-const pagination = (total, bottomSize, listSize, cursor) => {
-  // let total = obj.length;
-  // let bottomSize = 5;
-  // let listSize = 10;
-  // let cursor;
-  //total = 총 갯수
-  //bottomSize = 하단크기
-  //listSize = 화면에서 보여줄 크기
-  //cursor = 현재 나의 페이지
+// 제목 hover 시 질문내용 보이기
 
-  let totalPageSize = Math.ceil(total / listSize); //한 화면에 보여줄 갯수에서 구한 하단 총 갯수
+// const pagination = (total, bottomSize, listSize, cursor) => {
+//   // let total = obj.length;
+//   // let bottomSize = 5;
+//   // let listSize = 10;
+//   // let cursor;
+//   //total = 총 갯수
+//   //bottomSize = 하단크기
+//   //listSize = 화면에서 보여줄 크기
+//   //cursor = 현재 나의 페이지
 
-  let firstBottomNumber = cursor - (cursor % bottomSize) + 1; //하단 최초 숫자
-  let lastBottomNumber = cursor - (cursor % bottomSize) + bottomSize; //하단 마지막 숫자
+//   let totalPageSize = Math.ceil(total / listSize); //한 화면에 보여줄 갯수에서 구한 하단 총 갯수
 
-  if (lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize; //총 갯수보다 큰 경우 방지
-  return console.log({
-    firstBottomNumber,
-    lastBottomNumber,
-    totalPageSize,
-    total,
-    bottomSize,
-    listSize,
-    cursor,
+//   let firstBottomNumber = cursor - (cursor % bottomSize) + 1; //하단 최초 숫자
+//   let lastBottomNumber = cursor - (cursor % bottomSize) + bottomSize; //하단 마지막 숫자
+
+//   if (lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize; //총 갯수보다 큰 경우 방지
+//   return console.log({
+//     firstBottomNumber,
+//     lastBottomNumber,
+//     totalPageSize,
+//     total,
+//     bottomSize,
+//     listSize,
+//     cursor,
+//   });
+// };
+// const currentPageNumber = document.querySelector('.pagination');
+// currentPageNumber.addEventListener('click', (e) => {
+//   return pagination(
+//     agoraStatesDiscussions.length,
+//     5,
+//     10,
+//     Number(e.target.textContent)
+//   );
+// });
+
+const h1 = document.querySelector('h1');
+let newText;
+const titleAnimation = (element) => {
+  const textArray = element.textContent.split('');
+  const special = [
+    'A',
+    'b',
+    'Z',
+    'i',
+    't',
+    'g',
+    'h',
+    'c',
+    'd',
+    'y',
+    'S',
+    'a',
+    'o',
+    'w',
+    'N',
+  ];
+  const exeption = [' '];
+  const randomInBetween = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
+  const numArray = [];
+  textArray.forEach((_) => {
+    const num = randomInBetween(5, 40);
+    numArray.push(num);
   });
+
+  let completeCount;
+  const timer = setInterval(() => {
+    completeCount = 0;
+    newText = '';
+    numArray.forEach((num, i) => {
+      if (exeption.includes(textArray[i]) || numArray[i] === 0) {
+        newText += textArray[i];
+        completeCount += 1;
+      } else {
+        newText += special[numArray[i] % special.length];
+        numArray[i] = --num;
+      }
+    });
+    element.textContent = newText;
+    // console.log(completeCount, numArray, numArray.length);
+    if (completeCount === numArray.length) clearInterval(timer);
+  }, 100);
 };
-const currentPageNumber = document.querySelector('.pagination');
-currentPageNumber.addEventListener('click', (e) => {
-  return pagination(
-    agoraStatesDiscussions.length,
-    5,
-    10,
-    Number(e.target.textContent)
-  );
-});
+titleAnimation(h1);
