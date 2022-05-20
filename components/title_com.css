@@ -1,0 +1,16 @@
+.form-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title:hover {
+  cursor: pointer;
+  color: white;
+  /* 글자 테두리 효과 */
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.form-title span {
+  padding: 0 9px;
+}

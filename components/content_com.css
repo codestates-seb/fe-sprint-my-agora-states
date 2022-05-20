@@ -1,0 +1,14 @@
+.discussion__content {
+  align-items: self-end;
+  box-sizing: border-box;
+}
+
+.discussion__title {
+  color: violet;
+  font-size: 1.15em;
+  padding-left: 10px;
+}
+
+.discussion__information {
+  text-align: right;
+}

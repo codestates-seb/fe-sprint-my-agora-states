@@ -1,0 +1,27 @@
+.discussions__container,
+.discussion__container {
+  width: 540px;
+}
+
+.discussions__container {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.discussion__container {
+  background-color: blueviolet;
+  border-radius: 15px;
+  /* li 박스 아래 간격 주기 */
+  margin-bottom: 0.3em;
+  padding: 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  word-break: normal;
+}
+
+.discussion__container:hover {
+  cursor: pointer;
+  color: black;
+  background-color: antiquewhite;
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.4);
+}
