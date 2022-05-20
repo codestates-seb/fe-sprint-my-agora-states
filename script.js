@@ -14,10 +14,24 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
+
+  const disscussionTitle = document.createElement('div');
+  const titileAnchor = document.createElement('a');
+  const userId = document.createElement('list');
+  titileAnchor.href = obj.url;
+  titileAnchor.textContent = obj.title;
+  const idName = obj.id;
+  const pastTime = obj.createdAt;
+  disscussionTitle.append(titileAnchor,idName,pastTime);
+  discussionContent.append(disscussionTitle);
 
 
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent, discussionAnswered, userId);
   return li;
 };
 
