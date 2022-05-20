@@ -8,7 +8,7 @@ export default function Pages() {
         for (let i = 1; i <= pageCount; i += 1) {
             const $span = document.createElement("span");
             $span.textContent = i;
-            $span.className = "pages__item";
+            $span.className = "pages__item pages__Number";
             $span.setAttribute("data-index", i);
             $div.appendChild($span);
         }
