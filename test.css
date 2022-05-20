@@ -1,32 +1,13 @@
-@import "./form01.css";
-@import "./form02.css";
-
-body {
-  width: 100vw;
-  height: 100vh;
-  background: #222;
-
-}
-
-* {
-  font: normal 1em sans-serif;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-
 .code-container {
-  display: flex;
   resize: both;
   overflow: hidden;
   margin: auto;
-  width: 540px;
-  height: 50vh;
+  width: 80vw;
+  height: 80vh;
   min-width: 420px;
   min-height: 255px;
   position: relative;
-  --glow-margin: 20px;
+  --glow-margin: 70px;
   filter: drop-shadow(0 0 75px rgb(128 0 255 / 0.25));
 }
 
@@ -35,12 +16,31 @@ body {
   position: absolute;
   bottom: 90px;
   right: 90px;
+  z-index: 999;
   color: rgb(255 200 255 / 0.5);
   text-shadow: 0 0 12px rebeccapurple;
   letter-spacing: 0.1em;
 }
 
-
+.code-container::after {
+  content: "";
+  background: linear-gradient(
+    to right,
+    transparent,
+    black 25px, black 110px,
+    transparent 110px 175px,
+    black 175px, black calc(100% - 25px),
+    transparent
+  );
+  position: absolute;
+  top: 125px;
+  left: var(--glow-margin);
+  right: var(--glow-margin);
+  height: 4px;
+  display: block;
+  z-index: 90;
+  opacity: 0.5;
+}
 
 .glow-container {
   position: absolute;
@@ -89,6 +89,10 @@ section.augs {
   position: absolute;
   inset: 0;
   margin: auto;
+  --aug-inlay: initial;
+  --aug-inlay-all: 2px;
+  --aug-inlay-bg: url(http://augmented-ui.com/img/propjockey.png)
+    center 70% / auto 70% no-repeat;
   --aug-inlay-opacity: 0.25;
 }
 section.augs::before {
@@ -116,7 +120,7 @@ section.augs::before {
   border: none;
 }
 
-section .input-agora {
+input {
   position: absolute;
   top: 17px;
   left: 120px;
@@ -129,6 +133,19 @@ section .input-agora {
   letter-spacing: 0.1em;
 }
 
+body {
+  display: grid;
+  min-height: 100vh;
+  width: 100vw;
+  background: var(--bgb), var(--bg), black;
+}
+
+* {
+  font: normal 1em sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
 /* https://marketplace.visualstudio.com/items?itemName=webrender.synthwave-x-fluoromachine */
 .bg {
@@ -139,34 +156,3 @@ section .input-agora {
   ),
   linear-gradient(to bottom, #200933 75%, #3d0b43);
 }
-
-/* agora */
-ul.discussions__container {
-  align-items: center;
-  justify-content: center;
-}
-
-li.discussion__container {
-  margin-bottom: 0.5rem;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  border-radius: 5px;
-  width: 100%;
-}
-
-div.discussion__avatar--wrapper > img {
-  width: 48px;
-  border-radius: 100%;
-}
-
-div.discussion__avatar--wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 0;
-  padding: 1rem;
-}
-
-

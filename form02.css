@@ -1,0 +1,27 @@
+.discussion__container {
+    border: 1px solid #222;
+}
+
+.discussion__content h2 {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.discussion__wrapper {
+    top: 50%;
+    left: 150%;
+    width: 540px;
+    padding: 15px;
+    transform: translate(0%, 90%);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(255,143,164, 0.5);
+    border-radius: 10px;
+}
+
+ul.discussions__container {
+    margin-right: 15px;
+}
+
+.discussion__answered {
+    font-size: 2rem;
+}
