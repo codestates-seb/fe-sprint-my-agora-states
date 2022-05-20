@@ -798,9 +798,10 @@ if(window.localStorage.length !== 0){
   agoraStatesDiscussions = JSON.parse(window.localStorage.getItem("agoraStatesDiscussions"));
 }
 
-agoraStatesDiscussions.map(discussion => {
+agoraStatesDiscussions.map((discussion, index) => {
   if (discussion.answer) {
     return {
+      index,
       ...discussion,
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
@@ -811,6 +812,7 @@ agoraStatesDiscussions.map(discussion => {
   }
 
   return {
+    index,
     ...discussion,
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
   }
