@@ -1,1 +1,145 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 540px;
+}
+body {
+    justify-content: space-between;
+}
+
+main {
+    background-color: #80e8dd;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    color: rgb(255, 255, 255);
+    text-shadow:
+      0 0 1px #fff,
+      0 0 0px #fff,
+      0 0 3px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    text-align: center;
+    background-color: #4bb5ab;
+    border: 2px dotted #00857c;
+    padding: 10px;
+}
+
+/* id 입력란 */
+
+a {
+    display: flex;
+    width: 400px;
+    font-size: large;
+}
+
+.form {
+    margin: 20px 0px 20px 0px;
+    background-color: #4bb5ab;
+    border: 2px dotted #00857c;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px 10px 20px 0px;
+    
+}
+
+div.form__input--name {
+    margin: 10px 10px 10px 10px;
+}
+
+div.form__input--title {
+    margin: 10px 10px 10px 10px;
+}
+
+#name {
+    height: 20px;
+    width: 200px
+}
+
+#story {
+    height: 100px;
+    width: 500px
+}
+
+div.form__submit {
+    display: flex;
+    justify-content:center;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+
+.form__submit > input {
+    height: 30px;
+    width: 100px
+}
+
+/* discussion */
+li.discussion__container {
+    background-color: #4bb5ab;
+    border: 2px dotted #00857c;
+    width: 540px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 30px 30px 0px;
+    margin: 10px 10px 10px 0px;
+    
+}
+
+li.discussion__container > div {
+    transform: 50% 20%;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50px;
+}
+
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem 1rem 1rem 0.8rem;
+}
+
+div.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+    font-size: 30px;
+
+}
+
+list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: small;
+    
+}
+
+
+div.discussion__content {
+    width: 300px;
+}
+
+div.discussion__information {
+    position: absolute;
+    right: 1rem;
+    margin: 10px
+}
