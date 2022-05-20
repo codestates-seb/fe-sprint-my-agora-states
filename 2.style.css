@@ -1,0 +1,229 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* normalize */
+* {
+    margin: 0;
+    padding: 1px;
+    /* 1-1. 모든 요소 border-box 적용 */
+    box-sizing: border-box;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* style list */
+:root {
+    /* font-color */
+    --color-white1: white;
+    --color-white2: rgb(200, 186, 207);
+    --color-black1: black;
+    --color-pink: palevioletred;
+    --color-purple1: rebeccapurple;
+    --color-purple2: purple;
+    --color-purple3: rgb(143, 86, 192);
+
+    /* background-color */
+    --bc-white1: rgb(255, 250, 254);
+    --bc-white2: rgb(245, 241, 247);
+    --bc-white3: rgb(249, 223, 239);
+    --bc-white4: #fffcff;
+    --bc-purple1: rgb(170, 102, 179);
+
+    /* box-shadow */
+    --bs-white1: rgb(240, 231, 243);
+    --bs-gary1: rgba(185, 185, 185, 0.5);
+
+
+    /* font-size */
+    --fs-1: 1rem;
+    --fs-1_1: 1.1rem;
+    --fs-2 : 2rem;
+    --fs-3: 3rem;
+}
+
+
+/* 1-2. li 기본스타일 제거 */
+ul,
+li {
+    list-style: inherit;
+}
+
+/* 1-3. 폭 540px */
+main {
+    width: 540px;
+    margin: 0 auto;
+    background: var(--bc-white1);
+    box-shadow: -0.2rem 0.5rem 1rem var(--bs-white1), 0.2rem 0.5rem 1rem var(--color-white2);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-purple1);
+    font-size: var(--fs-3);
+}
+
+h2 {
+    text-align: center;
+    color: var(--color-pink);
+    margin-bottom: 0.6rem;
+}
+
+/* form section */
+.form {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.1rem;
+}
+
+.form__input--wrapper {
+    flex: 1;
+}
+
+
+.dp{
+    margin: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--name label,
+.form__input--title label,
+.form__textbox label {
+    color: var(--color-purple2);
+    font-size: var(--fs-1_1);
+}
+
+.form__input--name input,
+.form__input--title input,
+.form__textbox textarea {
+    width: 60%;
+    margin-right: 0.5rem;
+    padding-left: 0.7rem;
+    background: var(--bc-white2);
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.form__textbox textarea {
+    padding-top: 0.2rem;
+}
+
+.form__input--name input:focus,
+.form__input--title input:focus,
+.form__textbox textarea:focus {
+    outline: 1.5px solid var(--color-white6);
+}
+
+.form__submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__submit input {
+    width: 6rem;
+    height: 3rem;
+    font-size: var(--fs-1);
+    border-radius: 0.5rem;
+    border: none;
+    background: var(--bc-white3);
+}
+
+.form__submit input:hover {
+    background: var(--bc-purple1);
+    color: var(--color-white1);
+    transition: 0.3s;
+    transition-timing-function: ease;
+}
+
+
+/* discussion section */
+.discussion__wrapper {
+    margin-top: -1rem;
+}
+
+.discussion__container {
+    border-radius: 1rem;
+    background: var(--bc-white4);
+    box-shadow: 0.3rem 0.4rem 0.7rem var(--bs-gary1);
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.discussion__container:hover {
+    transform: scale(1.02);
+    transition: 0.6s;
+}
+
+/* 2-2. 사진 너비 48px  */
+/* 2-3. 아바타 사진 높이 정렬*/
+.discussion__avatar--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 4rem;
+}
+
+/* 2-1. 아바타 사진 동그랗게 표현 */
+.discussion__avatar--image {
+    border-radius: 100%;
+}
+
+/* 3-1. Discussion 콘텐츠의 간격 + 정렬 */
+/* 저자, 생성일 오른쪽 정렬 */
+.discussion__content {
+    width: 100%;
+    margin-right: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.discussion__title {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.discussion__title a {
+    font-size: var(--fs-1_1);
+    margin-left: 0.7rem;
+    text-decoration: inherit;
+    color: var(--color-black1);
+}
+
+.discussion__title a:hover {
+    color: var(--color-purple3);
+    transition: 0.5s;
+}
+
+.discussion__information {
+    color: var(--color-white2);
+    display: inline-block;
+}
+
+#clock {
+    display: inline;
+}
+
+.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discussion__answered p {
+    font-size: var(--fs-2);
+    padding: 0.3rem;
+    margin-top: -0.5rem;
+}
+
+.discussion__answered p:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
