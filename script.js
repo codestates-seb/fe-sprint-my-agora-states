@@ -1,7 +1,6 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+
+localStorage.removeItem("username");
 
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -40,9 +39,9 @@ const convertToDiscussion = (obj) => {
   // 답변 유무 추가
   if (obj.answer === null) {
     // ☑
-    discussionAnswered.textContent = "✅";
-  } else {
     discussionAnswered.textContent = "❎";
+  } else {
+    discussionAnswered.textContent = "✅";
   }
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
