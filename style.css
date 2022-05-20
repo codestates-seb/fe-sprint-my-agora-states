@@ -1,1 +1,193 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --font: "EB Garamond", serif;
+  --black: #1c1f33;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-family: var(--font);
+  color: var(--black);
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/paper_fibers.png)
+    repeat;
+  padding: 4rem 2rem;
+  line-height: 1.3;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/********** Form__container **********/
+.form__container > form {
+  width: 540px;
+  border: solid var(--black);
+  border-width: 2px 0;
+  padding: 4px 0;
+  margin: 10px 0;
+}
+
+.form_decoration {
+  display: flex;
+  width: 540px;
+  border: solid var(--black);
+  border-width: 1px 0;
+  padding: 10px 0;
+}
+
+.form__input--wrapper {
+  width: 450px;
+  padding-right: 0.3em;
+}
+
+/* form-input */
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.5em;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__input--wrapper > div {
+  padding-bottom: 0.5em;
+}
+
+.form__input--wrapper > div > input {
+  width: 250px;
+}
+
+/* textarea */
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+}
+
+.form__textbox label {
+  padding-bottom: 5px;
+}
+
+.form__textbox > textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+/*submit 버튼*/
+.form__submit {
+  padding: 5px;
+}
+.form__submit > input {
+  width: 80px;
+  height: 100%;
+  border-radius: 10%;
+  color: white;
+  background-color: var(--black);
+}
+
+/********** Discussion 컴포넌트 **********/
+.discussion__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+ul.discussion__container {
+  display: flex;
+  height: 800px;
+  overflow: auto;
+}
+
+li.discussion__container {
+  border: 0.5px solid var(--black);
+  width: 540px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+li.discussion__container:hover {
+  color: white !important;
+  background: var(--black);
+}
+
+/********** 왼쪽 아바타 **********/
+.discussion__avatar--wrapper {
+  display: flex;
+  width: 70px;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+}
+
+/********** 중간 Discussion 콘텐츠 **********/
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.discussion__title {
+  font-size: 18px;
+}
+
+.discussion__information {
+  width: 100%;
+  text-align: right;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: var(--black);
+}
+
+li.discussion__container:hover a {
+  color: white;
+}
+
+/********** 오른쪽 체크 표시 **********/
+.discussion__answered {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/********** 페이지네이션 **********/
+.pagination {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination button {
+  width: 50px;
+  height: 100%;
+  border-radius: 10%;
+  color: white;
+  background-color: var(--black);
+}
