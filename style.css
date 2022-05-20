@@ -1,1 +1,109 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* Discussion 컴포넌트 */
+
+/* COMMON */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  background-color: #fcffe7;
+}
+a {
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+main h1 {
+  margin-top: 2rem;
+}
+
+/* SECTION.FORM__CONTAINER */
+section.form__container form {
+  padding: 30px 22px;
+  width: 540px;
+  border-radius: 6px;
+  background-color: #e0d8b0;
+  box-shadow: 2px 2px 20px rgba() 0, 0, 0, 0.3;
+  color: #555;
+  border: 1px solid #e0d8b0;
+  margin: 2rem 0;
+}
+section.form__container form input,
+section.form__container textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  border: 1px solid #e0d8b0;
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+  padding: 10px;
+}
+section.form__container form [type="submit"] {
+  background-color: #006633;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* SECTION.DISCUSSION__WRAPPER */
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 540px;
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+  border: 2px solid #e0d8b0;
+  border-radius: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+li.discussion__container a {
+  color: #212121;
+}
+li.discussion__container:hover {
+  background-color: #dea057;
+}
+
+/* 왼쪽 아바타 */
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+img.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+/* 중간 Discussion 콘텐츠 */
+div.discussion__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+div.discussion__information {
+  margin-left: auto;
+}
+
+/* 오른쪽 체크 표시 */
+div.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
