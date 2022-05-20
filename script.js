@@ -19,7 +19,9 @@ const convertToDiscussion = (obj) => {
 
   let contentTitle = document.createElement("h2");
   contentTitle.classList.add('discussion__title');
-  if (obj.title.length < 22) {
+
+  // 제목의 길이가 길 경우 자르고 말줄임표 추가
+  if (obj.title.length < 40) {
   contentTitle.textContent = `${obj.title}`;
   } else {
     contentTitle.textContent = `${obj.title.substring(0,40)}...`
@@ -39,6 +41,8 @@ const convertToDiscussion = (obj) => {
   let contentName = document.createElement('span');
   contentName.classList.add('content__name');
   contentName.textContent = `${obj.author}`;
+
+  // 받아온 날짜를 형식에 맞게 수정
   let contentDate = document.createElement('span');
   contentDate.classList.add('content__date');
   let newDateString = new Date(obj.createdAt);
@@ -58,6 +62,8 @@ const convertToDiscussion = (obj) => {
   contentInfo.append(contentDate);
   discussionContent.append(contentInfo);
 
+
+  // 답변이 있는 경우와 없는 경우를 나누어서 표시
   let answerChecked = document.createElement("div");
   answerChecked.className = "answered";
   if(obj.answer === null) {
@@ -76,12 +82,16 @@ if (!lists) {
   lists = agoraStatesDiscussions;
 } 
 
+
+// 기본적으로 8개만 표시
 const render = (element) => {
   for (let i = 0; i < 8; i += 1) {
     element.append(convertToDiscussion(lists[i]));
   }
   return;
 }
+
+// 더보기 버튼 구현
 
 let loadBtn = document.querySelector('.loading');
 let viewedContent = 8;
@@ -107,6 +117,8 @@ submitBtn.onclick = function (event) {
   let inputTitle = document.querySelector(".title");
   let newTitle = inputTitle.value;
   let today = new Date();
+  
+  // 입력란이 공란일 시 제출하지 않음
   if (!newName || !newTitle) {
     return ;
   }

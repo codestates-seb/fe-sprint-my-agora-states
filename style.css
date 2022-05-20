@@ -164,3 +164,9 @@ footer {
 .loading:active {
     transform: scale(95%);
 }
+
+/* 감추기 클래스 */
+
+.hide {
+    display: none;
+}
