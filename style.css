@@ -9,6 +9,8 @@ body {
   padding: 0;
   line-height: 1.5;
   background-color: #f9f9f9;
+  max-width: 540px;
+  margin: 0 auto;
 }
 
 ul {
@@ -68,16 +70,13 @@ header .main-title.active {
 
 main {
   padding-top: 90px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 section.form__container {
   margin: 0 0 30px;
   border: 4px solid;
   border-radius: 20px;
-  max-width: 540px;
+  /* max-width: 540px; */
   box-shadow: 10px 10px 0px -3px #fde2c5, 10px 10px 0px 1px black;
 }
 
@@ -128,7 +127,7 @@ section.form__container {
 }
 
 section.discussion__wrapper {
-  max-width: 540px;
+  width: 100%;
 }
 
 .discussion__wrapper .discussion__container {
@@ -248,4 +247,23 @@ code {
   border: 4px solid #adaaff;
   border-radius: 14px;
   padding: 10px;
+}
+
+nav.page-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 40px 0 20px;
+}
+
+nav.page-button-container button {
+  border: none;
+  padding: 6px 10px;
+  background: #e6e5ff;
+  border-radius: 8px;
+}
+
+nav.page-button-container button:hover {
+  background-color: #b8b5f8;
+  transform: scale(1.2);
 }
