@@ -79,6 +79,9 @@ submit.onclick = () => {
     ul.innerHTML = '';
     render(ul);
   }
+  else {
+    alert("양식에 맞춰 모두 적고 제출하세요");
+  }
 }
 
 
