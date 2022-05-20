@@ -68,6 +68,34 @@ const render = (element) => {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     checked(agoraStatesDiscussions[i]);
     addLinks(agoraStatesDiscussions[i]);
+
+    const answerTag = document.querySelectorAll("a");
+
+    Object.values(answerTag).forEach((answer, index) => {
+      answer.addEventListener("mouseover", () => {
+        const answerHTML = document.createElement("div");
+        try {
+          answerHTML.textContent = htmlParser(
+            agoraStatesDiscussions[index].answer.bodyHTML
+          );
+        } catch {}
+
+        answerHTML.className = "answered";
+        answerHTML.style.position = "absolute";
+        answerHTML.style.backgroundColor = "#f0e6c6";
+        answerHTML.style.padding = "10px 10px";
+        answerHTML.style.width = "400px";
+        answerHTML.style.fontSize = "18px";
+        answer.append(answerHTML);
+      });
+    });
+
+    Object.values(answerTag).forEach((answer, index) => {
+      answer.addEventListener("mouseout", () => {
+        const answered = document.querySelector(".answered");
+        answer.removeChild(answered);
+      });
+    });
   }
   return;
 };
@@ -98,32 +126,3 @@ const submitForm = document
 const htmlParser = (content) => {
   return content.replace(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, "");
 };
-
-const answerTag = document.querySelectorAll("a");
-Object.values(answerTag).forEach((answer, index) => {
-  answer.addEventListener("mouseover", () => {
-    const answerHTML = document.createElement("div");
-    try {
-      answerHTML.textContent = htmlParser(
-        agoraStatesDiscussions[index].answer.bodyHTML
-      );
-    } catch {
-      console.log("Not Answered");
-    }
-
-    answerHTML.className = "answered";
-    answerHTML.style.position = "absolute";
-    answerHTML.style.backgroundColor = "#f0e6c6";
-    answerHTML.style.padding = "10px 10px";
-    answerHTML.style.width = "400px";
-    answerHTML.style.fontSize = "18px";
-    answer.append(answerHTML);
-  });
-});
-
-Object.values(answerTag).forEach((answer, index) => {
-  answer.addEventListener("mouseout", () => {
-    const answered = document.querySelector(".answered");
-    answer.removeChild(answered);
-  });
-});
