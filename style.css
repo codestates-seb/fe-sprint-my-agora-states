@@ -1,1 +1,152 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #FFE69A;
+    color: #81a5df;
+    /* height: 100vh; */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+main {
+    margin: 3rem 0 4rem 0;
+}
+
+section {
+    width: 540px;
+}
+
+ul {
+    list-style: none;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+li {
+    width: 540px;
+    margin: 0.5rem 0 0.5rem 0;
+    background-color: white;
+}
+
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.discussion__avatar--wrapper,
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+.discussion__avatar--image {
+    border-radius: 100%;
+    width: 48px;
+}
+
+.discussion__answered>p {
+    font-size: 2rem;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 380px;
+    padding: 0.5rem 0 0.2rem 0;
+}
+
+.discussion__information {
+    text-align: right;
+    padding: 1rem 0 0 0;
+}
+
+
+.discussion__content>h2 {
+    font-size: 1rem;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f9f3e1;
+}
+
+.form__input--wrapper {
+    padding-right: 1rem;
+    width: 406px;
+}
+
+.form__input--name,
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--title {
+    margin: 0.2rem 0 0.2rem 0;
+}
+
+input,
+textarea {
+    border: none;
+    padding: 5px;
+}
+
+
+label {
+    font-size: 1.1rem;
+    padding: 2px;
+}
+
+#name,
+#title {
+    width: 250px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit {
+    width: 100px;
+}
+
+.form__submit>input {
+    width: 100px;
+    height: 123.891px;
+    border: none;
+    color: #FFD24C;
+    background-color: #efebdc;
+    font-size: 1.1rem;
+}
+
+.form__submit>input:hover {
+    color: #efebdc;
+    background-color: #FFD24C;
+}
+
+h2>a:link {
+    color: #e6ba41;
+}
+
+h2>a:visited {
+    color: #dad7c8;
+}
+
+h2>a:hover {
+    color: #7daab5;
+}
