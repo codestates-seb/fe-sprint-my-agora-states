@@ -1,1 +1,81 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  text-align: center;
+}
+/* MY Agora 부분 */
+.form__container{
+  text-align: center;
+}
+
+
+
+
+/* discussion 부분 */
+
+
+
+ul.discussions__container{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+  align-items: center;
+
+}
+li.discussion__container{
+  display: flex;
+  justify-content: space-between;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  list-style-type: none;
+}
+
+/* discussion 사진 */
+div.discussion__avatar--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ width: 50px;
+  /* height: 90px; */
+}
+div.discussion__avatar--wrapper > img{
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+
+}
+
+
+/* discussion 내용 */
+div.discussion__content{
+  width: 485px;
+  /* height: 90px; */
+  
+  white-space: wrap;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+h2.discussion__title{
+  text-align: left;
+  
+}
+div.discussion__information{
+  text-align: right;
+  padding-top: 3px;
+}
+
+/* discussion 체크 */
+div.discussion__answered{
+ display: flex;
+  /* height: 90px; */
+  justify-content: center;
+  align-items: center;
+}
+
+
