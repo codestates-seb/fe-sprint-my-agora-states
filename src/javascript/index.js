@@ -1,14 +1,20 @@
 import Discussions from "./components/discussions.js";
 import Pages from "./components/pages.js";
 import { createArrayPrototypeDivide } from "./utils/divide.js";
+import { storge } from './storge/storge.js';
 
 createArrayPrototypeDivide();
 
 function App() {
+
+    if (storge.getData("data") === null) {
+        storge.setData("data", agoraStatesDiscussions.divide(10));
+    }
+
     const discussion = new Discussions();
     const pages = new Pages();
     const $form = document.querySelector("form");
-    const data = agoraStatesDiscussions.divide(10);
+    const data = storge.getData("data");
     let currentPage = 0;
     // 데이터 생성 함수
     const createUserData = (author, title) => {
@@ -40,6 +46,7 @@ function App() {
             const $textTitle = document.querySelector("#textTitle");
             const userData = createUserData($textName.value, $textTitle.value);
             data[dataLastIndex].push(userData);
+            storge.setData("data", data);
             render();
         });
         // 페이징네이션 네비게이터 함수
