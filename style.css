@@ -1,1 +1,105 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  text-align: center;
+}
+main{
+  background-color: #C1AEEE;
+}
+
+h1{
+  color: #250339;
+}
+/* MY Agora 부분 */
+section.form__container{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+div.form__input--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+input#name{
+  width: 390px;
+  height: 24px;
+}
+textarea#story {
+  width: 392px;
+  height: 57px;
+  resize: none;
+}
+
+/* discussion 부분 */
+
+
+
+ul.discussions__container{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+  align-items: center;
+
+}
+li.discussion__container{
+  display: flex;
+  justify-content: space-between;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  list-style-type: none;
+  background-color:#D2D2FF;
+}
+
+/* discussion 사진 */
+div.discussion__avatar--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ width: 50px;
+  /* height: 90px; */
+}
+div.discussion__avatar--wrapper > img{
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+
+}
+
+
+/* discussion 내용 */
+div.discussion__content{
+  width: 485px;
+  /* height: 90px; */
+  
+  white-space: wrap;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+h2.discussion__title{
+  text-align: left;
+  
+}
+div.discussion__information{
+  text-align: right;
+  padding-top: 3px;
+}
+
+/* discussion 체크 */
+div.discussion__answered{
+ display: flex;
+  /* height: 90px; */
+  justify-content: center;
+  align-items: center;
+}
+
+
