@@ -16,7 +16,7 @@ const convertToDiscussion = (obj) => {
   const discussionUserInfo = document.createElement('span');
   const discussionIsAnswer = document.createElement('span');
   const discussionId = document.createElement('input');
-  const date = new Date(obj.createdAt).toLocaleString('ko-KR');
+  const date = new Date(obj.createdAt);
 
   //id값 넣기
   discussionId.className = 'discussionId';
@@ -38,7 +38,9 @@ const convertToDiscussion = (obj) => {
   discussionInfo.className = 'discussion__information';
   discussionAnswered.className = 'discussion__answered material-icons';
   discussionUserInfo.className = 'userInfo';
-  discussionUserInfo.textContent = `${obj.author} / ${date.slice(-11)}`;
+  discussionUserInfo.textContent = `${obj.author} / ${date
+    .toLocaleString('ko-KR')
+    .slice(-11)}`;
   if (obj.answer === null) {
     discussionAnswered.textContent = 'check_circle_outline';
     discussionIsAnswer.className = 'isAnswer';
@@ -96,14 +98,17 @@ function confirmForm() {
       answer: null,
     };
     console.log(date);
-    agoraStatesDiscussions.push(data);
-    console.log(agoraStatesDiscussions);
+    window.localStorage.setItem('data', JSON.stringify(data));
 
-    ul.prepend(
-      convertToDiscussion(
-        agoraStatesDiscussions[agoraStatesDiscussions.length - 1]
-      )
+    // agoraStatesDiscussions.unshift(data);
+    agoraStatesDiscussions.unshift(
+      JSON.parse(window.localStorage.getItem('data'))
     );
+    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+
+    title.value = '';
+    name.value = '';
+    story.value = '';
   } else {
     alert('빈칸을 채워주세요');
     return false;
@@ -146,6 +151,9 @@ const render2 = (element, num1, num2) => {
   // const num = getPagination();
   // console.log(num);
   for (let i = num1; i <= num2; i += 1) {
+    if (i === agoraStatesDiscussions.length) {
+      return;
+    }
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -155,3 +163,5 @@ const hadchildren = (el) => {
     el.removeChild(el.firstChild);
   }
 };
+
+console.log(JSON.parse(localStorage.getItem('data')));

@@ -102,6 +102,7 @@ h1::after {
 .discussion__wrapper {
   margin-top: 215px;
   background-color: rgba(255, 200, 210, 0.3);
+  min-height: calc(100vh - 315px);
 }
 .discussion__wrapper .discussions__container {
   padding: 0;
