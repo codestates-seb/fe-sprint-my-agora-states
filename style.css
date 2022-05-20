@@ -1,1 +1,148 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    background: linear-gradient(45deg, #BDC3D3, #D6DBE7);
+}
+ul {
+    display: block;
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+/* main 자식들 레이아웃 */
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+h1 {
+    margin-top: 80px;
+    margin-left: 100px;
+    color: #3e3cec;
+    font-size: 40pt;
+    position: fixed;
+    z-index: -1;
+    left: 2px;
+    width: 500px;
+    height: 100px;
+    border-radius: 20px;
+    padding-top: 22px;
+}
+.discussion__wrapper {
+    width: 540px;
+    margin-top: 200px;
+    margin-left: 240px;
+}
+.form__container {
+    background-color: white;
+    border-radius: 20px;
+    width: 300px;
+    height: 400px;
+    position: sticky;
+    top: 10px;
+    margin-top: 500px;
+    margin-left: 30px;
+    padding: 20px;
+    box-shadow: 1px 1px 3px 0px #3e3cec;
+}
+
+/* 디스커션 꾸미기 */
+.discussion__container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0px;
+    padding: 20px 10px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px 0px #3e3cec;
+}
+.discussion__avatar--wrapper {
+    margin-right: 20px;
+}
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+}
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+}
+.discussion__title {
+    margin-right: auto;
+    font-size: medium;
+}
+.discussion__title > a {
+    color: #3e3cec;
+    text-decoration: none;
+}
+.discussion__title > a:visited {
+    color: #9c89b8;
+}
+.discussion__title > a:hover {
+    color: #1982c4
+}
+.discussion__information {
+    margin-left: auto;
+    font-size: smaller;
+    color: #073b4c96;
+}
+
+.btn_answered {
+    background-color: #8ac926;
+    color: white;
+    border-radius: 10px;
+    width: 75px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+.btn_unanswered {
+    background-color: #ff595e;
+    color: white;
+    border-radius: 10px;
+    width: 75px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 0.7rem;
+}
+.hidden {
+    display: none;
+}
+
+/* Form 꾸미기 */
+
+
+.form__input--wrapper > div {
+    display: flex;
+    margin: 20px 0px;
+}
+
+.form__input--wrapper input, textarea {
+    flex: 1
+}
+
+input, textarea {
+    border: none;
+    border-bottom: 1px solid #b8bedd
+}
+
+.form__submit > input{
+    margin-left: 5px;
+    margin-top: 20px;
+    width: 95%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #5855e2;
+    color: white;
+    font-size: ;
+    font-weight: border;
+}
