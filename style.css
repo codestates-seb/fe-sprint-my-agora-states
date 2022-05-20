@@ -1,1 +1,185 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #adbac7;
+}
+
+i {
+  color: #74818e;
+}
+
+h1 {
+  font-weight: 600;
+  letter-spacing: -2px;
+  font-size: 72px;
+  background: linear-gradient(to right, #3768f1, #d6234a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #22272e;
+}
+
+.hide {
+  display: none;
+}
+
+.new-discussion-message {
+  border-radius: 5px;
+  background-color: #74818e;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 5px 15px;
+}
+
+.form__container {
+  background-color: #2d333b;
+  margin-bottom: 23px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  color: #adbac7;
+  /* overflow: auto; */
+  /* padding-bottom: 5px; */
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+#title {
+  width: 380px;
+}
+
+textarea#story {
+  width: 400px;
+  height: 100px;
+}
+
+/* 제출버튼 */
+input[type='submit' i] {
+  color: #ffffff;
+  background-color: #f14640;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 디스커션 컴포넌트 부모 */
+.discussion__wrapper {
+  height: 800px;
+  display: flex;
+  flex-flow: column wrap;
+  overflow: scroll;
+}
+
+/* discussion 컴포넌트인 부모요소 */
+li.discussion__container {
+  width: 540px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #22272e;
+  border-bottom: 0.5px solid #74818e;
+}
+
+/* 사진 중앙정렬 - 사진의 부모요소에서 Flex 정렬 */
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+}
+
+/* 좌측 프로필 사진 */
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+/* 중간 디스커션 컨텐츠 부모 */
+.discussion__content {
+  padding: 10px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* 중간 discussion 컨텐츠 제목*/
+.discussion__title {
+  align-self: flex-start;
+  font-size: 18px;
+}
+
+/* 작성자, 작성일 */
+.discussion__information {
+  padding-top: 10px;
+  color: #74818e;
+}
+
+/* 체크표시 */
+.discussion__answered {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* 페이지네이션 */
+/* .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.pagination a,
+.pagination button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.pagination ol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  list-style-type: none;
+}
+
+.pagination li {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0366d6;
+} */
