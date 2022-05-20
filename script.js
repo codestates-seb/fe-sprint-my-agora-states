@@ -19,9 +19,11 @@ const toggle = (function () {
     if (isShow === false) {
       while (ul.hasChildNodes()) {
         ul.removeChild(ul.firstChild);
+        downBtn.classList.add("clicked");
       }
     } else {
       render(ul);
+      downBtn.classList.remove("clicked");
     }
     // ③ 상태 변경
     isShow = !isShow;
