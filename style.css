@@ -35,20 +35,20 @@ main {
 
 
 h1 {
-    padding:80px 0 10px 0;
+    padding:80px 0 0 0;
     flex:1;
     font-family: 'establishRetrosansOTF';
     font-size: 5rem;
     /* text-shadow: 4px 4px 4px rgb(71, 70, 70);  */
     /* animation: blink-effect 3s step-end infinite; */
 }
-@keyframes blink-effect { 60% { opacity: 0; } }
+/* @keyframes blink-effect { 60% { opacity: 0; } } */
 
 
 
 section.form__container {
     flex:2;
-    margin:20px;
+    margin:10px;
 }
 section.discussion__wrapper{
     display: flex;
@@ -67,23 +67,27 @@ form {
     width:100vw;
 }
 form > .deco {
-    font-size: 10rem;
+
     /* color: #F86174; */
     color: #F56B7A;
     text-shadow: 1px 1px 1px rgb(11, 11, 11);
-    animation: blink-effect 1s step-end infinite;
+    /* animation: blink-effect 1s step-end infinite; */
     font-weight: bold;
 
 }
 form > div:first-of-type {
     margin-top: 15px;
     flex-basis: 30px;
+    padding-top: 15px;
     padding-left:40px;
+    font-size: 13rem;
 }
 form > div:nth-of-type(4) {
-    margin-top: 15px;
+    margin-top: 20px;
+    padding-top: 15px;
     margin-left: 10px;
     flex-basis: 30px;
+    font-size: 13rem;
 
 }
 
@@ -126,7 +130,7 @@ form > div:nth-of-type(4) {
 .form__submit input {
     cursor: pointer;
     width:100px;
-    height: 172px;
+    height: 180px;
     font-family: 'WooridaumR';
     font-weight:bolder;
     font-size: 1.1rem;
