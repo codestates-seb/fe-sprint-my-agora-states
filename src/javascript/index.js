@@ -2,15 +2,13 @@ import Discussions from "./components/discussions.js";
 import Pages from "./components/pages.js";
 import { createArrayPrototypeDivide } from "./utils/divide.js";
 import { storge } from './storge/storge.js';
+import { disctinctArray, suffleArray } from "./utils/random.js"; 
 
 createArrayPrototypeDivide();
 
 function App() {
-
-    if (storge.getData("data") === null) {
-        storge.setData("data", agoraStatesDiscussions.divide(10));
-    }
-
+    // 초기값 설정
+    if (storge.getData("data") === null) storge.setData("data", agoraStatesDiscussions.divide(10));
     const discussion = new Discussions();
     const pages = new Pages();
     const $form = document.querySelector("form");
@@ -18,12 +16,18 @@ function App() {
     let currentPage = 0;
     // 데이터 생성 함수
     const createUserData = (author, title) => {
+        // 데이터 추출
+        const avatars = disctinctArray(agoraStatesDiscussions.map((item) => item.avatarUrl));
+        const url = disctinctArray(agoraStatesDiscussions.map((item) => item.url));
+        // 데이터 셔플
+        suffleArray(avatars);
+        suffleArray(url);
         const date = new Date();
         const userData = {
             title,
             author,
-            avatarUrl: null,
-            url: null,
+            avatarUrl: avatars[0],
+            url: url[0],
             answer: null,
             createdAt: date
         }
@@ -52,7 +56,6 @@ function App() {
         // 페이징네이션 네비게이터 함수
         pages.$pagesContainer.addEventListener("click", (e) => {
             const pageNumber = Number(e.target.dataset.index);
-            console.log(pageNumber);
             if (isNaN(pageNumber)) return;
             currentPage = pageNumber - 1;
             render();
