@@ -67,9 +67,18 @@ let submit = document.querySelector('.form__submit-btn');
 submit.onclick = update;
 
 function update() {
+  // const today = new Date();
+  // const year = today.getFullYear();
+  // const month = ('0' + (today.getMonth() +1).slice(-2));
+  // const day = ('0' + today.getDate()).slice(-2);
+  // const hours = ('0' + today.getHours()).slice(-2);
+  // const minutes = ('0' + today.getMinutes()).slice(-2);
+  // const seconds = ('0' + today.getSeconds()).slice(-2);
+  // const timestamp = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`
+
   const newObj = {
     id: '',
-    createdAt: 'now',
+    createdAt: now,
     title: document.querySelector('.input--title').value,
     url: '/',
     author: document.querySelector('.input--name').value,
