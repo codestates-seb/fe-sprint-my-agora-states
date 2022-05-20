@@ -1,3 +1,28 @@
+let mode = "css"
+const editor = CodeMirror.fromTextArea(code, {
+  lineNumbers: true,
+  styleActiveLine: true,
+  matchBrackets: true,
+  scrollbarStyle: "overlay",
+  Tab: "indentMore",
+  defaultTab: function(cm) {
+    if (cm.somethingSelected()) cm.indentSelection("add");
+    else cm.replaceSelection("  ", "end");
+  },
+  mode
+})
+editor.setOption("theme", "highcontrast-dark")
+const x = document.querySelector(".code")
+const ro = new ResizeObserver(entries => {
+  editor.setSize(x.offsetWidth, x.offsetHeight)
+})
+ro.observe(document.querySelector(".code-container"))
+
+const changeMode = () => {
+  mode = mode === "css" ? "javascript" : "css"
+  editor.setOption("mode", mode)
+}
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -15,7 +40,26 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
+  const avatarImg = document.createElement('img');
+  
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of" + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInformation);
+
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑" : "🔘";
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
