@@ -87,7 +87,7 @@ export default function Discussions() {
     $div.className = "discussion__answered";
     $div.textContent = "☑";
     } else {
-    $div.className = "discussion__answered";
+    $div.className = "discussion__answered answer";
     $div.textContent = "☑";
     }
     return $div;
