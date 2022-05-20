@@ -77,7 +77,7 @@ const newobj = {
     "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
 };
 const addClickDiscussion = (e) => {
-  e.preventDefault(); //submit이벤트가 실행되면 다시 로드됨? 그래서 해주는것 같음.....
+  e.preventDefault();
   newobj.title = title.value;
   newobj.author = author.value;
   // newobj.createdAt = addNowTime();
