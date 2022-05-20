@@ -125,41 +125,11 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  const querystring = getQueryString();
-  const pageNo = Number(querystring.pageNo || 1);
-  const focus = querystring.focus;
-
-  for (let i = (pageNo - 1) * 10; i < pageNo * 10; i++) {
-    const list = getDiscussionList();
-    if (list[i] == null) {
-      break;
-    }
-    element.append(convertToDiscussion(list[i]));
-  }
-
-  if (focus === "true") {
-    const inputName = document.querySelector("#name");
-    const currentUrl = window.location.href;
-    const title = document.title;
-    inputName.focus();
-
-    window.history.replaceState(null, title, removeFocusParameter(currentUrl));
-  }
-
-  return;
+const removeFocusParameter = (url) => {
+  return url.replace("&focus=true", "");
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
-function removeFocusParameter(url) {
-  return url.replace("&focus=true", "");
-}
-
-function getQueryString() {
+const getQueryString = () => {
   const qs = {};
   const qsList = window.location.search
     .slice(1)
@@ -171,4 +141,40 @@ function getQueryString() {
   }
 
   return qs;
-}
+};
+
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  const querystring = getQueryString();
+  const pageNo = Number(querystring.pageNo || 1);
+
+  for (let i = (pageNo - 1) * 10; i < pageNo * 10; i++) {
+    const list = getDiscussionList();
+    if (list[i] == null) {
+      break;
+    }
+    element.append(convertToDiscussion(list[i]));
+  }
+
+  return;
+};
+
+// 랜더 후 발생하는 액션 정의
+const mounted = () => {
+  const querystring = getQueryString();
+  const focus = querystring.focus;
+
+  if (focus === "true") {
+    const inputName = document.querySelector("#name");
+    const currentUrl = window.location.href;
+    const title = document.title;
+    inputName.focus();
+
+    window.history.replaceState(null, title, removeFocusParameter(currentUrl));
+  }
+};
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
+
+mounted();
