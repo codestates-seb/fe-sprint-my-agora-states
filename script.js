@@ -77,7 +77,9 @@ const submitBtnAbled = function() {
 inputId.addEventListener("change", submitBtnAbled);
 inputTitle.addEventListener("change", submitBtnAbled);
 inputStory.addEventListener("change", submitBtnAbled);
-
+inputId.addEventListener("keyup", submitBtnAbled);
+inputTitle.addEventListener("keyup", submitBtnAbled);
+inputStory.addEventListener("keyup", submitBtnAbled);
 
 //submit 버튼 이벤트핸들러
 submitBtn.addEventListener("click", function(event){
