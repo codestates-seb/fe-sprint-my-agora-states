@@ -22,7 +22,7 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg);
 
-  // 디스커션 콘텐츠 (title, 작성시간) 가져오기
+  // 디스커션 콘텐츠 (title) 가져오기
   const discussionTitle = document.createElement('h2');
   const discussionAnchor = document.createElement('a');
   discussionAnchor.href = obj.url;
@@ -34,7 +34,17 @@ const convertToDiscussion = (obj) => {
   // 디스커션 콘텐츠 (작성자 정보) 가져오기
   const discussionInfo = document.createElement('div');
   discussionInfo.classList.add('discussion__information');
-  discussionInfo.textContent = `${obj.author}/ ${obj.createdAt}`;
+  const hour =
+    obj.createdAt.split('T')[1].slice(0, 2) < 12
+      ? obj.createdAt.split('T')[1].slice(0, 2)
+      : obj.createdAt.split('T')[1].slice(0, 2) - 12;
+  const minute = obj.createdAt.split('T')[1].slice(3, 5);
+  const second = obj.createdAt.split('T')[1].slice(6, 8);
+  const amPm = obj.createdAt.split('T')[1].slice(0, 2) < 12 ? '오전' : '오후';
+
+  const timeString = `${amPm} ${hour}:${minute}:${second}`;
+
+  discussionInfo.textContent = `${obj.author}/ ${timeString}`;
   discussionContent.append(discussionInfo);
 
   // 답변 등록 정보 가져오기
@@ -48,7 +58,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  element.innerHTML = ''; // discord
+  element.innerHTML = '';
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -62,34 +72,41 @@ render(ul);
 //입력값 디스커션 추가 기능
 const formSubmit = document.querySelector('.form');
 
-// //list 화면에 보여주기(append)
-// function showList(value1, value2, value3) {
-//   console.log(value1, value2, value3);
-// }
-
 //input 입력값 저장
 function onFormSumbit(event) {
-  event.preventDefault(); //submit으로 페이지 새로고침되는 기본동작 막기
-  const inputName = document.querySelector('#name').value;
-  const inputTitle = document.querySelector('#title').value;
-  const inputQuestion = document.querySelector('#story').value;
+  event.preventDefault(); // 페이지 새로고침되는 기본동작 막기
 
-  const currentTime = new Date();
-  const hours = ('0' + currentTime.getHours()).slice(-2);
-  const minutes = ('0' + currentTime.getMinutes()).slice(-2);
-  const seconds = ('0' + currentTime.getSeconds()).slice(-2);
+  let inputName = document.querySelector('#name').value;
+  let inputTitle = document.querySelector('#title').value;
+  let inputQuestion = document.querySelector('#story').value;
 
-  const timeString = `오전 ${hours}:${minutes}:${seconds}`;
+  let currentTime = new Date();
+  function timeSpring(date) {
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
 
+    month = month >= 10 ? month : '0' + month;
+    day = day >= 10 ? day : '0' + day;
+    hour = hour >= 10 ? hour : '0' + hour;
+    minute = minute >= 10 ? minute : '0' + minute;
+    second = second >= 10 ? second : '0' + second;
+
+    return `${date.getFullYear()}-${month}-${day}T${hour}:${minute}:${second}`;
+  }
+  date = timeSpring(currentTime);
   agoraStatesDiscussions.unshift({
     title: inputTitle,
     author: inputName,
-    createdAt: timeString,
+    createdAt: date,
     bodyHTML: `${inputQuestion}`,
   });
+
   console.log(agoraStatesDiscussions);
   render(ul);
 }
 
-//submit 이벤트리스터
+//submit 이벤트리스너
 formSubmit.addEventListener('submit', onFormSumbit);
