@@ -69,8 +69,15 @@ export default function Discussions() {
     const $div = document.createElement("div");
     const newDate = new Date(date);
     $div.className = "discussion__information";
-    $div.textContent = `${userId} asked ${newDate.getFullYear()}-${newDate.getMonth()}-${newDate.getDate()} in Discussion`;
+    $div.textContent = `${userId} asked ${newDate.getFullYear()}-${newDate.getMonth()}-${newDate.getDate()} ${newDate.getHours()}:${checkedMinutesLength(newDate.getMinutes())} in Discussion`;
     return $div;
+  }
+
+  // 분이 일의 자리이면 0을 추가해주는 함수
+  const checkedMinutesLength = (minutes) => {
+    minutes = String(minutes);
+    if(minutes.length === 1) return `0${minutes}`;
+    else return minutes;
   }
   
   // V 아이콘 생성
