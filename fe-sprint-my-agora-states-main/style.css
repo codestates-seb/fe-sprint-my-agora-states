@@ -1,0 +1,109 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+}
+
+h1 {font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+  background-image: url(/파스텔\ 배경2.png);
+  background-size: cover;
+}
+
+input#name.animate__animated.animate__backInLeft {
+  padding: 0px 0px 0px 0px;
+}
+
+/* section.form__container {
+  border: 3px solid black;
+} */
+
+
+div.animate__animated.animate__backInLeft {
+  padding: 5px 5px;
+}
+
+textarea.animate__animated.animate__backInLeft {
+  height: 40px;
+  width: 300px;
+}
+
+div.form__submit {
+  margin: 0px 0px 0px 7px;
+}
+
+label {
+  display: block;
+}
+
+
+
+/* section.form__container {
+  border: 5px solid pink;
+}
+
+form {
+  border: 3px solid blue;
+}
+
+div.form__input--wrapper {
+  border: 3px solid red;
+} */
+
+
+
+/* 디스커션 전체를 감싸는 창 */
+/* ul.discussions__container {
+} */
+
+/* 각각의 디스커션 */
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  background-color: #FEFBE7;
+  border-radius: 5px;
+  list-style-type: none;
+  border: 5px solid transparent;
+  border-image: linear-gradient(to right, #ff6a2fbe, #fc8ae1aa, #1e65ffaa);
+  border-image-slice: 1;
+}
+
+/* 이미지 */
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+}
+
+
+
+/* 왼쪽 이미지 구역 */
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+
+/* 중앙 질문제목 및 정보 */
+div.discussion__content {
+  width: 300px;
+}
+
+/* 오른쪽 답변완료 체크박스 */
+div.discussion__answered {
+  width: 30px;
+  text-align: center;
+}
+
+p {
+  display: flex;
+  padding: 15px 0px 0px 10px;
+}
