@@ -40,6 +40,11 @@ const convertToDiscussion = (obj) => {
   // 답변유무
   const answerP = document.createElement("p");
   answerP.textContent = answerCheck(obj.answer);
+  if (answerP.textContent === '☒'){
+    answerP.className += 'redColor';
+  }else{
+    answerP.className += 'greenColor';
+  }
   discussionAnswered.append(answerP);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -84,7 +89,7 @@ submitButton.onclick = function () {
     'title': formInputTitle.value,
     'bodyHtml': formTextbox.value,
     'answer': null,
-    'avatarUrl': 'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4',
+    'avatarUrl': 'https://avatars.githubusercontent.com/u/56163157?v=4',
     'createdAt': new Date()
   }
 
@@ -94,8 +99,34 @@ submitButton.onclick = function () {
   // ul의 앞에 새로 추가된 객체를 할당
   ul.prepend(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length-1]));
 
-  //Local Storage: https://hianna.tistory.com/697
+
+  // Local Storage: https://hianna.tistory.com/697
+  // 문자열로 받아와짐
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions));
+  // 배열로 다시 받기 위해선 JSON.parse 사용
+  agoraStatesDiscussions = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+
+  // 현재 로컬스토리지에 데이터가 쌓임
+  // 이것을 data.js에 있는 배열에 할당이 안됨....
+  // 해본 방법: 로컬스토리지에 데이터가 있다면 새로운 변수를 사용한다.
+  // 실패;; 왜? 하나하나 다 바꿔줘야하는데 힘듬.....
+  // 그러면 할 수 있는 방안
+  // 처음 시작할 때 부터 원본을 로컬스토리지에 담는다.
+  // 어떻게?
+  // data.js를 변경하자 그러면 스크립트에서 변경할 필요가 없다.
 }
+
+
+// 페이지제이션: https://velog.io/@eunoia/JS%EB%A1%9C-Pagination-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+// let totalPage = Math.ceil((agoraStatesDiscussions.length-1)/10);
+// console.log(totalPage);
+
+// if (agoraStatesDiscussions.length >= 10){
+//   for(let i = 0; i <= totalPage; i++) {
+//     console.log(i);
+//   }
+// }
+
 
 
 // // 오전 오후로 시간 변경

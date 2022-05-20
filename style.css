@@ -1,7 +1,7 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 *{
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -9,28 +9,33 @@ li{
   list-style: none;
 }
 
-/* 전체 틀 */
 main{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #E0D8B0;
+  padding: 20px 0;
 }
 
-/* 질문 작성 화면 */
+h1{
+  color: #ffffff;
+  text-shadow: 4px 4px 0px #bdbdbd;
+}
+
 .form__container{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
-/*  */
 form{
   display: flex;
   justify-content: center;
   width: 540px;
-  border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 15px;
+  background-color: #FCFFE7;
 }
 
 .form__input--wrapper{
@@ -43,67 +48,90 @@ form{
 
 .form__input--name, .form__input--title, .form__textbox{
   display: flex;
+  flex-direction: column;
   margin: 5px;
   flex-basis: 80%;
 }
 
-.form__textbox{
-  flex-direction: column;
-}
-
 .form__submit{
   display: flex;
-  padding: 10px;
+  margin-top: 35px;
+  margin-bottom: 15px;
 }
 
 .form__submit > input{
-  flex-basis: 20%;
+  border: 0;
+  border-radius: 5px;
+  width: 50px;
+  color: #CE9461;
+  background-color: #E0D8B0;
 }
 
-label[for=name], label[for=story], #name{
-  flex-basis: 100%;
+.form__submit > input:hover{
+  cursor: pointer;
+  background-color: #CE9461;
+  color: white;
 }
 
-
-/* 질문 리스트 화면 */
 .discussion__wrapper{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.discussion__container{
+.discussions__container{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 540px;
+}
+
+.discussion__container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #FCFFE7;
+  border-radius: 15px;
 }
 
 .discussion__avatar--wrapper{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-basis: 10%;
 }
 
 .discussion__avatar--image{
   border-radius: 50%;
-  width: 48px;
-  margin-right: 20px;
+  width: 50px;
 }
 
 .discussion__content{
-  flex-basis: 80%;
+  margin: 10px 15px;
+  flex-grow: 1;
 }
 
 .discussion__information{
+  margin-top: 10px;
   text-align: right;
 }
 
-.discussion__answered{
-  flex-basis: 10%;
+.discussion__answered > p{
+  font-size: 30px;
 }
 
-.discussion__answered > p{
-  font-size: 40px;
+.redColor{
+  color: red;
+}
+
+.greenColor{
+  color: green;
+}
+
+.pagination{
+  display: flex;
+  flex-direction: row;
 }
