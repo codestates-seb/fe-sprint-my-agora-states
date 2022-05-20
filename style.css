@@ -1,1 +1,143 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 2px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+body{
+    background-color: #a3bfaa;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+/* 글 작성 section*/
+.form__container{
+
+    padding-top:10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    left : 20px;
+    width: 450px;
+    background-color: #D0C9C0;
+    border-radius: 5px;
+    position: relative;
+
+    box-shadow: 0 -2px 3px inset;
+    border-radius: 9px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.form__input--name{
+    display: flex;
+}
+
+.form__input--title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#name{
+    width: 300px;
+}
+
+#story{
+    width: ;
+}
+
+.form__submit{
+    display: flex;
+    align-self: stretch;
+}
+
+
+/* 디스커션 */
+.discussions__container * {
+    
+    margin: 5px;
+}
+
+.discussions__container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.discussion__container {
+    background-color: #EFEAD8;
+    width: 540px;
+    border-radius: 5px;
+    box-shadow: 0 -2px 3px inset;
+
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 이미지  */
+.discussion__avatar--wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+img{
+    width: 48px;
+    border-radius: 100%;
+}
+
+
+/* 콘텐츠 */
+.discussion__content{
+    flex-grow: 30;
+}
+
+.discussion__title {
+}
+    
+
+a {
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+.discussion__information{
+    font-size: 13px;
+    text-align: right;
+}
+
+
+/* 답변 */
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
+.discussion__answered p{
+    font-size: 20px;
+}
