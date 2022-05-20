@@ -47,7 +47,9 @@ const convertToDiscussion = (obj) => {
 
   // 질문자명 / 작성 시간
   const contentInfo = document.createElement("div");
-  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  contentInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString("ko-kr")}`;
   contentInfo.className = "discussion__information";
   discussionContent.append(contentH2);
   discussionContent.append(contentInfo);
@@ -114,7 +116,7 @@ const submitForm = document
       author: e.target[0].value,
       title: e.target[1].value,
       content: e.target[2].value,
-      createdAt: new Date().toLocaleString(),
+      createdAt: new Date().toLocaleString("ko-kr"),
       avatarUrl:
         "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
     });
