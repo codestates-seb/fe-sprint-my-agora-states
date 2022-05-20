@@ -1,1 +1,124 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root{
+    --surface: rgb(255, 255, 255);
+    --boxShadow: rgba(0, 0, 0, 0.038) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.116) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    --secondary:rgba(1, 1, 1, 0.152);
+    --button-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; ;
+    --visited: ;
+    --link: ;
+}
+*{  color: #878787;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{background: radial-gradient(circle, rgba(238,174,202,0.3897934173669467) 0%, rgba(148,187,233,0.43461134453781514) 100%);}
+h1{
+    text-align: center;
+}
+.form__container{
+  
+}
+.discussion__wrapper,.form__container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    box-shadow: var(--boxShadow);
+    border-radius: 10px;
+   width: 540px; 
+   background-color: var(--secondary);
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label+input,textarea {
+    border: none;
+
+}
+.form__input--wrapper{
+    width: 60%;
+    padding: 20px 0 20px ;
+}
+.form__submit{
+    width: 30%;
+}
+.form__input--name>#name{
+    margin-left: 8%;
+ }
+ .form__input--title>#name{
+     margin-left: 11%;
+ }
+#name{ width: 50%;
+    
+}
+#story{
+    padding-right: 40%;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 20% 0;
+    font-size: larger;
+    border: none;
+    background-color: var(--surface);
+    border-radius: 10px;
+    box-shadow: var(--button-shadow);
+
+}
+li.discussion__container{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 540px;
+    height: 100px;
+    margin-bottom: 0.5em;
+    box-shadow: var(--boxShadow);
+    border-radius: 10px;
+    list-style-type: none;
+    background-color: rgba(255, 255, 255, 0.443);
+    
+}
+div.discussion__avatar--wrapper > img{
+    width: 48px;
+    border-radius: 100%;
+}
+div.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:0 0 0;
+    padding: 1rem;
+}
+
+
+
+.discussion__content{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+
+}
+.discussion__answered{
+    width: 10%;
+}
+.discussion__answered > p {
+    font-size: 35px;
+}
+h4{
+    height: 60%;
+}
+a{
+    display: flex;
+    margin-top: 20px;
+}
+.discussion__information{
+    display: flex;
+    justify-content: end;
+
+
+}
