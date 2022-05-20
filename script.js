@@ -39,7 +39,7 @@ const convertToDiscussion = (obj) => {
   // if (obj.answer !== null) {
     // discussionAnswered.textContent = '☑';
   // }
-  discussionAnswered.textContent = obj.answer !== null ? '☑' : '☒';
+  discussionAnswered.textContent = obj.answer ? '☑' : '☒';
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -67,11 +67,13 @@ submit.onclick = () => {
   let enterTitle = document.querySelector('#title');
   let yourQuestion = document.querySelector('#story');
   let addAgoraStates = {
-    author: enterName.textContent,
-    title: enterTitle.textContent
+    author: `${enterName.textContent}`,
+    title: `${enterTitle.textContent}`,
+    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
   };
   console.log(addAgoraStates.author);
   console.log(addAgoraStates.title);
   agoraStatesDiscussions.unshift(addAgoraStates);
+  ul.innerHTML = '';
   render(ul);
 }
