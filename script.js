@@ -1,8 +1,10 @@
 const ul = document.querySelector("ul.discussions__container");
 const perPage = document.querySelector("#selection");
+const isAnswered = document.querySelector("#filtering");
 const submitBtn = document.querySelector("input[type=submit]");
 const form = document.querySelector("form");
 const pages = document.querySelector(".pages");
+let discussionArr;
 
 class newDiscussion {
   constructor(arr, time) {
@@ -55,19 +57,19 @@ const convertToDiscussion = (obj) => {
 
   /* 3. 답변완료 표시 */
   const answered = document.createElement("img");
-  answered.className = obj.answer ? "" : "notAnswered";
+  answered.className = obj.answer ? "answered" : "notAnswered";
   discussionAnswered.append(answered);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+/* 데이터 배열의 모든 값을 화면에 렌더링하는 함수 */
 const render = (target, elementArr, pageGroup = 1) => {
   let start = (pageGroup - 1) * articlesPerPage;
   let end = start + articlesPerPage;
 
-  ul.querySelectorAll("li").forEach((el) => { el.remove(); });
+  target.querySelectorAll("li").forEach((el) => { el.remove(); }); // 리스트 초기화
 
   for (let i = start; i < end; i += 1) {
     if (i >= elementArr.length) break;
@@ -75,18 +77,21 @@ const render = (target, elementArr, pageGroup = 1) => {
   }
 };
 
+/* localStorage 저장 */
 function saveLocalStorage(arr) {
-  const discussionArr = JSON.stringify(arr);
-  localStorage.setItem("discussions", discussionArr);
+  const dataArr = JSON.stringify(arr);
+  localStorage.setItem("discussions", dataArr);
 }
 
+/* localStorage 불러오기 */
 function loadLocalStorage() {
   discussionArr = JSON.parse(localStorage.getItem("discussions")) || agoraStatesDiscussions;
   perPage.value = articlesPerPage;
   render(ul, discussionArr);
+  initializePageNodes(discussionArr, pages.children[1]);
 }
 
-
+/* discussion 전송 버튼 이벤트 */
 submitBtn.addEventListener("click", (e) => {
   let formData = new FormData(form).getAll("discussion");
   const now = new Date();
@@ -96,49 +101,65 @@ submitBtn.addEventListener("click", (e) => {
   saveLocalStorage(discussionArr);
 })
 
-function pageCalculator(event) {
-
-}
-
+/* 페이지 넘기기 이벤트 */
 pages.addEventListener("click", (e) => {
   const currentPageNode = pages.querySelector("#current-page");
   const currentPage = Number(currentPageNode.textContent);
-  let nextPage = lastPage(discussionArr);
+  let lastPage = getLastPage(filteredData());  // 필터링 했을 때는 다른 배열 
+  let nextPage;
 
-  if (e.target.tagName !== "SPAN") {
-    return
-  };
+  if (e.target.tagName !== "SPAN") return;
 
   if (e.target.id === "prev") {
-    nextPage = currentPage - 1 || 1;
-    currentPageNode.previousElementSibling.id = "current-page";
+    nextPage = currentPage - 1;
   };
 
   if (e.target.id === "next") {
     nextPage = currentPage + 1;
-    if (nextPage >= lastPage) nextPage = lastPage;
-    currentPageNode.nextElementSibling.id = "current-page";
   };
 
   if (e.target.parentNode.className.match(/page-number/g)) {
-    e.target.id = "current-page"
     nextPage = Number(e.target.textContent);
   };
 
-  currentPageNode.id = "";
-  render(ul, discussionArr, nextPage);
+  if (nextPage < 1 || nextPage > lastPage) return;
+
+  relabeling(pages.children[1], lastPage, nextPage);
+  render(ul, filteredData(), nextPage);
   scrollTo(0, ul.offsetTop);
 });
 
+/* 페이지 당 게시글 수 변경 이벤트 */
 perPage.addEventListener("change", (e) => {
   const currentPageNode = pages.querySelector("#current-page");
-  const firstPageNode = pages.querySelectorAll(".page-number span")[0];
 
   currentPageNode.id = "";
-  firstPageNode.id = "current-page";
   articlesPerPage = Number(e.target.value);
-  render(ul, discussionArr);
+  render(ul, filteredData());
+  initializePageNodes(filteredData(), pages.children[1]);
   localStorage.setItem("articlesPerPage", articlesPerPage);
 })
 
+/* 답변 완료 여부 필터링 이벤트 */
+isAnswered.addEventListener("change", (e) => {
+  const filtering = e.target.value;
+  const filteredArr = discussionArr.filter((obj) => {
+    if (filtering === "answered") return obj.answer;
+    if (filtering === "notAnswered") return !obj.answer;
+    return true;
+  })
+  filteredData(filteredArr);
+  render(ul, filteredArr);
+  initializePageNodes(filteredArr, pages.children[1]);
+})
+
 loadLocalStorage();
+
+const filteredData = (function () {
+  let data = discussionArr;
+
+  return function (filtered) {
+    if (filtered) return (data = filtered);
+    return data;
+  }
+})();
