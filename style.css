@@ -1,1 +1,195 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+ul,ol{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/********************** my agora states **********************/
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 5px 0;
+    background-color: antiquewhite;
+    width: 540px;
+}
+
+#question_btn{
+    border: none;
+    width: 120px;
+    height: 30px;
+    background-color: darkcyan;
+}
+#question_btn:hover{
+    cursor: pointer;
+}
+
+/********************** 댓글 입력창 **********************/
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 540px;
+    padding: 15px;
+    background-color: green;
+    border-radius: 10px;
+}
+
+.form__input--name,
+.form__input--title,
+.question_and_submit{
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.form__input--wrapper label{
+    display: block;
+    margin-top: 7px;
+}
+
+.form__input--name>label{
+    margin-top: 0;
+}
+
+input,
+textarea{
+    display: block;
+    width: 315px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.form__input--title> input{
+    width: 330px;
+}
+
+input:focus,
+textarea:focus{
+    outline: none;
+}
+
+textarea{
+    height: 80px;
+    width: 370px;
+}
+
+.question_and_submit{
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__submit{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+
+.form__submit > input{
+    cursor: pointer;
+    width: 70px;
+    height: 80px;
+}
+
+/********************** 댓글 **********************/
+
+.discussion__wrapper{
+    width: 540px;    
+}
+
+li.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+.discussion__avatar--wrapper{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+div.discussion__avatar--wrapper > img{
+    border-radius: 100%;
+    width: 48px;
+}
+
+.discussion__content{
+    position: relative;
+    width: 440px;
+    height: 70px;
+}
+
+.discussion__content>h2{
+    font-size: 18px;
+    background-color: lightpink;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+
+    display: flex;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    
+
+    /*
+    CSS에서 ellipsis('...')를 처리하는 방법
+    https://junistory.blogspot.com/2017/06/css-ellipsis.html
+    */
+
+}
+.discussion__content>h2>a:hover{
+    color: blue;
+}
+
+.discussion__content>.discussion__information{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 10px;
+    background-color: lightblue;
+}
+
+.discussion__answered{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
