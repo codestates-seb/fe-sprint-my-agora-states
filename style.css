@@ -6,10 +6,25 @@
   box-sizing: border-box;
 }
 
+body {
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+h1.title {
+  margin-bottom: 1em;
+}
+
+.form__container {
+  margin-bottom: 2em;
+}
+
 li.discussion__container {
   width: 540px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
+  border: 1px solid #000;
   list-style-type: none;
 }
 
@@ -26,9 +41,17 @@ li.discussion__container {
   width: 48px;
 }
 
+.discussion__content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 0.5rem;
+}
+
 .discussion__information {
-  margin-top: 1em;
-  margin-left: 10em;
+  margin-top: 0.5em;
+  text-align: right;
 }
 
 .discussion__answered {
@@ -40,5 +63,5 @@ li.discussion__container {
 }
 
 .discussion__answered p {
-  font-size: 2em;
+  font-size: 1.5em;
 }
