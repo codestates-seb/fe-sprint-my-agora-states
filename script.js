@@ -1,6 +1,9 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+// 시간 추가 함수
+
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -77,6 +80,8 @@ const onBtn = (e) => {
   agoraStatesDiscussions.unshift(newObj);
   let li = convertToDiscussion(newObj);
   ul.prepend(li);
+  formName.value = '';
+  formTitle,value = '';
   return render(ul);
 }
 
