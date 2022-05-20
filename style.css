@@ -1,1 +1,160 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+main {
+  background-color: papayawhip;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+main > h1 {
+  font-family: 'Lobster', cursive;
+  margin-top: 2rem;
+  font-size: 5rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    red 0%,
+    yellow 7.14%,
+    rgb(0, 255, 0) 14.28%,
+    rgb(0, 255, 255) 21.4%,
+    cyan 28.56%,
+    blue 35.7%,
+    magenta 42.84%,
+    red 50%
+  );
+  font-weight: bold;
+  background-size: 600vw, 600vw;
+
+  /* text 색상을 지정한다. */
+  -webkit-text-fill-color: transparent;
+  /* 배경은 이미지가 텍스트 컬러 안에 칠해진다. */
+  -webkit-background-clip: text;
+  animation: slide 10s linear infinite forwards;
+}
+/* keyframes와 animation은 짝꿍이다. */
+@keyframes slide {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+/* Discussion li  */
+.discussion__wrapper ul .discussion__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 54rem;
+  height: 8rem;
+  margin: 1rem;
+  background-color: #fefbe7;
+  border-radius: 2rem;
+}
+
+.discussion__avatar--wrapper {
+  margin-right: 1rem;
+}
+.discussion__avatar--wrapper img {
+  width: 4.8rem;
+  border-radius: 50%;
+}
+
+.discussion__content {
+  width: 35rem;
+}
+
+.discussion__content > div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.discussion__content > div p {
+  padding: 0.1rem;
+}
+
+/* InputBox */
+
+#name,
+#title {
+  width: 45rem;
+  height: 3rem;
+  margin: 1rem;
+}
+
+#story {
+  margin-top: 1rem;
+  width: 45rem;
+  height: 5.5rem;
+  margin-left: 2.5rem;
+}
+
+.form__input--wrapper {
+  display: flex;
+  width: 54rem;
+  height: 20rem;
+  border-radius: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #dae5d0;
+}
+
+.form__input--name > label {
+  font-size: 1.5rem;
+}
+
+.form__input--title > label {
+  font-size: 1.5rem;
+}
+
+/* button */
+
+.form__submit input {
+  width: 30rem;
+  height: 4rem;
+  border: none;
+  background-color: #a0bcc2;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-left: 12.5rem;
+}
+
+.form__submit input:hover {
+  transform: scale(0.98);
+}
+
+.btn_container {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 4rem;
+}
+
+.btn_container button {
+  width: 15rem;
+  height: 4rem;
+  border: none;
+  background-color: #a0bcc2;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  margin: 0 5rem;
+}
+
+.btn_container button:hover {
+  transform: scale(0.98);
+}
