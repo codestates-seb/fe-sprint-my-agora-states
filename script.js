@@ -40,9 +40,7 @@ const convertToDiscussion = (obj) => {
   discussionInfo.textContent = obj.author + " / " + obj.createdAt;
 
 
-  // li 하위 태그들 생성
-
-  
+  // li 하위 태그들 생성  
   avatarWrapper.append(avatarImage);
 
   discussionTitle.append(aTag);
