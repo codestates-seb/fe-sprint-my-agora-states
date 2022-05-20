@@ -1,1 +1,158 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* css reset */
+* { 
+    margin: 0; 
+    padding:0; 
+    box-sizing : border-box;
+}
+
+.title {
+    text-align: center;
+    width: 600px;
+    font-size: xx-large;
+}
+
+/* 전체묶음 */
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 질문창 */
+.form__input--wrapper{
+    width: 650px;
+    height: 350px;
+    background-color: rgb(232, 243, 182);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 20px;
+   
+}
+
+/* 이름칸 */
+#user__name {
+    width: 300px;
+    height: 50px;
+    border: 3px solid #eee3c6;
+    border-radius: 5px;
+    box-shadow: 10;
+}
+
+/* 제목칸 */
+#title__name{
+    width: 300px;
+    height: 50px;
+    margin-left: 10px;
+    border: 3px solid #eee3c6;
+    border-radius: 5px;
+    box-shadow: 10;
+}
+
+
+/* 질문창 질문 */
+label{
+    color:  white;
+    border: 3px solid #3b3a37;
+    background-color: rgb(80, 79, 79);
+    border-radius: 10px;
+    margin: 20px ;
+    
+}
+
+/* 글입력창 */
+textarea {
+    width: 350px;
+    height: 100px;
+    border: 3px solid #eee3c6;
+    border-radius: 10px;
+}
+
+
+/* 질문작성 창 */
+.form__textbox {
+    width: 100%;
+    display:  flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+/* 버튼 */
+#submit {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    margin-right: 20px;
+    
+}
+
+.discussions__container{
+
+    background-color: #eee3c6;
+    border-radius: 50px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+
+/* 컴포넌트 묶음 (아바타,내용,체크) */
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    margin-top: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+/* 컴포넌트 질문내용 */
+.discussion__title{
+    width: 430px;
+    font-size: large;
+    text-align: left;
+}
+
+
+
+/*컴포넌트 리스트  */
+li.discussion__container {
+
+    list-style: none;
+}
+
+/* 아바타 부모 */
+.discussion__avatar__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+/* 아바타사진 */
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+  
+}
+
+/* 저자,날짜 컴포넌트 */
+.discussion__information {
+   
+   margin: 10px 0;
+   text-align: right;
+   
+}
+
+/* 체크박스 */
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
