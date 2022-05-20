@@ -37,9 +37,14 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(contentInfo);
   
   // 답변확인
-  const chkAnswer = document.createElement('p')
-  chkAnswer.textContent = '☑'
-  discussionAnswered.append(chkAnswer);
+  const chkbox = document.createElement('input');
+  chkbox.setAttribute('type', 'checkbox')
+  chkbox.setAttribute('disabled', 'disabled')
+  discussionAnswered.append(chkbox);
+
+  if( obj.answer !== null ) {
+    chkbox.setAttribute('checked', 'checked');
+  }
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
