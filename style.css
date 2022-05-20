@@ -1,9 +1,11 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
     box-sizing: border-box;
+    color: white;
 }
 body{
     margin: 0;
+    background-color: rgb(248, 203, 46);
 }
 main{
     display: flex;
@@ -14,16 +16,94 @@ ul{
     list-style: none;
     padding-left: 15px;
 }
-
+a{
+    text-decoration: none;
+}
 .fixedRow{
     position: fixed;
     background-color: white;
     border-bottom: 1px solid black;
-    width: 550px;
+    width: 560px;
+    background-color: rgb(248, 203, 46);
+    
+}
+h1{
+    color: rgb(238, 80, 7);
+    font-size: 30px;
+    margin-top: 5;
+    margin-bottom: 10;
+}
+label{
+    color: rgb(238, 80, 7);
+    font-weight: bold;
+    flex: 3 1 0;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.form{
+    display: flex;
+}
+.form__input--wrapper{
+    flex: 9 1 0
+}
+.form__submit{
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+}
+input[type=submit]{
+    color: rgb(0, 110, 127);
+    height: 50%;
+}
+input[type=text]#name{
+    
+    flex: 7 1 0;
+}
+input[type=text]#title{
+
+    flex: 7 1 0;
+}
+textarea{
+    
+    flex: 7 1 0;
 }
 
+.form__input--name{
+    display: flex;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    height: 40px;
+}
+.form__input--title{
+    display: flex;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    height: 40px;
+}
+.form__textbox{
+    display: flex;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    height: 80px;
+}
+#name{
+    color: rgb(0, 110, 127);
+    font-weight: bold;
+}
+#title{
+    color: rgb(0, 110, 127);
+    font-weight: bold;
+}
+#story{
+    color: rgb(0, 110, 127);
+    font-weight: bold;
+}
+
+
 .discussion__wrapper{
-    margin-top: 200px;
+    margin-top: 250px;
     width: 540px;
     display: flex;
     justify-content: center;
@@ -32,15 +112,24 @@ ul{
 
 /* 컨테이너 박스 내부 */
 .discussion__container{
-    
+    background-color: rgb(0, 110, 127);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: stretch;
     border: 1px solid none;
-    box-shadow: 2px 2px gray;
+    box-shadow: -2px -2px 5px black, 2px 2px 5px rgb(0, 0, 0);
     border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    
 }
+.discussion__container:hover{
+    background-color: rgb(238, 80, 7);
+}
+
+
 .discussion__avatar--wrapper{
     flex: 1 1 0;
     display: flex;
