@@ -1,1 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300;500&display=swap");
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fdf6ec;
+}
+
+h1 {
+  margin: 1.5rem;
+  color: #4c535a;
+  font-family: "Akshar", sans-serif;
+  font-weight: 550;
+}
+
+.form__container {
+  width: 540px;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #f3e9dd;
+}
+
+.form__input--wrapper * {
+  margin-bottom: 0.25rem;
+}
+
+label {
+  color: #4c535a;
+  font-family: "Akshar", sans-serif;
+}
+
+input,
+textarea {
+  border: none;
+  width: 100%;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+textarea {
+  height: 5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form__submit > input {
+  background-color: #b7cadb;
+  color: white;
+  font-weight: bold;
+  width: 4rem;
+  height: 2rem;
+  display: block;
+  margin: auto;
+}
+
+.form__submit > input:hover {
+  opacity: 50%;
+  color: rgb(37, 37, 37);
+}
+
+li.discussion__container {
+  width: 540px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.discussion__avatar__content {
+  display: flex;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 0.75rem;
+}
+
+.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+}
+
+.discussion__content {
+  display: block;
+  width: 22.5rem;
+}
+
+.discussion__title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+a {
+  text-decoration: none;
+  color: #4c535a;
+}
+
+.discussion__information {
+  text-align: right;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #4c535a;
+}
