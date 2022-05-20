@@ -3,8 +3,16 @@ const input_name = document.querySelector('#name');
 const title = document.querySelector('#title');
 const text = document.querySelector('#story');
 const submit = document.querySelector('#submit');
+const dc = document.querySelector('.discussions__container');
 
-// LocalStorage
+// User Keyup Button Activity
+submit.disabled = true;
+input_name.addEventListener('keyup', () => {
+  submit.disabled = false;
+  if (input_name.value === '') submit.disabled = true;
+});
+
+// LocalStorage Data
 let data = [];
 const savedData = JSON.parse(localStorage.getItem('data'));
 if (savedData) {
@@ -13,8 +21,6 @@ if (savedData) {
   data = agoraStatesDiscussions;
   localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
 }
-
-const dc = document.querySelector('.discussions__container');
 
 // Subject button Click Event
 submit.addEventListener('click', (e) => {
@@ -60,7 +66,11 @@ function changeKoreaTime(data) {
   let hour = +data.slice(0, 2);
   let morning_afternoon = hour >= 12 ? '오후' : '오전';
   let transition_time =
-    morning_afternoon === '오후' ? (hour = hour - 12) : hour;
+    morning_afternoon === '오후'
+      ? hour === 12
+        ? hour
+        : (hour = hour - 12)
+      : hour;
   return morning_afternoon + ' ' + transition_time + data.slice(2);
 }
 
@@ -148,3 +158,5 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
+
+//
