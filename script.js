@@ -51,17 +51,29 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+let localDiscussions = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+if (!localDiscussions){
+  localDiscussions = agoraStatesDiscussions;
+}
+
+if (localStorage.length !== 0){
+  agoraStatesDiscussions = localDiscussions;
+}
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  console.log(element);
+  for (let i = 0; i < localDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(localDiscussions[i]));
   }
   return;
 };
 
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
 
 // 답변의 유무를 판별하는 함수
 function answerCheck(answer) {
@@ -72,7 +84,7 @@ function answerCheck(answer) {
   }
 };
 
-// from DOM 요소
+// form
 const form = document.querySelector('.form');
 const submitButton = form.querySelector('.form__submit > input');
 
@@ -80,8 +92,8 @@ const formInputName = form.querySelector('.form__input--name > #name');
 const formInputTitle = form.querySelector('.form__input--title > #name');
 const formTextbox = form.querySelector('.form__textbox > #story'); 
 
-// submit button 이벤트 핸들러
-submitButton.onclick = function () {  
+// submit button
+submitButton.onclick = function (event) {  
 
   event.preventDefault();
   let data = {
@@ -93,51 +105,11 @@ submitButton.onclick = function () {
     'createdAt': new Date()
   }
 
-  // agoraStatesDiscussions에 순서대로 넣음
-  // 만약에 게시물에 번호를 달아야 할 경우를 대비
   agoraStatesDiscussions.push(data);
-  // ul의 앞에 새로 추가된 객체를 할당
-  ul.prepend(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length-1]));
-
-
-  // Local Storage: https://hianna.tistory.com/697
-  // 문자열로 받아와짐
+    
   localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions));
-  // 배열로 다시 받기 위해선 JSON.parse 사용
-  agoraStatesDiscussions = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+  // localDiscussions = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
 
-  // 현재 로컬스토리지에 데이터가 쌓임
-  // 이것을 data.js에 있는 배열에 할당이 안됨....
-  // 해본 방법: 로컬스토리지에 데이터가 있다면 새로운 변수를 사용한다.
-  // 실패;; 왜? 하나하나 다 바꿔줘야하는데 힘듬.....
-  // 그러면 할 수 있는 방안
-  // 처음 시작할 때 부터 원본을 로컬스토리지에 담는다.
-  // 어떻게?
-  // data.js를 변경하자 그러면 스크립트에서 변경할 필요가 없다.
+  ul.prepend(convertToDiscussion(localDiscussions[localDiscussions.length-1]));
+
 }
-
-
-// 페이지제이션: https://velog.io/@eunoia/JS%EB%A1%9C-Pagination-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
-// let totalPage = Math.ceil((agoraStatesDiscussions.length-1)/10);
-// console.log(totalPage);
-
-// if (agoraStatesDiscussions.length >= 10){
-//   for(let i = 0; i <= totalPage; i++) {
-//     console.log(i);
-//   }
-// }
-
-
-
-// // 오전 오후로 시간 변경
-// function timeChange(at){
-//   if (at){
-//     let time = at.split('T');
-//     // console.log(`오후 ${Number(time[1].slice(0,2))-12}${time[1].slice(2,time[1].length-1)}`);
-//     if (Number(time[1].slice(0,2)) > 12){
-//       return `오후 ${Number(time[1].slice(0,2))-12}${time[1].slice(2,time[1].length-1)}`
-//     }else{
-//       return `오전 ${time[1].slice(0,time[1].length-1)}`
-//     }
-//   }
-// }
