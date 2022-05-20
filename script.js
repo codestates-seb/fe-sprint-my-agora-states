@@ -6,13 +6,6 @@ const UseTitle = document.querySelector('#title');
 const UseStory = document.querySelector('#sotry');
 const SubMit = document.querySelector('.sub_btn');
 
-SubMit.onclick = function(){
-  agoraStatesDiscussions.unshift({
-    id: UserName.value,
-    title: UseTitle.value,
-    author: UserName.value,
-  })
-}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
