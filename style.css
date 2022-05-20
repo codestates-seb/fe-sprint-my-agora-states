@@ -86,14 +86,17 @@ div.discussion__avatar--wrapper > img{
     border-radius: 100%;
 }
 div.discussion__avatar--wrapper{
+    
     display: flex;
     justify-content: center;
     align-items: center;
     flex:0 0 0;
     padding: 1rem;
 }
-
-
+h1{padding: 2rem;}
+.discussion__wrapper{
+    padding: 1rem;
+}
 
 .discussion__content{
     width: 70%;
@@ -108,6 +111,8 @@ div.discussion__avatar--wrapper{
 }
 .discussion__answered > p {
     font-size: 35px;
+    display: flex;
+    margin-top: 10px;
 }
 h4{
     height: 60%;

@@ -41,6 +41,12 @@ discussionContent.append(discussionTitle);
   checked.textContent = obj.answer ? "☑︎":"☒";
   discussionAnswered.append(checked);
 
+  //체크박스 클릭 변화
+checked.addEventListener("click",function(){
+  // if(checked.textContent === ){
+  //   discussionAnswered.append(checked);
+  // }
+});
 li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
