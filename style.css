@@ -1,1 +1,156 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    /* 페이지 만들면 주석 제거 */
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D3D0DF;
+}
+
+main {
+    background-color: white;
+    border-radius: 20px;
+    width: 600px;
+    margin: 5% 0 5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 페이지 만들면 주석 제거 */
+    /* height: 800px; */
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: gray;
+}
+
+ul {
+    list-style: none;
+    margin: 20px 0 20px 0;
+}
+
+li {
+    width: 540px;
+    margin: 5px 0 5px 0;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: #F8F5FF;
+}
+
+h1 {
+    margin: 20px 0 10px 20px;
+}
+
+h2 {
+    margin: 0 0 10px 20px;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper {
+    margin-left: 10px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 70%;
+}
+
+.discussion__content {
+    flex-grow: 1;
+    margin: 5px 0 5px 0;
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.discussion__answered {
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__container {
+    width: 540px;
+    height: 110px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: #54389E;
+}
+
+label {
+    color: white;
+}
+
+.btn {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    border: 1px solid lightgray;
+    background-color: #F8F5FF;
+    border-radius: 10px;
+}
+
+.btn:active {
+    background-color: #D3D0DF;
+}
+
+.form__input--wrapper {
+    margin: 10px;
+    flex-grow: 1;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#name {
+    width: 250px;
+}
+
+#title {
+    width: 250px;
+}
