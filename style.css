@@ -6,18 +6,91 @@
   padding: 0;
 }
 
+main {
+  padding: 2rem;
+}
+
+main > * {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
 body {
   width: 100vw;
-  height: 100wh;
+  height: 100vh;
+  background-color: #e3fcbf;
 }
 
 h1 {
   width: 540px;
+  margin-bottom: 2rem;
+  color: black;
 }
 
 /* form CSS */
 .form__container {
   width: 540px;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #b8f1b0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+}
+
+.form__input--wrapper {
+  display: inline-flex;
+  margin-right: 0.5rem;
+  flex-direction: column;
+  flex-grow: 8;
+  /* background-color: blue; */
+}
+
+.form__input--wrapper input {
+  border: none;
+}
+
+.form__input--title,
+.form__input--name {
+  display: flex;
+  margin-bottom: 0.3rem;
+  justify-content: space-between;
+}
+
+#name,
+#title {
+  width: 50%;
+  padding: 0.2rem;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.3rem;
+}
+
+#story {
+  padding: 0.2rem;
+}
+
+.form__submit {
+  display: inline-block;
+  flex-grow: 1;
+}
+
+.form__submit > input {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.5rem;
+  background-color: #14c38e;
+  color: white;
 }
 
 /* discussion CSS */
@@ -28,8 +101,9 @@ h1 {
   margin: 1rem 0;
   justify-content: space-between;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: white;
   list-style: none;
+  border-radius: 1rem;
 }
 
 .discussion__avatar--wrapper {
@@ -47,18 +121,19 @@ h1 {
 
 .discussion__content {
   display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .discussion__title {
-  top: 0;
-  left: 0;
+  align-self: flex-start;
+  margin-bottom: 1rem;
 }
 
 .discussion__information {
-  left: 0;
+  align-self: flex-end;
 }
 
 .discussion__answered {
