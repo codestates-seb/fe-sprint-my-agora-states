@@ -37,7 +37,7 @@ const convertToDiscussion = (obj) => {
 
   // 답변
   // if (obj.answer !== null) {
-    // discussionAnswered.textContent = '☑';
+  // discussionAnswered.textContent = '☑';
   // }
   discussionAnswered.textContent = obj.answer ? '☑' : '☒';
 
@@ -54,11 +54,6 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
-
 // 디스커션 추가 기능
 const submit = document.querySelector('.btn');
 submit.onclick = () => {
@@ -67,13 +62,23 @@ submit.onclick = () => {
   let enterTitle = document.querySelector('#title');
   let yourQuestion = document.querySelector('#story');
   let addAgoraStates = {
-    author: `${enterName.textContent}`,
-    title: `${enterTitle.textContent}`,
-    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
+    author: `${enterName.value}`,
+    title: `${enterTitle.value}`,
+    avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   };
-  console.log(addAgoraStates.author);
-  console.log(addAgoraStates.title);
-  agoraStatesDiscussions.unshift(addAgoraStates);
-  ul.innerHTML = '';
-  render(ul);
+  if (enterName.value && enterTitle.value && yourQuestion.value) {
+    console.log(addAgoraStates.author);
+    console.log(addAgoraStates.title);
+    agoraStatesDiscussions.unshift(addAgoraStates);
+    enterName.value = '';
+    enterTitle.value = '';
+    yourQuestion.value = '';
+    ul.innerHTML = '';
+    render(ul);
+  }
 }
+
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
