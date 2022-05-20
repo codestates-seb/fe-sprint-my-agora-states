@@ -247,3 +247,9 @@ img {
   margin: 60px auto;
   width: 150px;
 }
+#right__container h3 {
+  margin-bottom: 60px;
+}
+#right__container ul li {
+  margin-bottom: 20px;
+}
