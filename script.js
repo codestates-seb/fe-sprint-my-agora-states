@@ -57,11 +57,9 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-//여기부터 내용 입력하면 배열에 추가 되는 부분
-let elFormInputName = document.querySelector('#name');
-let elFormInputTitle = document.querySelector('#title');
-let elFormInputText = document.querySelector('#story');
-let submitButton = document.querySelector('#submitBtn');
+  //여기부터 디스커션 추가하기
+
+
 
 
 
