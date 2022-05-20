@@ -1,1 +1,0 @@
-${Object.keys(obj[i]).includes('url') ? `<a href="obj[i].url"> obj[i].title</a></h2>` :  `obj[i].title</h2> }
