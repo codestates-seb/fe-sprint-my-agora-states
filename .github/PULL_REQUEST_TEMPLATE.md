@@ -7,6 +7,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 ## 배포 링크
 
 Github Page 배포 링크를 아래 작성합니다.
+배포링크 : (https://jiyj725.github.io/fe-sprint-my-agora-states/)
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -25,9 +26,9 @@ Github Page 배포 링크를 아래 작성합니다.
     - [V] `agoraStatesDiscussions` 배열에 추가한 데이터가 실제 쌓여야 합니다.
 - [V] Github Page 배포
   - [V] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
-- [ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
-  - [ ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
-  - [ ] 주어진 Pull request 형식에 따라주세요.
+- [V] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
+  - [V] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
+  - [V] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
 
@@ -35,12 +36,12 @@ Github Page 배포 링크를 아래 작성합니다.
 
 - [V] 현지 시간 적용
     - [V] 샘플 시간을 잘 변형하여, 현지 시간에 맞게 표현합니다. (ex. 오전 10:02:17)
-- [ ] 페이지네이션 기능
-    - [ ] 페이지네이션에 대해서 스스로 학습합니다.
-    - [ ] 한 페이지에 10개씩 디스커션이 보여야 합니다.
-    - [ ] 다음 페이지로 넘어갈 수 있어야 합니다.
-    - [ ] 이전 페이지로 돌아올 수 있어야 합니다.
-    - [ ] 다음 페이지가 없거나, 이전 페이지가 없는 경우 페이지를 유지해야 합니다.
+- [V] 페이지네이션 기능
+    - [V] 페이지네이션에 대해서 스스로 학습합니다.
+    - [V] 한 페이지에 10개씩 디스커션이 보여야 합니다.
+    - [V] 다음 페이지로 넘어갈 수 있어야 합니다.
+    - [V] 이전 페이지로 돌아올 수 있어야 합니다.
+    - [V] 다음 페이지가 없거나, 이전 페이지가 없는 경우 페이지를 유지해야 합니다.
 - [V] 디스커션 유지 기능
     - [V] LocalStorage에 대해서 스스로 학습하고, 새롭게 추가하는 Discussion이 페이지를 새로고침해도 유지되도록 제작합니다.
 
@@ -50,10 +51,19 @@ Github Page 배포 링크를 아래 작성합니다.
 
 - [V] form__container영역 고정 및 discussion__wrapper영역 자체 스크롤 구현
 - [V] 질문 리스트 hover시 확대기능 구현
-- []
+- [V] 페이지네이션 / Scroll Mode전환 기능
 
 ### 배포 시연 화면
 
 아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
 
- ![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+블로그 (https://velog.io/@zer0jun/%EC%BD%94%EB%93%9C%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%B8%A0-Section1%EA%B3%BC%EC%A0%9C)
+
+1. 등록 기능
+ ![image](https://velog.velcdn.com/images/zer0jun/post/fe36d6e5-9bd2-4041-825e-e40f923596e3/image.gif)
+
+2. 스크롤 기능
+ ![image](https://velog.velcdn.com/images/zer0jun/post/89f7629d-4c83-4830-9616-ca8de89dc1df/image.gif)
+
+3. 페이지네이션 기능
+ ![image](https://velog.velcdn.com/images/zer0jun/post/555130e3-9f5f-4530-b79b-cf1f038727bf/image.gif)

@@ -98,7 +98,7 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     width: 540px;
-    height: 300px;
+    height: 120px;
     border-radius: 10px;
     border: 0;
     outline: 0;
@@ -231,4 +231,162 @@ a:hover {
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
     text-shadow: 1px 1px 2px #427388;
+}
+
+
+/* 페이지네이션 */
+
+.article {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    padding: 0.3em 0;
+    list-style: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    overflow-y: scroll;
+    height: 50vh;
+}
+
+.content__id,
+.content__author,
+.content__date {
+    flex-basis: 15%;
+}
+
+.content__title {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    position: relative;
+    padding: 1rem 0;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.button {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.button.active,
+.button:hover {
+    color: #5F85DB;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.prev {
+    position: absolute;
+    left: -2.5rem;
+}
+
+.next {
+    position: absolute;
+    right: -2.5rem;
+}
+
+ion-icon {
+    padding-top: 0.05rem;
+}
+
+
+/* 토글 버튼 */
+.main {
+    position: relative;
+}
+
+.convertText {
+    position: absolute;
+    color: White;
+    top: 0;
+    right: 0;
+    margin: 2.4em 6em;
+}
+
+.switch-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2em;
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+}
+
+.switch-button input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.onoff-switch {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    background-color: #ccc;
+    box-shadow: inset 1px 5px 1px #999;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.onoff-switch:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    -webkit-transition: .5s;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.switch-button input:checked+.onoff-switch {
+    background-color: #5F85DB;
+    box-shadow: inset 1px 5px 1px #5F85DB;
+}
+
+.switch-button input:checked+.onoff-switch:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+.toggleSP .knobs:before {
+    content: "YES";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
 }

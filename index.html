@@ -7,10 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -19,6 +15,11 @@
 <body>
   <main>
     <h1>JiYJ's Agora States</h1>
+    <span class="convertText">Scroll Mode</span>
+    <label class="switch-button">
+      <input type="checkbox" />
+      <span class="onoff-switch"></span>
+    </label>
     <section class="form__container">
       <form action="" method="" class="form">
         <div class="form__input--wrapper">
@@ -42,11 +43,20 @@
     </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
+
       </ul>
     </section>
+    <article class="article">
+      <ul class="contents"></ul>
+      <div class="buttons"></div>
+    </article>
+
   </main>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
 </body>
-<script src="data.js"></script>
-<script src="script.js"></script>
 
 </html>
