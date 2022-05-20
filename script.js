@@ -64,46 +64,6 @@ function getClock() {
   return `${year}-${month}-${date}T${hours}:${minutes}:${seconds}Z`;
 }
 
-//DOM으로 li의 내용들을 넣는 함수
-const formToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
-
-  const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
-
-  const avatarImg = document.createElement("img");
-  avatarImg.className = "discussion__avatar--image";
-  avatarImg.src =
-    "https://imagescdn.gettyimagesbank.com/171/201607/a10519973.jpg";
-  avatarWrapper.append(avatarImg);
-
-  const discussionTitle = document.createElement("h3");
-  discussionTitle.className = "discussion__title";
-
-  const discussionLink = document.createElement("a");
-  discussionLink.href = "";
-  discussionLink.textContent = obj.title;
-  discussionTitle.append(discussionLink);
-  discussionContent.append(discussionTitle);
-
-  const discussionInformation = document.createElement("div");
-  discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = obj.name + " / " + obj.time;
-  discussionContent.append(discussionInformation);
-
-  const discussionAnswer = document.createElement("p");
-  discussionAnswer.innerText = "☒";
-  discussionAnswered.append(discussionAnswer);
-
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
-};
-
 //localStorage에 저장할 질문들을 담을 배열을 생성
 let questionArray = [];
 
@@ -122,14 +82,20 @@ function handleOnSubmit(event) {
   nameInput.value = "";
   titleInput.value = "";
   questionTextarea.value = "";
-  const newQuestion = {
-    name: newName,
+
+  const newData = {
+    id: "",
+    createdAt: newTime,
     title: newTitle,
-    question: newQuest,
-    time: newTime,
+    url: "",
+    author: newName,
+    answer: null,
+    bodyHTML: `<p dir="auto">${newQuest}</p>\n`,
+    avatarUrl: "https://imagescdn.gettyimagesbank.com/171/201607/a10519973.jpg",
   };
-  questionArray.push(newQuestion);
-  ul.prepend(formToDiscussion(newQuestion));
+
+  questionArray.push(newData);
+  ul.prepend(convertToDiscussion(newData));
   saveForm();
 }
 
@@ -146,7 +112,7 @@ const render = (element) => {
     const parsedQuestions = JSON.parse(savedQuestions);
     questionArray = parsedQuestions;
     for (let i = 0; i < questionArray.length; i += 1) {
-      element.prepend(formToDiscussion(questionArray[i]));
+      element.prepend(convertToDiscussion(questionArray[i]));
     }
   }
   return;
