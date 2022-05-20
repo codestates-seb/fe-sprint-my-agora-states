@@ -15,27 +15,36 @@
 <body>
   <main>
     <h1>My Agora States</h1>
+    <div class="container">
     <section class="form__container">
       <form action="" method="get" class="form">
+
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Name : </label>
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
+            <div class="hide message top" id="mesaage__name">3글자 이상 입력하세요.</div>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Title : </label>
+            <input type="text" name="name" id="title" placeholder="Enter your title" required>
+            <div class="hide message top" id="message__title">5글자 이상 입력하세요.</div>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story">Your question</label>
+            <div class="hide message bot" id="message__story">10글자 이상 입력하세요.</div>
+            <textarea id="story" name="story" placeholder="질문을 작성하세요(10글자 이상)" required></textarea>
           </div>
         </div>
+
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="submit" id="button">
         </div>
       </form>
     </section>
+
+
+
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -48,13 +57,32 @@
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><input type="checkbox"></div>
         </li>
       </ul>
     </section>
+
+    <section>
+     <div class="btn__container">
+      <div class="pagination">
+        <button id="left__btn" class="switch__btn left__btn">◀️</button>
+      </div>
+      <div id="pagination" class="pagination"></div>
+      <div class="pagination">
+        <button id="right__btn" class="switch__btn right__btn">▶️</button>
+      </div>
+     </div>
+    </section>
+    </div>
   </main>
+
+
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="makeItmes.js"></script>
+<script src="pagination.js"></script>
+<script src="saveLocal.js"></script>
+
 
 </html>
