@@ -1,1 +1,92 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* css 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  background: #f3e9dd;
+  padding-left: 5vh;
+}
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  list-style-type: none;
+  background-color: #fdf6ec;
+  border-radius: 1vh;
+
+  /* 점지워줌 */
+}
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+}
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+/* 윗쪽 센터링방법 외우기 */
+
+div.discussion__content {
+  padding: 5px;
+  justify-content: space-between;
+  width: 100%;
+}
+h2.discussion__title {
+  padding: 5px;
+  float: left;
+}
+div.discussion__information {
+  padding: 5px;
+  float: right;
+}
+div.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+  font-size: 30px;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+  width: 540px;
+  color: #424345;
+}
+section.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+  width: 540px;
+  background-color: #b7cadb;
+  border-radius: 3vh;
+}
+div.form__submit {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  flex: 0 0 0;
+  padding: 1rem;
+  position: absolute;
+  left: 420px;
+  top: 80px;
+}
+input,
+textarea {
+  border-radius: 1vh;
+}
