@@ -1,1 +1,140 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.aTag {
+  font-family: "Nunito", sans-serif;
+  font-size: large;
+  color: #4a6fa5;
+  text-decoration: none;
+}
+
+/* 몸통 */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #bbdef0;
+}
+
+/* Discussion 컴포넌트 */
+.discussion__container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 540px;
+  /* background-color: #4a6fa5; */
+}
+
+/* 왼쪽 아바타 */
+.discussion__avatar--image {
+  border-radius: 100%;
+  width: 48px;
+}
+/* 왼쪽 아바타 위치 */
+.discussion__avatar--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 중간 Discussion 콘텐츠 */
+.discussion__content {
+  width: 450px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+}
+/* 제목 */
+.discussion__title {
+  padding-left: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+/* 닉네임, 생성일 */
+.discussion__information {
+  text-align: end;
+  padding-right: 20px;
+  color: gray;
+}
+/* 닉네임, 생성일 위치 */
+.discussion__answered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+p {
+  font-size: 25px;
+}
+
+/* My Agora States */
+h1 {
+  margin: 40px;
+  padding: 20px;
+  color: #3d405b;
+  background-color: white;
+  border: 3px solid #4a6fa5;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #3764a8;
+  text-shadow: 2px 2px #8fb4d6;
+}
+
+/* input 컴포넌트 */
+.form__container {
+  margin: 10px;
+  padding: 10px;
+  font-size: x-large;
+  text-align: center;
+}
+/* form 컴포넌트 */
+.form {
+  width: 400px;
+  /* background-color: #4a6fa5; */
+  border: 5px solid #4a6fa5;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #3764a8;
+}
+/* name */
+.form__input--name,
+.form__input--title,
+.form__textbox,
+.form__submit {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  color: #3d405b;
+  text-shadow: 1px 1px #8fb4d6;
+}
+/* submit */
+.form__submit__btn {
+  width: 100px;
+  height: 40px;
+  font-size: large;
+  color: #3d405b;
+  background-color: white;
+  border: 1.5px solid #3d405b;
+  border-radius: 5px;
+  text-shadow: 1px 1px #8fb4d6;
+  box-shadow: 4px 4px 2px #3764a8;
+}
+
+/* comment 컴포넌트*/
+.discussion__wrapper {
+  margin: 50px;
+  padding: 10px;
+  border: 7px solid #4a6fa5;
+  border-radius: 8px;
+  /* background-color: #4a6fa5; */
+  box-shadow: 18px 18px 15px #3764a8;
+}
