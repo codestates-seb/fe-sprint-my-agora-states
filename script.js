@@ -1,6 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+if (localStorage.getItem("discussion") === null) {
+  localStorage.setItem("discussion", JSON.stringify(agoraStatesDiscussions))
+}
+let localAgoraStatesDiscussions = JSON.parse(localStorage.getItem("discussion"))
+
+console.log(localAgoraStatesDiscussions);
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -48,8 +54,8 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < localAgoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(localAgoraStatesDiscussions[i]));
   }
   return;
 };
@@ -60,18 +66,40 @@ render(ul);
 
 // 질문 접수
 const submit = document.querySelector('input[type="submit"]');
-const name = document.querySelector('#name');
-const title = document.querySelector('#title');
-const story = document.querySelector('#story');
-
+const submitDelete = document.querySelector('#delete')
+const submitName = document.querySelector('#name');
+const submitTitle = document.querySelector('#title');
+const submitStory = document.querySelector('#story');
+let today = new Date();
 const submitYourQuestion = () => {
-  if (name.value === '') {
+  if (submitName.value === '') {
     return alert('이름을 입력하세요')
-  } else if (title.value === '') {
+  } else if (submitTitle.value === '') {
     return alert('제목을 입력하세요')
-  } else if (story.value === '') {
+  } else if (submitStory.value === '') {
     return alert('질문을 작성하세요')
   } else {
-
+    localAgoraStatesDiscussions.unshift({
+      id: "D_kwDOHOApLM4APnEw",
+      createdAt: `${today.getFullYear()}-${00+today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}Z`,
+      title: submitTitle.value,
+      url: "",
+      author: submitName.value,
+      answer: null,
+      bodyHTML: submitStory.value,
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/73211553?s=400&u=fa147173e936b86600ecfab5f59acdb0d9d611ba&v=4",
+    })
   }
+}
+
+submit.onclick = function() {
+  submitYourQuestion()
+  localStorage.setItem("discussion", JSON.stringify(localAgoraStatesDiscussions));
+}
+
+submitDelete.onclick = function() {
+  localAgoraStatesDiscussions.shift();
+  localStorage.setItem("discussion", JSON.stringify(localAgoraStatesDiscussions));
+  window.location.reload();
 }
