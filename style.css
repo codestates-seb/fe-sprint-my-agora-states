@@ -7,16 +7,108 @@
 }
 
 body {
-  margin-left: 1em;
-  margin-top: 1em;
+  margin: 3em 0 0 0;
+  background-color: #9C45E3;
+  display: flex;
+  justify-content: center;
 }
 
 h1.title {
   margin-bottom: 1em;
+  color: #fff;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
 }
 
 .form__container {
+  font-family: 'Comfortaa', cursive;
+  width: 700px;
+  background-color: #0d155bc1;
+  border-radius: 20px;
   margin-bottom: 2em;
+  padding: 3em;
+  box-shadow: 5px 5px 5px rgb(47, 40, 92);
+}
+
+.form {
+  color: #fff;
+  display: flex;
+}
+
+.form .form__input--wrapper {
+  width: 100%;
+  margin-right: 1em;
+}
+
+.form__input--name {
+  margin-bottom: 0.5em;
+  display: flex;
+}
+.form__input--name input {
+  width: 20em;
+  height: 1.7em;
+  border: 0;
+  border-radius: 7px;
+  margin-left: auto;
+  padding-left: 0.4em;
+}
+
+.form__input--title {
+  margin-bottom: 0.5em;
+  display: flex;
+}
+.form__input--title input {
+  width: 20em;
+  height: 1.7em;
+  border: 0;
+  border-radius: 7px;
+  margin-left: auto;
+  padding-left: 0.4em;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+.form__textbox label {
+  margin-bottom: 0.5em;
+}
+.form__textbox textarea {
+  border: 0;
+  border-radius: 7px;
+  height: 50px;
+  padding: 0.4em;
+  resize: none;
+}
+
+.form__submit input {
+  border-radius: 10px;
+  background-color: #DBDFFD;
+  border-style: none;
+  font-size: 17px;
+  width: 100px;
+  height: 100%;
+}
+
+.discussion__wrapper {
+  background-color: #060739;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  width: 700px;
+  height: 300px;
+  padding: 3em 0;
+  overflow: auto;
+  box-shadow: 5px 5px 5px rgb(47, 40, 92);
+}.discussion__wrapper::-webkit-scrollbar {
+  width: 8px;
+}.discussion__wrapper::-webkit-scrollbar-thumb {
+  background-color: #DBDFFD;
+  border-radius: 20px;
+}.discussion__wrapper::-webkit-scrollbar-track {
+  background-color: rgba(203, 147, 252, 0.224);
+  border-radius: 20px;
+
 }
 
 li.discussion__container {
@@ -24,7 +116,8 @@ li.discussion__container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
-  border: 1px solid #000;
+  border-radius: 20px;
+  background-color: #DBDFFD;
   list-style-type: none;
 }
 
@@ -49,9 +142,17 @@ li.discussion__container {
   margin-right: 0.5rem;
 }
 
+.discussion__title > a {
+  color: #001B66;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
 .discussion__information {
   margin-top: 0.5em;
   text-align: right;
+  color: #242F9B;
+  font-family: 'Comfortaa', cursive;
+  font-size: small;
 }
 
 .discussion__answered {
@@ -60,8 +161,12 @@ li.discussion__container {
   align-items: center;
   flex: 0 0 0;
   padding: 1rem;
+  background-color: #646FD4;
+  border-radius: 0px 20px 20px 0px;
 }
 
 .discussion__answered p {
   font-size: 1.5em;
+  color: #f6f7fd;
+  cursor: pointer;
 }
