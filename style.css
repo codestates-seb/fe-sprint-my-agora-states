@@ -1,1 +1,199 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    --mainColor: #a0fa8e;
+    --subColor1: #f2ff7f;
+    --subColor2: #82dbb2;
+    --pointColor: #FEE2C5;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+main > h1{
+    color: #00008b;
+    color: var(--subColor2);
+    margin-top: 70px;
+    text-align: center;
+}
+
+.form__container{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 15px;
+    border: 1px solid var(--mainColor);
+}
+
+.form{
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    padding: 10px;
+}
+
+.form__input--wrapper{
+    flex-basis: 90%;
+    margin-right: 20px;
+    color: var(--subColor2);
+    opacity: 90%;
+}
+
+.form__input--name{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.form__input--name > label{
+    margin-bottom: 5px;
+}
+
+.form__input--name > input,
+.form__input--title > input{
+    color: var(--subColor2);
+    opacity: 90%;
+    height: 30px;
+    padding: 10px;
+}
+
+.form__input--title{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.form__input--title > label{
+    margin-bottom: 5px;
+}
+
+.form__textbox{
+    display: flex;
+    flex-direction: row;
+}
+
+.form__textbox > label{
+    margin-bottom: 5px;
+}
+
+.form__textbox > textarea{
+    color: var(--subColor2);
+    opacity: 90%;
+    height: 40px;
+    width: 50%;
+    resize: none;
+    padding: 10px;
+}
+
+.form__textbox > textarea::placeholder{
+    color: var(--subColor2);
+    opacity: 70%;
+}
+
+.form__submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+ 
+}
+
+.form__submit > input{
+    font-weight: 700;
+    font-size: 10px;
+    width: 50%;
+    height: 50%;
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 15px;
+    background: var(--subColor2);
+    opacity: 90%;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+
+.form__submit > input:hover{
+    opacity: 100%;
+    transform: scale(1.02);
+    transition-duration: .3s;
+}
+
+.discussion__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.discussions__container{
+    width: 580px;
+    list-style: none;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid var(--mainColor);
+}
+
+.discussion__container{
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--mainColor);
+}
+
+.discussion__container > div:first-child,
+main > h1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: var(--subColor2);
+}
+.discussion__title{
+     
+    width: 348px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 18px;   
+}
+
+.discussion__title > a{
+    color: var(--subColor2);
+    opacity: 90%;
+    text-decoration: none;
+    transition-duration: .3s;
+}
+
+.discussion__title > a:hover{
+    opacity: 100%;
+    transition-duration: .3s;
+}
+
+.discussion__information{
+    font-weight: 400;
+    text-align: right;
+}
+
+.discussion__answered{
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.active{
+    color: green;
+} 
+
