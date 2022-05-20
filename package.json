@@ -1,0 +1,14 @@
+{
+  "name": "fe-sprint-my-agora-states",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/seraheo/fe-sprint-my-agora-states.git",
+  "author": "clianor <ejrgus94160@estsecurity.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
