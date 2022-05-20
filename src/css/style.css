@@ -145,3 +145,13 @@ input::placeholder {
 .impossible {
     color: #838B95;
 }
+
+.discussion__Delete {
+    color: #0D1117;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.discussion__Delete:hover {
+    color: #838B95;
+}
