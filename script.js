@@ -49,8 +49,7 @@ const convertToDiscussion = (obj) => {
   }
   else checkedAnswered.textContent = '☑'
   discussionAnswered.append(checkedAnswered);
-  // 아니면 obj.answer이 null 이면 unchecked된 이미지 remove('hide') / add('hide')
-  // obj.answer에 내용이 있으면 checked된 이미지 remove('hide') / add('hide')
+ 
 
 
   // li에 div 넣기
