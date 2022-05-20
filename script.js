@@ -61,9 +61,12 @@ submit.onclick = () => {
   let enterName = document.querySelector('#name');
   let enterTitle = document.querySelector('#title');
   let yourQuestion = document.querySelector('#story');
+  const date = new Date();
   let addAgoraStates = {
     author: `${enterName.value}`,
     title: `${enterTitle.value}`,
+    // 날짜
+    createdAt: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
     avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   };
   if (enterName.value && enterTitle.value && yourQuestion.value) {
