@@ -13,11 +13,36 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
+ 
+
+
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+const avatarImg = document.createElement('img');
+avatarImg.src = obj.avatarUrl;
+avatarImg.alt = "avatar of" + obj.author;
+avatarImg.className='discussion__avatar--image';
+avatarWrapper.append(avatarImg);
 
+const discussionTitle = document.createElement("h2");
+const titleAnchor = document.createElement("a");
+titleAnchor.href = obj.url;
+titleAnchor.textContent = obj.title;
+discussionTitle.append(titleAnchor);
 
+const formInputName = document.createElement("input");
+formInputName.className = "discussion__container";
+formInputName.append()
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+const discussionInformation = document.createElement("div");
+discussionInformation.className = "discussion__information";
+discussionInformation.textContent =   `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+discussionContent.append(discussionTitle, discussionInformation);
+
+const checked = document.createElement("p");
+checked.textContent = obj.answer ? '☑️':'☑️';
+discussionAnswered.append(checked);
+li.append(avatarWrapper, discussionContent, discussionAnswered);
+ul.prepend(li)
   return li;
 };
 
@@ -29,6 +54,31 @@ const render = (element) => {
   return;
 };
 
+Submit.addEventListener('click',()=>{
+  if(title.value !== ''){
+    let obj ={};
+  event.preventDefault();
+  obj['id']="D_kwDOHOApLM4APjJi"
+  obj['createdAt']= new Date()
+  obj['author']= input.value;
+  obj['title']=title.value;
+  obj['avatarUrl']="https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
+  obj['url']="https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236"
+  obj['answer']=null
+  console.log(obj)
+  input.value = '';
+  title.value = '';
+  story.value = '';
+}
+
+})
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+//const obj = document.querySelector("")
+
+
+
+
