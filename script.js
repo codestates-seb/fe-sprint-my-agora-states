@@ -1,3 +1,4 @@
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -15,7 +16,34 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
+  avatarImg.className = "discussion__avatar--image"; // 추가한 부분
 
+  const flexStart = document.createElement("div"); //flexStart추가
+  flexStart.className = "flexstart"; //flexStart추가
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+  flexStart.append(discussionTitle); //flexStart추가
+
+
+  const flexEnd = document.createElement("div"); //flexEnd 추가
+  flexEnd.className = "flexend"//flexEnd 추가
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  flexEnd.append(discussionInformation); //flexEnd추가
+  discussionContent.append(flexStart, flexEnd); //discussionTitle-> flexStart, discussionInformation -> flexEnd로 바꿈
+ 
+
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑" : "□";
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -32,3 +60,5 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
