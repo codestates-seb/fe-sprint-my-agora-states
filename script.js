@@ -14,8 +14,6 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-  
   const avatarsImg= document.createElement('img');
     avatarsImg.src= obj.avatarUrl;
     avatarsImg.alt= 'avatar of'+ obj.author;
@@ -37,8 +35,6 @@ const convertToDiscussion = (obj) => {
     Answered.textContent= '☑';
     discussionAnswered.append(Answered);
 
-
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -55,8 +51,6 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-
-// 
 
 // 포스팅 박스 제어하기 => 구글 ajax
 
@@ -77,6 +71,78 @@ function openclose() {
 
 // submit버튼 눌렀을 때 작동
 
-//let inputName= document.getElementsByClassName('form__input--name')[0];
-//let inputTitle= document.getElementsByClassName('form__input--title')[0];
-//let inputTextbox= document.getElementsByClassName('form__textbox')[0];
+// 01. 먼저 index에 있는 시멘틱요소들을 DOM으로 바꾼다.
+const submitBtn = document.querySelector(".form"); // form action버튼 왜필요하지?
+// (form태그의 action속성)
+  inputId = document.querySelector(".form__input--name > input"); // 이름입력란
+  inputTitle = document.querySelector(".form__input--title > input"); // 제목입력란
+  inputQuestion = document.querySelector(".form__textbox > textarea"); // 내용입력란
+  inputSubmit = document.querySelector(".form__submit > input"); // submit버튼
+
+const NEWOBJ_LS = "newobj";
+let newObjs = [];
+
+function discussionObj(author, title, text) { // 입력되는 값들을 매개변수(parameter)로 하는 함수를 만들어준다.
+  return { 
+    // 이 값들이 들어오면 다음과 같은 객체를 리턴한다. 
+    // data.js에 있는 객체 key값 참고
+    id: String(Date.now()), //
+    createdAt: new Date().toISOString(),
+    answer: null,
+    avatarUrl:
+    "https://avatars.githubusercontent.com/u/79903256?s=64&v=4", // 같은사진
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author,
+    title,
+    text,
+  };
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const discussions = discussionObj(
+    inputId.value,
+    inputTitle.value,
+    inputQuestion.value
+  );
+  agoraStatesDiscussions.unshift(discussions); //배열에 추가
+
+  paintObj(discussions);
+  inputId.value = "";
+  inputTitle.value = "";
+  inputQuestion.value = "";
+}
+
+function paintObj(task) {
+  const ul = document.querySelector("ul.discussions__container");
+  const li = convertToDiscussion(task);
+  ul.prepend(li); // 첫번째에 추가
+
+  newObjs.push(task);
+  saveObj();
+}
+
+
+
+function saveObj() {
+  const objString = JSON.stringify(newObjs);
+  localStorage.setItem(NEWOBJ_LS, objString);
+}
+
+
+function loadObj() {
+  const loadedObjs = localStorage.getItem(NEWOBJ_LS);
+  if (loadedObjs) {
+    const parsedObjs = JSON.parse(loadedObjs);
+    parsedObjs.forEach((task) => {
+      paintObj(task);
+    });
+  }
+}
+
+
+function init() {
+  loadObj();
+  submitBtn.addEventListener("submit", handleSubmit);
+}
+init();
