@@ -127,8 +127,14 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  const pageNo = Number(getQueryString().pageNo || 1);
+
+  for (let i = (pageNo - 1) * 10; i < pageNo * 10; i++) {
+    const list = getDiscussionList();
+    if (list[i] == null) {
+      break;
+    }
+    element.append(convertToDiscussion(list[i]));
   }
   return;
 };
@@ -136,3 +142,17 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+function getQueryString() {
+  const qs = {};
+  const qsList = window.location.search
+    .slice(1)
+    .split("&")
+    .map((qs) => qs.split("="));
+
+  for (let i = 0; i < qsList.length; i++) {
+    qs[qsList[i][0]] = qsList[i][1];
+  }
+
+  return qs;
+}
