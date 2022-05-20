@@ -49,12 +49,24 @@ const convertToDiscussion = (obj) => {
   // obj.answer에 내용이 있으면 checked된 이미지 remove('hide') / add('hide')
 
 
-
-
   // li에 div 넣기
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+//여기부터 내용 입력하면 배열에 추가 되는 부분
+let elFormInputName = document.querySelector('#name');
+let elFormInputTitle = document.querySelector('#title');
+let elFormInputText = document.querySelector('#story');
+let submitButton = document.querySelector('#submitBtn');
+
+
+
+
+
+
+
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
