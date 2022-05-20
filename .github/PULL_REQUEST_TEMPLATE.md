@@ -54,4 +54,5 @@ https://pseudopool.github.io/fe-sprint-my-agora-states/
 
 ### 배포 시연 화면
 
-아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
+
+![screenshot](https://raw.githubusercontent.com/pseudopool/fe-sprint-my-agora-states/main/TYQ.gif)
