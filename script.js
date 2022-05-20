@@ -42,7 +42,7 @@ const convertToDiscussion = (obj) => {
   }
   else answered.textContent = '☑'
   discussionAnswered.append(answered);
-  
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -58,30 +58,3 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
-const submit = document.querySelector(".submit"); // submit버튼
-const author = document.querySelector(".form__input--name #name");
-const title = document.querySelector(".form__input--title #name");
-
-const addDiscussions = () => {
-  if (author.value == '' || title.value == '') return alert("Error : 입력란을 채워주세요")
-  const cutDate = new Date().toLocaleString();
-  const avatarURL = 'https://w7.pngwing.com/pngs/395/693/png-transparent-smiley-emoticon-smiley-miscellaneous-face-smiley.png';
-  const obj = {
-    author: author.value,
-    title: title.value,
-    createdAt: cutDate,
-    avatarUrl: avatarURL,
-    url: null,
-    checkbox: "☒"
-  };
-  const objString = JSON.stringify(obj); // 객체 문자열로 변환
-  // 현재시간 key, value는 객체로 하여 배열을 문자열로 변환한 후 로컬스토리지에 저장.
-  localStorage.setItem(cutDate, objString);
-
-  agoraStatesDiscussions.push(obj);
-  ul.prepend(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length - 1]));
-  alert("Discusstion 등록 완료");
-}
-
-submit.addEventListener('click', addDiscussions)
