@@ -59,3 +59,69 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+//디스커션 추가 기능
+const inputId = document.querySelector("#name");
+const inputTitle = document.querySelector("#title");
+const inputStory = document.querySelector("#story");
+const submitBtn = document.querySelector(".form__submit input");
+
+//submit 버튼 이벤트핸들러
+submitBtn.addEventListener("click", function(event){
+  event.preventDefault();
+  if(!(inputId.value && inputTitle.value && inputStory.value)){
+    alert("내용을 모두 채워야합니다.");
+  } else {
+    //타임스탬프 생성
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = ('0' + (today.getMonth() + 1)).slice(-2);
+    let day = ('0' + today.getDate()).slice(-2);
+    let hours = ('0' + today.getHours()).slice(-2); 
+    let minutes = ('0' + today.getMinutes()).slice(-2);
+    let seconds = ('0' + today.getSeconds()).slice(-2);
+    
+    let createdAt = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+
+    const newdiscussion = {
+      id: "new" + String(counting()),
+      createdAt,
+      title: inputTitle.value,
+      url: null,
+      author: inputId.value,
+      answer: null,
+      bodyHTML:
+        `<p dir="auto">${inputStory.value}</p>`,
+      avatarUrl: "https://picsum.photos/100",
+    };
+
+    agoraStatesDiscussions.unshift(newdiscussion);
+
+    //discussions__container 요소 안에 자식 모두 제거
+    removeList(ul)
+
+    //다시 li 랜더하기
+    render(ul);
+  }
+
+})
+
+
+//id 생성용 클로저 함수 (id는 제가 임의로 new1, new2, ... 형식으로 넣었습니다.)
+const createId = function(){
+  let count = 0;
+
+  return function(){
+    count++;
+    return count;
+  }
+}
+const counting = createId();
+//counting() 할 때마다 1씩 증가
+
+
+//자식 모두 제거 함수
+const removeList = function(element) {
+  while (element.hasChildNodes()) {
+    element.removeChild(element.lastChild);
+  }
+}
