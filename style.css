@@ -1,1 +1,144 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #696969;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    width: 100%
+  }
+
+  section.form__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+    width: 540px;
+    margin-bottom: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  li.discussion__container {
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    list-style-type: none;
+    background-color: #ffffff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px
+  }
+
+  li.discussion__container:hover{
+    transition : 0.75s;
+    transform: scale(1.1);
+  }
+
+  h1 {
+    text-align: center;
+    background: linear-gradient(to right top, #442CDC, #0D2259);
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+  }
+
+  div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+  }
+
+  div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  h2.discussion__title {
+    margin: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  div.discussion__information {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 0.25rem;
+    float: right;
+  }
+
+  div.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+#name, #story {
+    width: 15rem;
+    height: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-bottom: 0.5px solid grey;
+}
+
+form.form {
+    display: flex;
+}
+
+div.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.form__input--name,
+div.form__input--title,
+div.form__textbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 0.5rem;
+}
+
+div.form__submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+
+div.form__submit > input{
+    font-size: 1rem;
+    display: inline-block;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid grey;
+    background: linear-gradient(to right top, #442CDC, #0D2259);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+a{
+    text-decoration: none;
+}
