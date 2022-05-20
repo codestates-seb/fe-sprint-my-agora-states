@@ -90,6 +90,7 @@ function onLoginSubmit(event) {
   render(ul);
 }
 submitForm.addEventListener("submit", onLoginSubmit);
+submitForm.addEventListener("submit", toggle);
 
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
