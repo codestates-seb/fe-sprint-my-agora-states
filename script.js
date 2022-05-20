@@ -2,7 +2,21 @@
 console.log(agoraStatesDiscussions);
 
 // 시간 추가 함수
+var today = new Date();
 
+var year = today.getFullYear();
+var month = ('0' + (today.getMonth() + 1)).slice(-2);
+var day = ('0' + today.getDate()).slice(-2);
+
+var dateString = month  + '월 ' + day + '일';
+
+var hours = ('0' + today.getHours()).slice(-2); 
+var minutes = ('0' + today.getMinutes()).slice(-2);
+var seconds = ('0' + today.getSeconds()).slice(-2); 
+
+var timeString = hours + ':' + minutes;
+
+const newTime = dateString +' '+ timeString;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -66,7 +80,7 @@ const formName = document.querySelector('#nick');
 const formTitle = document.querySelector('#title');
 const btn = document.querySelector('#subBtn');
 const newObj = {
-  createdAt: '...',
+  createdAt: newTime,
   title: formTitle.value,
   author: formName.value,
   avatarUrl: 'https://avatars.githubusercontent.com/u/99703878?s=400&u=0f4fe50ead7be329042c38f0ef1e6a6c2ac49448&v=4',
