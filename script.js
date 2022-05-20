@@ -46,6 +46,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  element.innerHTML = '';
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -55,3 +56,31 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+//글쓰기 폼이 업데이트되면 해당 내용을 data.js에 넣어준다
+//submit.onclick = update(e) 내용을 받아온다
+// {배열 안에 형식 맞춰 적어준다}
+//agoraStatesDiscussions에 push한다
+//다시 render한다
+let submit = document.querySelector('.form__submit-btn');
+submit.onclick = update;
+
+function update() {
+  const newObj = {
+    id: '',
+    createdAt: 'now',
+    title: document.querySelector('.input--title').value,
+    url: '/',
+    author: document.querySelector('.input--name').value,
+    answer: null,
+    // bodyHTML: document.querySelector('.input--story').value,
+    bodyHTML: '',
+    avatarUrl:
+    "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4"
+  }
+  console.log(newObj)
+  agoraStatesDiscussions.unshift(newObj);
+  console.log(agoraStatesDiscussions);
+  render(ul);
+}

@@ -14,10 +14,63 @@ a{
     text-decoration: none;
 }
 
-.discussion__wrapper{
+/* 디스커션 작성 부분 */
+.form__container{
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    min-width: 640px;
+    margin: auto;
     border: 2px solid black;
     border-radius: 15px;
-    background-color: rgb(252, 253, 244);
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(218, 245, 236);
+}
+
+.form__container > form{
+    display: flex;
+}
+
+.form__input--wrapper{
+    margin-right: 10px;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.form__input--wrapper > div > input, textarea {
+    margin-left: 10px;
+    border: 1px darkestgray;
+    border-radius: 5px;
+}
+
+.form__submit > button {
+    display: block;
+    height: 100%;
+    width: 80px;
+    background-color:rgb(239, 255, 168);
+    border: 1px solid darkestgray;
+    border-radius: 15px;
+}
+
+.form__submit > button:hover {
+    background-color:rgb(255, 199, 205);
+}
+
+/* 디스커션 포현 부분 */
+.discussion__wrapper{
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    min-width: 640px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(252, 255, 238);
 }
 
 .discussion__container{
