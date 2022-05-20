@@ -116,6 +116,7 @@ Object.values(answerTag).forEach((answer, index) => {
     answerHTML.style.backgroundColor = "#f0e6c6";
     answerHTML.style.padding = "10px 10px";
     answerHTML.style.width = "400px";
+    answerHTML.style.fontSize = "18px";
     answer.append(answerHTML);
   });
 });
