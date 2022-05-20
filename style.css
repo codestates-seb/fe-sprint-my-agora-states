@@ -1,1 +1,137 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ list-style:none;
+}
+a{text-decoration-line: none;
+}
+a:link {
+  color : #fff; 
+}
+body{
+
+  background: linear-gradient(to right, #0A1431 10%, #163F72 40%,#593067 60% );
+   
+}
+h1{
+
+color: #fff;
+}
+main{
+
+width: 600px; 
+margin: auto;
+margin-top: 80px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.form__container{
+  margin-top: 20px;
+  padding: 15px;
+  width: 540px; 
+  background-color: rgb(255,255,255, 0.4);
+  border-radius: 10px;
+  box-shadow: 15px 15px 20px rgb(0,0,0, 0.5);
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form__input--wrapper > div{ margin-top: 10px; color: #fff; }
+.form__container input,textarea {
+  padding: 10px;  
+  width: 90%;
+  border-radius: 5px;
+  border: none; 
+  height: 40px;
+  }
+  .form__textbox textarea {
+    height: 80px;
+  
+  }
+
+.form__submit input{
+  margin-top: 10px;
+  background: linear-gradient(to right, #0A1431 10%, #163F72 40%,#593067 60% );
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.5s;
+
+}
+.form__submit input:hover {
+  color: pink;
+  font-size: 20px;
+  opacity: 0.7;
+
+}
+/* 디스커션 컴포넌트 시작 div */
+.discussion__wrapper{
+  margin-top: 10px;
+  width: 540px;
+  height: 500px;
+  overflow: auto;
+  background: linear-gradient(to top, rgb(0,0,0,0.8),transparent);
+}
+
+
+
+
+/* 디스커션 li 리스트 박스 */
+.discussion__container {
+  border-radius: 5px;
+  display: flex;
+  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  background-color: rgb(255,255,255, 0.4);
+  padding: 20px;
+  color: #fff;
+  transition: 0.5s;
+}
+.discussion__container:hover{
+background-color: rgb(255,255,255, 0.8);
+color: #551a8b;
+cursor: pointer;
+}
+
+/* 프로필 이미지 */
+.discussion__avatar--wrapper {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  width: 48px;
+}
+.discussion__avatar--wrapper img{
+width: 100%;
+border-radius: 50px;
+}
+
+/* 디스커션 li의 글 제목과 생성일자 박스 */
+.discussion__content {
+width: 80%;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+}
+.discussion__title {
+font-size: 18px;
+text-align: left;
+}
+.discussion__information {
+  text-align: right;
+  margin-top: auto;
+  
+  font-size: 13px;
+
+}
+.discussion__answered{
+  display: flex;
+  align-items: center;
+margin: auto;
+font-size: 20px;
+}
