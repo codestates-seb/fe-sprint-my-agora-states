@@ -2,24 +2,83 @@
 *{
     margin: 0;
     padding: 0;
+    /* 1. 모든 요소에 border-box를 적용 */
+    box-sizing: border-box;
 }
+a{
+    text-decoration:none;
+    color: #080072;
+}
+
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    background-color: #f2f2f2f2;
 }
+
+.form__container{
+    background-color: #222222;
+    color: #f2f2f2;
+    padding: 10px 0;
+    width: 550px;
+    border-radius: 10px;
+    /* display: block; */
+}
+.form__container > form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+.form__input--wrapper > div{
+    /* border: 1px solid red; */
+    display: flex;
+}
+.form__input--wrapper > div > label{
+    /* border: 1px solid red; */
+    width: 150px;
+}
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+}
+.form__submit > input{
+    margin: 5px;
+    padding: 50px;
+    border: none;
+    background-color: #444444;
+    cursor: pointer;
+    color: #f2f2f2f2;
+    font-size: 20px;
+    outline: none;
+}
+.form__submit > input:hover{
+    background-color: #080072;
+    transition: 1s;
+}
+
 main > h1{
     padding: 40px 0;
 }
+
 /* section */
 .discussion__wrapper{
     /* border: 1px solid red; */
-    /* 1. 모든 요소에 border-box를 적용 */
-    box-sizing: border-box;
+    
     /* 1. <li> 요소의 기본 스타일인 점을 보이지 않게 */
     list-style: none;
     /* 1. Discussion 컴포넌트 전체의 폭을 540px */
     width: 540px;
+
+    height: 70vh;
+    overflow: auto;
 }
 
 /* section > ul > li */
@@ -29,6 +88,10 @@ main > h1{
 
     /* 2. 아바타의 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬 */
     align-items: center;
+
+    border-radius: 5px;
+    background-color: #e7e7e7d4;
+    margin: 5px;
 }
 
 /* section > ul > li> div */
@@ -70,4 +133,3 @@ main > h1{
     flex-grow: 0.5;
     padding: 10px;
 }
-
