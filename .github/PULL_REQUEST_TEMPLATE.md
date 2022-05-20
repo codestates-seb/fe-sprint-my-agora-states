@@ -25,9 +25,9 @@ Github Page 배포 링크를 아래 작성합니다.
   - [x] `agoraStatesDiscussions` 배열에 추가한 데이터가 실제 쌓여야 합니다.
 - [x] Github Page 배포
   - [x] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
-- [ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
-  - [ ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
-  - [ ] 주어진 Pull request 형식에 따라주세요.
+- [x] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
+  - [x] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
+  - [x] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
 
@@ -48,7 +48,7 @@ Github Page 배포 링크를 아래 작성합니다.
 
 자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
 
-- [] 사용자가 컨텐츠 영역을 적지 않으면 버튼이 활성화 되지 않음
+- [x] 사용자가 컨텐츠 영역을 적지 않으면 버튼이 활성화 되지 않음
 - []
 - []
 
