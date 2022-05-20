@@ -1,8 +1,11 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-/* 변수로 해서 만들기
-:root{
-  
-} */
+/* 변수로 해서 만들기*/
+:root {
+  --fontColor: #0327ab;
+  /*  --fontColor: #26272b; */
+  /* --fontColor: red; */
+  --visited: #808b96;
+}
 /* css reset */
 
 * {
@@ -10,17 +13,79 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* body {
+  background-color: black;
+} */
+.background {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+.shape:first-child {
+  background: linear-gradient(#1845ad, #23a2f6);
+  left: 80px;
+  top: -80px;
+}
+.shape:last-child {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  right: 80px;
+  bottom: -80px;
+}
 
+main {
+  width: 1100px;
+  height: 95vh;
+
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 35px 35px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+main * {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+  color: var(--fontColor);
+}
 li.discussion__container {
   list-style: none;
-  width: 540px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  margin-bottom: 3px;
 }
 
 .discussion__wrapper {
-  height: 70vh;
+  border: 0.5px dotted rgba(55, 46, 162, 0.79);
+  width: 497px;
+  /* background: linear-gradient(145deg, #d4abad, #fdcbcd); */
+  /* box-shadow: 20px 20px 60px #c9a2a3, -20px -20px 60px #ffdbdd; */
+}
+.discussions__container {
+  height: 95%;
   overflow: auto;
 }
 
@@ -38,15 +103,115 @@ li.discussion__container {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
+  font-size: small;
 }
 .discussion__answered {
-  font-size: xx-large;
+  font-size: small;
 }
 
 .discussion__title > a {
   text-decoration: none;
-  color: black;
+  font-size: large;
 }
 .discussion__title > a:visited {
-  color: purple;
+  color: var(--visited);
+}
+.form__input--wrapper > div > input {
+  display: block;
+  height: 50px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0px 0px 15px rgba(8, 7, 16, 0.6);
+}
+textarea {
+  display: block;
+  height: 180px;
+  width: 90%;
+
+  box-shadow: 0px 0px 15px rgba(8, 7, 16, 0.6);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: 300;
+
+  resize: none;
+}
+.form__container {
+  width: 497px;
+  /* height: 15vh; */
+  border: 0.5px dotted rgba(55, 46, 162, 0.79);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: space-between; */
+  /* box-shadow: 0 0 40px rgba(30, 8, 193, 0.6); */
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.form__input--wrapper {
+  width: 100%;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+.form__input--name,
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.form__textbox {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form__submit {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form__submit > input {
+  height: 30px;
+  width: 90%;
+
+  /* box-shadow: 0px 0px 15px rgba(8, 7, 16, 0.6); */
+  border-radius: 3px;
+  padding: 0 10px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+.form__submit > input:hover {
+  color: red;
+}
+.pageNum__wrapper {
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+}
+.pageBtn {
+  margin: 2px;
+  width: 10px;
+}
+input,
+button {
+  background-color: transparent;
 }

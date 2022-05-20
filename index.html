@@ -15,30 +15,29 @@
   </head>
 
   <body>
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
     <main>
-      <h1>My Agora States</h1>
       <section class="form__container">
+        <h1>My Agora States</h1>
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">Enter your name </label>
             <input type="text" name="name" id="name" required />
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
+            <label for="title">Enter your title </label>
             <input type="text" name="title" id="title" required />
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea
-              id="story"
-              name="story"
-              placeholder="질문을 작성하세요"
-              required
-            ></textarea>
+            <label for="story">Your question </label>
+            <textarea id="story" name="story" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit" />
+          <input type="submit" value="SUBMIT" />
         </div>
       </section>
       <section class="discussion__wrapper">
@@ -56,6 +55,9 @@
           <div class="discussion__answered"><p>☑</p></div>
         </li> -->
         </ul>
+        <section class="pageNum__wrapper">
+          <ul class="pageNum__container"></ul>
+        </section>
       </section>
     </main>
   </body>
