@@ -1,6 +1,39 @@
+// Date Prototype에 format함수 이식
+Date.prototype.format = function (f) {
+  if (!this.valueOf()) return new Date().format('yyyy-MM-dd a/p hh:mm:ss');
+  var weekKorName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+  var weekKorShortName = ["일", "월", "화", "수", "목", "금", "토"];
+  var weekEngName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var weekEngShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var d = this;
+  return f.replace(/(yyyy|yy|MM|dd|KS|KL|ES|EL|HH|hh|mm|ss|a\/p)/gi, function ($1) {
+    switch ($1) {
+      case "yyyy": return d.getFullYear(); // 년 (4자리)
+      case "yy": return (d.getFullYear() % 1000).zf(2); // 년 (2자리)
+      case "MM": return (d.getMonth() + 1).zf(2); // 월 (2자리)
+      case "dd": return d.getDate().zf(2); // 일 (2자리)
+      case "KS": return weekKorShortName[d.getDay()]; // 요일 (짧은 한글)
+      case "KL": return weekKorName[d.getDay()]; // 요일 (긴 한글)
+      case "ES": return weekEngShortName[d.getDay()]; // 요일 (짧은 영어)
+      case "EL": return weekEngName[d.getDay()]; // 요일 (긴 영어)
+      case "HH": return d.getHours().zf(2); // 시간 (24시간 기준, 2자리)
+      case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2); // 시간 (12시간 기준, 2자리)
+      case "mm": return d.getMinutes().zf(2); // 분 (2자리)
+      case "ss": return d.getSeconds().zf(2); // 초 (2자리
+      case "a/p": return d.getHours() < 12 ? "오전" : "오후"; // 오전/오후 구분
+      default: return $1;
+    }
+  });
+};
+String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+Number.prototype.zf = function (len) {
+  return this.toString().zf(len);
+};
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
-
+console.log(new Date('2022-05-13 오전 11:26:58').format('yyyy-MM-dd a/p hh:mm:ss'));
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -33,7 +66,7 @@ const convertToDiscussion = (obj) => {
   // Discusstion information
   const information = document.createElement('div');
   information.className = 'discussion__information';
-  information.textContent = `${obj.author} / ${obj.createdAt}`;
+  information.textContent = `${obj.author} / ${new Date(obj.createdAt).format('yyyy-MM-dd a/p hh:mm:ss')}`;
   discussionContent.append(H2, information); // append h2 tag to discussion__content class
 
   // Discusstion answered
@@ -76,7 +109,7 @@ const title = document.querySelector(".form__input--title #name");
 
 const addDiscussions = () => {
   if (author.value == '' || title.value == '') return alert("Error : 입력란을 채워주세요")
-  const cutDate = new Date().toLocaleString();
+  const cutDate = new Date().format('yyyy-MM-dd a/p hh:mm:ss');
   const avatarURL = 'https://w7.pngwing.com/pngs/395/693/png-transparent-smiley-emoticon-smiley-miscellaneous-face-smiley.png';
   const obj = {
     author: author.value,
@@ -86,6 +119,7 @@ const addDiscussions = () => {
     url: 'https://velog.io/@zer0jun',
     checkbox: "☒"
   };
+  console.log(cutDate);
   const objString = JSON.stringify(obj); // 객체 문자열로 변환
   // 현재시간 key, value는 객체로 하여 배열을 문자열로 변환한 후 로컬스토리지에 저장.
   localStorage.setItem(cutDate, objString);
@@ -211,3 +245,4 @@ var toggle = (function () {
   };
 })();
 switchBtn.onclick = toggle;
+

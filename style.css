@@ -371,22 +371,3 @@ ion-icon {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
-
-
-.toggleSP .knobs:before {
-    content: "YES";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 10px;
-    color: #fff;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1;
-    padding: 9px 4px;
-    background-color: #03a9f4;
-    border-radius: 50%;
-    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
-}
