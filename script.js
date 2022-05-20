@@ -159,3 +159,15 @@ let rows = 5;
 function displayList(items, wrapper, rows_per_page, page) {
   wrapper.innerHTML = "";
 }
+
+const newBtn = document.querySelector(".newQuestionBtn");
+
+function onClickHandleNewBtn(event) {
+  console.log(event);
+  event.preventDefault();
+  event.target.form[0].value = "";
+  event.target.form[1].value = "";
+  event.target.form[2].value = "";
+}
+
+newBtn.addEventListener("click", onClickHandleNewBtn);
