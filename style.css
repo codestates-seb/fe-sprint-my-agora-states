@@ -1,1 +1,138 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0; 
+    padding: 100px 0 0 0;
+    background-color: gray;
+}
+
+h1 {
+    color: whitesmoke;
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background-color: #1c2128;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.form__container{
+    position: fixed;
+    right: 70px;
+    margin-top: 20px;
+    background-color: #22272E;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 400px;
+    height: 500px;
+}
+
+#nick {
+    width: 300px;
+    height: 50px;
+}
+
+#title {
+    width: 300px;
+    height: 50px;
+}
+
+#story {
+    width: 300px;
+    height: 300px;
+}
+
+#subBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+
+    width: 640px;
+    margin: 0; padding: 0;
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 540px;
+    padding: 10px;
+    margin-top: 10px;
+
+    background-color: #2d333b;
+    color: whitesmoke;
+}
+
+.discussion__avatar--wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.discussion__avatar--image{
+    width: 48px;
+}
+
+.discussion__content {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__information {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.discussion__answered > img {
+    width: 30px;
+}
