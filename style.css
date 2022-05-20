@@ -66,6 +66,7 @@ form {
 .form__container {
   display: block;
   width: 130%;
+  position: sticky;
 }
 
 p {
@@ -123,6 +124,7 @@ textarea:focus {
   justify-content: space-between;
   width: 100%;
   padding: 20px;
+  /* text-indent: 3px; */
   border-bottom: 1px solid #ededed;
   margin-bottom: 10px;
 }

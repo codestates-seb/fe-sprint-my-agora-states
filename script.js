@@ -33,7 +33,8 @@ const convertToDiscussion = (obj) => {
   //information
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = obj.author + " / " + obj.createdAt;
+  discussionInformation.textContent =
+    obj.author + " / " + new Date(obj.createdAt).toLocaleTimeString();
   discussionContent.append(discussionInformation);
 
   //answered
@@ -52,33 +53,9 @@ const convertToDiscussion = (obj) => {
     discussionAnswered.append(answered);
   }
 
-  // //submit
-  // const form = document.querySelector(".form");
-  // const name = document.querySelector("#name");
-  // const title = document.querySelector("#title");
-  // const story = document.querySelector("#story");
-
-  // const getInputValue = (event) => {
-  //   alert("실패~!!!!!!!");
-  //   event.preventDefault();
-  //   let nameValue = name.value;
-  //   let titleValue = title.value;
-
-  //   discussionInformation.textContent = nameValue + " / " + date;
-  //   discussionContent.append(discussionInformation);
-
-  //   discussionTitleLink.textContent = titleValue;
-  //   discussionTitle.append(discussionTitleLink);
-  // };
-
-  // const init = () => {
-  //   form.addEventListener("submit", getInputValue);
-  // };
-
-  // init();
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
+  // ul.prepend + 로컬스토리지
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -89,45 +66,37 @@ const render = (element) => {
   return;
 };
 
-// const form = document.querySelector(".form");
-// const username = document.querySelector("#name");
-// const title = document.querySelector("#title");
-// //const story = document.querySelector("#story");
-
-// function addList(event) {
-//   alert("실패~!!!!!!!");
-//   event.preventDefault();
-//   const newTitle = title.value;
-//   const newInfo = username.value;
-// }
-
-// form.addEventListener("submit", addList);
-
-//submit
-const form = document.querySelector(".form");
-const name = document.querySelector("#name");
-const title = document.querySelector("#title");
-const story = document.querySelector("#story");
-
-const getInputValue = (event) => {
-  alert("실패~!!!!!!!");
-  event.preventDefault();
-  let nameValue = name.value;
-  let titleValue = title.value;
-
-  discussionInformation.textContent = nameValue;
-  discussionContent.append(discussionInformation);
-
-  discussionTitleLink.textContent = titleValue;
-  discussionTitle.append(discussionTitleLink);
-};
-
-const init = () => {
-  form.addEventListener("submit", getInputValue);
-};
-
-init();
-
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const form = document.querySelector(".form");
+const submitBtn = form.querySelector("#submit");
+
+const username = form.querySelector("#name");
+const title = form.querySelector("#title");
+const story = form.querySelector("#story");
+submitBtn.onclick = function (event) {
+  alert("올리겠는가");
+  event.preventDefault();
+  let info = {
+    createdAt: new Date(),
+    title: title.value,
+    answer: null,
+    author: username.value,
+    bodyHTML: story.value,
+    avatarUrl: "https://kanghyew0n.github.io/assets/images/kangkkama.jpg",
+  };
+
+  agoraStatesDiscussions.push(info);
+
+  localStorage.setItem(
+    "agoraStatesDiscussions",
+    JSON.stringify(agoraStatesDiscussions)
+  );
+  localDiscussions = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+
+  ul.prepend(
+    convertToDiscussion(localDiscussions[localDiscussions.length - 1])
+  );
+};
