@@ -142,7 +142,8 @@ textarea:focus
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -182,11 +183,11 @@ textarea:focus
 .form__submit
 {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    margin-bottom: 10px;
 }
 
 
-.close-modal,
 .form__submit > input
 {
     flex-grow: 2;
@@ -200,10 +201,15 @@ textarea:focus
 
 
 .close-modal
-{
-    flex-grow: 1;
+{   
+    width: 600px;
+    display: block;
     background-color: #eb5252;
-    margin-left: 10px;
+    padding: 14px 0;
+    border-radius: 5px;
+    z-index: 999;
+    font-size: 1.2rem;
+    color: #fff;
 }
 
 
@@ -294,4 +300,42 @@ textarea:focus
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+/* page nation */
+
+.pagenation__container
+{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+
+.pagenation__box
+{
+    display: flex;
+
+}
+
+
+.pagenation__btn
+{
+    width: 34px;
+    height: 34px;
+    margin: 0 16px;
+    font-size: 1.2rem;
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.pagenation__btn--focus
+{
+    border: 2px solid #1d98f5;
+    border-radius: 5px;
 }
