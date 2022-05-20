@@ -30,7 +30,7 @@ const convertToDiscussion = (obj) => {
 
   const contentDiv = document.createElement('div');
   contentDiv.className = "discussion__information";
-  contentDiv.textContent =`${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  contentDiv.textContent =`${obj.author} / ${new Date().toLocaleString('ko-KR').slice(-11)}`
   discussionContent.appendChild(contentDiv);
  
   const answeredP = document.createElement('p');
@@ -68,7 +68,7 @@ submit.onclick = function (event) {
 /* pagination */
 let numOfContent = agoraStatesDiscussions.length;
 let showContent = 10; 
-let maxPage = Math.ceil(numOfContent / showContent); // 소숫점 올림
+let maxPage = Math.ceil(numOfContent / showContent);
 const pageDiv = document.querySelector('.pagination');
 function showPagination() {
   for (let i = 1; i <= maxPage; i++) { 
@@ -94,10 +94,16 @@ for (const button of pageButtons) {
     
     const buttonNum = event.target.textContent;
     const startNum = (showContent*buttonNum)-showContent;
-    const endNum = (showContent*buttonNum)-1;
+    let endNum = (showContent*buttonNum)-1;
+
+    if (endNum-startNum !== 0) {
+      endNum = agoraStatesDiscussions.length-1;
+    } ;
+
     for (let i = startNum; i <= endNum; i += 1) {
       ul.appendChild(convertToDiscussion(agoraStatesDiscussions[i])); 
     };
+
     discussionWrapper.prepend(ul);
   });
 };
