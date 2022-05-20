@@ -37,8 +37,8 @@ function App() {
     const render = () => {
         discussion.deleteDiscussions();
         pages.deletePages();
-        pages.$pagesContainer.appendChild(pages.createPages(data.length));
-        discussion.$discussionsContainer.appendChild(discussion.createDiscussions(data[currentPage]));
+        pages.$pagesWrapper.appendChild(pages.createPages(data.length));
+        discussion.$discussionsWrapper.appendChild(discussion.createDiscussions(data[currentPage]));
     }
     this.init = () => {
         render();
@@ -54,7 +54,18 @@ function App() {
             render();
         });
         // 페이징네이션 네비게이터 함수
-        pages.$pagesContainer.addEventListener("click", (e) => {
+        pages.$pagesWrapper.addEventListener("click", (e) => {
+            const checkedBtn = e.target.classList;
+            if(checkedBtn.contains("previous")) {
+                if (currentPage === 0) return;
+                currentPage -= 1;
+                render();
+            };
+            if(checkedBtn.contains("next")) {
+                if (currentPage === data.length - 1) return;
+                currentPage += 1;
+                render();
+            }
             const pageNumber = Number(e.target.dataset.index);
             if (isNaN(pageNumber)) return;
             currentPage = pageNumber - 1;
