@@ -1,6 +1,6 @@
 export default function Discussions() {
   // 게시판 컨테이너
-  this.$discussionsContainer = document.querySelector(".discussion__wrapper");  
+  this.$discussionsWrapper = document.querySelector(".discussion__wrapper");  
   // 게시판 UI 생성
   this.createDiscussions = (agoraStatesUserData) => {
     const $ul = document.createElement("ul");
@@ -40,7 +40,7 @@ export default function Discussions() {
   };
   // 게시판 UI 삭제
   this.deleteDiscussions = () => {
-    const nodes = [...this.$discussionsContainer.childNodes];
+    const nodes = [...this.$discussionsWrapper.childNodes];
     nodes.forEach((node) => node.remove());
   }
   
