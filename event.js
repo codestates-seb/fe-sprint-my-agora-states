@@ -44,7 +44,7 @@ function inputValue(e) {
   if (inputStory.value === "") {
     return;
   } else if (e.target.type === "submit") {
-    agoraStatesDiscussions.push({
+    addDiscussion({
       createdAt: new Date().toISOString(),
       title: inputTitle.value,
       author: inputName.value,
@@ -52,7 +52,7 @@ function inputValue(e) {
       bodyHTML: inputStory.value,
       avatarUrl: "https://avatars.githubusercontent.com/u/76990149?v=4",
     });
-    ul.prepend(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length - 1]));
+    window.location.href = `${window.location.origin}?pageNo=1`;
   }
 }
 
