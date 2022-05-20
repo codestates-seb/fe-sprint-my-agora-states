@@ -39,6 +39,7 @@ function App() {
         pages.deletePages();
         pages.$pagesWrapper.appendChild(pages.createPages(data.length));
         discussion.$discussionsWrapper.appendChild(discussion.createDiscussions(data[currentPage]));
+        checkedBtn();
     }
     this.init = () => {
         render();
@@ -56,21 +57,37 @@ function App() {
         // 페이징네이션 네비게이터 함수
         pages.$pagesWrapper.addEventListener("click", (e) => {
             const checkedBtn = e.target.classList;
+            
             if(checkedBtn.contains("previous")) {
                 if (currentPage === 0) return;
                 currentPage -= 1;
                 render();
-            };
+            }
+
             if(checkedBtn.contains("next")) {
                 if (currentPage === data.length - 1) return;
                 currentPage += 1;
                 render();
             }
+
             const pageNumber = Number(e.target.dataset.index);
             if (isNaN(pageNumber)) return;
             currentPage = pageNumber - 1;
             render();
         })
+    }
+    // Css 색깔 입히기
+    const checkedBtn = () => {
+        const $previous = document.querySelector(".previous");
+        const $next = document.querySelector(".next");
+        const $pageNumber = document.querySelectorAll(".pages__Number");
+        if (currentPage === 0) $previous.classList.add("impossible");
+        else $previous.classList.remove("impossible");
+
+        if (currentPage === data.length - 1) $next.classList.add("impossible");
+        else $next.classList.remove("impossible"); 
+
+        $pageNumber[currentPage].classList.add("current");
     }
 }
 
