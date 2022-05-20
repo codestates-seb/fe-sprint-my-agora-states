@@ -30,6 +30,7 @@ section {
     height: 30px;
     border: none;
     background-color: #21262c;
+    color: #FDFDFD;
 }
 
 input::placeholder {
