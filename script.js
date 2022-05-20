@@ -28,7 +28,7 @@ const convertToDiscussion = (obj) => {
   contentTitle.className = "discussion__title";
   
   const contentLink = document.createElement('a');
-  contentLink.setAttribute('herf',obj.url);
+  contentLink.setAttribute('href',obj.url);
   contentLink.textContent = obj.title;
   contentTitle.append(contentLink);
 
@@ -40,7 +40,14 @@ const convertToDiscussion = (obj) => {
 
   //해결 discussionAnswered
   let checked = document.createElement('p');
-  checked.textContent ='☑';
+  // answer: null 아니라면 
+  if(obj.answer === null){
+    checked.textContent = '✕';
+    checked.className = "uncheck";
+  } else{
+    checked.textContent = '✓';
+  }
+  // checked.textContent = !(obj.answer === null) ? '✓' : '✕';
   discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);

@@ -95,11 +95,17 @@ form textarea{
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
+  box-shadow: 0px 1px 0 1px hsla(0, 0%, 21%, 0.7);
   
   display: block;
   margin: auto;
 }
-
+.form__submit>input:hover{
+  cursor: pointer;
+}
+.form__submit>input:active{
+  box-shadow: none;
+}
 
 
 /*------------ 디스커션 리스트 영역 ------------*/
@@ -123,6 +129,7 @@ section.discussion__wrapper > ul{
   gap: 10px;
 }
 li.discussion__container{
+  width: 100%;
   /* border: 1px solid rgb(37, 47, 154); */
   list-style-type : none;
 
@@ -167,19 +174,22 @@ h2.discussion__title{
   color:#9b9494;
   text-align: right;
   padding-bottom: 3px;
-  /* margin-top: 10px; */
-  /* align-items: flex-end; */
 }
 
 
 /* 디스커션 체크 부분 */
 div.discussion__answered{
-  /* border: 1px solid rgba(212, 24, 24); */
-  font-size: 2.5em;
+  font-size: 20px;
   padding: 0 25px 0 20px;
   
   display: flex;
   flex-direction: center;
-  align-items: center; 
+  align-items: center;
 }
-
+div.discussion__answered > p{
+  color:#757575;
+  /* border: 1px solid rgb(233, 28, 28); */
+}
+.uncheck{
+  font-size: 15px;
+}
