@@ -1,1 +1,224 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma, sans-serif;
+}
+body {
+    background-color: #FBF8F1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*B7CADB*/
+a {
+    text-decoration: none;
+    color: #373a3fe8;
+}
+/* list 스타일 없애기 */
+ul {
+    list-style-type: none;
+}
+h1 {
+    width: 540px;
+    padding: 100px 0px;
+    text-align: center;
+    background-color: #FBF8F1;
+    font-size: 45pt;
+    color: #B7CADB;
+    text-shadow: 2px 3px 5px #618092;
+    box-shadow: 1px 1px 10px 10px #FBF8F1 inset;
+}
+
+.hide,
+.hide > .answer__title,
+.hide > .answer__avatar--wrapper {
+    display: none;
+}
+
+/* 질 문 등 록*/
+.form {
+    padding: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0px 150px 0px;
+}
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 14pt;
+}
+
+.form__input--name,
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.form__textbox {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    background-color: #FBF8F1;
+    border-bottom: 1px solid #B7CADB;
+    font-style: italic;
+}
+
+#name, textarea {
+    flex: 1;
+    border: none;
+    background-color: #FBF8F1;
+    border-bottom: 1px solid #B7CADB;
+}
+textarea {
+    margin-top: 20px;
+    height: 100%;
+}
+input {
+    flex: 1;
+    border: none;
+    border: 1px solid #B7CADB;
+    padding: 0px 20px;
+}
+input:focus, textarea:focus {
+    outline: none;
+}
+
+.form__submit {
+    width: 100px;
+    display: flex;
+    margin: 5px;
+}
+.submitBtn {
+    border: none;
+    background-color: #b7cadb7f;
+    border-radius: 10px;
+    font-size: 15pt;
+}
+.submitBtn:hover {
+    cursor: pointer;
+    background-color: #B7CADB;
+}
+
+
+/* Discussion 컴포넌트 */
+ul.discussions__container {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+}
+
+li.discussion__container {
+    background-color: #FDF6EC;
+    display: flex;
+    flex-direction: row;
+    border: 5px solid #FBF8F1;
+    border-radius: 20px;
+    margin: 10px 0px;
+    padding: 0px 10px 10px 10px;
+    box-shadow: 1px 1px 6px 3px #F3E9DD;
+}
+
+li.discussion__container:hover {
+    cursor: pointer;
+}
+
+li.discussion__text__container {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*좌)프 로 필 가 운 데 정 렬 */
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50px;
+}
+
+/*중) 글제목, 이름과 시간*/
+.discussion__content {
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    flex: 1;
+    margin: 50px 30px 0px 0px;   
+}
+.discussion__title,
+.discussion__content > h2 {
+    padding: 5px;
+    font-size: 15pt;    
+}
+
+.discussion__content > div {
+    text-align: right;
+    padding-top: 5px;
+    font-size: 12px;
+    text-shadow: 2px 2px 5px #dab88b87;
+}
+
+/*글 내 용 */
+.discussion__text {
+    margin: 50px 0px;
+    line-height: 2rem;
+}
+
+
+
+/*우)체 크 표 시*/
+.discussion__answered{
+    display: flex;
+    align-items: center;
+}
+
+/*댓 글 아 바 타*/
+li.answer__container {
+    display: flex;
+    border-radius: 10px;
+}
+.answer__avatar--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+
+/*댓 글 내 용*/
+.answer__title {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    line-height: 2rem;
+    font-size: 13pt;
+    font-weight: 530;
+}
+.answer__title > .answerer_id,
+.answer__title > .answerer_name_time {
+    text-align: right;
+    font-size: 12pt;
+    margin: -5px 10px;
+    text-shadow: 2px 2px 5px #DAB88B;
+}
+
+.answer_url {
+    margin: 20px 0px 40px 0px;
+}
+
+.answer_no_answer {
+    font-size: 20pt;
+}
