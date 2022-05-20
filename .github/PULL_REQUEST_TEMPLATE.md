@@ -14,10 +14,10 @@ Github Page 배포 링크를 아래 작성합니다.
 
 - [O] 디스커션 나열 기능
     - [O] `script.js`를 수정하여 `agoraStatesDiscussions` 배열의 데이터를 나열할 수 있게 구현합니다.
-- [ ] CSS
-    - [ ] 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다.
-    - [ ] `style.css`를 수정하여 멋지고 아름답게 나만의 아고라 스테이츠를 꾸밉니다.
-    - [ ] [colorhunt](https://colorhunt.co/palettes/popular), [dribbble](https://dribbble.com/)에서 적절한 색 조합, 디자인을 참고합니다.
+- [O] CSS
+    - [O] 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다.
+    - [O] `style.css`를 수정하여 멋지고 아름답게 나만의 아고라 스테이츠를 꾸밉니다.
+    - [O] [colorhunt](https://colorhunt.co/palettes/popular), [dribbble](https://dribbble.com/)에서 적절한 색 조합, 디자인을 참고합니다.
 - [O] 디스커션 추가 기능
     - [O] `script.js`를 수정하여 디스커션 추가 기능을 구현합니다.
     - [O] `section.form__container` 요소에 새로운 아고라 스테이츠 질문을 추가할 수 있는 입력 폼을 제작합니다. 형식은 자유입니다.
@@ -48,12 +48,10 @@ Github Page 배포 링크를 아래 작성합니다.
 
 자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
 
-- []
-- []
-- []
+- [O] 게시글 삭제 기능
 
 ### 배포 시연 화면
 
 아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
 
- ![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
