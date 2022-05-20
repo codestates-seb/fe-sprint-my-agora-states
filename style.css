@@ -1,1 +1,68 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* { 
+    box-sizing: border-box;
+}
+
+section ul {
+    width: 540px;
+}
+
+li {
+    list-style-type: none;
+}
+
+li.discussion__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+li div {
+    display: inline-block;
+}
+
+/* .discussion__avatar--wrapper {
+    padding-left: 55px;
+} */
+
+.discussion__answered {
+    padding-right: 55px;
+}
+
+img {
+    border-radius: 100%;
+    width: 48px;
+}
+
+/* .discussion__avatar--image {
+    border-radius: 100%;
+} */
+
+.discussion__title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.discussion__information {
+    padding-left: 80px;
+}
+
+h2.discussion__title {
+    font-size: 20px;
+}
+
+p {
+    font-size: 30px;
+}
+
+/* div.discussion_information {
+    margin-top: 3px;
+    margin-bottom: 3px;
+} */
+
+/* 아마 담고 있는 부모 요소의 content크키보다 작아지니까 적용이 안되나보다. */
+/* h2.discussion_title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+} */
+
