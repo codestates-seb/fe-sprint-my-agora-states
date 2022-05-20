@@ -51,9 +51,8 @@ const convertToDiscussion = (obj) => {
 const render = (element) => {
   element.innerHTML = "";
 
-  const savedDiscussions = JSON.parse(localStorage.getItem("data"));
-  for (let i = 0; i < savedDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(savedDiscussions[i]));
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
@@ -76,16 +75,11 @@ function onFormSubmit(event) {
   agoraStatesDiscussions.unshift({
     createdAt: writeDate,
     title: formTitle.value,
-    url: "www.google.com",
     author: formName.value,
     bodyHTML: formContent.value,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   });
 
   console.log(agoraStatesDiscussions);
-  // localStorage 부분 해결해야함 submit 누르면 새로고침됨ㅠ
-  localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
   render(ul);
 }
 
