@@ -57,3 +57,15 @@ Github Page 배포 링크를 아래 작성합니다.
 아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
 
  ![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+ 
+### 가장 자랑하고 싶은 기능
+
+> 적어주세요
+
+### 구현하고 싶었는데 하지 못한 아쉬운 기능
+
+> 적어주세요
+
+### 도움을 받고 싶은 부분
+
+> 적어주세요
