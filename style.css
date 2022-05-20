@@ -47,8 +47,12 @@ h1 {
     align-items: center;
 }
 
-li.discussion__container {
+ul.discussions__container {
     list-style: none;
+
+}
+
+li.discussion__container {
     width: 540px;
     display: flex;
     justify-content: space-between;
