@@ -49,12 +49,45 @@ const render = (element) => {
   return;
 };
 
-// console.log(obj); 41번 찍힘
-// render라는 함수를 한번호출하면 반복문이 돌면서 계속찍히기 때문임.
-// 반복문을 통해서 정보들을 접근할수있고 
-
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
+//submit 처리 함수
+let inputName = document.querySelector(".form__input--name input");
+let inputTitle = document.querySelector(".form__input--title input");
+let inputStory = document.querySelector(".form__textbox textarea");
+let submitForm = document.querySelector("form");
+let submitBtn = document.querySelector(".form__submit input");
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const newDiscussion = {
+      Id: null,
+      createdAt: null,
+      title: null,
+      url: null,
+      author: null,
+      answer: null,
+      bodyHTML: null,
+      avatarUrl:"avatar.jpeg"
+  };
+
+  newDiscussion.title = inputTitle.value;
+  newDiscussion.author = inputName.value;
+  newDiscussion.createdAt = new Date().toISOString();
+
+  inputTitle.value = '';
+  inputName.value = '';
+  inputStory.value = '';
+  
+  agoraStatesDiscussions.unshift(newDiscussion);
+  console.log("동작");
+  console.log(agoraStatesDiscussions);
+
+  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+  console.log(submitForm);
+}
+
+submitForm.addEventListener('submit', handleSubmit);

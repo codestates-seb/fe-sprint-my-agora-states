@@ -24,7 +24,7 @@
 }
 body {
     /* background: linear-gradient(to right, #4C82BE, #D0DBF1, #EBB65D, #E16655, #B23477 );  */
-    background: linear-gradient( to bottom left,   #11F3C1 50%, #FFF570 50%);
+    background: linear-gradient( to bottom left, #11F3C1 50%, #FFF570 50%);
 }
 main {
     display: flex;
@@ -33,18 +33,15 @@ main {
     align-items: center;
 }
 
-
 h1 {
-    padding:80px 0 0 0;
+    padding-top:80px;
     flex:1;
     font-family: 'establishRetrosansOTF';
     font-size: 5rem;
     /* text-shadow: 4px 4px 4px rgb(71, 70, 70);  */
-    /* animation: blink-effect 3s step-end infinite; */
+    animation: blink-effect 3s step-end infinite;
 }
-/* @keyframes blink-effect { 60% { opacity: 0; } } */
-
-
+@keyframes blink-effect { 60% { opacity: 0; } }
 
 section.form__container {
     flex:2;
@@ -66,35 +63,34 @@ form {
     align-items: center;
     width:100vw;
 }
-form > .deco {
-
-    /* color: #F86174; */
+div.deco {
     color: #F56B7A;
     text-shadow: 1px 1px 1px rgb(11, 11, 11);
     /* animation: blink-effect 1s step-end infinite; */
     font-weight: bold;
-
 }
+
 form > div:first-of-type {
     margin-top: 15px;
     flex-basis: 30px;
     padding-top: 15px;
     padding-left:40px;
-    font-size: 13rem;
+    font-size: 13rem;   
 }
+
 form > div:nth-of-type(4) {
     margin-top: 20px;
     padding-top: 15px;
     margin-left: 10px;
     flex-basis: 30px;
     font-size: 13rem;
-
 }
 
 .form__input--wrapper {
     flex-basis: 400px;
     display: flex;
     flex-direction: column;
+    transition: 3s;
 }
 
 .form__input--name,
@@ -105,8 +101,6 @@ form > div:nth-of-type(4) {
     margin: 3px;
     box-shadow: 3px 3px 3px rgb(0, 0, 0);
     transition-duration: 0.2s;
-
-
 }
 .form__input--wrapper input {
     width:400px;
@@ -115,12 +109,20 @@ form > div:nth-of-type(4) {
     font-family: 'WooridaumL';
     border:0px; 
 }
+.form__input--wrapper input:hover {
+    background-color: #cac8ca;
+    transition: 0.5s;
+}
 .form__input--wrapper textarea {
     width:400px;
     height: 100px;
     font-size:1.2rem;
     font-family: 'WooridaumL';
     border:0px;
+}
+.form__input--wrapper textarea:hover {
+    background-color: #cac8ca;
+    transition: 0.5s;
 }
 
 .form__submit {
@@ -138,7 +140,6 @@ form > div:nth-of-type(4) {
     box-shadow: 3px 3px 3px rgb(0, 0, 0);
     transition-duration: 0.1s;
     color:white;
-
 }
 .form__submit input:active {
     margin-left: 5px;
@@ -159,7 +160,6 @@ ul.discussions__container {
     align-items:center;
     margin:10px 0;
     background-color: #2F2F3B;
-
 }
 li.discussion__container {
     display: flex;
@@ -170,10 +170,6 @@ li.discussion__container {
     flex:1;
     margin:10px;
     box-shadow: 3px 3px 3px rgb(0, 0, 0);
-}
-
-li.discussion__container:first-child {
-    display: none;
 }
 
 div.discussion__avatar--wrapper {
@@ -188,7 +184,6 @@ div.discussion__avatar--wrapper {
     height: 90px;
 }
 
-
 img {
     border-radius: 50%;
     width: 48px;
@@ -196,14 +191,12 @@ img {
     transition: 2s;
 }
 
-
 div.discussion__content {
     flex-basis: 470px;
     display: flex;
     flex-direction: column;
     margin-right: 10px;
     margin-top: 5px;
-
 }
 .discussion__title {
     flex:1.5;
@@ -224,8 +217,6 @@ div.discussion__content {
 }
 
 
-
-
 .discussion__information {
     flex:1;
     text-align: right;
@@ -244,6 +235,5 @@ div.discussion__answered {
 .discussion__answered > p {
     font-size: 35px;
     color:#1afd84;
-
 }
 
