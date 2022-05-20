@@ -816,7 +816,6 @@ const convertToDiscussion = (obj) => {
   const h2 = document.createElement('h2');
   const a = document.createElement('a');
   const p = document.createElement('p')
-  const ul = document.querySelector('ul.discussions__container');
 
   li.className = 'discussion__container';
   avatarWrapper.className = 'discussion__avatar--wrapper';
@@ -825,13 +824,14 @@ const convertToDiscussion = (obj) => {
   avatarImg.className = 'discussion__avatar--image';
   h2.className = 'discussion__title';
   discussionInfo.className = 'discussion__information';
+  
 
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of ' + obj.author;
   h2.textContent = obj.title
   a.href = obj.url;
   discussionInfo.textContent = obj.author + " / " + obj.createdAt;
-  p.textContent = "☑"
+  p.textContent = obj.answer === null ? "□":"☑";
 
   discussionAnswered.append(p);
   h2.append(a);
@@ -842,6 +842,7 @@ const convertToDiscussion = (obj) => {
 };
 
 const render = (element) => {
+  element.innerHTML="" 
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }

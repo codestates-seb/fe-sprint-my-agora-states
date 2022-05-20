@@ -1,16 +1,36 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
 * {
     /* margin: 0;
     padding: 0; */
     box-sizing: border-box;
 }
+h1 {
+    display:flex;
+    justify-content: center;
+    font-family: 'Lobster';
+    font-size: 3rem;
+}
 
-section ul li{
+body {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    background-color: #E3FDFD;
+}
+
+ul li.discussion__container{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     list-style: none;
     width: 540px;
+    height: 100px;
+    background-color: #CBF1F5 ;
+    margin-bottom: 5px;
+    border-radius: 3%;
 }
 
 a {
@@ -25,4 +45,18 @@ a {
 .discussion__information {
     display: flex;
     justify-content: flex-end;
+    width: 450px;
+    margin-right: 30px;
+}
+
+.discussion__title {
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 1.2rem;
+}
+
+.form__container {
+    display: flex;
+    justify-content: center;
 }
