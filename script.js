@@ -59,8 +59,3 @@ const render = (element) => {
 //discussion container는 리스트li들의 전체 리스트ul이다. 위에서 붙여준 내용들을 다시한번 렌더링 한다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
-// section.form__container에 새로운 아고라 스테이츠 질문을 입력할 수 있는 입력폼을 제작한다.
-
-//깃 연결 잘되었는지 확인
-console.log();
