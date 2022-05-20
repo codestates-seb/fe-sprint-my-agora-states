@@ -1,7 +1,7 @@
 let agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
-    createdAt: "2022년 05월 16일 오전 1시 2분",
+    createdAt: "2022-05-16T01:02:17Z",
     title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: "dubipy",
@@ -21,7 +21,7 @@ let agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APjIj",
-    createdAt: "2022년 5월 15일 오후 11시 57분",
+    createdAt: "2022-05-15T23:57:43Z",
     title:
       "반복되는 문자 리턴 문제에서 ' '(공백하나인 문자열)입력시 오류가 발생합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",

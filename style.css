@@ -138,3 +138,29 @@ span.content__date {
 .answered {
     color: green;
 }
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    margin: 20px;
+    background-color:rgb(255, 107, 0);
+    color: white;
+    font-size: smaller;
+    border-radius: 7px;
+    padding: 7px 15px;
+    border: solid 1px rgb(255, 107, 0);
+    cursor: pointer;
+}
+
+.loading:hover {
+    background-color: white;
+    color: rgb(255, 107, 0);
+}
+
+.loading:active {
+    transform: scale(95%);
+}
