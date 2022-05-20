@@ -52,7 +52,8 @@ function inputValue(e) {
       bodyHTML: inputStory.value,
       avatarUrl: "https://avatars.githubusercontent.com/u/76990149?v=4",
     });
-    window.location.href = `${window.location.origin}?pageNo=1`;
+    // window.location.href = `${window.location.origin}?pageNo=1`;
+    window.location.href = `${window.location.origin}/fe-sprint-my-agora-states/?pageNo=${i + 1}`;
   }
 }
 
