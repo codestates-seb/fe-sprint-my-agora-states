@@ -38,7 +38,7 @@ const convertToDiscussion = (obj) => {
 
   //div.discussion__answered 의 자식 요소 채우기
   const answerCheck = document.createElement("p");
-  answerCheck.textContent = "answer" in obj ? "☑" : "☒";
+  answerCheck.textContent = obj.answer !== null ? "☑" : "☒";
 
   discussionAnswered.append(answerCheck);
 
@@ -58,3 +58,4 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
