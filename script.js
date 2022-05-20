@@ -14,10 +14,30 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // <img class="discussion__avatar--image"
+  // src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+  // alt="avatar of kimploo"></img>
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = " avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
 
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion_information";
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createAt).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInformation);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑" : "☒"
+  discussionAnswered.append(checked);
+
+  li.append(avatarWrapper, discussionContent, discussionAnswered, avatarImg);
   return li;
 };
 
@@ -25,6 +45,7 @@ const convertToDiscussion = (obj) => {
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+
   }
   return;
 };

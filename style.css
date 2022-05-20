@@ -1,1 +1,139 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace, cursive;
+    border: none;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FDFAF6;
+}
+
+li.discussion__container {
+    margin-bottom: 0.5rem;
+    background-color: white;
+    list-style-type: none;
+    display: flex;
+    flex-direction : row;
+    justify-content: space-between;
+    border-radius: 5px;
+    width: 540px;
+    color: #aec0b3;
+}
+
+div.discussion__content {
+    display: flex;
+    padding: 10px;
+    flex-direction : column;
+}
+
+h2.discussion__title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: right;
+    padding: 10px;
+}
+
+div.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+div.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 48px;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+
+
+h1 {
+    padding: 35px;
+    color: #064420;
+}
+
+section.form__container {
+    margin-bottom: 1rem;
+    background-color: #E4EFE7;
+    border-radius: 5px;
+    width: 540px;
+    height: 125px;
+    padding: 10px;
+    color: #064420;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.form__submit {
+    border-style: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+div.form__submit:hover {
+    background-color: palevioletred;
+}
+
+div.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form__input--name, .form__input--title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.15rem;
+
+}
+
+
+
+div.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#story {
+    width: 450px;
+    height: 40px;
+}
+
+#name {
+    width: 230px;
+}
+
+a:link {
+    color : pink;
+  }
+a:visited {
+    color : #064420;
+  }
+a:hover {
+    color : red;
+  }
+a:active {
+    color : green
+  }
+
+  
+
+
