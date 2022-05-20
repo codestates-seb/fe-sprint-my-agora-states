@@ -107,6 +107,9 @@ submitBtn.onclick = function (event) {
   let inputTitle = document.querySelector(".title");
   let newTitle = inputTitle.value;
   let today = new Date();
+  if (!newName || !newTitle) {
+    return ;
+  }
 
   lists.unshift({
   title: `${newTitle}`,
