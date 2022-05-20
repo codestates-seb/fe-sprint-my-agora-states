@@ -78,16 +78,16 @@ function uid() {
 }
 
 function deleteInformation(e) {
-  console.log(e.target.id);
-  console.log(e.target.parent);
+  agoraStatesDiscussions.shift(); // dataset DOM  property dataset
   render(ul);
 }
+let randomImg = Math.floor(Math.random() * agoraStatesDiscussions.length);
 
 function addInformation() {
   let today = new Date();
   agoraStatesDiscussions.unshift({
     id: "D_kwDOHOApLM4APjJi",
-    createdAt: `${today}`,
+    createdAt: `${today.getFullYear()}-${today.getMonth()}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`,
     title: `${nameArea[1].value}`,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: `${nameArea[0].value}`,
@@ -101,8 +101,7 @@ function addInformation() {
       avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
     },
     bodyHTML: `${questionArea}`,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+    avatarUrl: `${agoraStatesDiscussions[randomImg].avatarUrl}`,
   });
   render(ul);
 }
@@ -110,7 +109,6 @@ function addInformation() {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   element.innerHTML = "";
-
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
