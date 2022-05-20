@@ -87,7 +87,7 @@ const submitBtn = document.querySelector(".form__submit");
       id: "",
       createdAt: today,
       title: formTitle.value,
-      url: null,
+      url: "https://github.com/yoohyunju",
       author: formName.value,
       answer: null,
       bodyHTML: "",
