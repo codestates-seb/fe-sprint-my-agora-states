@@ -66,7 +66,7 @@ textarea:focus
 
 .hide
 {
-    display: none;
+    /* display: none; */
     visibility: hidden;
 }
 
@@ -239,6 +239,14 @@ textarea:focus
 }
 
 
+.discussion__container:hover
+{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transform: translateY(-3px);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 .discussions__container
 {
     width: 1200px;
@@ -284,7 +292,7 @@ textarea:focus
 .discussion__content
 {
     /* height: 80%; */
-    margin-top: 40px;
+    margin-top: 16px;
     flex-grow: 1;
 }
 
@@ -338,4 +346,22 @@ textarea:focus
 {
     border: 2px solid #1d98f5;
     border-radius: 5px;
+}
+
+
+.discussion__delete
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.discussion__delete--btn
+{
+    background-color: inherit;
+    height: 22px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ff3251;
 }
