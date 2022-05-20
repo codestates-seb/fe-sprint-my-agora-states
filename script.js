@@ -99,6 +99,7 @@ elSubmit.addEventListener('click', function (event) {
 
 });
 
+
 elNewName.onkeyup = function () {
   isEnabled();
 }
@@ -112,10 +113,13 @@ elNewQuestion.onkeyup = function () {
   
 }
 
+
+// 모든 빈칸이 작성되었는지 확인하는 함수
 function isAllFilled() {
   return (elNewName.value !== "" && elNewTitle.value !== "" && elNewQuestion.value !== "");
 }
 
+// 모든 빈칸 작성 여부에 따라 submit 버튼 활성화하는 함수
 function isEnabled() {
   if (isAllFilled()) {
     elSubmit.removeAttribute("disabled");
