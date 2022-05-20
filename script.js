@@ -41,7 +41,19 @@ const convertToDiscussion = (obj) => {
   contentName.textContent = `${obj.author}`;
   let contentDate = document.createElement('span');
   contentDate.classList.add('content__date');
-  contentDate.textContent = `${obj.createdAt}`;
+  let newDateString = new Date(obj.createdAt);
+  let newYear = newDateString.getFullYear();
+  let newMonth = newDateString.getMonth();
+  let newDate = newDateString.getDate();
+  let newHour = newDateString.getHours();
+  let newMinute = newDateString.getMinutes();
+  let newCreatedAt = 0;
+  if (newHour > 12) {
+    newCreatedAt = `${newYear}년 ${newMonth + 1}월 ${newDate}일 오후 ${newHour - 12}시 ${newMinute}분`;
+  } else {
+    newCreatedAt = `${newYear}년 ${newMonth + 1}월 ${newDate}일 오전 ${newHour}시 ${newMinute}분`;
+  }
+  contentDate.textContent = newCreatedAt;
   contentInfo.append(contentName);
   contentInfo.append(contentDate);
   discussionContent.append(contentInfo);
@@ -95,22 +107,11 @@ submitBtn.onclick = function (event) {
   let inputTitle = document.querySelector(".title");
   let newTitle = inputTitle.value;
   let today = new Date();
-  let year = today.getFullYear();
-  let month = today.getMonth();
-  let date = today.getDate();
-  let hour = today.getHours();
-  let minute = today.getMinutes();
-  let dateString = ''
-  if (hour > 12){
-    dateString = `${year}년 ${month+1}월 ${date}일 오후 ${hour-12}시 ${minute}분`;
-  } else {
-    dateString = `${year}년 ${month+1}월 ${date}일 오전 ${hour}시 ${minute}분`;
-  }
 
   lists.unshift({
   title: `${newTitle}`,
   author: `${newName}`,
-  createdAt: `${dateString}`,
+  createdAt: `${today}`,
   answer: null,
   avatarUrl: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/325/ninja_1f977.png",
   });
