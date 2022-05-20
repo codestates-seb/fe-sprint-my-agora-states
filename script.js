@@ -43,7 +43,11 @@ const convertToDiscussion = (obj) => {
 
   //체크박스 불러오기
   const checkedAnswered = document.createElement('p');
-  checkedAnswered.textContent = '☑';
+  checkedAnswered.textContent = obj.answer;
+  if (obj.answer === null) {
+    checkedAnswered.textContent = '☒'
+  }
+  else checkedAnswered.textContent = '☑'
   discussionAnswered.append(checkedAnswered);
   // 아니면 obj.answer이 null 이면 unchecked된 이미지 remove('hide') / add('hide')
   // obj.answer에 내용이 있으면 checked된 이미지 remove('hide') / add('hide')
