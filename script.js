@@ -26,7 +26,7 @@ const convertToDiscussion = (obj) => {
 
 
   // 타이틀 불러오기, 링크 불러오기
-  const discussionTitle = document.createElement("h2");
+  const discussionTitle = document.createElement("h3");
   const titleAnchor = document.createElement("a");
   titleAnchor.href = obj.url;
   titleAnchor.textContent = obj.title;
@@ -35,24 +35,16 @@ const convertToDiscussion = (obj) => {
   
 
   // 날짜랑 아이디 불러오기
-  const discussionId = document.createElement('div')
-  const discussionCreatedAt = document.createElement('div')
-  discussionId.className = 'discussion__information';
-  discussionCreatedAt.className = 'discussion__information';
-  discussionId.textContent = obj.id;
-  discussionCreatedAt.textContent = obj.createdAt + '/';
-  discussionContent.append(discussionId);
-  discussionContent.append(discussionCreatedAt);
+  const discussionInfo = document.createElement('div')
+  discussionInfo.className = 'discussion__information';
+  discussionInfo.textContent = obj.author + '/' + obj.createdAt;
+  discussionContent.append(discussionInfo);
 
 
   //체크박스 불러오기
-  const checkedAnswered = document.createElement('input');
-  checkedAnswered.setAttribute("type", "checkbox");
+  const checkedAnswered = document.createElement('p');
+  checkedAnswered.textContent = '☑';
   discussionAnswered.append(checkedAnswered);
-  console.log(checkedAnswered);
-  // 여기서 obj.answer이 null 이면 unchecked
-  // obj.answer에 내용이 있으면 checked
-  
   // 아니면 obj.answer이 null 이면 unchecked된 이미지 remove('hide') / add('hide')
   // obj.answer에 내용이 있으면 checked된 이미지 remove('hide') / add('hide')
 
