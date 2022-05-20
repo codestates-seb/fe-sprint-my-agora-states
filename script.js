@@ -96,10 +96,10 @@ for (const button of pageButtons) {
     const startNum = (showContent*buttonNum)-showContent;
     let endNum = (showContent*buttonNum)-1;
 
-    if (endNum-startNum !== 0) {
+    if (Number(maxPage) === Number(buttonNum)) {
       endNum = agoraStatesDiscussions.length-1;
-    } ;
-
+    };
+    
     for (let i = startNum; i <= endNum; i += 1) {
       ul.appendChild(convertToDiscussion(agoraStatesDiscussions[i])); 
     };
