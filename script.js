@@ -43,7 +43,6 @@ const convertToDiscussion = (obj) => {
           // 시간만 나오도록
     let times = obj.createdAt.slice(11,19)
    
-
     // 오전,오후
        if(Number(times.slice(0,2)) < 12 ){
             times = '오전 ' + times
@@ -105,6 +104,8 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
+// 시간 짜르는
+// const createDate = new Date(obj.createdAt).toLocaleTimeString();
 
 
 

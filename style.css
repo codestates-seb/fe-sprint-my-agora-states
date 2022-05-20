@@ -6,6 +6,10 @@
     box-sizing : border-box;
 }
 
+body{
+    background-color: azure;
+}
+
 .title {
     text-align: center;
     width: 600px;
@@ -156,3 +160,8 @@ li.discussion__container {
     padding: 1rem;
 }
 
+
+a {
+    text-decoration: none;
+    color: #3b3a37;
+}
