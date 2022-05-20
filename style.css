@@ -30,24 +30,16 @@ h1 {
   position: relative;
   font-size: 3rem;
   transition: 0.6s all;
-  animation: showing 0.6s;
+  animation: showing 1s;
+  text-shadow: 2px 4px 30px rgb(107, 107, 107);
 }
 
 @keyframes showing {
   0% {
     right: -100%;
   }
-  80% {
-    transform: rotate(0deg);
-  }
-  85% {
-    transform: rotate(-10deg);
-  }
   90% {
-    transform: rotate(0deg);
-  }
-  95% {
-    transform: rotate(10deg);
+    transform: rotate(-5deg);
   }
   100% {
     transform: rotate(0deg);
@@ -55,24 +47,8 @@ h1 {
   }
 }
 
-@keyframes vibrating {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 h1:hover {
-  color: rgb(68, 141, 209);
-  animation: vibrating 0.6s;
+  color: rgb(50, 112, 170);
   transition: 0.6s all;
 }
 
@@ -164,14 +140,15 @@ ul.discussions__container {
 
 .tools {
   display: flex;
-  justify-content: end;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 8px;
   margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
-.tools span {
-  font-size: 0.8rem;
+.tools label:nth-of-type(2) {
+  margin-left: auto;
 }
 
 .tools select {
@@ -221,6 +198,10 @@ li.discussion__container:hover::after {
   width: 54px;
   height: 54px;
   border-radius: 200px;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: grey;
+  text-align: center;
 }
 
 /* discussion 제목, 세부사항 */
@@ -294,9 +275,8 @@ h2.discussion__title a:visited {
   position: relative;
   width: 30px;
   height: 30px;
-  flex: 1 0 auto;
   background-color: rgb(255, 255, 255);
-  border-radius: 30px;
+  border-radius: 40px;
   cursor: pointer;
   box-shadow: 1px 2px 7px grey;
   transition: 0.6s all;
@@ -363,9 +343,10 @@ h2.discussion__title a:visited {
 }
 
 .page-number {
-  flex: 1 0 80%;
+  flex: 1 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  column-gap: 10px;
 }
 
 /* 페이지 숫자 */
@@ -382,9 +363,20 @@ h2.discussion__title a:visited {
   transition: 0.6s all;
 }
 
+.page-number > span.hide {
+  flex: 0 1;
+  width: 0px;
+  height: 0px;
+}
+
 .page-number > span:hover,
 #current-page {
   color: white;
-  background-color: rgb(95, 150, 196);
+  background-color: rgb(80, 138, 185);
+  transition: 0.6s all;
+}
+
+.page-number > span:hover {
+background-color: rgb(150, 199, 238);
   transition: 0.6s all;
 }
