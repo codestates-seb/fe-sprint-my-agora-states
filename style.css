@@ -1,1 +1,138 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* CSS reset */
+*{
+    /* margin : 0;
+    padding : 0; */
+    box-sizing: border-box;
+}
+
+:root {
+    --background : #faf8f4;
+    --surface : #ffffff;
+    --primary : #5e7c96;
+    --secondary : #DA7F8F;
+    --form-surface : #f6eed8;
+    --link : #A7BBC7;
+    --visited: purple;
+}
+
+li.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /*디스커션 3박스를 한 줄로 */
+    width: :540px; /*컴포넌트 전체 폭 540*/
+    list-style-type: none ; /* li 불렛 없애기 */
+    margin-bottom: 0.5rem;
+    background-color: var(--surface);
+    border-radius : 5px;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px; /* 사진 더 작게 */
+    border-radius: 100%; /* 원형 프로필 사진 */ 
+}
+
+div.discussion__avatar--wrapper { /*이미지 중앙*/
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex: 0 0 0 ;
+    padding : 1rem;
+}
+
+
+/*중간 Discussion 콘텐츠
+Discussion 제목과 저자, 생성일간의 간격을 충분히 주기. 
+저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽 붙이고, 체크표시
+체크 표시가 discussion 컴포넌트 높이의 중간에 오도록 정렬. */
+
+
+/*My Agora States 문구 */
+main > h1{ 
+    text-align: center;   /*가운데 정렬*/
+    color: var(--primary); /*색상 변경*/
+}
+
+
+/* [notice]좋은 질문하는 법 문구 */
+h2{
+    font-size : 1.1rem; /* 크기 조절 */
+}
+
+h2> a {
+    color : var(--link); /* 색상 변경 */
+}
+
+h2 > a :visited{
+    color:var(--visited);
+}
+
+h2 > a:hover {
+    color: var(--secondary);
+}
+
+
+/* 폼 전체적인 틀 */
+form.form{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--form-surface);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--primary);
+}
+
+div.form__input--wrapper {
+    flex: 8 0 auto;
+    padding: 0 0.5rem;
+}
+
+
+/* 이름, 타이틀  오른쪽 정렬 */
+div.form__input--name,
+div.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    border : 0;
+    padding-top: 0.2rem;
+}
+
+div.form__input--name > label,
+div.form__input--title > label {
+    width: 100%;
+}
+
+/* 질문을 작성하세요 폼 question 아래로 */
+div.form__textbox>label{
+    display: flex;
+    flex-direction : column;
+    width: 100%;
+}
+
+
+
+/* 최상단 폼과 첫번째 질문사이 공간 띄우기 */
+h2.discussion__title {
+    padding-top : 0.5rem;
+}
+
+
+/* 질문 제목<--> 아래 작성일, 시간 info와 공간 띄우기 */
+div.discussion__information {
+    padding: 1rem 0.5rem 0 0.5rem;
+    text-align: right;
+    color: var(--primary);
+}
+
+
+/* ☑️체크박스 */
+div.discussion__answered{
+    flex: 0 0 0;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: var(--primary);
+}
