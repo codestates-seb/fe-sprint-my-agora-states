@@ -45,12 +45,18 @@ const render = (element) => {
   }
   return;
 };
+// local 저장
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-function submitQuestion() {
+//버튼클릭 이벤트
+const submitBtn = document.querySelector(".submit__btn");
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
   const name = document.querySelector('#name')
   const title1 = document.querySelector('#title')
   const story = document.querySelector('#story')
@@ -63,22 +69,19 @@ function submitQuestion() {
   let seconds = today.getSeconds();  // 초
   const ul = document.querySelector("ul.discussions__container");
 
-  let obj = {
-    createdAt: year + '-' + month + '-' + date + 'T' + hours + ':' + minutes + ':' + seconds + 'Z',
-    title: title1.value,
-    url: "https://github.com/Mark1237200/Mark1237200.github.io",
-    author: name.value,
-    answer: null,
-    bodyHTML: story.value,
-    avatarUrl: "https://cdn.jumpit.co.kr/images/hmlee_4/20223703083724365_800_800.png"
-  }
-  agoraStatesDiscussions.unshift(obj)
-  const render1 = (element) => {
+  let obj = {};
+    obj.title = title1.value,
+    obj.bodyHTML = story.value,
+    obj.author = name.value,
+    obj.createdAt = year + '-' + month + '-' + date + 'T' + hours + ':' + minutes + ':' + seconds + 'Z',
+    obj.avatarUrl = "https://cdn.jumpit.co.kr/images/hmlee_4/20223703083724365_800_800.png"
+    obj.url = "https://github.com/Mark1237200/Mark1237200.github.io",
+    obj.answer = null
 
-    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-      element.append(agoraStatesDiscussions[i]);
-    }
-    return;
-  };
-  render1(ul)
-}
+  const newObj = convertToDiscussion(obj);
+
+  ul.prepend(newObj);
+  formName.value = "";
+  formTitle.value = "";
+  formStory.value = "";
+})
