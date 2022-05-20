@@ -1,1 +1,245 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'establishRetrosansOTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'WooridaumL';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumL.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'WooridaumR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumR.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    /* background: linear-gradient(to right, #4C82BE, #D0DBF1, #EBB65D, #E16655, #B23477 );  */
+    background: linear-gradient( to bottom left,   #11F3C1 50%, #FFF570 50%);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+h1 {
+    padding:80px 0 10px 0;
+    flex:1;
+    font-family: 'establishRetrosansOTF';
+    font-size: 5rem;
+    /* text-shadow: 4px 4px 4px rgb(71, 70, 70);  */
+    /* animation: blink-effect 3s step-end infinite; */
+}
+@keyframes blink-effect { 60% { opacity: 0; } }
+
+
+
+section.form__container {
+    flex:2;
+    margin:20px;
+}
+section.discussion__wrapper{
+    display: flex;
+    flex:4;
+    width: 670px;
+    justify-content: center;
+    align-items: center;
+    background-color: #21212D;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+}
+form > .deco {
+    font-size: 10rem;
+    /* color: #F86174; */
+    color: #F56B7A;
+    text-shadow: 1px 1px 1px rgb(11, 11, 11);
+    animation: blink-effect 1s step-end infinite;
+    font-weight: bold;
+
+}
+form > div:first-of-type {
+    margin-top: 15px;
+    flex-basis: 30px;
+    padding-left:40px;
+}
+form > div:nth-of-type(4) {
+    margin-top: 15px;
+    margin-left: 10px;
+    flex-basis: 30px;
+
+}
+
+.form__input--wrapper {
+    flex-basis: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+    flex:1;
+    width:400px;
+    margin: 3px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0);
+    transition-duration: 0.2s;
+
+
+}
+.form__input--wrapper input {
+    width:400px;
+    height: 27px;
+    font-size:1.2rem;
+    font-family: 'WooridaumL';
+    border:0px; 
+}
+.form__input--wrapper textarea {
+    width:400px;
+    height: 100px;
+    font-size:1.2rem;
+    font-family: 'WooridaumL';
+    border:0px;
+}
+
+.form__submit {
+    flex-basis:50px;
+    margin:3px;
+}
+.form__submit input {
+    cursor: pointer;
+    width:100px;
+    height: 172px;
+    font-family: 'WooridaumR';
+    font-weight:bolder;
+    font-size: 1.1rem;
+    background-color: #774BF1;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0);
+    transition-duration: 0.1s;
+    color:white;
+
+}
+.form__submit input:active {
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: none;
+}
+.form__submit input:hover {
+    font-size: 20px;
+    background-color: #957ae0;
+    color:whitesmoke;
+}
+
+ul.discussions__container {
+    display: flex;
+    flex-direction: column;
+    flex-basis:640px;
+    justify-content: center;
+    align-items:center;
+    margin:10px 0;
+    background-color: #2F2F3B;
+
+}
+li.discussion__container {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    border: 0.5px solid rgb(176, 175, 175);
+    width:630px;
+    flex:1;
+    margin:10px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0);
+}
+
+li.discussion__container:first-child {
+    display: none;
+}
+
+div.discussion__avatar--wrapper {
+    flex-basis: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px dashed #718bff;
+    background-color: #454551;
+    border-radius: 10px;
+    margin: 15px;
+    height: 90px;
+}
+
+
+img {
+    border-radius: 50%;
+    width: 48px;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0);
+    transition: 2s;
+}
+
+
+div.discussion__content {
+    flex-basis: 470px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-top: 5px;
+
+}
+.discussion__title {
+    flex:1.5;
+    padding-bottom: 5px;
+    font-family: 'WooridaumL';
+    padding-top: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.discussion__title > a {
+    text-decoration: none; 
+    color:rgb(92, 218, 235);
+}
+.discussion__title > a:hover {
+    cursor: pointer;
+    background-color: #000000;
+    font-weight: bold;
+}
+
+
+
+
+.discussion__information {
+    flex:1;
+    text-align: right;
+    color:#e250e2;
+    font-size: 1rem;
+    font-family: 'WooridaumL';
+}
+
+div.discussion__answered {
+    flex-basis: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.discussion__answered > p {
+    font-size: 35px;
+    color:#1afd84;
+
+}
+
