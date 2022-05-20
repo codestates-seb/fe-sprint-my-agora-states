@@ -1,1 +1,176 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    background: #F2E9EB;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #F2E9EB 25%, rgb(114, 110, 112) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #F2E9EB 25%, rgb(152, 113, 132) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #F2E9EB 25%, rgb(45, 44, 44) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7e87b7', endColorstr='#0fb4e7', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+
+}
+
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: #3a2e32;
+    font-size: 50px;
+}
+
+label{
+
+}
+
+.form__container{
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 540px;
+    height: 140px;
+}
+
+.form__input--name{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__input--title{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__textbox{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 30%;
+}
+
+#story{
+    height: 19px;
+    width: 180px;
+    flex-basis: 70%;
+}
+
+.form__input--name#name{
+    height: 19px;
+    width: 180px;
+}
+
+
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 540px;
+    list-style-type: none;
+    border-radius: 30px;
+    background-color: #786169;
+    
+}
+
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.discussion__information{
+    color: #F2E9EB;
+}
+
+
+.discussion__content {
+    width: 100%;
+  }
+
+.discussion__avatar--image{
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
+.discussion__title{
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+li.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 540px;
+}
+
+.discussion__two{
+    display: flex;
+    width: 95%;
+}
+
+.discussion__answered p {
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+.discussion__answered {
+    padding-top: 20px;
+}
+
+  .discussion__information {
+      display: flex;
+      justify-content: flex-end;
+      width: 95%;
+  }
+
+  a{
+      font-size: 12px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: #ffffff;
+      text-decoration-line:none;
+    }
+
+  input{
+      border-color: white;
+      border-radius: 30px;
+     
+  }
+
+  .discussion__information{
+    font-size: 10px;
+  }
+
+  p{
+
+  }
