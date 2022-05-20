@@ -35,8 +35,8 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
-  const avatarWrapper = document.createElement("div"); // div요소 생성
-  avatarWrapper.className = "discussion__avatar--wrapper"; // 클래스 지정 - discussion__avatar--wrapper
+  const avatarWrapper = document.createElement("div");
+  avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
@@ -79,6 +79,7 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = "avatar of " + obj.author;
   element_a.href = obj.url;
   element_a.textContent = obj.title;
+  element_img.style.color = "green";
 
   if (obj.answer === null) {
     discussionInfo.textContent = `${obj.author}`;
