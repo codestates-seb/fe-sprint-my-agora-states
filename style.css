@@ -1,1 +1,89 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+.hide{
+    color:#DDDDDD;
+}
+*{
+    box-sizing: border-box;
+    color:#E6E5E5;
+    margin:0;
+    padding:0;
+}
+.discussions__container{
+    padding:0px;
+}
+
+.discussion__container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #27282D;
+    border:1px solid black;
+    width:540px;
+    
+}
+main{
+    background-color: lightgoldenrodyellow;
+    width:540px;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+ul{
+    padding-inline-start:15px;
+}
+.discussion__content{
+    display:flex;
+    flex-direction: column;
+}
+
+.discussion__avatar--wrapper{
+    display:flex;
+    align-items: center;
+    font-size: 14px;
+    padding-right:10px;
+    width: 180px;
+}
+
+.discussion__information{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.discussion__content{
+    width:300px;
+}
+
+.discussion__icons{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size:14px;
+}
+
+img{
+    margin-right:8px;
+    width:48px;
+    height:48px;
+    border-radius: 100%;
+}
+@font-face {
+    font-family: 'MinSans-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.discussion__title{
+    margin-top: 4px;
+    margin-left:10px;
+    font-size:16px;
+}
+.discussion__category{
+    margin-left:15px;
+
+    padding-top:10px;
+}
+i{
+    color:greenyellow;
+}
