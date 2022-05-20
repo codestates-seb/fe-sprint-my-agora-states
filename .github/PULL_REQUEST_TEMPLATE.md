@@ -6,7 +6,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 ## 배포 링크
 
-git@github.com:0SCAR0421/fe-sprint-my-agora-states.git
+https://0scar0421.github.io/fe-sprint-my-agora-states/
 
 ## Bare Minimum Requirement Self Checklist
 
