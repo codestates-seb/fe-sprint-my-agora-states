@@ -46,7 +46,10 @@ li {
 }
 
 ul > li:nth-child(2n) {
-  background-color: powderblue;
+  /* background-color: #50586c; */
+}
+ul > li:nth-child(2n + 1) {
+  background-color: #dce2f0;
 }
 main {
   display: flex;

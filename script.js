@@ -66,7 +66,13 @@ function pushData() {
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
     author: inputName.value,
     title: inputTitle.value,
-    createdAt: `${currentTime.getHours}:${currentTime.getMinutes}:${currentTime.getSeconds}`,
+    createdAt: `${
+      currentTime.getHours() >= 13
+        ? `오후 ${currentTime.getHours() - 12}`
+        : `${currentTime.getHours === 0 ? `00` : `${currentTime.getMinutes()}`}`
+    }:${currentTime.getMinutes()}:${
+      currentTime.getSeconds() === 0 ? `00` : `${currentTime.getSeconds()}`
+    }`,
   });
   newDataRender(ul);
   // render(ul);
