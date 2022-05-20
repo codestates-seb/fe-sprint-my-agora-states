@@ -8,7 +8,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px auto;
+  margin: 0 auto;
   width: 620px;
   background-color: #112B3C;
 }
@@ -151,7 +151,6 @@ button:hover {
 }
 .discussion__avatar--image {
   border-radius: 50%;
-  border: 1px #205375 solid;
   width: 48px;
 }
 
@@ -174,12 +173,12 @@ button:hover {
   color: grey;
 }
 
-
+/* 답변 아이콘 */
 .discussion__answered {
   margin: auto 0 auto auto;
 }
-
 .discussion__answered p {
   margin-left: 20px;
   font-size: 35px;
+  color: #205375;
 }

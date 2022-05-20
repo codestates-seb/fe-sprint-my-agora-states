@@ -1,13 +1,23 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+console.log(!localStorage.getItem("agoraArr"));
+
+if (!localStorage.getItem("agoraArr")) {
+  localStorage.setItem("agoraArr",JSON.stringify(agoraStatesDiscussions));
+  var agora = localStorage.getItem("agoraArr");
+  var agoraArr = JSON.parse(agora);
+}
+agora = localStorage.getItem("agoraArr");
+agoraArr = JSON.parse(agora);
 
 function createdAt(obj) {
-  if (+obj.createdAt.split('T')[1].slice(0,2)+9 > 24) {
-    obj.createdAt = `오전 ${+obj.createdAt.split('T')[1].slice(0,2)-15}${obj.createdAt.split('T')[1].slice(2,-1)}`;
-  } else if (+obj.createdAt.split('T')[1].slice(0,2)+9 > 12) {
-    obj.createdAt = `오후 ${+obj.createdAt.split('T')[1].slice(0,2)-3}${obj.createdAt.split('T')[1].slice(2,-1)}`;
-  } else {
-    obj.createdAt = `오전 ${+obj.createdAt.split('T')[1].slice(0,2)+9}${obj.createdAt.split('T')[1].slice(2,-1)}`;
+  if (!obj.rendered && obj.id) { // 렌더된적없으면서 id가 있는 값
+    if (+obj.createdAt.split('T')[1].slice(0,2)+9 > 24) {
+      obj.createdAt = `오전 ${+obj.createdAt.split('T')[1].slice(0,2)-15}${obj.createdAt.split('T')[1].slice(2,-1)}`;
+    } else if (+obj.createdAt.split('T')[1].slice(0,2)+9 > 12) {
+      obj.createdAt = `오후 ${+obj.createdAt.split('T')[1].slice(0,2)-3}${obj.createdAt.split('T')[1].slice(2,-1)}`;
+    } else {
+      obj.createdAt = `오전 ${+obj.createdAt.split('T')[1].slice(0,2)+9}${obj.createdAt.split('T')[1].slice(2,-1)}`;
+    }
   }
 }
 
@@ -58,10 +68,13 @@ const convertToDiscussion = (obj) => {
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+let toRender = !agoraArr ? agoraStatesDiscussions : agoraArr
+console.log(toRender)
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    createdAt(agoraStatesDiscussions[i]);
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < toRender.length; i += 1) {
+    createdAt(toRender[i]);
+    toRender[i].rendered = true;
+    element.append(convertToDiscussion(toRender[i]));
   }
   return;
 };
@@ -78,14 +91,15 @@ submitBtn.onsubmit = function () {
   let now = new Date();
   now = '오' + now.toLocaleString().split('오')[1];
 
-  agoraStatesDiscussions.unshift({
-    avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+  agoraArr.unshift({
+    avatarUrl: "./profile.jpeg",
     title: title,
     author: name,
     createdAt: now
   })
-  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
-  console.log(agoraStatesDiscussions);
+  ul.prepend(convertToDiscussion(agoraArr[0]));
+  localStorage.setItem("agoraArr",JSON.stringify(agoraArr));
+
 
   this.name.value = '';
   this.title.value = '';
