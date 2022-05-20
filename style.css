@@ -1,1 +1,95 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+ul {
+    list-style: none;
+}
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+main {
+    width: 500px;
+    height: 100vh;
+    background-color: beige;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1 {
+    text-align: center;
+    display: block;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.inputbox {
+    width: 400px;
+    display: block;
+    margin: 0px auto 25px auto;
+}
+#submitbox {
+    height: 30px;
+}
+.discussion__avatar--image {
+    border-radius: 100%;
+    display: block;
+    margin: 15px auto;
+
+}
+.discussion__avatar--wrapper {
+    width: 70px;
+    float: left;
+    height: 100px;
+    display: block;
+    justify-content: center;
+}
+.discussion__container {
+    width: 400px;
+    height: 100px;
+    background-color: burlywood;
+    border: 2px solid red;
+    border-radius: 5px;
+    box-sizing: content-box;
+    margin: 0px;
+    margin-bottom: 25px;
+    padding: 0px;
+}
+.discussion__content {
+    width: 300px;
+    height: 100px;
+    display: block;
+    float: left;
+}
+.discussion__title {
+    width: 300px;
+    height: 50px;
+    text-align: left;
+    display: block;
+    float: left;
+    margin: 0px;
+}
+.discussion__information {
+    width: 300px;
+    height: 25px;
+    text-align: right;
+    direction: rtl;
+    justify-content: end;
+    padding-top: 25px;
+    display: block;
+    float: left;
+    overflow: hidden;
+}
+.discussion__answered {
+    width: 30px;
+    height: 100px;
+    display: block;
+    float: left;
+}
+.abc {
+    margin: 43.5px auto;
+    display: block;
+}
+.discussions__container {
+    width: 450px;
+    height: 550px;
+    overflow-y: scroll;
+}
