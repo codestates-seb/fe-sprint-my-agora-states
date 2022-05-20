@@ -16,35 +16,37 @@
 <body>
   <main>
     <h1>My Agora States</h1>
-    <section class="form__container">
-      <div class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+    <div class="main__container">
+      <section class="form__container">
+        <div class="form">
+          <div class="form__input--wrapper">
+            <div class="form__input--name">
+              <label for="name">Enter your name: </label>
+              <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form__input--title">
+              <label for="name">Enter your title: </label>
+              <input type="text" name="name" id="title" required>
+            </div>
+            <div class="form__textbox">
+              <label for="story">Your question: </label>
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            </div>
           </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+          <div class="form__submit">
+            <input type="submit" value="submit" id="submit">
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit" id="submit">
-        </div>
+      </section>
+      <section class="discussion__wrapper">
+        <ul class="discussions__container">
+        </ul>
+      </section>
+      <div class="discussions__pagination">
+        <div class="prev_btn hide"><i class="fa-solid fa-circle-chevron-left"></i></div>
+        <div class="discussions__pagination--nums"></div>
+        <div class="next_btn"><i class="fa-solid fa-circle-chevron-right"></i></div>
       </div>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-      </ul>
-    </section>
-    <div class="discussions__pagination">
-      <div class="prev_btn hide"><i class="fa-solid fa-circle-chevron-left"></i></div>
-      <div class="discussions__pagination--nums"></div>
-      <div class="next_btn"><i class="fa-solid fa-circle-chevron-right"></i></div>
     </div>
   </main>
 </body>
