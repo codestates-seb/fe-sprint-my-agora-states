@@ -2,28 +2,8 @@
 
 console.log(agoraStatesDiscussions);
 
-  //discussion 추가기능 
-  //이름과 타이틀, 내용을 입력하고, submit을 누르면,
-  //배열에 객체를 생성하고,
-  //이름고 타이틀에 맞는 요소 agoraStatesDiscussions에 
-  // clickSubmit.preventDefault();
-  let clickSubmit = document.querySelector(".form__submit > input");
-  clickSubmit.addEventListener("click", function() {
-    console.log("버튼이 클릭 됐습니다.");
-  
-    let inputName = document.querySelector(".form__input--name > input");
-    let inputTitle = document.querySelector(".form__input--title > input");
-    // let textArea = document.querySelector("textarea")
-    
-    let obj1 = {}  
-    obj1.author = inputName.value;
-    obj1.title = inputTitle.value;
-    obj1.createdAt = "";
-    obj1.avatarUrl = "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
-    obj1.url = "https://github.com/codestates-seb/agora-states-fe/discussions/45"
-    agoraStatesDiscussions.unshift(obj1);
-    return agoraStatesDiscussions;
-  })
+ 
+
 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -77,7 +57,7 @@ function convertToDiscussion(obj) {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  // element.innerHTML=""
+   element.innerHTML=""
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -87,3 +67,53 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+ //discussion 추가기능 
+  //이름과 타이틀, 내용을 입력하고, submit을 누르면,
+  //배열에 객체를 생성하고,
+  //이름고 타이틀에 맞는 요소 agoraStatesDiscussions에 
+  // clickSubmit.preventDefault();
+  let clickSubmit = document.querySelector(".form__submit > input");
+  let inputName = document.querySelector(".form__input--name > input");
+  let inputTitle = document.querySelector(".form__input--title > input");
+  let questionForm = document.querySelector(".form__container form");
+
+  function onsubmit(event) {
+    event.preventDefault(); // 새로고침 방지함.
+  
+    let obj1 = {}  
+       obj1.author = inputName.value;
+        obj1.title = inputTitle.value;
+        obj1.createdAt = "";
+        obj1.avatarUrl = "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
+        obj1.url = "https://github.com/codestates-seb/agora-states-fe/discussions/45"
+        agoraStatesDiscussions.unshift(obj1);
+  
+    console.log(agoraStatesDiscussions);
+    render(ul); // 랜더링을 한 번 더 해야 수정된 배열이 반영된다.
+  };
+  
+
+  questionForm.addEventListener("submit", onsubmit);
+  //form.submit메서드를 호출하면 폼을 서버로 전송할 수 있음.
+  //form.submit 메서드는 폼을 동적 생성한 다음 폼을 서버로 전송하고자 할때 주로사용.
+  
+// let event = clickSubmit.addEventListener("click", function(a) {
+//  // a.defaultPrevented(); 
+//   console.log("버튼이 클릭 됐습니다.");
+//    
+//   
+//    // let textArea = document.querySelector("textarea")
+//    
+//    let obj1 = {}  
+//    obj1.author = inputName.value;
+//    obj1.title = inputTitle.value;
+//    obj1.createdAt = "";
+//    obj1.avatarUrl = "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
+//    obj1.url = "https://github.com/codestates-seb/agora-states-fe/discussions/45"
+//    agoraStatesDiscussions.unshift(obj1);
+//    render(ul);
+//  })
+
+
