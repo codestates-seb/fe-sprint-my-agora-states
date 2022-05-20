@@ -13,9 +13,33 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatat--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
+
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // <img class="discussion__avatar--image"
+  // src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+  // alt="avatar of kimploo">
 
+  const discussionTitle = document.createElement("h2");
+  const link = document.createElement("a");
+  //const titleAnchor = document.createElement("a");
+  link.href = obj.url;
+  link.textContent = obj.title;
+  discussionTitle.append(link);
 
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author}/${obj.createdAt}`;
+
+  discussionContent.append(discussionTitle, discussionInformation);
+
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑" : "☑";
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -32,3 +56,51 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const inputNameValue = document.querySelector("#name");
+const inputTitleValue = document.querySelector("#title");
+const inputQuestionValue = document.querySelector("#story");
+
+function addDiscussions(event) {
+  event.preventDefault();
+  console.log("잘 되나?");
+  agoraStatesDiscussions.unshift({
+    id: "D_kwDOHOApLM4APjJu",
+    createdAt: new Date(),
+    title: inputTitleValue.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: inputNameValue.value,
+    answer: null,
+    bodyHTML: `<p dir="auto">${inputQuestionValue.value}</p>`,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+  });
+  console.log(agoraStatesDiscussions);
+  render(ul);
+}
+
+// const today = new Date();
+// const amPm = today.getHours() < 12 ? '오전' : '오후';
+// console.log(amPm);
+
+// const result = `${amPm} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+// console.log(result);
+
+function formattingTime(date) {
+  const today = new Date();
+  const amPm = today.getHours() < 12 ? "오전" : "오후";
+  const result = `${amPm} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+}
+console.log(formattingTime("2022-05-16T01:02:17Z"));
+
+/**
+ * 현재상황 : submit 버튼 클릭시 날짜가 포매팅이 됨
+ * 단, 날짜가 정상적으로 바뀌지 않음
+ * 이미 기존에 추가되어있던 discussion들은 여전히 날짜가 바뀌지 않음
+ * 개선해야되는 점 : 모든 discussion들이 포매팅이 되어야 함
+ * 그리고 오전, 오후가 출력되니까 시간이 12시간이 되어야 함
+ */
+
+// const addInputEvent = document.querySelector("#submitBtn");
+// console.log(addInputEvent);
+// addInputEvent.addEventListener("click", addDiscussions);
