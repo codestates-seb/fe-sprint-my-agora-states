@@ -1,1 +1,345 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* global */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-align: center;
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  color: inherit; /* 링크의 색상 제거 */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  box-sizing: border-box;
+  font-family: monospace, cursive;
+}
+/* .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(./src/bgbo.svg) no-repeat center center fixed;
+    width: 100%;
+    height: 100vh;
+    background-size: 100% auto;
+    background-position: bottom;
+  } */
+
+/* 작성시작 */
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-gray: rgb(253, 255, 242);
+  --color-black: black;
+  --color-ivory: #fdfdf1;
+  --color-navy: #333c83;
+  --color-red: #f24a72;
+  --color-orange: #ffc191;
+  --color-yellow: #f4f4c3;
+
+  /* Font size */
+  --font-large: 32px;
+  --font-medium: 28px;
+  --font-regular: 16px;
+  --font-small: 12px;
+  /* margin */
+  --margin-medium: 12px;
+  --margin-large: 24px;
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+  /* border */
+  --boder-radius-L: 15px;
+  --boder-radius-S: 5px;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: var(--margin-large) 0;
+  background-color: var(--color-gray);
+}
+.pagination ul {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+}
+.pagination ul li {
+  text-align: center;
+  line-height: 22px;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  margin: 4px;
+  list-style-type: none;
+}
+
+.pagination ul li.btn:hover {
+  background-color: var(--color-orange);
+}
+main {
+  width: 540px;
+  height: 700px;
+  overflow: scroll;
+  border: 1px solid black;
+  padding: var(--margin-large);
+  border: none;
+  background-color: ;
+  border-radius: var(--boder-radius-L);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+h1 {
+  text-align: center;
+  font-size: var(--font-large);
+  margin-bottom: var(--margin-medium);
+}
+
+.form {
+  margin: 0 10px;
+  border: var(--color-yellow) 2px solid;
+  /* border-radius: var(--boder-radius-L); */
+  display: flex;
+  justify-content: space-between;
+}
+.form__input--wrapper {
+  margin: var(--margin-medium);
+}
+.form__submit {
+  margin: var(--margin-medium);
+  display: flex;
+}
+
+input[type='submit'] {
+  background-color: var(--color-yellow);
+  cursor: pointer;
+  margin: auto;
+  width: 108px;
+  height: 64px;
+  border-radius: var(--boder-radius-S);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+input[type='submit']:hover {
+  background-color: var(--color-orange);
+  font-size: larger;
+}
+.discussion__wrapper {
+  overflow: scroll;
+  height: 500px;
+}
+.discussions__container {
+  margin: 4px 0;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px var(--margin-medium);
+}
+.discussion__avatar--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.discussion__avatar--wrapper > img {
+  display: block;
+  margin: auto;
+  width: 48px;
+  border-radius: 28px;
+}
+.discussion__content {
+  padding: 4px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.discussion__content > h2 {
+  margin-bottom: 8px;
+  color: var(--color-black);
+}
+
+.discussion__title {
+  align-self: flex-start;
+}
+.discussion__information {
+  color: var(--color-navy);
+  align-self: flex-end;
+}
+.discussion__answered {
+  margin: var(--margin-medium);
+  display: flex;
+  flex-direction: column;
+}
+/* .discussion__answered > p {
+  font-size: 24px;
+} */
+
+.discussion__answered > p {
+  margin: auto;
+  width: 18x;
+  height: 18px;
+}
+
+li {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  background-color: var(--color-ivory);
+  padding: 10px;
+  border-bottom: 2px var(--color-orange) solid;
+}
+
+li:hover {
+  background-color: var(--color-yellow);
+  border-bottom: 2px var(--color-navy) solid;
+
+  /* border-radius: 15px 15px 0 0; */
+}
+
+.input__title,
+.input__name,
+.text__question {
+  margin-bottom: 12px;
+  background-color: transparent;
+  width: 280px;
+  border-bottom: 2px solid var(--color-gray);
+}
+
+.input__title :focus,
+.input__name :focus,
+.text__question :focus {
+  background-color: var(--color-gray);
+}
