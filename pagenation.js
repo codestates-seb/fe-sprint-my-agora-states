@@ -10,6 +10,6 @@ for (let i = 0; i < buttonCount; i++) {
   button.addEventListener("click", function () {
     console.log(button.textContent);
     // window.location.href = `${window.location.origin}?pageNo=1`;
-    window.location.href = `${window.location.origin}/fe-sprint-my-agora-states/?pageNo=${i + 1}`;
+    window.location.href = `${window.location.origin}/fe-sprint-my-agora-states/?pageNo=1`;
   });
 }
