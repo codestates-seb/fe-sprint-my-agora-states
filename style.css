@@ -17,6 +17,9 @@ a{
     color: inherit;
 }
 
+body {
+    background-color: blueviolet;
+}
 
 .form__input--wrapper > div{
     padding: 0.5rem;
@@ -25,14 +28,16 @@ a{
     justify-content: center;
     text-align: center;
     margin: 0.5rem;
+    background-color: cornsilk;
 }
 
 .discussion__wrapper{
     display: flex;
 }
 .discussions__container{
-    padding: 5rem
+    padding: 5rem;
 }
+
 
 li.discussions__container{
     display: flex;
@@ -41,7 +46,6 @@ li.discussions__container{
     list-style-type: none;
     width: 540px;
     margin-bottom: 0.5rem;
-    
 }
 
 
