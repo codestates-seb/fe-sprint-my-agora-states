@@ -4,6 +4,7 @@ const elName = document.querySelector("#name");
 const elTitle = document.querySelector("#title");
 const elStory = document.querySelector("#story");
 const elSubmit = document.querySelector(".form__submit").children[0]
+const elTextarea = document.querySelector("#story");
 
 let objString = JSON.stringify(agoraStatesDiscussions);
 window.localStorage.setItem("data", objString)
@@ -20,16 +21,18 @@ const template = (obj) =>{
     arr.push(  `
     <li class="discussion__container">
         <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-                src="${Object.keys(obj[i]).includes('avatarUrl') ? obj[i].avatarUrl : "./tottenham.jpeg"}"
-                alt=avatar of ${obj[i].authior}>
+          <img class="discussion__avatar--image"
+              src="${Object.keys(obj[i]).includes('avatarUrl') ? obj[i].avatarUrl : "./tottenham.jpeg"}"
+              alt=avatar of ${obj[i].authior}>
         </div>
         <div class="discussion__content">
-            <h2 class="discussion__title">${obj[i].title}</h2>
+            <h2 class="discussion__title">
+              <a href="${Object.keys(obj[i]).includes('url') ? obj[i].url  : "https://github.com/codestates-seb"}">
+              ${obj[i].title}</a>
+            </h2>
             <div class="discussion__information">${obj[i].author} / ${obj[i].createdAt}</div>
         </div>
-        <div class="discussion__answered"><p>☑</p></div>
-    </li>
+        <div class="discussion__answered"><p>${obj[i].answer === null ? "☐" : (obj[i].answer === undefined  ? "☐" : "☑") }</p></div>
     `)
   }return arr.join('')
 }
@@ -47,7 +50,6 @@ const now = () => {
 //작성한 discussion을 localStorage에 저장
 const addDiscussion = (e) => {
   const elSection = document.querySelector("section.discussion__wrapper")
-  e.preventDefault();
   const discussion = {}
   discussion["author"] = `${elName.value}`
   discussion["title"] = `${elTitle.value}`
@@ -62,9 +64,11 @@ const addDiscussion = (e) => {
   elStory.value = "";
 }
 
-//페이지네이션
+//TTS
 
 
+
+//TTS
 
 
 //submit
@@ -73,5 +77,10 @@ elForm.addEventListener("submit", (e)=>{
 })
 
 elSubmit.addEventListener("click",addDiscussion)
-
+elTextarea.addEventListener("keypress", (e)=>{
+  if(e.key !== "Enter"){
+    return
+  }
+  addDiscussion();
+})
 render()

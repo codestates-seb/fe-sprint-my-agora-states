@@ -4,6 +4,35 @@
     margin: 0;
     padding: 0;
 }
+h1{
+    text-align: center;
+    margin: 0.5rem;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none; /* 링크의 밑줄 제거 */ 
+    color: inherit;
+}
+
+
+.form__input--wrapper > div{
+    padding: 0.5rem;
+}  
+.form__container{
+    justify-content: center;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.discussion__wrapper{
+    display: flex;
+}
+.discussions__container{
+    padding: 5rem
+}
 
 li.discussions__container{
     display: flex;
@@ -12,7 +41,7 @@ li.discussions__container{
     list-style-type: none;
     width: 540px;
     margin-bottom: 0.5rem;
-
+    
 }
 
 
@@ -51,7 +80,6 @@ div.discussion__avatar--wrapper > img{
     display: flex;
     
 }
-
 .discussion__answered > p{
     font-size: 30px;
 } */
