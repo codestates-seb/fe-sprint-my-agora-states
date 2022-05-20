@@ -34,8 +34,9 @@ const convertToDiscussion = (obj) => {
 
 
   const contentInfo = document.createElement('div');
+  let dateLog = new Date(obj.createdAt)
   contentInfo.className = "discussion__information";
-  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`
+  contentInfo.textContent = `${obj.author} / ${dateLog.toLocaleTimeString()}`
   discussionContent.append(contentTitle,contentInfo);
 
   //해결 discussionAnswered
@@ -59,8 +60,6 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    // console.log(agoraStatesDiscussions[i]);
-    // break;
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -76,7 +75,7 @@ const signupForm = document.querySelector('form');
 
 signupForm.addEventListener('submit', event => {
   event.preventDefault(); 
-  // console.log(event.target); //document.querySelector('form')
+  // console.log(event.target); // document.querySelector('form')
   const inputName = event.target[0].value;
   const inputTitle = event.target[1].value;
   // const inputText = event.target[2].value;
@@ -94,7 +93,7 @@ signupForm.addEventListener('submit', event => {
       };
   agoraStatesDiscussions.unshift(submitedDiscussion);
   
-  while(ul.children.length >1){
+  while(ul.children.length > 1){
     ul.removeChild(ul.lastChild);
   }
   render(ul);
