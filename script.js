@@ -5,6 +5,19 @@ const inputTitle = document.querySelector("#title");
 const inputStory = document.querySelector("#story");
 const submitForm = document.querySelector("#submit");
 
+let data = [];
+const agoraStatesDiscussionsParse = JSON.parse(
+  localStorage.getItem("agoraStatesDiscussions")
+);
+
+if (agoraStatesDiscussionsParse) {
+  data = agoraStatesDiscussionsParse;
+} else {
+  const agoraStatesDiscussionsJSON = JSON.stringify(agoraStatesDiscussions);
+  data = agoraStatesDiscussions;
+  localStorage.setItem("agoraStatesDiscussions", agoraStatesDiscussionsJSON);
+}
+
 submitForm.onclick = function (e) {
   e.preventDefault();
   const date = () =>
@@ -29,19 +42,22 @@ submitForm.onclick = function (e) {
         ? "0" + String(new Date().getSeconds())
         : new Date().getSeconds()
     }Z`;
-  agoraStatesDiscussions.unshift({
+  data.unshift({
     author: inputName.value,
     title: inputTitle.value,
     createdAt: date(),
     avatarUrl: "https://avatars.githubusercontent.com/u/90498108?s=96&v=4",
   });
-  let li = convertToDiscussion({
-    author: inputName.value,
-    title: inputTitle.value,
-    createdAt: date(),
-    avatarUrl: "https://avatars.githubusercontent.com/u/90498108?s=96&v=4",
-  });
-  ul.prepend(li);
+  ul.prepend(
+    convertToDiscussion({
+      author: inputName.value,
+      title: inputTitle.value,
+      createdAt: date(),
+      avatarUrl: "https://avatars.githubusercontent.com/u/90498108?s=96&v=4",
+    })
+  );
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+
   inputName.value = "";
   inputTitle.value = "";
   inputStory.value = "";
@@ -100,8 +116,8 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < data.length; i += 1) {
+    element.append(convertToDiscussion(data[i]));
   }
   return;
 };
