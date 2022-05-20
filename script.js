@@ -43,6 +43,8 @@ const convertToDiscussion = (obj) => {
   const deleteP = document.createElement("p");
   deleteP.textContent = "🗑";
   deleteP.className = "delete";
+  deleteP.id = uid();
+
   deleteP.addEventListener("click", deleteInformation);
   discussionAnswered.append(deleteP);
 
@@ -64,8 +66,20 @@ let submitArea = document.querySelector(".submit");
 submitArea.addEventListener("click", addInformation);
 let checkArea = document.querySelector(".check");
 
-function deleteInformation() {
-  agoraStatesDiscussions.shift();
+function uid() {
+  let a = new Uint32Array(3);
+  window.crypto.getRandomValues(a);
+  return (
+    performance.now().toString(36) +
+    Array.from(a)
+      .map((A) => A.toString(36))
+      .join("")
+  ).replace(/\./g, "");
+}
+
+function deleteInformation(e) {
+  console.log(e.target.id);
+  console.log(e.target.parent);
   render(ul);
 }
 

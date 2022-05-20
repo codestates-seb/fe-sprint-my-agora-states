@@ -19,7 +19,9 @@ textarea {
   color: #312b30;
   font-size: 13px;
 }
-
+label {
+  color: #312b30;
+}
 p {
   font-size: 25px;
   color: black;
