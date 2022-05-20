@@ -1,1 +1,139 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --background-color: #fcf8f4;
+  --surface: #ffffff;
+  --primary: #5e7c96;
+  --secondary: #da7f8f;
+  --form-surface: #f6eed8;
+  --visited: #e1e5ea;
+  --link: #a7bbc7;
+}
+
+* {
+  /* margin: 0;
+    padding: 0; */
+  box-sizing: border-box;
+  font-family: "Do Hyeon", sans-serif;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  background-color: #4700cf;
+  border-radius: 10px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: black;
+  border-radius: 10px;
+  margin: 20px 0px 20px 0px;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 400px;
+}
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+label {
+  color: white;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+}
+.form__submit {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  border-style: hidden;
+}
+#name:hover {
+  border: solid darkgoldenrod 3px;
+}
+#title:hover {
+  border: solid darkgoldenrod 3px;
+}
+#story:hover {
+  border: solid darkgoldenrod 3px;
+}
+#submit {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(252, 245, 35, 0.743); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 5px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  opacity: 0.6;
+  transition: 0.3s;
+  border-radius: 50px;
+}
+#submit:hover {
+  box-shadow: 0 12px 16px 0 rgb(247, 236, 149),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  opacity: 5;
+}
+.discussion__wrapper {
+  background-color: gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 50px;
+}
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  background-color: var(--surface);
+  border-radius: 5px;
+  list-style-type: none;
+}
+li.discussion__container:hover {
+  border: solid darkorange 3px;
+}
+
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+  border: solid #4700cf 3px;
+}
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
