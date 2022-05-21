@@ -20,7 +20,7 @@ const convertToDiscussion = (obj) => {
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
   const avatarImg = document.createElement("img");
-  avatarImg.src = obj.avatarUrl;
+  avatarImg.src = obj.avatarUrl ? obj.avatarUrl : null;
   avatarImg.alt = `avatar of ${obj.author}`;
   avatarImg.classList.add("discussion__avatar--image");
   avatarWrapper.append(avatarImg);
@@ -54,7 +54,11 @@ const convertToDiscussion = (obj) => {
 
 const render = (element, num) => {
   ul.textContent = "";
-  for (let i = (num - 1) * 10; i < num * 10; i += 1) {
+  let finishNum = num * 10;
+  if (finishNum > agoraStatesDiscussions.length) {
+    finishNum = agoraStatesDiscussions.length;
+  }
+  for (let i = (num - 1) * 10; i < finishNum; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   window.scrollTo(0, 0);
@@ -139,6 +143,14 @@ for (let i = 1; i <= paginationCnt; i++) {
   paginationBtn.addEventListener("click", handlePaginationBtn);
 }
 
+function handlePaginationBtn(e) {
+  const paginationNum = e.target.textContent;
+  ul.textContent = "";
+  render(ul, paginationNum);
+  thisPage = Number(paginationNum);
+  console.log(thisPage);
+}
+
 // pagination 버튼 클릭 이벤트 제어
 
 const previousBtn = document.querySelector("#previous__btn");
@@ -163,11 +175,4 @@ function handlPreviousNextBtn(e) {
       render(ul, thisPage);
     }
   }
-}
-
-function handlePaginationBtn(e) {
-  const paginationNum = e.target.textContent;
-  ul.textContent = "";
-  render(ul, paginationNum);
-  thisPage = Number(paginationNum);
 }
