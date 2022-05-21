@@ -32,17 +32,14 @@ const timeForToday = (value) => {
 
 // [ convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다. ]
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
-
+  const li = document.createElement("li");
+  li.className = "discussion__container";
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
   // discussion__avatar--wrapper 하위 요소 생성 및 클래스 지정
   const avatarImg = document.createElement("img");
@@ -60,7 +57,7 @@ const convertToDiscussion = (obj) => {
   // const element_p = document.createElement("p");
   const element_img = document.createElement("i");
 
-  // [ 각각의 요소를 기존의 요소와 같이 구성하기 위해 append ]
+  // 각각의 요소를 기존의 요소와 같이 구성하기 위해 append
   // discussion__avatar--wrapper
   avatarWrapper.append(avatarImg);
 
@@ -70,31 +67,21 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInfo);
 
   // discussionAnswered
-  // discussionAnswered.append(element_p);
   discussionAnswered.append(element_img);
-  element_img.style.width = "20px";
 
   // [ data.js에 있는 데이터를 요소에 넣기 ]
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
   element_a.href = obj.url;
   element_a.textContent = obj.title;
-  element_img.style.color = "green";
 
-  if (obj.answer === null) {
-    discussionInfo.textContent = `${obj.author}`;
-    // element_p.textContent = "⊠";
-    element_img.className = "fa-regular fa-circle-check";
-    element_img.style.color = "green";
-    obj.author === "kimploo" ? (element_img.style.visibility = "hidden") : "";
-  } else {
-    let objTime = obj.answer.createdAt.replace("T", " ").replace("Z", "");
-    let result = timeForToday(objTime);
-    discussionInfo.textContent = `${obj.author} asked ${result}`;
-    // element_p.textContent = "☑";
-    element_img.className = "fa-solid fa-circle-check";
-    element_img.style.color = "green";
-  }
+  let objTime = obj.createdAt.replace("T", " ").replace("Z", "");
+  let result = timeForToday(objTime);
+  discussionInfo.textContent = `${obj.author} asked ${result}`;
+
+  obj.answer === null
+    ? (element_img.className = "fa-regular fa-circle-check")
+    : (element_img.className = "fa-solid fa-circle-check");
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -112,14 +99,33 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// [ discussion 추가 기능]
 submit.addEventListener("click", () => {
-  const userId = document.querySelector("#name");
-  const userTitle = document.querySelector("#title");
-  const userStory = document.querySelector("#story");
+  const userId = document.querySelector("#name"); // author
+  const userTitle = document.querySelector("#title"); // title
+  const userStory = document.querySelector("#story"); // answer: bodyHTML
+  const date = new Date(); // createdAt
+  const dateString = `${date.getFullYear()}-${
+    date.getMonth() + 1
+  }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
-  agoraStatesDiscussions.unshift({
+  // 객체 생성
+  const obj = {
     author: userId.value,
+    createdAt: dateString,
     title: userTitle.value,
-    bodyHTML: userStory.value,
-  });
+    answer: { bodyHTML: userStory.value },
+  };
+
+  console.log(obj);
+
+  // userid, usertitle, userStory를 localstorage에 { }형태로 저장한다.
+  //  - 배열에 객체 형태로 저장한다.
+  // localStorage.setItem();
+
+  // localStorage에 저장된 데이터를 불러온다.
+  // 데이터를 화면에 띄운다.
+  //  html요소를 만들어서
+  //  요소 안에 데이터 정보를 넣는다.
+  //  화면에 띄운다.
 });

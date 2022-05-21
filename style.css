@@ -68,7 +68,6 @@ label {
   border-radius: 5px 5px 0 0;
   color: white;
   text-indent: 5px;
-  /* text-shadow: 1px 1px 2px rgb(207, 203, 203); */
 }
 
 /* 2.3 입력창 설정 */
@@ -168,4 +167,9 @@ a:hover {
 .discussion__answered {
   display: flex;
   align-items: center;
+}
+
+div > i {
+  width: 20px;
+  color: green;
 }
