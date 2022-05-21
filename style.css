@@ -32,6 +32,7 @@ h1 {
 .form__container {
   width: 540px;
   padding: 1rem;
+  margin-bottom: 1rem;
   border-radius: 1rem;
   background-color: #b8f1b0;
   font-size: 1.2rem;
@@ -48,7 +49,6 @@ h1 {
   margin-right: 0.5rem;
   flex-direction: column;
   flex-grow: 8;
-  /* background-color: blue; */
 }
 
 .form__input--wrapper input {
@@ -76,6 +76,8 @@ h1 {
 
 #story {
   padding: 0.2rem;
+  border: none;
+  resize: none;
 }
 
 .form__submit {
@@ -93,7 +95,19 @@ h1 {
   color: white;
 }
 
+.form__submit > input:hover {
+  background-color: white;
+  color: black;
+}
+.form__submit > input:active {
+  transform: scale(0.95);
+}
+
 /* discussion CSS */
+.discussion__wrapper {
+  flex-direction: column;
+  align-items: center;
+}
 
 .discussion__container {
   display: flex;
@@ -138,4 +152,29 @@ h1 {
 
 .discussion__answered {
   padding: 0 1rem;
+}
+
+/* pagination */
+#pagination {
+  display: block;
+}
+
+.pagination__btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.2rem;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  background-color: #14c38e;
+  color: white;
+}
+
+.pagination__btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.pagination__btn:active {
+  transform: scale(0.9);
 }

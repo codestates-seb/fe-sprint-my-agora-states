@@ -49,8 +49,14 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
+const render = (element, num) => {
+  for (let i = (num - 1) * 10; i < num * 10; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -60,22 +66,19 @@ const render = (element) => {
 for (let j = 0; j < localStorage.length; j++) {
   let key = localStorage.key(j);
   agoraStatesDiscussions.unshift(JSON.parse(localStorage.getItem(key)));
-  // element.prepend(convertToDiscussion(JSON.parse(localStorage.getItem(key))));
-  console.log(key);
 }
-console.log(agoraStatesDiscussions);
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, 1);
 
 Date.prototype.amPm = function () {
-  let h = this.getHours() < 12 ? "Am" : "Pm";
+  let h = this.getHours() < 12 ? "AM" : "PM";
   return h;
 };
 
-// submit 클릭 시 이벤트 제어
+// submit 버튼 클릭 시 이벤트 제어
 const submitBtn = document.querySelector(".submit__btn");
 
 submitBtn.addEventListener("click", (e) => {
@@ -93,28 +96,52 @@ submitBtn.addEventListener("click", (e) => {
   } else {
     hours = date.getHours();
   }
+  if (formTitle.value && formName.value && formTitle.value) {
+    newObj.title = formTitle.value;
+    newObj.bodyHTML = formStory.value;
+    newObj.author = formName.value;
+    newObj.createdAt = `${date.amPm()} ${hours} : ${String(
+      date.getMinutes()
+    ).padStart(2, "0")} : ${String(date.getSeconds()).padStart(2, "0")}`;
+    newObj.avatarUrl =
+      "https://avatars.githubusercontent.com/u/103625066?s=200&v=4";
+    newObj.url =
+      "https://github.com/codestates-seb/agora-states-fe/discussions";
+    newObj.answer = null;
 
-  newObj.title = formTitle.value;
-  newObj.bodyHTML = formStory.value;
-  newObj.author = formName.value;
-  newObj.createdAt = `${date.amPm()} ${hours} : ${String(
-    date.getMinutes()
-  ).padStart(2, "0")} : ${String(date.getSeconds()).padStart(2, "0")}`;
-  newObj.avatarUrl =
-    "https://avatars.githubusercontent.com/u/103625066?s=200&v=4";
-  newObj.url = "https://github.com/codestates-seb/agora-states-fe/discussions";
-  newObj.answer = null;
-  console.log(newObj);
+    localStorage.setItem(`${date.getTime()}`, JSON.stringify(newObj));
 
-  localStorage.setItem(`${date.getTime()}`, JSON.stringify(newObj));
+    const newList = convertToDiscussion(newObj);
 
-  const newList = convertToDiscussion(newObj);
-
-  ul.prepend(newList);
-  formName.value = "";
-  formTitle.value = "";
-  formStory.value = "";
+    ul.prepend(newList);
+    formName.value = "";
+    formTitle.value = "";
+    formStory.value = "";
+  } else {
+    alert("내용을 입력해주세요");
+  }
 });
+
+// pagination 구현
+
+const paginationContainer = document.querySelector("#pagination");
+const paginationCnt = Math.ceil(agoraStatesDiscussions.length / 10);
+for (let i = 1; i <= paginationCnt; i++) {
+  const paginationBtn = document.createElement("button");
+  paginationBtn.classList.add("pagination__btn");
+  paginationBtn.textContent = i;
+  paginationContainer.append(paginationBtn);
+  paginationBtn.addEventListener("click", handlePaginationBtn);
+}
+
+// pagination 버튼 클릭 이벤트 제어
+
+function handlePaginationBtn(e) {
+  const paginationNum = e.target.textContent;
+  ul.textContent = "";
+  render(ul, paginationNum);
+  window.scrollTo(0, 0);
+}
 
 /*
 {
