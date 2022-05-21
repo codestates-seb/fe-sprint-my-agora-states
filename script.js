@@ -1,6 +1,41 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+
+//타임스탬프 변형 함수 : (오늘 날짜) 오전 10:02:08  (다른 날짜) 2022-05-12
+const transformTime = function(timeString){
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = ('0' + (today.getMonth() + 1)).slice(-2);
+  let day = ('0' + today.getDate()).slice(-2);
+
+  const todayString = `${year}-${month}-${day}`;
+  const objDayString = timeString.slice(0, 10);
+  let transformTime = "";
+  if(todayString === objDayString) {
+    //오늘 날짜면 '오전 10:02:08'
+    transformTime = parseInt(timeString.slice(11, 13)) < 12 ? "오전" : "오후";
+    //낮 12 = 오후 12시 이다.
+    transformTime += " " + timeString.slice(11, 19);
+  } else {
+    //다른 날짜면 '2022-5-12'
+    transformTime = objDayString;
+  }
+  return transformTime;
+}
+
+//id 생성용 클로저 함수 (id는 제가 임의로 new1, new2, ... 형식으로 넣었습니다.)
+const createId = function(){
+  let count = 0;
+
+  return function(){
+    count++;
+    return count;
+  }
+}
+const counting = createId();
+//counting() 할 때마다 1씩 증가
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -32,7 +67,8 @@ const convertToDiscussion = (obj) => {
 
   const contentInfo = document.createElement("div")
   contentInfo.classList = "discussion__information";
-  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  const timeStamp = transformTime(obj.createdAt);
+  contentInfo.textContent = `${obj.author} • ${timeStamp}`;
 
   discussionContent.append(contentTitle, contentInfo);
 
@@ -134,29 +170,16 @@ submitBtn.addEventListener("click", function(event){
 
 //타임스탬프 생성 함수
 const creatTime = function(){
-    //타임스탬프 생성
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = ('0' + (today.getMonth() + 1)).slice(-2);
-    let day = ('0' + today.getDate()).slice(-2);
-    let hours = ('0' + today.getHours()).slice(-2); 
-    let minutes = ('0' + today.getMinutes()).slice(-2);
-    let seconds = ('0' + today.getSeconds()).slice(-2);
-    
-    let createdAt = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+  //타임스탬프 생성
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = ('0' + (today.getMonth() + 1)).slice(-2);
+  let day = ('0' + today.getDate()).slice(-2);
+  let hours = ('0' + today.getHours()).slice(-2); 
+  let minutes = ('0' + today.getMinutes()).slice(-2);
+  let seconds = ('0' + today.getSeconds()).slice(-2);
+  
+  let createdAt = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 
-    return createdAt;
+  return createdAt;
 }
-
-
-//id 생성용 클로저 함수 (id는 제가 임의로 new1, new2, ... 형식으로 넣었습니다.)
-const createId = function(){
-  let count = 0;
-
-  return function(){
-    count++;
-    return count;
-  }
-}
-const counting = createId();
-//counting() 할 때마다 1씩 증가
