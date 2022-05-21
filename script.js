@@ -6,10 +6,12 @@ const elStory = document.querySelector("#story");
 const elSubmit = document.querySelector(".form__submit").children[0]
 const elTextarea = document.querySelector("#story");
 
-let objString = JSON.stringify(agoraStatesDiscussions);
-window.localStorage.setItem("data", objString)
-const data = window.localStorage.getItem('data')
-const jsonData = JSON.parse(data)
+if (!localStorage.getItem("data")) {
+  localStorage.setItem(
+    "data",
+    JSON.stringify(agoraStatesDiscussions)
+  );
+}
 
 
 //function
@@ -49,14 +51,13 @@ const now = () => {
 
 //작성한 discussion을 localStorage에 저장
 const addDiscussion = (e) => {
-  const elSection = document.querySelector("section.discussion__wrapper")
   const discussion = {}
   discussion["author"] = `${elName.value}`
   discussion["title"] = `${elTitle.value}`
   discussion["bodyHTML"] = `${elStory.value}`
   discussion["createdAt"] = now()
   agoraStatesDiscussions.unshift(discussion)
-  objString = JSON.stringify(agoraStatesDiscussions);
+  const objString = JSON.stringify(agoraStatesDiscussions);
   window.localStorage.setItem("data",objString)
   render()
   elName.value = "";
@@ -64,11 +65,6 @@ const addDiscussion = (e) => {
   elStory.value = "";
 }
 
-//TTS
-
-
-
-//TTS
 
 
 //submit
