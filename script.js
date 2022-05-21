@@ -96,7 +96,8 @@ submitBtn.addEventListener("click", (e) => {
   let formData = new FormData(form).getAll("discussion");
   const now = new Date();
   const discussion = new newDiscussion(formData, now);
-
+console.log(formData[0]);
+  if (!formData[0]) return;
   discussionArr.unshift(discussion);
   saveLocalStorage(discussionArr);
 })

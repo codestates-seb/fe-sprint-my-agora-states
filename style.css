@@ -1,6 +1,6 @@
 :root {
-  --width: 80vw;
-  --half-width: 40vw;
+  --width: min(95vw, 800px);
+  --width-input: min(400px, 100%);
 
   --color-inner: rgb(250, 250, 250);
   --color-dark: rgb(61, 61, 61);
@@ -16,6 +16,7 @@
 
 body {
   background-color: rgb(251, 251, 251);
+  margin: 0px;
 }
 
 main {
@@ -27,6 +28,8 @@ main {
 }
 
 h1 {
+  display: flex;
+  justify-content: center;
   position: relative;
   font-size: 3rem;
   transition: 0.6s all;
@@ -72,12 +75,11 @@ h1:hover {
 
 /* 입력란 */
 .form__input--wrapper :is(input, textarea) {
-  width: min(400px, 90%);
+  width: var(--width-input);
   height: 30px;
   border: 0px;
   border-radius: 5px;
   background-color: var(--color-inner);
-  /* box-shadow: 0px 0px 7px 0px rgb(214, 214, 214); */
   transition: 0.6s all;
 }
 
@@ -89,11 +91,12 @@ h1:hover {
 
 .form__input--wrapper textarea {
   height: 70px;
-  width: min(400px, 90%);
-  max-width: 95%;
+  max-width: var(--width-input);
 }
 
 .form__submit {
+  display: flex;
+  justify-content: center;
   grid-column: 3/4;
   align-self: end;
 }
@@ -109,7 +112,6 @@ h1:hover {
   border: 2px solid rgb(238, 153, 42);
   border-radius: 40px;
   transition: 0.6s all;
-  margin: 10px;
   box-shadow: var(--shadow-button);
 }
 
@@ -129,7 +131,7 @@ ul.discussions__container {
   flex-flow: column nowrap;
   row-gap: 2px;
   list-style-type: none;
-  padding: 30px 30px 40px 30px;
+  padding: 20px min(3vw, 30px) 40px min(3vw, 30px);
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: rgba(158, 191, 221, 0.589);
@@ -263,10 +265,11 @@ h2.discussion__title a:visited {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  width: 350px;
+  width: min(95vw, 350px);
   height: 50px;
   margin-top: 20px;
   margin-bottom: 20px;
+  /* column-gap: 10px; */
 }
 
 /* 페이지 넘기기 버튼 */
@@ -343,7 +346,7 @@ h2.discussion__title a:visited {
 }
 
 .page-number {
-  flex: 1 0;
+  flex: 1 1 ;
   display: flex;
   justify-content: center;
   column-gap: 10px;
@@ -377,6 +380,37 @@ h2.discussion__title a:visited {
 }
 
 .page-number > span:hover {
-background-color: rgb(150, 199, 238);
+  background-color: rgb(150, 199, 238);
   transition: 0.6s all;
+}
+
+@media (max-width: 550px) {
+  .form__input--wrapper {
+    grid-template-columns: 130px auto;
+    grid-template-rows: repeat(auto-fit, minmax(min-content, 1fr));
+  }
+
+  .form__submit {
+    grid-column: 2/3;
+    grid-row: 4/5;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 450px) {
+  .form__input--wrapper {
+    display: inline-grid;
+    row-gap: 8px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(min-content, 1fr));
+  }
+
+  .form__input--wrapper * {
+    grid-column: 1/1;
+  }
+
+  .form__submit {
+    grid-row: 7/8;
+    justify-self: end;
+  }
 }
