@@ -72,7 +72,7 @@ render(ul);
 
 
   //여기부터 디스커션 추가하기
-  const formSubmit = document.querySelector('#submitBtn');
+  const formSubmit = document.querySelector('#submit');
   const inputName = document.querySelector('#name');
   const inputTitle = document.querySelector('#title');
   const inputStory = document.querySelector('#story');
@@ -90,6 +90,8 @@ render(ul);
 
     newArr.answer = {};
     newArr.avatarUrl = "https://avatars.githubusercontent.com/u/87750478?s=64&v=4";
+
+  
 
     
 
