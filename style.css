@@ -1,1 +1,175 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* variable */
+:root {
+  --container-width: 540px;
+
+  /* color */
+  --color-light-gray: #9f9898;
+  --color-gray: gray;
+  --color-light-blue: rgb(33, 141, 248);
+}
+
+/* Global Setting */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 대제목 */
+h1 {
+  margin: 20px 0 20px 0;
+  font-family: "Dancing Script", cursive;
+  font-size: 48px;
+  text-shadow: 1px 1px 2px gray;
+}
+
+/* 1. form 컴포넌트 */
+.form__container {
+  width: var(--container-width);
+  border: 1px solid #d1cdcde8;
+  background-color: #efefef;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* 2. form__input--wrapper */
+/* 2.1. input, textarea 설정 */
+input,
+textarea {
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+textarea {
+  height: 100px;
+}
+
+/* 2.2 label 설정 */
+label {
+  background-color: #73777b;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+  color: white;
+  text-indent: 5px;
+}
+
+/* 2.3 입력창 설정 */
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2.3.1 입력창 마진 설정 */
+.form__input--title,
+.form__textbox {
+  margin-top: 15px;
+}
+
+/* 2.4. 제출 버튼 설정 */
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+
+/* 2.4.1. 제출 버튼 세부 설정 */
+input[type="submit"] {
+  background-color: rgb(0, 193, 68);
+  border: 1px solid rgb(0, 174, 80);
+  color: white;
+  font-weight: 500;
+  line-height: 10px;
+  margin-top: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="submit"]:active {
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 1px;
+}
+
+/* 3. Discussion 컴포넌트 */
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  width: var(--container-width);
+  border-bottom: 1px solid var(--color-light-gray);
+  list-style: none;
+  padding: 20px 0px 20px 0px;
+}
+
+/* 3.1. Discussion__avatar--wrapper */
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* 3.1.1 저자 프로필 이미지 */
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+/* 3.2. Discussion__content */
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+}
+
+/* 3.2.1. 컨텐츠 제목 */
+.discussion__title {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* 3.2.2 컨텐츠 제목의 a 요소 */
+a:link,
+a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--color-light-blue);
+}
+
+/* 3.2.3. 컨텐츠 저자, 작성일자 */
+.discussion__information {
+  margin-top: 15px;
+  text-align: right;
+  color: var(--color-gray);
+}
+
+/* 3.3. Discussion__answered */
+.discussion__answered {
+  display: flex;
+  align-items: center;
+}
+
+div > i {
+  width: 20px;
+  color: green;
+}
