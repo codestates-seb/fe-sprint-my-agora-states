@@ -31,8 +31,8 @@ function addDiscussion(){
 
   }
     
-  agoraStatesDiscussions.unshift(newDiscussion)
-  console.log(agoraStatesDiscussions)
+  agoraStatesDiscussions.unshift(newDiscussion);
+  render();
 }
 
 
