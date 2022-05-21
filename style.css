@@ -1,1 +1,120 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+ 
+/* CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+  
+ body {
+    height: 100vh;
+    background-image: url("https://cdn.dribbble.com/users/156849/screenshots/6993098/32.gif");
+    background-size: cover;
+    background-position: center;
+ }
+  
+ main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+  
+ a {
+    color: black;
+    font-weight: normal;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    text-decoration: none;
+ }
+  
+ h1 {
+    margin-top: 80px;
+    color: white;
+    font-size: 100px;
+    font-family: 'IBM Plex Sans', sans-serif;
+ }
+  
+ .form__container {
+    margin: 50px;
+    padding: 30px;
+    background-color: darkslateblue;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 600px;
+    border-radius: 60px;
+    border: 2px white solid;
+    font-size: 20px;
+    font-family: 'IBM Plex Sans', sans-serif;
+ }
+  
+ .form__input--name, .form__input--title, .form__textbox {
+    display: flex;
+    padding: 0;
+ }
+  
+ #name, #title, #story {
+    width: 100%;
+ }
+  
+  
+ .form__submit {
+    display: flex;
+ }
+  
+ #submitBtn {
+    width: 150px;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+    border: 1px white ;
+    justify-content: center;
+ }
+ #submitBtn:hover {
+    transform: scale(1.1);
+ }
+  
+ .discussion__wrapper {
+    background-color: ghostwhite;
+    padding: 40px;
+    border-radius: 50px;
+   
+ }
+  
+  
+ .form__input--name, .form__input--title, .form__textbox, .form__submit {
+    padding: 7px;
+    justify-content: center;
+    align-items: center;
+ }
+  
+  
+ .discussion__container {
+    list-style-type: none;
+    width: 800px;
+    display: flex;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    color: gray;
+ }
+  
+  
+ div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+ }
+  
+ div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+ }
+ 
