@@ -55,94 +55,76 @@ const submit = document.querySelector('#submit');
 
 submit.onclick = (event) => {
   event.preventDefault();
-  if (window.confirm("질문을 추가하시겠습니까?")) {
-    const newInfo = {};
-    newInfo.author = inputName.value,
-    newInfo.title = inputTitle.value,
-    newInfo.createdAt = new Date(),
-    newInfo.bodyHTML = inputQuestion.value,
-    newInfo.avatarUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-    getStorageData.unshift(newInfo)
-    localStorage.setItem('discussions', JSON.stringify(getStorageData));
+  if (inputName.value && inputTitle.value && inputQuestion.value) {
+    let confirmAnswer = window.confirm("질문을 추가하시겠습니까?");
+    if (confirmAnswer === true) {
+      const newInfo = {};
+      newInfo.author = inputName.value,
+      newInfo.title = inputTitle.value,
+      newInfo.createdAt = new Date(),
+      newInfo.bodyHTML = inputQuestion.value,
+      newInfo.avatarUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+      getStorageData.unshift(newInfo)
+      localStorage.setItem('discussions', JSON.stringify(getStorageData));
 
-    inputName.value = "";
-    inputTitle.value = "";
-    inputQuestion.value = "";
+      inputName.value = "";
+      inputTitle.value = "";
+      inputQuestion.value = "";
 
-    updateInfo();
-    updatePostUI();
+      getStorageData = JSON.parse(localStorage.getItem('discussions')); 
+      maxPage = Math.ceil(getStorageData.length / showContent);
+      updatePostUI(1);
+    } else {
+      alert("제출을 취소하셨습니다.");
+    }
+  } else {
+    window.alert("필수사항을 모두 입력해주세요.");
   };
 };
 
-/* 주요변수 업데이트 관리 */
-const updateInfo = () => {
-  getStorageData = JSON.parse(localStorage.getItem('discussions')); 
-  maxPage = Math.ceil(getStorageData.length / showContent);
-}
-
-/* 포스트 출력 */
-const updatePostUI = () => { 
+/* 포스트 생성 */
+const updatePostUI = (buttonNum) => { 
   const ul = document.querySelector("ul.discussions__container"); 
   ul.parentNode.removeChild(ul);
   const newUL = document.createElement('ul');
   newUL.className= "discussions__container";
+  let startNum = (showContent*buttonNum)-showContent;
+  let endNum = (showContent*buttonNum)-1;
 
-  for (let i = 0; i <= showContent-1; i += 1) {
-    newUL.appendChild(convertToDiscussion(getStorageData[i]));
+  if (Number(maxPage) === Number(buttonNum)) {
+    endNum = getStorageData.length-1;
+  };
+  
+  for (let i = startNum; i <= endNum; i += 1) {
+    newUL.appendChild(convertToDiscussion(getStorageData[i])); 
   };
   discussionWrapper.prepend(newUL);
+  
   showButton();
+  const buttonlist = document.querySelector('.buttonlist');
+  buttonlist.children[0].classList.add('active');
 }
 
-/* 버튼 출력 */
+/* 버튼 생성 */
 const showButton = () => { 
   const buttonlist = document.querySelector('.buttonlist');
   buttonlist.parentNode.removeChild(buttonlist);
   const pageDiv = document.createElement('div');
   pageDiv.className = 'buttonlist';
-  updateInfo();
 
   for (let i = 1; i <= maxPage; i++) { 
     const pageA = document.createElement('a');
     pageA.className = "pageButton";
     pageA.textContent = i;
-    pageDiv.appendChild(pageA);
-  };
-  pageDiv.children[0].classList.add('active');
-  const pagination = document.querySelector('.pagination');
-  pagination.prepend(pageDiv);
-  buttonEvent(); 
-};
-
-/* 버튼 이벤트 추가 */
-const buttonEvent = () => {
-  pageButtons = document.querySelectorAll('.pageButton');
-  updateInfo();
-  
-  for (let i = 0; i < pageButtons.length; i++) {
-    pageButtons[i].onclick = (event) => {
+    pageA.onclick = (event) => {
       const buttonlist = document.querySelector('.buttonlist');
       buttonlist.children[0].classList.remove('active');
-
-      const ul = document.querySelector("ul.discussions__container"); 
-      ul.parentNode.removeChild(ul);
-      const newUL = document.createElement('ul');
-      newUL.className= "discussions__container";
-
-      const buttonNum = event.target.textContent;
-      const startNum = (showContent*buttonNum)-showContent;
-      let endNum = (showContent*buttonNum)-1;
-
-      if (Number(maxPage) === Number(buttonNum)) {
-        endNum = getStorageData.length-1;
+      updatePostUI(event.target.textContent);
       };
-      
-      for (let i = startNum; i <= endNum; i += 1) {
-        newUL.appendChild(convertToDiscussion(getStorageData[i])); 
-      };
-      discussionWrapper.prepend(newUL);
-    };
+    pageDiv.appendChild(pageA);
   };
+  const pagination = document.querySelector('.pagination');
+  pagination.prepend(pageDiv);
 };
 
-updatePostUI(); 
+updatePostUI(1); 
