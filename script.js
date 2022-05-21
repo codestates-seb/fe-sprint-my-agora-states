@@ -48,17 +48,12 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// const render = (element) => {
-//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-//   }
-//   return;
-// };
 const render = (element, num) => {
+  ul.textContent = "";
   for (let i = (num - 1) * 10; i < num * 10; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
+  window.scrollTo(0, 0);
   return;
 };
 
@@ -124,11 +119,11 @@ submitBtn.addEventListener("click", (e) => {
 
 // pagination 구현
 
-const paginationContainer = document.querySelector("#pagination");
+const paginationContainer = document.querySelector("#pagination__num");
 const paginationCnt = Math.ceil(agoraStatesDiscussions.length / 10);
 for (let i = 1; i <= paginationCnt; i++) {
   const paginationBtn = document.createElement("button");
-  paginationBtn.classList.add("pagination__btn");
+  // paginationBtn.classList.add("pagination__btn");
   paginationBtn.textContent = i;
   paginationContainer.append(paginationBtn);
   paginationBtn.addEventListener("click", handlePaginationBtn);
@@ -136,11 +131,37 @@ for (let i = 1; i <= paginationCnt; i++) {
 
 // pagination 버튼 클릭 이벤트 제어
 
+const previousBtn = document.querySelector("#previous__btn");
+const nextBtn = document.querySelector("#next__btn");
+
+let thisPage = 1;
+
+previousBtn.addEventListener("click", handlPreviousNextBtn);
+nextBtn.addEventListener("click", handlPreviousNextBtn);
+
+function handlPreviousNextBtn(e) {
+  if (e.target.textContent === "⬅️") {
+    if (thisPage === 1) {
+      alert("처음 페이지입니다.");
+    } else {
+      thisPage--;
+      render(ul, thisPage);
+    }
+  } else {
+    if (thisPage === paginationCnt) {
+      alert("마지막 페이지입니다.");
+    } else {
+      thisPage++;
+      render(ul, thisPage);
+    }
+  }
+}
+
 function handlePaginationBtn(e) {
   const paginationNum = e.target.textContent;
   ul.textContent = "";
   render(ul, paginationNum);
-  window.scrollTo(0, 0);
+  thisPage = Number(paginationNum);
 }
 
 /*

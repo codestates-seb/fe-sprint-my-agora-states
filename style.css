@@ -155,11 +155,11 @@ h1 {
 }
 
 /* pagination */
-#pagination {
-  display: block;
+#pagination__num {
+  display: inline-block;
 }
 
-.pagination__btn {
+#pagination button {
   width: 2.5rem;
   height: 2.5rem;
   margin: 0 0.2rem;
@@ -168,13 +168,15 @@ h1 {
   font-size: 1.5rem;
   background-color: #14c38e;
   color: white;
+  text-align: center;
+  line-height: 2.5rem;
 }
 
-.pagination__btn:hover {
+#pagination button:hover {
   background-color: white;
   color: black;
 }
 
-.pagination__btn:active {
+#pagination button:active {
   transform: scale(0.9);
 }
