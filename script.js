@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -14,8 +14,27 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
 
+  const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discussion__information";
+  discussionInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInfo);
+
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑︎" : "☒";
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -23,6 +42,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  // element.innerHTML="" 
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -32,3 +52,21 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// new discussion submit section
+const newDiscussion = document.querySelector('form');
+
+newDiscussion.addEventListener('submit', event => {
+  event.preventDefault();
+  const yourName = document.querySelector('#name').value; 
+  const yourTitle = document.querySelector('#title').value;
+  const addNewDiscussion = {
+    createdAt: new Date(),
+    title: yourTitle,
+    author: yourName
+  }
+  agoraStatesDiscussions.unshift(addNewDiscussion);
+  
+  ul.innerHTML = "";
+  render(ul);
+});
