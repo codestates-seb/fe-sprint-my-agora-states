@@ -11,16 +11,10 @@ const elTime =
   new Date(new Date().getTime()-new Date().getTimezoneOffset()*60000).toISOString()
   .slice(0, 19) + 'Z';
 
-formSubmit.disabled = true;
-elInputName.addEventListener('keyup', () => {
-  formSubmit.disabled = false;
-  if (elInputName.value === "") formSubmit.disabled = true;
-});
-
 //시간변환
-function changeTime(data) {
-  data = data.slice(11, -1);
-  let hour = +data.slice(0, 2);
+function changeTime(time) {
+  time = time.slice(11, -1);
+  let hour = + time.slice(0, 2);
   let morning_afternoon = hour >= 12 ? '오후' : '오전';
   let transition_time =
     morning_afternoon === '오후'
@@ -28,7 +22,7 @@ function changeTime(data) {
         ? hour
         : (hour = hour - 12)
       : hour;
-  return morning_afternoon + ' ' + transition_time + data.slice(2);
+  return morning_afternoon + ' ' + transition_time + time.slice(2);
 }
 
 //제출 버튼 클릭
@@ -155,4 +149,3 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
-//
