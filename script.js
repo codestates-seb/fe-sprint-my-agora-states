@@ -1,9 +1,17 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+if (localStorage.length === 0) {
+  /* 로컬스토리지에 데이터 저장 */
+  localStorage.setItem('discussions', JSON.stringify(agoraStatesDiscussions)); 
+};
+/* 로컬스토리지에서 데이터 불러오기 */
+let getStorageData = JSON.parse(localStorage.getItem('discussions')); 
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+const discussionWrapper = document.querySelector('.discussion__wrapper');
+const ul = document.querySelector("ul.discussions__container");
+const showContent = 10; 
+let maxPage = Math.ceil(getStorageData.length / showContent);
+
+/* 포스트 정보 추가 */
 const convertToDiscussion = (obj) => { 
-  
   const li = document.createElement("li"); 
   li.className = "discussion__container";
   const avatarWrapper = document.createElement("div"); 
@@ -21,16 +29,14 @@ const convertToDiscussion = (obj) => {
   const contentH2 = document.createElement('h2');
   contentH2.className = "discussion__title";
   const contentA = document.createElement('a');
-
   contentA.setAttribute('href', obj.url);
   contentA.textContent = obj.title;
   contentH2.appendChild(contentA);
-
   discussionContent.appendChild(contentH2);
 
   const contentDiv = document.createElement('div');
   contentDiv.className = "discussion__information";
-  contentDiv.textContent =`${obj.author} / ${new Date().toLocaleString('ko-KR').slice(-11)}`
+  contentDiv.textContent =`${obj.author} / ${new Date().toLocaleString('ko-KR').slice(-11)}`;
   discussionContent.appendChild(contentDiv);
  
   const answeredP = document.createElement('p');
@@ -41,13 +47,13 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-/* form */
+/* 새포스트 추가 */
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputQuestion = document.querySelector("#story");
 const submit = document.querySelector('#submit');
 
-submit.onclick = function (event) {
+submit.onclick = (event) => {
   event.preventDefault();
   if (window.confirm("질문을 추가하시겠습니까?")) {
     const newInfo = {};
@@ -56,64 +62,87 @@ submit.onclick = function (event) {
     newInfo.createdAt = new Date(),
     newInfo.bodyHTML = inputQuestion.value,
     newInfo.avatarUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-    agoraStatesDiscussions.unshift(newInfo);
-    ul.prepend(convertToDiscussion(newInfo));
-    
+    getStorageData.unshift(newInfo)
+    localStorage.setItem('discussions', JSON.stringify(getStorageData));
+
     inputName.value = "";
     inputTitle.value = "";
     inputQuestion.value = "";
+
+    updateInfo();
+    updatePostUI();
   };
 };
 
-/* pagination */
-let numOfContent = agoraStatesDiscussions.length;
-let showContent = 10; 
-let maxPage = Math.ceil(numOfContent / showContent);
-const pageDiv = document.querySelector('.pagination');
-function showPagination() {
+/* 주요변수 업데이트 관리 */
+const updateInfo = () => {
+  getStorageData = JSON.parse(localStorage.getItem('discussions')); 
+  maxPage = Math.ceil(getStorageData.length / showContent);
+}
+
+/* 포스트 출력 */
+const updatePostUI = () => { 
+  const ul = document.querySelector("ul.discussions__container"); 
+  ul.parentNode.removeChild(ul);
+  const newUL = document.createElement('ul');
+  newUL.className= "discussions__container";
+
+  for (let i = 0; i <= showContent-1; i += 1) {
+    newUL.appendChild(convertToDiscussion(getStorageData[i]));
+  };
+  discussionWrapper.prepend(newUL);
+  showButton();
+}
+
+/* 버튼 출력 */
+const showButton = () => { 
+  const buttonlist = document.querySelector('.buttonlist');
+  buttonlist.parentNode.removeChild(buttonlist);
+  const pageDiv = document.createElement('div');
+  pageDiv.className = 'buttonlist';
+  updateInfo();
+
   for (let i = 1; i <= maxPage; i++) { 
-    const pageDiv = document.querySelector('.pagination');
     const pageA = document.createElement('a');
-    pageA.className = "pageButtons";
+    pageA.className = "pageButton";
     pageA.textContent = i;
     pageDiv.appendChild(pageA);
-  }
-  pageDiv.children[0].classList.add('active') ;
-  return;
+  };
+  pageDiv.children[0].classList.add('active');
+  const pagination = document.querySelector('.pagination');
+  pagination.prepend(pageDiv);
+  buttonEvent(); 
 };
-showPagination();
 
-/* page button */
-const pageButtons = document.querySelectorAll('.pageButtons');
-const discussionWrapper = document.querySelector('.discussion__wrapper');
-for (const button of pageButtons) {
-    button.addEventListener('click', function(event) {
-    discussionWrapper.removeChild(ul);
-    ul = document.createElement('ul');
-    pageDiv.children[0].classList.remove('active');
-    
-    const buttonNum = event.target.textContent;
-    const startNum = (showContent*buttonNum)-showContent;
-    let endNum = (showContent*buttonNum)-1;
+/* 버튼 이벤트 추가 */
+const buttonEvent = () => {
+  pageButtons = document.querySelectorAll('.pageButton');
+  updateInfo();
+  
+  for (let i = 0; i < pageButtons.length; i++) {
+    pageButtons[i].onclick = (event) => {
+      const buttonlist = document.querySelector('.buttonlist');
+      buttonlist.children[0].classList.remove('active');
 
-    if (Number(maxPage) === Number(buttonNum)) {
-      endNum = agoraStatesDiscussions.length-1;
+      const ul = document.querySelector("ul.discussions__container"); 
+      ul.parentNode.removeChild(ul);
+      const newUL = document.createElement('ul');
+      newUL.className= "discussions__container";
+
+      const buttonNum = event.target.textContent;
+      const startNum = (showContent*buttonNum)-showContent;
+      let endNum = (showContent*buttonNum)-1;
+
+      if (Number(maxPage) === Number(buttonNum)) {
+        endNum = getStorageData.length-1;
+      };
+      
+      for (let i = startNum; i <= endNum; i += 1) {
+        newUL.appendChild(convertToDiscussion(getStorageData[i])); 
+      };
+      discussionWrapper.prepend(newUL);
     };
-    
-    for (let i = startNum; i <= endNum; i += 1) {
-      ul.appendChild(convertToDiscussion(agoraStatesDiscussions[i])); 
-    };
-
-    discussionWrapper.prepend(ul);
-  });
+  };
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-let ul = document.querySelector("ul.discussions__container");
-const render = (element) => { 
-    for (let i = 0; i <= showContent-1; i += 1) {
-      element.appendChild(convertToDiscussion(agoraStatesDiscussions[i]));
-    }
-  return;
-};
-render(ul);
+updatePostUI(); 

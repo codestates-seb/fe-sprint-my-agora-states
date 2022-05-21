@@ -158,7 +158,7 @@ h2 {
     padding: 1em; 
 }
 
-.pageButtons { 
+.pageButton { 
     padding: 0.5rem; 
     margin: 0.2rem;
     font-size: 1.2rem; 
@@ -167,7 +167,7 @@ h2 {
     cursor: pointer; 
 } 
 
-.pageButtons.active, .pageButtons:hover { 
+.pageButton.active, .pageButton:hover { 
     background-color: #b496a5; 
     color: #777;
 }
