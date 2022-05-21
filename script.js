@@ -1,6 +1,10 @@
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 
 localStorage.removeItem("username");
+if (localStorage.length === 0) {
+  localStorage.setItem("discussions", "[]");
+}
+let thisPage = 1;
 
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -58,9 +62,12 @@ const render = (element, num) => {
 };
 
 // localStorage에 저장된 discussion값을 agoraStatesDiscussions에 shift();
-for (let j = 0; j < localStorage.length; j++) {
-  let key = localStorage.key(j);
-  agoraStatesDiscussions.unshift(JSON.parse(localStorage.getItem(key)));
+// for (let j = 1; j <= localStorage.length; j++) {
+//   let key = localStorage.key(localStorage.length - j);
+//   agoraStatesDiscussions.unshift(JSON.parse(localStorage.getItem(key)));
+// }
+for (let j = 0; j < JSON.parse(localStorage.discussions).length; j++) {
+  agoraStatesDiscussions.unshift(JSON.parse(localStorage.discussions)[j]);
 }
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
@@ -68,13 +75,13 @@ for (let j = 0; j < localStorage.length; j++) {
 const ul = document.querySelector("ul.discussions__container");
 render(ul, 1);
 
+// submit 버튼 클릭 시 이벤트 제어
+const submitBtn = document.querySelector(".submit__btn");
+
 Date.prototype.amPm = function () {
   let h = this.getHours() < 12 ? "AM" : "PM";
   return h;
 };
-
-// submit 버튼 클릭 시 이벤트 제어
-const submitBtn = document.querySelector(".submit__btn");
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -104,11 +111,15 @@ submitBtn.addEventListener("click", (e) => {
       "https://github.com/codestates-seb/agora-states-fe/discussions";
     newObj.answer = null;
 
-    localStorage.setItem(`${date.getTime()}`, JSON.stringify(newObj));
+    const newLocalStorage = JSON.parse(localStorage.getItem("discussions"));
 
-    const newList = convertToDiscussion(newObj);
+    newLocalStorage.push(newObj);
+    localStorage.setItem("discussions", JSON.stringify(newLocalStorage));
+    agoraStatesDiscussions.unshift(newObj);
 
-    ul.prepend(newList);
+    thisPage = 1;
+    render(ul, thisPage);
+
     formName.value = "";
     formTitle.value = "";
     formStory.value = "";
@@ -123,7 +134,6 @@ const paginationContainer = document.querySelector("#pagination__num");
 const paginationCnt = Math.ceil(agoraStatesDiscussions.length / 10);
 for (let i = 1; i <= paginationCnt; i++) {
   const paginationBtn = document.createElement("button");
-  // paginationBtn.classList.add("pagination__btn");
   paginationBtn.textContent = i;
   paginationContainer.append(paginationBtn);
   paginationBtn.addEventListener("click", handlePaginationBtn);
@@ -133,8 +143,6 @@ for (let i = 1; i <= paginationCnt; i++) {
 
 const previousBtn = document.querySelector("#previous__btn");
 const nextBtn = document.querySelector("#next__btn");
-
-let thisPage = 1;
 
 previousBtn.addEventListener("click", handlPreviousNextBtn);
 nextBtn.addEventListener("click", handlPreviousNextBtn);
@@ -163,28 +171,3 @@ function handlePaginationBtn(e) {
   render(ul, paginationNum);
   thisPage = Number(paginationNum);
 }
-
-/*
-{
-{
-    id: "D_kwDOHOApLM4APjJi",
-    createdAt: "2022-05-16T01:02:17Z",
-    title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-    author: "dubipy",
-    answer: {
-      id: "DC_kwDOHOApLM4AKg6M",
-      createdAt: "2022-05-16T02:09:52Z",
-      url: "https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236",
-      author: "Kingsenal",
-      bodyHTML:
-        '<p dir="auto">안녕하세요. <a class="user-mention notranslate" data-hovercard-type="user"',
-      avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
-    },
-    bodyHTML:
-    '<p dir="auto">--------------- 여기서부터 복사하세요 ---------------</p>\n<p dir="auto">운영 체제: 예) macOS</p>\n<p dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤'
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
-  },
-}
-*/
