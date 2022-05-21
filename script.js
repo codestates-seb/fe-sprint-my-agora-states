@@ -43,30 +43,18 @@ const convertToDiscussion = (obj) => {
 
   //체크박스 불러오기
   const checkedAnswered = document.createElement('p');
-  checkedAnswered.textContent = obj.answer;
-  if (obj.answer === null) {
-    checkedAnswered.textContent = '☒'
-  }
-  else checkedAnswered.textContent = '☑'
   discussionAnswered.append(checkedAnswered);
+  obj.answer
+    ? (checkedAnswered.textContent = '✅')
+    : (checkedAnswered.textContent = '☑️');
  
-
-
   // li에 div 넣기
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
   //여기부터 디스커션 추가하기
-
-
-
-
-
-
-
-
-
+  // newObj = [];
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
