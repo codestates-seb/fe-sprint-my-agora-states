@@ -1,5 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -50,11 +48,10 @@ const convertToDiscussion = (obj) => {
  
   // li에 div 넣기
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+  // ul.prepend(li);
   return li;
 };
 
-  //여기부터 디스커션 추가하기
-  // newObj = [];
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -62,9 +59,74 @@ const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
+
   return;
 };
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+  //여기부터 디스커션 추가하기
+  const inputName = document.querySelector('#name');
+  const inputTitle = document.querySelector('#title');
+  const inputStory = document.querySelector('#story');
+  const submitButton = document.querySelector('#submitBtn');
+  const time = new Date().toISOString();
+  time;
+  let newArr = {};
+  submitButton.addEventListener("click",clickBtn);
+
+  function clickBtn() {
+    newArr.name = inputName.value;
+    newArr.title = inputTitle.value;
+    newArr.story = inputStory.value;
+    newArr.createdAt = time;
+
+    newArr.answer = {};
+    newArr.avatarUrl = "https://avatars.githubusercontent.com/u/87750478?s=64&v=4";
+
+  
+
+    if (newArr.name === "") {
+      alert('이름을 입력하세요');
+    } else if (newArr.title === ""){
+      alert('제목을 입력하세요');
+    } else {
+      agoraStatesDiscussions.push(newArr);
+      ul.append(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length-1]));
+      alert('제출완료');
+    }
+
+
+
+
+  }
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+ 
+ 
+
+  // const addDiscussion = convertToDiscussion(obj);
+  // ul.prepend(addDiscussion);
+
+
+
+
+
+
+
