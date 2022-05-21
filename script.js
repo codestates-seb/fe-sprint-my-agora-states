@@ -1,16 +1,16 @@
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  const ul = document.querySelector('ul.discussion__container'); 
-  //ul 요소불러오기
 
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
@@ -28,6 +28,7 @@ const convertToDiscussion = (obj) => {
   const titleAnchor = document.createElement("a");
   titleAnchor.href = obj.url;
   titleAnchor.textContent = obj.title;
+
   discussionTitle.append(titleAnchor);
   discussionContent.append(discussionTitle);
   
@@ -36,6 +37,7 @@ const convertToDiscussion = (obj) => {
   const discussionInfo = document.createElement('div')
   discussionInfo.className = 'discussion__information';
   discussionInfo.textContent = obj.author + '/' + obj.createdAt;
+
   discussionContent.append(discussionInfo);
 
 
@@ -70,17 +72,18 @@ render(ul);
 
 
   //여기부터 디스커션 추가하기
+  const formSubmit = document.querySelector('#submitBtn');
   const inputName = document.querySelector('#name');
   const inputTitle = document.querySelector('#title');
   const inputStory = document.querySelector('#story');
-  const submitButton = document.querySelector('#submitBtn');
   const time = new Date().toISOString();
   time;
   let newArr = {};
-  submitButton.addEventListener("click",clickBtn);
+  formSubmit.addEventListener("click", clickBtn);
+
 
   function clickBtn() {
-    newArr.name = inputName.value;
+    newArr.id = inputName.value; //newArr라는 객체에 key네임 지정해서 값을 할당함
     newArr.title = inputTitle.value;
     newArr.story = inputStory.value;
     newArr.createdAt = time;
@@ -88,38 +91,24 @@ render(ul);
     newArr.answer = {};
     newArr.avatarUrl = "https://avatars.githubusercontent.com/u/87750478?s=64&v=4";
 
-  
+    
 
     if (newArr.name === "") {
       alert('이름을 입력하세요');
     } else if (newArr.title === ""){
       alert('제목을 입력하세요');
     } else {
-      agoraStatesDiscussions.push(newArr);
+      agoraStatesDiscussions.unshift(newArr);
       ul.append(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length-1]));
       alert('제출완료');
     }
-
-
-
-
+    
   }
-
-
-
-
-
-
   
 
 
 
 
-
-
-
- 
- 
 
   // const addDiscussion = convertToDiscussion(obj);
   // ul.prepend(addDiscussion);
