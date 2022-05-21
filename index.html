@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta property="og:image" content="my_agora_states.jpg" /> -->
     <title>My Agora States</title>
 
     <link rel="icon" href="hand-solid.png" />
@@ -28,8 +29,7 @@
         <form
           class="form"
           action="https://github.com/greeen01/fe-sprint-my-agora-states.git"
-          method="post"
-          target="iframeOne"
+          method="get"
         >
           <div class="form__input--wrapper">
             <div class="form__input--name">
@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="form__submit">
-            <input type="submit" value="submit" />
+            <input class="submitbtn" type="submit" value="submit" />
           </div>
         </form>
       </section>
@@ -89,6 +89,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
-  <!-- fomr의 target과 iframe의 named을 일치시켜 submit할 때 페이지 이동 막기 -->
-  <iframe name="iframeOne" style="display: none"></iframe>
 </html>

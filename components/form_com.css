@@ -35,7 +35,9 @@ label {
 
 .form__submit input:hover {
   cursor: pointer;
-  background-color: antiquewhite;
+  background-color: black;
+  /* background-color: antiquewhite; */
+  /* color: black; */
 }
 
 input:focus,
