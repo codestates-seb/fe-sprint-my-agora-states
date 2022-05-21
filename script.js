@@ -100,15 +100,7 @@ submitBtn.addEventListener("click", function(event){
   //event.preventDefault();
 
   //타임스탬프 생성
-  let today = new Date();
-  let year = today.getFullYear();
-  let month = ('0' + (today.getMonth() + 1)).slice(-2);
-  let day = ('0' + today.getDate()).slice(-2);
-  let hours = ('0' + today.getHours()).slice(-2); 
-  let minutes = ('0' + today.getMinutes()).slice(-2);
-  let seconds = ('0' + today.getSeconds()).slice(-2);
-  
-  let createdAt = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+  let createdAt = creatTime();
 
   //(a) 입력값들 넣어서 객체로 만들어주고, agoraStatesDiscussions 배열에도 넣어줘.
   const newDiscussion = {
@@ -139,6 +131,22 @@ submitBtn.addEventListener("click", function(event){
   //submit 비활성화 실행
   submitBtnAbled();
 })
+
+//타임스탬프 생성 함수
+const creatTime = function(){
+    //타임스탬프 생성
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = ('0' + (today.getMonth() + 1)).slice(-2);
+    let day = ('0' + today.getDate()).slice(-2);
+    let hours = ('0' + today.getHours()).slice(-2); 
+    let minutes = ('0' + today.getMinutes()).slice(-2);
+    let seconds = ('0' + today.getSeconds()).slice(-2);
+    
+    let createdAt = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+
+    return createdAt;
+}
 
 
 //id 생성용 클로저 함수 (id는 제가 임의로 new1, new2, ... 형식으로 넣었습니다.)
