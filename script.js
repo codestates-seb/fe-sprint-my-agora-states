@@ -1,6 +1,63 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+//입력폼 데이터 추가
+const formInputWrapper = document.querySelectorAll(".form__input--wrapper");
+const formSubmit = document.querySelector('#submit');
+const elInputName = document.querySelector('#name');
+const elInputTitle = document.querySelector('#title');
+const elInputStory = document.querySelector('#story');
+const elTime = 
+  new Date(new Date().getTime()-new Date().getTimezoneOffset()*60000).toISOString()
+  .slice(0, 19) + 'Z';
+
+formSubmit.disabled = true;
+elInputName.addEventListener('keyup', () => {
+  formSubmit.disabled = false;
+  if (elInputName.value === "") formSubmit.disabled = true;
+});
+
+//시간변환
+function changeTime(data) {
+  data = data.slice(11, -1);
+  let hour = +data.slice(0, 2);
+  let morning_afternoon = hour >= 12 ? '오후' : '오전';
+  let transition_time =
+    morning_afternoon === '오후'
+      ? hour === 12
+        ? hour
+        : (hour = hour - 12)
+      : hour;
+  return morning_afternoon + ' ' + transition_time + data.slice(2);
+}
+
+//제출 버튼 클릭
+formSubmit.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const formArr = {};
+
+  formArr.author = elInputName.value;
+  formArr.title = elInputTitle.value;
+  formArr.story = elInputStory.value;
+  formArr.avatarUrl = "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+  formArr.createdAt = elTime;
+  agoraStatesDiscussions.unshift(formArr);
+
+  const render = (element) => {
+    for (let i = (currentPage - 1) * 10; i < currentPage * 10; i += 1) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    }
+    return;
+  };
+
+  ul.innerHTML = "";
+  render(ul);
+  elInputName.value = "";
+  elInputTitle.value = "";
+  elInputStory.value = "";
+});
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   
@@ -30,7 +87,7 @@ const convertToDiscussion = (obj) => {
   contentTitle.className = "discussion__title";
   const contentTitleA = document.createElement('a');
   contentTitleA.href = obj.url;
-  contentTitleA.innerHTML = obj.title;
+  contentTitleA.textContent = obj.title;
   
   discussionContent.append(contentTitle);
   contentTitle.append(contentTitleA);
@@ -39,115 +96,63 @@ const convertToDiscussion = (obj) => {
   const contentInfo = document.createElement('div');
   contentInfo.className = "discussion__information";
 
-  contentInfo.innerHTML = obj.author + ' / ' + (obj.createdAt).slice(11,19);
+  contentInfo.textContent = obj.author + ' / ' + changeTime(obj.createdAt);
   contentTitle.append(contentInfo);
 
   //answered
   const answer = document.createElement('div');
-  const answerP = document.createElement('div');
+  const answerCheck = document.createElement('input');
   answer.className = "discussion__answered";
-  answerP.innerHTML = '☑';
+  answerCheck.setAttribute('type', 'checkbox');
   discussionAnswered.append(answer);
-  answer.append(answerP);
+  answer.append(answerCheck);
   
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
+
+
+//pagination
+const prevBtn = document.querySelector('.prev__button');
+const nextBtn = document.querySelector('.next__button');
+
+let currentPage = 1;
+let totalPage = Math.ceil(agoraStatesDiscussions.length / 10);
+
+prevBtn.addEventListener('click', () => {
+  currentPage = currentPage - 1;
+  if (currentPage <= 1) {
+    prevBtn.disabled = true;
+  }
+  if (currentPage < totalPage) {
+    nextBtn.disabled = false;
+  }
+  ul.innerHTML = '';
+  render(ul);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentPage = currentPage + 1;
+  if (currentPage > 1) {
+    prevBtn.disabled = false;
+  }
+  if (currentPage >= totalPage) {
+    nextBtn.disabled = true;
+  }
+  ul.innerHTML = '';
+  render(ul);
+});
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-
-  // agoraStatesDiscussions = paging(agoraStatesDiscussions, listElement, rows, currentPage);
-
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = (currentPage - 1) * 10; i < currentPage * 10; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
+const ul = document.querySelector('ul.discussions__container');
 render(ul);
-
-
-//입력폼 데이터 추가
-const formSubmit = document.querySelector('#submit');
-const elInputName = document.querySelector('#name');
-const elInputTitle = document.querySelector('#title');
-const elInputStory = document.querySelector('#story');
-const elTime = new Date().toISOString();
-elTime;
-let formArr = {};
-formSubmit.addEventListener("click",clickE);
-
-function clickE(){
-  formArr.name = elInputName.value;
-  formArr.title = elInputTitle.value;
-  formArr.story = elInputStory.value;
-  formArr.createdAt = elTime;
-
-  formArr.answer = {};
-  formArr.avatarUrl = "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
-  
-  
-  if(formArr.name === ""){
-    alert('이름을 입력하세요');
-  }else if(formArr.title === ""){
-    alert('제목을 입력하세요');
-  }else{
-    // agoraStatesDiscussions.unshift(formArr);
-    agoraStatesDiscussions.push(formArr);
-    ul.append(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length-1]));
-    alert('제출 완료');
-  }
-  
-}
-
-
-//페이지네이션
-const listElement = document.querySelector('.discussion__container');
-const paginationButton = document.querySelector('.page__buttons');
-
-//currentPage : 현재 페이지
-const currentPage = 2;
-//화면에 보이는 글 개수
-let rows = 6;
-
-function paging(items, wrapper, rows_per_page, page ){
-  wrapper.innerHTML = "";
-  page--;
-
-  let start = rows_per_page * page;
-  let end = start + rows_per_page;
-  let paginationItems = items.slice(start, end);
-
-  for(let i = 0; i < paginationItems.length; i++){
-    console.log(paginationItems[i]);
-    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-}
-paging(agoraStatesDiscussions, listElement, rows, currentPage);
-
-// function setupPagination(items, wrapper, rows_per_page){
-//   wrapper.innerHTML = "";
-
-//   let page_count = Math.ceil(items.length / rows_per_page);
-//   for(let i = 1; i < page_count + 1; i++){
-//     let btn = paginationButton(i);
-//     wrapper.append(btn);
-//   }
-// }
-
-// function pageButton(page){
-//   let button = document.createElement('button');
-//   button.innerText = page;
-
-//   if(currentPage === page){
-//     button.classList.add('active');
-    
-//     return button;
-//   }
-// }
-// paging(agoraStatesDiscussions, listElement, rows, currentPage);
-// setupPagination(agoraStatesDiscussions, paginationButton);
+//
