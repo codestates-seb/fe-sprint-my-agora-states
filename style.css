@@ -2,18 +2,66 @@
 * {
   box-sizing: border-box;
 }
+main {
+  background-image: url(./img/bodybackgroundimg.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+}
 
-li.discussion__container{
-  list-style-type: none;
+section.form__container{
+  display:flex;
+  justify-content: center;
+  align-items: center; 
+  flex: 0 0 0;
+  padding: 1rem;
+  border: 1px solid bisque;
+}
+
+.form__input--wrapper{
+  border: 2px solid blue;
+  height: 150px;
+  width: 550px;
+  padding: 5px;
+
+}
+
+.form__input--wrapper > div{
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
-  width: 540px;
-  margin-bottom: 0.5rem;
-  background-color: var(--surface);
-  border-radius: 5px;
-  
+  border: 1px solid gold;
+  height: 40px;
+  padding: 2px;
+  margin: 2px;
 }
+.form__input--wrapper > div >label {
+  border: 2px solid red;
+  width: 200px;
+  height: 30px;
+  padding: 3px;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.form__input--wrapper > div > input {
+  width: 300px;
+}
+.form__input--wrapper > div > textarea {
+  width: 300px;
+}
+.form__submit {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.form__submit > input {
+  height: 30px;
+  width: 70px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
 div.discussion__avatar--wrapper {
   display:flex;
   justify-content: center;
@@ -22,10 +70,64 @@ div.discussion__avatar--wrapper {
   padding: 1rem;
 }
 
-div.discussion__avatar--wrapper > image {
+div.discussion__avatar--wrapper > img {
   width: 48px;
-  border-radius: 100%;
+  border-radius: 100px;
 }
 
+section.discussion__wrapper {
+  display:flex;
+  justify-content: center;
+  /* border: 2px solid blue; */
+}
+section.discussion__wrapper >ul {
+  border: 2px solid red;
+  padding: 10px;
+}
 
+li.discussion__container{
+  border: 1px solid blue;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  background-color: var(--surface);
+  border-radius: 5px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+
+div.discussion__content {
+  /* border: 1px solid red; */
+  width: 450px;
+  font-size: x-small;
+}
+div.discussion__content > h2 >a{
+ text-decoration: none;
+ color: black;
+}
+
+div.discussion__information {
+  /* border: 1px solid yellowgreen; */
+  text-align: right;
+}
+
+div.discussion__answered {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+div.discussion__answered > p {
+  border: 3px solid red;
+  height: 20px;
+  width: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
