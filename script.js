@@ -1,34 +1,82 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+const elForm = document.querySelector(".form__input--wrapper")
+const elName = document.querySelector("#name");
+const elTitle = document.querySelector("#title");
+const elStory = document.querySelector("#story");
+const elSubmit = document.querySelector(".form__submit").children[0]
+const elTextarea = document.querySelector("#story");
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
-
-  const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
-
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+if (!localStorage.getItem("data")) {
+  localStorage.setItem(
+    "data",
+    JSON.stringify(agoraStatesDiscussions)
+  );
+}
 
 
+//function
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
-};
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const template = (obj) =>{
+  const arr= [];
+  for(let i = 0; i < JSON.parse(localStorage['data']).length; i++ ){
+    arr.push(  `
+    <li class="discussion__container">
+        <div class="discussion__avatar--wrapper">
+          <img class="discussion__avatar--image"
+              src="${Object.keys(obj[i]).includes('avatarUrl') ? obj[i].avatarUrl : "./tottenham.jpeg"}"
+              alt=avatar of ${obj[i].authior}>
+        </div>
+        <div class="discussion__content">
+            <h2 class="discussion__title">
+              <a href="${Object.keys(obj[i]).includes('url') ? obj[i].url  : "https://github.com/codestates-seb"}">
+              ${obj[i].title}</a>
+            </h2>
+            <div class="discussion__information">${obj[i].author} / ${obj[i].createdAt}</div>
+        </div>
+        <div class="discussion__answered"><p>${obj[i].answer === null ? "☐" : (obj[i].answer === undefined  ? "☐" : "☑") }</p></div>
+    `)
+  }return arr.join('')
+}
+
+const render = () =>{
+  document.querySelector("ul.discussions__container").innerHTML = template(JSON.parse(localStorage['data']))
+}
+
+const now = () => {
+  const today = new Date(); 
+  today.setHours(today.getHours() + 9); 
+  return today.toISOString().replace('T', ' ').substring(0, 19);
+}
+
+//작성한 discussion을 localStorage에 저장
+const addDiscussion = (e) => {
+  const discussion = {}
+  discussion["author"] = `${elName.value}`
+  discussion["title"] = `${elTitle.value}`
+  discussion["bodyHTML"] = `${elStory.value}`
+  discussion["createdAt"] = now()
+  agoraStatesDiscussions.unshift(discussion)
+  const objString = JSON.stringify(agoraStatesDiscussions);
+  window.localStorage.setItem("data",objString)
+  render()
+  elName.value = "";
+  elTitle.value = "";
+  elStory.value = "";
+}
+
+
+
+//submit
+elForm.addEventListener("submit", (e)=>{
+  e.preventDefault();
+})
+
+elSubmit.addEventListener("click",addDiscussion)
+elTextarea.addEventListener("keypress", (e)=>{
+  if(e.key !== "Enter"){
+    return
   }
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+  addDiscussion();
+})
+render()

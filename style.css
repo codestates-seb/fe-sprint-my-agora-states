@@ -1,1 +1,89 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    margin: 0.5rem;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none; /* 링크의 밑줄 제거 */ 
+    color: inherit;
+}
+
+body {
+    background-color: blueviolet;
+}
+
+.form__input--wrapper > div{
+    padding: 0.5rem;
+}  
+.form__container{
+    justify-content: center;
+    text-align: center;
+    margin: 0.5rem;
+    background-color: cornsilk;
+}
+
+.discussion__wrapper{
+    display: flex;
+}
+.discussions__container{
+    padding: 5rem;
+}
+
+
+li.discussions__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 540px;
+    margin-bottom: 0.5rem;
+}
+
+
+li.discussion__container{
+    display: flex;
+    align-items: center;
+}
+
+/* 이미지 */
+div.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding : 1rem;
+}
+
+div.discussion__avatar--wrapper > img{
+    width: 48px;
+    border-radius: 50%;
+}
+
+/* 컨텐츠 (가운데)*/
+.discussion__content{
+    width: 70%;
+    margin: 0px 20px
+}
+
+.discussion__information{
+    float: right;
+
+}
+
+/*체크 박스 (오른 쪽)*/
+/* .discussion__answered{
+    display: flex;
+    
+}
+.discussion__answered > p{
+    font-size: 30px;
+} */
