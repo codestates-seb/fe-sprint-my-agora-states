@@ -5,6 +5,10 @@
     box-sizing: border-box;
     /* 모든 요소에 border-box 속성을 주었다. */
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 
 body{
     /* 앞으로 생길 바디 요소안에 있는 자식 요소들은 새로로 배치될 것이고, 상하좌우 를 가운데로 배치하게 할것이다.  */
@@ -12,6 +16,18 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background-color: rgb(101, 97, 97);
+    color: white;
+}
+
+.form__input--wrapper input,textarea {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.form__input--wrapper textarea {
+    width: 100%;
+    height: 150px;
 }
 
 li,.discussion__container {
@@ -22,6 +38,9 @@ li,.discussion__container {
 .discussion__wrapper{
     display: flex;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
 }
 
 /* discussions__container를 가운데로 배치하였다. */
@@ -31,12 +50,19 @@ li,.discussion__container {
 
 .discussion__container{
     padding: 20px;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     /* background-color: ; */
     width: 540px;
     /* 각 컴포넌트의 넓이를 540px로 지정해 주었다. */
     display: flex;
     /* 자식요소들의 배치를 위해 부모요소에 flex속성을 주었다.*/
+}
+
+.discussion__container:hover{
+    color: white;
+    background-color: rgba(0,0,0, 0.2);
+    transform: scale(1.2);
+
 }
 
 .discussion__avatar--wrapper{
@@ -67,6 +93,7 @@ li,.discussion__container {
     text-align: left;
     /* 제목 요소를 왼쪽 정렬해주었다. */
     padding-left: 10px;
+    font-size: 15px;
     /* 이미지와 너무 붙어있길래 차후 내용변경을 고려하여 padding 값으로 주었다. */
 }
 
