@@ -1,3 +1,4 @@
+console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -55,6 +56,36 @@ const convertToDiscussion = (obj) => {
 };
 
 
+// 디스커션 추가하기
+const formSubmit = document.querySelector('#submitBtn');
+const inputName = document.querySelector('#name');
+const inputTitle = document.querySelector('#title');
+const inputStory = document.querySelector('#story');
+// 현재시간 구현 서치 
+
+
+// submitBtn클릭 이벤트
+submitBtn.addEventListener ('click', (e) => {
+  e.preventDefault(); //submitBtn클릭해도 새로고침 되지 않음
+
+  const newArr = {};
+
+  newArr.author = inputName.value;
+  newArr.title = inputTitle.value;
+  newArr.story = inputStory.value;
+  newArr.avatarUrl = "https://avatars.githubusercontent.com/u/86960007?s=64&u=4863a873d78f406d658e8a50d9b91f3045006920&v=4"
+  agoraStatesDiscussions.unshift(newArr);
+
+  
+  ul.innerHTML = "";
+  render(ul);
+  // 입력칸 내용 초기화
+  inputName.value = "";
+  inputTitle.value = "";
+  inputStory.value = "";
+
+
+})
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -71,49 +102,21 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
-  //여기부터 디스커션 추가하기
-  const formSubmit = document.querySelector('#submit');
-  const inputName = document.querySelector('#name');
-  const inputTitle = document.querySelector('#title');
-  const inputStory = document.querySelector('#story');
-  const time = new Date().toISOString();
-  time;
-  let newArr = {};
-  formSubmit.addEventListener("click", clickBtn);
 
 
-  function clickBtn() {
-    newArr.id = inputName.value; //newArr라는 객체에 key네임 지정해서 값을 할당함
-    newArr.title = inputTitle.value;
-    newArr.story = inputStory.value;
-    newArr.createdAt = time;
 
-    newArr.answer = {};
-    newArr.avatarUrl = "https://avatars.githubusercontent.com/u/87750478?s=64&v=4";
+
+
+
+
 
   
 
-    
-
-    if (newArr.name === "") {
-      alert('이름을 입력하세요');
-    } else if (newArr.title === ""){
-      alert('제목을 입력하세요');
-    } else {
-      agoraStatesDiscussions.unshift(newArr);
-      ul.append(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length-1]));
-      alert('제출완료');
-    }
-    
-  }
+ 
   
 
 
 
-
-
-  // const addDiscussion = convertToDiscussion(obj);
-  // ul.prepend(addDiscussion);
 
 
 
