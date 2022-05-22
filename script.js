@@ -63,25 +63,27 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// const render = (element) => {
-//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-//   }
-//   return;
-// };
+function toLocalStorage(arr) {
+  if (JSON.parse(localStorage.getItem('newArr') === null)) {
+    return window.localStorage.setItem('newArr', JSON.stringify([...arr]));
+  }
+  return;
+}
+
 const render = (element) => {
-  // const num = getPagination();
-  // console.log(num);
+  toLocalStorage(agoraStatesDiscussions);
+  let arr = JSON.parse(localStorage.getItem('newArr'));
   for (let i = 0; i < 10; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(arr[i]));
   }
   return;
 };
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
+let number = 0;
 
+// 등록하기
 function confirmForm() {
   const name = document.querySelector('#name');
   const title = document.querySelector('#title');
@@ -97,15 +99,10 @@ function confirmForm() {
       avatarUrl: './user-profile-icon-free-vector.jpg',
       answer: null,
     };
-    console.log(date);
-    window.localStorage.setItem('data', JSON.stringify(data));
+    let arr = JSON.parse(localStorage.getItem('newArr'));
+    localStorage.setItem('newArr', JSON.stringify([data, ...arr]));
 
-    // agoraStatesDiscussions.unshift(data);
-    agoraStatesDiscussions.unshift(
-      JSON.parse(window.localStorage.getItem('data'))
-    );
-    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
-
+    ul.prepend(convertToDiscussion(data));
     title.value = '';
     name.value = '';
     story.value = '';
@@ -117,7 +114,7 @@ function confirmForm() {
 // 페이지 몇개 만들거니!
 (function getPagination() {
   let getNum = 0;
-  const length = agoraStatesDiscussions.length;
+  const length = JSON.parse(localStorage.getItem('newArr')).length;
   if (length > 10) {
     if (length % 10) {
       getNum = parseInt(length / 10) + 1;
@@ -127,6 +124,7 @@ function confirmForm() {
   } else {
     getNum = 1;
   }
+
   for (let i = 1; i <= getNum; i++) {
     const page = document.createElement('span');
     page.className = `page`;
@@ -134,7 +132,8 @@ function confirmForm() {
     document.querySelector('.pagination').append(page);
   }
   return;
-})();
+})(); // 즉시 실행함수!
+
 //페이지 렌더링 갯수세기
 document.querySelector('.pagination').onclick = function (e) {
   if (e.target.className === 'page') {
@@ -145,23 +144,21 @@ document.querySelector('.pagination').onclick = function (e) {
     window.scrollTo(0, 0);
   }
 };
-
-// 기존의 render 건들이기 싫어서 새로 만듦
+// 기존의 render 건드리기 싫어서 새로 만듦
 const render2 = (element, num1, num2) => {
-  // const num = getPagination();
-  // console.log(num);
+  let arr = JSON.parse(localStorage.getItem('newArr'));
   for (let i = num1; i <= num2; i += 1) {
-    if (i === agoraStatesDiscussions.length) {
+    if (i === arr.length) {
       return;
     }
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(arr[i]));
   }
   return;
 };
+
+// 기존의 ul지우기
 const hadchildren = (el) => {
   while (el.hasChildNodes()) {
     el.removeChild(el.firstChild);
   }
 };
-
-console.log(JSON.parse(localStorage.getItem('data')));
