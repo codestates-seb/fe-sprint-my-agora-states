@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'SUIT-Medium';
+}
+
+
+body {
+    margin : 0;
+    padding : 0;
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+  }
+  .form__container {
+      display: flex;
+      padding-left : 90px;
+      align-items: center;
+      margin : 2%;
+      padding-bottom : 40px;
+      padding-top : 80px;
+  }
+  .form__input--name{
+      margin : 5%;
+      width : 100%;
+      padding-bottom : 10px;
+  }
+  .form__input--title{
+      margin : 5%;
+      width : 100%;
+      padding-bottom : 10px;
+      padding-left : 15px;
+  }
+
+  #labelPosition{
+      position: relative;
+      top : -15px;
+}
+
+  .form__textbox{
+      margin : 5%;
+      width : 100%;
+      padding-left : 20px;
+  }
+  .form__submit {
+      padding-left: 133%;
+     position: relative;
+     top : -105px;
+     left : -50px;  
+  }
+
+  button {
+      background-color: rgb(19, 17, 17);
+      color: rgb(222, 214, 245);
+      border : none;
+      font-size : 15px;
+      cursor : pointer;
+      padding : 10px;
+      border-radius : 5%;
+      font-weight:bolder;
+  }
+
+li.discussion__container {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    width: 540px;
+    padding : 12px;
+}
+
+
+.discussion__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.discussion__avatar--wrapper {
+    position: relative;
+    width: 13%;
+    /*background-color: yellow;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    border-radius: 100%;
+    width: 48px;
+}
+
+.discussion__content {
+    padding-left: 1%;
+    width: 80%;
+}
+.discussionTitle{
+    margin: 0;
+    padding: 0;
+    padding-bottom : 2%;
+   
+}
+.discussion-information{
+    display: flex;
+    justify-content: right;
+    
+   
+}
+
+.discussion__answered{
+    width: 10%;
+    /*background-color: green;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+p {
+    position: relative;
+    font-size: 2rem;
+}
