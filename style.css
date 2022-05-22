@@ -7,13 +7,13 @@
   --third: #5bb7f2;
   --fourth: #5d63fc;
   --fontColor: #2b302e;
-  --main-Bg-color: #f4eee8;
-  --sub-Bg-color: #325288;
-  --list-Bg-color: rgb(249, 249, 249);
-  --point-color: #f5cebe;
   --hover: #723ae6;
   --btn-1: #252259;
   --btn-2: #4416a7;
+  --gradient: linear-gradient(90deg, var(--btn-1), var(--btn-2));
+}
+.hide {
+  display: none;
 }
 
 /* -------------- 기본 세팅 -------------- */
@@ -28,7 +28,7 @@ ul {
   list-style: none;
 }
 li {
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 a {
   text-decoration: none;
@@ -36,7 +36,6 @@ a {
 }
 body {
   /* background-image: url(bg.jpg); */
-  height: 1200px;
   background: linear-gradient(
     45deg,
     var(--background),
@@ -48,8 +47,8 @@ body {
 }
 main {
   margin: 50px auto;
-  width: 1200px;
-  height: 800px;
+  width: 1250px;
+  /* height: 800px; */
   border-radius: 40px;
   background-color: rgb(249, 249, 249, 0.3);
   border: 2px solid#fff;
@@ -59,7 +58,7 @@ main {
   width: 23%;
 }
 #middle__container {
-  width: 58%;
+  width: 60%;
   background-color: rgb(249, 249, 249, 0.3);
   padding: 10px 50px;
   overflow: auto;
@@ -106,7 +105,7 @@ main {
   margin-bottom: 80px;
 }
 #left__container li:first-child .list_icon {
-  background: linear-gradient(90deg, var(--btn-1), var(--btn-2));
+  background: var(--gradient);
 }
 #left__container li:first-child span {
   color: #fff;
@@ -162,16 +161,22 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
 }
-.form__container form > div {
+.form__input--wrapper {
+  width: 76%;
 }
-
 .form__input--wrapper > div {
   display: flex;
   justify-content: space-between;
 }
-
-.form__input--title {
+.form__input--wrapper input {
+  width: 290px;
+}
+.form__input--wrapper .form__input--title {
   margin: 20px 0;
+}
+.form__input--wrapper .form__textbox {
+  display: flex;
+  flex-direction: column;
 }
 /* 제출 버튼 */
 .form__submit {
@@ -184,7 +189,7 @@ h1 {
   font-weight: bold;
   font-size: 20px;
   color: #fff;
-  background-color: var(--hover);
+  background: var(--gradient);
   border: 1px solid var(--hover);
 }
 
@@ -203,6 +208,7 @@ h1 {
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 15px 20px;
+  cursor: pointer;
 }
 
 /* ------질문 리스트 메인------*/
@@ -232,14 +238,64 @@ img {
   color: #555;
 }
 /* ----- 질문 리스트 답변----- */
-.discussion__inner--answer {
-  background-color: #f0f0f0;
+.discussion__inner--contentanswer {
+  background-color: rgb(249, 249, 249, 0.8);
   border-radius: 10px;
-  padding: 15px 20px;
+  padding: 20px;
   margin-bottom: 20px;
+  position: relative;
+  border: 3px solid var(--hover);
 }
-.discussion__avatar--answer img {
-  background-color: #fff;
+.discussion__inner--contentanswer:after {
+  border-top: 0px solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 10px solid var(--hover);
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 295px;
+}
+.discussion__inner--contentanswer .contetn__close {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--btn-2);
+  border-radius: 0 10px 0 10px;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+.click__title {
+  text-align: center;
+  background-color: #e6e9f6;
+  /* opacity: 0.2; */
+  padding: 20px 0;
+  border-bottom: 3px dotted var(--hover);
+  border-radius: 10px 10px 0 0;
+}
+.click__contents {
+  padding: 20px 0;
+  /* border-bottom: 3px dotted var(--hover); */
+}
+
+/* 답변 보기 */
+.discussion__click__answer .click__answer__title__btn button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: var(--gradient);
+  border: 0px;
+  color: #fff;
+  cursor: pointer;
+}
+.discussion__click__answer .click__answer__contents {
+  margin-top: 20px;
+  background-color: #e6e9f6;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 /* -------------- right__container -------------- */

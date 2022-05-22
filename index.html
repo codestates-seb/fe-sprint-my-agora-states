@@ -12,103 +12,93 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR&family=Koulen&display=swap" rel="stylesheet">
-   <!-- 아이콘 -->
-<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR&family=Koulen&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 아이콘 -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <main>
-    <div id="left__container">
+      <div id="left__container">
         <ul class="left_list">
-            <li class="list_1 profile">
-                <div class="list_icon">
-                    <span class="material-icons">
-                        brightness_7
-                        </span>
-                </div>
-                <div class="list__Sub"><strong>ChoiSeoEun</strong></div>
-            </li>
-            <li class="list Now">
-                <div class="list_icon">
-                    <span class="material-icons">
-                        remove_red_eye
-                        </span>
-                </div>
-                <div class="list__Sub"><strong>My-Agora</strong></div>
-            </li>
-            <li class="list">
-                <div class="list_icon">
-                    <span class="material-icons">
-                        calculate
-                        </span>
-                </div>
-                <div class="list__Sub">My-Calculator</div>
-            </li>
-            <li class="list">
-                <div class="list_icon">
-                    <span class="material-icons">
-                    assignment_ind
-                    </span>
-                </div>
-                <div class="list__Sub">Mini-Hack</div>
-            </li>
-            <li class="list">
-                <div class="list_icon">
-                    <span class="material-icons">
-                        wb_incandescent
-                        </span>
-                </div>
-                <div class="list__Sub">Mini-Hack</div>
-            </li>
-            <li class="list">
-                <div class="list_icon">
-                    <span class="material-icons">
-                        center_focus_weak
-                        </span>
-                </div>
-                <div class="list__Sub">Mini-Hack</div>
-            </li>
+          <li class="list_1 profile">
+            <div class="list_icon">
+              <span class="material-icons"> brightness_7 </span>
+            </div>
+            <div class="list__Sub"><strong>ChoiSeoEun</strong></div>
+          </li>
+          <li class="list Now">
+            <div class="list_icon">
+              <span class="material-icons"> remove_red_eye </span>
+            </div>
+            <div class="list__Sub"><strong>My-Agora</strong></div>
+          </li>
+          <li class="list">
+            <div class="list_icon">
+              <span class="material-icons"> calculate </span>
+            </div>
+            <div class="list__Sub">My-Calculator</div>
+          </li>
+          <li class="list">
+            <div class="list_icon">
+              <span class="material-icons"> assignment_ind </span>
+            </div>
+            <div class="list__Sub">Mini-Hack</div>
+          </li>
+          <li class="list">
+            <div class="list_icon">
+              <span class="material-icons"> wb_incandescent </span>
+            </div>
+            <div class="list__Sub">Mini-Hack</div>
+          </li>
+          <li class="list">
+            <div class="list_icon">
+              <span class="material-icons"> center_focus_weak </span>
+            </div>
+            <div class="list__Sub">Mini-Hack</div>
+          </li>
         </ul>
-        
-    </div>
-    <div id="middle__container">
-      <h1>My Agora States</h1>
-      <section class="form__container">
-        <form action="" method="get" class="form">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+      </div>
+      <div id="middle__container">
+        <h1>My Agora States</h1>
+        <section class="form__container">
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <label for="name">Enter your name </label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__input--title">
+                <label for="title">Enter your title </label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__textbox">
+                <label for="story">Your question </label>
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder="질문을 작성하세요"
+                  required
+                ></textarea>
+              </div>
             </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="name" id="name" required />
+            <div class="form__submit">
+              <input class="submit" type="submit" value="submit" />
             </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
-            </div>
-          </div>
-          <div class="form__submit">
-            <input class="submit" type="submit" value="submit" />
-          </div>
-        </form>
-      </section>
-      <section class="discussion__wrapper">
-        <ul class="discussions__container">
-          <li class="discussion__container">
-            <div class="discussion__inner--main">
+          </form>
+        </section>
+        <section class="discussion__wrapper">
+          <ul class="discussions__container">
+            <li class="discussion__container">
+              <div class="discussion__inner--main">
                 <div class="discussion__avatar--wrapper">
                   <img
                     class="discussion__avatar--image"
@@ -131,21 +121,192 @@
                   <input type="checkbox" class="active" checked />
                 </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </div>
-    <div id="right__container">
+              <div class="discussion__inner--contentanswer hide">
+                <button class="contetn__close">닫기</button>
+                <div class="discussion__click__contents">
+                  <h3 class="click__title">
+                    <a
+                      href="https://github.com/codestates-seb/agora-states-fe/discussions/6"
+                      >[질문 제목] 좋은 질문하는 법</a
+                    >
+                  </h3>
+
+                  <div class="click__contents">
+                    <p dir="auto">
+                      --------------- 여기서부터 복사하세요 ---------------
+                    </p>
+                    \n
+                    <p dir="auto">
+                      운영 체제: 예) macOS, Ubuntu<br />\nmacOS<br />\nNode.js
+                      버전(node -v): 예)v14.16.0<br />\nv12.18.14
+                    </p>
+                    \n
+                    <p dir="auto">
+                      현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에
+                      부딪혔나요?<br />\nJavaScript Koans 04_Scope.js 문제
+                      해결중
+                    </p>
+                    \n
+                    <div
+                      class="
+                        snippet-clipboard-content
+                        position-relative
+                        overflow-auto
+                      "
+                      data-snippet-clipboard-copy-content="it(\'lexical scope와 closure에 대해 다시 확인합니다.\', function () {\n    let age = 27;\n    let name = \'jin\';\n    let height = 179;\n\n    function outerFn() {\n      let age = 24;\n      name = \'jimin\';\n      let height = 178;\n\n      function innerFn() {\n        age = 26;\n        let name = \'suga\';\n        return height;\n      }\n\n      innerFn();\n\n      expect(age).to.equal(26);\n      expect(name).to.equal(\'jimin\');\n\n      return innerFn;\n    }\n\n    const innerFn = outerFn(); //  &lt; --- ①  이부분에 대해서\n\n    expect(age).to.equal(27);\n    expect(name).to.equal(\'jimin\');\n    expect(innerFn()).to.equal(178); // &lt;---  ② \n  });"
+                    >
+                      <pre
+                        class="notranslate"
+                      ><code class="notranslate">it(\'lexical scope와 closure에 대해 다시 확인합니다.\', function () {\n    let age = 27;\n    let name = \'jin\';\n    let height = 179;\n\n    function outerFn() {\n      let age = 24;\n      name = \'jimin\';\n      let height = 178;\n\n      function innerFn() {\n        age = 26;\n        let name = \'suga\';\n        return height;\n      }\n\n      innerFn();\n\n      expect(age).to.equal(26);\n      expect(name).to.equal(\'jimin\');\n\n      return innerFn;\n    }\n\n    const innerFn = outerFn(); //  &lt; --- ①  이부분에 대해서\n\n    expect(age).to.equal(27);\n    expect(name).to.equal(\'jimin\');\n    expect(innerFn()).to.equal(178); // &lt;---  ② \n  });\n</code></pre>
+                    </div>
+                    \n
+                    <p dir="auto">어떠한 부분에서 이해가 안 되었나요?</p>
+                    \n
+                    <ol dir="auto">
+                      \n
+                      <li>
+                        \n
+                        <p dir="auto">
+                          ① 부분에서 innerFn이라는 변수에 outerFn()을
+                          할당했습니다.<br />\n변수에 함수호출문을 할당했다고
+                          해석했습니다.<br />\n그렇다면 ①에서 const innerFn을
+                          할당함과 동시에 할당을 하게되는 outerFn함수가
+                          실행되나요?<br />\n그렇다면 ①도 즉시 실행
+                          함수표현식인가요??
+                        </p>
+                        \n
+                      </li>
+                      \n
+                      <li>
+                        \n
+                        <p dir="auto">
+                          ②에서 호출하는 innerFn()은 outerFn() 함수 내의
+                          innerFn()을 호출 한 것인가요?<br />\n아니면 ①을 통해
+                          innerFn호출에 의해 outerFn으로 접근하여 innerFn에
+                          접근한 것인가요?
+                        </p>
+                        \n
+                      </li>
+                      \n
+                    </ol>
+                    \n
+                    <p dir="auto">
+                      제 생각에는 outerFn스코프내의 함수outerFn으로 바로
+                      접근하는것이 바깥에서는 안으로 진입할 수 없는 규칙에
+                      위배된다 생각합니다.
+                    </p>
+                    \n
+                    <p dir="auto">
+                      함수호이스팅은 함수내에 있는 함수까지 호이스팅 되어
+                      전역으로 접근가능한건가요?
+                    </p>
+                    \n
+                    <p dir="auto">
+                      변수명과 함수명이 중복되어 공부하는 과정에서 잘못 이해하고
+                      넘어갈 수 도 있을 것 같아 정확히 알아보기위해 질문을
+                      남깁니다 감사합니다.
+                    </p>
+                  </div>
+                </div>
+                <div class="discussion__click__answer">
+                  <div class="click__answer__title__btn">
+                    <button>답변 보기</button>
+                  </div>
+                  <div class="click__answer__contents hide">
+                    <p dir="auto">
+                      안녕하세요.
+                      <a
+                        class="user-mention notranslate"
+                        data-hovercard-type="user"
+                        data-hovercard-url="/users/anotheranotherhoon/hovercard"
+                        data-octo-click="hovercard-link-click"
+                        data-octo-dimensions="link_type:self"
+                        href="https://github.com/anotheranotherhoon"
+                        >@anotheranotherhoon</a
+                      >
+                      님!<br />\n코드스테이츠 교육 엔지니어 권준혁입니다.
+                      <g-emoji
+                        class="g-emoji"
+                        alias="raised_hands"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64c.png"
+                        >🙌</g-emoji
+                      >
+                    </p>
+                    \n
+                    <p dir="auto">
+                      스코프와 클로져에 대해 깊게 공부하는 모습 너무 너무
+                      좋습니다 !
+                    </p>
+                    \n
+                    <p dir="auto">
+                      일단 즉시 실행 함수 표현식에 대해 질문 주셨는데요 !<br />\n함수를
+                      정의 -&gt; 변수에 함수를 저장 하고 실행 ! 이 과정을 거치지
+                      않고 정의하자마자 바로 호출하는 것이 즉시 실행 함수
+                      입니다.<br />\n그렇다면 위에 코드는 즉시 실행 함수 일까요?
+                    </p>
+                    \n
+                    <p dir="auto">
+                      <a
+                        href="https://developer.mozilla.org/ko/docs/Glossary/IIFE"
+                        rel="nofollow"
+                        >즉시실행함수</a
+                      ><br />\n한 번 읽어보시고 한 번 더 생각해보세요 ! 직접
+                      생각하는 것이 가장 기억에 오래 남습니다 !
+                    </p>
+                    \n
+                    <p dir="auto">
+                      두 번째 <code class="notranslate">innerFn</code>이라는
+                      변수를 새로 선언했고
+                      <code class="notranslate">outerFn()</code>을 할당했습니다.
+                      즉, <code class="notranslate">outerFn()</code>을 호출 한
+                      것입니다.<br />\n이는 위의
+                      <code class="notranslate">innerFn</code> 함수와는 다른
+                      녀석입니다.<code class="notranslate">innerFn</code> 함수도
+                      마찬가지로
+                      <code class="notranslate">outerFn</code> 내부에서
+                      선언되었으므로 밖으로 나올 수 없기 때문이에요!
+                    </p>
+                    \n
+                    <p dir="auto">
+                      <code class="notranslate">const apple = outerFn()</code>
+                      // innerFn은 단순한 변수명임 ! apple을 넣던 banana를 넣던
+                      상관없음<br />\n<code class="notranslate"
+                        >expect(apple()).to.equal(178)</code
+                      >
+                    </p>
+                    \n
+                    <p dir="auto">
+                      답변이 되셨다면 내용을 간략하게 정리해서 코멘트를 남기고
+                      answered를 마크해주세요
+                      <g-emoji
+                        class="g-emoji"
+                        alias="white_check_mark"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png"
+                        >✅</g-emoji
+                      ><br />\n감사합니다.<g-emoji
+                        class="g-emoji"
+                        alias="rocket"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png"
+                        >🚀</g-emoji
+                      ><br />\n코드스테이츠 교육 엔지니어 000
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div id="right__container">
         <ul>
-                <h3>Categories</h3> 
-                <li>🖥 git/테스트</li>
-                <li>📩 HTML/CSS</li>
-                <li>🧭 JavaScript</li>
-                <li>🧿 React</li>
-                <li>📀 기술면접</li>
-            </ul>
-    </div>
+          <h3>Categories</h3>
+          <li>🖥 git/테스트</li>
+          <li>📩 HTML/CSS</li>
+          <li>🧭 JavaScript</li>
+          <li>🧿 React</li>
+          <li>📀 기술면접</li>
+        </ul>
+      </div>
     </main>
   </body>
   <script src="data.js"></script>
