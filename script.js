@@ -63,27 +63,33 @@ render(ul);
 // {배열 안에 형식 맞춰 적어준다}
 //agoraStatesDiscussions에 push한다
 //다시 render한다
-let submit = document.querySelector('.form__submit-btn');
-submit.onclick = update;
+let form = document.querySelector('.form');
+form.addEventListener('submit', update);
 
-function update() {
-  // const today = new Date();
-  // const year = today.getFullYear();
-  // const month = ('0' + (today.getMonth() +1).slice(-2));
-  // const day = ('0' + today.getDate()).slice(-2);
-  // const hours = ('0' + today.getHours()).slice(-2);
-  // const minutes = ('0' + today.getMinutes()).slice(-2);
-  // const seconds = ('0' + today.getSeconds()).slice(-2);
-  // const timestamp = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`
+
+let submit = document.querySelector('.form');
+submit.addEventListener('submit', update);
+
+function update(event) {
+  event.preventDefault();
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = ('0' + (today.getMonth() +1)).slice(-2);
+  const day = ('0' + today.getDate()).slice(-2);
+  const hours = ('0' + today.getHours()).slice(-2);
+  const minutes = ('0' + today.getMinutes()).slice(-2);
+  const seconds = ('0' + today.getSeconds()).slice(-2);
+  const timestamp = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`
 
   const newObj = {
     id: '',
-    createdAt: now,
+    createdAt: timestamp,
     title: document.querySelector('.input--title').value,
     url: '/',
     author: document.querySelector('.input--name').value,
     answer: null,
-    // bodyHTML: document.querySelector('.input--story').value,
+    bodyHTML: document.querySelector('.input--story').value,
     bodyHTML: '',
     avatarUrl:
     "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4"
@@ -93,3 +99,33 @@ function update() {
   console.log(agoraStatesDiscussions);
   render(ul);
 }
+
+// function update(e) {
+//   e.preventaDefault();
+
+//   const today = new Date();
+//   const year = today.getFullYear();
+//   const month = ('0' + (today.getMonth() +1)).slice(-2);
+//   const day = ('0' + today.getDate()).slice(-2);
+//   const hours = ('0' + today.getHours()).slice(-2);
+//   const minutes = ('0' + today.getMinutes()).slice(-2);
+//   const seconds = ('0' + today.getSeconds()).slice(-2);
+//   const timestamp = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`
+
+//   const newObj = {
+//     id: '',
+//     createdAt: timestamp,
+//     title: document.querySelector('.input--title').value,
+//     url: '/',
+//     author: document.querySelector('.input--name').value,
+//     answer: null,
+//     bodyHTML: document.querySelector('.input--story').value,
+//     bodyHTML: '',
+//     avatarUrl:
+//     "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4"
+//   }
+//   console.log(newObj)
+//   agoraStatesDiscussions.unshift(newObj);
+//   console.log(agoraStatesDiscussions);
+//   render(ul);
+// }
