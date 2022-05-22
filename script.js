@@ -102,7 +102,7 @@ const updatePostUI = (buttonNum) => {
   
   showButton();
   const buttonlist = document.querySelector('.buttonlist');
-  buttonlist.children[0].classList.add('active');
+  buttonlist.children[buttonNum-1].classList.add('active');
 }
 
 /* 버튼 생성 */
@@ -127,4 +127,4 @@ const showButton = () => {
   pagination.prepend(pageDiv);
 };
 
-updatePostUI(1); 
+updatePostUI(1);
