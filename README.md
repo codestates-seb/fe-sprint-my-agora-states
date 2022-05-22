@@ -14,5 +14,6 @@ https://bruadarach.github.io/fe-sprint-my-agora-states/
 - [x] Make pagination 
 
 ### Preview
-![screencapture-file-Users-datasciencestudy-Desktop-github-fe-sprint-my-agora-states-index-html-2022-05-22-02_59_50](https://user-images.githubusercontent.com/55401378/169663783-69b76467-a343-425c-9a87-250f464437b2.png)
+![preview](https://user-images.githubusercontent.com/55401378/169707849-facee848-7d84-43ae-bd96-f1502a7a070a.png)
+
 
