@@ -34,7 +34,8 @@ const convertToDiscussion = (obj) => {
   // 본문(Information) 부분
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = obj.author + ' / ' + obj.createdAt;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  
 
   discussionContent.append(discussionTitle, discussionInformation);
  
@@ -49,6 +50,8 @@ const convertToDiscussion = (obj) => {
 
 };
 
+
+
 // 새로운 질문 등록
 const inputName = document.querySelector('#name')
 const inputTitle = document.querySelector('#newtitle')
@@ -56,33 +59,31 @@ const inputContent = document.querySelector('#story')
 const btSubmit = document.querySelector('#submit')
 
 
-function addDiscussion (name, title, content){
-  agoraStatesDiscussions.push({
-    author: name,
-    title: title,
-    bodyHTML: content
-  }
-  )
-}; 
-
 btSubmit.addEventListener('click', function() {
-  addDiscussion(inputName.value, inputTitle.value, inputContent.value)
+  agoraStatesDiscussions.unshift(
+    {
+  author: inputName.value,
+  avatarUrl : "https://avatars.githubusercontent.com/u/103437860?s=64&v=4",
+  title: inputTitle.value,
+  createdAt : new Date(new Date().getTime()),
+  bodyHTML: inputContent.value
+    }
+  );
+  
+  const addLi = convertToDiscussion(agoraStatesDiscussions[0]);
+  ul.prepend(addLi);
 });
 
-btSubmit.addEventListener('click', function() {
-  agoraStatesDiscussions.shift()
-  return agoraStatesDiscussions
-});
 
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+function render(element) {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
-};
+}
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");

@@ -42,8 +42,9 @@ form{
 label{
     display: inline-block;
     width: 60px;
-    margin-right: 10px;
-    margin-left: 15px;
+    margin-right: 7px;
+    margin-left: 17px;
+    font-size: 13.5px;
 }
 
 input{
@@ -130,6 +131,6 @@ li.discussion__container{
 
 
 .discussion__information{
-    text-align: right;
+    text-align: left;
     font-size: smaller;
 }
