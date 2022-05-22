@@ -1,1 +1,142 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'Libre Bodoni', serif;
+    src: url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@1&display=swap');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace, cursive;
+    border: none;
+    font-family: 'Libre Bodoni', serif;
+}
+
+body {
+    background-color: rgb(68, 179, 133);
+    background-image: linear-gradient(
+      to bottom,
+      #b2e9a9,
+      #e7f2a0,
+      #b3dae5,
+      #e0b0f1,
+      #f18bc4
+    );
+  }
+
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    background-color: beige;
+    border-radius: 5px;
+    list-style-type: none;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+div.discussion__content {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;    
+    padding: 0.7rem;
+}
+
+h2.discussion__title {
+    align-self: start;
+}
+
+h2 {
+    font-size: 140%;
+}
+
+div.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+h1 {
+    padding: 35px;
+    color: #064420;
+}
+
+section.form__container {
+    margin-bottom: 1rem;
+    background-color: #E4EFE7;
+    border-radius: 5px;
+    width: 540px;
+    height: 125px;
+    padding: 10px;
+    color: #064420;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.form__submit {
+    border-style: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+div.form__submit:hover {
+    background-color: palevioletred;
+}
+
+div.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form__input--name, .form__input--title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.15rem;
+
+}
+
+div.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#story {
+    width: 450px;
+    height: 40px;
+}
+
+#name {
+    width: 230px;
+}
+
+a:link {color : pink;}
+a:visited {color : #064420;}
+a:hover {color : red;}
+a:active {color : green}
