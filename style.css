@@ -14,6 +14,18 @@ a{
     text-decoration: none;
 }
 
+.show__all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vw;
+    min-width: 640px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(252, 255, 238);
+}
+
 /* 디스커션 작성 부분 */
 .form__container{
     display: flex;
@@ -63,14 +75,7 @@ a{
 
 /* 디스커션 포현 부분 */
 .discussion__wrapper{
-    display: flex;
-    justify-content: center;
-    width: 70vw;
-    min-width: 640px;
-    margin: auto;
-    border: 2px solid black;
-    border-radius: 15px;
-    background-color: rgb(252, 255, 238);
+    
 }
 
 .discussion__container{
