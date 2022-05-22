@@ -1,1 +1,100 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body{
+    min-height: 100vh ;
+    width: 540px;;
+    font-family: 'Open Sans', helvetica, sans-serif;
+}
+h1{
+	padding-top: 30px;
+	font-size: 30pt;
+}
+.discussion__avatar--image {
+    border-radius: 20px;
+    width: 48px;
+    align-content: center;
+}
+
+form__input--title :is(label,input){
+ display: inline-block;
+ display: flex;
+ justify-content: space-between;
+}
+label[for="name"] {  
+    margin: .3rem;  
+}
+label[for="story"] {
+   margin-bottom: 20px;
+}
+textarea {
+    padding:20px 3rem;
+    border-radius: 10px;
+    resize: none;
+}
+input[type="submit"] {
+    width: 100px;
+    background: #C59FA2;
+    color: beige;
+    border-radius: 15px;
+    height: 40px;
+    box-shadow: 1px 1px 1px darkolivegreen;
+    cursor: pointer;
+    text-align: center;
+    border-radius:  25px;
+    margin-top:20px;
+    
+    
+}
+
+input[name="username"] {
+    margin: 1rem;
+    
+}
+
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    background-color: var(--surface);
+    border-radius: 5px;
+    list-style-type: none;
+}
+
+div.discussion__avatar--wrpper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+div.discussion__information {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+#name {
+    padding: 1rem;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+}
+#sticker {
+   position: -webkit-sticky;
+   position: sticky;
+   top: 1.5rem;
+   background-color: #f6e5db;
+   border-radius: 20px;
+   padding: 1rem;
+}
