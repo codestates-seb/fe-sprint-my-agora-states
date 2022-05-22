@@ -106,3 +106,19 @@ main {
   text-align: right;
   margin: 10px;
 }
+
+/* pagenation */
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10%;
+  background-color: var(--bg-color2);
+  color: var(--bg-color4);
+}
+.pagingBtns {
+  display: flex;
+  gap: 10px;
+}
+.pagingBtns__num {
+  display: flex;
+}
