@@ -1,1 +1,142 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+    font-family: 'Jua', sans-serif;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    color : black;
+    text-decoration: none;
+}
+
+.show__all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vw;
+    min-width: 640px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(252, 255, 238);
+}
+
+/* 디스커션 작성 부분 */
+.form__container{
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    min-width: 640px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(218, 245, 236);
+}
+
+.form__container > form{
+    display: flex;
+}
+
+.form__input--wrapper{
+    margin-right: 10px;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.form__input--wrapper > div > input, textarea {
+    margin-left: 10px;
+    border: 1px darkestgray;
+    border-radius: 5px;
+}
+
+.form__submit > button {
+    display: block;
+    height: 100%;
+    width: 80px;
+    background-color:rgb(239, 255, 168);
+    border: 1px solid darkestgray;
+    border-radius: 15px;
+}
+
+.form__submit > button:hover {
+    background-color:rgb(255, 199, 205);
+}
+
+/* 디스커션 포현 부분 */
+.discussion__wrapper{
+    
+}
+
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    padding: 10px 0;
+}
+
+.discussion__container:not(last-child) {
+    border-bottom: 1px dashed gray;
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+.discussion__avatar--image{
+    display: block;
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 400px;
+    margin: 0;
+}
+
+.discussion__title{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 4px 0;
+}
+
+.discussion__information{
+    color:rgb(64, 75, 60);
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.discussion__title a:hover{
+    color:rgb(69, 171, 137);
+}
+
+.discussion__information{
+    text-align: right;
+}
+
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    font-size: 20px;
+    color: rgb(34, 43, 31);
+}
