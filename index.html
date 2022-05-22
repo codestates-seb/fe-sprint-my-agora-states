@@ -7,14 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_2.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-  <main>
+  <header>
     <h1>My Agora States</h1>
+    <span class="header_name">codestates in hyunjunY</span>
+  </header>
+  <main>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
@@ -23,8 +27,8 @@
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="title">Enter your title: </label>
+            <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
@@ -32,7 +36,7 @@
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="submit"id="makeContent"  >
         </div>
       </form>
     </section>
