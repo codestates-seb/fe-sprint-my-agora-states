@@ -92,22 +92,30 @@ li {
 	align-items: center;
 	flex-basis: 540px;
 	list-style: none;
+	padding-bottom: 20px;
+	border-bottom: 2px solid rgb(34, 85, 70);
 }
 
 .discussion__avatar--wrapper {
 	flex: 0 1 auto;
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	/* align-items: flex-end; */
 }
-.discussion__avatar--image {
-	border-radius: 35px;
-	width: 48px;
+
+.discussion__answered {
+	flex: 0 1 50px;
+	text-align: center;
 }
 
 .discussion__content {
-	flex: 1 1 auto;
-	padding-left: 20px;
+	flex-basis: 430px;
+	padding: 0 5px 0 20px; 
+}
+
+.discussion__avatar--image {
+	border-radius: 35px;
+	width: 48px;
 }
 
 .discussion__title > a {
@@ -122,20 +130,18 @@ a:visited {
 	color: grey;
 }
 
-.discussion__answered {
-	flex: 0 1 60px;
-	/* font-size: 50px; */
-	/* text-align: center; */
-}
-
-.discussion__answered > p {
-	/* flex: 0 1 60px; */
-	font-size: 30px;
-	text-align: right;
+.discussion__answered > input {
+	/* display: inline-block;
+	vertical-align: middle; */
 }
 
 .discussion__information {
+	padding-right: 5px;
 	text-align: right;
 	font-size: 1rem;
 	font-style: italic;
+}
+
+.check {
+	display: none;
 }

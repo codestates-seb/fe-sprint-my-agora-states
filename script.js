@@ -8,8 +8,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  // 아바타
+  // 썸네일 이미지
   const avatarWrapperImg = document.createElement("img");
   avatarWrapperImg.className = "discussion__avatar--image";
   avatarWrapperImg.src = obj.avatarUrl;
@@ -22,9 +21,10 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement('h2')
   discussionTitle.className = "discussion__title"
   // 체크박스
-  const answeredCheckbox = document.createElement('p')
-  answeredCheckbox.textContent = '☑';
-  // title 
+  const answeredCheckbox = document.createElement('input')
+  answeredCheckbox.type = 'checkbox';
+  answeredCheckbox.className = 'discussion_answered';
+  // title
   const titleUrl = document.createElement('a')
   titleUrl.href = obj.url;
   titleUrl.textContent = obj.title;
@@ -48,42 +48,71 @@ const render = (element) => {
   return;
 };
 
-
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 // ul.push()
 render(ul);
 
+// const checkbox = document.querySelector('p')
+// checkbox.textContent = '◻︎'
+// checkbox.addEventListener('click', () => {
+//   if (checkbox.textContent === '◻︎') {
+//     return checkbox.textContent = '☑'
+//   } else {
+//     return checkbox.textContent = '◻︎'
+//   }
+// })
+
 const submitButton = document.querySelector('#submit')
 const submitName = document.querySelector('#name')
-// names = submitName.textContent
 const submitTitle = document.querySelector('#title')
-// titles = submitTitle.textContent
 const submitStory = document.querySelector('#story')
+const submitavatarUrl = "https://avatars.githubusercontent.com/u/82711000?v=4"
+
 const inputObj = {
-  id: "D_kwDOHOApLM4APjJi",
+  id: "",
   createdAt: "2022-05-16T01:02:17Z",
-  title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
-  url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-  author: "dubipy",
+  title: "",
+  url: "",
+  author: "",
   answer: {
-    id: "DC_kwDOHOApLM4AKg6M",
+    id: "",
     createdAt: "2022-05-16T02:09:52Z",
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236",
-    author: "Kingsenal",
+    url: "",
+    author: "",
     bodyHTML:
       '',
-    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
+    avatarUrl: "",
   }
 }
 
-const inputSumbit = function () {
+// discussion에 현재 날짜,시간 남기는 함수
+const submitDate = () => {
+  let currentDate = new Date();
+  let year = currentDate.getFullYear();
+  let month = currentDate.getMonth() + 1;
+  let day = currentDate.getDate();
+  let hour = currentDate.getHours()
+  let miniute = currentDate.getMinutes()
+  let seconds = currentDate.getSeconds()
+  let recordDate = year + '-' + month + '-' + day + '-' + hour + ':' + miniute + ':' + seconds;
+  return recordDate
+}
+
+// submit시 이름,제목,내용,시간 화면에 출력
+const inputSumbit = function (e) {
+  e.preventDefault(); // 버튼 클릭 시 새로고침하여 데이터 reset을 막음.
   inputObj.author = submitName.value;
   inputObj.title = submitTitle.value;
   inputObj.answer.bodyHTML = submitStory.value;
+  inputObj.avatarUrl = submitavatarUrl;
+  inputObj.createdAt = submitDate()
   agoraStatesDiscussions.unshift(inputObj);
-  let li = convertToDiscussion(inputObj);
-  ul.prepend(li)
+  let liTwo = convertToDiscussion(inputObj);
+  ul.prepend(liTwo) 
+  submitName.value = "";
+  submitTitle.value = "";
+  submitStory.value = "";
   return render(ul)
 }
 
