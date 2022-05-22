@@ -1,1 +1,196 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/*
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+li.discussion__container {
+    display: flex;
+    
+    flex-direction: row;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    background-color: var(--surface);
+    border-radius: 5px;
+    list-style-type: none;
+    
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+div.discussion__answered {
+    display: flex;
+    align-items: center;
+}
+
+div.discussion__content {
+    display: flex;
+    width: 1000px;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+
+}
+    div.discussion__information {
+        display: flex;
+        justify-content: end;        
+}
+*/
+
+
+/* 전체 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    }
+ 
+ /* 리스트 */   
+    li {
+        list-style: none;
+        border: 1px solid rgb(80, 79, 79); 
+        background-color: rgb(161, 160, 160);
+    }
+    
+/* 인풋키 */   
+    input {
+        width: 100px;
+        height: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: solid rgb(98, 98, 98);
+        border-radius: 20%;
+        color: rgb(255, 255, 255); 
+        background-color: rgb(98, 98, 98);        
+    }
+    input:hover {
+        width: 100px;
+        height: 30px;
+        margin-bottom: 10px;
+        padding: 5px;        
+        border: solid rgb(57, 56, 56);
+        border-radius: 20%;        
+        background-color: rgb(57, 56, 56);
+    }    
+    input:focus {
+        outline: none;
+        background-color: rgb(0, 0, 0);
+    }
+    
+    textarea {
+        background-color: rgb(98, 98, 98);
+    }
+    textarea:hover {
+        background-color: rgb(57, 56, 56);
+    }
+    textarea:focus {
+        outline: none;
+        background-color: rgb(199, 199, 199);
+        
+    }
+    textarea::placeholder {
+        color: rgb(255, 255, 255);
+    }
+    
+    /* vh, vw참고 */
+    body {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        padding-top: 2rem;        
+        color: #3d3d5c;        
+    }
+    
+
+    .form__container {
+        margin-bottom: 0.5rem;
+    }
+    
+    
+    .form > h2 {
+        margin-bottom: 0.5rem;
+    }
+    
+    #story {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #808892;
+        border-radius: 3px;
+        
+    }
+    
+    #story:focus {
+        border: 1px solid rgb(3, 3, 3);
+    }
+       
+    /* discussion */
+    
+    .discussion__wrapper {
+        width: 550px;
+    }
+    
+    .discussion__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8rem;
+        border-bottom: 1px solid #808892;
+    }    
+    
+    div.discussion__avatar--wrapper > img{
+        width: 48px;
+    }
+    
+    .discussion__avatar--wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .discussion__avatar--image {
+        width: 60px;
+        border-radius: 50%;
+    }
+    
+    
+    /* content */
+    .discussion__content {
+        flex-basis: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .discussion__title {
+        font-size: 0.8rem;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .discussion__information {
+        font-size: 0.6rem;
+        color: #000000;
+        text-align: right;
+    }
+    
+      /* answered */
+    .discussion__answered {
+        display: flex;
+        justify-content: center;
+        align-items: center;       
+    }
+
