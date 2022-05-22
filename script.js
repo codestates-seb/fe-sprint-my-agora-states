@@ -7,6 +7,8 @@ let newLists =
   JSON.parse(localStorage.getItem('newlist')) !== null
     ? JSON.parse(localStorage.getItem('newlist'))
     : [];
+let allList = [...newLists, ...existingLists];
+
 //로컬에 새로운 리스트 저장하는 함수
 const storeData = obj => {
   localStorage.setItem('newlist', JSON.stringify(obj));
@@ -18,6 +20,34 @@ const makeEl = el => {
 const getEl = el => {
   return document.querySelector(el);
 };
+
+let currentPage = 1;
+let pageQuantity = Math.ceil(allList.length / 10);
+
+const pageUl = getEl('.pageUl');
+
+function createBtn() {
+  //총 페이지 수
+  pageUl.innerHTML = '';
+
+  const pagePrev = makeEl('li');
+  pagePrev.className = 'btnPrev';
+  pagePrev.innerHTML = '<';
+  pageUl.append(pagePrev);
+
+  for (let i = 1; i <= pageQuantity; i++) {
+    const pageNum = makeEl('li');
+    pageNum.className = `number ${i}`;
+    pageNum.innerHTML = `${i}`;
+    pageUl.append(pageNum);
+  }
+
+  const pageNext = makeEl('li');
+  pageNext.className = 'btnNext';
+  pageNext.innerHTML = '>';
+  pageUl.append(pageNext);
+  return pageUl;
+}
 
 //데이터를 DOM으로 바꿔
 const convertToDiscussion = obj => {
@@ -67,41 +97,51 @@ const render = (element, listArray) => {
   }
   return;
 };
-
 // ul 요소에 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector('ul.discussions__container');
+const ul = getEl('ul.discussions__container');
 
 //pagination
+// let allList;
+createBtn(allList, 10);
 const pagination = (num, page = 1) => {
-  let allList = [...newLists, ...existingLists];
+  // allList = [...newLists, ...existingLists];
   ul.innerHTML = '';
   render(ul, allList.slice((page - 1) * num, page * num));
+  return allList;
 };
-pagination(10, 1);
-
-const pageUl = document.querySelector('.pageUl');
-const pagePrev = document.querySelector('.btnPrev');
-const pageNext = document.querySelector('.btnNext');
+const pagePrev = getEl('.btnPrev');
+const pageNext = getEl('.btnNext');
 const pageNums = document.querySelectorAll('.number');
 
-let currentPage = 1;
+pagination(10, 1);
+console.log(currentPage);
 pageUl.addEventListener('click', e => {
   let key = e.target;
+  console.log('1', key);
+  console.log('2', pageUl);
+  console.log('3', pagePrev);
+  console.log('4', pageNext);
+  console.log('5', pageNums);
   if (key === pageUl) return;
   if (key === pagePrev) {
     if (currentPage === 1) return;
     else {
-      --currentPage;
+      currentPage--;
+
       pagination(10, currentPage);
+      console.log(currentPage);
     }
   } else if (key === pageNext) {
-    if (currentPage === 5) return;
+    console.log(pageQuantity);
+    if (currentPage === pageQuantity) return;
     else {
-      ++currentPage;
+      currentPage++;
+      console.log(currentPage);
       pagination(10, currentPage);
     }
   } else {
     currentPage = Number(key.textContent);
+    console.log(currentPage);
     pagination(10, currentPage);
   }
 });
@@ -150,8 +190,11 @@ const submitEl = function (e) {
   //newlist 키에 로컬에 저장.
   localStorage.setItem('newlist', JSON.stringify(newlist));
   newLists = JSON.parse(localStorage.getItem('newlist'));
+  allList = [...newLists, ...existingLists];
+  pageQuantity = Math.ceil(allList.length / 10);
   //처음화면으로 돌아감.
-  pagination(5, 1);
+  createBtn();
+  pagination(10, 1);
   resetInput();
   return newLists;
 };

@@ -180,8 +180,8 @@ a {
 
 body {
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
+  overflow: scroll;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -209,7 +209,7 @@ body {
 }
 main {
   width: 540px;
-  height: 700px;
+  height: 9;
   overflow: scroll;
   border: 1px solid black;
   padding: var(--margin-large);
@@ -257,7 +257,7 @@ input[type='submit']:hover {
 }
 .discussion__wrapper {
   overflow: scroll;
-  height: 500px;
+  height: 100%;
 }
 .discussions__container {
   margin: 4px 0;
