@@ -10,6 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 50px 0;
+    
 }
 .title{
   display: flex;
@@ -25,13 +26,15 @@ main{
     background-color: #1F1D36;
     /* box-shadow: 10px 20px 30px rgba(84, 74, 197, 1.2); */
     box-shadow: 5px 5px 10px 1px rgba(109, 67, 233), -4px -5px 10px 1px rgb(0,0,255,0.5);
+    
 }
 .title{
     margin-top: 20px;
     font-weight:bold;
     font-size: 48px;
-    background: linear-gradient(to right bottom,#ffffff,#8969aa,#6800f0,#ffffff);
-      -webkit-background-clip: text;
+    /* color:white; */
+    background: linear-gradient(to right bottom,#ffffff,#bfaecf,#a284c9,#ffffff);
+      -webkit-background-clip: text;  
       background-clip: text;
       color: transparent;
       font-weight: bold;
@@ -98,10 +101,7 @@ li{
     list-style: none;
     padding-left: 10px;
 }
-.discussion__wrapper{
-    height: 1090px;
-    overflow: hidden;
-}
+
 .discussion__container{
     width: 500px;
     padding: 20px;
