@@ -9,6 +9,7 @@ const discussionWrapper = document.querySelector('.discussion__wrapper');
 const ul = document.querySelector("ul.discussions__container");
 const showContent = 10; 
 let maxPage = Math.ceil(getStorageData.length / showContent);
+let prevButtonNum = 1;
 
 /* 포스트 정보 추가 */
 const convertToDiscussion = (obj) => { 
@@ -64,7 +65,7 @@ submit.onclick = (event) => {
       newInfo.createdAt = new Date(),
       newInfo.bodyHTML = inputQuestion.value,
       newInfo.avatarUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-      getStorageData.unshift(newInfo)
+      getStorageData.unshift(newInfo);
       localStorage.setItem('discussions', JSON.stringify(getStorageData));
 
       inputName.value = "";
@@ -84,6 +85,7 @@ submit.onclick = (event) => {
 
 /* 포스트 생성 */
 const updatePostUI = (buttonNum) => { 
+  prevButtonNum = Number(buttonNum);
   const ul = document.querySelector("ul.discussions__container"); 
   ul.parentNode.removeChild(ul);
   const newUL = document.createElement('ul');
@@ -99,32 +101,50 @@ const updatePostUI = (buttonNum) => {
     newUL.appendChild(convertToDiscussion(getStorageData[i])); 
   };
   discussionWrapper.prepend(newUL);
-  
   showButton();
-  const buttonlist = document.querySelector('.buttonlist');
-  buttonlist.children[buttonNum-1].classList.add('active');
 }
 
-/* 버튼 생성 */
+/* 버튼 추가 */
 const showButton = () => { 
   const buttonlist = document.querySelector('.buttonlist');
   buttonlist.parentNode.removeChild(buttonlist);
   const pageDiv = document.createElement('div');
   pageDiv.className = 'buttonlist';
-
-  for (let i = 1; i <= maxPage; i++) { 
+    
+  for (let i = 0; i <= maxPage+1; i++) {
     const pageA = document.createElement('a');
     pageA.className = "pageButton";
-    pageA.textContent = i;
-    pageA.onclick = (event) => {
-      const buttonlist = document.querySelector('.buttonlist');
-      buttonlist.children[0].classList.remove('active');
-      updatePostUI(event.target.textContent);
+    if (i === 0) {
+      pageA.textContent = "<";
+      pageA.onclick = (event) => {
+        if (prevButtonNum === 1) {
+          prevButtonNum = 1;
+          updatePostUI(1);
+        } else { 
+          updatePostUI(prevButtonNum-1);
+        };
       };
+    } else if (i === maxPage+1) {
+      pageA.textContent = ">";
+      pageA.onclick = (event) => {
+        if (prevButtonNum === maxPage) {
+          prevButtonNum = maxPage;
+          updatePostUI(maxPage);
+        } else { 
+          updatePostUI(prevButtonNum+1);
+        };
+      };
+    } else {
+      pageA.textContent = i;
+      pageA.onclick = (event) => {
+        updatePostUI(event.target.textContent);
+      };
+    };
     pageDiv.appendChild(pageA);
   };
   const pagination = document.querySelector('.pagination');
   pagination.prepend(pageDiv);
+  document.querySelectorAll('.pageButton')[prevButtonNum].classList.add('active');
 };
 
-updatePostUI(1);
+updatePostUI(1); 
