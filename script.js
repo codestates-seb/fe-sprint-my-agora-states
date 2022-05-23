@@ -140,6 +140,7 @@ function confirmForm() {
   createPage('span', 'pagination', 'page', 1, 3);
 
   if (getNum > 3) {
+    // 맨 앞, 맨 뒤로가기 버튼
     document.querySelector('#goToOne').onclick = function () {
       let num = Number(pagination.firstChild.textContent);
       hadchildren(pagination);
@@ -150,7 +151,7 @@ function confirmForm() {
     document.querySelector('#goToLast').onclick = function () {
       let num = getNum % 3;
       hadchildren(pagination);
-      if (getNum - num === getNum) {
+      if (num === 0) {
         createPage('span', 'pagination', 'page', getNum - 2, getNum);
       } else {
         createPage('span', 'pagination', 'page', getNum - num + 1, getNum);
@@ -166,6 +167,8 @@ function confirmForm() {
       }
       hadchildren(pagination);
       createPage('span', 'pagination', 'page', num + 1, num + 3);
+      hadchildren(ul);
+      render2(ul, num * 10, (num + 1) * 10 - 1);
     };
     document.querySelector('#beforeBtn').onclick = function () {
       let num = Number(pagination.firstChild.textContent);
@@ -174,6 +177,8 @@ function confirmForm() {
       }
       hadchildren(pagination);
       createPage('span', 'pagination', 'page', num - 3, num - 1);
+      hadchildren(ul);
+      render2(ul, (num - 4) * 10, (num - 3) * 10 - 1);
     };
   }
 
