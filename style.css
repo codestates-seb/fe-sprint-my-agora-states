@@ -198,14 +198,29 @@ h1::after {
   font-weight: 700;
   font-size: 12px;
 }
-.pagination {
+.page__btn {
+  display: flex;
   width: 540px;
   height: 100px;
-  padding: 10px;
+  margin: auto;
+  padding: 10px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+}
+.page__btn #beforeBtn,
+.page__btn #nextBtn {
+  cursor: pointer;
+}
+.page__btn #goToOne,
+.page__btn #goToLast {
+  cursor: pointer;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 .pagination span {
   padding: 5px;

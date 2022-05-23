@@ -83,7 +83,7 @@ const ul = document.querySelector('ul.discussions__container');
 render(ul);
 let number = 0;
 
-// 등록하기
+// 새로운 질문 등록하기
 function confirmForm() {
   const name = document.querySelector('#name');
   const title = document.querySelector('#title');
@@ -111,10 +111,11 @@ function confirmForm() {
     return false;
   }
 }
-// 페이지 몇개 만들거니!
+// 페이지 몇개 만들거니!!
 (function getPagination() {
   let getNum = 0;
   const length = JSON.parse(localStorage.getItem('newArr')).length;
+  let pagination = document.querySelector('.pagination');
   if (length > 10) {
     if (length % 10) {
       getNum = parseInt(length / 10) + 1;
@@ -124,13 +125,58 @@ function confirmForm() {
   } else {
     getNum = 1;
   }
-
-  for (let i = 1; i <= getNum; i++) {
-    const page = document.createElement('span');
-    page.className = `page`;
-    page.textContent = i;
-    document.querySelector('.pagination').append(page);
+  function createPage(createEl, Elparent, clName, startNum, endNum) {
+    for (let i = startNum; i <= endNum; i++) {
+      if (getNum < i) {
+        return;
+      }
+      const page = document.createElement(createEl);
+      page.className = clName;
+      page.textContent = i;
+      document.querySelector(`.${Elparent}`).append(page);
+    }
   }
+
+  createPage('span', 'pagination', 'page', 1, 3);
+
+  if (getNum > 3) {
+    document.querySelector('#goToOne').onclick = function () {
+      let num = Number(pagination.firstChild.textContent);
+      hadchildren(pagination);
+      createPage('span', 'pagination', 'page', 1, 3);
+      hadchildren(ul);
+      render(ul);
+    };
+    document.querySelector('#goToLast').onclick = function () {
+      let num = getNum % 3;
+      hadchildren(pagination);
+      if (getNum - num === getNum) {
+        createPage('span', 'pagination', 'page', getNum - 2, getNum);
+      } else {
+        createPage('span', 'pagination', 'page', getNum - num + 1, getNum);
+      }
+      hadchildren(ul);
+      render2(ul, (getNum - 1) * 10, getNum * 10 - 1);
+    };
+
+    document.querySelector('#nextBtn').onclick = function () {
+      let num = Number(pagination.lastChild.textContent);
+      if (num === getNum) {
+        return;
+      }
+      hadchildren(pagination);
+      createPage('span', 'pagination', 'page', num + 1, num + 3);
+    };
+    document.querySelector('#beforeBtn').onclick = function () {
+      let num = Number(pagination.firstChild.textContent);
+      if (num === 1) {
+        return;
+      }
+      hadchildren(pagination);
+      createPage('span', 'pagination', 'page', num - 3, num - 1);
+    };
+  }
+
   return;
 })(); // 즉시 실행함수!
 
