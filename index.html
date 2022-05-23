@@ -69,30 +69,31 @@
 <!-- ----------------------------form--------------------------------- -->
     <div id="main_body_cont">
       <div class="question container">
-        <form id="quesion_form" action="">
+        <form id="question_form" action="" type="get"> <!--type? method?-->
           <div class="form nameInput">
             <label class="form nameInput">Enter your name </label>
-            <input class="form nameInput" type="text">
+            <input class="form_nameInput" type="text" name="name">
           </div>
           <div class="form titleInput">
             <label class="form titleInput">Enter your title </label>
-            <input class="form titleInput" type="text">
+            <input class="form_titleInput" type="text" name="title">
           </div>
           <div class="form questionInput">
             <label class="form questionInput">Your question </label>
-            <textarea class="form textarea" type="text" required cols="30" rows="10"></textarea>
+            <textarea class="form_textarea" type="text" required cols="30" rows="10" name="question"></textarea>
           </div>
           <div class="form submit">
-            <button class="form submit" type="submit">submit</button>
+            <button class="form_submit" type="submit">submit</button>
           </div>
         </form>
-      </div>
+        </div>
+      
 <!-- -------------------------------------------------------------------- -->
       <div class="main_body_division_line"></div>
  <!-- -------------------------------------------------------- -->       
       <div id="discussion_containers">
  <!-- ---------------------new discussion----------------------- -->       
-      <div class="discussion_containerNew">
+      <!-- <div class="discussion_containerNew">
         <ul class="discussion_format_new">
           <li class="discussion_format_new">
             <div class="face_wrapper_new">
@@ -102,17 +103,12 @@
               <div class="discussion_title_new"></div>
               <div class="discussion_writer_date_new"></div>
             </div>
-
-            <div class="checkbox_wrapper_new">
-              <input type="checkbox" class="checkbox_new">
-            </div>
-
             </li>
           </ul>
-        </div>
+        </div> -->
    <!-- -------------------------old discussions----------------------- -->
-      <div class="discussion container">        <!--????????__-->
-        <ul class="discussion_format">       <!--result to be -->
+      <div class="discussion_container">      
+        <ul class="discussion_format">      
           <li class="discussion_format">
             <div class="face_wrapper">
               <img src="" alt="" class="face_img">     <!-- changable -->

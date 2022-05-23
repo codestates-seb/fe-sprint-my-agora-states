@@ -117,7 +117,7 @@ ul {
 .private{
     display: flex;
     margin-left: -1%;
-    margin-top : 2.3%;
+    margin-top : 0.5%;
     height: 100%;
     font-size : 1vh;
     align-items: center;
@@ -257,7 +257,7 @@ a {color :rgb(71, 71, 71); text-decoration: none;}
 #left_body_cont{
     display: flex;
     flex-direction: column;
-    width:13%;
+    width:15.5%;
     margin-top : 1%;
     margin-left : 0.4%;}
 
@@ -300,22 +300,39 @@ a {color :rgb(71, 71, 71); text-decoration: none;}
     justify-content: center;
     width: 20%;
     margin-top: 5%;
-    font-size: 1.7vh;
+    
     color: rgba(71,71,71)}
 
 .form{margin: 1.7%; width: 90%; margin-left: 6%; font-size: 1.7vh;}
 .form.questionInput{margin-top: 3%;}
-input.form{
+
+input.form_nameInput{
+    margin-left : 6%;
     margin-top: 3.5%;
     margin-bottom: 4.3%;
-    padding: 2%;}
-.textarea{margin-top: 4.3%; padding: 2%}    
+    width : 90%;
+    padding: 2%;
+    font-size: 1.7vh;}
+input.form_titleInput{
+    margin-left : 6%;
+    margin-top: 3.5%;
+    margin-bottom: 4.3%;
+    width : 90%;
+    padding: 2%;
+    font-size: 1.7vh;}
+
+.form_textarea{margin-left : 6%;
+    margin-top: 3.5%;
+    margin-bottom: 4.3%;
+    width : 90%;
+    padding: 2%;
+    font-size: 1.7vh;}  
 
 .form.submit{
     display: flex;
     justify-content: center;
     align-items: center;}
-button.submit{
+button.form_submit{
     font-size: 0.9rem;
     color: rgb(224, 224, 224);
     width: fit-content;
@@ -356,17 +373,9 @@ button.submit{
 
 
 
-/*////////////////////////////////body-2 -2 :  new discussion ///////////////////////////*/
-.discussion.container.new{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid blue;
-    width : 100%;
-    height: auto;}
-
 /*////////////////////////////////body-2 -3 :  old discussions ///////////////////////////*/
 
-.discussion.container{
+.discussion_container{
     display: flex;
     flex-direction: column;
     width : 90%;
@@ -374,6 +383,8 @@ button.submit{
     height: 85%;
     margin : 2%;
     margin-right : 2.5%;}
+
+
 
 span.checked{
     color: green;
@@ -441,7 +452,6 @@ li.discussion_format{
     height:50%;
     margin-top : 3%;
     margin-right: -6%;
-    box-shadow: 2.5px 2px 1.5px 0.5px rgb(214, 214, 214);
     opacity: 90%;
     border-radius: 10px;}
     
@@ -540,7 +550,6 @@ li.discussion_format{
     height:40%;
     margin-top : 3%;
     margin-right: -6%;
-    box-shadow: 2.5px 2px 1.5px 0.5px rgb(214, 214, 214);
     opacity: 90%;
     border-radius: 10px;}
 
@@ -618,7 +627,7 @@ p.tag{
 
 .footer_Inc{
     display: flex;
-    width:27%;
+    width:23%;
     align-items: center;
     justify-content: center;
     color : rgb(24, 23, 27);
@@ -629,11 +638,13 @@ p.tag{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-right: 10px;
-    width:10%;
-    font-size: 1.4vh;}
+    
+    margin-right : 3.7%;
+    width:fit-content;
+    font-size: 1.4vh;
+    cursor: pointer;}
 
 .terms_policy_blank{
     display: flex;
-    width : 13%;
+    width : 6%;
 }

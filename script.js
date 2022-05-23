@@ -20,7 +20,8 @@ searchClear.onclick = () => {document.querySelector('.search_content').value='';
 /* /////////////////////////body-2 - old discussions////////////////// */
 
 
-const dataToValue = (obj) => {
+const objectToValue = (obj) => {
+    
     const li = document.createElement('li');
     li.className = 'discussion_format';
 
@@ -47,11 +48,13 @@ const dataToValue = (obj) => {
 
     const link = document.createElement('a');
     link.className = "discussion_link";
+
+    
     
 
     faceImg.src = obj.avatarUrl;
     faceImg.alt = `profile picture of ${obj.author}`;
-    discussionWriterDate.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}}`;
+    discussionWriterDate.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
     link.href = `${obj.url}`;
     link.textContent =`${obj.title}`;
     checked.textContent = obj.answer ? `✓` : ``;
@@ -62,26 +65,48 @@ const dataToValue = (obj) => {
     discussionAnswered.append(checked);
     li.append(faceWrapper,discussionWrapper,discussionAnswered);
 
+    const discussionContainer = document.createElement('div');
+    discussionContainer.className = "discussion_container";
+   
     return li;
 
 }
 
 
 
+
+
 const render = (element) => {
     for (i=0; i<agoraStatesDiscussions.length; i++) {
-        element.append(dataToValue(agoraStatesDiscussions[i]))
-    }
-    return;
-}
+        element.append(objectToValue(agoraStatesDiscussions[i]))}
+    return;}
+
+
+
 
 const ul= document.querySelector('ul.discussion_format')
 render (ul);
 
 
+/* /////////////////////////body-3 - new discussions////////////////// */
+
+const formSubmit = document.querySelector('.form_submit');
+
+const formNameInput = document.querySelector('.form_nameInput');
+const formTitleInput = document.querySelector('.form_titleInput');
+const formQuestionInput = document.querySelector('.form_textarea');
 
 
-
+formSubmit.onclick = function(event){
+    event.preventDefault();
+    const newName = formNameInput.value;
+    const newTitle = formTitleInput.value;
+    const newDate = new Date().toLocaleString();
+    const newObj = {author: newName, title: newTitle, createdAt: newDate, avatarUrl:'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3JMgT%2FbtrCY6PaJZ3%2Fn5wBHk17RKFDfwSFjWSyJK%2Fimg.jpg' };
+    //아바타 두개
+    agoraStatesDiscussions.unshift(newObj);
+    ul.prepend(objectToValue(newObj));
+}
 
 
 
