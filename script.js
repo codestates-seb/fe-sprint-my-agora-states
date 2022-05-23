@@ -148,6 +148,7 @@ function confirmForm() {
       let num = Number(pagination.firstChild.textContent);
       hadchildren(pagination);
       createPage('span', 'pagination', 'page', 1, 3);
+      pagination.firstChild.classList.add('colored');
       hadchildren(ul);
       render2(ul, 0, 9);
       window.scrollTo(0, 0);
@@ -160,6 +161,10 @@ function confirmForm() {
       } else {
         createPage('span', 'pagination', 'page', getNum - num + 1, getNum);
       }
+      if (document.querySelector('.colored') !== null) {
+        document.querySelector('.colored').classList.remove('colored');
+      }
+      pagination.lastChild.classList.add('colored');
       hadchildren(ul);
       render2(ul, (getNum - 1) * 10, getNum * 10 - 1);
       window.scrollTo(0, 0);
