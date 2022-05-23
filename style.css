@@ -36,6 +36,8 @@ main {
   /* margin-top: 2rem; */
 }
 h1 {
+  /* font-weight: 900; */
+  /* border: rem; */
   font-size: 2.5rem;
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
@@ -98,12 +100,21 @@ section {
 }
 .form__submit > input {
   /* outline: none; */
+  cursor: pointer;
   border-style: none;
   border-radius: 3px;
   font-size: 1.2rem;
   width: 100%;
   height: 100%;
 }
+.form__submit > input:hover {
+  background-color: rgb(46, 66, 39);
+  color: #e9e5d6;
+}
+/* 제출 active css */
+/* .form__submit > input :active {
+ 
+} */
 
 /* discussion css*/
 .discussions__container {
@@ -141,6 +152,7 @@ li.discussion__container {
   flex-direction: column;
   justify-content: center;
   flex: 8 0 0;
+  padding: 0.5rem;
 }
 .discussion__answered {
   flex: 1 0 0;
@@ -155,7 +167,12 @@ li.discussion__container {
   margin: 0;
   /* display: flex;
   align-items: flex-start; */
+  /* margin-top: 1rem; */
 }
+.discussion__content > h2 > a:hover {
+  color: #e9e5d6;
+}
+
 .discussion__content > div {
   margin-top: 1.5rem;
   display: flex;
@@ -194,6 +211,7 @@ textarea::placeholder {
   color: black;
 }
 textarea {
+  margin-top: 0.2rem;
   border-radius: 2px;
   border-style: none;
   /* outline: none; */
