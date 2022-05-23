@@ -145,4 +145,17 @@ div.discussion__content > h2{
   padding-bottom: 30px;
 }
 
+.pagenation{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.pageNumbers{
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
