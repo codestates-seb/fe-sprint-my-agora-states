@@ -1,199 +1,163 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 500;
-    --mainColor: #a0fa8e;
-    --subColor1: #f2ff7f;
-    --subColor2: #82dbb2;
-    --pointColor: #FEE2C5;
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
-main{
+li {
+    list-style: none;
+    /* border: 1px solid red; */
+}
+
+a {
+    text-decoration: none;
+    /* border: 1px solid blue; */
+}
+
+/* a:visited {
+    text-decoration: none;
+    color: #c9d1da;
+} */
+
+input {
+    width: 100px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 2px solid green;
+    border-radius: 3px;
+    /* color: green; */
+    background-color: rgb(253, 200, 253);
+    cursor: pointer;
+}
+/* focus는 클릭했을 때 변환 되는 값*/
+input:focus {
+    outline: none;
+    background-color: rgb(231, 255, 195);
+}
+
+textarea:focus {
+    outline: none;
+    background-color: rgb(255, 255, 187);
+}
+
+/* vh, vw는 브라우저 비율에 따라 변화하는 값 */
+body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 2rem;
+    color: #c9d1da;
+    /* border: 1px solid blue; */
 }
 
-.main__container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    margin: 10px;
-}
-main > h1{
-    color: #00008b;
-    color: var(--subColor2);
-    margin-top: 70px;
-    text-align: center;
+/* js로 작업 후 보면서 질문 내용 꾸미기 */
+/* 바디를 넘어서는 li들을 조절해야함 */
+/* 새로 생긴 컨테이너를 조절 해서 줄여야함 */
+.form__container {
+    margin-bottom: 0.5rem;
 }
 
-.form__container{
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-    border-radius: 15px;
-    border: 1px solid var(--mainColor);
+.new__discussion {
+    margin: 1rem 0;
+    padding: 5px 16px;
+    color: white;
+    background-color: #238636;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.form{
+.form > h2 {
+    margin-bottom: 0.5rem;
+}
+
+#story {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #808892;
+    border-radius: 3px;
+    color: #c9d1da;
+}
+
+#story:focus {
+    border: 1px solid rgb(3, 3, 3);
+}
+    
+#submit__btn {
+    width: 100px;
+    height: 30px;
+    border: 2px solid green;
+    border-radius: 3px;
+    color: rgb(230, 39, 172);
+    background-color: rgb(253, 200, 253);
+    cursor: pointer;
+}
+
+#submit__btn:disabled {
+    width: 100px;
+    height: 30px;
+    border: 2px solid green;
+    border-radius: 3px;
+    color: black;
+    background-color: rgb(253, 200, 253);
+}
+
+/* 디스커션 컨테이너 작업 */
+
+.discussion__wrapper {
+    width: 550px;
+}
+
+.discussion__container {
     display: flex;
     justify-content: space-between;
-    width: 540px;
-    padding: 10px;
+    padding: 0.8rem;
+    border-bottom: 1px solid #808892;
 }
 
-.form__input--wrapper{
-    flex-basis: 90%;
-    margin-right: 20px;
-    color: var(--subColor2);
-    opacity: 90%;
+/* 이미지 작업 */
+
+div.discussion__avatar--wrapper > img{
+    width: 48px;
 }
 
-.form__input--name{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 5px;
-}
-
-.form__input--name > label{
-    margin-bottom: 5px;
-}
-
-.form__input--name > input,
-.form__input--title > input{
-    color: var(--subColor2);
-    opacity: 90%;
-    height: 30px;
-    padding: 10px;
-}
-
-.form__input--title{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 5px;
-}
-
-.form__input--title > label{
-    margin-bottom: 5px;
-}
-
-.form__textbox{
-    display: flex;
-    flex-direction: row;
-}
-
-.form__textbox > label{
-    margin-bottom: 5px;
-}
-
-.form__textbox > textarea{
-    color: var(--subColor2);
-    opacity: 90%;
-    height: 40px;
-    width: 50%;
-    resize: none;
-    padding: 10px;
-}
-
-.form__textbox > textarea::placeholder{
-    color: var(--subColor2);
-    opacity: 70%;
-}
-
-.form__submit{
+.discussion__avatar--wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    width: 100px;
- 
+}
+.discussion__avatar--image {
+    width: 60px;
+    border-radius: 50%;
 }
 
-.form__submit > input{
-    font-weight: 700;
-    font-size: 10px;
-    width: 50%;
-    height: 50%;
-    outline: none;
-    border: none;
-    color: #fff;
-    border-radius: 15px;
-    background: var(--subColor2);
-    opacity: 90%;
-    cursor: pointer;
-    transition-duration: .3s;
-}
 
-.form__submit > input:hover{
-    opacity: 100%;
-    transform: scale(1.02);
-    transition-duration: .3s;
-}
-
-.discussion__wrapper{
+/* content */
+.discussion__content {
+    flex-basis: 80%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.discussions__container{
-    width: 580px;
-    list-style: none;
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid var(--mainColor);
+.discussion__title {
+    font-size: 0.8rem;
+    margin-left: 0;
+    margin-bottom: 10px;
 }
-
-.discussion__container{
-    display: flex;
-    padding: 15px 0;
-    border-bottom: 1px solid var(--mainColor);
-}
-
-.discussion__container > div:first-child,
-main > h1{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    color: var(--subColor2);
-}
-.discussion__title{
-     
-    width: 348px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 18px;   
-}
-
-.discussion__title > a{
-    color: var(--subColor2);
-    opacity: 90%;
-    text-decoration: none;
-    transition-duration: .3s;
-}
-
-.discussion__title > a:hover{
-    opacity: 100%;
-    transition-duration: .3s;
-}
-
-.discussion__information{
-    font-weight: 400;
+.discussion__information {
+    font-size: 0.6rem;
+    color: #808892;
     text-align: right;
 }
 
-.discussion__answered{
-    font-size: 24px;
+  /* answered */
+.discussion__answered {
     display: flex;
+    justify-content: center;
     align-items: center;
+    color: rgb(27, 196, 27);
 }
-
-.active{
-    color: green;
-} 
-
