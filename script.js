@@ -70,12 +70,17 @@ submit.onclick = function (e) {
   e.preventDefault(); // 기본 이벤트 방지 
   const inputName = document.querySelector("#name");
   const inputTitle = document.querySelector("#title");
+  //만약 이름과 제목, 내용을 작성하지 않으면 경고 메시지 출력
+  if(inputName.value === '' || inputTitle.value === '') {
+    return alert("이름과 제목, 내용을 모두 작성해주세요");
+  }
+
   const newObj =
   {
     id: "",
     createdAt: Date(), //현재 작성 시간 표현을 표현
     // convertToDiscussion에서 시간 설정을 new Date().toLocaleTimeString()을 통해 해주었기 때문에
-    //새로운 데이터 할당시에는 Date()를 통해 시간을 불러와 다시 실행해주어야한다 (???) -> 조사 후 내용정리 예정
+    //새로운 데이터 할당시에는 Date()를 통해 시간을 불러와 다시 실행해주어야한다 (???) -> Date(), new Date() 공부 필요
     title: inputTitle.value,
     url: null,
     author: inputName.value,
@@ -86,6 +91,4 @@ submit.onclick = function (e) {
 
   agoraStatesDiscussions.unshift(newObj);
   render(ul);
-}
-
-
+};
