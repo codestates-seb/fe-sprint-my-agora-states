@@ -232,6 +232,9 @@ h1::after {
   color: white;
   background-color: #bdde70;
 }
+.pagination span.colored {
+  color: pink;
+}
 /* .discussion__preview {
   background-color: aqua;
 

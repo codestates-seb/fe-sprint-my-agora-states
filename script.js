@@ -70,18 +70,20 @@ function toLocalStorage(arr) {
   return;
 }
 
-const render = (element) => {
-  toLocalStorage(agoraStatesDiscussions);
+// 기존의 render 건드리기 싫어서 새로 만듦
+const render2 = (element, num1, num2) => {
   let arr = JSON.parse(localStorage.getItem('newArr'));
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = num1; i <= num2; i += 1) {
+    if (i === arr.length) {
+      return;
+    }
     element.append(convertToDiscussion(arr[i]));
   }
   return;
 };
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
-render(ul);
-let number = 0;
+render2(ul, 0, 9);
 
 // 새로운 질문 등록하기
 function confirmForm() {
@@ -101,8 +103,8 @@ function confirmForm() {
     };
     let arr = JSON.parse(localStorage.getItem('newArr'));
     localStorage.setItem('newArr', JSON.stringify([data, ...arr]));
-
-    ul.prepend(convertToDiscussion(data));
+    hadchildren(ul);
+    render(ul);
     title.value = '';
     name.value = '';
     story.value = '';
@@ -138,6 +140,7 @@ function confirmForm() {
   }
 
   createPage('span', 'pagination', 'page', 1, 3);
+  pagination.firstChild.classList.add('colored');
 
   if (getNum > 3) {
     // 맨 앞, 맨 뒤로가기 버튼
@@ -146,7 +149,8 @@ function confirmForm() {
       hadchildren(pagination);
       createPage('span', 'pagination', 'page', 1, 3);
       hadchildren(ul);
-      render(ul);
+      render2(ul, 0, 9);
+      window.scrollTo(0, 0);
     };
     document.querySelector('#goToLast').onclick = function () {
       let num = getNum % 3;
@@ -158,28 +162,75 @@ function confirmForm() {
       }
       hadchildren(ul);
       render2(ul, (getNum - 1) * 10, getNum * 10 - 1);
+      window.scrollTo(0, 0);
     };
-
+    // 한칸씩 이동하는거로 짜봄!
     document.querySelector('#nextBtn').onclick = function () {
-      let num = Number(pagination.lastChild.textContent);
+      let num = Number(document.querySelector('.colored').textContent);
+      let numNext = document.querySelector('.colored').nextSibling;
       if (num === getNum) {
         return;
       }
-      hadchildren(pagination);
-      createPage('span', 'pagination', 'page', num + 1, num + 3);
+
+      if ((num + 1) % 3 === 1) {
+        hadchildren(pagination);
+        createPage('span', 'pagination', 'page', num + 1, num + 3);
+
+        if (document.querySelector('.colored') !== null) {
+          document.querySelector('.colored').classList.remove('colored');
+        }
+        pagination.firstChild.classList.add('colored');
+      } else {
+        document.querySelector('.colored').classList.remove('colored');
+        numNext.classList.add('colored');
+      }
       hadchildren(ul);
       render2(ul, num * 10, (num + 1) * 10 - 1);
+      window.scrollTo(0, 0);
     };
     document.querySelector('#beforeBtn').onclick = function () {
-      let num = Number(pagination.firstChild.textContent);
+      let num = Number(document.querySelector('.colored').textContent);
+      let numBefore = document.querySelector('.colored').previousSibling;
       if (num === 1) {
         return;
       }
-      hadchildren(pagination);
-      createPage('span', 'pagination', 'page', num - 3, num - 1);
+
+      if ((num - 1) % 3 === 0) {
+        hadchildren(pagination);
+        createPage('span', 'pagination', 'page', num - 3, num - 1);
+
+        if (document.querySelector('.colored') !== null) {
+          document.querySelector('.colored').classList.remove('colored');
+        }
+        pagination.lastChild.classList.add('colored');
+      } else {
+        document.querySelector('.colored').classList.remove('colored');
+        numBefore.classList.add('colored');
+      }
       hadchildren(ul);
-      render2(ul, (num - 4) * 10, (num - 3) * 10 - 1);
+      render2(ul, (num - 2) * 10, (num - 1) * 10 - 1);
+      window.scrollTo(0, 0);
     };
+    // document.querySelector('#nextBtn').onclick = function () {
+    //   let num = Number(pagination.lastChild.textContent);
+    //   if (num === getNum) {
+    //     return;
+    //   }
+    //   hadchildren(pagination);
+    //   createPage('span', 'pagination', 'page', num + 1, num + 3);
+    //   hadchildren(ul);
+    //   render2(ul, num * 10, (num + 1) * 10 - 1);
+    // };
+    // document.querySelector('#beforeBtn').onclick = function () {
+    //   let num = Number(pagination.firstChild.textContent);
+    //   if (num === 1) {
+    //     return;
+    //   }
+    //   hadchildren(pagination);
+    //   createPage('span', 'pagination', 'page', num - 3, num - 1);
+    //   hadchildren(ul);
+    //   render2(ul, (num - 4) * 10, (num - 3) * 10 - 1);
+    // };
   }
 
   return;
@@ -187,24 +238,15 @@ function confirmForm() {
 
 //페이지 렌더링 갯수세기
 document.querySelector('.pagination').onclick = function (e) {
-  if (e.target.className === 'page') {
+  if (e.target.classList.contains('page')) {
+    document.querySelector('.colored').classList.remove('colored');
+    e.target.className = 'page colored';
     let startNum = (Number(e.target.textContent) - 1) * 10;
     let endNum = Number(e.target.textContent) * 10 - 1;
     hadchildren(ul);
     render2(ul, startNum, endNum);
     window.scrollTo(0, 0);
   }
-};
-// 기존의 render 건드리기 싫어서 새로 만듦
-const render2 = (element, num1, num2) => {
-  let arr = JSON.parse(localStorage.getItem('newArr'));
-  for (let i = num1; i <= num2; i += 1) {
-    if (i === arr.length) {
-      return;
-    }
-    element.append(convertToDiscussion(arr[i]));
-  }
-  return;
 };
 
 // 기존의 ul지우기
