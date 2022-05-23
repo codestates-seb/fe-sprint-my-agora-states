@@ -358,9 +358,10 @@ button.form_submit{
     justify-content: center;
     flex-direction: column;
     width: 60%;
-    margin-top: 4.9%;
+    margin-top: 4.5%;
     height : 89.3%;
     overflow-y: scroll;}
+
 
 #discussion_containers::-webkit-scrollbar{
     width : 8px;
@@ -380,10 +381,9 @@ button.form_submit{
     flex-direction: column;
     width : 90%;
     margin-top : 10%;
-    height: 85%;
+    height: 99.5%;
     margin : 2%;
     margin-right : 2.5%;}
-
 
 
 span.checked{
