@@ -122,12 +122,12 @@ document.querySelector('.nowPage').textContent = `1 / ${Math.ceil(agoraStatesDis
 let nowPage = 1;
 function btnColor () {
   if (nowPage === 1) {
-    document.querySelector('.leftBtn').style.color = 'lightgrey';
+    document.querySelector('.leftBtn').style.background = 'grey';
   } else if (nowPage === Math.ceil(agoraStatesDiscussions.length/10)) {
-    document.querySelector('.rightBtn').style.color = 'lightgrey';
+    document.querySelector('.rightBtn').style.background = 'grey';
   } else {
-    document.querySelector('.leftBtn').style.color = '#112B3C';
-    document.querySelector('.rightBtn').style.color = '#112B3C';
+    document.querySelector('.leftBtn').style.background = '#F66B0E';
+    document.querySelector('.rightBtn').style.background = '#F66B0E';
   }
 }
 
