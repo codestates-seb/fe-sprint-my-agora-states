@@ -31,7 +31,7 @@ ul {
     width : 100%;}
 
 #body{
-    height: 75%;
+    height: 85%;
     display: flex;
     flex-direction: row;
     width : 100%;}
@@ -40,7 +40,7 @@ ul {
     height: 10%;
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
+    background-color:rgb(71, 71, 71);
     width : 100%;}
 
  /* //////////////////////(#)containers///////////////////// */
@@ -282,7 +282,7 @@ a {color :rgb(71, 71, 71); text-decoration: none;}
 
 /*///////////////////////////////////body-2 : main container ///////////////////////////*/
 #main_body_cont{
-    width:85%;
+    width:90%;
     display: flex;
     flex-direction: row;}
 
@@ -319,9 +319,11 @@ button.submit{
 /*/////////////body-2 -1 ~~ -2 division line and common CSS////////////////*/
 
 .main_body_division_line{
-    opacity: 20%;
     border-left: 1px solid rgb(71, 71, 71);
-    height: 60%;
+    opacity: 0.15;
+    border-width : 8px;
+    border-radius : 10px;
+    height: 89%;
     margin-top : 5%;
     margin-left: 0.5%;}
 
@@ -330,12 +332,14 @@ button.submit{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 6%;
-    width: 70%;
+    width: 60%;
+    margin-top: 5.3%;
+    height : 88%;
     overflow-y: scroll;}
 
 #discussion_containers::-webkit-scrollbar{
-    width : 8px;}
+    width : 8px;
+    border-radius: 10px;}
 #discussion_containers::-webkit-scrollbar-thumb {
     background: rgb(165, 165, 165); 
     border-radius: 10px;}
@@ -357,9 +361,11 @@ button.submit{
 .discussion.container{
     display: flex;
     flex-direction: column;
-    width : 100%;
+    width : 90%;
     margin-top : 10%;
-    height: 85%;}
+    height: 85%;
+    margin : 2%;
+    margin-right : 2.5%;}
 
 span.checked{
     color: green;
@@ -417,7 +423,9 @@ li.discussion_format{
 #right_body_cont{
     display: flex;
     flex-direction: column;
-    width:15%;}
+    width:15.5%;
+    margin-top : 4.5%;
+    margin-left : 1.2%;}
 
 .notice_set{
     display: flex;
