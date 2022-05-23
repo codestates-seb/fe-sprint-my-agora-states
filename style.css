@@ -108,7 +108,7 @@ section {
   height: 100%;
 }
 .form__submit > input:hover {
-  background-color: rgb(46, 66, 39);
+  /* background-color: rgb(46, 66, 39); */
   color: #e9e5d6;
 }
 /* 제출 active css */
