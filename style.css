@@ -1,1 +1,142 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    /* background-color: black; */
+    /* color: rgb(217, 217, 217); */
+    color: rgb(99, 98, 98);
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* li.discussion__container {
+    list-style-type: none; //li 요소의 기본 스타일 점 안보이게
+} */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* section.form__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+form.form {
+    display: flex;
+    justify-content: center;
+    padding-left: 5rem;
+    /* background-color: blanchedalmond; */
+}
+
+div.form__input--wrapper {
+    flex: 8 0 auto;
+}
+
+div.form__submit {
+    display: flex;
+    flex: 2 0 auto;
+    padding-left: 1rem;
+}
+
+div.form__input--name,
+div.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.3rem;
+}
+
+div.form__input--name > label, 
+div.form__input--title > label {
+    flex: 4 0 0;
+}
+
+div.form__input--name > input,
+div.form__input--title > input {
+    flex: 6 0 0;
+}
+
+div.form__textbox {
+    display: flex;
+    margin: 0.3rem;
+}
+div.form__textbox > label {
+    flex: 4 0 0;
+
+}
+div.form__textbox > textarea {
+    flex: 6 0 0;
+}
+
+
+/* div.form__input--wrapper {
+    flex: 4 0 0;
+}
+div.form__submit {
+    flex: 1 0 0;
+} */
+
+/* .form__input--name {
+    flex-basis: 10%;
+}
+.form__input--title {
+    flex-basis: 10%;
+}
+.form__textbox {
+    flex-basis: 20%;
+} */
+
+section.discussion__wrapper {
+}
+
+li.discussion__container {
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    /* border-color: gray;  */
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin-bottom: 0.6rem;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 450px;
+}
+.discussion__title:hover {
+    color: khaki;
+    transition: 0.3s;
+}
+.discussion__title:visited {
+    color: gray;
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
