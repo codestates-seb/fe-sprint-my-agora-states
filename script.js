@@ -31,7 +31,10 @@ const convertToDiscussion = (obj) => {
   //작성자 및 작성된 날짜의 경우
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
-  discussionInformation.textContent = obj.author + '/' + obj.createdAt;
+  //new Date(obj.createdAt) -> 한국 표준시를 불러온다
+  //여기에 toLocaleTimeString()을 이용해 해당 시간을 문자열로 변환해준다.
+  let dateTime = new Date(obj.createdAt);
+  discussionInformation.textContent = `${obj.author} / ${dateTime.toLocaleTimeString()}`; 
   discussionContent.append(discussionInformation);
   
   //체크박스
@@ -70,7 +73,9 @@ submit.onclick = function (e) {
   const newObj =
   {
     id: "",
-    createdAt: new Date().toLocaleDateString(), //현재 작성 시간 표현  
+    createdAt: Date(), //현재 작성 시간 표현을 표현
+    // convertToDiscussion에서 시간 설정을 new Date().toLocaleTimeString()을 통해 해주었기 때문에
+    //새로운 데이터 할당시에는 Date()를 통해 시간을 불러와 다시 실행해주어야한다 (???) -> 조사 후 내용정리 예정
     title: inputTitle.value,
     url: null,
     author: inputName.value,
@@ -78,7 +83,9 @@ submit.onclick = function (e) {
     bodyHTML: "",
     avatarUrl: "https://img.icons8.com/ios/500/css.png"
   }
-  
+
   agoraStatesDiscussions.unshift(newObj);
   render(ul);
 }
+
+
