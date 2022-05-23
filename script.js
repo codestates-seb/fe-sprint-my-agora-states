@@ -1,6 +1,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(!localStorage.getItem("agoraArr"));
 
+// 로컬스토리지
 if (!localStorage.getItem("agoraArr")) {
   localStorage.setItem("agoraArr",JSON.stringify(agoraStatesDiscussions));
   var agora = localStorage.getItem("agoraArr");
@@ -8,7 +9,10 @@ if (!localStorage.getItem("agoraArr")) {
 }
 agora = localStorage.getItem("agoraArr");
 agoraArr = JSON.parse(agora);
+// 로컬스토리지
 
+
+// 시간 포맷 변경
 function createdAt(obj) {
   if (!obj.rendered && obj.id) { // 렌더된적없으면서 id가 있는 값
     if (+obj.createdAt.split('T')[1].slice(0,2)+9 > 24) {
@@ -20,6 +24,7 @@ function createdAt(obj) {
     }
   }
 }
+// 시간 포맷 변경
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -83,6 +88,7 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// submit 버튼
 const submitBtn = document.querySelector('.form');
 submitBtn.onsubmit = function () {
   const name = this.name.value;
@@ -107,18 +113,31 @@ submitBtn.onsubmit = function () {
 
   return false;
 }
+// submit 버튼
 
-
+// 페이지네이션 
 document.querySelector('.leftBtn').addEventListener('click',setRight);
 document.querySelector('.rightBtn').addEventListener('click',setLeft);
 document.querySelector('.nowPage').textContent = `1 / ${Math.ceil(agoraStatesDiscussions.length/10)}`;
 let nowPage = 1;
+function btnColor () {
+  if (nowPage === 1) {
+    document.querySelector('.leftBtn').style.color = 'lightgrey';
+  } else if (nowPage === Math.ceil(agoraStatesDiscussions.length/10)) {
+    document.querySelector('.rightBtn').style.color = 'lightgrey';
+  } else {
+    document.querySelector('.leftBtn').style.color = '#112B3C';
+    document.querySelector('.rightBtn').style.color = '#112B3C';
+  }
+}
 
+btnColor();
 function setLeft() {
   if (nowPage < Math.ceil(agoraStatesDiscussions.length/10)) { 
     document.querySelectorAll('.discussion__container').forEach(el => el.style.transform = `translateX(${(-540*(nowPage))}px)`);
     nowPage++;
     document.querySelector('.nowPage').textContent = `${nowPage} / ${Math.ceil(agoraStatesDiscussions.length/10)}`
+    btnColor();
   }
 }
 function setRight() {
@@ -126,5 +145,7 @@ function setRight() {
     nowPage--;
     document.querySelector('.nowPage').textContent = `${nowPage} / ${Math.ceil(agoraStatesDiscussions.length/10)}`
     document.querySelectorAll('.discussion__container').forEach(el => el.style.transform = `translateX(${-540*(nowPage-1)}px)`);
+    btnColor();
   }
 }
+// 페이지네이션

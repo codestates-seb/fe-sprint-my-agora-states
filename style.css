@@ -104,7 +104,7 @@ main {
 
 /* 페이지 넘김 버튼 */
 .leftBtn, .rightBtn {
-  margin: 8px 2px 0 2px;
+  margin: 13px 2px 0 2px;
   border: none;
   border-radius: 4px;
   background-color: #F66B0E;
@@ -123,13 +123,27 @@ button:hover {
 
 
 /* 글 목록 컨테이너 */
+.discussion__wrapper {
+  height: 510px;
+  overflow-y: auto;
+  margin: 10px 0 25px 0;
+}
+.discussion__wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.discussion__wrapper::-webkit-scrollbar-thumb {
+  background-color: #f1aa7a;
+  border-radius: 2px;
+}
+
+
 .discussions__container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   height: 1030px;
   width: 540px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .discussion__container {
