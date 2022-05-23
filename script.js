@@ -2,17 +2,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-//  로컬스토리지에 agoraStatesDiscussions를 담고
-//  새로 추가된 데이터도 로컬스토리지에 담은 후 
-//  두 정보를 모두 get 후 렌더링
-// let renderItem = [];
-// localStorage.setItem('discussionData', JSON.stringify(agoraStatesDiscussions));
-
-// let dataSave = function() {
-//   renderItem.unshift(JSON.parse(localStorage.getItem('discussionData')));
-// }
-
-
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다. 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 const convertToDiscussion = (obj) => {
@@ -65,7 +54,7 @@ const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  return;
+  return;//  질문) return이 없어도 실행이 잘되던데 return을 써준 이유                    --------------------------------
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
@@ -74,10 +63,11 @@ render(ul);
 
 //  submit 버튼 클릭할 때
 const submitBtn = document.querySelector(".form__submit");
+const inputName = document.querySelector("#name");
+const inputTitle = document.querySelector("#title");
+const inputStory = document.querySelector("#story");
+
 submitBtn.addEventListener('click', function(event){
-  const inputName = document.querySelector("#name");
-  const inputTitle = document.querySelector("#title");
-  const inputStory = document.querySelector("#story");
 
   if( inputName.value === '' || inputTitle.value === '' || inputStory.value === '' ) {
     alert('값을 입력하세요');
@@ -106,15 +96,38 @@ submitBtn.addEventListener('click', function(event){
   // 데이터 추가
   agoraStatesDiscussions.unshift(addDiscussion);
   
-  // 로컬 스토리지에 저장
-  // localStorage.setItem('discussionData', JSON.stringify(addDiscussion));
   
 
+  formReset();
+  render(ul);
+})
+
+// 폼 리셋
+const formReset = function() {
   inputTitle.value = '';
   inputName.value = '';
   inputStory.value = '';
-  render(ul);
-})
+}
+
+// Local Storage
+const saveLocalStorage = function(data) {
+  localStorage.setItem('savedData', JSON.stringify(data));
+}
+
+const localData = JSON.parse(localStorage.getItem('savedData'));
+
+const localRender = function(element) {
+  for( let i = 0; i < localData.length; i++ ) {
+    element.append(convertToDiscussion(localData[i]));
+  }
+}
+
+
+
+
+
+
+
 
 // 페이지만들기
 
