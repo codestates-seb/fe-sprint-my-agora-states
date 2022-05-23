@@ -25,23 +25,26 @@ ul {
    /* //////////////////////section # header, body, footer///////////////////// */
 
 #header {
-    height: 15%;
+    height: 18%;
     display: flex;
     flex-direction: row;
     width : 100%;}
 
 #body{
-    height: 85%;
+    height: 76%;
     display: flex;
     flex-direction: row;
     width : 100%;}
 
 #footer{
-    height: 10%;
+    height: 6%;
     display: flex;
     flex-direction: row;
-    background-color:rgb(71, 71, 71);
-    width : 100%;}
+    background-color:rgb(220, 220, 220);
+    opacity: 0.6;
+    border : none;
+    width : 100%;
+    font-size : 1.7vh;}
 
  /* //////////////////////(#)containers///////////////////// */
  
@@ -133,6 +136,8 @@ a {color :rgb(71, 71, 71); text-decoration: none;}
 /* //////////////////////////header-2 : search bar////////////////////// */
 .search_bar{
     position: relative;
+    margin-top : 2%;
+    margin-left: 6%;
     width: 50px;
     height: 50px;
     transition: 0.5s;
@@ -146,7 +151,9 @@ a {color :rgb(71, 71, 71); text-decoration: none;}
 
 .search_bar.active{
     position: relative;
+    margin-top: 2%;
     width : 85%;
+    margin-left : 8%;
     height : 50px;
     transition: 0.5s;
     background-color: white;
@@ -251,7 +258,7 @@ a {color :rgb(71, 71, 71); text-decoration: none;}
     display: flex;
     flex-direction: column;
     width:13%;
-    margin-top : 4%;
+    margin-top : 1%;
     margin-left : 0.4%;}
 
 .category_set{
@@ -283,6 +290,7 @@ a {color :rgb(71, 71, 71); text-decoration: none;}
 /*///////////////////////////////////body-2 : main container ///////////////////////////*/
 #main_body_cont{
     width:90%;
+    margin-top: -3%;
     display: flex;
     flex-direction: row;}
 
@@ -333,8 +341,8 @@ button.submit{
     justify-content: center;
     flex-direction: column;
     width: 60%;
-    margin-top: 5.3%;
-    height : 88%;
+    margin-top: 4.9%;
+    height : 89.3%;
     overflow-y: scroll;}
 
 #discussion_containers::-webkit-scrollbar{
@@ -604,15 +612,28 @@ p.tag{
     opacity: 80%;}
 
 /* ////////////////////////////////// footer ////////////////////////////// */
-
-.footer_logo{
+#footer{
     display: flex;
-    width:15%;
-    border: 1px solid blue;
+}
+
+.footer_Inc{
+    display: flex;
+    width:27%;
+    align-items: center;
+    justify-content: center;
+    color : rgb(24, 23, 27);
+    opacity: 1;
 }
 
 .terms_policy{
     display: flex;
-    width:85%;
-    border: 1px solid blue;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 10px;
+    width:10%;
+    font-size: 1.4vh;}
+
+.terms_policy_blank{
+    display: flex;
+    width : 13%;
 }
