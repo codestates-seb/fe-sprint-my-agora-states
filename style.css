@@ -8,7 +8,7 @@
   --fourth: #5d63fc;
   --fontColor: #2b302e;
   --hover: #723ae6;
-  --btn-1: #252259;
+  --btn-1: #312e6a;
   --btn-2: #4416a7;
   --gradient: linear-gradient(90deg, var(--btn-1), var(--btn-2));
 }
@@ -34,40 +34,45 @@ a {
   text-decoration: none;
   color: #232323;
 }
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+}
+
 body {
   /* background-image: url(bg.jpg); */
-  background: linear-gradient(
-    45deg,
-    var(--background),
-    var(--surface),
-    #d9e6f8,
-    var(--primary)
-  );
+  background: linear-gradient(70deg, var(--surface), var(--primary));
   /* background: linear-gradient(90deg, #c9ffbf, #ffafbd); */
 }
 main {
   margin: 50px auto;
-  width: 1250px;
+  width: 1140px;
   /* height: 800px; */
   border-radius: 40px;
   background-color: rgb(249, 249, 249, 0.3);
-  border: 2px solid#fff;
+  border: 1px solid#fff;
   display: flex;
 }
 #left__container {
-  width: 23%;
+  width: 25%;
 }
 #middle__container {
-  width: 60%;
+  width: 80%;
   background-color: rgb(249, 249, 249, 0.3);
   padding: 10px 50px;
   overflow: auto;
+  border-radius: 0 40px 40px 0;
 }
-#right__container {
+/* #right__container {
   width: 20%;
   background-color: rgb(249, 249, 249, 0.5);
   border-radius: 0 40px 40px 0;
-}
+} */
 /* -------------- left-profile -------------- */
 #left__container ul {
   margin: 60px auto;
@@ -145,14 +150,14 @@ main {
 h1 {
   font-family: "Koulen", cursive;
   font-size: 60px;
-  text-align: left;
+  text-align: center;
   letter-spacing: 2px;
   /* line-height: 50px; */
 }
 
 /* 폼 박스 */
 .form__container {
-  background-color: #fff;
+  background-color: rgb(249, 249, 249, 0.7);
   border-radius: 10px;
   padding: 20px;
 }
@@ -162,25 +167,28 @@ h1 {
   justify-content: space-between;
 }
 .form__input--wrapper {
-  width: 76%;
+  width: 78%;
 }
 .form__input--wrapper > div {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 .form__input--wrapper input {
-  width: 290px;
+  /* width: 290px; */
+  border-radius: 5px;
+  border: 0px solid #ccc;
 }
 .form__input--wrapper .form__input--title {
-  margin: 20px 0;
+  margin: 10px 0;
 }
-.form__input--wrapper .form__textbox {
-  display: flex;
-  flex-direction: column;
+.form__input--wrapper textarea {
+  border-radius: 10px;
+  border: 0px solid #ccc;
 }
 /* 제출 버튼 */
 .form__submit {
-  width: 20%;
+  width: 18%;
 }
 .form__submit input {
   width: 100%;
@@ -204,7 +212,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   align-content: space-between;
-  background-color: rgb(249, 249, 249, 0.5);
+  background-color: rgb(249, 249, 249, 1);
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 15px 20px;
@@ -308,4 +316,29 @@ img {
 }
 #right__container ul li {
   margin-bottom: 20px;
+}
+
+/* 버튼  */
+.pagination__wrapper {
+  text-align: center;
+  padding: 10px 0 30px;
+}
+.pagination__wrapper button {
+  font-size: 26px;
+  background-color: rgb(249, 249, 249, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  line-height: 40px;
+  margin-right: 10px;
+}
+.pagination__wrapper button .active,
+.pagination__wrapper button:hover {
+  /* background-color: rgb(249, 249, 249, 0.8);
+  box-shadow: 1px 1px 6px 2px #c6c6c6;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px; */
+  text-decoration: underline;
+  line-height: 40px;
 }

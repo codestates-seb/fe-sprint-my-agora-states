@@ -138,9 +138,35 @@ const addNowTime = () => {
 // 화면에 보여질 마지막 페이지
 // 총페이지수
 
-const numOfContent = addClickDiscussion.length;
-const showContent = 10;
-const renderPadgination = (currentpage) => {
-  const totalPage = Math.ceil(totalData / dataPerPage);
-  const pageGrounp = Math.ceil(currentpage / pageCount);
+const paginationWrapper = document.querySelector(".pagination__wrapper");
+
+const numOfContent = agoraStatesDiscussions.length; // 글 개수
+const maxContent = 10; //한 페이지에 있는 글 개수
+const maxButoon = 5; // 페이지 버튼 수
+const maxPage = Math.ceil(numOfContent / maxContent); //글개수 나누기 한페이지에 있는 글
+let page = 1;
+
+const makeButton = (a) => {
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.dataset.num = a;
+  button.innerText = a;
+  button.addEventListener("click", (e) => {
+    Array.prototype.forEach.call(paginationWrapper.children, (button) => {
+      if (button.dataset.num) button.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    renderContent(parseInt(e.target.dataset.num));
+  });
+  return button;
 };
+
+// const renderContent = (page) => {
+//   for (
+//     let id = (page - 1) * maxContent + 1;
+//     id <= page * maxContent && id <= numOfContent;
+//     id++
+//   ) {
+//     contents.appendChild(makeContent(id));
+//   }
+// };
