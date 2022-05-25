@@ -75,12 +75,8 @@ submitBtn.addEventListener('click', function(event){
   }
   event.preventDefault();
   
-  while(ul.firstChild) { 
-    ul.firstChild.remove(); 
-  }
-  // ul 초기화
-  // 참고) ul.innerHTML = ''; [innerHTML은 사용을 지양하므로 ul.firstChild 사용] 
-
+  elRemove(ul);
+  
   // 추가할 데이터
   const addDiscussion = {
     id: Date.now(),
@@ -92,12 +88,9 @@ submitBtn.addEventListener('click', function(event){
     bodyHTML: inputStory.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   }
-  
   // 데이터 추가
   agoraStatesDiscussions.unshift(addDiscussion);
-  
-  
-
+  saveLocalStorage(agoraStatesDiscussions);
   formReset();
   render(ul);
 })
@@ -109,18 +102,21 @@ const formReset = function() {
   inputStory.value = '';
 }
 
+// ul 초기화
+// 참고) ul.innerHTML = ''; [innerHTML은 사용을 지양하므로 ul.firstChild 사용] 
+const elRemove = function(el) {
+  while(el.firstChild) { 
+    el.firstChild.remove(); 
+  }
+}
+
 // Local Storage
 const saveLocalStorage = function(data) {
   localStorage.setItem('savedData', JSON.stringify(data));
 }
-
 const localData = JSON.parse(localStorage.getItem('savedData'));
 
-const localRender = function(element) {
-  for( let i = 0; i < localData.length; i++ ) {
-    element.append(convertToDiscussion(localData[i]));
-  }
-}
+
 
 
 
@@ -140,10 +136,10 @@ const localRender = function(element) {
 // 데이터가 7개가 넘어갈 때마다 1페이지씩 늘어남
 
 // const createPageNum = function(num) {
-//   const pageNum = document.createElement('li');
-//   const pageNumBtn = document.createElement('button');
-//   pageNumBtn.textContent = num;
-//   pageNum.append(pageNumBtn);  
+  //   const pageNum = document.createElement('li');
+  //   const pageNumBtn = document.createElement('button');
+  //   pageNumBtn.textContent = num;
+  //   pageNum.append(pageNumBtn);  
 //   return pageNum;
 // }
 
