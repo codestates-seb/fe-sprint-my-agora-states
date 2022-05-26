@@ -1,3 +1,4 @@
+toLocalStorage(agoraStatesDiscussions);
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -104,7 +105,7 @@ function confirmForm() {
     let arr = JSON.parse(localStorage.getItem('newArr'));
     localStorage.setItem('newArr', JSON.stringify([data, ...arr]));
     hadchildren(ul);
-    render(ul);
+    render2(ul, 0, 9);
     title.value = '';
     name.value = '';
     story.value = '';
@@ -127,6 +128,7 @@ function confirmForm() {
   } else {
     getNum = 1;
   }
+
   function createPage(createEl, Elparent, clName, startNum, endNum) {
     for (let i = startNum; i <= endNum; i++) {
       if (getNum < i) {
@@ -170,72 +172,82 @@ function confirmForm() {
       window.scrollTo(0, 0);
     };
     // 한칸씩 이동하는거로 짜봄!
+    // document.querySelector('#nextBtn').onclick = function () {
+    //   let num = Number(document.querySelector('.colored').textContent);
+    //   let numNext = document.querySelector('.colored').nextSibling;
+    //   if (num === getNum) {
+    //     return;
+    //   }
+
+    //   if ((num + 1) % 3 === 1) {
+    //     hadchildren(pagination);
+    //     createPage('span', 'pagination', 'page', num + 1, num + 3);
+
+    //     if (document.querySelector('.colored') !== null) {
+    //       document.querySelector('.colored').classList.remove('colored');
+    //     }
+    //     pagination.firstChild.classList.add('colored');
+    //   } else {
+    //     document.querySelector('.colored').classList.remove('colored');
+    //     numNext.classList.add('colored');
+    //   }
+    //   hadchildren(ul);
+    //   render2(ul, num * 10, (num + 1) * 10 - 1);
+    //   window.scrollTo(0, 0);
+    // };
+    // document.querySelector('#beforeBtn').onclick = function () {
+    //   let num = Number(document.querySelector('.colored').textContent);
+    //   let numBefore = document.querySelector('.colored').previousSibling;
+    //   if (num === 1) {
+    //     return;
+    //   }
+
+    //   if ((num - 1) % 3 === 0) {
+    //     hadchildren(pagination);
+    //     createPage('span', 'pagination', 'page', num - 3, num - 1);
+
+    //     if (document.querySelector('.colored') !== null) {
+    //       document.querySelector('.colored').classList.remove('colored');
+    //     }
+    //     pagination.lastChild.classList.add('colored');
+    //   } else {
+    //     document.querySelector('.colored').classList.remove('colored');
+    //     numBefore.classList.add('colored');
+    //   }
+    //   hadchildren(ul);
+    //   render2(ul, (num - 2) * 10, (num - 1) * 10 - 1);
+    //   window.scrollTo(0, 0);
+    // };
     document.querySelector('#nextBtn').onclick = function () {
-      let num = Number(document.querySelector('.colored').textContent);
-      let numNext = document.querySelector('.colored').nextSibling;
+      let num = Number(pagination.lastChild.textContent);
       if (num === getNum) {
         return;
       }
-
-      if ((num + 1) % 3 === 1) {
-        hadchildren(pagination);
-        createPage('span', 'pagination', 'page', num + 1, num + 3);
-
-        if (document.querySelector('.colored') !== null) {
-          document.querySelector('.colored').classList.remove('colored');
-        }
-        pagination.firstChild.classList.add('colored');
-      } else {
+      hadchildren(pagination);
+      createPage('span', 'pagination', 'page', num + 1, num + 3);
+      if (document.querySelector('.colored') !== null) {
         document.querySelector('.colored').classList.remove('colored');
-        numNext.classList.add('colored');
       }
+      pagination.firstChild.classList.add('colored');
       hadchildren(ul);
       render2(ul, num * 10, (num + 1) * 10 - 1);
       window.scrollTo(0, 0);
     };
     document.querySelector('#beforeBtn').onclick = function () {
-      let num = Number(document.querySelector('.colored').textContent);
-      let numBefore = document.querySelector('.colored').previousSibling;
+      let num = Number(pagination.firstChild.textContent);
       if (num === 1) {
         return;
       }
-
-      if ((num - 1) % 3 === 0) {
-        hadchildren(pagination);
-        createPage('span', 'pagination', 'page', num - 3, num - 1);
-
-        if (document.querySelector('.colored') !== null) {
-          document.querySelector('.colored').classList.remove('colored');
-        }
-        pagination.lastChild.classList.add('colored');
-      } else {
+      hadchildren(pagination);
+      createPage('span', 'pagination', 'page', num - 3, num - 1);
+      if (document.querySelector('.colored') !== null) {
         document.querySelector('.colored').classList.remove('colored');
-        numBefore.classList.add('colored');
       }
+      pagination.firstChild.classList.add('colored');
       hadchildren(ul);
-      render2(ul, (num - 2) * 10, (num - 1) * 10 - 1);
+      render2(ul, (num - 4) * 10, (num - 3) * 10 - 1);
       window.scrollTo(0, 0);
     };
-    // document.querySelector('#nextBtn').onclick = function () {
-    //   let num = Number(pagination.lastChild.textContent);
-    //   if (num === getNum) {
-    //     return;
-    //   }
-    //   hadchildren(pagination);
-    //   createPage('span', 'pagination', 'page', num + 1, num + 3);
-    //   hadchildren(ul);
-    //   render2(ul, num * 10, (num + 1) * 10 - 1);
-    // };
-    // document.querySelector('#beforeBtn').onclick = function () {
-    //   let num = Number(pagination.firstChild.textContent);
-    //   if (num === 1) {
-    //     return;
-    //   }
-    //   hadchildren(pagination);
-    //   createPage('span', 'pagination', 'page', num - 3, num - 1);
-    //   hadchildren(ul);
-    //   render2(ul, (num - 4) * 10, (num - 3) * 10 - 1);
-    // };
   }
 
   return;
