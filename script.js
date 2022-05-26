@@ -90,24 +90,30 @@ render (ul);
 
 /* /////////////////////////body-3 - new discussions////////////////// */
 
-const formSubmit = document.querySelector('.form_submit');
+const formSubmit = document.querySelector('.question_form');
 
 const formNameInput = document.querySelector('.form_nameInput');
 const formTitleInput = document.querySelector('.form_titleInput');
 const formQuestionInput = document.querySelector('.form_textarea');
 
 
-formSubmit.onclick = function(event){
-    event.preventDefault();
-    const newName = formNameInput.value;
-    const newTitle = formTitleInput.value;
+formSubmit.onsubmit = function(){
+    
+    const newName = this.name.value;
+    const newTitle = this.title.value;
+  
     const newDate = new Date().toLocaleString();
     const newObj = {author: newName, title: newTitle, createdAt: newDate, avatarUrl:'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3JMgT%2FbtrCY6PaJZ3%2Fn5wBHk17RKFDfwSFjWSyJK%2Fimg.jpg' };
-    //아바타 두개
+  
     agoraStatesDiscussions.unshift(newObj);
     ul.prepend(objectToValue(newObj));
-}
 
+    this.name.value = "";
+    this.title.value = "";
+    this.question.value = "";
+
+    return false;
+}
 
 
 
