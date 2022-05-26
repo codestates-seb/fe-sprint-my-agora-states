@@ -3,7 +3,8 @@
 console.log(agoraStatesDiscussions);
 
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다. 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다. 
+// 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li");
   li.className = "discussion__container";
@@ -49,18 +50,6 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;//  질문) return이 없어도 실행이 잘되던데 return을 써준 이유                    --------------------------------
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
 //  submit 버튼 클릭할 때
 const submitBtn = document.querySelector(".form__submit");
 const inputName = document.querySelector("#name");
@@ -75,10 +64,7 @@ submitBtn.addEventListener('click', function(event){
   }
   event.preventDefault();
   
-  elRemove(ul);
-  
-  // 추가할 데이터
-  const addDiscussion = {
+  const newData = {
     id: Date.now(),
     createdAt: new Date().toLocaleString(),
     title: inputTitle.value,
@@ -88,12 +74,22 @@ submitBtn.addEventListener('click', function(event){
     bodyHTML: inputStory.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   }
-  // 데이터 추가
-  agoraStatesDiscussions.unshift(addDiscussion);
-  saveLocalStorage(agoraStatesDiscussions);
+
+  saveLocalStorage(newData);
+  ul.prepend(convertToDiscussion(newData));
   formReset();
-  render(ul);
 })
+
+// Local Storage
+const savedLocalData = [];
+
+const saveLocalStorage = function(data) {
+  savedLocalData.push(data);
+  localStorage.setItem('localKey', JSON.stringify(savedLocalData));
+}
+// const getLocalStorage = function(data) {
+//   return JSON.parse(localStorage.getItem('localKey'));
+// }
 
 // 폼 리셋
 const formReset = function() {
@@ -110,11 +106,27 @@ const elRemove = function(el) {
   }
 }
 
-// Local Storage
-const saveLocalStorage = function(data) {
-  localStorage.setItem('savedData', JSON.stringify(data));
-}
-const localData = JSON.parse(localStorage.getItem('savedData'));
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  // 만약에 localstorage에 값이 있다면 그 값을 렌더링합니다.
+  if(savedLocalData) {
+    const getLocalData = JSON.parse(localStorage.getItem('localKey'));
+    console.log(getLocalData);
+    for(let i = 0; i < getLocalData.length; i++) {
+      element.prepend(convertToDiscussion(getLocalData[i]));
+    }
+  }
+
+  // 질문) return이 없어도 실행이 잘되던데 return을 써준 이유
+  return;
+};
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
 
 
 
