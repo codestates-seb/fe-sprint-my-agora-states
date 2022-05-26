@@ -74,22 +74,26 @@ submitBtn.addEventListener('click', function(event){
     bodyHTML: inputStory.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   }
+  // 만약에 localStorage가 비었다면 agoraStatesDiscussions에 newData를 넣고
+  // 그렇지 않다면 localStorage의 데이터를 불러와 새로운 변수에 담고 그 곳에 newData를 넣은 후 localStorage에 저장한다.
+  const getLocalData = JSON.parse(localStorage.getItem('key'));
+  if(getLocalData === null) {
+    agoraStatesDiscussions.unshift(newData);
+    saveLocalStorage(agoraStatesDiscussions);
+  } else {
+    getLocalData.unshift(newData);
+    saveLocalStorage(getLocalData);
+  }
 
-  saveLocalStorage(newData);
-  ul.prepend(convertToDiscussion(newData));
   formReset();
+  removeEl(ul);
+  render(ul);
 })
 
 // Local Storage
-const savedLocalData = [];
-
 const saveLocalStorage = function(data) {
-  savedLocalData.push(data);
-  localStorage.setItem('localKey', JSON.stringify(savedLocalData));
+  localStorage.setItem('key', JSON.stringify(data));
 }
-// const getLocalStorage = function(data) {
-//   return JSON.parse(localStorage.getItem('localKey'));
-// }
 
 // 폼 리셋
 const formReset = function() {
@@ -100,7 +104,7 @@ const formReset = function() {
 
 // ul 초기화
 // 참고) ul.innerHTML = ''; [innerHTML은 사용을 지양하므로 ul.firstChild 사용] 
-const elRemove = function(el) {
+const removeEl = function(el) {
   while(el.firstChild) { 
     el.firstChild.remove(); 
   }
@@ -111,16 +115,14 @@ const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  // 만약에 localstorage에 값이 있다면 그 값을 렌더링합니다.
-  if(savedLocalData) {
-    const getLocalData = JSON.parse(localStorage.getItem('localKey'));
-    console.log(getLocalData);
+
+  const getLocalData = JSON.parse(localStorage.getItem('key'));
+  if(getLocalData !== null) {
+    removeEl(element);
     for(let i = 0; i < getLocalData.length; i++) {
-      element.prepend(convertToDiscussion(getLocalData[i]));
+      element.append(convertToDiscussion(getLocalData[i]));
     }
   }
-
-  // 질문) return이 없어도 실행이 잘되던데 return을 써준 이유
   return;
 };
 
