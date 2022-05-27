@@ -1,1 +1,277 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: 'EliceDigitalBaeum_Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EliceDigitalBaeum_Regular.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: 'EliceDigitalBaeum_Regular';
+}
+body {
+  background-color: rgb(254, 227, 236);
+  background-image: linear-gradient(
+    to bottom,
+    #ffc8d2,
+    #ffcfc3,
+    #ffdbb3,
+    #ffecab,
+    #e8ffb3
+  );
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+main {
+  margin: auto;
+  width: 540px;
+}
+h1 {
+  font-size: 20px;
+  position: fixed;
+  top: 0;
+  width: 540px;
+  z-index: 5;
+  background-color: #ffc8d2;
+  height: 70px;
+  padding-top: 10px;
+}
+h1::after {
+  content: '';
+  width: 170px;
+  height: 15px;
+  position: absolute;
+  z-index: -1;
+  left: 7px;
+  top: 25px;
+  background-color: rgba(255, 175, 200, 0.8);
+}
+/* form */
+.form__container {
+  position: fixed;
+  top: 70px;
+  width: 540px;
+  background-color: #ffd1d1;
+  z-index: 5;
+  height: 150px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.form__container .form__input--wrapper {
+  padding: 10px;
+  margin-left: 20px;
+}
+.form__container .form__input--wrapper .form__input--name,
+.form__container .form__input--wrapper .form__input--title,
+.form__container .form__input--wrapper .form__textbox {
+  margin: 10px;
+  display: flex;
+}
+.form__container .form__input--wrapper label {
+  margin-right: 10px;
+  font-weight: 700;
+}
+.form__container .form__input--wrapper input,
+.form__container .form__input--wrapper textarea {
+  border: none;
+  border-radius: 4px;
+}
+.form__container .form__submit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.form__container .form__submit input {
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+/*discussion*/
+.discussion__wrapper {
+  margin-top: 215px;
+  background-color: rgba(255, 200, 210, 0.3);
+  min-height: calc(100vh - 315px);
+}
+.discussion__wrapper .discussions__container {
+  padding: 0;
+  margin: 0;
+}
+.discussion__wrapper .discussions__container .discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0 10px;
+  border-bottom: 1px dashed rgba(194, 124, 146, 0.8);
+  position: relative;
+}
+.discussion__wrapper .discussions__container .discussion__container:last-child {
+  border: none;
+}
+.discussion__wrapper
+  .discussions__container
+  .discussion__container:hover
+  .discussion__avatar--image,
+.discussion__wrapper
+  .discussions__container
+  .discussion__container:hover
+  .discussion__title {
+  transform: scale(1.02);
+  color: #f2789f;
+  transition: transform 0.3s;
+}
+
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__avatar--wrapper {
+  flex: 1 1 10%;
+}
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__avatar--wrapper
+  .discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__content {
+  flex: 1 1 80%;
+  padding: 0 10px;
+}
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__title {
+  font-size: 16px;
+}
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__information {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__answered {
+  flex: 1 1 10%;
+  text-align: center;
+  color: rgb(242, 120, 159);
+}
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__information
+  .isAnswer {
+  font-weight: 700;
+  font-size: 12px;
+}
+.discussion__wrapper
+  .discussions__container
+  .discussion__container
+  .discussion__content
+  .discussion__information
+  .isAnswer.yes {
+  color: rgb(242, 120, 159);
+  font-weight: 700;
+  font-size: 12px;
+}
+.page__btn {
+  display: flex;
+  width: 540px;
+  height: 100px;
+  margin: auto;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page__btn #beforeBtn,
+.page__btn #nextBtn {
+  cursor: pointer;
+}
+.page__btn #goToOne,
+.page__btn #goToLast {
+  cursor: pointer;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.pagination span {
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: #bdde70;
+}
+.pagination span.colored {
+  color: pink;
+}
+/* .discussion__preview {
+  background-color: aqua;
+
+  position: absolute;
+  border: 1px solid black;
+  top: 0;
+  right: 0;
+  display: none;
+}
+.discussion__preview.active {
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.discussion__preview .write__date {
+  font-size: 12px;
+}
+.discussion__preview .question__preview {
+  padding: 0px 5px 0 15px;
+  position: relative;
+}
+.discussion__preview .question__preview::before {
+  content: '💬';
+  position: absolute;
+  left: -5px;
+}
+
+.discussion__preview .question__preview .question__title {
+  font-size: 14px;
+}
+
+.discussion__preview .question__preview .question__number {
+  font-size: 12px;
+  font-weight: 500;
+}
+.discussion__preview .question__preview .question__desc {
+  font-size: 12px;
+} */
