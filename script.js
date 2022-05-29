@@ -56,15 +56,17 @@ const inputTitle = document.querySelector(".form__input--title > #name");
 const timezoneOffset = new Date().getTimezoneOffset() * 60000;  //UTC시간과 한국시간은 9시간 차이가 나기 때문에 1. 밀리초단위를 인자로 받는 new Date() 함수에 넣기 위해서 1000(밀리초) * 60(초)를 곱해 밀리초 단위를 만든다.
 const timezoneDate = new Date(Date.now() - timezoneOffset); //2. 현재시간 - timezoneOffset
 const inputText = document.querySelector("textarea");
-subBtn.onclick = function () {
+subBtn.onclick = function (el) {
   if(inputName.value === '') {
     alert('이름을 입력하세요');
   } else if (inputTitle.value === '') {
     alert('제목을 입력하세요');
   } else {
   const nObj = {};
+  nObj.id = '';
   nObj.createdAt = timezoneDate.toISOString();
   nObj.title = inputTitle.value;
+  nObj.url = 'https://github.com/seungmileee/fe-sprint-my-agora-states'
   nObj.author = inputName.value;
   nObj.text = inputText.value;
   nObj.avatarUrl = "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
@@ -74,8 +76,9 @@ subBtn.onclick = function () {
   ul.append(convertToDiscussion(agoraStatesDiscussions[0]));
   ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
 }
+el.preventDefault();
 }
- //convertToDiscussion(goraStatesDiscussions[agoraStatesDiscussions.length - 1]);
+ 
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
