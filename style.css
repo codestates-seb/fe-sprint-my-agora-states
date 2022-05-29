@@ -1,1 +1,124 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; }
+li { list-style: none; }
+ul { margin: 0; padding: 0; }
+a { text-decoration: none; color: black;}
+
+:root {
+  --bg-color1: #6A67CE;
+  --bg-color2: #947EC3;
+  --bg-color3: #B689C0;
+  --bg-color4: #EEF3D2;
+}
+
+/* main */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  background-color: var(--bg-color4);
+  margin: 0 auto;
+}
+
+/* form */
+.form__container {
+  width: 80%;
+  max-width: 750px;
+  min-width: 440px;
+  background-color: var(--bg-color1);
+  color: var(--bg-color4);
+  border-radius: 10px;
+  padding: 15px;
+}
+.form {
+  display: flex;
+  gap: 15px;
+}
+.form__input--wrapper {
+  flex-grow: 3;
+}
+.form__submit {
+  flex-grow: 1;
+}
+.form__submit input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 5px;
+}
+.form__submit input:hover {
+  background-color: var(--bg-color3);
+}
+.form__textbox textarea {
+  display: block;
+  width: 100%;
+}
+.form__input--name {
+  position: relative;
+}
+.form__input--name input {
+  width: 50%;
+  position: absolute;
+  right: 0;
+}
+.form__input--title {
+  position: relative;
+}
+.form__input--title input {
+  width: 50%;
+  position: absolute;
+  right: 0;
+}
+
+/* discussion */
+.discussion__wrapper {
+  width: 80%;
+  max-width: 750px;
+  min-width: 440px;
+}
+.discussion__avatar--image {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+}
+.discussion__container {
+  padding: 0 15px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background-color: var(--bg-color2);
+  color: var(--bg-color4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.discussion__content {
+  flex-grow: 1;
+}
+.discussion__title {
+  margin: 10px;
+}
+.discussion__title a {
+  color: inherit;
+}
+.discussion__information {
+  text-align: right;
+  margin: 10px;
+}
+
+/* pagenation */
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10%;
+  background-color: var(--bg-color2);
+  color: var(--bg-color4);
+}
+.pagingBtns {
+  display: flex;
+  gap: 10px;
+}
+.pagingBtns__num {
+  display: flex;
+}
