@@ -1,4 +1,6 @@
 
+// data.js 파일의 agoraStatesDiscussions 배열을 렌더링 하는 part 시작//
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -61,4 +63,72 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// data.js 파일의 agoraStatesDiscussions 배열을 렌더링 하는 part 시작//
 
+
+
+
+
+//변수 리스트 //
+const nameInput = document.querySelector('.name_input');
+const titleInput = document.querySelector('.title_input');
+const textInput = document.querySelector('.text_input');
+const submitBtn = document.querySelector('.inputsize');
+
+
+
+
+
+
+
+//part1. 아이디, 질문 유효성 검사//
+function isIndludeIndex(value){
+  return value.indexOf('[') !== -1 && value.indexOf(']') !== -1; //true면 말머리 있음
+}
+
+
+
+// 새로운 질문 추가 part 시작 //
+
+let newObj = {};
+// submitBtn.onclick = function(){ //객체에 담기
+//   if(isIndludeIndex(titleInput.value) === false){
+//     alert('[질문 카테고리를 입력해주세요]');
+//   }
+//   else{
+//     newObj.author = nameInput.value;
+//     newObj.title = titleInput.value;
+//     newObj.question = textInput.value; 
+//     newObj.createdAt = Date.now(); 
+//     newObj.avatarUrl = "https://kr.seaicons.com/wp-content/uploads/2016/03/Floppy-Disk-icon.png";
+
+//     agoraStatesDiscussions.push(newObj);
+//     render(ul);
+//     // newObj = {};
+//     nameInput.value ='';
+//     titleInput.value ='';
+//     textInput.value ='';
+//   }
+// }
+function handleQSubmit(event){
+  event.preventDefault();
+    if(isIndludeIndex(titleInput.value) === false){
+    alert('[질문 카테고리를 입력해주세요]');
+  }
+  else{
+    newObj.author = nameInput.value;
+    newObj.title = titleInput.value;
+    newObj.question = textInput.value; 
+    newObj.createdAt = Date.now(); 
+    newObj.avatarUrl = "https://kr.seaicons.com/wp-content/uploads/2016/03/Floppy-Disk-icon.png";
+
+    agoraStatesDiscussions.push(newObj);
+    render(ul);
+    // newObj = {};
+    nameInput.value ='';
+    titleInput.value ='';
+    textInput.value ='';
+  }
+}
+submitBtn.addEventListener("click", handleQSubmit);
+// 새로운 질문 추가 part 끝 //
