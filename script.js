@@ -61,7 +61,6 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-
 let nameInput = document.getElementById('name')
 let titleInput = document.getElementById('title')
 let questionInput = document.getElementById('story')
@@ -73,11 +72,11 @@ document.querySelector('form.form').addEventListener('submit', function (e) {
 
   console.log(nameInput.value);    
 
-  now = new Date().toISOString()//2022-04-22T14:08:33Z
+  now = new Date().toISOString()
   let formData =  
     {
       id: null,
-      createdAt: now, //`${now.getFullYear}-${today.getDate()}`,
+      createdAt: now,
       title: title.value,
       url: null,
       author: nameInput.value,
