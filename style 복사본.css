@@ -1,0 +1,136 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --background: #f5eaf7;
+  --surface: #e7baf9;
+  --primary: #a7b1de;
+  --secondary: #a16eae;
+  --third: #5bb7f2;
+  --fourth: #5d63fc;
+  --fontColor: #2b302e;
+  --main-Bg-color: #f4eee8;
+  --sub-Bg-color: #325288;
+  --list-Bg-color: rgb(249, 249, 249);
+  --point-color: #f5cebe;
+}
+/* -------------- 기본 세팅 -------------- */
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nanum Gothic", sans-serif;
+  color: #232323;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #232323;
+}
+body {
+  width: 540px;
+  background-color: var(--main-Bg-color);
+  padding: 50px 0;
+}
+
+/* -------------- 메인 제목 -------------- */
+h1 {
+  font-family: "Koulen", cursive;
+  font-size: 82px;
+  text-align: center;
+  letter-spacing: 2px;
+  /* line-height: 50px; */
+}
+
+/* -------------- 폼 박스 -------------- */
+.form__container {
+  background-color: var(--sub-Bg-color);
+  border-radius: 10px;
+  padding: 20px;
+}
+.form__container form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  justify-content: space-between;
+}
+.form__input--wrapper > div label {
+  color: #fff;
+}
+
+.form__input--title {
+  margin: 20px 0;
+}
+/* 제출 버튼 */
+.form__submit {
+  width: 20%;
+  /* cursor: pointer; */
+}
+.form__submit input {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--sub-Bg-color);
+  background-color: var(--point-color);
+  border: 1px solid var(--point-color);
+}
+
+/* -------------- 질문 리스트 -------------- */
+.discussion__wrapper {
+  margin-top: 50px;
+}
+
+.discussion__wrapper .discussion__inner--main {
+  display: flex;
+  flex-basis: 0;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  background-color: var(--list-Bg-color);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+
+/* -------------- 질문 리스트 메인-------------- */
+h2 {
+  color: var(--sub-Bg-color);
+}
+/* 프로필사진 */
+img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px 2px #bfbfbf;
+}
+/* 제목 */
+.discussion__content {
+  flex-grow: 1;
+  margin: 0 30px;
+}
+.discussion__content .discussion__title {
+  font-size: 20px;
+}
+.discussion__content .discussion__information {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  padding-top: 10px;
+  color: #555;
+}
+/* -------------- 질문 리스트 답변-------------- */
+.discussion__inner--answer {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+.discussion__avatar--answer img {
+  background-color: #fff;
+}

@@ -1,1 +1,344 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --background: #f5eaf7;
+  --surface: #e7baf9;
+  --primary: #a7b1de;
+  --secondary: #a16eae;
+  --third: #5bb7f2;
+  --fourth: #5d63fc;
+  --fontColor: #2b302e;
+  --hover: #723ae6;
+  --btn-1: #312e6a;
+  --btn-2: #4416a7;
+  --gradient: linear-gradient(90deg, var(--btn-1), var(--btn-2));
+}
+.hide {
+  display: none;
+}
+
+/* -------------- 기본 세팅 -------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  color: #232323;
+}
+ul {
+  list-style: none;
+}
+li {
+  /* cursor: pointer; */
+}
+a {
+  text-decoration: none;
+  color: #232323;
+}
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+}
+
+body {
+  /* background-image: url(bg.jpg); */
+  background: linear-gradient(70deg, var(--surface), var(--primary));
+  /* background: linear-gradient(90deg, #c9ffbf, #ffafbd); */
+}
+main {
+  margin: 50px auto;
+  width: 1140px;
+  /* height: 800px; */
+  border-radius: 40px;
+  background-color: rgb(249, 249, 249, 0.3);
+  border: 1px solid#fff;
+  display: flex;
+}
+#left__container {
+  width: 25%;
+}
+#middle__container {
+  width: 80%;
+  background-color: rgb(249, 249, 249, 0.3);
+  padding: 10px 50px;
+  overflow: auto;
+  border-radius: 0 40px 40px 0;
+}
+/* #right__container {
+  width: 20%;
+  background-color: rgb(249, 249, 249, 0.5);
+  border-radius: 0 40px 40px 0;
+} */
+/* -------------- left-profile -------------- */
+#left__container ul {
+  margin: 60px auto;
+  width: 200px;
+}
+#left__container li {
+  display: flex;
+  margin-bottom: 40px;
+}
+#left__container li .list_icon {
+  background-color: rgb(249, 249, 249, 0.7);
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#left__container li .list_icon span {
+  margin-top: 1px;
+  transform: scale(1.1);
+  color: rgb(104, 104, 104);
+}
+#left__container .list__Sub {
+  margin-top: 3px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: rgb(135, 135, 135);
+}
+
+/* 첫번쨰 포인트 아이콘 */
+#left__container li:first-child {
+  margin-bottom: 80px;
+}
+#left__container li:first-child .list_icon {
+  background: var(--gradient);
+}
+#left__container li:first-child span {
+  color: #fff;
+  border: 0px;
+}
+#left__container li:first-child .list__Sub {
+  font-size: 25px;
+}
+#left__container li:first-child .list__Sub strong {
+  color: #232323;
+}
+
+/* 호버 이벤트 */
+#left__container .list:hover .list_icon {
+  box-shadow: 1px 1px 6px 2px #c6c6c6;
+}
+#left__container .list:hover .list_icon span {
+  color: var(--hover);
+}
+#left__container .list:hover .list__Sub strong {
+  color: #232323;
+}
+
+/*현재활동*/
+#left__container .Now .list_icon {
+  box-shadow: 1px 1px 6px 2px #c6c6c6;
+}
+#left__container .Now .list_icon span {
+  color: var(--hover);
+}
+#left__container .Now .list__Sub strong {
+  color: #232323;
+}
+
+/* -------------- 아고라 스테이츠 -------------- */
+/* 메인 제목  */
+h1 {
+  font-family: "Koulen", cursive;
+  font-size: 60px;
+  text-align: center;
+  letter-spacing: 2px;
+  /* line-height: 50px; */
+}
+
+/* 폼 박스 */
+.form__container {
+  background-color: rgb(249, 249, 249, 0.7);
+  border-radius: 10px;
+  padding: 20px;
+}
+.form__container form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.form__input--wrapper {
+  width: 78%;
+}
+.form__input--wrapper > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.form__input--wrapper input {
+  /* width: 290px; */
+  border-radius: 5px;
+  border: 0px solid #ccc;
+}
+.form__input--wrapper .form__input--title {
+  margin: 10px 0;
+}
+.form__input--wrapper textarea {
+  border-radius: 10px;
+  border: 0px solid #ccc;
+}
+/* 제출 버튼 */
+.form__submit {
+  width: 18%;
+}
+.form__submit input {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+  background: var(--gradient);
+  border: 1px solid var(--hover);
+}
+
+/* ----- 질문 리스트 ------ */
+.discussion__wrapper {
+  margin-top: 50px;
+}
+
+.discussion__wrapper .discussion__inner--main {
+  display: flex;
+  flex-basis: 0;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  background-color: rgb(249, 249, 249, 1);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+/* ------질문 리스트 메인------*/
+h2 {
+  color: var(--sub-Bg-color);
+}
+/* 프로필사진 */
+img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px 2px #bfbfbf;
+}
+/* 제목 */
+.discussion__content {
+  flex-grow: 1;
+  margin: 0 30px;
+}
+.discussion__content .discussion__title {
+  font-size: 20px;
+}
+.discussion__content .discussion__information {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  padding-top: 10px;
+  color: #555;
+}
+/* ----- 질문 리스트 답변----- */
+.discussion__inner--contentanswer {
+  background-color: rgb(249, 249, 249, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  border: 3px solid var(--hover);
+}
+.discussion__inner--contentanswer:after {
+  border-top: 0px solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 10px solid var(--hover);
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 295px;
+}
+.discussion__inner--contentanswer .contetn__close {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--btn-2);
+  border-radius: 0 10px 0 10px;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+.click__title {
+  text-align: center;
+  background-color: #e6e9f6;
+  /* opacity: 0.2; */
+  padding: 20px 0;
+  border-bottom: 3px dotted var(--hover);
+  border-radius: 10px 10px 0 0;
+}
+.click__contents {
+  padding: 20px 0;
+  /* border-bottom: 3px dotted var(--hover); */
+}
+
+/* 답변 보기 */
+.discussion__click__answer .click__answer__title__btn button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: var(--gradient);
+  border: 0px;
+  color: #fff;
+  cursor: pointer;
+}
+.discussion__click__answer .click__answer__contents {
+  margin-top: 20px;
+  background-color: #e6e9f6;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* -------------- right__container -------------- */
+#right__container ul {
+  margin: 60px auto;
+  width: 150px;
+}
+#right__container h3 {
+  margin-bottom: 60px;
+}
+#right__container ul li {
+  margin-bottom: 20px;
+}
+
+/* 버튼  */
+.pagination__wrapper {
+  text-align: center;
+  padding: 10px 0 30px;
+}
+.pagination__wrapper button {
+  font-size: 26px;
+  background-color: rgb(249, 249, 249, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  line-height: 40px;
+  margin-right: 10px;
+}
+.pagination__wrapper button .active,
+.pagination__wrapper button:hover {
+  /* background-color: rgb(249, 249, 249, 0.8);
+  box-shadow: 1px 1px 6px 2px #c6c6c6;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px; */
+  text-decoration: underline;
+  line-height: 40px;
+}
