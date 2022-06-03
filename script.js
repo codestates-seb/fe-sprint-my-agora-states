@@ -37,7 +37,7 @@ const convertToDiscussion = (obj) => {
 
   const contentDiv = document.createElement('div');
   contentDiv.className = "discussion__information";
-  contentDiv.textContent =`${obj.author} / ${new Date().toLocaleString('ko-KR').slice(-11)}`;
+  contentDiv.textContent =`${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR').slice(-11)}`;
   discussionContent.appendChild(contentDiv);
  
   const answeredP = document.createElement('p');
