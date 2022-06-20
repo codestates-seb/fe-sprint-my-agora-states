@@ -1,1 +1,203 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@500&display=swap');
+
+/* 초기화 */
+*{
+    font-family: 'Yantramanav', sans-serif;
+    box-sizing: border-box;
+    margin :0;
+    padding : 0;
+    color: #504d4c;
+  }
+  
+body{
+    background-color: rgb(179, 177, 177);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+main{
+    width : 540px;
+    height : 90%;
+    background-color: #f4f4f4;
+    border-radius: 25px;
+    border: 8px solid #e9eaed;
+  
+    /* 가운데정렬 */
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom:0;
+    display: flex;
+    flex-direction: column;
+  }
+
+h1{
+  padding : 15px;
+  margin-top: 10px;;
+  text-align: center;
+}
+
+/* 사용자 컨테이너 */
+section.form__container{
+
+    padding : 0 40px;
+}
+
+section.form__container > form > div.form__input--wrapper{
+    display : flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+    /* 사용자 입력 영역 */
+section .form__input--name, .form__input--title, .form__textbox{
+    display: flex;
+}
+form label{
+    color:#FAC024;
+    padding-top: 6px;  
+  
+    flex-basis: 28%;
+}
+
+form input,textarea{
+    background-color: #e1e9ec;
+    border-radius: 10px;
+    border:none;
+    padding : 6px;
+  
+    flex-grow: 1;
+}
+
+  form textarea{
+    height: 60px;
+    resize: none;
+}
+
+/*------------ 버튼 ------------*/
+.form__submit{
+    margin: 15px 0;
+  }
+  .form__submit>input{
+    background-color: #FAC024;
+    color:#ffffff;
+    font-weight: bolder;
+    width: 100%;
+    letter-spacing: 10px;
+  
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+    display: block;
+    margin: auto;
+  }
+  .form__submit>input:hover{
+    cursor: pointer;
+  }
+  .form__submit>input:active{
+    box-shadow: none;
+  }
+  
+/* @@@디스커션 리스트@@@ */
+section.discussion__wrapper *{
+    overflow: hidden;
+}
+
+/* 큰 스크롤 바  */
+::-webkit-scrollbar { 
+    width: 5px; 
+}
+
+/* 스크롤 */
+::-webkit-scrollbar-thumb { 
+    background: #ffe9ad; 
+    border-radius: 10px; 
+} 
+/* 내용 전체 사이즈 */
+section.discussion__wrapper > ul{
+    height: 102%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 질문 컨테이너 내용 */
+.discussion__container{
+    width: 100%;
+    list-style-type : none;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 520px;
+    height: 70px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    margin: 0.5em 0px;
+    transition: all 0.4s;
+}
+
+.discussion__container:hover {
+    transform: scale(1.05)
+}
+  /* 디스커션 이미지 */
+.discussion__avatar--wrapper{
+    padding : 0 20px 0 20px;
+    display: flex;
+    flex-direction: center;
+    align-items: center; 
+}
+
+.discussion__avatar--image{
+    border-radius: 35%;
+    width: 45px;
+    border : none;
+
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle; */
+}
+
+/* 디스커션 텍스트 */
+.discussion__content{
+      font-size: 0.6em;
+    background-color: #e1e9ec;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.discussion__information{
+    /* position: relative; 
+    left: -3px; */
+    color:#686868;
+    text-align: right;
+    padding-bottom: 3px;
+}
+
+div.discussion__answered{
+    font-size: 20px;
+  padding: 0 20px 0 20px;
+  display: flex;
+  flex-direction: center;
+  align-items: center; 
+}
+
+div.discussion__answered > p{
+    color:#414141;
+  }
