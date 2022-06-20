@@ -1,3 +1,5 @@
+
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -14,24 +16,29 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  const avatarImg = document.createElement('img');
+  const avatarImg = document. createElement('img');
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarImg.art = "avatar of " + obj.author;
   avatarWrapper.append(avatarImg);
+  avatarImg.className = 'discussion__avatar--image'
 
-  const disscussionTitle = document.createElement('div');
-  const titileAnchor = document.createElement('a');
-  const userId = document.createElement('list');
-  titileAnchor.href = obj.url;
-  titileAnchor.textContent = obj.title;
-  const idName = obj.id;
-  const pastTime = obj.createdAt;
-  disscussionTitle.append(titileAnchor,idName,pastTime);
-  discussionContent.append(disscussionTitle);
+  const discussionTitle = document.createElement('h2');
+  const titleAnchor = document.createElement('a');
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+  discussionContent.append(discussionTitle)
 
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = 'discussion__information';
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInformation);
 
+  const checked = document.createElement('p');
+  checked.textContent = obj.answer ? '☑' : '☑'
+  discussionAnswered.append(checked);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered, userId);
+  li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
