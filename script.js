@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+
+
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -62,16 +63,17 @@ function makingTag(tagName, className) {
 }
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-        element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const render = (element, datas) => {
+    for (let i = 0; i < datas.length; i += 1) {
+        element.append(convertToDiscussion(datas[i]));
     }
     return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+
+const datas = fetch(`http://localhost:3001/discussions/`).then(response => response.json()).then(json => render(ul, json));
 
 //submit처리 함수
 
@@ -84,7 +86,7 @@ let submitButton = document.querySelector(".form__submit input");
 function handleSubmit(e) {
     e.preventDefault();
     const newDiscussion = {
-        Id: null,
+        id: null,
         createdAt: null,
         title: null,
         url: null,
@@ -103,12 +105,14 @@ function handleSubmit(e) {
     questionText.value = "";
     submitButton.value = "Submit";
 
-    agoraStatesDiscussions.unshift(newDiscussion);
-    console.log("동작");
-    console.log(agoraStatesDiscussions);
-
-    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
-    console.log(submitForm);
+    fetch("http://localhost:3001/discussions/newDiscussion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newDiscussion),
+      }).then((response) => console.log(response));
+        
 }
 
 submitForm.addEventListener("submit", handleSubmit);
