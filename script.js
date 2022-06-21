@@ -7,10 +7,21 @@ const elTitle = document.querySelector('#title');
 const elTextArea = document.querySelector('#story')
 
 let LocalData = [];
+let agoraParse
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
 
-const agoraParse = JSON.parse(
-  localStorage.getItem('agoraStatesDiscussions')
-);
+fetch("http://localhost:3001/discussions/", requestOptions)
+  .then(response => response.json())
+  .then(response => {agoraParse = response})
+  .catch(error => console.log('error', error));
+
+//console.log(agoraServer)
+// const agoraParse = JSON.parse(
+//   localStorage.getItem('agoraStatesDiscussions')
+//  );
 
 if (agoraParse) {
   LocalData = agoraParse;
