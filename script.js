@@ -16,7 +16,7 @@ var requestOptions = {
 
 fetch("http://localhost:3001/discussions/", requestOptions)
   .then(response => response.text())
-  .then(response => {if(localStorage.getItem('serverData')===null){localStorage.setItem('serverData',response)}})
+  .then(response => {if(localStorage.getItem('serverData')==='null'||localStorage.getItem('serverData')===null){localStorage.setItem('serverData',response)}})
   .catch(error => console.log('error', error))
   .then(() => {
 const agoraParse = JSON.parse(
