@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 const elBtn = document.querySelector('.btn')
 const elName = document.querySelector('#name');
@@ -7,29 +7,29 @@ const elTitle = document.querySelector('#title');
 const elTextArea = document.querySelector('#story')
 
 let LocalData = [];
-let agoraParse
+
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
 };
 
 fetch("http://localhost:3001/discussions/", requestOptions)
-  .then(response => response.json())
-  .then(response => {agoraParse = response})
-  .catch(error => console.log('error', error));
+  .then(response => response.text())
+  .then(response => {localStorage.setItem('serverData',response)})
+  .catch(error => console.log('error', error))
+  .then(() => {
 
-//console.log(agoraServer)
-// const agoraParse = JSON.parse(
-//   localStorage.getItem('agoraStatesDiscussions')
-//  );
+const agoraParse = JSON.parse(
+  localStorage.getItem('serverData')
+ );
 
 if (agoraParse) {
   LocalData = agoraParse;
 }
 else {
-  const agoraJSON = JSON.stringify(agoraStatesDiscussions);
-  LocalData = agoraStatesDiscussions;
-  localStorage.setItem('agoraStatesDiscussions', agoraJSON)
+  const agoraJSON = JSON.stringify(agoraParse);
+  LocalData = agoraJSON;
+  localStorage.setItem('serverData', agoraJSON)
 }
 
 elBtn.onclick = function(event) {
@@ -142,3 +142,5 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+})
