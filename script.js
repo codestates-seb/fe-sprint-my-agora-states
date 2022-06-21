@@ -16,32 +16,32 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
-  const avatarImg = document.createElement('img');
+  const avatarImg = document.createElement("img");
   // avatarImg.src = agoraStatesDiscussions[0].avatarUrl;
   // avatarImg.alt = 'avatar of ' + agoraStatesDiscussions[0].author;
   //alt? alternative text 웹접근성을 위한 text
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = 'avatar of ' + obj.author;
-  avatarImg.className = 'discussion__avatar--image';
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarImg.className = "discussion__avatar--image";
   avatarWrapper.append(avatarImg);
 
-  const discussionTitle = document.createElement('h2');
-  const titleAnchor = document.createElement('a');
-  discussionTitle.className = 'discussion__title';
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  discussionTitle.className = "discussion__title";
   titleAnchor.href = obj.url;
   discussionTitle.textContent = obj.title;
   discussionContent.append(discussionTitle);
 
   const discussionInfo = document.createElement("div");
-  discussionInfo.className = 'discussion__information';
-  discussionInfo.textContent = obj.author + '/' + obj.createdAt;
+  discussionInfo.className = "discussion__information";
+  discussionInfo.textContent = obj.author + "/" + obj.createdAt;
   discussionContent.append(discussionInfo);
 
-  const answeredP = document.createElement('p');
+  const answeredP = document.createElement("p");
   if (!(obj.answer === null)) {
-    answeredP.textContent = '✅';
+    answeredP.textContent = "✅";
   } else {
-    answeredP.textContent =  '❌';
+    answeredP.textContent = "❌";
   }
   discussionAnswered.append(answeredP);
 
@@ -65,22 +65,20 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-
 //submit 버튼 입력하면 실제 화면에 디스커션 추가
 const form = document.querySelector("form.form");
 const author = form.querySelector("div.form__input--name > input");
 const title = form.querySelector("div.form__input--title > input");
 const textarea = form.querySelector("div.form__textbox > textarea");
 
-form.addEventListener('submit', function(event) {
+form.addEventListener("submit", function (event) {
   event.preventDefault();
   //submit 이벤트는 서버에 요청보내는 것을 시도
   //페이지 리로딩을 하고 다시 원래 페이지로 돌아온다
   //html 파일 읽고 자바스크립트 파일을 다시 읽어 온다
   //event.preventDefault() 코드가 없으면 새로 unshift한 데이터는 다 날라간다
-  
-  const obj = 
-  {
+
+  const obj = {
     id: "unique id",
     createdAt: new Date().toISOString(),
     title: title.value,
@@ -92,21 +90,31 @@ form.addEventListener('submit', function(event) {
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
   //배열 안에 넣기
-  agoraStatesDiscussions.unshift(obj);
-  console.log('submit클릭', agoraStatesDiscussions.length);
+  // agoraStatesDiscussions.unshift(obj);
+  // console.log("submit클릭", agoraStatesDiscussions.length);
 
-  //추가할 디스커션 보여주기
-  const discussion = convertToDiscussion(obj);
-  ul.prepend(discussion);
+  // //추가할 디스커션 보여주기
+  // const discussion = convertToDiscussion(obj);
+  // ul.prepend(discussion);
 
-  //submit하고 나면 빈칸으로 만들기
-  author.value ='';
-  title.value = '';
-  textarea.value ='';
+  // //submit하고 나면 빈칸으로 만들기
+  // author.value = "";
+  // title.value = "";
+  // textarea.value = "";
+});
 
-})
+//data.js파일이아닌 서버에서 discussions 데이터 받아오기.
+fetch("http://localhost:3001/discussions")
+  .then((res) => {
+    return res.json();
+  })
+  .then((json) => {
+    agoraStatesDiscussions = json;
+    const ul = document.querySelector("ul.discussions__container");
+    render(ul);
+  });
 
 // let elSubmit = document.querySelector('.form__submit');
 // elSubmit.onclick = function() {
-  
+
 // }
