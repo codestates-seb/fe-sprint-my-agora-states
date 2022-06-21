@@ -4,13 +4,13 @@
 * {
     box-sizing: border-box;
     list-style-type:none;
-    margin: 0 auto;
+    margin: 0;
     padding: 0px;
 }
 
 body {
     background-color: #FDEFEF;
-    margin: 10px 0;
+    margin: 10px;
 }
 
 h1 {
@@ -80,11 +80,21 @@ main {
 .discussion__information {
     font-size: 90%;
 }
+.form {
+    display: flex;
+}
 
 .form__input--wrapper {
-    display: flex;
-    flex-direction: column;
-    
+    width: 80%;
+}
+.form__submit {
+    width: 20%;
+    height: 80px;
+}
+
+.form__submit input {
+    width: 100%;
+    height: 80px;
 }
 
 .form__input--name>label {
@@ -101,4 +111,11 @@ main {
 
 .form__textbox {
     width: 300px;
+}
+
+.paginationWrapper.active, 
+.paginationWrapper:hover {
+    color: #1f975d;
+    font-weight: 600;
+    text-decoration: underline;
 }
