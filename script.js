@@ -1,5 +1,9 @@
+
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
+ //테이블 형태. 가독성 좋음
+// console.table(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -49,9 +53,19 @@ const render = (element) => {
   return;
 };
 
+fetch('http://localhost:3001/discussions')
+.then((res)=>{
+  return res.json();
+}).then((json)=>{
+  agoraStatesDiscussions = json;
+  const ul = document.querySelector("ul.discussions__container");
+  render(ul);
+})
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// const ul = document.querySelector("ul.discussions__container");
+// render(ul);
+
 
 
 //submit 처리 함수
@@ -85,9 +99,11 @@ function handleSubmit(e) {
   agoraStatesDiscussions.unshift(newDiscussion);
   console.log("동작");
   console.log(agoraStatesDiscussions);
-
+  const ul = document.querySelector("ul.discussions__container");
   ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
   console.log(submitForm);
+
 }
 
 submitForm.addEventListener('submit', handleSubmit);
+

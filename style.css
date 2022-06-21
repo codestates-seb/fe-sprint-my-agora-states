@@ -61,7 +61,7 @@ form {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width:100vw;
+    /* width:50vw; */
 }
 div.deco {
     color: #F56B7A;
@@ -71,17 +71,17 @@ div.deco {
 }
 
 form > div:first-of-type {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     flex-basis: 30px;
-    padding-top: 15px;
-    padding-left:40px;
+    padding-top: 28px;
+    padding-left:80px;
     font-size: 13rem;   
 }
 
 form > div:nth-of-type(4) {
-    margin-top: 20px;
-    padding-top: 15px;
-    margin-left: 10px;
+    /* margin-top: 20px; */
+    padding-top: 28px;
+    padding-left: 10px;/* margin-left: 10px; */
     flex-basis: 30px;
     font-size: 13rem;
 }
@@ -91,6 +91,7 @@ form > div:nth-of-type(4) {
     display: flex;
     flex-direction: column;
     transition: 3s;
+    margin-left: 15px;
 }
 
 .form__input--name,
@@ -104,10 +105,11 @@ form > div:nth-of-type(4) {
 }
 .form__input--wrapper input {
     width:400px;
-    height: 27px;
+    height: 30px;
     font-size:1.2rem;
     font-family: 'WooridaumL';
     border:0px; 
+
 }
 .form__input--wrapper input:hover {
     background-color: #cac8ca;
@@ -130,16 +132,18 @@ form > div:nth-of-type(4) {
     margin:3px;
 }
 .form__submit input {
+    margin-top: 3px;
     cursor: pointer;
     width:100px;
-    height: 176px;
+    height: 175px;
     font-family: 'WooridaumR';
     font-weight:bolder;
     font-size: 1.1rem;
     background-color: #774BF1;
-    box-shadow: 3px 3px 3px rgb(0, 0, 0);
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
     transition-duration: 0.1s;
     color:white;
+    margin-right: 15px;
 }
 .form__submit input:active {
     margin-left: 5px;
@@ -177,7 +181,7 @@ div.discussion__avatar--wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    border:1px dashed #718bff;
+    border:1.5px dashed #718bff;
     background-color: #454551;
     border-radius: 10px;
     margin: 15px;
