@@ -1,1 +1,199 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 전체 초기화 */
+@import "reset.css";
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+/* 커밋 확인용 */
+
+main {
+  font-family: 'Hi Melody', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 620px;
+  background-color: #112B3C;
+}
+
+#agora {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  color: #EFEFEF;
+  margin: 25px;
+  padding-top: 10px;
+}
+
+
+/* 입력 컨테이너 */
+.form__container {
+  font-size: 20px;
+  color: #EFEFEF;
+  box-sizing: border-box;
+  width: 540px;
+  background-color: #205375;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+}
+
+.form__input--wrapper {
+  width: 387px;
+}
+
+/* 이름 작성 칸 */
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+#name {
+  width: 200px;
+  border: none;
+  background-color: #EFEFEF;
+}
+
+/* 제목 작성 칸 */
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+#title {
+  width: 200px;
+  border: none;
+  background-color: #EFEFEF;
+}
+
+
+/* 질문 작성 칸 */
+.form__textbox label {
+  display: block;
+  margin-top: 6px;
+}
+#story {
+  margin-top: 3px;
+  border: none;
+  width: calc(100% - 6px);
+  padding: 3px;
+  background-color: #EFEFEF;
+}
+
+
+/* 제출 버튼 */
+.form__submit {
+  margin-left: auto;
+  width: 100px;
+}
+.form__submit input {
+  font-size: 18px;
+  color: #112B3C;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  background-color: #F66B0E;
+  width: 100px;
+  height: 100%;
+}
+
+.form__submit input:hover {
+  background-color: #f1aa7a;
+  cursor: pointer;
+}
+
+/* 페이지 넘김 버튼 */
+.leftBtn, .rightBtn {
+  margin: 13px 2px 0 2px;
+  border: none;
+  border-radius: 4px;
+  background-color: #F66B0E;
+  color: #112B3C;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #f1aa7a;
+}
+
+.nowPage {
+  color: #EFEFEF;
+  margin: 0 5px;
+}
+
+
+/* 글 목록 컨테이너 */
+.discussion__wrapper {
+  height: 510px;
+  overflow-y: auto;
+  margin: 10px 0 25px 0;
+}
+.discussion__wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.discussion__wrapper::-webkit-scrollbar-thumb {
+  background-color: #f1aa7a;
+  border-radius: 2px;
+}
+
+
+.discussions__container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 1030px;
+  width: 540px;
+  overflow-x: hidden;
+}
+
+.discussion__container {
+  display: flex;
+  margin-top: 10px;
+  box-sizing: border-box;
+  height: 90px;
+  width: 540px;
+  background-color: #EFEFEF;
+  padding: 0 20px; 
+  border-radius: 10px;
+  transform: none;
+}
+
+/* 프로필 사진 */
+.discussion__avatar--wrapper {
+  height: 48px;
+  margin: auto 0;
+}
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+/* 글 상자 */
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 425px;
+  padding: 10px;
+  margin-left: 10px;
+}
+.discussion__content .discussion__title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.discussion__content .discussion__information {
+  margin-left: auto;
+  color: grey;
+}
+
+/* 답변 아이콘 */
+.discussion__answered {
+  margin: auto 0 auto auto;
+}
+.discussion__answered p {
+  margin-left: 20px;
+  font-size: 35px;
+  color: #205375;
+}
