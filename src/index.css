@@ -1,0 +1,183 @@
+:root {
+  --input-shadow: rgba(0, 0, 0, 0.1) 0px 6px 4px -5px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  --form-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  --container-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  --bg-gradient: radial-gradient(
+      circle at 50% 0,
+      rgba(0, 102, 255, 0.5),
+      rgba(255, 0, 0, 0) 30.71%
+    ),
+    /* radial-gradient(
+    circle at 50% 0,
+    rgba(255, 0, 238, 0.5),
+    rgba(255, 234, 0, 0) 10.71%
+  ), */
+      radial-gradient(
+        circle at 10.7% 75%,
+        rgba(0, 0, 255, 0.5),
+        rgba(0, 0, 255, 0) 40.71%
+      ),
+    radial-gradient(
+        circle at 93.3% 75%,
+        rgba(0, 255, 0, 0.5),
+        rgba(0, 255, 0, 0) 40.71%
+      )
+      beige;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--bg-gradient);
+}
+li {
+  list-style: none;
+  width: 540px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  margin: 100px 50px 50px 50px;
+  font-size: 3.5rem;
+  font-weight: 100;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 10px rgb(255, 254, 212); /* x,y, blur-radius, color */
+}
+
+/* form */
+.form__container {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: var(--form-shadow);
+}
+form {
+  width: 100%;
+}
+h1 {
+  text-align: center;
+}
+.form__container {
+  margin-bottom: 25px;
+}
+
+/* input */
+input[type="text"] {
+  outline: none;
+  padding: 7px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 0.1px solid rgba(128, 128, 128, 0.582);
+  box-shadow: var(--input-shadow);
+  border-radius: 6px;
+}
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgetBlue;
+}
+textarea {
+  outline: none;
+  resize: none;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 7px;
+  border: 0.1px solid rgba(128, 128, 128, 0.582);
+  box-shadow: var(--input-shadow);
+  border-radius: 6px;
+}
+input::placeholder,
+textarea::placeholder {
+  font-size: 14px;
+}
+textarea:focus {
+  border: 0.1px solid dodgerBlue;
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgetBlue;
+}
+input[type="submit"] {
+  width: 100%;
+  height: 100%;
+  padding: 7px 0;
+  border-radius: 6px;
+  border-style: none;
+  background-color: rgb(90, 140, 255);
+  color: rgb(243, 244, 215);
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: var(--input-shadow);
+}
+
+.form__submit > input:active {
+  background-color: #f7fcdb;
+  color: rgb(90, 140, 255);
+}
+
+/* container */
+.discussion__container {
+  /* display: flex; content부분 가운데정렬 
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  background-color: white;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: var(--container-shadow);
+}
+
+/* avatar */
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 50%;
+}
+
+/* content */
+.discussion__content > .discussion__title {
+  display: flex;
+  font-size: 1.2rem;
+}
+.discussion__information {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+}
+/* check */
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 2rem;
+}
+
+/* pagination */
+.disccusion__button {
+  display: flex;
+  justify-content: space-between;
+}
+button.prev,
+button.next {
+  display: inline-flex;
+  width: 50px;
+  cursor: pointer;
+}
