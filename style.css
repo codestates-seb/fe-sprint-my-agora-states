@@ -1,1 +1,152 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/*css reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    color: black;
+    background-color: #ffffff;
+}
+
+main {
+    background-color: #EEEEEE;
+    color: #476072;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+/*li요소의 점이 보이지 않도록 해라*/
+li {
+    list-style-type: none;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.form__container {
+    width: 540px;
+    padding: 15px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    top: 0px;
+}
+
+.form__submit {
+    align-self: flex-end;
+    display: flex;
+    height: 100px;
+    width: 55px;
+    border-radius: 10px;
+
+}
+.submit {
+    background-color:  #beb5b5c0;
+    border-radius: 5px;
+    margin-left: 0.1rem;
+    height: 100px;
+    width: 100px;
+    border: 1px solid  #beb5b5c0;
+}
+
+.form__input--wrapper {
+    width: 450px;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3px;
+}
+
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#name, #title {
+    width: 250px;
+}
+
+#story {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid  #beb5b5c0;
+    color: #476072;
+    background-color:  #beb5b5c0;
+}
+
+/* discussion__container */
+.discussion__wrapper {
+    width: 540px;
+}
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    height: 75px;
+    padding: 0.5rem;
+    margin: 0.5rem 0.5rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*프로필 이미지*/
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__content {
+    flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.discussion__information {
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+}
+
+a {
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+
+
