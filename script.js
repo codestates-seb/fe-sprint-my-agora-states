@@ -15,7 +15,34 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
+  // 이미지
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = agoraStatesDiscussions[0].avatarUrl;
+  avatarImg.alt = "avatar of " + agoraStatesDiscussions[0].author;
+  avatarWrapper.append(avatarImg);
 
+  // 콘텐츠 내용
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  const discussionInsideTitle = document.createElement("p");
+  const titleLink = document.createElement("a");
+  titleLink.href = obj.url;
+  titleLink.textContent = obj.title;
+  discussionContent.append(discussionTitle);
+  discussionTitle.append(titleLink);
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(discussionInformation);
+
+  // 그 옆에 아이콘 하여튼 그
+  // div 만들고
+  // 만든 div에 클래스 이름으로 "discussion__answered" 넣어주고
+  // p만들고
+  // p의 innerHTML에 ☑ 넣어주고
+  // div에 p를 append 해주고
+  // div는 discussionAnswered에 append해주고
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
