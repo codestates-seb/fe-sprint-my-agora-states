@@ -7,7 +7,7 @@
 body {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 30px;
 }
 
 main {
@@ -19,14 +19,37 @@ main {
     padding: 20px 0px;
 }
 
+.submit__area {
+    width: 520px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.profile__image--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.profile__image {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .form__input--wrapper {
     display: flex;
     flex-direction: column;
-    width: 465px;
+    width: 455px;
     height: 175px;
     justify-content: space-between;
-    align-items: flex-start;
-    margin: 15px;
+    align-items: flex-end;
+    margin: 15px 0px;
 }
 div>label {
     display: inline-block;
@@ -39,21 +62,21 @@ div>label {
     display: flex;
 }
 #name {
-    width: 375px;
+    width: 370px;
     height: 22px;
 }
 #title {
-    width: 375px;
+    width: 370px;
     height: 22px;
 }
 #story {
-    width: 375px;
+    width: 370px;
     height: 115px;
 }
 
 .form__submit {
     display: flex;
-    width: 465px;
+    width: 520px;
     justify-content: flex-end;
     margin-bottom: 15px;
 }

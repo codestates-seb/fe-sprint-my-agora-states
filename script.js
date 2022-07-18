@@ -1,6 +1,13 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+//profile__image 생성
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * max);
+}
+const profileImageUrl = randomAvatarImg[getRandomInt(5)];
+const profileImage = document.querySelector(".profile__image");
+profileImage.src = profileImageUrl;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -167,17 +174,13 @@ renderLocalStorage();
 render(ul, page);
 renderPageButton(page);
 
-
 // 글 생성 기능
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * max);
-}
 const makeNewDiscussion = (name, title, text) => { // 새로운 Discussion object 생성 후 반환
   const newDiscussion = {
     createdAt: new Date().toISOString(),
     url: "",
     answer: null,
-    avatarUrl: randomAvatarImg[getRandomInt(5)]
+    avatarUrl: profileImageUrl
   };
   newDiscussion.title = title;
   newDiscussion.author = name;
