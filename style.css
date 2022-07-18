@@ -136,6 +136,7 @@ table {
   --btn-hover: rgb(201, 120, 132);
   --container-color: rgb(242, 237, 212);
   --white: white;
+  --three-percent: 3%;
 }
 main {
   width: 80vw;
@@ -145,7 +146,7 @@ main {
   background-color: var(--main-bg-color);
 }
 main > div {
-  margin: 3%;
+  margin: var(--three-percent);
 }
 h1 {
   font-size: 40px;
@@ -156,7 +157,7 @@ h1 {
   width: 80%;
 }
 .form__container > form {
-  padding: 3%;
+  padding: var(--three-percent);
   display: flex;
 }
 div[class^="form"] {
@@ -190,7 +191,7 @@ div[class^="form__input"] > input {
   background-color: var(--main-bg-color);
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 0.3rem;
   font-size: 20px;
   color: var(--main-font-color);
   font-weight: 600;
@@ -199,24 +200,35 @@ div[class^="form__input"] > input {
 .form__submit > input:hover {
   background-color: var(--btn-hover);
 }
-.discussion__wrapper {
-  width: 80%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-}
-.discussions__container {
-  background-color: var(--white);
-}
-.discussion__container {
-  padding: 3%;
+div[class^="discussion"] {
   display: flex;
 }
+.discussion__wrapper {
+  width: 80%;
+  padding-top: var(--three-percent);
+  padding-bottom: var(--three-percent);
+}
+.discussion__container {
+  background-color: var(--white);
+  margin-bottom: var(--three-percent);
+  padding: var(--three-percent);
+  display: flex;
+}
+.discussion__container > div {
+  margin-right: var(--three-percent);
+}
 .discussion__avatar--wrapper {
-  flex-grow: 1;
+  flex: 0 0 64px;
 }
 .discussion__content {
-  flex-grow: 5;
+  flex: 5;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.discussion__information {
+  justify-content: flex-end;
 }
 .discussion__answered {
-  flex-grow: 1;
+  flex: 0 0 24px;
+  align-items: center;
 }
