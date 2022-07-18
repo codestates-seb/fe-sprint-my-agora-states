@@ -1,6 +1,4 @@
 import Component from '../Core/component.js';
-import { agoraStatesDiscussions } from '../common/data/data.js';
-import { getLocalStorage } from '../common/utils/localStorage.js';
 
 export default class Section3 extends Component {
   constructor(...rest) {
