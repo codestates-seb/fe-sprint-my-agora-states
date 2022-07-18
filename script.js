@@ -31,6 +31,7 @@ const convertToDiscussion = (obj) => {
 
   const discussioninformation = document.createElement("div");
   discussioninformation.innerHTML = `${obj.author} / ${obj.createdAt}`;
+  discussioninformation.className = "discussion__information";
 
   discussionContent.append(discussionTitle, discussioninformation);
 
