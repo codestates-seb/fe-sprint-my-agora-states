@@ -15,6 +15,14 @@ textarea {
     border-radius: 1px;
 }
 
+body {
+    padding: 20px;
+}
+
+h1 {
+    color: #7d9d9c;
+}
+
 main {
     background-color: #f0ebe3;
     width: 60%;
@@ -23,6 +31,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .form__container {
