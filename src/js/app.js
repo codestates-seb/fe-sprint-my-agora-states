@@ -16,7 +16,7 @@ export default class App extends Component {
   template() {
     return `
     <main>
-      <h1>My Agora States</h1>
+      <h1 id="title">My Agora States</h1>
       <section class="form__container"></section>
       <section class="discussion__wrapper"></section>
     </main>
@@ -24,9 +24,17 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    const { fetchData } = this;
+
     new Section1($('.form__container'), { ...this.state });
 
-    new Section2($('.discussion__wrapper'), { ...this.state });
+    new Section2($('.discussion__wrapper'), { ...this.state, getUserData: fetchData.bind(this) });
+  }
+
+  fetchData() {
+    const data = [...agoraStatesDiscussions];
+
+    return data;
   }
 }
 

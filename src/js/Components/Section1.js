@@ -1,3 +1,4 @@
+import { $ } from '../common/utils/dom.js';
 import Component from '../Core/component.js';
 
 export default class Section1 extends Component {
@@ -28,4 +29,6 @@ export default class Section1 extends Component {
         </form>
     `;
   }
+
+  componentDidMount() {}
 }
