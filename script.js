@@ -133,6 +133,7 @@ function utcToLocal(utc) {
 // form submit시 데이터베이스에 추가
 
 function handleFormSubmit(event) {
+  event.preventDefault();
   const inputName = document.getElementById("name");
   const inputTitle = document.getElementById("title");
   const inputStory = document.getElementById("story");
@@ -150,9 +151,12 @@ function handleFormSubmit(event) {
     author: newName,
     answer: null,
     bodyHTML: "",
+    avatarUrl:
+      "https://lh3.googleusercontent.com/WGjiIfZM9_r2sbJ_xry_uRszqoTLs7xYMMg-adTGlBjCs1HOCpTxi6Qx2yS0ugmN1a9PUg6kYI5r4kUISZa13JVeO8uLe-fAyYAP4Q=w600",
   };
 
   agoraStatesDiscussions.unshift(newObj);
+  ul.insertBefore(convertToDiscussion(newObj), ul.firstChild);
 
   return;
 }
