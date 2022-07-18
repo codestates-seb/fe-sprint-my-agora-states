@@ -3,43 +3,103 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background-color: lemonchiffon;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1em;
 }
 
 body{
+    padding: 50px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     align-items: center;
     justify-content: center;
+
 }
 
 main{
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: auto;
-    width: 50%;
-    height: 80%;
+    width: 700px;
+    height: 90%;
     border: 1px solid black;
     border-radius: 40px;
+    background-color: lemonchiffon;
+}
+
+h1{
+    font-family: 'Staatliches', cursive;
+    font-size: 6em;
+    text-align: center;
+    color: #F1C164;
+    text-shadow: 5px 5px #2D63A7;
+    margin: 0;
+    text-decoration: underline;
+}
+
+.form{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+}
+
+.form__submit{
+    display: flex;
+    justify-content: right;
+    flex: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+.box, .submit {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+.box {
+    border: 2px solid #DADDEC;
+    margin: 5px 0 10px;
+    color: #656880;
+}
+
+.submit{
+    width: 80%;
+    height: 85%;
+    border-radius: 10px;
+    padding: 12px 10px;
+    border: 0;
+    background: linear-gradient(to right, #f0d090 0%,#F1C164 100%); 
+    box-shadow: 5px 5px #2D63A7;;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.submit:active {
+    box-shadow: none;
 }
 
 .discussion__wrapper {
     display: flex;
     flex-direction: row;
-
 }
 
 .discussions__container{
     display: flex;
     flex-direction: column;
-    height: 48em;
+    width: 650px;
+    /* height: 70%; */
     overflow: auto;
-    border: 1px solid black;
+    align-items: center;
 }
 
 .discussion__container{
@@ -50,7 +110,11 @@ main{
     justify-content: space-between;
     list-style: none;
     border: 1px solid black;
+    border-radius: 20px;
+    background-color: #eed49e;
+    box-shadow: 2px 2px #2D63A7;
 }
+
 
 .discussion__avatar--wrapper{ /* 이미지 부분 */
     display: flex;
@@ -101,6 +165,11 @@ a:active{
     align-items: center;
     justify-content: center;
     flex: 1;
-    font-size: 35px;
+    font-size: 10px;
 }
 
+.hide{
+    display: none;
+}
+
+/*pagination */
