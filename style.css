@@ -21,6 +21,7 @@ main {
 
 .discussion__upper--wrapper {
     display: flex;
+    margin-top: 5vh;
 }
 
 .discussion__upper--image {
@@ -29,14 +30,13 @@ main {
     border-radius: 50%;
 }
 
-.dicussion__upper--profile {
+.discussion__upper--profile {
     padding-left: 5%;
-    padding-right: 5%;
     width: 70%;
 }
 
 .discussion__upper--answersheet {
-    width: 10%;
+    width: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +68,7 @@ main {
     font-size: 3.2vw;
 }
 
-.discusstion__wantedbox{
+.discussion__wantedbox{
     width: 15%;
     display: flex;
     flex-direction: column;
@@ -76,16 +76,16 @@ main {
     align-items: center;
 }
 
-.discusstion__wantedbox--text {
+.discussion__wantedbox--text {
     font-size: 0.1vw;
     color: #121212;
 }
 
-.discusstion__wantedbox--button {
+.discussion__wantedbox--button {
     cursor: pointer;
     border: none;
     border-radius: 30%;
-    width: 100%;    
+    width: 30%;
     background-color: #806bfe;
     color: #ffffff;
     font-size: 1vw;
