@@ -1,6 +1,13 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+  height: 100vh;
 }
 
 main {
@@ -8,29 +15,44 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: orange;
+  background: linear-gradient(135deg, #3AB4F2, #F2DF3A)
 }
 /* 폼 스타일  */
 .form__container {
   width: 450px;
-  background-color: lightgrey;
+  background-color: white;
   padding: 12px 20px;
   margin: 15px 0;
   text-align: center;
   border-radius: 10px;
+  border: 2px solid #ccc;
+  border-bottom-width:4px;
 }
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .form__input--wrapper {
-  width: 380px;
-  background-color: aqua;  
+  width: 380px;;
 }
 .form__input--wrapper label {
   display: block;
+}
+.form__input--wrapper input {
+  height: 30px;
+  width: calc(100% / 2 );
+  border: 1px solid #ccc;
+  border-bottom-width:2px;
+  border-radius: 5px;
+}
+.form__input--wrapper textarea {
+  height: 80px;
+  width: calc(100% / 2);
+  border: 1px solid #ccc;
+  border-bottom-width:2px;
+  border-radius: 5px;
 }
 .form__input--name {
 }
@@ -40,9 +62,21 @@ main {
 .form__textbox {
 
 }
-.form__submit {
+.form__submit input{
+  width: 80px;
+  height: 30px;
+  background: #3AB4F2;
+  border: transparent;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+.form__submit input:hover{
+  background-color: #F2DF3A;
+  color: white;
 
 }
+
 
 
 
@@ -50,14 +84,17 @@ main {
 .discussion__wrapper {
   width: 540px;
 
-
 }
 ul .discussion__container {
   display: flex;
   justify-content: space-between ;
   align-items: center;
-  background-color: beige;
+  background-color: white;
   margin: 15px 0px;
+  border-radius: 15px;
+  border: 2px solid #ccc;
+  border-bottom-width: 4px;
+  
 }
 
 
@@ -75,9 +112,14 @@ ul .discussion__container {
 .discussion__content {
   width: 380px;
   height: 150px;
-  padding: 15px;
+  padding: 0 15px;
   flex-grow:4;
   flex-basis: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  font-weight: 300;
 }
 
 .discussion__answered {
@@ -93,9 +135,13 @@ ul .discussion__container {
 .discussion__content .discussion__title {
   text-align: left;
   font-size: 18px;
+  font-weight: 500;
 }
 .discussion__content .discussion__information {
   text-align: right;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }
 a {
   display: block;
