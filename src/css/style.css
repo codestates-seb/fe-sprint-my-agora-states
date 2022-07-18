@@ -81,7 +81,9 @@ li {
   font-style: italic;
 }
 
-.submit_btn {
+.submit_btn,
+#img_upload,
+#img_submit_btn {
   cursor: pointer;
 }
 

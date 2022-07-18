@@ -24,14 +24,13 @@ export default class Section1 extends Component {
             </div>
             <div class="form__image">
               <label for="question">upload your profile iamge: </label>
-              <input type="file" id="img" name="img" accept="image/*">
-              <input type="submit">
+              <input type="file" id="img_upload" name="img" accept="image/*">
+              <input id="img_submit_btn" type="submit">
             </div>
           </div>
           <div class="form__submit">
             <input class="submit_btn" type="submit" value="submit" />
           </div>
-
         </form>
     `;
   }
@@ -44,6 +43,9 @@ export default class Section1 extends Component {
     this.$target.addEventListener('click', (e) => {
       e.preventDefault();
 
+      if (e.target.id === 'img_upload' || e.target.id === 'img_submit_btn') {
+        alert('구현중....');
+      }
       if (!e.target.classList.contains('submit_btn')) {
         return;
       }
