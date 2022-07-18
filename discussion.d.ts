@@ -8,6 +8,7 @@ interface Discussion {
   answer?: Answer | null;
   bodyHTML: string;
 }
+// 바로그러하다. 
 
 interface Answer {
   id: string;
