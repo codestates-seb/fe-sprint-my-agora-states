@@ -84,6 +84,7 @@ li{
 .discussion__avatar--image{
     border-radius: 70%;
     width: 48px;
+    height: 48px;
 }
 .discussion__content{
     margin-left: 10px;
@@ -105,6 +106,10 @@ li{
     background-color: transparent;
     height: 30px;
 }
+#title{
+    background-color: transparent;
+    height: 30px;
+}
 #submit{
     width: 100px;
     height: 50px;
@@ -114,4 +119,5 @@ li{
 textarea{
     background-color: transparent;
     height: 50px;
+    border: 2px black solid;
 }
