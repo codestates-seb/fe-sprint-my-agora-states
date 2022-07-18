@@ -55,43 +55,6 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// form__input--name에 있는 input에 있는 값을 받아옴
-// form__input--title에 있는 input에 있는 값을 받아옴
-// form__textbox에 있는 input에 있는 값을 받아옴
-// submi버튼을 눌렀을 때 이벤트 리스너 생성
-// const li = document.createElement("li")로 li 요소 생성
-// li.className = "discussion__container";  클래스 이름 지정
-// const avatarWrapper = document.createElement("div");
-// avatarWrapper.className = "discussion__avatar--wrapper";
-// const discussionContent = document.createElement("div");
-// discussionContent.className = "discussion__content";
-// const discussionAnswered = document.createElement("div");
-// discussionAnswered.className = "discussion__answered";  로 왼쪽, 중간, 오른쪽 div를 만들어줌
-  // 이미지 만들기
-    // const avatarImg = document.createElement("img");
-    // avatarImg.className = "discussion__avatar--image";
-    // avatarImg.src = https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4;
-    // avatarImg.alt = "avatar of " + obj.author;
-    // avatarWrapper.append(avatarImg);  으로 이미지 만들어줌 (대신 이미지는 무조건 김플루의 이미지를 사용하기로 할까?)
-  // 내용 만들기
-    // const discussionTitle = document.createElement("h2");
-    // discussionTitle.className = "discussion__title";
-    // discussionContent.append(discussionTitle);     디스커션에 표시될 제목
-    // const discussionInformation = document.createElement("div");
-    // discussionInformation.className = "discussion__information";
-    // discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
-    // discussionContent.append(discussionInformation);    디스커션에 표시될 질문자 정보(이름과 시간)
-  // 아이콘 만들기
-    // const answeredIcon = document.createElement("p");
-    // if (obj.answer === null) {
-    //   answeredIcon.innerText = "☒";
-    //   answeredIcon.style.color = "red";
-    // } else {
-    //   answeredIcon.innerText = "☑";
-    //   answeredIcon.style.color = "green";
-    // }
-    // discussionAnswered.append(answeredIcon);
- 
 
     // submit을 눌렀을 때.
     // 객체가 생성이 되고
@@ -103,7 +66,11 @@ submitBtn.addEventListener("click", (e) => {
   const questionTitle = document.querySelector(".form__input--title").querySelector("input").value; // form__input--title의 input에 적힌 타이틀을 받아옴
   const questionContent = document.querySelector(".form__textbox").querySelector("textarea").value; //".form__textbox"의 textarea에 적힌 질문내용을 받아옴
   const date = new Date();
-  e.preventDefault();
+  const clickRender = (element) => {
+    // 배열의 0번째를 렌더링 하는 함수
+    element.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+  return;}
+  e.preventDefault(); // 버튼을 클릭해도 안넘어가도록
   const newProperty = {
     title: questionTitle,
     createdAt: date.toISOString(date),
@@ -113,8 +80,8 @@ submitBtn.addEventListener("click", (e) => {
     avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
   };
   agoraStatesDiscussions.unshift(newProperty);
+  clickRender(ul);
 
-  render(ul);
   });
 
 
@@ -125,6 +92,7 @@ const render = (element) => {
   }
   return;
 };
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
