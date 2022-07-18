@@ -18,8 +18,8 @@ const convertToDiscussion = (obj) => {
   // 이미지
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = agoraStatesDiscussions[0].avatarUrl;
-  avatarImg.alt = "avatar of " + agoraStatesDiscussions[0].author;
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
   avatarWrapper.append(avatarImg);
 
   // 콘텐츠 내용
@@ -45,10 +45,14 @@ const convertToDiscussion = (obj) => {
   const answeredIcon = document.createElement('p');
   if (obj.answer === null) {
     answeredIcon.innerText = "☒";
-  } else {answeredIcon.innerText = "☑";}
+    answeredIcon.style.color ='red';
+  } else {
+    answeredIcon.innerText = "☑";
+    answeredIcon.style.color = "green";
+  }
   discussionAnswered.append(answeredIcon);
  
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+    li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
