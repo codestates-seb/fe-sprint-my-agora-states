@@ -8,14 +8,37 @@ const convertToDiscussion = (obj) => {
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 이미지 가져옴
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
+  // 타이틀 가져옴
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+  discussionContent.append(discussionTitle);
+  // 디스커션 인포메이션 가져오기
+  const disscussionInformation = document.createElement("div");
+  disscussionInformation.className = "discussion__information";
+  disscussionInformation.textContent = obj.author + ' / ' + obj.createdAt;
+  discussionContent.append(disscussionInformation);
+    
+  // 체크표시
+  const discussionAnswer = document.createElement("p");
+  discussionAnswer.textContent = '☑';
+  discussionAnswered.append(discussionAnswer);
 
-
+  const ul = document.querySelector('ul.discussions__container');
+  ul.append(li);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
