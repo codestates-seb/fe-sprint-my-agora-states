@@ -4,20 +4,24 @@
     padding: 0;
     margin: 0;
     background-color: lemonchiffon;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1em;
 }
 
 body{
     display: flex;
     flex-direction: column;
+    height: 100vh;
     align-items: center;
+    justify-content: center;
 }
 
 main{
-    position: absolute;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
     width: 50%;
     height: 80%;
     border: 1px solid black;
@@ -33,11 +37,15 @@ main{
 .discussions__container{
     display: flex;
     flex-direction: column;
-    width: 540px;
+    height: 48em;
+    overflow: auto;
+    border: 1px solid black;
 }
 
 .discussion__container{
     display: flex;
+    width: 540px;
+    margin: 5px 0;
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
@@ -46,31 +54,53 @@ main{
 
 .discussion__avatar--wrapper{ /* 이미지 부분 */
     display: flex;
-    flex: 2 1 auto;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-.discussion__avatar--image{
+.discussion__avatar--wrapper > img{
     border-radius: 100px;
     width: 48px;
-    align-items: center;
 }
 
 .discussion__content{ /* Discussion 부분 */
     display: flex;
     flex-direction: column;
-    flex: 4 1 auto;
+    flex: 5;
+}
+
+.discussion__title{
+    display: flex;
+    font-size: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:visited{
+    color: rgba(202, 108, 108, 0);
+}
+
+a:hover{
+    color: red;
+}
+
+a:active{
+    color: rgb(198, 8, 8);
 }
 
 .discussion__information{
     text-align: right;
 }
 
-
 .discussion__answered{ /* answered 부분 */
     display: flex;
-    flex: 2 1 auto;
     align-items: center;
     justify-content: center;
+    flex: 1;
+    font-size: 35px;
 }
+
