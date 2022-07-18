@@ -1,1 +1,21 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.discussion__avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--color-light-white);
+}
+.wating {
+  color: rgb(201, 113, 128);
+}
+
+.finished {
+  color: green;
+}
