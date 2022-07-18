@@ -6,6 +6,8 @@ import Section1 from './Components/Section1.js';
 import Section2 from './Components/Section2.js';
 import Section3 from './Components/Section3.js';
 import Component from './Core/component.js';
+export const $ = (selector) => document.querySelector(selector);
+export const $$ = (selector) => document.querySelectorAll(selector);
 
 export default class App extends Component {
   constructor(...rest) {

@@ -1,5 +1,7 @@
 import { $ } from '../common/utils/dom.js';
 import Component from '../Core/component.js';
+export const $ = (selector) => document.querySelector(selector);
+export const $$ = (selector) => document.querySelectorAll(selector);
 
 export default class Section1 extends Component {
   constructor(...rest) {

@@ -1,6 +1,8 @@
 import Component from '../Core/component.js';
 import { getRandomNumber, getCurrentTime } from '../common/utils/utils.js';
 import { agoraStatesDiscussions } from '../common/data/data.js';
+export const $ = (selector) => document.querySelector(selector);
+export const $$ = (selector) => document.querySelectorAll(selector);
 
 export default class Section2 extends Component {
   constructor(...rest) {
