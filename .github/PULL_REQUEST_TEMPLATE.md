@@ -6,7 +6,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 ## 배포 링크
 
-Github Page 배포 링크를 아래 작성합니다.
+<a href="https://leezer94.github.io/fe-sprint-my-agora-states/">데모링크</a>
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -48,14 +48,9 @@ Github Page 배포 링크를 아래 작성합니다.
 
 자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
 
-- [] 유저에게 random 한 id 부여
-- [] 이미지 업로드 가능하게 하고 id 매치 시켜서 프로필에 업로드
-
-### 배포 시연 화면
-
-아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
-
-![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+- [ ] 유저에게 random 한 생성 id 부여
+- [ ] 이미지 업로드 가능하게 하고 id 매치 시켜서 프로필에 업로드 업로드한 이미지가 없다면 없는 이미지 부여
+- [ ] 유효성 검사
 
 ### 가장 자랑하고 싶은 기능
 
@@ -67,4 +62,4 @@ Github Page 배포 링크를 아래 작성합니다.
 
 ### 도움을 받고 싶은 부분
 
-> 적어주세요
+> CSS
