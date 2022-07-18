@@ -26,6 +26,16 @@ const convertToDiscussion = (obj) => {
   avatarImage.src = obj.avatarUrl;
   avatarImage.alt = `avatar of ${obj.author}`;
   avatarWrapper.append(avatarImage);
+  
+  const author = document.createElement("p");
+  author.className = "author";
+  author.textContent = obj.author;
+  avatarWrapper.append(author);
+  
+  const createdAt = document.createElement("p");
+  createdAt.className = "createdAt";
+  createdAt.textContent = obj.createdAt;
+  avatarWrapper.append(createdAt);
 
   // discussion__content
   const title = document.createElement("h2");
@@ -36,11 +46,6 @@ const convertToDiscussion = (obj) => {
   titleLink.href = obj.url;
   titleLink.textContent = obj.title;
   title.append(titleLink);
-  
-  const information = document.createElement("div");
-  information.className = "discussion__information"
-  information.textContent = `${obj.author} / ${obj.createdAt}`
-  discussionContent.append(information);
   
   //discussion__answered
   const answerCheck = document.createElement("p");
