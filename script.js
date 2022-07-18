@@ -59,6 +59,7 @@ const submit = document.querySelector('#submit');
 submit.onclick = () => {
   const inputName = document.querySelector('#name');
   const inputTitle = document.querySelector('#title');
+  const inputQuestion = document.querySelector('#story');
   const newObj = {};
   newObj.author = inputName.value;
   newObj.title = inputTitle.value;
@@ -67,6 +68,9 @@ submit.onclick = () => {
   newObj.createdAt = new Date();
   newObj.answer = null;
   ul.prepend(convertToDiscussion(newObj));
+  inputName.value = "";
+  inputTitle.value = "";
+  inputQuestion.value = "";
   return;
 };
 
