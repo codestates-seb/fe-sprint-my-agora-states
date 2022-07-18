@@ -38,10 +38,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    font-size: 13px;
+}
+
+.discussion__information {
+    order: 1;
+    align-self: flex-end;
 }
 
 /* 오른쪽 체크 표시 */
 .discussion__answered {
     display: flex;
     align-items: center;
+    font-size: 40px;
 }
