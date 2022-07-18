@@ -6,24 +6,56 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+  // 이미지
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+  const avatarImg = document.createElement("img");
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = `avatar of ${obj.author}`;
+  avatarImg.classList.add("discussion__avatar--image");
+  avatarWrapper.append(avatarImg);
+
+  //내용
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+  //본문
+  const discussionTitle = document.createElement("h2");
+  const discussionTilte_aTag = document.createElement("a");
+  discussionTilte_aTag.href = obj.url;
+  discussionTilte_aTag.textContent = obj.title;
+  discussionTitle.classList = "discussion__title";
+  discussionTitle.append(discussionTilte_aTag);
+  discussionContent.append(discussionTitle);
+  //정보
+  const discussionInformation = document.createElement("div");
+  discussionInformation.textContent = `${obj["author"]} / ${obj["createdAt"]}`;
+  discussionInformation.classList = "discussion__information";
+  discussionContent.append(discussionInformation);
+
+
+  //답변여부
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  const IsAnswered = document.createElement("p");
+  obj.answer === null ? IsAnswered.textContent = "x" : IsAnswered.textContent = "☑" ;
+  discussionAnswered.append(IsAnswered);
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
 
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+  console.log(li);
   return li;
 };
 
+
+
+
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  
+  for (let i = 0; i < agoraStatesDiscussions.length; i ++) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
