@@ -1,1 +1,120 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5eddc;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+.form__container {
+  width: 540px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+.form__container input {
+  width: 15rem;
+  height: 1rem;
+}
+.form__input--title input {
+  margin-left: 12px;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+.form__submit input {
+  width: 7rem;
+  height: 100%;
+  border-radius: 10px;
+  background: #e4dccf;
+  box-shadow: none;
+  cursor: pointer;
+}
+.form__submit input:hover {
+  background: #ff8b8b;
+}
+#story {
+  height: 5rem;
+}
+
+.discussions__container {
+  padding: 0;
+}
+.discussion__container {
+  margin-top: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 540px;
+  background: #e4dccf;
+}
+.discussion__container:nth-child(1) {
+  background: #e0deca;
+}
+.discussion__avatar--wrapper {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+.discussion__content {
+  flex-grow: 1;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+.discussion__title {
+  margin-top: 0.5rem;
+}
+.discussion__title a {
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: #2c3639;
+  font-weight: 700;
+}
+.discussion__title a:visited {
+  color: #8b938b;
+}
+.discussion__information {
+  display: flex;
+  justify-content: end;
+  padding-bottom: 0.5rem;
+}
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+}
+#pagination .page {
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-weight: 600;
+}
+
+.current__page {
+  color: red;
+}
