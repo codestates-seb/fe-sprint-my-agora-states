@@ -7,17 +7,15 @@ const convertToDiscussion = (obj) => {
   li.className = "discussion__container"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
+  avatarWrapper.className = "discussion__upper--wrapper";
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
 
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent);
   return li;
 };
 
