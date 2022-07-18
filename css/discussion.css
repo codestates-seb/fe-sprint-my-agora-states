@@ -1,0 +1,51 @@
+.discussion__wrapper .discussions__container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.discussion__wrapper .discussion__container {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.discussion__wrapper .discussion__container:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.discussion__wrapper .discussion__avatar--image {
+  width: 70px;
+  height: 70px;
+  border-radius: 30px;
+}
+
+.discussion__wrapper .discussion__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion__wrapper .discussion__title {
+  font-size: 17px;
+  width: 420px;
+  margin-top: 16px;
+  margin-left: 20px;
+}
+
+.discussion__wrapper .discussion__title a {
+  text-decoration: none;
+  color: rgb(96, 95, 95);
+  font-weight: 700;
+  font-style: italic;
+}
+
+.discussion__wrapper .discussion__information {
+  margin-left: 20px;
+  color: rgba(96, 95, 95, 0.6);
+  font-weight: 400;
+}
+
+.discussion__wrapper .discussion__answered {
+  margin-top: 7.5px;
+  font-size: 30px;
+}

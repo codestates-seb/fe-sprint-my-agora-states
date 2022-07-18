@@ -83,8 +83,8 @@
 .form__container .form__submit input {
   font-size: 17px;
   box-shadow: 5px 6px 10px 1px rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
   color: rgba(0, 0, 0, 0.5);
 }
 
