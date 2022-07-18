@@ -22,8 +22,17 @@ const querySelectDOM = (element) => document.querySelector(element);
 const formQuerySelectorDOM = (element) => submitForm.querySelector(element);
 
 const convertToDiscussion = (obj) => {
-  const li = createDOM("li"); // li 요소 생성
+  let li = createDOM("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
+  const deleteForm = () => {
+    localStorage.removeItem(KEY);
+    window.location.reload();
+  };
+
+  const button = document.createElement("button");
+  button.innerText = "❌";
+  li.append(button);
+  button.addEventListener("click", deleteForm);
 
   const avatarWrapper = createDOM("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -82,6 +91,7 @@ const convertToDiscussion = (obj) => {
   const addAnswerandMark = () => {
     const discussionAnsweredMark = createDOM("div");
     discussionAnsweredMark.className = "discussion__answered";
+
     const discussionAnsweredCount = createDOM("p");
     discussionAnsweredCount.textContent
       ? (discussionAnsweredCount.textContent = "❌")
@@ -101,6 +111,7 @@ const convertToDiscussion = (obj) => {
 const render = (element) => {
   element.innerHTML = ""; //render시 기존에 있던 내용을 지우기 위해 innerHTML을 지운다.
   const data = localStorageSavedData();
+
   for (let i = 0; i < data.length; i++) {
     element.append(convertToDiscussion(data[i]));
   }
