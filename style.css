@@ -5,10 +5,70 @@
     margin: 0;
 }
 
+input {
+    border: none;
+    border-radius: 1px;
+}
+
+textarea {
+    border: none;
+    border-radius: 1px;
+}
+
 main {
     background-color: #f0ebe3;
     width: 60%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__container {
+    width: 540px;
+    background-color: #e4dccf;
+    padding: 10px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__input--wrapper {
+}
+
+.form__input--name > input {
+    width: 300px;
+}
+
+.form__input--title > input {
+    width: 300px;
+}
+
+.form__textbox > textarea {
+    width: 300px;
+}
+
+/* .form__submit {
+    width: 60px;
+    height: 80px;
+} */
+
+.form__submit > input {
+    width: 60px;
+    height: 80px;
+    background-color: #7d9d9c;
+    color: #e4dccf;
+    border-radius: 5px;
+    border: none;
+}
+
+.form__submit > input:hover {
+    background-color: #576f72;
 }
 
 .discussion__wrapper {
