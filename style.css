@@ -1,1 +1,103 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: auto;
+  /* (이거 적용해도 똑같음 padding: auto; */
+  /* border: 1px solid black; */
+  font-size: 16px;
+  /* max-width: 800px; */
+  background-color: rgb(218, 223, 224);
+}
+li {
+  list-style: none;
+}
+body {
+  max-width: 600px;
+}
+
+/*DISCUSSION CONTAINER 작성공간*/
+form{
+  background-color: blueviolet !important;
+}
+.discussions__container{
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+}
+.discussion__container{
+  display: flex;
+  max-width: 540px;
+  justify-content: space-between;
+  background-color: rgb(249, 249, 249);
+  border-radius: 1rem;
+  margin-bottom: 10px;
+  height: 85px;
+}
+.discussion__avatar--wrapper{
+  flex-grow: 1;
+  text-align: center;
+  max-width: 50px;
+  background-color: rgb(249, 249, 249);
+}
+/*AVATAR 사진 동그리마 표현*/
+img{
+  border-radius: 100%;
+  overflow: hidden;
+  width: 48px;
+  object-fit: cover;
+;
+}
+/*----여기까지 AVATAR 동그라미 */
+a{
+  background-color: rgb(249, 249, 249);
+}
+p{
+  background-color: rgb(249, 249, 249);
+}
+.discussion__content{
+  flex-grow: 5;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: rgb(249, 249, 249);
+}
+.discussion__title{
+  flex-grow: 5;
+  flex-wrap: wrap;
+  margin: 0;
+  max-width: 100%;
+  font-size: 1.2rem;
+  justify-content: flex-start;
+  background-color: rgb(249, 249, 249);
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.discussion__information{
+  flex-grow: 1;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: 0.8rem;
+  max-width: 100%;
+  text-align: right;
+  background-color: rgb(249, 249, 249);
+  max-height: 40px;
+} 
+.discussion__answered{
+  flex-grow: 1;
+  text-align: center;
+  max-width: 50px;
+  min-width: 50px;
+  background-color: rgb(249, 249, 249);
+}
+
+
+
+/* .discussion__avatar--wrapper{ 왜 여기는 위 처럼 한꺼번에 묶어야 작동이 하는걸까?
+  border-radius: 100%;
+  overflow: hidden;
+  width: 48px;
+}
+.discussion__avatar--image{
+  
+  object-fit: cover; 
+} */
