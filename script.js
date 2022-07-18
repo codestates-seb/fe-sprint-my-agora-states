@@ -8,7 +8,7 @@
 const KEY = "new_list";
 
 const localStorageSavedData = () => {
-  const getlocalStorageData = localStorage.getItem(JSON.stringify(KEY));
+  const getlocalStorageData = localStorage.getItem(KEY);
   if (getlocalStorageData) {
     return JSON.parse(getlocalStorageData);
   }
@@ -128,7 +128,7 @@ const title = formQuerySelectorDOM("#title");
 const textarea = formQuerySelectorDOM("div.form__textbox textarea");
 
 const resetFormValue = () => {
-  author.value = "";
+  names.value = "";
   title.value = "";
   textarea.value = "";
 };
@@ -139,14 +139,16 @@ const handleSubmit = (event) => {
 
   const objects = {};
 
-  objects.id = "unique";
+  objects.id = Math.ceil(Math.random() * 9);
   objects.author = names.value;
   objects.title = title.value;
   objects.avatarUrl =
     "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
+  console.log(objects);
   data.unshift(objects);
 
   localStorage.setItem(KEY, JSON.stringify(data));
+  resetFormValue();
   render(ul);
 };
 
