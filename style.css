@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #7b9acc;
 }
 
 main {
@@ -10,4 +13,98 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #FCF6F5;
+}
+
+h1 {
+    margin: 25px;
+    font-size: 50px;
+    border-bottom: 3px solid #7b9acc;
+    border-radius: 5px;
+    border-top: 1px solid #7b9acc;;
+}
+
+/* form 꾸미기 */
+.form {
+    width: 700px;
+    padding :10px;
+    border-radius: 20px;
+    background-color: #FFD2D5;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form__input--title {
+    margin: 0px 10px;
+}
+
+#name, #story{
+    background-color: #FCF6F5;
+    border-style: none;
+    border-bottom: 1px solid #7b9acc;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+input:focus ,textarea:focus{
+    outline: none;
+}
+
+.form__textbox {
+    height: 100%;
+}
+
+.form__submit > input{
+    font-weight: bold;
+    border: none;
+    background-color:#FCF6F5;
+    border-radius: 15px;
+    width: 65%;
+    height: 60px;
+    border-bottom: 1px solid #7b9acc;
+}
+
+/* 불릿 없애기 */
+
+ul {
+    list-style: none;
+    font-weight: bold;
+    text-decoration-line: none;
+}
+
+
+/* img 파일 크기 고정 */
+img.discussion__avatar--image {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px 10px;
+}
+
+li.discussion__container {
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row ;
+    margin: 20px;
+    padding: 2%;
+    border-bottom: 2px solid lightgray;
+    background-color: white;
+    border-radius: 5px;
+    
+}
+.discussion__content {
+    width : 500px;
+    display: flex;
+    align-items: center;
+}
+.discussion__answered {
+
+    align-items:flex-end;
 }

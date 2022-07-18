@@ -32,7 +32,7 @@ const convertToDiscussion = (obj) => {
 
   //AVATAR DOM 지정
   const avatar = document.createElement('img')
-  avatar.className = 'discussion__avatar--wrapper'
+  avatar.className = 'discussion__avatar--image'
 
   //AVATAR 데이터 삽입
   avatar.src = obj.avatarUrl
@@ -50,6 +50,23 @@ const convertToDiscussion = (obj) => {
   //DISCUSSION 표현
   discussionContent.append(discussInfo)
   
+  //ANSWERED 이미 존재 함. 따라서 obj.answer 에 데이터가 있을 경우 ☑ 를 <p> 태그안에 넣어서 discussionAns에 삽입 ㄱ
+  const discussAns = document.createElement('p')
+
+  if(obj.answer === null) {
+    answered = discussAns.textContent = "❎"
+    discussionAnswered.append(answered)
+  } else {
+    answered = discussAns.textContent = '✅'
+    discussionAnswered.append(answered)
+  }
+
+
+
+
+
+
+
 
 
   
