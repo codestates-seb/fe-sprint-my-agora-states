@@ -77,11 +77,8 @@ paginBtns.forEach((btn) => {
 	});
 });
 
-// Initial Render
-
-for (let i = 0; i < 10; i++) {
-	ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
-}
+page = 1;
+render(ul);
 
 function getTimeString(obj) {
 	const timeCreated = new Date(obj.createdAt);

@@ -54,6 +54,7 @@ const render = (element) => {
 	return;
 };
 
+
 const paginationCtn = document.querySelector('.pagination-btn-container');
 let page = 0;
 for (let i = 0; i < agoraStatesDiscussions.length; i += 10) {
@@ -67,21 +68,18 @@ const ul = document.querySelector('ul.discussions__container');
 
 const paginBtns = document.querySelectorAll('.pagination-btn');
 paginBtns.forEach((btn) => {
-	btn.addEventListener('click', (e) => {
-		const page = e.target.textContent;
-		const ul = document.querySelector('ul.discussions__container');
-		ul.innerHTML = '';
-		for (let i = (page - 1) * 10; i < page * 10; i++) {
-			ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
-		}
-	});
-});
-
-// Initial Render
-
-for (let i = 0; i < 10; i++) {
-	ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  btn.addEventListener('click', (e) => {
+    const page = e.target.textContent;
+    const ul = document.querySelector('ul.discussions__container');
+    ul.innerHTML = '';
+    for (let i = (page - 1) * 10; i < page * 10; i++) {
+      ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    }
+  }
+  );
 }
+
+render(ul);
 
 function getTimeString(obj) {
 	const timeCreated = new Date(obj.createdAt);

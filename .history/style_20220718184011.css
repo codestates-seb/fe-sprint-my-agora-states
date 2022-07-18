@@ -1,19 +1,16 @@
 body {
 	background-color: beige;
-	display: border-box;
 }
 
 .form {
 	margin: auto;
 	background-color: white;
 	border: 1px solid #b7b7b7;
-	width: 580px;
+	width: 1000px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	position: relative;
-	left: 18px;
 }
 
 .input-container {

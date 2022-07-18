@@ -54,34 +54,9 @@ const render = (element) => {
 	return;
 };
 
-const paginationCtn = document.querySelector('.pagination-btn-container');
-let page = 0;
-for (let i = 0; i < agoraStatesDiscussions.length; i += 10) {
-	const paginationBtn = document.createElement('button');
-	paginationBtn.className = 'pagination-btn';
-	paginationBtn.textContent = page + 1;
-	page++;
-	paginationCtn.appendChild(paginationBtn);
-}
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
-
-const paginBtns = document.querySelectorAll('.pagination-btn');
-paginBtns.forEach((btn) => {
-	btn.addEventListener('click', (e) => {
-		const page = e.target.textContent;
-		const ul = document.querySelector('ul.discussions__container');
-		ul.innerHTML = '';
-		for (let i = (page - 1) * 10; i < page * 10; i++) {
-			ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
-		}
-	});
-});
-
-// Initial Render
-
-for (let i = 0; i < 10; i++) {
-	ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
-}
+render(ul);
 
 function getTimeString(obj) {
 	const timeCreated = new Date(obj.createdAt);
@@ -95,4 +70,15 @@ function getTimeString(obj) {
 	});
 
 	return timeCreatedString;
+}
+
+// set pagination for 10 items at discussions__container
+const paginationCtn = document.querySelector('.pagination-btn-container');
+let page = 0;
+for (let i = 0; i < agoraStatesDiscussions.length; i += 10) {
+	const paginationBtn = document.createElement('button');
+	paginationBtn.className = 'pagination-btn';
+	paginationBtn.textContent = page + 1;
+	page++;
+	paginationCtn.appendChild(paginationBtn);
 }
