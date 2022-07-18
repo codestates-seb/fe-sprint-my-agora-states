@@ -1,6 +1,11 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 const discussions = document.querySelector('.discussions__container');
+
+if (localStorage.getItem('data') === null) {
+    localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
+}
+
 let addData = {
     id: 'D_kwDOHOApLM4APjJi',
     createdAt: '',
@@ -46,12 +51,12 @@ newData.createdAt = new Date(Date.now() - offset).toISOString().split('.')[0] + 
 
 const form = document.querySelector('.form__submit');
 
+// localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
 const addDiscussion = () => {
     console.log('눌림');
     let newLocalData = JSON.parse(localStorage.getItem('data'));
     newLocalData.unshift(newData);
     localStorage.setItem('data', JSON.stringify(newLocalData));
-    console.log('작동');
     inputName.value = '';
     inputTitle.value = '';
     inputStory.value = '';
@@ -132,7 +137,6 @@ const convertToDiscussion = (obj) => {
 const render = (element) => {
     discussions.innerHTML = null;
     const agoraStatesLocalDiscussions = JSON.parse(localStorage.getItem('data'));
-    console.log(agoraStatesLocalDiscussions.length / 10);
     for (let i = 0; i < agoraStatesLocalDiscussions.length; i += 1) {
         element.append(convertToDiscussion(agoraStatesLocalDiscussions[i]));
     }
