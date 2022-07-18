@@ -1,1 +1,163 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+    background-color: #f5f6f7;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > h1 {
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+main > .form__container {
+    width: 540px;
+}
+
+main > .form__container > .form__submit{
+    margin-left: 5px;
+}
+
+
+ul.discussions__container {
+    padding: 0px;
+}
+
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+}
+
+li.discussion__container {
+    display: flex;
+    width: 540px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f6f4;
+    border-radius: 15px;
+    box-shadow: 2px 2px 3px #798585;
+}
+
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+
+.discussion__content {
+    display:flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.discussion__information {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 12px;
+}
+
+.discussion__title {
+    margin: 0px;
+}
+
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.discussion__title {
+    width: 100%;
+}
+
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+
+}
+
+.form__input--wrapper > .form_upper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form__input--wrapper > .form_upper > .form_upper_left {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+}
+
+.form__input--wrapper > .form_upper > .form_upper_middle {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.form__input--wrapper > .form_upper > .form__submit {
+    display: flex;
+    width: 20%;
+    align-items: stretch;
+}
+
+.form__input--wrapper > .form_upper > .form__submit > .btn {
+    width: 100%;
+    border-radius: 10px;
+    margin-left: 5px;
+    align-items: stretch;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+a {
+    color: inherit;
+    font-size: 18px;
+}
+
+.discussion__answered > p {
+    font-size: 30px;
+    margin:0px;
+}
+
+h1 {
+    background-color: blanchedalmond;
+}
+
+.form__container {
+    background-color: #fbad9f9c;
+    padding: 10px;
+}
+
+.discussion__wrapper {
+    background-color: #98d3ba;
+    margin-top: 20px;
+}
