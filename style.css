@@ -79,9 +79,6 @@ input, textarea {
     border-bottom: 1px solid #B0ACFF;
 }
 
-.discussion__wrapper {
-    /* border: 1px solid #B0ACFF; */
-}
 .discussion__content>h2 {
     font-weight: 30;
     font-size: 14px;
@@ -92,8 +89,6 @@ li.discussion__container {
     font-family: 'Noto Sans KR', 'Noto Sans';
     background-color: #F9F9F9;
     background-color: white;
-    /* border-bottom: 1px solid #B0ACFF; */
-    /* margin-bottom: 10px; */
 }
 
 .discussion__title {
