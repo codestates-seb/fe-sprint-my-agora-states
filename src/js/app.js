@@ -1,13 +1,12 @@
 import { agoraStatesDiscussions } from './common/data/data.js';
-import { $ } from './common/utils/dom.js';
 import { getLocalStorage, setLocalStroage } from './common/utils/localStorage.js';
 import { getCurrentTime } from './common/utils/utils.js';
 import Section1 from './Components/Section1.js';
 import Section2 from './Components/Section2.js';
 import Section3 from './Components/Section3.js';
 import Component from './Core/component.js';
-export const $ = (selector) => document.querySelector(selector);
-export const $$ = (selector) => document.querySelectorAll(selector);
+
+const $ = (selector) => document.querySelector(selector);
 
 export default class App extends Component {
   constructor(...rest) {
