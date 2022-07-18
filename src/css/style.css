@@ -137,3 +137,7 @@ li {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.page_number {
+  cursor: pointer;
+}

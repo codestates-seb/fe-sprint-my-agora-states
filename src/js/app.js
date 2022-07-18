@@ -15,7 +15,14 @@ export default class App extends Component {
   }
 
   async initialState() {
-    this.setState({ ...this.props, data: getLocalStorage('data'), pageThresholdNum: -10, currentPage: 0, postingTime: '' });
+    this.setState({
+      ...this.props,
+      data: getLocalStorage('data') === null ? agoraStatesDiscussions : getLocalStorage('data'),
+      pageStartNum: -10,
+      pageEndNum: 9999,
+      currentPage: 0,
+      postingTime: '',
+    });
   }
 
   template() {
@@ -34,7 +41,7 @@ export default class App extends Component {
 
     new Section2($('.discussion__wrapper'), { ...this.state });
 
-    new Section3($('.page__nation'), { ...this.state });
+    new Section3($('.page__nation'), { ...this.state, updateCurrentPage: this.handleCurrentPage.bind(this) });
 
     // const array = new Uint32Array(30);
 
@@ -55,9 +62,8 @@ export default class App extends Component {
 
   updataData(newItem) {
     const { data } = this.state;
-    const newData = data.concat(newItem);
 
-    data.push({ dd: '' });
+    const newData = data.concat(newItem);
 
     setLocalStroage('data', newData);
 
@@ -73,6 +79,23 @@ export default class App extends Component {
     this.setState({
       ...this.state,
       postingTime: currentTime,
+    });
+  }
+
+  handleCurrentPage(page) {
+    let { pageStartNum, pageEndNum } = this.state;
+
+    pageStartNum = 0 - 10 * page;
+
+    console.log(pageStartNum, pageEndNum);
+
+    pageEndNum = pageStartNum === -10 ? (pageEndNum = 9999) : (pageEndNum = pageStartNum + 10);
+
+    this.setState({
+      ...this.state,
+      currentPage: Number(page),
+      pageStartNum,
+      pageEndNum,
     });
   }
 }

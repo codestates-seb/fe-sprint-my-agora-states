@@ -1,5 +1,6 @@
 import Component from '../Core/component.js';
 import { getRandomNumber, getCurrentTime } from '../common/utils/utils.js';
+import { agoraStatesDiscussions } from '../common/data/data.js';
 
 export default class Section2 extends Component {
   constructor(...rest) {
@@ -7,11 +8,15 @@ export default class Section2 extends Component {
   }
 
   template() {
-    let { data } = this.props;
+    let { data, pageStartNum, pageEndNum } = this.props;
+
+    if (!data) {
+      data = agoraStatesDiscussions;
+    }
 
     const parsedData = [...data];
 
-    const reversedData = parsedData.slice(-10).reverse();
+    const reversedData = parsedData.slice(pageStartNum, pageEndNum).reverse();
 
     return `
       <ul class="discussions__container">
