@@ -1,0 +1,98 @@
+.form__container {
+  background-color: rgb(211, 211, 211);
+  border-radius: 30px;
+}
+
+.form__container .form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__container .form__input--wrapper .form__input--name,
+.form__container .form__input--wrapper .form__input--title,
+.form__container .form__input--wrapper .form__textbox {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 17px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.form__container .form__input--wrapper .form__input--name input {
+  width: 300px;
+  height: 35px;
+  margin-left: -50px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: rgb(211, 211, 211);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.form__container .form__input--wrapper .form__input--title input {
+  width: 300px;
+  height: 35px;
+  margin-left: -40px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: rgb(211, 211, 211);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.form__container .form__input--wrapper .form__input--name input:focus,
+.form__container .form__input--wrapper .form__input--title input:focus,
+.form__container .form__input--wrapper .form__textbox textarea:focus {
+  outline: none;
+}
+
+.form__container .form__input--wrapper .form__input--name label,
+.form__container .form__input--wrapper .form__input--title label{
+  margin-top: 10px;
+}
+.form__container .form__input--wrapper .form__textbox label {
+  margin-top: 25px;
+}
+
+.form__container .form__input--wrapper .form__textbox textarea {
+  width: 300px;
+  height: 35px;
+  margin-top: 13px;
+  margin-left: -33px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: none;
+  background-color: rgb(211, 211, 211);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.form__container .form__input--wrapper .form__textbox textarea::placeholder {
+  padding: 5px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.form__container .form__submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 45px;
+  margin-top: 30px;
+  padding-bottom: 25px;
+}
+
+.form__container .form__submit input {
+  font-size: 17px;
+  box-shadow: 5px 6px 10px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.form__container .form__submit input:hover {
+  cursor: pointer;
+}
+
+.form__container .form__submit input:active {
+  position: relative;
+  top: 3px;
+}
