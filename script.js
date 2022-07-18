@@ -48,13 +48,14 @@ const convertToDiscussion = (obj) => {
   title.append(titleLink);
   
   //discussion__answered
+  discussionContent.append(discussionAnswered);
   const answerCheck = document.createElement("p");
   if(obj.answer){
     answerCheck.textContent = "☑";
   }
   discussionAnswered.append(answerCheck);
   
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent);
   return li;
   /*
   <li class='discussion__container'>
