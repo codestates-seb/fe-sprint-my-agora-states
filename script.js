@@ -8,7 +8,7 @@
 const KEY = "new_list";
 
 const localStorageSavedData = () => {
-  const getlocalStorageData = localStorage.getItem(KEY);
+  const getlocalStorageData = localStorage.getItem(JSON.stringify(KEY));
   if (getlocalStorageData) {
     return JSON.parse(getlocalStorageData);
   }
@@ -22,7 +22,7 @@ const querySelectDOM = (element) => document.querySelector(element);
 const formQuerySelectorDOM = (element) => submitForm.querySelector(element);
 
 const convertToDiscussion = (obj) => {
-  let li = createDOM("li"); // li 요소 생성
+  const li = createDOM("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
   const deleteForm = () => {
     localStorage.removeItem(KEY);
@@ -43,7 +43,7 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   //프로필 사진 넣기
-  const addProfile = () => {
+  const addProfileImage = () => {
     const avatar = createDOM("img");
     avatar.className = "discussion__avatar--image";
     avatar.src = obj.avatarUrl;
@@ -83,11 +83,11 @@ const convertToDiscussion = (obj) => {
     discussionContent.append(discussionInfo); //discussionContent에 discussionInfo를 넣는다.
   };
 
-  addProfile();
+  addProfileImage();
   addDiscussionTitle();
   addDiscussionInfo();
 
-  //답변 마크 및 답변 개수 넣기
+  //답변 마크
   const addAnswerandMark = () => {
     const discussionAnsweredMark = createDOM("div");
     discussionAnsweredMark.className = "discussion__answered";
