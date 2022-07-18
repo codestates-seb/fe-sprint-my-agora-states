@@ -10,43 +10,98 @@ main {
   align-items: center;
   background-color: orange;
 }
-
+/* 폼 스타일  */
 .form__container {
-  background-color: blue;
+  width: 450px;
+  background-color: lightgrey;
+  padding: 12px 20px;
+  margin: 15px 0;
+  text-align: center;
+  border-radius: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form__input--wrapper {
+  width: 380px;
+  background-color: aqua;  
+}
+.form__input--wrapper label {
+  display: block;
+}
+.form__input--name {
+}
+.form__input--title {
+
+}
+.form__textbox {
+
+}
+.form__submit {
 
 }
 
+
+
+/* discussion 스타일  */
 .discussion__wrapper {
-  background-color: magenta;
   width: 540px;
 
-}
 
-.discussion__container {
+}
+ul .discussion__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between ;
   align-items: center;
   background-color: beige;
+  margin: 15px 0px;
 }
 
+
+.discussion__avatar--wrapper{
+  display: flex;
+  justify-content: center;
+  flex-grow:1;
+  flex-basis: auto;
+}
 .discussion__avatar--image {
   border-radius: 50%;
   width: 48px;
 }
 
 .discussion__content {
+  width: 380px;
+  height: 150px;
+  padding: 15px;
+  flex-grow:4;
+  flex-basis: auto;
+}
+
+.discussion__answered {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow:1;
+  flex-basis: auto;
 }
 
 .discussion__answered>p {
-  font-size: 20px;
+  font-size: 30px;
 }
 .discussion__content .discussion__title {
-
+  text-align: left;
+  font-size: 18px;
 }
-.discussion__content .discussion_information {
-  margin-left: auto;
+.discussion__content .discussion__information {
+  text-align: right;
+}
+a {
+  display: block;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: black;
 
 }
 
