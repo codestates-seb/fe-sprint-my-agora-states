@@ -32,12 +32,9 @@ const convertToDiscussion = (obj) => {
   discussionContent.append( discussionTitle, discussionInformation); // discussion_content 요소안에 h2, div요소 추가
   
   const answeredCheckBox = document.createElement('p'); // answered 여부 확인 표시 요소 생성
-  if(!obj.answer){ // 객체의 answer값 확인으로 구분
-    answeredCheckBox.textContent = '☒';
-  }
-  else{
-    answeredCheckBox.textContent = '☑';
-  }
+  
+  answeredCheckBox.textContent = isAnswered(obj);
+
   discussionAnswered.append(answeredCheckBox);// discussionAnswered div요소안에 answeredCheckBox p요소 추가
 
 
@@ -48,6 +45,55 @@ const convertToDiscussion = (obj) => {
 
 
 
+const isAnswered = function(obj){ // 객체 answer 속성에 따른 체크 표시 리턴하는 함수.
+  if(!obj.answer){ //
+    return '☒';
+  }
+  else{
+    return '☑';
+  }
+};
+
+
+
+// submit 버튼을 누를때 디스커션 추가하는 함수입니다.
+//submit을 누를때 값 읽어오기
+const formInputName = document.querySelector('.form__input--name > input');
+const formInputTitle = document.querySelector('.form__input--title > input');
+const formInputTextbox = document.querySelector('.form__textbox > textarea');
+const formSubmit = document.querySelector('.form');
+
+const readSubmit = () =>{ // submit 이벤트 발생하면 각각의 value 출력하는 함수.
+  console.log(formInputName.value);
+  console.log(formInputTitle.value);
+  console.log(formInputTextbox.value);
+};
+
+
+const addSubmittedDiscussion = function(){ //submit 이벤트 발생시 agoraStatesDiscussions에 객체타입으로 데이터 넣는 함수.
+  agoraStatesDiscussions.push({ // 배열에 데이터 추가
+    id: null,
+    createdAt: '2022-04-22T14:08:33Z',
+    title: formInputTitle.value,
+    url: null,
+    author: formInputName.value,
+    answer: null,
+    bodyHTML: null,
+    avatarUrl: 'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4',
+  }
+  )
+  render(ul);
+  console.log(agoraStatesDiscussions);
+};
+
+// const moveToFirstChild = function(){ //제일 끝 요소를 제일 앞으로 이동시키는 함수
+
+// };
+
+
+
+
+formSubmit.addEventListener('submit', addSubmittedDiscussion); //submit 이벤트는 form 요소에서만 잡힌다.
 
 
 
@@ -61,7 +107,7 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.prepend(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
