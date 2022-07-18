@@ -81,6 +81,10 @@ li {
   font-style: italic;
 }
 
+.submit_btn {
+  cursor: pointer;
+}
+
 /* Section 2 */
 
 .discussions__container {
@@ -114,6 +118,12 @@ li {
   justify-content: start;
 }
 
+#answer-check {
+  font-size: 12px;
+}
+
+/* Section 3 */
+
 .page__nation {
   display: flex;
   justify-content: center;
@@ -138,6 +148,7 @@ li {
   padding-right: 10px;
 }
 
-.page_number {
+.page_number,
+.page_indicator {
   cursor: pointer;
 }

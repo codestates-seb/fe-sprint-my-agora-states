@@ -42,7 +42,11 @@ export default class App extends Component {
 
     new Section2($('.discussion__wrapper'), { ...this.state });
 
-    new Section3($('.page__nation'), { ...this.state, updateCurrentPage: this.handleCurrentPage.bind(this) });
+    new Section3($('.page__nation'), {
+      ...this.state,
+      updateCurrentPage: this.handleCurrentPage.bind(this),
+      updatePages: this.onClickPage.bind(this),
+    });
 
     // const array = new Uint32Array(30);
 
@@ -84,17 +88,21 @@ export default class App extends Component {
   }
 
   handleCurrentPage(page) {
-    let { pageStartNum, pageEndNum } = this.state;
+    this.setState({
+      ...this.state,
+      currentPage: Number(page),
+    });
+  }
 
-    pageStartNum = 0 - 10 * page;
+  onClickPage() {
+    let { currentPage, pageStartNum, pageEndNum } = this.state;
 
-    console.log(pageStartNum, pageEndNum);
+    pageStartNum = 0 - 10 * currentPage;
 
     pageEndNum = pageStartNum === -10 ? (pageEndNum = 9999) : (pageEndNum = pageStartNum + 10);
 
     this.setState({
       ...this.state,
-      currentPage: Number(page),
       pageStartNum,
       pageEndNum,
     });

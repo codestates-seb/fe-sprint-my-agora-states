@@ -36,10 +36,11 @@ export default class Section2 extends Component {
             />
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href=${url}>[${title}]</a></h2>
+            <h2 class="discussion__title"><a href=${url ? url : '#'}>[${title}]</a></h2>
             <div class="discussion__information">${author} / ${createdAt ? createdAt : getCurrentTime()}</div>
           </div>
-          <div class="discussion__answered"><p class="fa-square-0">${answer ? '체크' : '노체크'}</p></div>
+          <p id="answer-check">답변</p>
+          <div class="discussion__answered">${answer ? `<i class="far fa-check-square"></i>` : `<i class="far fa-square"></i>`}</div>
         </li>
         `;
         })

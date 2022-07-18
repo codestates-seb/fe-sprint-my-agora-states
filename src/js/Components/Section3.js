@@ -33,7 +33,11 @@ export default class Section3 extends Component {
         const pageNumber = target.textContent;
 
         this.handleCurrentPage(pageNumber);
-        console.log(this.props.pagesToShow);
+        this.handlePages();
+      }
+
+      if (target.classList.contains('page_indicator')) {
+        this.handlePageIndicator(target.textContent);
       }
     });
   }
@@ -42,5 +46,17 @@ export default class Section3 extends Component {
     const { updateCurrentPage } = this.props;
 
     updateCurrentPage(pageNumber);
+  }
+
+  handlePages() {
+    const { updatePages } = this.props;
+
+    updatePages();
+  }
+
+  handlePageIndicator(pageIndicator) {
+    const { handleIndicator } = this.props;
+
+    handleIndicator(pageIndicator);
   }
 }
