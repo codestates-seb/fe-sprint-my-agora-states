@@ -1,16 +1,20 @@
 import { agoraStatesDiscussions } from './common/data/data.js';
 import { $ } from './common/utils/dom.js';
+import { getLocalStorage, setLocalStroage } from './common/utils/localStorage.js';
 import Section1 from './Components/Section1.js';
 import Section2 from './Components/Section2.js';
+import Section3 from './Components/Section3.js';
 import Component from './Core/component.js';
 
 export default class App extends Component {
   constructor(...rest) {
     super(...rest);
+    // 초기 로컬 스토리지 세팅
+    this.initLocalStorage();
   }
 
   async initialState() {
-    this.setState({ ...this.props });
+    this.setState({ ...this.props, data: getLocalStorage('data'), pageThresholdNum: -10 });
   }
 
   template() {
@@ -19,48 +23,43 @@ export default class App extends Component {
       <h1 id="title">My Agora States</h1>
       <section class="form__container"></section>
       <section class="discussion__wrapper"></section>
+      <section class="page__nation"></section>
     </main>
     `;
   }
 
   componentDidMount() {
-    const { fetchData } = this;
+    new Section1($('.form__container'), { ...this.state, updateData: this.updataData.bind(this) });
 
-    new Section1($('.form__container'), { ...this.state });
+    new Section2($('.discussion__wrapper'), { ...this.state });
 
-    new Section2($('.discussion__wrapper'), { ...this.state, getUserData: fetchData.bind(this) });
+    new Section3($('.page__nation'), { ...this.state });
   }
 
-  fetchData() {
-    const data = [...agoraStatesDiscussions];
+  initLocalStorage() {
+    const dataToCopy = [...agoraStatesDiscussions];
+
+    let data = dataToCopy.slice();
+
+    if (getLocalStorage('data') === null) {
+      setLocalStroage('data', data);
+    }
 
     return data;
   }
+
+  updataData(newItem) {
+    const { data } = this.state;
+
+    const newData = data.concat(newItem);
+
+    data.push({ dd: '' });
+
+    setLocalStroage('data', newData);
+
+    this.setState({
+      ...this.state,
+      data: newData,
+    });
+  }
 }
-
-// const convertToDiscussion = (obj) => {
-//   const li = document.createElement('li'); // li 요소 생성
-//   li.className = 'discussion__container'; // 클래스 이름 지정
-
-//   const avatarWrapper = document.createElement('div');
-//   avatarWrapper.className = 'discussion__avatar--wrapper';
-//   const discussionContent = document.createElement('div');
-//   discussionContent.className = 'discussion__content';
-//   const discussionAnswered = document.createElement('div');
-//   discussionAnswered.className = 'discussion__answered';
-
-//   li.append(avatarWrapper, discussionContent, discussionAnswered);
-//   return li;
-// };
-
-// // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// const render = (element) => {
-//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-//   }
-//   return;
-// };
-
-// // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-// const ul = document.querySelector('ul.discussions__container');
-// render(ul);
