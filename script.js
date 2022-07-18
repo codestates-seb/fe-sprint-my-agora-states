@@ -20,10 +20,33 @@ const convertToDiscussion = (obj) => {
   avatarImg.className = "discussion__avatar--image";
   avatarWrapper.append(avatarImg);
 
-  const avatarTitle = document.createElement('h2');
-  avatarTitle.href = 
+  const discussionTitle = document.createElement('h2');
+  discussionTitle.className = "discussion__title";
 
+  const discussionUrl = document.createElement('a')
+  discussionUrl.href = obj.url;
+  discussionUrl.textContent = obj.title;
 
+  discussionTitle.append(discussionUrl);
+
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = "discussion__information";
+
+  const createQuestionDate = new Date(obj.createdAt).toLocaleString();
+
+  discussionInformation.textContent = `${obj.author} / ${createQuestionDate}`;
+
+  discussionContent.append(discussionTitle, discussionInformation);
+
+  const discussionIcon = document.createElement("p");
+
+  if (obj.answer === null) {
+    discussionIcon.textContent = '☒';
+  } else {
+    discussionIcon.textContent = '☑';
+  }
+
+  discussionAnswered.append(discussionIcon);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
