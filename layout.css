@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 585px;
+    padding: 20px 0px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 465px;
+    height: 175px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 15px;
+}
+div>label {
+    display: inline-block;
+    width: 73px;
+}
+.form__textbox>label {
+    width: 77px;
+}
+.form__textbox {
+    display: flex;
+}
+#name {
+    width: 375px;
+    height: 22px;
+}
+#title {
+    width: 375px;
+    height: 22px;
+}
+#story {
+    width: 375px;
+    height: 115px;
+}
+
+.form__submit {
+    display: flex;
+    width: 465px;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+.form__submit>input {
+    width: 140px;
+    height: 30px;
+    border-radius: 7px;
+}
+
+ul.discussions__container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+}
+
+li.discussion__container {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 70px;
+    flex-grow: 1;
+}
+
+.discussion__title {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.discussion__title a {
+    display: block;
+    width: 100%;
+}
+
+.discussion__information {
+    width: 100%;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    margin-right: 12px;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.discussion__avatar--image {
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.discussion__answered {
+    margin: 0px 10px;
+}
+
+.discussion__answered__img {
+    width: 28px;
+    height: 28px;
+}
+
+.discussion__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 520px;
+}
+
+.discussion__answer {
+    display: flex;
+    width: 520px;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answer__avatar--wrapper {
+    display: flex;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    margin-left: 60px;
+}
+
+.answer__avatar--image {
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.answer__content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 360px;
+    margin-right: 21px;
+}
+
+.answer__author {
+    text-align: start;
+    margin-right: 10px;
+}
+
+.answer__information {
+    text-align: end;
+}
+
+.answer__emoji--wrapper > a {
+    width: 30px;
+    height: 30px;
+    /* margin-left: 5px; */
+}
+.answer__emoji--wrapper {
+    display: flex;
+    overflow: hidden;
+}
+
+.answer__emoji--image {
+    margin-left: 10px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.page__buttons--wrapper {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    color: #FFAD47;
+}
+
+ion-icon {
+    font-size: 20px;
+    padding: 2px 2px;
+}
+ion-icon:hover {
+    cursor: pointer;
+}
+
+.page__button {
+    font-family: 'Noto-Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    width: 20px;
+    background-color: transparent;
+    border: none;
+    color: #F89AEE;
+    padding: 3px;
+}
+.page__button:hover {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0px;
+}

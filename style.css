@@ -1,1 +1,139 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    background-color: #F3F3F3;
+}
+main {
+    background-color: white;
+    border: 2px solid #B0ACFF;
+}
+
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 50px;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+#my {
+    color: #FFC2CB;
+}
+#agora {
+    color: #ACE5F2;
+}
+#states {
+    color: #FFD8A8;
+}
+#bang {
+    color: #B0ACFF;
+}
+
+label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: Medium;
+    font-size: 17px;
+    color: #666161;
+}
+
+#name {
+    background-color: #FFFAD3;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+#title {
+    background-color: #FFFAD3;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+#story {
+    background-color: #FFFAD3;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+input, textarea {
+    font-family: 'Noto Sans';
+    font-size: 15px;
+}
+
+.form__submit>input {
+    font-family: 'Noto-Sans', sans-serif;
+    font-weight: 500;
+    background-color: #5CCF7C;
+    color: white;
+    font-size: 18px;
+    border: none;
+}
+.form__submit>input:hover {
+    background-color: #2CA44E;
+}
+
+.form__submit>input:active {
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* discussion content */
+.Discussions {
+    font-family: 'Noto-Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    padding-bottom: 5px;
+    color: #B0ACFF;
+    border-bottom: 1px solid #B0ACFF;
+}
+
+.discussion__wrapper {
+    /* border: 1px solid #B0ACFF; */
+}
+.discussion__content>h2 {
+    font-weight: 30;
+    font-size: 14px;
+}
+
+
+li.discussion__container {
+    font-family: 'Noto Sans KR', 'Noto Sans';
+    background-color: #F9F9F9;
+    background-color: white;
+    /* border-bottom: 1px solid #B0ACFF; */
+    /* margin-bottom: 10px; */
+}
+
+.discussion__title {
+    font-size: 14px; 
+    text-align: justify;
+}
+
+.discussion__title > a {
+    color: black;
+    text-decoration-line: none;
+}
+
+.discussion__information {
+    font-size: 12px;
+    color: #5A5A5A;
+}
+
+.discussion__information {
+    text-align: end;
+}
+
+.discussion__answered__img:hover {
+    cursor: pointer;
+}
+
+/* discussion answer */
+
+.discussion__answer {
+    background-color: #F1F0FF;
+}
+
+.answer__author {
+    font-size: 13px;
+    font-weight: 30;
+}
+
+.answer__information {
+    font-size: 12px;
+    font-weight: 20;
+    color: #5A5A5A;
+}
+
+/* page Buttons */
+.page__button.active {
+    font-weight: 900;
+    color: #9D6FFF;
+}
