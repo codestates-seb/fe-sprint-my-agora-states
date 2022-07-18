@@ -33,7 +33,7 @@ const convertToDiscussion = (obj) => {
   
   const answeredCheckBox = document.createElement('p'); // answered 여부 확인 표시 요소 생성
   
-  answeredCheckBox.textContent = isAnswered(obj);
+  answeredCheckBox.textContent = isAnswered(obj);//answered에 체크여부 데이터 할당
 
   discussionAnswered.append(answeredCheckBox);// discussionAnswered div요소안에 answeredCheckBox p요소 추가
 
@@ -41,7 +41,6 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered); //li에 div요소 붙임
   return li;
 };
-
 
 
 
@@ -73,7 +72,7 @@ const readSubmit = () =>{ // submit 이벤트 발생하면 각각의 value 출�
 const addSubmittedDiscussion = function(){ //submit 이벤트 발생시 agoraStatesDiscussions에 객체타입으로 데이터 넣는 함수.
   agoraStatesDiscussions.push({ // 배열에 데이터 추가
     id: null,
-    createdAt: '2022-04-22T14:08:33Z',
+    createdAt: returnNowtime(),
     title: formInputTitle.value,
     url: null,
     author: formInputName.value,
@@ -85,19 +84,29 @@ const addSubmittedDiscussion = function(){ //submit 이벤트 발생시 agoraSta
   render(ul);
   console.log(agoraStatesDiscussions);
 };
-
-// const moveToFirstChild = function(){ //제일 끝 요소를 제일 앞으로 이동시키는 함수
-
-// };
+formSubmit.addEventListener('submit', addSubmittedDiscussion); //  submit 제출 이벤트 발생시 작동하는 함수 (submit 이벤트는 form 요소에서만 잡힌다.)
 
 
 
+const returnNowtime = function(){ //현재 시간 출력하는 함수.
+  let today = new Date();
+  let year = today.getFullYear(); // 년도
+  let month = today.getMonth() + 1;  // 월
+  let date = today.getDate();  // 일
+  let hours = today.getHours(); // 시
+  let minutes = today.getMinutes();  // 분
+  let seconds = today.getSeconds();  // 초
 
-formSubmit.addEventListener('submit', addSubmittedDiscussion); //submit 이벤트는 form 요소에서만 잡힌다.
+  month = ('00'+month.toString()).slice(-2);
+  date = ('00'+date.toString()).slice(-2);
+  hours = ('00'+hours.toString()).slice(-2);
+  isAmPm = Number(('00'+hours.toString()).slice(-2)) >= 12 ? '오후' : '오전';
+  minutes = ('00'+minutes.toString()).slice(-2);
+  seconds = ('00'+seconds.toString()).slice(-2);
 
-
-
-
+  // return `${year}-${month}-${date}T${hours}:${minutes}:${seconds}T`;
+  return `${year}.${month}.${date} - ${isAmPm} ${hours}:${minutes}:${seconds}`;
+};
 
 
 
