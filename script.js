@@ -35,6 +35,8 @@ const convertToDiscussion = (obj) => {
   let createdAt_time = obj.createdAt.slice(-9, -1);
   if(createdAt_time.slice(0, 2) < 13){
     createdAt_time = `오전 ${createdAt_time}`;
+  }else if(createdAt_time.slice(0, 2) >= 13 && createdAt_time.slice(0, 2) < 22){
+    createdAt_time = `오후 0${createdAt_time.slice(0, 2) - 12}${createdAt_time.slice(2)}`;
   }else {
     createdAt_time = `오후 ${createdAt_time.slice(0, 2) - 12}${createdAt_time.slice(2)}`;
   }
