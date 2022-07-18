@@ -1,6 +1,7 @@
 import { agoraStatesDiscussions } from './common/data/data.js';
 import { $ } from './common/utils/dom.js';
 import { getLocalStorage, setLocalStroage } from './common/utils/localStorage.js';
+import { getCurrentTime } from './common/utils/utils.js';
 import Section1 from './Components/Section1.js';
 import Section2 from './Components/Section2.js';
 import Section3 from './Components/Section3.js';
@@ -14,7 +15,7 @@ export default class App extends Component {
   }
 
   async initialState() {
-    this.setState({ ...this.props, data: getLocalStorage('data'), pageThresholdNum: -10 });
+    this.setState({ ...this.props, data: getLocalStorage('data'), pageThresholdNum: -10, currentPage: 0, postingTime: '' });
   }
 
   template() {
@@ -29,11 +30,15 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    new Section1($('.form__container'), { ...this.state, updateData: this.updataData.bind(this) });
+    new Section1($('.form__container'), { ...this.state, updateData: this.updataData.bind(this), updateTime: this.handleCurrentTime.bind(this) });
 
     new Section2($('.discussion__wrapper'), { ...this.state });
 
     new Section3($('.page__nation'), { ...this.state });
+
+    // const array = new Uint32Array(30);
+
+    // console.log(window.crypto.getRandomValues(array));
   }
 
   initLocalStorage() {
@@ -50,7 +55,6 @@ export default class App extends Component {
 
   updataData(newItem) {
     const { data } = this.state;
-
     const newData = data.concat(newItem);
 
     data.push({ dd: '' });
@@ -60,6 +64,15 @@ export default class App extends Component {
     this.setState({
       ...this.state,
       data: newData,
+    });
+  }
+
+  handleCurrentTime() {
+    const currentTime = getCurrentTime();
+
+    this.setState({
+      ...this.state,
+      postingTime: currentTime,
     });
   }
 }

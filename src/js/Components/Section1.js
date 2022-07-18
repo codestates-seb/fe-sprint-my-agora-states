@@ -22,10 +22,16 @@ export default class Section1 extends Component {
               <label for="question">Your question: </label>
               <textarea id="question" name="question" placeholder="질문을 작성하세요" required></textarea>
             </div>
+            <div class="form__image">
+              <label for="question">upload your profile iamge: </label>
+              <input type="file" id="img" name="img" accept="image/*">
+              <input type="submit">
+            </div>
           </div>
           <div class="form__submit">
             <input class="submit_btn" type="submit" value="submit" />
           </div>
+
         </form>
     `;
   }
@@ -43,14 +49,22 @@ export default class Section1 extends Component {
       }
 
       this.handleNewData(nameInput.value, titleInput.value, questionContent.value);
+      this.handlePostingTime();
     });
   }
 
   handleNewData(name, title, question) {
-    const { updateData } = this.props;
+    // 바뀌는 정보들을 append 해줘야함
+    const { updateData, postingTime } = this.props;
 
-    const newDataObj = { author: name, title, url: question };
+    const newDataObj = { author: name, title, url: question, createdAt: postingTime };
 
     updateData(newDataObj);
+  }
+
+  handlePostingTime() {
+    const { updateTime } = this.props;
+
+    updateTime();
   }
 }
