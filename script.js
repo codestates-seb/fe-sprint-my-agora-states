@@ -49,11 +49,12 @@ const convertToDiscussion = (obj) => {
 
 // add data
 const addAgoraStatesDiscussionsData = (name, title, question) => {
-  const date = new Date().toLocaleString(); // 현재 시간
+  const today = new Date().toISOString(); // 현재 시간
+
   // 추가할 새로운 데이터
   const newData = {
     id: name,
-    createdAt: date,
+    createdAt: today.substring(0, 19) + today.substring(23), // 밀리초 제거
     title,
     author: name,
     answer: null,
