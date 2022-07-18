@@ -37,16 +37,22 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInformation);
 
   // 그 옆에 아이콘 하여튼 그
-  // div 만들고
-  // 만든 div에 클래스 이름으로 "discussion__answered" 넣어주고
   // p만들고
-  // p의 innerHTML에 ☑ 넣어주고
-  // div에 p를 append 해주고
-  // div는 discussionAnswered에 append해주고
+  // p의 innerHTML에 아이콘 넣어주고
+   // obj.anser 가 비어있으면 x자, 들어가있으면 v자
+  // p를 discussionAnswered에 append해주고
 
+  const answeredIcon = document.createElement('p');
+  if (obj.answer === null) {
+    answeredIcon.innerText = "☒";
+  } else {answeredIcon.innerText = "☑";}
+  discussionAnswered.append(answeredIcon);
+ 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
