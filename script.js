@@ -79,6 +79,9 @@ const makeInputToQuestion = function (e) {
   // 리스트의 상단에 만들어진 li를 붙인다.
   let li = convertToDiscussion(obj);
   ul.prepend(li);
+
+  // data배열에 새롭게 생성한 obj를 추가한다.
+  agoraStatesDiscussions.unshift(obj);
 };
 
 btnSubmit.addEventListener('click', makeInputToQuestion);
