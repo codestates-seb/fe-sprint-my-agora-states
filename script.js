@@ -51,7 +51,7 @@ const convertToDiscussion = (obj) => {
   titleH3.append(titleA);
 
   // information 데이터 입력
-  information.innerText = `${obj.author} / ${obj.createdAt}`;
+  information.innerText = `${obj.author} / ${utcToLocal(obj.createdAt)}`;
 
   // title 자식요소 추가
   title.append(titleH3);
@@ -61,7 +61,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(information);
 
   // answerd 데이터 입력
-  if (answered !== null) {
+  if (obj.answer !== null) {
     answered.innerText = "☑";
   } else {
     answered.innerText = "☒";
@@ -92,3 +92,36 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// UTC 시간을 현지시간으로 변경하는 함수 선언
+function utcToLocal(utc) {
+  const local = new Date(utc);
+
+  // 달
+  let localMonth = (local.getMonth() + 1).toString();
+  if (localMonth.length === 1) localMonth = "0" + localMonth;
+
+  // 일
+  let localDate = local.getDate().toString();
+  if (localDate.length === 1) localDate = "0" + localDate;
+
+  // 시간 + 오전 오후 확인
+  let amOrPm = "AM";
+  let localHours = local.getHours().toString();
+  if (localHours >= 12) {
+    amOrPm = "PM";
+    if (Number(localHours) !== 12) localHours = Number(localHours) - 12;
+  }
+
+  // 분
+  let localMinutes = local.getMinutes().toString();
+  if (localMinutes.length === 1) localMinutes = "0" + localMinutes;
+
+  // 초
+  let localSeconds = local.getSeconds().toString();
+  if (localSeconds.length === 1) localSeconds = "0" + localSeconds;
+
+  const localTime = `${local.getFullYear()}.${localMonth}.${localDate} ${amOrPm} ${localHours}:${localMinutes}:${localSeconds}`;
+
+  return localTime;
+}

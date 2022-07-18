@@ -27,7 +27,7 @@ div.discussion__box {
 }
 
 div.discussion__content {
-  width: 447px;
+  width: 427px;
   position: absolute;
   left: 68px;
   height: 80px;
@@ -37,8 +37,7 @@ div.discussion__content {
 }
 
 div.discussion__information {
-  position: relative;
-  right: -200px;
+  margin-left: auto;
 }
 
 div.discussion__answered p {
