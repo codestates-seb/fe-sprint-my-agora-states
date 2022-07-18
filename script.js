@@ -1,6 +1,10 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+// submit 이벤트리스너
+const form = document.querySelector(".form");
+form.addEventListener("submit", handleFormSubmit);
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -124,4 +128,31 @@ function utcToLocal(utc) {
   const localTime = `${local.getFullYear()}.${localMonth}.${localDate} ${amOrPm} ${localHours}:${localMinutes}:${localSeconds}`;
 
   return localTime;
+}
+
+// form submit시 데이터베이스에 추가
+
+function handleFormSubmit(event) {
+  const inputName = document.getElementById("name");
+  const inputTitle = document.getElementById("title");
+  const inputStory = document.getElementById("story");
+
+  const newName = inputName.value;
+  const newTitle = inputTitle.value;
+  const newStory = inputStory.value;
+  const newTime = new Date().toISOString();
+
+  const newObj = {
+    id: Date.now(),
+    createdAt: newTime,
+    title: newTitle,
+    url: "",
+    author: newName,
+    answer: null,
+    bodyHTML: "",
+  };
+
+  agoraStatesDiscussions.unshift(newObj);
+
+  return;
 }
