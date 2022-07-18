@@ -23,7 +23,7 @@ export default class Section1 extends Component {
               <textarea id="question" name="question" placeholder="질문을 작성하세요" required></textarea>
             </div>
             <div class="form__image">
-              <label for="question">upload your profile iamge: </label>
+              <label for="question">upload your profile image: </label>
               <input type="file" id="img_upload" name="img" accept="image/*">
               <input id="img_submit_btn" type="submit">
             </div>
