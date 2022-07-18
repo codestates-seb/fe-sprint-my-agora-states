@@ -14,7 +14,18 @@ main {
     justify-content: center;
     align-items: center;
 }
+.form {
+    width: 540px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
+.form__submit {
+    display: flex;
+    justify-content: center;
+}
 li.discussion__container {
     display: flex;
     justify-content: space-between;
