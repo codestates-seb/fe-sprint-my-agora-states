@@ -32,7 +32,13 @@ const convertToDiscussion = (obj) => {
 
   const discussionInformation = document.createElement('div');
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  let createdAt_time = obj.createdAt.slice(-9, -1);
+  if(createdAt_time.slice(0, 2) < 13){
+    createdAt_time = `오전 ${createdAt_time}`;
+  }else {
+    createdAt_time = `오후 ${createdAt_time.slice(0, 2) - 12}${createdAt_time.slice(2)}`;
+  }
+  discussionInformation.textContent = `${obj.author} / ${createdAt_time}`;
   discussionContent.append(discussionInformation);
 
   const answeredCheckbox = document.createElement('p');
