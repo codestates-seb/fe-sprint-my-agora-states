@@ -1,0 +1,25 @@
+{
+  "name": "fe-sprint-my-agora-states",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leezer94/fe-sprint-my-agora-states.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leezer94/fe-sprint-my-agora-states/issues"
+  },
+  "homepage": "https://github.com/leezer94/fe-sprint-my-agora-states#readme",
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
