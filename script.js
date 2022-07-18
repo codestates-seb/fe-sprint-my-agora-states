@@ -52,3 +52,51 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const submitForm = document.querySelector(".form");
+const nameInput = document.querySelector("#name");
+const titleInput = document.querySelector("#title");
+const questionInput = document.querySelector("textarea");
+
+// create 구현
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const ul = document.querySelector("ul.discussions__container");
+  const li = document.createElement("li");
+  li.className = "discussion__container";
+  const newName = nameInput.value;
+  const newTitle = titleInput.value;
+  const newTime = event.timestamp;
+  const avatarWrapper = document.createElement("div");
+  avatarWrapper.className = "discussion__avatar--wrapper";
+  const avatarImg = document.createElement("img");
+  avatarImg.src = "avatar.png";
+  avatarImg.alt = "avatar of " + newName;
+  avatarImg.className = "discussion__avatar";
+  avatarWrapper.append(avatarImg);
+  const discussionContent = document.createElement("div");
+  discussionContent.className = "discussion__content";
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  discussionContent.append(discussionTitle);
+  const discussionDetail = document.createElement("div");
+  discussionDetail.textContent = newTitle;
+  discussionTitle.append(discussionDetail);
+  const discussionInfo = document.createElement("div");
+  discussionInfo.textContent = `${newName} / ${newTime}`;
+  discussionContent.append(discussionInfo);
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+  const answerIcon = document.createElement("i");
+  answerIcon.innerHTML = '<i class="fa-solid fa-user-clock"></i>';
+  answerIcon.className = "wating";
+  discussionAnswered.append(answerIcon);
+  nameInput.value = "";
+  titleInput.value = "";
+  questionInput.value = "";
+  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  ul.prepend(li);
+  return li;
+}
+submitForm.addEventListener("submit", handleSubmit);

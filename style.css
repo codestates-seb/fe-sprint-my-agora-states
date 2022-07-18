@@ -16,6 +16,14 @@ h2 {
   font-size: 16px;
 }
 
+a {
+  color: #222;
+  text-decoration: none;
+}
+a:hover {
+  color: #2698cb;
+}
+
 label {
   border-radius: 8px;
   margin: 5px;
