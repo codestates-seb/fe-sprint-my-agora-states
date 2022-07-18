@@ -12,6 +12,11 @@ const convertToDiscussion = (obj) => {
   // <div class='discussion__avatar--wrapper'></div>
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+  discussionContent.addEventListener("click", divLink);
+  function divLink(){
+    window.open(obj.url);
+  }
+
   // <div class='discussion__content'></div>
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -40,12 +45,8 @@ const convertToDiscussion = (obj) => {
   // discussion__content
   const title = document.createElement("h2");
   title.className = "discussion__title";
+  title.textContent = obj.title;
   discussionContent.append(title);
-
-  const titleLink = document.createElement("a");
-  titleLink.href = obj.url;
-  titleLink.textContent = obj.title;
-  title.append(titleLink);
   
   //discussion__answered
   discussionContent.append(discussionAnswered);
