@@ -1,1 +1,103 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* font-family: 'Spoqa Han Sans Neo', 'sans-serif'; */
+  color: var(--black-600);
+  background-color: var(--white);
+  font-size: var(--default);
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Section 1*/
+
+body {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border: 1px solid red;
+}
+
+main {
+  border: 1px solid black;
+
+  width: 500px;
+  height: 700px;
+  min-height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+#title {
+  border: 3px solid purple;
+  border-radius: 10px;
+  padding: 10px;
+
+  font-size: 50px;
+  color: var(--coz-orange-600);
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.form__input--wrapper div {
+  margin-top: 10px;
+}
+
+.form__input--wrapper input,
+.form__input--wrapper textarea {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.form__input--wrapper textarea {
+  font-size: 15px;
+}
+
+.form {
+  display: flex;
+}
+
+.form .form__submit input {
+  color: orange;
+  padding: 2px;
+  border: 2px solid red;
+  border-left: none;
+  border-right: none;
+  font-style: italic;
+}
+
+/* Section 2 */
+
+.discussions__container {
+  border: 1px solid blue;
+}
+
+.discussion__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion__content {
+  display: flex;
+  width: 400px;
+  border: 1px solid purple;
+  flex-direction: column;
+  justify-content: start;
+}
