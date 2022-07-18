@@ -140,8 +140,33 @@ const render = (element) => {
     for (let i = 0; i < agoraStatesLocalDiscussions.length; i += 1) {
         element.append(convertToDiscussion(agoraStatesLocalDiscussions[i]));
     }
+    animation();
     return;
 };
+
+const animation = () => {
+    let item = document.querySelectorAll('.discussion__container');
+    let cnt = 0;
+
+    function activeFunc() {
+        item[cnt].classList.add('active');
+        cnt++;
+        if (cnt >= item.length) {
+            clearInterval(addActive);
+        }
+    }
+
+    let addActive = setInterval(activeFunc, 130);
+};
+
+// 목록 초기화
+const resetList = document.querySelector('.list_reset_btn');
+const listReset = () => {
+    localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
+};
+if (resetList) {
+    resetList.addEventListener('click', listReset);
+}
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
