@@ -30,6 +30,7 @@ h1 {
     padding-bottom: 12px;
     border-bottom: 1px white solid;
     color: white;
+    font-weight: lighter;
 }
 form.form {
     width: 540px;
@@ -88,7 +89,7 @@ div.form__submit > input {
     height: 50px;
     border: none;
     font-size: 20px;
-    background-color: #FAF1E1;
+    background-color: rgb(233, 233, 233);
     font-family: 'DungGeunMo';
     box-shadow: 5px 5px;
 }
