@@ -14,12 +14,33 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.className = "discussion__avatar--image"
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const title = document.createElement('h2');
+  const titleLink = document.createElement('a')
+  titleLink.href = obj.url;
+  titleLink.textContent = obj.title;
+  title.append(titleLink);
+  discussionContent.append(titleLink);
 
+  const information = document.createElement('div');
+  information.className = "discussion__information"
+  information.textContent = obj.author + "/" + new Date(obj.createdAt).toLocaleString();
+  discussionContent.append(title, information);
+
+  const answer = document.createElement("p")
+  answer.className = "discussion__answered"
+  answer.innerText = obj.answer ? "☑︎" : "◻︎";
+  discussionAnswered.append(answer);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -32,3 +53,47 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+//submit
+const form = document.querySelector('form.form');
+const inputTitle = document.querySelector("div.form__input--title > input");
+const inputName = document.querySelector("div.form__input--name > input");
+const textbox = document.querySelector("div.form__textbox > textarea");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  //새로운 객체를 만들어야 한다.
+  //input에 입력된 값(value)를 넣은 새로운 객체.
+  //새로운 객체를 ul요소 아래로 넣어준다.
+  //더미데이터에도 추가해준다.
+  const obj = {
+    id: "",
+    createdAt: new Date().toLocaleString(),
+    title: inputTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: inputName.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl:"https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+  }
+  agoraStatesDiscussions.unshift(obj);
+  const newDiscussion = convertToDiscussion(obj)
+  ul.prepend(newDiscussion)
+})
+
+
+//alert
+var alert = function(msg, type) {
+  swal({
+    title : '',
+    text : msg,
+    type : type,
+    timer : 1500,
+    customClass : 'sweet-size',
+    showConfirmButton : false
+  });
+}
+
+function Alert() {
+  alert('제출이 완료되었습니다.', 'success');
+}
