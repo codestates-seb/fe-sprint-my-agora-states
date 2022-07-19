@@ -25,12 +25,12 @@ const convertToDiscussion = (obj) => {
   // contentTitle.className = 'discussion__title';
   // discussionContent.append(contentTitle);
   const contentLink = document.createElement('a');
-  // contentLink.href = obj.url; //obj.url?
+  contentLink.href = obj.url; //게시물 링크 연결해 시간 나오게 함
   contentLink.textContent = obj.title; //내용의 각 질문들의 title이 나옴
   contentTitle.append(contentLink); // h2에 a가 들어가 있다.
 
   const contentInfo = document.createElement('div');
-  contentInfo.textContent = `${obj.author} / ${obj.createAt}` // new Date(obj.createAt).toLocaleString()
+  contentInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}` // new Date(obj.createAt).toLocaleString()
   discussionContent.append(contentTitle, contentInfo);
 
   // contentInfo.className = 'discussion__information';
@@ -88,6 +88,3 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul); // render 함수 호출
-
-
-
