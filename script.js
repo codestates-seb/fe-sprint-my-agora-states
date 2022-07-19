@@ -144,6 +144,9 @@ form.addEventListener('submit', (e) => {
         bodyHTML: formStory.value,
         avatarUrl: 'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4'
     });
+    formName.value = '';
+    formTitle.value = '';
+    formStory.value = '';
     discussionString = JSON.stringify(agoraStatesDiscussions)
     localStorage.setItem("data", discussionString);
     discussionJson = JSON.parse(localStorage.getItem("data"));
