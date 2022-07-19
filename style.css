@@ -104,8 +104,12 @@ div.form__submit > input{
     box-shadow:
     0 0 6px yellow,
     0 0 8px white;
+    /* pointer-events: none; */
 
 }
+
+
+
 .discussion__wrapper {
     display:flex;
     justify-content: center;
@@ -140,9 +144,11 @@ div.form__submit > input{
 }
 
 .discussion__information {
-    text-align: end;
     margin: 0px 5px;
     color: black;
+    text-shadow: none;
+    
+    justify-content: end;
 }
 
 .discussion__title {
