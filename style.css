@@ -1,1 +1,169 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #FFF0F0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #835858;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+}
+
+section {
+    background-color: #EBD4D4;
+}
+
+form {
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form__container {
+    color: #463333;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 1em;
+    padding: 15px 15px
+}
+
+#submit {
+    width: 100px;
+    height: 40px;
+    background-color: #835858;
+    color:#EBD4D4;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+#next:hover,
+#submit:hover {
+    letter-spacing: 1px;
+    background-color: #463333;
+    color:#FFF0F0;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+}
+
+#name, #story,
+#title {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #463333;
+    background-color: #EBD4D4;
+    color: #463333;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style: none;
+}
+
+.discussion__container {
+    width: 540px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #FFF0F0;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 70%;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7em;
+    width: 85%;
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: end;
+}
+
+.discussion__answered {
+    display:flex;
+    align-items: center;
+}
+
+.pageBtn__area {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #FFF0F0;
+}
+
+.pageBtn {
+    width: 100px;
+    height: 40px;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+#prev {    
+    background-color: #EBD4D4;
+    color:#463333;
+}
+
+#next {
+    background-color: #835858;
+    color:#EBD4D4;
+}
+
+#prev:hover {
+    letter-spacing: 1px;
+    background-color: #835858;
+    color:#EBD4D4;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#page {
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: 600;
+}
