@@ -1,1 +1,137 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: #d4d3d3;
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+ul{
+  list-style: none;
+}
+/* 헤더 */
+header {
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  left: 0;
+  color: #fff;
+  background-color: rgba(51,51,51);
+}
+
+/* 모든섹션 */
+.form__container {
+  margin-top: 150px;
+  margin-bottom: 50px;
+  padding: 10px;
+  border: 4px solid #333;
+  border-radius: 16px;
+  box-shadow: 1px 1px 4px 1px;
+  background-color: #fff;
+  height: 320px;
+}
+/* 위에 내용 추가하는 섹션 */
+.form__container .form__input--wrapper {
+  width: 500px;
+  height: 250px;
+}
+.form__container .form__input--wrapper .form__input--name,
+.form__container .form__input--wrapper .form__input--title {
+  height: 40px;
+  margin: 10px 0 30px 0;
+}
+.form__container .form__input--wrapper .form__input--name label,
+.form__container .form__input--wrapper .form__input--title label,
+.form__container .form__input--wrapper .form__textbox label {
+  font-size: 18px;
+  font-weight: 700;
+}
+.form__container .form__input--wrapper .form__input--name #name,
+.form__container .form__input--wrapper .form__input--title #title {
+  width: 100%;
+  height: 30px;
+  border-radius: 16px;
+}
+.form__container .form__input--wrapper .form__textbox textarea{
+  width: 500px;
+  height: 80px;
+  border-width: 2px;
+  border-radius: 16px;
+  padding: 7px;
+}
+.form__submit {
+  margin: 0;
+  padding: 0;
+  margin: auto;
+}
+.form__submit input{
+  font-size: 20px;
+  font-weight: 1000;
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 100px;
+  background-color: #fff;
+}
+.form__submit input:active{
+  color:#fff;
+  background-color: #333;
+}
+/* 추가되는섹션들 */
+.discussions__container {
+  width: 540px;
+  height: 60px;
+  padding: 0;
+}
+.discussion__container {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 4px solid #333;
+  border-radius: 16px;
+  box-shadow: 1px 1px 4px 1px;
+  background-color: #fff;
+}
+.discussion__container .discussion__avatar--wrapper {
+  width: 60px;
+  height: 70px;
+}
+.discussion__avatar--image {
+  width: 48px;
+  height: 48px;
+  border-radius: 70%;
+  margin: 11px 6px;
+}
+.discussion__container .discussion__content{
+  display: grid;
+  width: 440px;
+  height: 35px;
+  
+}
+.discussion__wrapper .discussion__title {
+  margin: auto 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.discussion__wrapper .discussion__information {
+  text-align: end;
+  margin-top: 40px;
+}
+.discussion__wrapper .discussion__answered {
+  width: 40px;
+  height: 70px;
+}
+.discussion__wrapper .discussion__answered p{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+}
