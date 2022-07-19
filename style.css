@@ -1,6 +1,8 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 *{
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 body{
     margin: 0px;
@@ -71,7 +73,7 @@ li{
 .discussions__container{
     padding-left: 10px;
 }
-.discussion__container{
+li.discussion__container{
     width: 540px;
     list-style: none;
     padding: 5px 7px;

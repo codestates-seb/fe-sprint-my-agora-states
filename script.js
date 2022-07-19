@@ -32,7 +32,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionInformation = document.createElement('div');
   discussionInformation.classList = "discussion__information";
-  discussionInformation.textContent = obj.author +' / ' + obj.createdAt;
+  discussionInformation.textContent = obj.author +' / ' + new Date(obj.createdAt).toLocaleString();
   
   discussionContent.append(discussionTitle);
   discussionContent.append(discussionInformation);
@@ -54,25 +54,28 @@ const render = (element) => {
   }
   return;
 };
-
-const submit = document.querySelector('#submit');
-submit.onclick = () => {
-  const inputName = document.querySelector('#name');
-  const inputTitle = document.querySelector('#title');
-  const inputQuestion = document.querySelector('#story');
-  const newObj = {};
-  newObj.author = inputName.value;
-  newObj.title = inputTitle.value;
-  newObj.avatarUrl = 'mandarin.jpg';
-  newObj.url = "#";
-  newObj.createdAt = new Date();
-  newObj.answer = null;
-  ul.prepend(convertToDiscussion(newObj));
-  inputName.value = "";
-  inputTitle.value = "";
-  inputQuestion.value = "";
-  return;
-};
+  const form = document.querySelector('form.form');
+  const inputName = document.querySelector('div.form__input--name > input');
+  const inputTitle = document.querySelector('div.form__input--title > input');
+  const inputQuestion = document.querySelector('div.form__textbox > textarea');
+  
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  
+    const obj = {
+      id: "ID",
+      createdAt: new Date(),
+      title: inputTitle.value,
+      url: "#",
+      author: inputName.value,
+      answer: null,
+      bodyHTML: inputQuestion.value,
+      avatarUrl: 'mandarin.jpg',
+    }
+    agoraStatesDiscussions.unshift(obj);
+    ul.prepend(convertToDiscussion(obj));
+    return;
+  });
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
