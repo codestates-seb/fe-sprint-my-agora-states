@@ -1,1 +1,179 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-image: url('https://images6.alphacoders.com/860/thumb-1920-860645.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+main {
+  overflow: auto;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스크롤바 안보이게 */
+::-webkit-scrollbar {
+  display: none;
+}
+ul {
+  margin: 1rem 0;
+}
+
+h1 {
+  margin: 30px;
+  position: fixed;
+
+  font-size: 40px;
+}
+
+label {
+  text-transform: uppercase;
+  font-weight: 500;
+  /* color: white; */
+}
+
+.discussion__wrapper {
+  height: 600px;
+  position: fixed;
+  bottom: 100px;
+  overflow: auto;
+}
+
+.discussion__container {
+  width: 540px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 5px;
+  border-bottom: 0.5px dashed white;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 100%;
+}
+
+.discussion__content {
+  flex-grow: 1; 
+  margin: 0 1rem;
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.discussion__content::after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-right: 10px solid white;
+  border-bottom: 10px solid transparent;
+  top: 30%;
+  left: -10px;
+}
+
+.discussion__answered {
+  font-size: 30px;
+  color: white;
+}
+
+.form__container {
+  width: 540px;
+  border-radius: 5px;
+  padding: 1rem;
+
+  position: sticky;
+  top: 100px;
+
+  background-color: #da4305;
+  border: 1px solid white;
+}
+form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.form__input--wrapper > div {
+  display: flex;
+  align-items: center;
+}
+form input, textarea {
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 220px;
+  margin-left: 5px;
+  border: 0.8px solid #b7b7b7;
+}
+
+textarea {
+  margin-bottom: 0;
+}
+
+.form__submit input {
+  width: 120px;
+  height: 80px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color: #0c1b66;
+  color: white;
+}
+.pagination__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 30px;
+  justify-content: center;
+}
+.btn {
+  height: 30px;
+  border: none;
+  color: white;
+  background-color: #0c1b66;
+  padding: 5px;
+  border-radius: 3px;
+  font-weight: 500;
+  margin: 5px;
+}
+
+.btn:active {
+  background-color: #da4305;
+}
+
+.btn:hover {
+  background-color: #da4305;
+}
