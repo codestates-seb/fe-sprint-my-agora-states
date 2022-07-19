@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -17,6 +21,7 @@
   <body>
     <main>
       <h1>My Agora States</h1>
+
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
@@ -43,10 +48,13 @@
           </div>
         </form>
       </section>
-
       <section class="Pagenation__Container">
-        <button class="prev">prev</button>
-        <button class="next">next</button>
+        <button class="prev">
+          <span class="material-symbols-outlined"> arrow_back_ios </span>
+        </button>
+        <button class="next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
       </section>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
