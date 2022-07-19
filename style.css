@@ -1,1 +1,141 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    background-color: lavenderblush;
+    text-align: center;
+}
+h1 {
+    color: royalblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* font-size: 40px; */
+}
+.form__input--wrapper {
+    /* background-color: azure; */
+    width: 420px;
+    height: 100px;
+    /* color: black; */
+    /* font-size: 10px; */
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.form__submit {
+    /* background-color: lightskyblue; */
+    margin-top: 13px;
+    /* display: flex; */
+    
+}
+.form__submit > input {
+    width: 225px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+}
+.form__container {
+    text-align: center;
+    width: 540px;
+    height: 170px;
+    border:solid 3px;
+    /* border-radius: 10%; */
+    background: pink;
+    display: inline-block;
+}
+.discussion__wrapper {
+    /* background-color: brown; */
+    display:inline-block;
+    margin-top: 5px;
+}
+.discussion__container{
+    display: flex;
+    width: 545px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-right: 40px;
+    background-color: rgb(234, 236, 255);
+    border:solid 3px black;
+    border-bottom: 0px;
+}
+img {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+
+}
+.discussion__avatar--wrapper {
+    /* display: flex; */
+    /* align-items: center; */
+    /* background-color: lightgrey; */
+    margin-left: 20px;
+}
+.discussion__information {
+    width: 280px;
+    margin-top: 30px;
+    margin-left: 140px;
+    margin-bottom: 10px;
+    /* margin-right: 10px; */
+    text-align: center;
+    background-color: white;
+    font-weight: bold;
+    border: solid 2px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.discussion__title {
+    /* background-color: lightpink; */
+    padding-left: 10px;
+    text-align: left;
+}
+.discussion__answered {
+    /* display: flex; */
+    /* align-items: center; */
+    /* padding-left: 5px; */
+    /* background-color: aquamarine; */
+    margin-right: 10px;
+}
+
+.form__textbox {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 5px;
+    /* align-items: center; */
+    /* text-align: center; */
+
+}
+#story {
+    width: 240px;
+}
+
+.form__input--title {
+    padding-left: 10px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#story, #name {
+    border: solid 2px;
+}
+
+.form__input--name {
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-bottom: 3px;
+   display: flex;
+   justify-content: space-between;
+}
+/* #page {
+    padding:0; border:0; margin:0; list-style:none; font-family:'d2coding'; font-size:16px;
+}
+
+.wrap_con .con {display:none;}
+.wrap_con .con.on {display:block;}
+
+페이징
+.paging a {display:none;}
+.paging a.view {display:block;}
+.paging a.on {color:#ff0000; font-weight:bold;}
