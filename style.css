@@ -13,7 +13,7 @@ body{
 }
 
 main{
-    width: 540px;
+
 }
 
 .form__container{
@@ -29,6 +29,7 @@ ul{
 }
 
 li{
+    width: 540px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,10 +52,10 @@ img{
 }
 
 .discussion__content{
+
     display: flex;
     flex-direction: column;
     padding: 10px;
-
     flex: 0 0 74%;
 }
 
@@ -62,6 +63,12 @@ img{
     font-size:  16px;
 }
 
+.discussion__question{
+    width: 379px;
+    white-space : nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .discussion__information{
     margin-left: auto;
 }
@@ -69,6 +76,5 @@ img{
 
 .discussion__answered{
     flex: 0 0 10%;
-
     text-align: center;
 }

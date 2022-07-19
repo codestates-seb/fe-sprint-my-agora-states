@@ -12,31 +12,31 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
   const avatarImg = document.createElement('img'); // 사진 요소 생성
   avatarImg.src = obj.avatarUrl; // img태그의 src속성 초기화
   avatarImg.alt = 'avatar of ' + obj.author; // img태그의 alt속성 초기화
   avatarWrapper.append(avatarImg); // avatarWrapper요소안에 img요소 추가
   
-  const discussionTitle = document.createElement('h2'); // 질문내용 h2 요소 생성
+  const discussionTitle = document.createElement('h2'); // 질문 h2 요소 생성
   discussionTitle.className = 'discussion__title'; //h2요소 class 이름 초기화
   const titleUrl = document.createElement('a'); // titleUrl요소 a태그로 생성
   titleUrl.href = obj.url; // agoraStatesDiscussions의 객체 url속성값 초기화
   titleUrl.textContent = obj.title; // titleUrl에 텍스트 초기화
   discussionTitle.append(titleUrl); //discussionTitle안에 titleUrl 요소 추가
   
+  const disccusionQuestion = document.createElement('div'); //질문내용 div 요소 생성
+  disccusionQuestion.classList  = 'discussion__question';
+  disccusionQuestion.textContent = obj.bodyHTML;
+
   const discussionInformation = document.createElement('div'); //정보 div 요소 생성
   discussionInformation.className = 'discussion__information'; //discussionInformation요소 class 이름 초기화
   discussionInformation.textContent =  obj.author +' / '+ obj.createdAt; // discussionInformation요소 값 초기화
-  discussionContent.append( discussionTitle, discussionInformation); // discussion_content 요소안에 h2, div요소 추가
+  discussionContent.append( discussionTitle, disccusionQuestion ,discussionInformation); // discussion_content 요소안에 h2, div요소 추가
   
   const answeredCheckBox = document.createElement('p'); // answered 여부 확인 표시 요소 생성
-  
   answeredCheckBox.textContent = isAnswered(obj);//answered에 체크여부 데이터 할당
-
   discussionAnswered.append(answeredCheckBox);// discussionAnswered div요소안에 answeredCheckBox p요소 추가
-
   li.append(avatarWrapper, discussionContent, discussionAnswered); //li에 div요소 붙임
   return li;
 };
@@ -108,8 +108,8 @@ const addSubmittedDiscussion = function(){
   return;
 };
 formSubmit.addEventListener('submit', addSubmittedDiscussion); //  submit 제출 이벤트 발생시 작동하는 함수 (submit 이벤트는 form 요소에서만 잡힌다.)
-
 //event.preventDefault();넣어줘야한다.
+
 
 //submit할때의 데이터로 초기화시켜주는 함수
 const initInsertDataForm = function() { 
@@ -117,6 +117,7 @@ const initInsertDataForm = function() {
   insertDataForm.title = formInputTitle.value;
   insertDataForm.author = formInputName.value;
   insertDataForm.bodyHTML = formInputTextbox.value;
+  return;
 };
 
 // agoraStatesDiscussions배열값을 localStorage 에 그대로 넣어주는 함수
@@ -152,7 +153,7 @@ render(ul);
 
 
 
-/*제일 처음 화면을 켠다. 
+/*제일 처음 화면을 켠다. (새로고침마다 script.js 재실행)
 -> 처음 아고라의 배열값을 출력해야한다
 -> submit으로 추가를 해주면 추가한 배열이 출력이 되야한다
 
