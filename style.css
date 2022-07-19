@@ -25,16 +25,21 @@ h1{
 form.form{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     padding: 10px;
     margin: 10px;
 
     width: 540px;
-
+    
     background-color: rgba(0, 189, 0, 0.155);
     border-radius: 15px;
+}
+
+label{
+    width: 200px;
+    flex: 1 0 0;
 }
 
 #submit{
@@ -57,7 +62,7 @@ li.discussion__container{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
+    
     background-color: rgba(244, 243, 243, 0.952);
     border-radius: 15px;
     width: 540px;
@@ -67,13 +72,14 @@ li.discussion__container{
 }
 
 li.discussion__container:hover{
-    transform: translateX(20px);
+    transform: translateX(30px);
 }
 
 div.discussion__avatar--wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .discussion__avatar--image{
@@ -81,9 +87,15 @@ div.discussion__avatar--wrapper{
     border-radius: 100%;
 }
 
-div.discussion__information{
+.discussion__content{
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 0 0;
+}
+
+div.discussion__information{
+    text-align: right;
 }
 
 a{
@@ -94,4 +106,8 @@ a{
 a:visited{
     text-decoration: none;
     color: black;
+}
+
+a:hover{
+    color: rgba(0, 189, 0, 0.891);
 }
