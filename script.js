@@ -37,76 +37,91 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// const render = (element) => {
-//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-//   }
-//   return;
-// };
-
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-// render(ul);
+const pageGuide = document.querySelector("#page");
+
+const prevBtn = document.querySelector("#prev");
+const nextBtn = document.querySelector("#next");
 
 //Bare Mininum: 디스커션 추가 기능
 const submitForm = document.querySelector("form");
+
+//페이지 랜더링
+const render = (element, start) => {
+  for (let i = start; i < start + 10; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    if (i + 1 === agoraStatesDiscussions.length) break;
+  }
+  start += 9;
+  console.log("start: " + start);
+  pageGuide.textContent = `${Math.ceil(start / 10)} of ${Math.ceil(
+    agoraStatesDiscussions.length / 10
+  )}`;
+  return start;
+};
+
+let currentpage = render(ul, 0);
+
+//페이지네이션
+const pageNation = (currentpage, state) => {
+  let end = Math.ceil(agoraStatesDiscussions.length / 10);
+
+  if (state === "next") {
+    ul.innerHTML = "";
+    return render(ul, currentpage);
+  } else if (state === "prev") {
+    ul.innerHTML = "";
+    return render(ul, currentpage);
+  }
+  //페이지 표기
+  const pageView = Math.ceil(currentpage / 10);
+  pageGuide.textContent = `${pageView} of ${end}`;
+};
+
+//페이지 버튼 보이기 여부
+const btnVisible = () => {
+  const end = Math.ceil(agoraStatesDiscussions.length / 10);
+  const nowPage = Math.ceil(currentpage / 10);
+  console.log("end: " + end);
+  console.log("now: " + nowPage);
+  if (nowPage >= end) {
+    prevBtn.classList.remove("hide");
+    nextBtn.classList.add("hide");
+  } else if (nowPage === 1) {
+    prevBtn.classList.add("hide");
+    nextBtn.classList.remove("hide");
+  } else {
+    prevBtn.classList.remove("hide");
+    nextBtn.classList.remove("hide");
+  }
+};
+
 submitForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.querySelector("#name").value;
   const title = document.querySelector("#title").value;
   const date = new Date();
   const elDiscussion = {
+    answer: null,
     createdAt: date,
     title: title,
     author: name,
     url: "https://github.com",
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+    avatarUrl: "./img/user.png",
   };
   agoraStatesDiscussions.unshift(elDiscussion);
   ul.innerHTML = "";
-  render(ul);
+  currentpage = render(ul, 0);
 });
 
-//페이지 랜더링
-const render = (element, start) => {
-  for (let i = start; i < start + 10; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-    console.log(i);
-  }
-  return;
-};
-
-render(ul, 0);
-
-//페이지네이션
-const pageNation = (currentPage, state) => {
-  let start = 1;
-  let end = Math.ceil(agoraStatesDiscussions.length / 10);
-  const pageNumber = [];
-  for (i = 1; i <= end; i++) {
-    pageNumber.push(i);
-  }
-  console.log(pageNumber);
-
-  if (state === "next") {
-    render2(ul, currentPage + 10);
-    state = "";
-  }
-
-  //페이지 표기
-  const pageGuide = document.querySelector("#page");
-  pageGuide.textContent = `${currentPage} of ${end}`;
-
-  //1부터 end까지를 current of end로 표현
-  //prev, next 버튼 생성
-};
-
-// const prevBtn = document.querySelector("#prev");
-// const nextBtn = document.querySelector("#next");
-
-// prevBtn.addEventListener("click", pageNation(1, "prev"));
-// nextBtn.addEventListener("click", pageNation(1, "next"));
-
-//Advanced: 페이지네이션, 디스커션 유지 (LocalStorage)
+prevBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentpage = pageNation(currentpage - 19, "prev");
+  btnVisible();
+});
+nextBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentpage = pageNation(currentpage + 1, "next");
+  btnVisible();
+});

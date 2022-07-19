@@ -89,8 +89,9 @@ li {
 }
 
 .discussion__container {
-    width: 540px;
+    width: 550px;
     height: 80px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #FFF0F0;
@@ -166,4 +167,8 @@ li {
     font-size: 1.2em;
     text-decoration: none;
     font-weight: 600;
+}
+
+.hide {
+    display: none;
 }
