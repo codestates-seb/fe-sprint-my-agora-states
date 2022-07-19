@@ -1,1 +1,221 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #120f4a;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+main{
+    padding: 100px 0;
+}
+/* 제목 + 입력 */
+.main-title{
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 45px;
+    margin-bottom: 50px;
+    color: #ff414d;
+    -webkit-text-stroke: 1px #120f4a;
+}
+.form__container{
+    width: 540px;
+    padding: 30px 0;
+    margin:  0 auto;
+    background: url(images/bg.jpeg) no-repeat center / cover;
+}
+.form__container .form__input--wrapper{
+    width: 540px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form__container .form__input--wrapper > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+.form__container .form__input--wrapper label{
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+    color: #fff;
+    background-color: #4f48ec;
+    border-radius: 5px 5px 0 0;
+}
+.form__container .form__input--wrapper input,
+.form__container .form__input--wrapper textarea{
+    width: 400px;
+    font-size: 17px;
+    padding: 5px;
+    border: 1px solid #120f4a;
+    border-radius: 3px;
+}
+.form__container .form__input--wrapper textarea{
+    min-height: 55px;
+    resize: vertical;
+}
+.form__container .form__submit{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.form__container .form__submit input{
+    height: 35px;
+    padding: 0 15px;
+    font-size: 16px;
+    line-height: 35px;
+    background-color: #ff414d;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.form__container .form__submit input:hover{
+    background-color: #ffbf18;
+}
+
+/* 질문 */
+.discussion__wrapper{
+    padding: 30px;
+    margin: 0 auto;
+    width: 600px;
+}
+.discussion__container{
+    width: 540px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: 1px solid #120f4a;
+    border-radius: 3px;
+}
+.discussion__container:last-child{
+    margin-bottom: 0;
+}
+.discussion__avatar--wrapper{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.discussion__content{
+    width: calc(100% - 48px - 50px);
+}
+.discussion__avatar--image{
+    width: 48px
+}
+.discussion__title {
+    margin-bottom: 15px;
+}
+.discussion__title a{
+    font-size: 22px;
+    text-decoration: none;
+}
+.discussion__title a:hover{
+    color: #ffbf18;
+}
+.discussion__answered{
+    font-size: 28px;
+}
+
+/* 답변 */
+.answer-icon{
+    color: #666;
+    font-size: 20px;
+}
+.answer__container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-top: 1px solid rgb(218, 218, 218);
+}
+
+.answer__avatar--wrapper{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow:hidden;
+}
+.answer__avatar--image{
+    width: 35px;
+}
+.answer__title{
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 19px;
+}
+.answer__title a{
+    color: #5e5ca0;
+    text-decoration: none;
+}
+.answer__title a:hover{
+    color: #ffbf18;
+}
+.answer__information{
+    color: #5e5ca0;
+}
+
+/* 페이지네이션 */
+.pagination__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem 0;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.pagination__btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    line-height: 40px;
+    color: #fff;
+    font-weight: 300;
+    background-color: #4f48ec;
+    border-radius: 50%;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+.pagination__btn.hide{
+    display: none;
+}
+.pagination__btn.now{
+    font-weight: 600;
+    background-color: #ff414d;
+}
+  
+.pagination__btn.active,
+.pagination__btn:hover {
+  background-color: #ffbf18;
+  font-weight: 600;
+  text-decoration: underline;
+}
+  
+.pagination__prev {
+  position: absolute;
+  left: -2.5rem;
+}
+
+.pagination__next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    line-height: 40px;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 50%;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
