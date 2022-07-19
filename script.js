@@ -14,7 +14,7 @@ const dataHandler = () => {
     getData: () => data,
   };
 };
-let localData = dataHandler();
+const localData = dataHandler();
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
