@@ -67,7 +67,7 @@ form.addEventListener("submit", (event) => {
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: userName.value,
     answer: null,
-    bodyHTML: textBox.textContent,
+    bodyHTML: textBox.value,
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
