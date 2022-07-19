@@ -7,8 +7,10 @@ const convertToDiscussion = (obj) => {
   li.className = "discussion__container"; // 클래스 이름 지정
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
@@ -18,10 +20,12 @@ const convertToDiscussion = (obj) => {
   const title = document.createElement("h2");
   title.className = "discussion__title";
 
-  const titleLink = document.createElement("a");
-
   const info = document.createElement("div");
   info.className = "discussion__information";
+
+  const titleLink = document.createElement("a");
+
+  // pagenation
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
@@ -50,16 +54,18 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const render = (element, start, end) => {
+  for (let i = start; i < end; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
+let minPage = 0;
+let maxPage = 10;
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, minPage, maxPage);
 
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
@@ -79,7 +85,9 @@ inputStory.addEventListener("keyup", () => {
   inputDataCheck();
 });
 
-const btn = () => {
+const btn = (e) => {
+  e.preventDefault();
+
   const newQuestion = {
     //새로운객체
     id: new Date(),
@@ -110,3 +118,31 @@ const inputDataCheck = () => {
     submitBtn.disabled = true;
   }
 };
+
+// pagenation
+
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+nextBtn.addEventListener("click", () => {
+  if (maxPage > agoraStatesDiscussions.length) {
+    return;
+  }
+  while (ul.firstChild) {
+    ul.firstChild.remove();
+  }
+  minPage += 10;
+  maxPage += 10;
+
+  render(ul, minPage, maxPage);
+});
+
+prevBtn.addEventListener("click", () => {
+  if (minPage <= 0) return;
+  while (ul.firstChild) {
+    ul.firstChild.remove();
+  }
+  minPage -= 10;
+  maxPage -= 10;
+  render(ul, minPage, maxPage);
+});
