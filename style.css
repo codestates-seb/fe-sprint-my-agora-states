@@ -9,6 +9,7 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #F2D7D9;
     padding: 5px;
 }
@@ -19,17 +20,17 @@ body {
 }
 .discussions__container {
     /* border: 1px solid red; */
-    
+    max-height: 65vh;
+    overflow: auto;
 }
 
-.discussion__container {
+li.discussion__container {
     display: flex;
     justify-content: space-between;
     background-color: #D3CEDF;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
-
 }
 
 .discussion__avatar--wrapper {
@@ -40,7 +41,7 @@ body {
 
 .discussion__avatar--image {
     width: 48px;
-    border-radius: 25px;
+    border-radius: 50%;
 }
 
 .discussion__content {
