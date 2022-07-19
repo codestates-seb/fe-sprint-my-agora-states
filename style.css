@@ -1,1 +1,181 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {font-family: 'Sunflower', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+main {border: 3px solid #000 ;
+    background-color:#FFE3E3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 600px;
+    border: none;
+   
+   
+}
+
+.form__container {
+      display: flex;
+      flex-direction: row;
+}
+
+.form {width: 500px; height: 350px;
+    display:flex;
+    flex-direction: column;
+    color: rgb(143, 143, 143);
+}
+.form__input--name{
+    
+    display: flex;
+    flex-direction: column;
+}
+.form__input--name>input{
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 5px;
+
+}
+.form__input--name>label{
+    height: 30px;
+    font-weight: bold;
+}
+.form__input--title{
+    display: flex;
+    flex-direction: column;
+}
+.form__input--title>input{
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 5px;
+
+}
+.form__input--title>label{
+    height: 30px;
+    font-weight: bold;
+}
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+}
+.form__textbox>textarea{
+    border-radius: 10px;
+height: 80px;
+padding-left: 5px;
+padding-top: 10px;
+}
+.form__textbox>label{
+    height:30px;
+    font-weight: bold;
+}
+.form__submit{margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.form__submit>input{
+margin: auto;
+width: 80px;
+height: 50px;
+background-color: #A8D8EA;
+border-radius: 10px;
+border: 1px solid #fff;
+color: #fff;
+font-size: 18px;
+}
+.form__submit>input:hover{}
+//list
+.discussion__wrapper {margin-top: 50px;}
+ul.disussions__container {
+   
+    display: flex;
+    justify-content: center;
+}
+
+li.discussion__container { 
+    border-bottom: 1px solid #000;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 540px;
+
+   height: 60px;
+   
+}
+
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50%;
+    height: 48px;
+    }
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+div.discussion__content {
+   
+    display:flex;
+    flex-direction: column;
+   
+    flex-basis: 75%;
+    text-decoration: none;   
+}
+
+div.discussion__content > a {
+    display: flex;
+    justify-content: left;
+  
+}
+a:link{
+    text-decoration: none;
+    color: #5387e1;
+}
+a:hover {
+    text-decoration:underline;
+}
+div.discussion__content > h2 {
+    font-family: 'Sunflower', sans-serif;
+text-decoration: none;    
+font-size: 13px;
+    height: 47px;
+    
+}
+h1{color:#B9CCED;}
+
+div.discussion__information {
+      display: flex; 
+   justify-content: right;
+  
+ 
+ font-size: 12px;
+}
+
+div.discussion__answered {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 10%;
+ 
+}
+#page_list {
+    display: flex;
+flex-direction: row;
+}
+
+#page_list>li {
+    display: flex;
+flex-direction: row;
+align-items: center;
+margin: 10px;
+}
