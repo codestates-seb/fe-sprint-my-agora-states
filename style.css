@@ -4,11 +4,38 @@
     padding: 0;
     margin: 0;
 }
-  
-/* body {
-    display: flex;
-} */
 
+h1 {
+    display: flex;
+    justify-content: center;
+    color: #484D51;
+    margin: 16px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #D2E4F1;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.form__container {
+    background-color: #818D97;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 12px;
+    color: #ffffff;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: right;
+}
 
 .discussion__container {
     display: flex;
@@ -18,6 +45,11 @@
     width: 540px;
     flex: auto;
     padding: 16px;
+    margin: 12px;
+
+    border-radius: 20px;
+    background-color: #ffffff;
+
 }
 
 .discussion__avatar--image {
