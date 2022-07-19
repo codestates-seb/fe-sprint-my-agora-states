@@ -12,14 +12,56 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
+  
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement("img");
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
 
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  const discussionInfo=document.createElement('div');
+  discussionInfo.textContent=`${obj.author}/${new Date().toLocaleString()}`
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const Answered=document.createElement('p')
+  Answered.className='discussion__answered'
+  if(obj.answer !== null){
+    Answered.textContent='✅'
+  }
+  else{
+    Answered.textContent='❌'
+  }
+
+  discussionTitle.append(titleAnchor);
+  discussionContent.append(discussionTitle,discussionInfo);
+  li.append(avatarWrapper, discussionContent, discussionAnswered, Answered);
   return li;
 };
+const Form =document.querySelector('form')
+const title=document.querySelector('div.form__input--title>input')
+const textbox=document.querySelector('div,form__textbox>textarea')
+const nameInput=document.querySelector('div.form__input--name>input')
+Form.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  const obj={
+    id: 'uniqude id',
+    createdAt: new Date().toLocaleString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/18",
+    author: nameInput.value ,
+    bodyHTML:textbox.value ,
+    avatarUrl: "https://avatars.githubusercontent.com/u/25774030?s=64&v=4",
+  }
+  agoraStatesDiscussions.unshift(obj);
+  convertToDiscussion(obj);
+  ul.prepend(convertToDiscussion(obj))
+}
+)
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -32,3 +74,5 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
