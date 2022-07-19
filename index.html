@@ -16,7 +16,7 @@
   <main>
     <h1>My Agora States</h1>
     <section class="form__container">
-      <form action="" method="get" class="form">
+      <form action="" method="get" class="form" name="form" onsubmit="return false;">
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
@@ -24,7 +24,7 @@
           </div>
           <div class="form__input--title">
             <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
@@ -46,11 +46,15 @@
           </div>
           <div class="discussion__content">
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <div class="discussion__information">kimploo / 2022-04-22T14:08:33`</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
         </li>
       </ul>
+    </section>
+    <section class="pagination__wrapper">
+      <div class="pagination__container">
+      </div>
     </section>
   </main>
 </body>
