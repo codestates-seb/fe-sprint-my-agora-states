@@ -70,7 +70,7 @@ ul {
     list-style: none;
 }
 
-.discussion__container{
+/* .discussion__container{
     display: flex;
     height: 100px;
     margin-bottom:20px;
@@ -79,4 +79,4 @@ ul {
     margin: auto;
     border-bottom: 1px solid gray;
     background-color: #D3CEDF;
-}
+} */
