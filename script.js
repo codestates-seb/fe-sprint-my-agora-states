@@ -24,6 +24,7 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement('h2');
   discussionTitle.className = "discussion__title";
   const titleAnchor = document.createElement('a')
+  titleAnchor.setAttribute("href", obj.url)
   discussionTitle.append(titleAnchor);
   titleAnchor.textContent = obj.title;
   discussionContent.append(discussionTitle);
@@ -32,6 +33,8 @@ const convertToDiscussion = (obj) => {
   discussionInfo.className = "discussion__information";
   discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
   discussionContent.append(discussionInfo);
+
+
   // answer 답변박스
 
   if (obj.answer === null) {

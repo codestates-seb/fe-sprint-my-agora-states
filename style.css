@@ -45,6 +45,8 @@ div.form__input--wrapper {
 div.form__input--name,
 div.form__input--title {
    margin-bottom: 0.3rem;
+   display: flex;
+   justify-content: space-between;
 }
 
 section.form__container form input {
