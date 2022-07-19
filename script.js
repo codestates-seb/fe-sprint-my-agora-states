@@ -4,6 +4,7 @@ const ul2 = document.querySelector(".discussions__container_noitce");
 const from = document.querySelector(".form__container");
 const userName = document.querySelector("#name");
 const newStory = document.querySelector("#story");
+const newDate = new Date(); 
 let localStortgeKey = 0
 
  //localStorage에 있는 모든 todoItem 식별자 가져오기
@@ -69,8 +70,7 @@ const convertToDiscussion = (obj) => {
 
     const quetionTime = document.createElement("span");
     quetionTime.className = "quetionTime"
-    quetionTime.innerText = `${obj.createdAt.replace(/\T/g, "  ").slice(0,-1)}`
-  
+    quetionTime.innerText = `#${new Date(obj.createdAt).toLocaleDateString()}`
     const discussionImformation = document.createElement("span");
     discussionImformation.append(userId,quetionTime)
     discussionImformation.className = "discussion__information"
@@ -127,7 +127,7 @@ from.addEventListener("submit",(event)=>{
   
   const newObj = {
     id: userName.value,
-    createdAt: "2022-05-15T23:57:43Z",
+    createdAt: newDate,
     title: newStory.value,
     avatarUrl:"https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
     key: localStortgeKey

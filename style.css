@@ -186,22 +186,23 @@ ul {
 .discussion__information{
     display: flex;
     
+    justify-content: flex-start;
     font-size: small;
     margin: 0 0 1% 30px;
 }
+    
+    .userId{
+        padding: 3px;
+        border: 1px solid gray;
+        border-radius: 8px;
+    }
 
-.userId{
-    padding: 3px;
-    border: 1px solid gray;
-    border-radius: 8px;
-}
-
-.quetionTime{
-    padding: 3px;
-    border: 1px solid gray;
-    border-radius: 8px;
-    margin-left: 100px;
-}
+    .quetionTime{
+        margin-left: 10px;
+        padding: 3px;
+        border: 1px solid gray;
+        border-radius: 8px;
+    }
 
 .discussion__title > a:link {
     color: black;
