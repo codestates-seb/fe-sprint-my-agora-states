@@ -7,7 +7,7 @@ const parsInputString = JSON.parse(inputString);
 // 로컬스토리지 비울시 주석처리 save 비우고 나서 해제 save
 let agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
 
-agoraStatesDiscussions.unshift(...agoraArray);
+// agoraStatesDiscussions.unshift(...agoraArray);
 
 console.log(agoraStatesDiscussions);
 
