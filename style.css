@@ -144,7 +144,7 @@ main{
 .discussions__container{
     margin: 0;
     padding: 10px;
-    height: 820px;
+    /* height: 820px; */
     display: flex;
     flex-direction: column;
     align-items: center;

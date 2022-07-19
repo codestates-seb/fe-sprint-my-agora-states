@@ -15,10 +15,9 @@ console.log(agoraStatesDiscussions);
 // localStorage.clear();  
 
 
-if(inputString !== null){
+if(inputString === true){
   // 로컬스토리지 관리가 이상함... 로컬 스토리지 비우고 나서 주석해제 후 save 다시 주석 save
-  agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
-  agoraArray = [...agoraArray,...agoraStatesDiscussions];
+ console.log(inputIsTrue);
 }
 
 
