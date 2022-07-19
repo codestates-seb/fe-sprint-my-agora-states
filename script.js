@@ -84,7 +84,7 @@ form.onsubmit=function(event){
     author: username,
     answer: null,
     bodyHTML:questionContent,
-    avatarUrl:"https://blogfiles.pstatic.net/MjAyMjA3MTlfMTM5/MDAxNjU4MTk0Mjk2ODEx.EwHnWuiRRBYzyJGYu40k-B5KVZ5N4AsjSZXKWZXVJ3Ig.4FV6FOy29yHVRTnARwfgBaMA0JHXP6aKX8RBJ5GMrOgg.JPEG.hongdahee8383/arang.jpeg",
+    avatarUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-zv1CdQ9aJSkWG_gAfiDJsM3hDkbK4KN9Lg&usqp=CAU",
   }
 agoraStatesDiscussions.unshift(newObj);
 ul.insertBefore(convertToDiscussion(agoraStatesDiscussions[0]), ul.firstChild); 
