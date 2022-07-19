@@ -34,7 +34,7 @@ form {
     background-color:rgb(42, 40, 40);
     margin: 10px 0px;
     display: flex;
-    height: 20vh;
+    height: 170px;
 }
 
 div.form__input--wrapper {
@@ -79,7 +79,7 @@ div.form__textbox {
 
 div.form__textbox > textarea {
     width: 100%;
-    height: 11vh;
+    height: 95px;
     background-color: black;
     border-style: none;
     color: white;
@@ -112,7 +112,7 @@ div.form__submit > input:hover {
     display: flex;
     flex-direction: column;
     list-style: none;
-    height: 68vh;
+    height: 67vh;
     width: 540px;
     background-color: white;
     margin: 10px 0px;
