@@ -86,8 +86,8 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   let data = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
-  data = data.slice().splice(pageIndex*10,10);
-  for (let i = 0; i < data.length; i += 1) {
+  data = localStorage.getItem("agoraStatesDiscussions") ? data?.slice().splice(pageIndex*10,10) : agoraStatesDiscussions;
+  for (let i = 0; i < data?.length; i += 1) {
     element.append(convertToDiscussion(data[i]));
   }
   return;
@@ -102,7 +102,7 @@ const convertToPagination = (item) => {
 
 const paginationRender = (element) => {
   let data = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
-  data = Math.ceil(data.length / 10)
+  data = localStorage.getItem("agoraStatesDiscussions") ? Math.ceil(data?.length / 10) : agoraStatesDiscussions.length;
   for (let i = 0; i < data; i += 1) {
     element.append(convertToPagination(i+1));
   }
