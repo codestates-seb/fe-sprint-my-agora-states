@@ -1,6 +1,52 @@
-
+/*RESET CSS*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 /* Style */
+
+
+
 
 body {
     display: flex;
@@ -10,10 +56,28 @@ body {
 }
 
 main {
-    width: 70%;
-    max-width: 576px;
+    max-width: 540px;
 }
 
+.title {
+    padding-left: 40px;
+    margin: 30px 0px 30px 0px;
+    font-size: 36px;
+}
+
+/*Form Part*/
+.form__container {
+    width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+
+
+
+/*Discussion Part*/
 .discussions__container {
     list-style: none;
     padding: 0px;
@@ -21,18 +85,27 @@ main {
 
 .discussion__upper--wrapper {
     display: flex;
-    margin-top: 5vh;
+    margin-top: 15px;
 }
 
 .discussion__upper--image {
-    width: 10%;
-    height: 50%;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
 }
 
 .discussion__upper--profile {
-    padding-left: 5%;
-    width: 70%;
+    padding-left: 2%;
+    width: 400px;
+}
+
+.discussion__upper--profile--author {
+    font-size: 15px;
+}
+
+.discussion__upper--profile--writtentime {
+    color: #d0d0d0;
+    font-size: 12px;
 }
 
 .discussion__upper--answersheet {
@@ -55,17 +128,18 @@ main {
 .discussion__content {
     display: flex;
     border-bottom: 1px solid #806bfe;
+    padding-bottom: 3vh;
 }
 
 .discussion__title{
     width: 85%;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 .discussion__title--text {
     text-decoration: none;
     color: #121212;
-    font-size: 3.2vw;
+    font-size: 20px;
 }
 
 .discussion__wantedbox{
@@ -77,7 +151,7 @@ main {
 }
 
 .discussion__wantedbox--text {
-    font-size: 0.1vw;
+    font-size: 2px;
     color: #121212;
 }
 
@@ -88,7 +162,7 @@ main {
     width: 30%;
     background-color: #806bfe;
     color: #ffffff;
-    font-size: 1vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    font-size: 1px;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }

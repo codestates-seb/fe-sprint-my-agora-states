@@ -14,20 +14,26 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <h1 class="title">My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">
+              <ion-icon name="person-outline"></ion-icon>
+            </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="title">
+              <ion-icon name="book-outline"></ion-icon>
+            </label>
+            <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">
+              <ion-icon name="help-outline"></ion-icon>
+            </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
@@ -41,6 +47,9 @@
       </ul>
     </section>
   </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
