@@ -1,1 +1,97 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+/* 기본으로 사용 */
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+} 
+
+#agora{
+    height: 100%;
+    width: 540px;
+    background-color: rgb(255,248,154);
+
+}
+
+h1{
+    color: rgb(154, 220, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+} 
+
+
+.form__container{
+    background-color: rgb(154, 220, 255);
+    border-radius: 10px;
+    margin: 0 3% 0 3%;
+    
+} 
+
+.form__input--wrapper{
+    padding-top: 2%;
+
+}
+
+.discussion__wrapper{
+    background-color: rgb(255, 253, 146);
+    border-radius: 15px;
+    margin: 0 3% 0 3%;
+    margin-top: 2%;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+li.discussion__container{
+    list-style:none;   
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 3%;
+
+} 
+
+img{
+    width: 48px;
+    border-radius: 100%;
+ }
+
+
+div.discussion__content{
+    width: 80%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.discussion__information{
+    margin-left: 40%;
+}
+
+h2.discussion__title{
+    float: left;
+    
+}
+
+
+
+
+
+div.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
