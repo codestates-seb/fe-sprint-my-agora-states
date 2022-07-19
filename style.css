@@ -1,1 +1,140 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   list-style: none;
+   text-decoration: none;
+   font-family: 'Inconsolata', monospace;
+}
+
+body {
+   background-color: #F0EBE3;
+}
+
+main {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 3rem;
+   background-color: #F0EBE3;
+}
+
+section.form__container {
+   margin: 1rem;
+   width: 540px;
+   border: 3px solid #576F72;
+   border-radius: 1.5rem;
+   padding: 1rem;
+   background-color: #E4DCCF;
+}
+
+form.form {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+div.form__input--wrapper {
+   display: flex;
+   flex-direction: column;
+   font-weight: 600;
+   width: 75%;
+}
+
+div.form__input--name,
+div.form__input--title {
+   margin-bottom: 0.3rem;
+}
+
+section.form__container form input {
+   width: 55%;
+}
+
+section.form__container textarea {
+   width: 100%;
+   font-size: 1rem;
+   padding: 5px;
+}
+
+div.form__submit {
+   display: flex;
+   margin-left: 0.7rem;
+   font-size: 2rem;
+   width: 25%;
+   height: 110px;
+}
+
+div.form__submit input[type="submit"] {
+   width: 100%;
+   height: 100%;
+   cursor: pointer;
+   font-size: 1.5rem;
+   font-weight: 700;
+   background-color: #7D9D9C;
+   border: none;
+   border-radius: 1rem;
+}
+
+
+section.discussion__wrapper {
+   border: 3px solid #576F72;
+   border-radius: 1.5rem;
+   width: 540px;
+   padding: 0 1rem;
+   background-color: #E4DCCF;
+}
+
+li.discussion__container {
+   display: flex;
+   height: 80px;
+   justify-content: space-between;
+   flex-direction: row;
+   background-color: #F0EBE3;
+   border-radius: 1.5rem;
+   margin: 0.5rem;
+   padding: 0 0.5rem;
+}
+
+div.discussion__avatar--wrapper {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+
+img.discussion__avatar--image {
+   width: 48px;
+   height: 48px;
+   border-radius: 50%;
+   flex: 0 1 auto;
+}
+
+.discussion__content {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 0.5rem;
+   flex: 1 1 auto;
+}
+
+h2.discussion__title {
+   font-size: 1rem;
+
+}
+
+div.discussion__information {
+   font-size: 0.5rem;
+   margin-left: auto;
+}
+
+.discussion__answered {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   flex: 0 1 auto;
+   margin-left: auto;
+   font-size: 1.5rem;
+
+
+}
