@@ -1,1 +1,168 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* reset code */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+
+/* style */
+:root {
+  --bg-color: rgb(239, 246, 252);
+  --block-bg-color: #fff;
+  --text-color: rgb(33, 47, 68);
+  --sub-text-color: rgb(123, 127, 138);
+  --visited-link-color: rgb(141, 149, 157);
+  --line-color: rgb(235, 235, 235);
+  --container-border-radius: 6px;
+  --abled-btn-color: rgb(90, 110, 238);
+  --disabled-btn-color: rgb(233, 239, 252);
+}
+
+
+body {
+  background-color: var(--bg-color);
+}
+
+main {
+  width: 540px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px 0 15px 0;
+}
+
+.form__container {
+  background-color: var(--block-bg-color);
+  margin-bottom: 20px;
+  border: 1px solid var(--line-color);
+  border-radius: var(--container-border-radius);
+  padding: 10px 20px 20px 20px;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  padding: 10px;
+}
+
+.form__input--wrapper > div > label {
+  color: var(--sub-text-color);
+  flex: 0 0 20%;
+}
+
+.form__input--wrapper input:not([type="submit"]),
+.form__input--wrapper textarea {
+  flex: 1;
+  border: 0;
+  border-bottom: 1px solid var(--disabled-btn-color);
+}
+
+.form__input--wrapper input:not([type="submit"]):focus,
+.form__input--wrapper textarea:focus {
+  outline: 0;
+  border-bottom-color: var(--abled-btn-color);
+  box-shadow: 0 5px 5px var(--disabled-btn-color);
+}
+
+.form__input--wrapper textarea::placeholder {
+  color: #aaa;
+}
+
+.form__submit {
+  text-align: right;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.form__submit > input {
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  border: 0;
+  background-color: var(--disabled-btn-color);
+  border-radius: var(--container-border-radius);
+  color: var(--abled-btn-color);
+}
+
+.form__submit > input[type="reset"] {
+  margin-right: 5px;
+}
+
+.form__submit > input[type="submit"]:not([disabled]) {
+  background-color: var(--abled-btn-color);
+  color: #fff;
+}
+
+.discussion__wrapper {
+  flex: 1;
+  overflow: auto;
+}
+
+.discussion__container {
+  background-color: var(--block-bg-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid var(--line-color);
+  border-radius: var(--container-border-radius);
+  margin-bottom: 10px;
+}
+
+.discussion__avatar--wrapper,
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.discussion__content {
+  margin-left: 16px;
+}
+
+.discussion__content {
+  flex: 1;
+}
+
+.discussion__title {
+  margin-bottom: 10px;
+  line-height: .9; 
+}
+.discussion__title > a {
+  font-size: 16px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.discussion__title > a:link {
+  color: var(--text-color);
+}
+.discussion__title > a:visited {
+  color: var(--visited-link-color);
+}
+.discussion__information {
+  text-align: right;
+  font-size: 14px;
+}
+
+
+.discussion__answered {
+  margin-left: 10px;
+}
+.discussion__answered {
+  width: 30px;
+} 
