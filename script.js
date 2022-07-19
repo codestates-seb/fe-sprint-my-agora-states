@@ -51,7 +51,6 @@ const submitForm = document.querySelector("form");
 const render = (element, start) => {
   let discussions;
   if (sessionStorage.getItem("discussions")) {
-    console.log("ok");
     discussions = sessionStorage.getItem("discussions");
     discussions = JSON.parse(discussions);
   } else {
@@ -59,6 +58,8 @@ const render = (element, start) => {
       "discussions",
       JSON.stringify(agoraStatesDiscussions)
     );
+    discussions = sessionStorage.getItem("discussions");
+    discussions = JSON.parse(discussions);
   }
   for (let i = start; i < start + 10; i += 1) {
     element.append(convertToDiscussion(discussions[i]));
