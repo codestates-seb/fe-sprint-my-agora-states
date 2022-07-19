@@ -47,6 +47,20 @@ li.discussion__container {
 .discussion__content {
   width: 70%;
 }
+.discussion__information {
+  text-align: end;
+  font-size: 10px;
+}
+
+.discussion__content > div {
+  text-align: end;
+  font-size: 10px;
+}
+
+.discussion__info {
+  text-align: end;
+  font-size: 8px;
+}
 
 img {
   margin-left: 10px;
@@ -54,11 +68,6 @@ img {
   height: 48px;
   border-radius: 50%;
   border: 2px solid black;
-}
-
-.discussion__information {
-  font-size: 3px;
-  border: 1px solid red;
 }
 
 .discussion__answered {
