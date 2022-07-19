@@ -1,1 +1,137 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* { list-style : none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:1rem;
+    /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
+    /* 모든 요소에 border-box를 적용합니다. */
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*상단부 input 부분입니다*/
+
+h1{ font-size: 2rem;
+    font-weight: 700;
+    padding: 20px 0;
+    color: var(--coz-blue-600);
+}
+
+.form__container{
+    width: 540px;
+    padding: 20px;
+    background-color: var(--bluish-gray-10);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+form.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+label {
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+textarea,input[type="text"]{
+    padding: 10px;
+    margin: 10px 0px ;
+    border-radius: 10%;
+    border: none;
+    width: 200px;
+}
+
+/* .form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+} */
+
+.form__input—name,
+.form__input—title,
+.form__textbox {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+    align-items: center;
+    
+}
+
+input[type="submit"]{
+    width: 120px;
+    height: 182px;
+    border: none;
+    border-radius: 20px;
+}
+
+
+/* 하단부 디스커션 부분입니다*/
+
+.discussion__container {
+    background-color:  var(--bluish-gray-10);
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    /* Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
+    padding: 20px 10px;
+    margin: 20px 0px;
+    border-radius: 10px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+
+/* .discussion__wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction : column;
+    align-items: center ;
+    margin-left: 20px;
+}
+
+.discussion__avatar--wrapper img {
+    width: 48px;
+    border-radius: 70%;
+}
+
+h2{ font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.discussion__answered{
+    display: flex;
+    flex-direction : column;
+    align-items: center ;
+}
+
+.discussion__title{
+    font-size: larger;
+    width: 370px;
+    flex-wrap: wrap;
+}
+
+.discussion__answered p {
+    font-size: 2rem;
+}
