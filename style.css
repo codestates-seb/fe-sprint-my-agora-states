@@ -17,9 +17,11 @@ main {
     align-items: center;
     background-color: #fff;
     padding-top: 100px;
+    padding-bottom: 100px;
     width: 650px;
-    border: 2px solid black;
+    border: 2px solid darkgray;
     border-radius: 40px;
+    background-image: url("https://i.pinimg.com/736x/a7/eb/4e/a7eb4e9e1b79a2b4f84029b0e081a608.jpg");
 
 }
 
@@ -29,8 +31,9 @@ li.discussion__container {
     list-style: none;
     width: 540px;
     height: 80px;
-    border: 1px solid black;
-    font-size: 12px;
+    border: 1px dotted gray;
+    border-radius: 10px;
+    font-size: 11px;
     
 }
 
@@ -52,11 +55,15 @@ li.discussion__container {
     display: flex;
     flex-direction : column;
     justify-content: center;
+    margin-right: 10px;
     
 }
 
 div.discussion__content {
-  
+    display: flex;
+    flex-direction: column;
+    justify-content : space-between; 
+    width: 450px
 
 }
 
@@ -68,14 +75,16 @@ a{
     
 }
 a:hover {
-    color: orange;
+    color: rgb(109, 140, 168);
   }
 
-.discussion__information {
-    text-align: right;
+div.discussion__information {
+    display: flex;
+    flex-direction: row-reverse;
+    
+
 }
 
-.discussion__title{
-    
-    
+p {
+    font-size: 20px;
 }
