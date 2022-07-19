@@ -4,6 +4,11 @@
     margin: 0;
     padding: 0;
     background-color: rgb(251, 240, 218);
+
+}
+
+main{
+    justify-content: center;
 }
 
 
@@ -24,7 +29,11 @@ div.discussion__avatar--wrapper{
     justify-content: center;
 }
 
-
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 img{
     border-radius: 100%;

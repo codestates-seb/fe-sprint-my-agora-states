@@ -61,7 +61,7 @@ const title = document.querySelector("div.form__input--title > input")
 const nameInput = document.querySelector("div.form__input--name > input")
 const textbox = document.querySelector("div.form__textbox > textarea")
 form.addEventListener("submit",(event)=> {
-  // event.preventDefault(); 해야된다는데 어떻게?
+event.preventDefault(); //해야된다는데 어떻게?
 
   // 새로운 객체를 만들어야 한다.
   // Input에 입력된 값(value)을 넣은 새로운 객체.
