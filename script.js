@@ -19,12 +19,13 @@ const localStorageSavedData = () => {
 };
 
 //document에 요소를 생성하는 함수
-const createDOM = (element) => document.createElement(element);
-const querySelectDOM = (element) => document.querySelector(element);
-const formQuerySelectorDOM = (element) => submitForm.querySelector(element);
+const createDOMElement = (element) => document.createElement(element);
+const querySelectDOMElement = (element) => document.querySelector(element);
+const querySelectDOMElementwithSubmitForm = (element) =>
+  submitForm.querySelector(element);
 
 const convertToDiscussion = (obj) => {
-  const li = createDOM("li"); // li 요소 생성
+  const li = createDOMElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
   const deleteForm = () => {
     localStorage.removeItem(KEY);
@@ -36,17 +37,17 @@ const convertToDiscussion = (obj) => {
   li.append(button);
   button.addEventListener("click", deleteForm);
 
-  const avatarWrapper = createDOM("div");
+  const avatarWrapper = createDOMElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = createDOM("div");
+  const discussionContent = createDOMElement("div");
   discussionContent.className = "discussion__content";
-  const discussionAnswered = createDOM("div");
+  const discussionAnswered = createDOMElement("div");
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   //프로필 사진 넣기
   const addProfileImage = () => {
-    const avatar = createDOM("img");
+    const avatar = createDOMElement("img");
     avatar.className = "discussion__avatar--image";
     avatar.src = obj.avatarUrl;
     avatar.alt = "avatar of " + obj.author;
@@ -55,8 +56,8 @@ const convertToDiscussion = (obj) => {
 
   //discussion 제목 넣기
   const addDiscussionTitle = () => {
-    const discussionTitle = createDOM("h3");
-    const discussionTitleAnchor = createDOM("a");
+    const discussionTitle = createDOMElement("h3");
+    const discussionTitleAnchor = createDOMElement("a");
     discussionTitleAnchor.href = obj.url;
     discussionTitleAnchor.textContent = obj.title;
     discussionTitle.appendChild(discussionTitleAnchor);
@@ -66,7 +67,7 @@ const convertToDiscussion = (obj) => {
 
   //discussion 정보 넣기
   const addDiscussionInfo = () => {
-    const discussionInfo = createDOM("div");
+    const discussionInfo = createDOMElement("div");
     discussionInfo.className = "discussion__information"; //class 이름 지정
     discussionInfo.textContent = `${obj.author} / ${new Date(
       obj.createdAt
@@ -81,10 +82,10 @@ const convertToDiscussion = (obj) => {
 
   //답변 마크
   const addAnswerandMark = () => {
-    const discussionAnsweredMark = createDOM("div");
+    const discussionAnsweredMark = createDOMElement("div");
     discussionAnsweredMark.className = "discussion__answered";
 
-    const discussionAnsweredCount = createDOM("p");
+    const discussionAnsweredCount = createDOMElement("p");
     discussionAnsweredCount.textContent
       ? (discussionAnsweredCount.textContent = "❌")
       : (discussionAnsweredCount.textContent = "✔️");
@@ -141,7 +142,7 @@ const convertToDiscussion = (obj) => {
 //     page.textContent = index;
 //     showcurrent.map((item) => {
 //       console.log(item);
-//       const div = createDOM("div");
+//       const div = createDOMElement("div");
 //       div.classList.add("item");
 //       div.textContent = [item.title, item.createdAt.toLocaleString("ko-KR")];
 //       $paginator.appendChild(div);
@@ -168,10 +169,10 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-const submitForm = querySelectDOM("form.form");
-const names = formQuerySelectorDOM("#name");
-const title = formQuerySelectorDOM("#title");
-const textarea = formQuerySelectorDOM("div.form__textbox input");
+const submitForm = querySelectDOMElement("form.form");
+const names = querySelectDOMElementwithSubmitForm("#name");
+const title = querySelectDOMElementwithSubmitForm("#title");
+const textarea = querySelectDOMElementwithSubmitForm("div.form__textbox input");
 
 const resetFormValue = () => {
   names.value = "";
@@ -182,11 +183,6 @@ const resetFormValue = () => {
 const handleSubmit = (event) => {
   event.preventDefault();
   const data = localStorageSavedData();
-
-  // const objects = {};
-  // objects.id = Math.random().toString(36).substring(2, 16);
-  // objects.author = names.value;
-  // objects.title = title.value;
 
   const objects = {
     id: Math.random().toString(36).substring(2, 16),
