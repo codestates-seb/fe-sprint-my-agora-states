@@ -33,7 +33,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.append(discussionTitleA)
 
   //discussion__content에 div 사용자 정보를 나타내는 div 추가.
-  const discussionInformation = document.createElement('div');가
+  const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information'
   discussionInformation.textContent= `${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR')}`
   discussionContent.append(discussionTitle, discussionInformation)
