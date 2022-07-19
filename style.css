@@ -1,1 +1,166 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: black
+  }
+
+h1 {
+    margin: 10px;
+    color: gainsboro
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#story {
+    max-width: 400px;
+    min-height: 10px;
+}
+
+.form__input--wrapper {
+    max-width: 400px;
+}
+
+form.form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 540px;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: white;
+    /* border: 1px solid green; */
+    box-shadow: 0.1px 0.1px 10px #999, -1px -1px 10px #6ee2f5;
+    border-radius: 10px;
+}
+
+.form__input--name{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px ;
+}
+
+.form__input--title{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px ;
+}
+.form__submit {
+    padding: 30px 0px 0px 0px ;
+    margin: 0px 0px 0px 20px;
+}
+
+.form__submit > input{
+    height: 40px;
+    width: 100px;
+    background-image: linear-gradient(70deg, grey, white);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+}
+
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px ;
+}
+
+.form__textbox > textarea {
+    height: 50px;
+}
+
+.discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+
+    list-style:none;
+}
+
+.discussion__container {
+    justify-content: space-between;
+
+    width: 540px;
+
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid green; */
+    background-color: white;
+    box-shadow: 0.1px 0.1px 10px #999, -1px -1px 10px #6ee2f5;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0px 20px;
+
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
+.discussion__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    color: gray;
+}
+
+.discussion__title {
+    font-size: medium;
+}
+
+.discussion__title > a:link {
+    color: #2C3639;
+    text-decoration: none;
+  }
+.discussion__title > a:visited {
+    color: #3F4E4F;
+    text-decoration: none;
+  }
+
+.discussion__information{
+    text-align: end;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0px 20px;
+}
+
+.discussion__answered > p {
+    font-size: x-large;
+}
+
+ul {
+    padding: 0px;
+}
