@@ -121,8 +121,9 @@ window.onload = ()=>{
   pageList[1].classList.add('active');
 
   pageContainer.addEventListener('click', (e)=> {
-    pageIndex = Number(e.target.textContent)-1;
     if ([...e.target.classList].includes('next') || [...e.target.classList].includes('prev')) return false
+    pageIndex = Number(e.target.textContent)-1;
+    console.log('pageIndex',pageIndex)
     pageList.forEach(list=> { list.classList.remove('active')})
     e.target.classList.add('active')
 
@@ -138,12 +139,16 @@ window.onload = ()=>{
   const prevBtn = document.querySelector('.pagination__item.prev');
   const nextBtn = document.querySelector('.pagination__item.next');
   prevBtn.addEventListener('click', () => {
+    let data = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+    if(pageIndex > Math.ceil(data.length / 10)) return pageIndex = Math.ceil(data.length / 10)-1;
     pageList[pageIndex].click();
-    pageIndex = pageIndex -1 
-    console.log(pageList[pageIndex])
-    console.log(pageIndex)
   })
-
+  nextBtn.addEventListener('click', () => {
+    let data = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+    if(pageIndex >= Math.ceil(data.length / 10) -1) return false;
+    pageIndex = pageIndex+2;
+    pageList[pageIndex].click();
+  })
 }
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
