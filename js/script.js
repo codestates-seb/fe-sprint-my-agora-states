@@ -13,7 +13,7 @@ const convertToDiscussion = (obj) => { // 전달인자 obj , obj는 각각의 �
   discussionContent.className = "discussion__content"; // 클래스 이름 지정
   const discussionAnswered = document.createElement("div"); // div요소 생성
   discussionAnswered.className = "discussion__answered"; // 클래스 이름 지정
-
+ 
   /* 아바타 생성 구간 */
   const avatarlogo = document.createElement('img'); // 아바타 이미지 요소 생성
   avatarlogo.className = "discussion__avatar--image"; // 클래스 이름 지정

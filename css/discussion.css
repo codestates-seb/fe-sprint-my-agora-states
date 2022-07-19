@@ -7,11 +7,11 @@
 .discussion__wrapper .discussion__container {
   display: flex;
   padding: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .discussion__wrapper .discussion__container:first-child {
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .discussion__wrapper .discussion__avatar--image {
@@ -35,14 +35,14 @@
 .discussion__wrapper .discussion__title a {
   text-decoration: none;
   color: rgb(96, 95, 95);
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 500;
 }
 
 .discussion__wrapper .discussion__information {
+  margin-top: 5px;
   margin-left: 20px;
   color: rgba(96, 95, 95, 0.6);
-  font-weight: 400;
+  font-weight: 100;
 }
 
 .discussion__wrapper .discussion__answered {
