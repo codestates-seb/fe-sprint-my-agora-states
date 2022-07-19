@@ -58,10 +58,10 @@ const inputAuthor = inputForm.querySelector(".form__input--name > input");
 const inputTitle = inputForm.querySelector(".form__input--title > input");
 const inputBodyHtml = inputForm.querySelector(".form__textbox > textarea");
 // submitValue 함수가 시작하기 전 localStorage 초기 셋팅
-if (!localStorage.getItem("agoraStatesDiscussions")) {
-  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions));
+if (!localStorage.getItem("agoraStatesDiscussions")) { //만약 localStorage에 agoraStatesDiscussions가 없으면
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions)); //localStorage에 키값과 value를 넣는다
 }
-let newLocalStorage = JSON.parse(localStorage.getItem("agoraStatesDiscussions")); //초기값은 localStorage의 값들임
+let newLocalStorage = JSON.parse(localStorage.getItem("agoraStatesDiscussions")); //newLocalStorage는 화면에서 보여줄 변수 저장소, newLocalStorage에는 agoraStatesDiscussions값을 json형식으로 받음
 console.log(newLocalStorage);
 
 inputForm.addEventListener('submit', function submitValue(e) {
@@ -102,7 +102,7 @@ inputForm.addEventListener('submit', function submitValue(e) {
 });
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = (element) => { //아까 선언한 newLocalStorage 값을 append함
   for (let i = 0; i < newLocalStorage.length; i += 1) {
     element.append(convertToDiscussion(newLocalStorage[i]));
   }
