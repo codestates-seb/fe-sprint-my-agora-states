@@ -5,7 +5,14 @@
     font-weight: 700;
     font-style: normal;
 }
-@import url('https://cdn.jsdelivr.net/g`h/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root{
+    --background: #010B40;
+    --font: #010326;
+    --form: #F2EEAC;
+    --base: #f2f2f2;
+    --point: #94C6F2;
+}
 
 * {
     margin: 0;
@@ -13,15 +20,20 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    color: #010326;
-    font-family: Pretendard;
+    color: var(--font);
+    font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
     font-weight: 400;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main{
     max-width: 600px;
-    margin: 0 auto;
-    background: #010B40;
+    background: var(--background);
     padding: 30px;
     border-radius: 10px;
 }
@@ -35,7 +47,7 @@ input, textarea{
 
 main h1{
     text-align: center;
-    color: #f2f2f2;
+    color: var(--base);
     font-weight: 400;
     font-family: 'PyeongChangPeace-Bold';
 }
@@ -48,7 +60,7 @@ main section{
 main section.form__container{
     max-width: 600px;
     padding: 30px;
-    background: #F2EEAC;
+    background: var(--form);
 }
 
 main section.form__container .form{
@@ -99,20 +111,20 @@ textarea::placeholder{
     height: 100px;
     margin-left: 30px;
     background: #94C6F2;
-    color: #f2f2f2;
+    color: var(--base);
     cursor: pointer;
     font-family: 'PyeongChangPeace-Bold';
 }
 
 .form div.form__submit input:hover{
-    background: #f2f2f2;
-    color: #94C6F2
+    background: var(--base);
+    color: var(--point);
 }
 
 /* 여기서 부터 질문 리스트 */
 main section.discussion__wrapper{
     max-width: 600px;
-    height: 550px;
+    height: 500px;
     margin-top: 20px;
     display: flex;
 }
@@ -129,7 +141,7 @@ section.discussion__wrapper ul.discussions__container li.discussion__container{
     align-items: center;
     margin-bottom: 10px;
     padding: 10px;
-    background: #F2F2F2;
+    background: var(--base);
     border-radius: 10px;
 }
 
@@ -164,4 +176,16 @@ li.discussion__container div.discussion__content div.discussion__information{
 .discussions__container .discussion__container .discussion__answered{
     text-align: center;
     font-size: 40px;
+}
+/* 답변 미완료 */
+.discussion__answered::after{
+    content: '\e92c';
+    font-family: xeicon;
+    color: #cbcbcb
+}
+/* 답변 완료 */
+.discussion__answered.completed::after{
+    content: '\e92b';
+    font-family: xeicon;
+    color: #008000
 }
