@@ -1,1 +1,157 @@
+
+
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    font-family: monospace, cursive;
+    color: #000;
+    background-color: white;
+}
+
+body{
+    /* align-items: center; */
+    border: 1px solid rgb(255, 0, 0);
+    /* justify-self:center; */
+}
+
+main{    
+    width: 540px;
+    height: 800px;
+    border: 1px solid rgb(0, 255, 221);
+    flex-direction: column;    
+    margin:auto;
+}
+
+
+h1{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:blueviolet;
+}
+
+
+
+.form__container{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;  
+    border: 1px solid rgb(41, 209, 92);
+}
+
+.form{  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;  
+    border: 1px solid rgb(41, 209, 92);
+
+}
+
+.form__input--wrapper{
+    text-align: left;
+    border: 1px solid rgb(255, 0, 0);    
+    margin : auto;
+}
+
+.form__submit{
+    text-align: center;
+    border: 1px solid rgb(76, 0, 255);    
+    margin : auto;
+    
+}
+
+.form>div{
+    margin: auto;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid rgb(225, 0, 255);    
+}
+
+
+
+.form__input--name{
+    border: 1px solid rgb(1, 26, 255);
+}
+
+.form__input--title{
+    border: 1px solid rgb(1, 26, 255);
+}
+
+.form__textbox{
+    border: 1px solid rgb(1, 26, 255);
+} 
+
+/* 여기까지 게시글 전 */
+
+/* ------------------------------------------------------------------------------------------ */
+
+/* 여기부터 게시글 진입구간*/
+.discussion__container{
+    height: 60px;
+}
+.discussion__wrapper{
+
+    border: 1px solid rgb(208, 255, 0);
+    display: flex;
+    justify-content : space-between;
+}
+
+
+.discussions__container > li{
+    width: 460px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content : space-between;
+    border: 1px solid rgb(208, 255, 0);
+}
+
+.discussion__avatar--wrapper {
+    width: 48px;
+    height: 48px; 
+    border-radius: 70%;
+    overflow: hidden;
+    margin:auto
+}
+.discussion__avatar--wrapper>img{
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.discussion__title{
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.discussion__content>a{
+    vertical-align:top;
+    text-align: left;
+    font-size: 8px;
+    font-weight: bold;
+}
+div.discussion__information{
+    margin-top:2px;
+    vertical-align:bottom;
+    text-align: right;
+    font-size: 10px;
+
+}
+
+div.discussion__content{
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    justify-content : space-between;
+}
+
+
+.discussion__answered{
+    margin:auto
+}
+
+/* list-style-type: '🐣';     */
+
