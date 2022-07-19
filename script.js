@@ -1,12 +1,11 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-let agoraArray = [];
 
 
 // localStorage 정보 기존 data에 추가
 const inputString = localStorage.getItem('InputInfo');
 const parsInputString = JSON.parse(inputString);
 // 로컬스토리지 비울시 주석처리 save 비우고 나서 해제 save
-agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
+let agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
 
 agoraStatesDiscussions.unshift(...agoraArray);
 
@@ -18,9 +17,12 @@ console.log(agoraStatesDiscussions);
 
 if(inputString !== null){
   // 로컬스토리지 관리가 이상함... 로컬 스토리지 비우고 나서 주석해제 후 save 다시 주석 save
-  // agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
+  agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
   agoraArray = [...agoraArray,...agoraStatesDiscussions];
 }
+// else{
+//   agoraArray = 
+// }
 
 // 입력 버튼
 const submit = document.querySelector('.form__submit');
