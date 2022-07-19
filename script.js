@@ -9,7 +9,9 @@ const KEY = "new_list";
 
 // 새로운 데이터를 agoraStatesDiscussions 배열에 추가하는 함수
 const localStorageSavedData = () => {
-  const getlocalStorageData = localStorage.getItem(KEY);
+  const getlocalStorageData = localStorage.getItem(
+    JSON.parse(JSON.stringify(KEY))
+  );
   if (getlocalStorageData) {
     return JSON.parse(getlocalStorageData);
   }
@@ -65,7 +67,6 @@ const convertToDiscussion = (obj) => {
   //discussion 정보 넣기
   const addDiscussionInfo = () => {
     const discussionInfo = createDOM("div");
-
     discussionInfo.className = "discussion__information"; //class 이름 지정
     discussionInfo.textContent = `${obj.author} / ${new Date(
       obj.createdAt
@@ -182,16 +183,20 @@ const handleSubmit = (event) => {
   event.preventDefault();
   const data = localStorageSavedData();
 
-  const objects = {};
-  objects.id = Math.random().toString(36).substring(2, 16);
-  objects.author = names.value;
-  objects.title = title.value;
+  // const objects = {};
+  // objects.id = Math.random().toString(36).substring(2, 16);
+  // objects.author = names.value;
+  // objects.title = title.value;
 
-  objects.avatarUrl =
-    "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
+  const objects = {
+    id: Math.random().toString(36).substring(2, 16),
+    title: title.value,
+    author: names.value,
+    createdAt: new Date(),
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+  };
   data.unshift(objects);
-  console.log(objects);
-
   localStorage.setItem(KEY, JSON.stringify(data));
   resetFormValue();
   render(ul);
