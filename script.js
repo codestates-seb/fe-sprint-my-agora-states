@@ -29,7 +29,8 @@ const convertToDiscussion = (obj) => {
   const discussionTitleA = document.createElement('a');
 
   discussionTitleA.href = obj.url
-  discussionTitleA.textContent= obj.title
+  discussionTitleA.textContent = obj.title
+  discussionTitleA.target = "_blank"
   discussionTitle.append(discussionTitleA)
 
   //discussion__content에 div 사용자 정보를 나타내는 div 추가.
