@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -13,8 +13,55 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.style.textDecoration = 'none';
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+
+  const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discussion__information";
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
+  discussionContent.append(discussionTitle, discussionInfo);
+
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑︎" : "☒";
+  if(checked.textContent === "☑︎"){
+    checked.style.color = 'green';
+    checked.style.fontWeight = 'bold';
+  }
+  discussionAnswered.append(checked);
+
+
+  const form =  document.querySelector('form.form');
+  const title = document.querySelector('div.form__input--title > input');
+  const nameInput = document.querySelector('div.form__input--name > input');
+  const textbox = document.querySelector('div.form__textbox > textarea');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const obj = {
+      id: "name",
+      createdAt: new Date(),
+      title: title.value,
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+      author: nameInput.value,
+      answer: null,
+      bodyHTML: textbox.value,
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+    };
+    agoraStatesDiscussions.unshift(obj);
+    const newDiscussion = convertToDiscussion(obj);
+    ul.prepend(newDiscussion);
+  });
+  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
