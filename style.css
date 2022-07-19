@@ -127,7 +127,7 @@ li {
 .pageBtn__area {
     margin-top: 20px;
     display: flex;
-    width: 100%;
+    width: 650px;
     align-items: center;
     justify-content: space-around;
     background-color: #FFF0F0;
