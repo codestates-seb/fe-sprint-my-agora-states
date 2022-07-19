@@ -108,6 +108,11 @@ div.form__submit > input{
 
 }
 
+#submit:hover{
+    box-shadow:
+    0 0 100px yellow,
+    0 0 12px white;
+}
 
 
 .discussion__wrapper {
@@ -168,3 +173,4 @@ div.form__submit > input{
     font-weight: bolder;
     color: black;
 }
+

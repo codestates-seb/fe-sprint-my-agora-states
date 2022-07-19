@@ -121,3 +121,9 @@ render(ul);
 
 //   console.log('함수 잘 돌아갔니')
 // }
+
+const numberOfContent = agoraStatesDiscussions.length;
+const showContent = 10;
+const maxPage = Math.ceil(numberOfContent/showContent);
+let page = 1;
+
