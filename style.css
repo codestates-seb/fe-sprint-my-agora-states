@@ -1,21 +1,151 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
     margin: 0;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-      }
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
     
-  }
-  
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 100px;
+    }
     
-  }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #858FBB;3
+        
+    }
+    
+    main{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #F6F9FF;
+        background-image: url(심슨.jpg);
+        background-position: center; 
+        background-attachment: fixed;
+        margin: 100px;
+    }
+    
+    h1{
+        padding: 40px;
+    }
+    
+      
+    section.form__container{
+        /* background-color: #DBFFF7; */
+    
+        margin-bottom: 7px;
+    }
+        /* 이름,타이틀,텍스트공간 사이즈 조절 */
+    div.form__input--name > input{
+    margin-left: 10px;
+    }
+    
+    
+    div.form__input--title > input{
+    margin-left: 22px;
+    }
+    
+    div.form__textbox > textarea{
+        width: 350px;
+        height: 120px;
+        margin-left: 35px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }   
+    
+    section.form__container{
+        border-radius: 10px;
+        padding: 10px ;
+    }
+    
+    /* your question 수직정렬 */
+    div.form__textbox{
+        padding-top: 5px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    
+    /* 버튼 정렬 */
+    div.form__submit{
+        display: flex;
+        justify-content: end;
+    }
+    div.form__submit > input{
+        border-radius: 8px;
+        font-size: 15px;
+        padding: 5px;
+    }
+
+ 
+    /* container들 크기조절 및 정렬 마커설정*/
+    li.discussion__container{
+    
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 540px;
+        height: 130px;
+        margin-bottom: 15px;
+        background-color: #eee8a9c9;
+        border-radius: 10px;
+        list-style-type: none; 
+        
+      
+    }
+    
+    
+    /* 이미지 크기,radius + 중앙정렬 */
+    div.discussion__avatar--wrapper > img{
+        width: 48px;
+        border-radius: 100%;
+    }
+    
+    div.discussion__avatar--wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 0;
+        padding: 10px;
+        
+    }
+    
+    /* 내용 글자 조절  */
+    div.discussion__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center
+        
+    }
+    
+    
+    /* 콘텐트 내부 질문 왼쪽정렬, 이름+시간 우측정렬 */
+    div.discussion__content > h2{
+        justify-content: start;
+        width: 435px;
+    }
+    div.discussion__content > div{
+        display: flex;
+        justify-content: end;
+        margin-bottom: -10px;
+    }
+    
+    div.discussion__information{
+        font-size: 13px;
+        display: flex;
+        justify-content: end;
+        padding: 0px;
+        margin-bottom: -10px;
+        
+        
+    
+    }
+    div.discussion__answered > p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 2 0 0;
+        padding: 15px;
+
+    }
+
+        
