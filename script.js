@@ -103,3 +103,9 @@ submitForm.onsubmit = e => {
   console.log(agoraStatesDiscussions);
   render2(ul);
 };
+
+// 날짜 형식 
+const createdDate = document.querySelectorAll('p.createdAt');
+for(let i = 0; i < createdDate.length; i++){
+  createdDate[i].textContent = new Date(Date.parse(createdDate[i].textContent)).toLocaleString()
+}
