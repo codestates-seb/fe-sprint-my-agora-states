@@ -5,15 +5,52 @@
     padding: 0;
     
 }
+h1{
+    margin : 20px;
+}
+
+.form{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    background-color: #B2C8DF;
+    width: 540px;
+}
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.form__input--name label{
+    margin-right: 30px;
+}
+
+.form__input--title label{
+    margin-right: 40px;
+}
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit input{
+    margin : 10px;
+    width: 70px;
+    height: 70px;
+    background-color: #C4D7E0;
+}
+
+
 
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #6E85B7;
 }
 section{
     width: 540px;
-    border : 1px solid red;
+    /* border : 1px solid red; */
 
 }
 
@@ -21,18 +58,19 @@ section{
     display: flex;
     flex-direction : row;
     list-style : none;
-    border : 1px solid blue;
+    /* border : 1px solid blue; */
     height: auto;
     align-items: center;
     justify-content:space-around;
     width: 540px;
+    background-color: #e9ead2;
     /* flex-wrap: wrap; */
     /* 글자수를 많이 작성했을 때  */
 }
 .discussion__avatar--wrapper{
     flex-basis: 48px;
     width: 48px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .discussion__avatar--image{
     border-radius: 50%;
@@ -41,13 +79,13 @@ section{
 }
 
 .discussion__content{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     flex-basis: 400px;
     font-size : 10px;
 }
 .discussion__answered{
     flex-basis: 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     font-size : 25px;
 }
 
@@ -60,22 +98,27 @@ section{
     list-style: none;
     display: flex;
     justify-content: center;
+    background-color: #6E85B7;
 }
 
 .pagination--number--li{
     float: left;
     margin: 5px;
-    border : 1px solid red;
+    font-size: 22px;
+    /* border : 1px solid red; */
+    cursor: pointer;
+    color: white;
 }
+
 .pagination--left{
     float: left;
     margin: 5px;
-    border : 1px solid red;
+    /* border : 1px solid red; */
 }
 .pagination--right{
     float: left;
     margin: 5px;
-    border : 1px solid red;
+    /* border : 1px solid red; */
 }
 
 .display_none{

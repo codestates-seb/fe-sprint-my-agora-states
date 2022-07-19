@@ -61,7 +61,7 @@ const subConvertToDiscussion = (obj) => {
 
   //답변여부
   const IsAnswered = document.createElement("p");
-  obj.answer === null ? IsAnswered.textContent = "x" : IsAnswered.textContent = "☑";
+  obj.answer === null ? IsAnswered.textContent = "☹︎" : IsAnswered.textContent = "☻";
   elementObj.answer = IsAnswered;
 
   return elementObj;
@@ -122,6 +122,7 @@ function readInput(event) {
     obj.author = input_name_title[0].value;
     obj.avatarUrl = "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
     obj.content = input_question.value;
+    obj.answer = null;
     addLocalStorage(obj);
   }
 }
