@@ -10,29 +10,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+    <script defer src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+  </head>
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <img class="coffee" src="./coffee.png" alt="coffee">
+    <h1>My Ag<span class = "circle"></span>ra States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name"> </label>
+            <input placeholder="Enter your name:" type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name"> </label>
+            <input placeholder="Enter your title:" type="text" name="name" id="name" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <!-- <label for="story">Your question: </label> -->
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
+        <div class="form__submit" onclick="Alert()">
+          <input type="submit" value="submit">       
         </div>
       </form>
     </section>
@@ -53,6 +57,7 @@
       </ul>
     </section>
   </main>
+  
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
