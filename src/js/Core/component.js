@@ -25,7 +25,6 @@ export default class Component {
     // 컴포넌트의 상태를 변경
     this.state = newState;
     this.render();
-    console.log('setState', this.state);
   }
 
   // As a change of state UI needs to be updated as well so call this.render() in template method

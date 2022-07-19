@@ -1,4 +1,5 @@
 import { $ } from '../../index.js';
+import { inputValidator } from '../common/utils/validation.js';
 import Component from '../Core/component.js';
 
 export default class Section1 extends Component {
@@ -15,8 +16,8 @@ export default class Section1 extends Component {
               <input type="text" name="name" id="name" required />
             </div>
             <div class="form__input--title">
-              <label for="name">Enter your title: </label>
-              <input type="text" name="name" id="title_input" required />
+              <label for="title">Enter your title: </label>
+              <input type="text" name="title" id="title_input" required />
             </div>
             <div class="form__textbox">
               <label for="question">Your question: </label>
@@ -41,8 +42,10 @@ export default class Section1 extends Component {
       if (!e.target.classList.contains('submit_btn')) {
         return;
       }
-      this.handleNewData(nameInput.value, titleInput.value, questionContent.value);
-      this.handlePostingTime();
+      if (inputValidator(nameInput, titleInput, questionContent)) {
+        this.handleNewData(nameInput.value, titleInput.value, questionContent.value);
+        this.handlePostingTime();
+      }
     });
   }
 
