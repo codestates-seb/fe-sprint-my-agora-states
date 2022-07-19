@@ -1,1 +1,170 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@import url("https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@600&display=swap");
+
+* {
+  border-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+
+  background-color: white;
+}
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  color: #fcf6f5;
+  cursor: pointer;
+}
+a {
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+ a:hover,
+a:active {
+  text-decoration: none;
+  color: #fff;
+  background-color: #f59000;
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+  color: #2bae66;
+  font-family: "Edu VIC WA NT Beginner", cursive;
+}
+
+label {
+  margin: 5px;
+}
+
+textarea,
+input {
+  border: solid 2px #fcf6f5;
+  border-radius: 5px;
+}
+
+.form__container {
+  background-color: #2bae66;
+  padding: 10px 20px;
+  margin: 10px;
+  color: white;
+  border-radius: 20px;
+}
+
+.form__input--wrapper > div {
+  margin: 10px;
+}
+
+.form * {
+  font-family: "Edu VIC WA NT Beginner", cursive;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.form__input--wrapper {
+  flex: 4;
+}
+
+.form__submit {
+  flex: 1;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__submit > input {
+  margin: 10px;
+  width: 90px;
+  height: 90px;
+}
+
+.discussion__wrapper {
+  padding-bottom: 50px;
+}
+
+.discussions__container {
+  max-width: 540px;
+}
+
+.discussion__container {
+  border-radius: 20px;
+  background-color: #fcf6f5;
+  padding: 10px;
+  margin: 10px;
+  color: #2bae66;
+  display: flex;
+  align-items: center;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.discussion__title {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.discussion__information {
+  font-size: 12px;
+}
+
+.discussion__content {
+  flex: 7;
+}
+
+.discussion__answered {
+  flex: 1;
+  color: #1566ea;
+}
+
+.discussion__answered > p {
+  font-size: 30px;
+  text-align: center;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+.Pagenation__Container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Pagenation__Container > button {
+  font-size: 30px;
+  color: #2bae66;
+}
+
+.nope {
+  color: red;
+}
