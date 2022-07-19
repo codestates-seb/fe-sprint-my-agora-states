@@ -80,9 +80,9 @@ const render = (element) => {
     // }
     agoraStatesDiscussions.unshift(obj);
     ul.prepend(convertToDiscussion(obj));
-    // inputName.value = "";
-    // inputTitle.value = "";
-    // inputQuestion.value = "";
+    inputName.value = "";
+    inputTitle.value = "";
+    inputQuestion.value = "";
     return;
   });
   // const newDiscussionString = localStorage.getItem('newDiscussion');
