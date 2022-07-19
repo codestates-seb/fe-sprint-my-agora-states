@@ -79,3 +79,27 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// form에서 입력한 내용을 새로 렌더링 하기
+const render2 = (element) => {
+  element.insertBefore(convertToDiscussion(agoraStatesDiscussions[0]), element.children[0]);
+  return;
+}
+
+const nameInput = document.querySelector("#name");
+const titleInput = document.querySelector("#title");
+const storyInput = document.querySelector("#story");
+
+const submitForm = document.querySelector('form.form');
+submitForm.onsubmit = e => {
+  e.preventDefault();
+  let newStoryObj = {};
+  newStoryObj.author = nameInput.value;
+  newStoryObj.title = titleInput.value;
+  newStoryObj.story = storyInput.value;
+  newStoryObj.createdAt = new Date().toLocaleString();
+  newStoryObj.avatarUrl = 'https://p.kindpng.com/picc/s/33-338711_circle-user-icon-blue-hd-png-download.png';
+  agoraStatesDiscussions.unshift(newStoryObj);
+  console.log(agoraStatesDiscussions);
+  render2(ul);
+};
