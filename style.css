@@ -1,1 +1,131 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 240, 215);
+}
+
+
+h1{ text-align: center; }
+
+.form__container{
+  background-color: rgb(255, 217, 192);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px;
+
+}
+
+.form__input--name .form__input--title .form__input--title{
+  display: flex;
+}
+
+
+input {
+  width: 100%;
+}
+textarea{ width: 100%;}
+
+div.form__submit > input{
+  background-color: rgb(244, 191, 191);
+  font-size: 1em;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.form__submit >input:hover{
+  background-color: rgb(140, 192, 222);
+}
+
+.discussion__wrapper {
+  background-color: rgb(244, 191, 191);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__container{
+  justify-content: space-between;
+}
+
+
+ul > li{
+  display: flex;
+  width: 540px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(250, 240, 215);
+
+}
+
+li> div{
+  margin: 5px;
+}
+
+ul{
+  padding: 0;
+}
+
+img {
+  width: 48px;
+  border-radius: 50%;
+}
+
+.discussion__content > h2 {
+  font-size: 1em;
+}
+.discussion__content>div{
+  text-align: right;
+  font-size: 0.5em;
+}
+
+.discussion__content{
+  width: 100%;
+}
+
+.discussion__answered{
+  font-size: 1.5em;
+}
+
+
+a{ text-decoration: none; color: black;}
+a:hover{ text-decoration:underline; color: rgb(244, 191, 191);}
+
+.pagination__container {
+  display: flex;
+  justify-content: center;
+}
+
+.page__btn{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10%;
+  border: none;
+  background-color: rgb(255, 217, 192);
+  transition-duration: 0.4s;
+}
+
+.page__btn:hover{ background-color: rgb(244, 191, 191);}
+
+
+.curr__page{
+  background-color: rgb(140, 192, 222);
+}
+
+p {color: coral;}
+.solved{ color: green;}
