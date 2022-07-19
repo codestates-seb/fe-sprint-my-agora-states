@@ -1,1 +1,159 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    background: #F5F5F5;
+    font-family: 'Edu VIC WA NT Beginner';
+    
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: #364F6B;
+    font-size: 60px;
+}
+
+
+
+.form__container{
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 540px;
+    height: 140px;
+}
+
+.form__input--name{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__input--title{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__textbox{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+   
+}
+
+#story{
+    height: 19px;
+    width: 180px;
+    flex-basis: 70%;
+}
+
+.form__input--name#name{
+    height: 19px;
+    width: 180px;
+}
+
+
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 600px;
+    list-style-type: none;
+    background-color: #3FC1C9;
+    
+} 
+
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.discussion__information{
+    color: #ffffff;
+}
+
+
+.discussion__content {
+    width: 100%;
+  } 
+
+.discussion__avatar--image{
+    border-radius: 70%;
+    width: 48px;
+    height: 48px;
+}
+
+.discussion__title{
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+li.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 540px;
+}
+
+.discussion__two{
+    display: flex;
+    width: 95%;
+}
+
+.discussion__answered p {
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+.discussion__answered {
+    padding-top: 20px;
+}
+
+  .discussion__information {
+      display: flex;
+      justify-content: flex-end;
+      width: 95%;
+  }
+
+  a{
+      font-size: 20px;
+      color: #ffffff;
+      text-decoration-line:none;
+    }
+
+  input{
+      border-color: rgb(255, 255, 255);
+      border-radius: 30px;
+     
+  }
+
+  .discussion__information{
+    font-size: 20px;
+  }
