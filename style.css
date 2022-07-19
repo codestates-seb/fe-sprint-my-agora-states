@@ -111,7 +111,7 @@ h1 {
 .discussion__container {
   display: flex;
   width: 540px;
-  min-height: 90px;
+  height: 110px;
   margin-bottom: 12px;
   padding: 13px 15px;
   justify-content: space-between;
@@ -165,4 +165,23 @@ h1 {
   align-items: center;
   margin-left: auto;
   font-size: 18px;
+}
+
+.btn__page--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn__page--btn {
+  border: none;
+  background-color: transparent;
+  margin: 0px 7px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn__page--btn:hover {
+  cursor: pointer;
 }

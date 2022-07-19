@@ -1,10 +1,10 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
-
+// 필요한 DOM 요소
 const ul = document.querySelector('ul.discussions__container');
 const btnSubmit = document.querySelector('.form__submit');
+const form = document.querySelector('.form');
+const btns = document.querySelector('.btn__page--wrapper');
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+// 데이터 => DOM 생성 함수
 const convertToDiscussion = obj => {
   const li = document.createElement('li'); // li 요소 생성
   li.className = 'discussion__container'; // 클래스 이름 지정
@@ -35,7 +35,7 @@ const convertToDiscussion = obj => {
   // discussion 작성 시간 생성
   const discussionTime = document.createElement('div');
   discussionTime.className = 'discussion__information';
-  discussionTime.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionTime.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   // discussion content 부모 요소에 해당 내용 append
   discussionContent.append(discussionTime, discussionTitle);
 
@@ -52,15 +52,7 @@ const convertToDiscussion = obj => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = element => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-// 사용자 입력 데이터 저장
+// 사용자 입력 데이터 저장 후 렌더
 const makeInputToQuestion = function (e) {
   e.preventDefault();
   const userName = document.querySelector('#name').value;
@@ -69,22 +61,87 @@ const makeInputToQuestion = function (e) {
   const date = new Date();
 
   const obj = {
-    avatarUrl: 'https://lh3.googleusercontent.com/a-/AFdZucpSPHlMgNuNOQUqhzdWeMA4yWl4vexd730dVTXllQ=s96-c-rg-br100',
-    author: userName,
-    url: 'https://github.com/codestates-seb/agora-states-fe/discussions',
+    id: 'unique id',
+    createdAt: date,
     title: userTitle,
-    createdAt: `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${date.getHours()}시 ${date.getMinutes()}분`,
+    url: 'https://github.com/codestates-seb/agora-states-fe/discussions',
+    author: userName,
+    answer: null,
+    bodyHTML: null,
+    avatarUrl: 'https://lh3.googleusercontent.com/a-/AFdZucpSPHlMgNuNOQUqhzdWeMA4yWl4vexd730dVTXllQ=s96-c-rg-br100',
   };
+
+  // data배열에 새롭게 생성한 obj를 추가한다.
+  agoraStatesDiscussions.unshift(obj);
 
   // 리스트의 상단에 만들어진 li를 붙인다.
   let li = convertToDiscussion(obj);
   ul.prepend(li);
-
-  // data배열에 새롭게 생성한 obj를 추가한다.
-  agoraStatesDiscussions.unshift(obj);
 };
 
-btnSubmit.addEventListener('click', makeInputToQuestion);
+// form 이벤트 리스너
+form.addEventListener('submit', makeInputToQuestion);
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-render(ul);
+// 버튼 생성 함수
+const makeButton = id => {
+  const btn = document.createElement('button');
+  btn.className = 'btn__page--btn';
+  btn.dataset.num = id;
+  btn.textContent = id;
+  btn.addEventListener('click', e => {
+    // 특정 버튼을 클릭하면 활성화, 다른 버튼은 비활성화
+    for (let i = 0; i < btns.children.length; i++) {
+      if (btn.dataset.num) btn.classList.remove('active');
+    }
+    e.target.classList.add('active');
+    // 페이지 번호를 넣어 렌더 함수 호출
+    renderContent(ul, parseInt(e.target.dataset.num));
+  });
+  return btn;
+};
+
+// 페이지네이션 구현에 필요한 데이터
+const numOfContent = agoraStatesDiscussions.length;
+const maxContent = 5;
+const maxButton = 5;
+const maxPage = Math.ceil(numOfContent / maxContent);
+let page = 1;
+
+// 배열의 데이터 렌더링 함수
+const renderContent = (element, page) => {
+  // 글 목록 초기화
+  while (element.hasChildNodes()) {
+    element.removeChild(element.lastChild);
+  }
+
+  // 현재 페이지부터 표시될 최대 컨텐츠까지 반복하여 리스트 생성 함수 실행 후 컨텐츠 표시
+  // ... 직전 페이지로부터 넘어온 현재 i값을 한 페이지의 최대 컨텐츠 그리고 전체 컨텐츠 이내의 범위에서 증감시키며, 배열의 i번째 요소로 DOM 생성함수를 호출하여 element(ul)에 추가.
+  for (let i = (page - 1) * maxContent; i < page * maxContent && i <= numOfContent; i++) {
+    if (agoraStatesDiscussions[i]) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    }
+  }
+  return;
+};
+
+// 버튼 렌더링 함수
+const renderButton = page => {
+  // 버튼 목록 초기화
+  while (btns.hasChildNodes()) {
+    btns.removeChild(btns.lastChild);
+  }
+
+  // 현재 페이지부터 최대 페이지까지 번호를 매겨 버튼을 생성
+  for (let i = page; i < page + maxButton && i <= maxPage; i++) {
+    btns.append(makeButton(i));
+  }
+};
+
+// 화면 처음 띄울 때 컨텐츠, 버튼 렌더링
+renderContent(ul, page);
+renderButton(page);
+
+// TODOs
+// 0. 페이지 이동 함수
+// 1. 새로 추가된 데이터가 있으면, 해당 데이터를 포함하여 최대 10개 표시
+// 2. 로컬 스토리지에 저장하고, submit시 새로고침하며 데이터 로드
