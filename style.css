@@ -6,13 +6,18 @@
     
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 section{
     width: 540px;
-    border : 1px solid red
+    border : 1px solid red;
 
 }
 
-li{
+.discussion__container{
     display: flex;
     flex-direction : row;
     list-style : none;
@@ -49,4 +54,16 @@ li{
 .discussion__information{
     text-align: right;
     font-size: 13px;
+}
+
+.pagination--number{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination--number--li{
+    float: left;
+    margin: 5px;
+    border : 1px solid red;
 }
