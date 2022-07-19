@@ -1,4 +1,5 @@
 import { $ } from '../../index.js';
+import { BUTTON } from '../common/constants/constants.js';
 import { inputValidator } from '../common/utils/validation.js';
 import Component from '../Core/component.js';
 
@@ -39,7 +40,7 @@ export default class Section1 extends Component {
     this.$target.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (!e.target.classList.contains('submit_btn')) {
+      if (!e.target.classList.contains(BUTTON.SUBMIT)) {
         return;
       }
       if (inputValidator(nameInput, titleInput, questionContent)) {

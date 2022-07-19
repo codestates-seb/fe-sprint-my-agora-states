@@ -1,6 +1,8 @@
 export const PAGE = Object.freeze({
   NUMBER: 'page_number',
   INDICATOR: 'page_indicator',
+  LEFT_INDICATOR: '<',
+  RIGHT_INDICATOR: '>',
 });
 
 export const NUMBER = Object.freeze({
@@ -8,8 +10,13 @@ export const NUMBER = Object.freeze({
   ZERO: 0,
 });
 
+export const BUTTON = Object.freeze({
+  SUBMIT: 'submit_btn',
+});
+
 export const LOCALSTORAGE = Object.freeze({
-  PROPERTY: 'data',
+  PROPERTY_DATA: 'data',
+  PROPERTY_USER: 'user',
 });
 
 export const ICON = Object.freeze({

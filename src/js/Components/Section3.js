@@ -8,7 +8,7 @@ export default class Section3 extends Component {
   }
 
   template() {
-    const { data, currentPage } = this.props;
+    const { data } = this.props;
     const lengthOfDataArray = data ? data.length : NUMBER.MAX_LENGTH;
     const maxPageNumber = Math.ceil(lengthOfDataArray / 10);
     const numberOfElements = new Array(maxPageNumber).fill(0);

@@ -1,5 +1,5 @@
 import { $ } from '../index.js';
-import { LOCALSTORAGE, NUMBER, EMPTY, IMG } from './common/constants/constants.js';
+import { LOCALSTORAGE, NUMBER, EMPTY, PAGE } from './common/constants/constants.js';
 import { agoraStatesDiscussions } from './common/data/data.js';
 import { getLocalStorage, setLocalStroage } from './common/utils/localStorage.js';
 import { getCurrentTime } from './common/utils/utils.js';
@@ -19,7 +19,7 @@ export default class App extends Component {
   async initialState() {
     this.setState({
       ...this.props,
-      data: getLocalStorage(LOCALSTORAGE.PROPERTY) === null ? agoraStatesDiscussions : getLocalStorage(LOCALSTORAGE.PROPERTY),
+      data: getLocalStorage(LOCALSTORAGE.PROPERTY_DATA) === null ? agoraStatesDiscussions : getLocalStorage(LOCALSTORAGE.PROPERTY_DATA),
       pageStartNum: -10,
       pageEndNum: 9999,
       currentPage: NUMBER.ZERO,
@@ -62,12 +62,12 @@ export default class App extends Component {
 
     let data = dataToCopy.slice();
 
-    if (getLocalStorage(LOCALSTORAGE.PROPERTY) === null) {
-      setLocalStroage(LOCALSTORAGE.PROPERTY, data);
+    if (getLocalStorage(LOCALSTORAGE.PROPERTY_DATA) === null) {
+      setLocalStroage(LOCALSTORAGE.PROPERTY_DATA, data);
     }
 
-    if (getLocalStorage('user') === null) {
-      setLocalStroage('user', this.state.user);
+    if (getLocalStorage(LOCALSTORAGE.PROPERTY_USER) === null) {
+      setLocalStroage(LOCALSTORAGE.PROPERTY_USER, this.state.user);
     }
 
     return data;
@@ -78,7 +78,7 @@ export default class App extends Component {
 
     const newData = data.concat(newItem);
 
-    setLocalStroage(LOCALSTORAGE.PROPERTY, newData);
+    setLocalStroage(LOCALSTORAGE.PROPERTY_DATA, newData);
 
     this.setState({
       ...this.state,
@@ -122,10 +122,10 @@ export default class App extends Component {
     const lengthOfDataArray = data ? data.length : NUMBER.MAX_LENGTH;
     const maxPageNumber = Math.ceil(lengthOfDataArray / 10);
 
-    if (indicator === '<') {
+    if (indicator === PAGE.LEFT_INDICATOR) {
       currentPage -= 1;
       if (currentPage < 0) return;
-    } else if (indicator === '>') {
+    } else if (indicator === PAGE.RIGHT_INDICATOR) {
       currentPage += 1;
       if (currentPage > maxPageNumber) return;
     }
@@ -145,9 +145,9 @@ export default class App extends Component {
   handleProfileUrl(id, url) {
     const newUser = { id, profileUrl: url };
 
-    const newArray = getLocalStorage('user').concat(newUser);
+    const newArray = getLocalStorage(LOCALSTORAGE.PROPERTY_USER).concat(newUser);
 
-    setLocalStroage('user', newArray);
+    setLocalStroage(LOCALSTORAGE.PROPERTY_USER, newArray);
 
     this.setState({
       ...this.state,

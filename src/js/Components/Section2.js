@@ -9,7 +9,7 @@ export default class Section2 extends Component {
   }
 
   template() {
-    let { data, pageStartNum, pageEndNum, user } = this.props;
+    let { data, pageStartNum, pageEndNum } = this.props;
 
     if (!data) {
       data = agoraStatesDiscussions;
