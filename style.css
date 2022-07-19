@@ -25,11 +25,15 @@ main{
     padding-right : 10px;
     border-radius: 10px;
 }
+main > h1 {
+    margin-top: 30px;
+}
 form{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 400px;
+    margin : 20px 0px;
 }
 a{
     text-decoration: none;
@@ -88,18 +92,20 @@ li.discussion__container{
     width: 48px;
     height: 48px;
 }
-.discussion__content{
+div.discussion__content{
     margin-left: 10px;
-    margin-right: auto;
     display: flex;
+    margin-right: auto;
     flex-direction: column;
     justify-content: flex-start;
     width: 420px;
 }
-.discussion__title{
+div.discussion__title{
     margin-bottom: 2px;
     margin-top: 0px;
-    margin-right: 5px;
+}
+.discussion__information{
+    align-self: end;
 }
 .discussion__answered{
     align-self: center;
