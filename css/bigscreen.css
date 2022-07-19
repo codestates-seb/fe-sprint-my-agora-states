@@ -1,0 +1,19 @@
+.big {
+	position: absolute;
+	z-index: 99;
+	height: 100vh;
+	background-color: #222;
+	width: 100vw;
+	display: flex;
+	top: 0;
+	justify-content: center;
+	align-items: center;
+	font-size: 32px;
+  color: #fff;
+}
+
+@media screen and (max-width:900px) {
+	.big {
+	display: none;
+	}
+}
