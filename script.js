@@ -54,6 +54,10 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+
+
+
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -74,12 +78,12 @@ const title = document.querySelector('div.form__input--title > input');
 const nameInput = document.querySelector('div.form__input--name > input');
 const textbox = document.querySelector('div.form__textbox > textarea')
 
-form.addEventListener('submit', (event) => {
+form.addEventListener("submit", (event) => {
   // 새로운 객체를 만들어야 한다
   // input에  입력된 값(value)를 넣은 새로운 객체
   // 새로운 객체 ul 요소 아래로 넣어준다
   // 더미 데이터(agoraStatesDiscussions)여기에도 추가해준다.
-  event.prevexntDefault();
+  event.preventDefault();
   const obj = {
     id: "unique id",
     createdAt: new Date().toLocaleString(),
@@ -88,11 +92,12 @@ form.addEventListener('submit', (event) => {
     author: nameInput.value,
     answer: null,
     bodyHTML: textbox.value,
-    avatarUrl: 'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4',
+    avatarUrl: 'https://avatars.githubusercontent.com/u/12145019?s=64u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4',
   }
   agoraStatesDiscussions.unshift(obj);
   const newDiscussion = convertToDiscussion(obj)
-  ul.append(newDiscussion)
+  ul.prepend(newDiscussion)
+  console.log('working')
 })
 
 
