@@ -65,7 +65,7 @@ const convertToDiscussion = (obj) => {
     discussionContent.append(discussionTitle);
   };
 
-  //discussion 정보 넣기
+  //discussion 정보 넣기(작성자,날짜)
   const addDiscussionInfo = () => {
     const discussionInfo = createDOMElement("div");
     discussionInfo.className = "discussion__information"; //class 이름 지정
