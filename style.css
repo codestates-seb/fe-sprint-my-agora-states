@@ -1,1 +1,161 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2C3639;
+  display:flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#2C3639;
+}
+
+h1 {
+  color: #fffbf1;
+  text-align: center;
+  margin : 20px;
+}
+
+.form__container{
+  height:245px;
+  background-color: #DCD7C8;
+  border-radius: 10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__input--wrapper{
+  width:540px;
+  height:150px;
+  padding:15px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__input--row{
+  display:flex;
+  justify-content: space-between;
+  width:500px;
+}
+
+#name,
+#category,
+#title,
+#story {
+  border:0.5px solid #2C3639;
+  font-size:15px;
+  border-radius: 10px;
+  padding:10px;
+  margin-bottom: 10px;
+}
+
+#name {
+  width:240px;
+}
+
+#category {
+  width: 240px;
+  color: rgba(0,0,0,0.5);
+}
+
+#title{
+  width:500px;
+}
+
+#story{
+  width:500px;
+}
+
+#name:focus,
+#category:focus,
+#title:focus,
+#story:focus{
+  outline:2px solid #eccaaf;
+  border:none;
+}
+
+
+.form__submit{
+  text-align: end;
+}
+
+#submit{
+  width:240px;
+  background-color: #A27B5B;
+  border:none;
+  border-radius: 10px;
+  font-size: 20px;
+  color:#fffbf1;
+  transition: 0.5s;
+  padding:10px;
+}
+
+#submit:hover{
+  background-color: #cab6a6;
+  color:white;
+}
+
+ul {
+  list-style:none;
+}
+
+a {
+  text-decoration-line:none;
+  color:inherit;
+}
+
+.discussion__container {
+  display:flex;
+  justify-content: space-between;
+  width:540px;
+  height: 120px;
+  padding: 25px;
+  background-color: #DCD7C8;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.discussion__container:hover {
+  transform: scale(1.05);
+}
+
+.discussion__avatar--wrapper{
+  display:flex;
+  align-items: center;
+}
+
+.discussion__avatar--image{
+  border-radius: 100%;
+  width:48px;
+  border: 0.5px solid #2C3639;
+}
+
+.discussion__content{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  width:100%;
+  height:70px;
+}
+
+.discussion__content > h2{
+  font-size:18px;
+  padding:0px 25px;
+}
+
+.discussion__answered{
+  display:flex;
+  align-items: center;
+}
+
+.discussion__information{
+  display: flex;
+  justify-content: end;
+  font-size:13px;
+  padding:0px 25px;
+}
