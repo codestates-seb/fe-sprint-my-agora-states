@@ -1,1 +1,175 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(42, 40, 40);
+    color: white;
+    height: 8vh;
+}
+
+img#git_img {
+    background-color: white;
+    border-radius: 70%;
+    width: 48px;
+    height: 48px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(5, 5, 5);
+}
+
+form {
+    background-color:rgb(42, 40, 40);
+    margin: 10px 0px;
+    display: flex;
+    height: 170px;
+}
+
+div.form__input--wrapper {
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+div.form__input--name {
+    margin: 5px 10px;
+    background-color: black;
+    border-style: none;
+}
+
+div.form__input--name > input {
+    width: 100%;
+    background-color: black;
+    border-style: none;
+    color: white;
+}
+
+div.form__input--title {
+    margin: 5px 10px;
+    background-color: black;
+    border-style: none;
+}
+
+div.form__input--title > input {
+    width: 100%;
+    background-color: black;
+    border-style: none;
+    color: white;
+}
+
+div.form__textbox {
+    margin: 5px 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+div.form__textbox > textarea {
+    width: 100%;
+    height: 95px;
+    background-color: black;
+    border-style: none;
+    color: white;
+}
+
+div.form__submit {
+    background-color: none;
+    display: flex;
+    align-items: flex-end;
+    padding: 5px 10px 10px 5px;
+}
+
+div.form__submit > input {
+    border-style: none;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    width: 60px;
+    height: 40px;
+    border-radius: 5%;
+}
+
+div.form__submit > input:hover {
+    background-color: lightgreen;
+}
+
+
+/* ul */
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    height: 67vh;
+    width: 540px;
+    background-color: white;
+    margin: 10px 0px;
+    color: white;
+    overflow: auto;
+}
+
+/* li */
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(42, 40, 40);
+    padding: 5px 0px;
+    margin-bottom: 1px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h2 > a:link,  h2 > a:visited{
+    color: white;
+}
+
+/* 왼쪽 아바타 */
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.discussion__avatar--image {
+    border-radius: 70%;
+    width: 48px;
+    height: 48px;
+}
+
+/* 중간 Discussion */
+.discussion__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 13px;
+}
+
+.discussion__information {
+    order: 1;
+    align-self: flex-end;
+}
+
+/* 오른쪽 체크 표시 */
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    margin-left: 15px;
+    color: red;
+}
