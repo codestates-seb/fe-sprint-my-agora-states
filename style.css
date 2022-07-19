@@ -11,9 +11,20 @@ body {
   align-items: center;
 }
 
-h1, .form__container{
+main {
+  background-color: #FFF9CA;
+  padding: 0 25px;
+}
+
+h1, .form__container {
   display: flex;
   justify-content: center;
+}
+
+.form__container {
+  background-color: #FFDEB4;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .discussion__wrapper {
@@ -27,12 +38,14 @@ h1, .form__container{
 .discussion__container {
   display: flex;
   justify-content: space-between;
-
+  margin: 15px 0;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
 }
 
-.discussion__content {
-  display: flex;
-  justify-content: space-between;
+.discussion__title {
+  
 }
 
 .discussion__information {
@@ -48,7 +61,28 @@ img {
 }
 
 .discussion__answered {
-  margin-left: auto;
   display: flex;
   align-items: center ;
+}
+
+a {
+  font-size: 15px;
+}
+
+form.form {
+  display: flex;
+}
+
+h1 {
+  color: #5342b3;
+}
+
+.form__submit > input {
+  background-color: #FFB4B4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 75px;
+  font-size: 13px;
 }
