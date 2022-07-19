@@ -1,1 +1,175 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&family=Work+Sans:wght@400;600&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #444;
+    font-family: 'Work Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif;
+}
+
+main {
+    width: 540px;
+    display: fixed;
+    margin-left: calc(50vw - 270px);
+    padding-top: 1rem;
+}
+
+main>h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+li {
+    list-style-type: none;
+}
+
+.form__input--name {
+    margin-top: 2rem;
+}
+
+.form__input--name>input {
+    width: 540px;
+    border: 1px solid #aaa;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.form__input--title {
+    margin-top: 1rem;
+}
+
+.form__input--title>input {
+    width: 540px;
+    border: 1px solid #aaa;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.form__textbox {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form__textbox>textarea {
+    width: 540px;
+    height: 15rem;
+    padding: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}
+
+.form__submit {
+    width: 540px;
+}
+
+.form__submit>button {
+    width: 540px;
+    height: 3rem;
+    color: white;
+    background-color: rgb(46, 103, 211);
+    border: none;
+    border-radius: 6px;
+}
+
+.form__submit>button:active {
+    width: 540px;
+    height: 3rem;
+    color: white;
+    background-color: rgb(46, 103, 211);
+    border: none;
+    border-radius: 6px;
+    opacity: .75;
+}
+
+.discussion__wrapper {
+    margin-top: 2rem;
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.discussion__avatar--wrapper {
+    padding: 0.5rem;
+    flex: 1 64px auto;
+}
+
+.discussion__avatar--img {
+    width: 48px;
+    border-radius: 50px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    flex: 1 1 auto;
+}
+
+.discussion__content--title {
+    margin-top: 0.5rem;
+}
+
+.discussion__content--title>a {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    color: #444;
+}
+
+.discussion__content--title>a:hover {
+    text-decoration: none;
+    color: rgb(46, 103, 211);
+}
+
+.discussion__content--answerAndAuthor--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.discussion__content--answered>span {
+    font-size: 0.85rem;
+    color: green;
+}
+
+.discussion__content--unanswered>span {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.discussion__content--author--createdAt {
+    text-align: right;
+}
+
+.discussion__content--author--createdAt>span {
+    font-size: 0.85rem;
+    text-align: right;
+    color: #aaa;
+}
+
+.pagination {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pagination__pagenum {
+    text-align: center;
+}
+
+.pagination__pagenum--num {
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
