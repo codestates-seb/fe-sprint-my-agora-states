@@ -6,13 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Sunflower&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
   <main>
     <h1>My Agora States</h1>
     <section class="form__container">
@@ -20,11 +25,12 @@
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" required placeholder="이름을 입력해주세요.">
+            
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Enter your title: </label> 
+            <input type="text" name="name" id="name" required placeholder="이름을 입력해주세요.">
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
@@ -46,15 +52,30 @@
           </div>
           <div class="discussion__content">
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <div class="discussion__information">kimploo / 2022. 04. 22. 오후 2:08:33</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>❤️</p></div>
         </li>
       </ul>
     </section>
+    <ul id="page_list">
+      <li><</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>></li>
+    </ul>
   </main>
+ 
+
+
+
+    
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </html>
