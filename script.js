@@ -141,6 +141,7 @@ const render = (element) => {
   for (let i = 0; i < pageData.length; i += 1) {
     element.append(convertToDiscussion(pageData[i]));
   }
+  const maxLength = Math.ceil(localData.length / 9);
   if (!elPagination.childNodes.length) {
     // pagination의 데이터가 없을시 길이를 설정하고 첫 페이지에 current__page클래스를 추가
     pagination.pageLength(pagination.pageClickHandler);
