@@ -4,9 +4,9 @@ body {
     text-align: center;
 }
 h1 {
+    font-size: 40px;
     color: royalblue;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    /* font-size: 40px; */
 }
 .form__input--wrapper {
     /* background-color: azure; */
@@ -27,20 +27,31 @@ h1 {
 }
 .form__submit > input {
     width: 225px;
-    height: 40px;
+    height: 50px;
     font-size: 18px;
     font-weight: bold;
     background: white;
+    margin-right: -5px;
+    margin-top: 5px;
 }
 .form__container {
     text-align: center;
     width: 540px;
-    height: 170px;
+    height: 185px;
     border:solid 3px;
     /* border-radius: 10%; */
     background: pink;
     display: inline-block;
 }
+
+/* .form__container > form {
+    background-color: aqua;
+    display: flex;   
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+} */
+
 .discussion__wrapper {
     /* background-color: brown; */
     display:inline-block;
@@ -73,12 +84,14 @@ img {
 .discussion__information {
     width: 280px;
     margin-top: 30px;
-    margin-left: 140px;
+    margin-left: 130px;
     margin-bottom: 10px;
     /* margin-right: 10px; */
     text-align: center;
     background-color: white;
-    font-weight: bold;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    /* font-weight: bold; */
     border: solid 2px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -87,12 +100,19 @@ img {
     padding-left: 10px;
     text-align: left;
 }
+a {
+    text-decoration-line: none;
+    color: black;
+    font-weight: lighter;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
 .discussion__answered {
     /* display: flex; */
     /* align-items: center; */
     /* padding-left: 5px; */
     /* background-color: aquamarine; */
     margin-right: 10px;
+    font-size: x-large;
 }
 
 .form__textbox {
@@ -115,6 +135,14 @@ img {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+}
+
+label {
+    margin-left: -50px;
+}
+
+input, textarea {
+    margin-right: -50px;
 }
 
 #story, #name {
