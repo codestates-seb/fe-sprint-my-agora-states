@@ -13,8 +13,9 @@
     font-family: 'yg-jalnan';
 }
 
-body {
-    background-image: url(/fe-sprint-my-agora-states-main/img/background-img.jpg);
+ body {
+    /* background-image: url(/fe-sprint-my-agora-states-main/img/background-img.jpg); */
+    background-image: url(./img/background-img.jpg);
 }
 
 main {
