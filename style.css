@@ -1,1 +1,118 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+}
+body {
+ background: linear-gradient(to right, #d8b5cf,#f1ebf3);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: rgb(73, 92, 131);
+}
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+.form__container {
+    background-color:  rgba(168, 164, 206, 0.573);
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+}
+form.form{ /* submit 떼주고 이쁜 버튼 만들기*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+/* 입력창 이쁘게 꾸며주기 */
+#name {
+    border:none;
+    border-radius: 5px;
+    width: 170px;
+}
+.name1 {
+    margin-left: 10px;
+    margin-bottom: 8px;
+    height: 23px;
+}
+.name2 {
+    margin-left: 20px;
+    margin-bottom: 8px;
+    height: 23px;
+}
+#story {
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 6px;
+    font-size: 14px;
+}
+.input_submit {  /*input submit 꾸미기 */
+    width: 120px;
+    height: 70px;
+    margin-left: 40px;
+    border: none;
+    background-color: hsl(298, 38%, 74%);
+    border-radius: 20px;
+    font-size: 18px;
+    opacity: 80%;
+    cursor: pointer;
+    color: rgb(73, 92, 131);
+    box-shadow: 3px 3px rgb(0,0,0,0.5);
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+li.discussion__container {
+    /* li 자식요소 3개들 */
+    display: flex;
+    width: 540px;
+    height: 80px;
+    justify-content: space-between;
+    margin-bottom: 15px; 
+    background-color: rgba(168, 164, 206, 0.365);
+    border-radius: 15px;
+}
+img {
+    /* 동그란 프로필 50%이상 주기! 시각적으로는 차이없음*/
+    border-radius: 100%; 
+    width: 48px;
+}
+div.discussion__avatar--wrapper { /* 이미지 가운데 정렬*/
+    display: flex;
+    flex-direction: column; /* 위아래에서 중간*/
+    justify-content: center;
+    margin-left: 10px;
+}
+div.discussion__content {  /*내용도 중간 */
+    /* 힌트 : 가운데 div박스가 분홍색 여백을 차지하도록 만들면
+     오른쪽정렬 하기 쉬움*/
+    display: flex;
+    flex-direction: column; /* 위아래에서 중간*/
+    justify-content: center;
+    width: 420px;  /*헐 이거하니까.. 질문 왼쪽 저자,생성일 오른쪽으로감..*/
+}
+.discussion__answered {  /* 아이콘 가운데 정렬*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.discussion__information {
+    text-align: right;
+    margin-top: 15px;
+}
+
