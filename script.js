@@ -52,36 +52,6 @@ const convertToDiscussion = obj => {
   return li;
 };
 
-// 사용자 입력 데이터 저장 후 렌더
-const makeInputToQuestion = function (e) {
-  e.preventDefault();
-  const userName = document.querySelector('#name').value;
-  const userTitle = document.querySelector('#title').value;
-  const userQuestion = document.querySelector('#story');
-  const date = new Date();
-
-  const obj = {
-    id: 'unique id',
-    createdAt: date,
-    title: userTitle,
-    url: 'https://github.com/codestates-seb/agora-states-fe/discussions',
-    author: userName,
-    answer: null,
-    bodyHTML: null,
-    avatarUrl: 'https://lh3.googleusercontent.com/a-/AFdZucpSPHlMgNuNOQUqhzdWeMA4yWl4vexd730dVTXllQ=s96-c-rg-br100',
-  };
-
-  // data배열에 새롭게 생성한 obj를 추가한다.
-  agoraStatesDiscussions.unshift(obj);
-
-  // 리스트의 상단에 만들어진 li를 붙인다.
-  let li = convertToDiscussion(obj);
-  ul.prepend(li);
-};
-
-// form 이벤트 리스너
-form.addEventListener('submit', makeInputToQuestion);
-
 // 버튼 생성 함수
 const makeButton = id => {
   const btn = document.createElement('button');
@@ -89,16 +59,39 @@ const makeButton = id => {
   btn.dataset.num = id;
   btn.textContent = id;
   btn.addEventListener('click', e => {
-    // 특정 버튼을 클릭하면 활성화, 다른 버튼은 비활성화
-    for (let i = 0; i < btns.children.length; i++) {
+    // 특정 버튼을 클릭하면 활성화, 다른 버튼은 비활성화 ***
+    // btns.children이 유사 배열이기 때문에 forEach를 사용하기 위해 다른 방법을 썼다.
+    Array.prototype.forEach.call(btns.children, btn => {
       if (btn.dataset.num) btn.classList.remove('active');
-    }
+    });
     e.target.classList.add('active');
     // 페이지 번호를 넣어 렌더 함수 호출
     renderContent(ul, parseInt(e.target.dataset.num));
   });
   return btn;
 };
+
+// 페이지 이동 함수
+const goPrevPage = () => {
+  page -= maxButton;
+  render(page);
+};
+
+const goNextPage = () => {
+  page += maxButton;
+  render(page);
+};
+
+// prev 버튼 생성
+const prev = document.createElement('button');
+prev.classList.add('btn', 'prev');
+prev.textContent = '< 이전';
+prev.addEventListener('click', goPrevPage);
+
+const next = document.createElement('button');
+next.classList.add('btn', 'next');
+next.textContent = '다음 >';
+next.addEventListener('click', goNextPage);
 
 // 페이지네이션 구현에 필요한 데이터
 const numOfContent = agoraStatesDiscussions.length;
@@ -135,13 +128,57 @@ const renderButton = page => {
   for (let i = page; i < page + maxButton && i <= maxPage; i++) {
     btns.append(makeButton(i));
   }
+
+  // 첫 버튼 활성화
+  btns.children[0].classList.add('active');
+
+  // 페이지 이동 버튼 앞 뒤로 추가
+  btns.prepend(prev);
+  btns.append(next);
+
+  // 페이지 이동 버튼 필요 여부 확인
+  // 현재 페이지가 최대 버튼 갯수보다 같거나 작으면 prev가 없어도 됨.
+  if (page <= maxButton) btns.removeChild(prev);
+  // 현재 페이지가 max 페이지 갯수보다는 작으면서
+  if (maxPage - page < page && page <= maxPage) btns.removeChild(next);
 };
 
 // 화면 처음 띄울 때 컨텐츠, 버튼 렌더링
-renderContent(ul, page);
-renderButton(page);
+function render(page) {
+  renderContent(ul, page);
+  renderButton(page);
+}
+render(page);
+
+// 사용자 입력 데이터 저장 후 렌더
+const makeInputToQuestion = function (e) {
+  e.preventDefault();
+  const userName = document.querySelector('#name').value;
+  const userTitle = document.querySelector('#title').value;
+  const userQuestion = document.querySelector('#story');
+  const date = new Date();
+
+  const obj = {
+    id: 'unique id',
+    createdAt: date,
+    title: userTitle,
+    url: 'https://github.com/codestates-seb/agora-states-fe/discussions',
+    author: userName,
+    answer: null,
+    bodyHTML: null,
+    avatarUrl: 'https://lh3.googleusercontent.com/a-/AFdZucpSPHlMgNuNOQUqhzdWeMA4yWl4vexd730dVTXllQ=s96-c-rg-br100',
+  };
+
+  // data배열에 새롭게 생성한 obj를 추가한다.
+  agoraStatesDiscussions.unshift(obj);
+
+  // 리스트의 상단에 만들어진 li를 붙인다.
+  render(page);
+};
+
+// form 이벤트 리스너
+form.addEventListener('submit', makeInputToQuestion);
 
 // TODOs
-// 0. 페이지 이동 함수
-// 1. 새로 추가된 데이터가 있으면, 해당 데이터를 포함하여 최대 10개 표시
 // 2. 로컬 스토리지에 저장하고, submit시 새로고침하며 데이터 로드
+// 3. prev 버튼 눌렀을 때 바로 직전 페이지 렌더링 되도록 표시

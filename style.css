@@ -29,9 +29,18 @@ h1 {
   font-size: 40px;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .form__container {
   display: flex;
-  margin: 20px 0px;
+  margin: 15px 0px;
   background-color: rgba(0, 0, 0, 0.9);
   padding: 20px 20px;
   border-radius: 20px;
@@ -111,9 +120,9 @@ h1 {
 .discussion__container {
   display: flex;
   width: 540px;
-  height: 110px;
-  margin-bottom: 12px;
-  padding: 13px 15px;
+  height: 120px;
+  /* margin-bottom: 10px; */
+  padding: 12px 15px;
   justify-content: space-between;
 
   border-bottom: 2px solid var(--gray-transparency);
@@ -150,13 +159,13 @@ h1 {
 }
 
 .discussion__title {
-  font-size: 18px;
+  font-size: 17px;
   text-align: start;
 }
 
 .discussion__information {
   font-size: 13px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .discussion__answered {
@@ -171,7 +180,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 20px 0 20px 0;
 }
 
 .btn__page--btn {
@@ -184,4 +193,21 @@ h1 {
 
 .btn__page--btn:hover {
   cursor: pointer;
+}
+
+.btn__page--btn {
+  margin: 0px 7px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.prev,
+.next {
+  font-size: 14px;
+  margin: 0px 5px;
+  color: gray;
+}
+
+.active {
+  color: #f73a00;
 }
