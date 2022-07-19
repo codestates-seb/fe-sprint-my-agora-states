@@ -1,1 +1,127 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* 없어도 되는 항목!   그냥 가운데정렬*/
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main {
+  width: 590px;
+  height: 1200px;
+  background-color: rgba(240, 206, 255, 0.902);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: blueviolet;
+}
+
+.form__container {
+  width: 540px;
+  background-color: rgba(255, 250, 206, 0.906);
+  border-radius: 7px;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  color: blueviolet;
+  font-weight: 600;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--wrapper div {
+  margin: 3px;
+}
+textarea {
+  margin-top: 3px;
+  width: 400px;
+  height: 50px;
+  border: 0px;
+  border-radius: 7px;
+}
+textarea:focus {
+  outline: 2px solid blueviolet;
+}
+.form__input--name input {
+  width: 230px;
+  height: 20px;
+  margin-left: 50px;
+  border: 0px;
+  border-radius: 7px;
+}
+.form__input--name input:focus {
+  outline: 2px solid blueviolet; /* input클릭시 생기는 테투리 색상변경 */
+}
+.form__input--title input {
+  width: 230px;
+  height: 20px;
+  margin-left: 60px;
+  border: 0px;
+  border-radius: 7px;
+}
+.form__input--title input:focus {
+  outline: 2px solid blueviolet;
+}
+
+.form__submit input {
+  width: 100px;
+  height: 120px;
+  border: 0px;
+  border-radius: 7px;
+  background-color: rgb(169, 242, 207);
+  color: blueviolet;
+  font-weight: 600;
+}
+.form__submit input:active {
+  background-color: rgb(110, 196, 154);
+}
+
+img {
+  border-radius: 50%;
+  width: 48px;
+}
+a:link {
+  color: rgb(252, 175, 187);
+}
+a:visited {
+  color: rgba(118, 115, 119, 0.902);
+}
+ul {
+  padding: 0px;
+  height: 900px;
+  overflow-x: scroll;
+}
+li {
+  width: 540px;
+  background-color: white;
+  border-radius: 7px;
+  list-style: none;
+  margin: 12px;
+  padding: 12px;
+  overflow-x: scroll;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.discussion__content {
+  /* margin-right: 160px; /*여기 해결해야하는데 어쩌징..  글자쓰이는데 크기 지정해준다음 왼쪽 정렬하는거 하기...*/
+  width: 400px;
+}
+.discussion__title {
+  margin: 3px 0px;
+}
+p {
+  margin: 0px;
+  font-size: 25px;
+}
