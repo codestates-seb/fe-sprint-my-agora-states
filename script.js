@@ -49,6 +49,42 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+
+const form = document.querySelector('form.form');
+const title = document.querySelector('div.form__input--title > input');
+const nameInput = document.querySelector('div.form__input--name > input');
+const textbox =document.querySelector('div.form__textbox > textarea');
+
+
+form.addEventListener("submit",(event) => {
+  event.preventDefault();
+  //새로운 객체 만들기
+  //input에 입력된 값(value)를 넣은 새로운 객체
+  //새로운 객체를 uld요소 아래로 넣어준다.
+  //더미 데이터에도 추가해준다.
+
+  const obj ={
+    id: "unique id",
+    createdAt: new Date().toLocaleString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: nameInput.value,
+    answer:null,
+    bodyHTML:textbox.value,
+// free.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80</a></p>\n<p dir="auto"><a href="https://hellowworlds.tistory.com/57" rel="nofollow">https://hellowworlds.tistory.com/57</a></p>',
+    avatarUrl:
+
+      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
+
+  }
+  agoraStatesDiscussions.unshift(obj);
+
+  const newDiscussion = convertToDiscussion(obj);
+  ul.prepend(newDiscussion)
+})
+
+
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
