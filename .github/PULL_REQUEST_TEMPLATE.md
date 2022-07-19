@@ -56,7 +56,8 @@ Github Page 배포 링크를 아래 작성합니다.
 
 아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
 
- ![image]()
+ ![image](https://user-images.githubusercontent.com/103527404/179679548-4144ac39-98a0-4162-8d99-fa64619b56b3.gif)
+
  
 ### 가장 자랑하고 싶은 기능
 
