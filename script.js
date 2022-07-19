@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -122,7 +123,6 @@ formSubmit.addEventListener("click", function(){
     story: story.value,
   };
 
-  localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
   const originalAgora = JSON.parse(localStorage.getItem('agoraStatesDiscussions'));
   let resultAgora = originalAgora.unshift(newObj);
   localStorage.setItem('agoraStatesDiscussions', JSON.stringify(originalAgora));
