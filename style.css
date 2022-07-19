@@ -28,6 +28,10 @@ form{
   background-color: var(--palegray);
   border: 1px ridge var(--bordergray);
 }
+div.form__input--name > label, div.form__input--title > label, div.form__textbox > label{
+  min-width: 130px;
+  /* max-width: 121px; */
+}
 .discussions__container{
   background-color: var(--white);
   padding: 10px 0 10px 0;

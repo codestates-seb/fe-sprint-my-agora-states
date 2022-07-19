@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+// agoraStatesDiscussions = JSON.parse(localStorage.getItem('new agora'));
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -96,8 +97,9 @@ form.addEventListener("submit", (event) => {
   }
   agoraStatesDiscussions.unshift(obj);
   const newDiscussion = convertToDiscussion(obj)
+  localStorage.setItem('new agora', JSON.stringify(agoraStatesDiscussions));
   ul.prepend(newDiscussion)
-  console.log('working')
+  agoraStatesDiscussions = JSON.parse(localStorage.getItem('new agora'));
 })
 
 //TODO: 페이지네이션
