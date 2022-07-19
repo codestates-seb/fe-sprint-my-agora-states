@@ -1,1 +1,105 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0; */
+    margin: 0;
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+main {
+    width: 540px;
+    margin: 0 auto;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+h2 {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 0 4px 0;
+    word-break: keep-all;
+    font-weight: 500;
+}
+ul.discussions__container {
+    margin-top: 28px;
+}
+li.discussion__container {
+    display: flex;
+    margin-bottom: 40px;
+    /* box-shadow: 0 0 0 3px black inset;  */
+}
+.discussion__avatar--wrapper {
+    /* box-shadow: 0 0 0 3px red inset;  */
+    display: flex;
+    align-items: center;
+}
+.discussion__content {
+    flex: 1;
+    /* box-shadow: 0 0 0 3px yellow inset;  */
+    /* padding: 0 12px; */
+    margin: 0 12px;
+    /* background-color: #dddddd; */
+    border-radius: 4px 0 0 4px;
+}
+.discussion__avatar--wrapper {
+    flex: 0 0 auto;
+}
+.discussion__avatar--wrapper img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
+.discussion__information {
+    text-align: right;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.6)
+}
+.discussion__answered {
+    flex: 0 0 auto;
+    /* box-shadow: 0 0 0 3px green inset;  */
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+    border-radius: 4px;
+}
+.form__submit input {
+    width: 100%;
+    height: 40px;
+    background-color: #4285F4;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    margin-top: 12px;
+    font-size: 0.875rem;
+    padding-bottom: 3px;
+}
+.form__submit input:hover {
+    background-color: #4e8ff9;
+}
+.form__submit input:active {
+    background-color: #2867ce;
+}
+.form__container {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    padding: 8px 20px 20px;
+    border-radius: 12px;
+}
+.form__input--wrapper div {
+    display: flex;
+    flex-direction: column;
+}
+.form__input--wrapper label {
+    font-size: 0.75rem;
+    margin: 12px 0 4px;
+    font-weight: 700;
+}
+input, textarea {
+    padding: 4px 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    border: 0;
+}
