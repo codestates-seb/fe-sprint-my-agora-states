@@ -1,1 +1,240 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  color: var(--main-font-color);
+  padding: 5% 10%;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+:root {
+  --main-bg-color: rgb(250, 247, 243);
+  --main-font-color: rgb(95, 105, 140);
+  --btn-hover: rgb(201, 120, 132);
+  --container-color: rgb(242, 237, 212);
+  --white: white;
+  --three-percent: 3%;
+}
+main {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-bg-color);
+}
+main > div {
+  margin: var(--three-percent);
+}
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+.form__container {
+  background-color: var(--container-color);
+  width: 80%;
+}
+.form__container > form {
+  padding: var(--three-percent);
+  display: flex;
+}
+div[class^="form"] {
+  margin: 3px;
+}
+div[class^="form__input"] {
+  display: flex;
+  justify-content: space-between;
+}
+div[class^="form__input"] > input {
+  width: 60%;
+  border: 0;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  flex-grow: 2;
+}
+.form__textbox > textarea {
+  border: 0;
+  width: 99%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+.form__submit {
+  flex-grow: 1;
+}
+.form__submit > input {
+  background-color: var(--main-bg-color);
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+  font-size: 20px;
+  color: var(--main-font-color);
+  font-weight: 600;
+  border: 0;
+}
+.form__submit > input:hover {
+  background-color: var(--btn-hover);
+}
+div[class^="discussion"] {
+  display: flex;
+}
+.discussion__wrapper {
+  width: 80%;
+  padding-top: var(--three-percent);
+  padding-bottom: var(--three-percent);
+}
+.discussion__container {
+  background-color: var(--white);
+  margin-bottom: var(--three-percent);
+  padding: var(--three-percent);
+  display: flex;
+}
+.discussion__container > div {
+  margin-right: var(--three-percent);
+}
+.discussion__avatar--wrapper {
+  flex: 0 0 64px;
+}
+.discussion__content {
+  flex: 5;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.discussion__information {
+  justify-content: flex-end;
+}
+.discussion__answered {
+  flex: 0 0 24px;
+  align-items: center;
+}
+.page__btn {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  color: var(--main-font-color);
+}
