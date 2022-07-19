@@ -20,16 +20,14 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = "avatar of " + obj.author;
   avatarWrapper.append(avatarImg)
 
-  const discussionTitle = document.createElement('img')
   const titleAncor = document.createElement('a')
-  discussionContent.append(titleAncor)
   titleAncor.textContent = obj.title;
+  titleAncor.href = obj.url
+  discussionContent.append(titleAncor)
 
   const discussionInfo = document.createElement('div')
   discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
-
-  discussionContent.append(discussionTitle, discussionInfo)
-
+  discussionContent.append(discussionInfo)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;

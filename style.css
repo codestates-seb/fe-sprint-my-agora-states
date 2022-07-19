@@ -100,5 +100,4 @@ Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다.
   .discussion__information{
     display: flex;
     justify-content: end;
-    
-  }
+  } 
