@@ -67,6 +67,7 @@ function submit123(e) {
   e.preventDefault();
   e.stopPropagation();
 
+  
   const name = document.getElementById('name').value;
   const inputTitle = document.getElementById('title').value;
   const story = document.getElementById('story').value;
