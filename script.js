@@ -5,7 +5,7 @@
 const inputString = localStorage.getItem('InputInfo');
 const parsInputString = JSON.parse(inputString);
 // 로컬스토리지 비울시 주석처리 save 비우고 나서 해제 save
-let agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
+// let agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
 
 // agoraStatesDiscussions.unshift(...agoraArray);
 
@@ -20,9 +20,7 @@ if(inputString !== null){
   agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
   agoraArray = [...agoraArray,...agoraStatesDiscussions];
 }
-// else{
-//   agoraArray = 
-// }
+
 
 // 입력 버튼
 const submit = document.querySelector('.form__submit');
