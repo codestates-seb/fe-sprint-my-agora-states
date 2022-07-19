@@ -33,15 +33,8 @@ const convertToDiscussion = (obj) => {
   contentArea.append(contentAnchorArea);
   discussionContent.append(userInfoAndTime);
 
-  // const answerArea = document.createElement("div");
-  // answerArea.textContent = obj.answer;
   const checkedArea = document.createElement("p");
-
-  if (!(obj.answer === null)) {
-    checkedArea.textContent = "☑";
-  } else {
-    checkedArea.textContent = "x";
-  }
+  checkedArea.textContent = obj.answer ? "☑" : "x";
   discussionAnswered.append(checkedArea);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
