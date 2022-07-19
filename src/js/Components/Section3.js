@@ -10,8 +10,8 @@ export default class Section3 extends Component {
   template() {
     const { data, currentPage } = this.props;
     const lengthOfDataArray = data ? data.length : NUMBER.MAX_LENGTH;
-
-    const numberOfElements = new Array(Math.ceil(lengthOfDataArray / 10)).fill(0);
+    const maxPageNumber = Math.ceil(lengthOfDataArray / 10);
+    const numberOfElements = new Array(maxPageNumber).fill(0);
 
     return `
     <div class="page__container">
@@ -57,7 +57,7 @@ export default class Section3 extends Component {
   }
 
   handlePageIndicator(pageIndicator) {
-    const { handleIndicator } = this.props;
+    let { handleIndicator } = this.props;
 
     handleIndicator(pageIndicator);
   }

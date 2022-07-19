@@ -117,12 +117,17 @@ export default class App extends Component {
   }
 
   onClickPageIndicator(indicator) {
-    let { currentPage, pageStartNum, pageEndNum } = this.state;
+    let { currentPage, pageStartNum, pageEndNum, data } = this.state;
+
+    const lengthOfDataArray = data ? data.length : NUMBER.MAX_LENGTH;
+    const maxPageNumber = Math.ceil(lengthOfDataArray / 10);
 
     if (indicator === '<') {
       currentPage -= 1;
+      if (currentPage < 0) return;
     } else if (indicator === '>') {
       currentPage += 1;
+      if (currentPage > maxPageNumber) return;
     }
 
     pageStartNum = NUMBER.ZERO - 10 * currentPage;
