@@ -23,11 +23,11 @@ Github Page 배포 링크를 아래 작성합니다.
     - [O] `section.form__container` 요소에 새로운 아고라 스테이츠 질문을 추가할 수 있는 입력 폼을 제작합니다. 형식은 자유입니다.
     - [O] 아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
     - [O] `agoraStatesDiscussions` 배열에 추가한 데이터가 실제 쌓여야 합니다.
-- [ ] Github Page 배포
-  - [ ] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
-- [ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
-  - [ ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
-  - [ ] 주어진 Pull request 형식에 따라주세요.
+- [O] Github Page 배포
+  - [O] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
+- [O] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
+  - [O] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
+  - [O] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
 
@@ -60,12 +60,13 @@ Github Page 배포 링크를 아래 작성합니다.
  
 ### 가장 자랑하고 싶은 기능
 
-> 적어주세요
+> 무지개 폰트?...
 
 ### 구현하고 싶었는데 하지 못한 아쉬운 기능
 
-> 적어주세요
+> 페이지네이션 기능
+> 디스커션 유지 기능
 
 ### 도움을 받고 싶은 부분
 
-> 적어주세요
+> 구글링에 대해서 조언을 좀 구하고 싶습니다. 이번 과정에서 모르는 내용을 스스로 학습하고 적용하는 과정이 아직 많이 어려웠습니다. 특히, 어떤 검색 키워드로 구글링을 하고 어떤 내용이 내 수준에서 적용할 수 있는 수준인가를 판단하는 것이 많이 어려웠습니다.
