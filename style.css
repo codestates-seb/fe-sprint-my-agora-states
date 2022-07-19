@@ -1,39 +1,180 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
-    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   color: rgb(255, 255, 255);
   }
 
-  main {
-    width: 540px;
-}
-
-/* Discussion을 정렬 */
- li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
- ul {
-    list-style: none;
-    padding-left: 0px;
+ body {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* justify-content: center; */
  }
 
+ main {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Nanum Gotihic';
+
+    border-radius: 30px;
+    background: rgb(16, 16, 18);
+    /* background-color: r */
+}
+
+
+
+/* 제목 */
+.MyAgoraStates {
+   font-family: 'Nanum Gotihic ';
+   font-weight: 500;
+   margin-top: 50px;
+   margin-bottom: 30px;
+   padding-right: 330px;
+}
+
+.form__input--name {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.form__input--title {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.form__textbox {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+label {
+   font-family: 'Montserrat';
+   font-weight: 100;
+   margin-top: 10px;
+   margin-bottom: 5px;
+}
+
+/* 이름 및 제목 작성칸 */
+#name {
+   width: 480px;
+   border: 1px rgb(255, 255, 255);
+   border-radius: 10px;
+   padding: 10px;
+   background: linear-gradient(45deg, rgba(95, 95, 233, 0.617), rgba(159, 196, 214, 0.502));
+
+}
+textarea {
+   border-radius: 10px;
+   padding: 20px;
+   background: linear-gradient(45deg, rgba(95, 95, 233, 0.617), rgba(159, 196, 214, 0.502));
+}
+
+
+/* 질문 작성칸 */
+#story {
+   width: 480px;
+}
+
+.discussions__container {
+   /* display: flex;
+   flex-direction: column;
+   align-items: center; */
+   list-style: none;
+   padding-left: 0px;
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(95, 95, 233, 0.617), rgba(159, 196, 214, 0.502));
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    width: 500px;
+    padding: 10px;
+  }
+  
+
+  
  .discussion__avatar--image {
+   display: flex;
     width: 48px;
-    border-radius: 70%;
+    height: 48px;
+    border-radius: 100%;
+
+    margin: 15px;
  }
 
  .discussion__content {
     display: flex;
+    /* width: 467px; */
     flex-direction : column;
-    justify-content: flex-end;
-    font-size: 12px;
+
     margin-left: 20px;
     flex-grow: 1;
+    padding-bottom: 10px;
+
+ }
+
+ .discussion__title {
+   font-size: 15px;
+ }
+
+ .discussion__information {
+   font-size: 12px;
+   margin-bottom: 10px;
+ }
+
+ .discussion__answer {
+   display: flex;
+   /* width: 467px; */
+   flex-direction : column;
+
+   font-size: 12px;
+   padding-right: 20px;
  }
 
  /* 답변 체크 */
 .discussion__answered {
-    font-size: 30px;
+    font-size: 13px;
+    margin-bottom: 30px;
 }
+
+::placeholder {
+   color: rgba(255, 255, 255, 0.686);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-family: 'Montserrat';
+   font-weight: 100;
+}
+
+.form__submit {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.button {
+   border: 1px solid rgb(255, 255, 255);
+   margin-top: 15px;
+   margin-bottom: 40px;
+   padding: 3px 20px;
+   background: rgba(255, 255, 255, 0)
+}
+
+.answer {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
