@@ -1,1 +1,112 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*,body{
+    margin: 0;
+    padding: 0;
+    color: var(--gitgub-100);
+    box-sizing: border-box;
+    
+}
+a{
+    color:inherit;
+    text-decoration: none;
+}
+img{
+    max-width:100%
+}
+body{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background: var(--gitgub-100)
+}
+main{
+    display: flex;
+    max-width:540px;
+    width:100%;
+    flex-direction: column;
+    border-right: 1px solid var(--gray-500);
+    border-left: 1px solid var(--gray-500);
+    background: var(--gray-10)
+    
+}
+main>h1{
+    padding:1rem 1rem  0 1rem
+}
+
+.discussion__list{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.discussion__container{
+    width: 100%;
+    min-width: 300px;
+    margin-right: 1rem;
+    scroll-snap-align: start;
+    padding:2rem 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    scroll-snap-align: start;
+    background:white;
+    box-shadow: 0px 1px 1px var(--gray-100);
+
+}
+
+.discussion__container{
+    border-top: 1px solid var(--gray-500);
+    border-bottom: 1px solid var(--gray-500);
+    margin-bottom:.5rem
+}
+.discussion__time{
+    text-align:right
+}
+.discussion__avatar--wrapper{
+    width:2rem; 
+    height:2rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.discussion__content--wrapper{
+    flex:2
+}
+.discussion__content{
+    
+    margin-left:1rem;
+
+    font-weight:600;
+}
+.discussion__answered{
+    display:flex;
+    align-items:self-end;
+}
+.discussion__answered i{
+    font-size:1.5rem
+}
+
+form.form{
+    display: flex;
+    width:100%;
+    padding:2rem 1rem
+}
+.form__input--wrapper{
+    flex:7;
+    padding-right: 2rem
+}
+
+.form__input--wrapper label{
+    display: block;
+}
+.form__input--wrapper input, .form__input--wrapper textarea{
+    width:100%
+}
+.form__submit{
+    flex:3
+}
+.form__submit input{
+    width: 100%;
+    height:100%;
+    font-size:1.5rem;
+    font-weight:600
+}
