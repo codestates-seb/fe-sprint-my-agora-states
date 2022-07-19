@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+https: console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -62,17 +62,23 @@ const convertToDiscussion = (obj) => {
 //로컬 스토리지 체크
 let objArray = JSON.parse(window.localStorage.getItem("objArray"));
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  //로컬스토리지 값이 있으면
-  console.log(objArray);
-  if (objArray) {
-    const reverse = [...objArray].reverse();
-    for (let i = 0; i < reverse.length; i += 1) {
-      element.append(convertToDiscussion(reverse[i]));
-    }
+//로컬 스토리지와 agoraStatesDiscussions를 합침
+let resultArray = [];
+if (objArray) {
+  const reverse = [...objArray].reverse();
+  resultArray = [...reverse, ...agoraStatesDiscussions];
+} else {
+  resultArray = [...agoraStatesDiscussions];
+}
+
+//페이지 처리를 위해 render 수정
+const render = (element, array) => {
+  //자식요소를 모두 지우고 다시 그린다
+  while (element.hasChildNodes()) {
+    element.removeChild(element.firstChild);
   }
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < array.length; i += 1) {
+    element.append(convertToDiscussion(array[i]));
   }
 
   return;
@@ -80,10 +86,12 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// render(ul);
+//최초 1페이지 출력
+pagination(1);
 
 const form = document.querySelector(".form");
-
+//submit 했을 경우 로컬 스토리지에 데이터 저장
 form.addEventListener("submit", () => {
   const name = document.querySelector("#name").value;
   const title = document.querySelector("#title").value;
@@ -107,3 +115,35 @@ form.addEventListener("submit", () => {
   //저장
   window.localStorage.setItem("objArray", JSON.stringify(objArray));
 });
+
+//pagination
+
+const pagination__buttons = document.querySelector(".pagination__buttons");
+const page = Math.ceil(resultArray.length / 10); //하단 버튼 갯수
+
+//페이지 버튼 그리기
+for (let i = 1; i <= page; i += 1) {
+  const button = document.createElement("button");
+  button.className = "page__btn";
+  button.value = i;
+  button.textContent = i;
+  pagination__buttons.append(button);
+}
+
+const page__btns = document.querySelectorAll(".page__btn");
+
+//페이지 버튼 클릭시 이벤트
+page__btns.forEach((page__btn) => {
+  page__btn.addEventListener("click", (event) => {
+    pagination(event.target.value);
+  });
+});
+
+//페이징 함수
+function pagination(end) {
+  end = Number(end + "0");
+  let start = end - 10;
+  //배열의 시작과 끝을 잘라서 보여줌
+  pageArray = resultArray.slice(start, end);
+  render(ul, pageArray);
+}
