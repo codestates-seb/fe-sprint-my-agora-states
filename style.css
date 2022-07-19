@@ -42,7 +42,10 @@ ul{
     height:120px;
 }
 .discussion__information{
-    align-self: flex-end;
+    align-self: flex-start;
+    vertical-align:top;
+    font-size: larger;
+    font-weight: 700;
 }
 .discussion__answered{
     height: 120px;
