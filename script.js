@@ -22,7 +22,7 @@ const convertToDiscussion = (obj) => {
   avatarImg.className = 'discussion__avatar--image';
   avatarWrapper.append(avatarImg);
 
-  const discussionTitle = document.createElement('h3');
+  const discussionTitle = document.createElement('h2');
   discussionTitle.classList = 'discussion__title';
 
   const discussionTitleLink = document.createElement('a');
@@ -66,17 +66,33 @@ const render = (element) => {
       id: "ID",
       createdAt: new Date(),
       title: inputTitle.value,
-      url: "#",
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions",
       author: inputName.value,
       answer: null,
       bodyHTML: inputQuestion.value,
       avatarUrl: 'mandarin.jpg',
     }
+    // function lastDiscussion (obj){
+    // let objString = JSON.stringify(obj);
+    // localStorage.setItem('newDiscussion',objString);
+    // let newDiscussionString = localStorage.getItem('newDiscussion');
+    // let newDiscussionObj = JSON.parse(newDiscussionString);
+    // }
     agoraStatesDiscussions.unshift(obj);
     ul.prepend(convertToDiscussion(obj));
+    // inputName.value = "";
+    // inputTitle.value = "";
+    // inputQuestion.value = "";
     return;
   });
+  // const newDiscussionString = localStorage.getItem('newDiscussion');
+  // const newDiscussionObj = JSON.parse(newDiscussionString);
 
+  // agoraStatesDiscussions.unshift(newDiscussionObj);
+ // ul.prepend(convertToDiscussion(newDiscussionObj));
+  
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+// agoraStatesDiscussions.unshift(newDiscussionObj);
+// ul.prepend(convertToDiscussion(newDiscussionObj));

@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: 'Yeon Sung', cursive;
 }
 body{
     margin: 0px;
@@ -27,6 +28,7 @@ main{
 }
 main > h1 {
     margin-top: 30px;
+    border-bottom: 5px double rgb(180, 25, 25);
 }
 form{
     display: flex;
@@ -37,12 +39,12 @@ form{
 }
 a{
     text-decoration: none;
-    color : rgba(0, 0, 0, 0.927);
+    color : rgb(0, 0, 0);
     background-color: rgba(255, 227, 125, 0.708);
 }
 i{
     color: rgb(180, 25, 25);
-    border: 2.5px solid black;
+    border: 2.5px solid rgba(0, 0, 0, 0.55);
 }
 .form__input--wrapper{
     width: 300px;
@@ -113,19 +115,18 @@ div.discussion__title{
 #name{
     background-color: transparent;
     height: 30px;
-}
-#title{
-    background-color: transparent;
-    height: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.55);
+    width: 140px;
 }
 #submit{
     width: 100px;
     height: 50px;
     background-color: transparent;
     font-size: large;
+    border: 2px solid rgba(0, 0, 0, 0.55);
 }
 textarea{
     background-color: transparent;
-    height: 50px;
-    border: 2px black solid;
+    height: 60px;
+    border: 2px solid rgba(0, 0, 0, 0.55);
 }
