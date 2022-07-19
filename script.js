@@ -151,9 +151,7 @@ const select = (e) => {
     localData.setData(localData.getData().filter((v) => v.answer === null));
   }
   elPagination.innerHTML = "";
-  console.log(pagination.getPageValue(), 1);
   pagination.setPageValue(1);
-  console.log(pagination.getPageValue());
   renderForNotice();
 };
 selectBox.addEventListener("change", (e) => {
