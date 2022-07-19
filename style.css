@@ -112,6 +112,7 @@ main h1 {
   color: #8b938b;
 }
 .discussion__information {
+  margin-top: 1rem;
   display: flex;
   justify-content: end;
   padding-bottom: 0.5rem;
