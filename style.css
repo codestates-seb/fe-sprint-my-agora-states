@@ -174,3 +174,41 @@ main {
 .discussion__information {
     color: #576f72;
 }
+
+.totalPageButton {
+    /* width: 100px; */
+    /* height: 50px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* justify-content: space-evenly; */
+}
+
+.pageNumber {
+    margin: 1px;
+    border: none;
+    background-color: #576f72;
+    color: white;
+    border-radius: 5px;
+    font-size: 10px;
+    width: 25px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#pageButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageNumber:hover {
+    background-color: #7d9d9c;
+}
+
+.btnActive {
+    color: blue;
+}
