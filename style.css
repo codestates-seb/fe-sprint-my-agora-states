@@ -15,8 +15,35 @@ h1 {
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #D2E4F1;
     font-family: 'Nanum Myeongjo', serif;
+}
+
+.form__input--name > label, .form__input--title > label {
+    width: 132px;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0 0 0;
+}
+
+input#name {
+    display: flex;
+    flex: auto;
+    height: 30px;
+    font-size: 16px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding: 4px;
+}
+
+textarea {
+    margin: 8px 0;
+    font-size: 16px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding: 8px;
 }
 
 .form__container {
@@ -52,6 +79,11 @@ body {
 
 }
 
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .discussion__avatar--image {
     display: flex;
     width: 48px;
@@ -66,9 +98,14 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    flex: auto;
+    /* height: 160px; */
+    /* flex: auto; */
     margin: 0 16px;
     font-size: 12px;
+}
+
+.discussion__title {
+    margin: 0 0 12px 0;
 }
 
 .discussion__information {
