@@ -64,7 +64,8 @@ newDiscussion.addEventListener('submit', (event) =>{
   newQuestion.title = inputTitle.value;
   newQuestion.author = inputName.value;
   newQuestion.bodyHTML = inputQuestion.value;
-    
+  
+  //랜덤 아이콘
   const IMG_NUMBER = iconSum.length;
 
   function genRandom() {
@@ -74,13 +75,11 @@ newDiscussion.addEventListener('submit', (event) =>{
   }
 
   function init() {
-    const randomNumber = genRandom();   /* 이미지(갯수) 함수와 randeomNumber변수(랜덤숫자생성함수)를 인자로 설정 */
+    const randomNumber = genRandom();
     return iconSum[randomNumber];
   }
   console.log(init());
   newQuestion.avatarUrl = init();
-
-  // newQuestion.avatarUrl = "https://cdn-icons.flaticon.com/png/512/4140/premium/4140048.png?token=exp=1658193416~hmac=5e0f522fd64abb1e713a7fd54e89cdac"
 
   agoraStatesDiscussions.unshift(newQuestion);
 
@@ -119,8 +118,50 @@ const addNowTime = () => {
 }
 
 //페이지네이션
+// $(function () {
+//   let container = $('#pagination');
+//   container.pagination({
+//       dataSource: agoraStatesDiscussions,
+//       pageSize:10,
+//       callback: function (data, pagination) {
+//           let dataHtml = '<ul class="discussions__container">';
+//           $.each(data, function (index, item) {
+//               dataHtml += '<li class="discussion__container">' + item.name + '</li>';
+//           });
+
+//           dataHtml += '</ul>';
+          
+//           $("#data-container").html(dataHtml);
+//       }
+//   })
+// })
+
+//디스커션 유지
+// localStorage.setItem('discussions', JSON.stringfy(agoraStatesDiscussions));
+
+// let getStorageData = JSON.parse(localStorage.getItem('discussions'));
 
 
-//디스커션
+//랜덤 백그라운드//
+// const body = document.querySelector('body');
+// const IMG_NUMBER = 10;
 
+// /* 이미지를 가져오는 함수 */
+// function paintImage(imgNumber) {
+//     const image = new Image();      /* 1. new 를 사용하여 object 만들기 */
+//     image.src = `images/${imgNumber + 1}.jpg`;      /* 2. object에 이미지 주소(레퍼런스) 연결하기 */
+//     image.classList.add('bgImage');     /* + 1를 하는 이유는 Math.random() 함수가 0을 줄 수 있기 때문이다.*/
+//     body.prepend(image);      /* body 안에 image 넣기 */
+// }
 
+// function genRandom() {
+//     const number = Math.floor(Math.random() *IMG_NUMBER);
+//     return number;
+// }
+
+// function init() {
+//     const randomNumber = genRandom();   /* 이미지(갯수) 함수와 randeomNumber변수(랜덤숫자생성함수)를 인자로 설정 */
+//     paintImage(randomNumber);
+// }
+
+// init();
