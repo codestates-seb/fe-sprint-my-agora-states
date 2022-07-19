@@ -16,7 +16,8 @@ body {
     position: relative;
     color: #0000009b;
     height: 80px;
-    border: none;
+    width: 550px;
+    text-align: justify;
     background: linear-gradient(0deg, rgba(238, 242, 240, 0.812), #e7866b77);
 }
 .discussion__container:before, .discussion__container:after {
@@ -123,7 +124,7 @@ img {
     justify-content: center;
     display: flex;
 }
-.discussion__answered{
+.discussion__answered {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,5 +135,3 @@ img {
     flex-direction: column;
     justify-content: center;
 }
-
-

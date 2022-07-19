@@ -25,6 +25,7 @@ const convertToDiscussion = (obj) => {
   titleAnchor.href = obj.url;
   titleAnchor.textContent = obj.title;
   const discussionInfo=document.createElement('div');
+  discussionInfo.className='discussion__information'
   discussionInfo.textContent=`${obj.author}/${new Date().toLocaleString()}`
 
   const Answered=document.createElement('p')
