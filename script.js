@@ -47,10 +47,10 @@ const nameInput = document.querySelector('#newTitle')
 const textbox = document.querySelector('#story')
 form.addEventListener("submit", (event) => {
   event.preventDefault()
-  console.log('asdasd')
+  const today = new Date()
   const obj = {
     id: "uniqueId",
-    createdAt: new Date().toLocaleString(),
+    createdAt: today,
     title: title.value,
     author: nameInput.value,
     bodyHTML: textbox.value,
