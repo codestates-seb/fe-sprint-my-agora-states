@@ -1,1 +1,97 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Gowun Batang', serif;
+}
+
+body{
+    background-color: white;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 40px;
+    margin: 20px 5px 5px 5px;
+}
+
+form.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    margin: 10px;
+
+    width: 540px;
+
+    background-color: rgba(0, 189, 0, 0.155);
+    border-radius: 15px;
+}
+
+#submit{
+    width: 100px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    box-shadow: 0px 5px 0px 0px rgba(0, 189, 0, 0.427);
+    border-radius: 5px;
+}
+
+#submit:hover{
+    box-shadow: 0px 0px 0px 0px;
+    transition: all 0.2s;
+    margin-top: 2px;
+}
+
+li.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgba(244, 243, 243, 0.952);
+    border-radius: 15px;
+    width: 540px;
+    height: 140px;
+    margin: 10px;
+    padding: 15px;
+}
+
+li.discussion__container:hover{
+    transform: translateX(20px);
+}
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discussion__avatar--image{
+    width: 48px;
+    border-radius: 100%;
+}
+
+div.discussion__information{
+    display: flex;
+    justify-content: end;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:visited{
+    text-decoration: none;
+    color: black;
+}
