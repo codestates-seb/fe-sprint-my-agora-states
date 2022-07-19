@@ -6,6 +6,5 @@ const iconSum = [
 'https://cdn-icons-png.flaticon.com/512/8055/8055953.png',
 'https://cdn-icons-png.flaticon.com/512/8055/8055957.png',
 'https://cdn-icons-png.flaticon.com/512/2922/2922524.png',
-'https://cdn-icons.flaticon.com/png/512/3280/premium/3280979.png?token=exp=1658203863~hmac=17b35c265a7077b9befd4f695b440500',
 'https://cdn-icons.flaticon.com/png/512/4140/premium/4140049.png?token=exp=1658203863~hmac=ed55ade4202409c185ab8e0b7e1fcacc'
 ];

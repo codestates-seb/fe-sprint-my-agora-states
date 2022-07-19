@@ -133,7 +133,7 @@ h1{
     align-items: center;
 }
 
-.discussion__container{
+li{
     display: flex;
     width: 540px;
     margin: 5px 0;
@@ -144,6 +144,11 @@ h1{
     border-radius: 20px;
     background-color: #eed49e;
     box-shadow: 2px 2px #2D63A7;
+}
+
+li:hover{
+    transform: scale(1.05);
+    transition: .2s ease-out;
 }
 
 
@@ -165,12 +170,9 @@ h1{
     flex: 5;
 }
 
-.discussion__title{
+a{
     display: flex;
     font-size: 15px;
-}
-
-a{
     text-decoration: none;
     color: black;
 }
@@ -203,4 +205,3 @@ a:active{
     display: none;
 }
 
-/*pagination */
