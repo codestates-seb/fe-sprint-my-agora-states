@@ -147,7 +147,7 @@ function handleFormSubmit(event) {
     id: Date.now(),
     createdAt: newTime,
     title: newTitle,
-    url: "",
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: newName,
     answer: null,
     bodyHTML: "",
@@ -157,6 +157,7 @@ function handleFormSubmit(event) {
 
   agoraStatesDiscussions.unshift(newObj);
   ul.insertBefore(convertToDiscussion(newObj), ul.firstChild);
+  console.log(agoraStatesDiscussions);
 
   return;
 }
