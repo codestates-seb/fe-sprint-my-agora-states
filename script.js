@@ -172,7 +172,9 @@ render(ul);
 const submitForm = querySelectDOMElement("form.form");
 const names = querySelectDOMElementwithSubmitForm("#name");
 const title = querySelectDOMElementwithSubmitForm("#title");
-const textarea = querySelectDOMElementwithSubmitForm("div.form__textbox input");
+const textarea = querySelectDOMElementwithSubmitForm(
+  "div.form__textbox textarea"
+);
 
 const resetFormValue = () => {
   names.value = "";
