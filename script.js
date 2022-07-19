@@ -177,6 +177,17 @@ function totalpage() {
       t[i].remove()
     }
   }
+
+  // const paginationleft = document.createElement("li");
+  // const paginationright = document.createElement("li");
+  
+  // paginationleft.classList.add("pagination--left")  
+  // paginationright.classList.add("pagination--right")
+  
+  // paginationleft.textContent = "<";
+  // paginationright.textContent = ">";
+
+  // ul_page.append(paginationleft);
   
   for (let i = 1; i <= total; i++) {
     let li_page = document.createElement("li");
@@ -185,6 +196,12 @@ function totalpage() {
     li_page.addEventListener("click", pagination);
     ul_page.append(li_page);
   }
+
+  //ul_page.append(paginationright)
+
+  
+
+
 }
 
 function pagination(event) {

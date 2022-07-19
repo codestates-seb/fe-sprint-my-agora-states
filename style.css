@@ -67,3 +67,17 @@ section{
     margin: 5px;
     border : 1px solid red;
 }
+.pagination--left{
+    float: left;
+    margin: 5px;
+    border : 1px solid red;
+}
+.pagination--right{
+    float: left;
+    margin: 5px;
+    border : 1px solid red;
+}
+
+.display_none{
+    display: none;
+}
