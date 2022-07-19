@@ -46,8 +46,6 @@ ul {
 
 h1 {
   margin: 30px;
-  position: fixed;
-
   font-size: 40px;
 }
 
@@ -58,10 +56,9 @@ label {
 }
 
 .discussion__wrapper {
-  height: 600px;
-  position: fixed;
-  bottom: 100px;
   overflow: auto;
+  margin: 20px 0;
+  margin-bottom: 90px;
 }
 
 .discussion__container {
@@ -108,9 +105,6 @@ label {
   width: 540px;
   border-radius: 5px;
   padding: 1rem;
-
-  position: sticky;
-  top: 100px;
 
   background-color: #da4305;
   border: 1px solid white;
