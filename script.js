@@ -54,8 +54,8 @@ const subConvertToDiscussion = (obj) => {
   const discussionInformation = document.createElement("div");
   //console.log(obj["createdAt"]);
 
-  // discussionInformation.textContent = `${obj["author"]} / ${convertTime(obj["createdAt"])}`;
-  discussionInformation.textContent = `${obj["author"]} / ${obj["createdAt"]}`;
+  discussionInformation.textContent = `${obj["author"]} / ${convertTime(obj["createdAt"])}`;
+  //discussionInformation.textContent = `${obj["author"]} / ${obj["createdAt"]}`;
   discussionInformation.classList = "discussion__information";
   elementObj.info = discussionInformation;
 
@@ -116,8 +116,8 @@ function readInput(event) {
   if (input_name_title[0].value !== "" && input_name_title[1].value !== "" && input_question.value !== "") {
 
     let obj = {};
-    // obj.createdAt = convertTime(new Date().toISOString());
     obj.createdAt = new Date().toISOString();
+   // obj.createdAt = new Date().toISOString();
     obj.title = input_name_title[1].value;
     obj.author = input_name_title[0].value;
     obj.avatarUrl = "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
@@ -168,8 +168,7 @@ function totalpage() {
 
   let objarr = JSON.parse(localStorage.getItem(localStorage.key(0)))
   let total = objarr === null ? aDlength / 10 : (objarr.length + aDlength) / 10;
-  total % 10 === 0 ? total : total++;
-  
+  (total*10) % 10 === 0 ? total: total++;
   console.log(total);
 
   let t = document.querySelectorAll(".pagination--number--li");
@@ -187,8 +186,6 @@ function totalpage() {
     ul_page.append(li_page);
   }
 }
-
-
 
 function pagination(event) {
 
