@@ -1,3 +1,4 @@
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -36,7 +37,7 @@ const convertToDiscussion = (obj) => { // 전달인자 obj , obj는 각각의 �
 
   /* 체크포인트 생성 구간 */
   const answerCheck = document.createElement('p'); // p 요소 생성
-  answerCheck.textContent = obj.answer ? "☑︎" : "◻︎"; // 조건문 obj.answer 두고 참일때 체크있는박스, 거짓일때 체크없는박스
+  answerCheck.textContent = obj.answer ? "☑︎" : "◻︎"; // 삼항연산자 조건문 obj.answer 두고 참일때 체크있는박스, 거짓일때 체크없는박스
   discussionAnswered.append(answerCheck) // discussionAnswered 요소 안에 answerCheck 요소 추가
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
