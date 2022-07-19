@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dongle', sans-serif;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    /* width: 550px; */
+    /* height: 100%; */
+    
+    table-layout: fixed;
+    padding: 15px 30px;
+    background-color: #F0EBE3;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(91, 91, 209);
+}
+
+/* 상단 form */
+
+.form {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+    padding: 10px;
+}
+
+.form__input--wrapper {
+    /* border: 1px solid orange; */
+    flex-grow: 5;
+    margin-right: 5px;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#name {
+    border-style: none;
+    background-color: #E4DCCF;
+    margin: 2px 0px;
+}
+
+#story {
+    border-style: none;
+    background-color: #E4DCCF;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+/* 서밋버튼 ---> */
+.form__submit {
+    /* border: 1px solid orange; */
+    flex-grow: 1;
+    display: flex;
+    /* justify-content: center; */
+}
+
+.submit {
+    flex: 1 1 auto;
+    font-size: 20px;
+    background-color: #E4DCCF;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    transition: all 0.4s;
+}
+
+.sumbit:focus {
+    outline: none;
+}
+
+.submit:hover {
+    background-color: orange;
+    color: black;
+}
+/* 서밋버튼 <--- */
+
+/* 하단 form */
+.discussion__wrapper {
+    /* border: 1px solid purple; */
+    padding: 0px 0px;
+    
+}
+
+.discussions__container {
+   list-style-type: none;
+    padding-left: 0px;
+}
+
+/* 여기부터 운도샘 CSS */
+li.discussion__container {
+    display: flex;
+    width: 540px;
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 5px;
+    font-size: small;
+    margin-top: 10px;
+    border: none;
+}
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 1 auto;
+    
+}
+
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    
+}
+
+.discussion__information {
+    padding-left: 50%;
+}
+
+div.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 1 auto;
+}
+
+p {
+    font-size: 50px;
+}
+
+img {
+    width: 48px;
+    border-radius: 100%;
+
+}
