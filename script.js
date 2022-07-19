@@ -64,7 +64,8 @@ const convertToDiscussion = (obj) => {
 
   //discussion 정보 넣기
   const addDiscussionInfo = () => {
-    //날짜 표현
+    //날짜 표현\
+    console.log(obj.createdAt.toLocaleString());
     const year = new Date().getFullYear();
     const month = new Date().getMonth() + 1;
     const date = new Date().getDate();
@@ -74,11 +75,9 @@ const convertToDiscussion = (obj) => {
     const discussionInfo = createDOM("div");
 
     discussionInfo.className = "discussion__information"; //class 이름 지정
-    discussionInfo.textContent = `${
-      obj.author
-    } / ${year}년 ${month}월${date}일 ${hours}시 ${minutes}분 ${
-      seconds > 9 ? seconds : `${0}${seconds}`
-    }초`; //text 지정
+    discussionInfo.textContent = `${obj.author} / ${new Date(
+      obj.createdAt
+    ).toLocaleString()}`;
 
     discussionContent.append(discussionInfo); //discussionContent에 discussionInfo를 넣는다.
   };
