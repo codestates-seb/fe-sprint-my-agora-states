@@ -54,7 +54,7 @@ Github Page 배포 링크를 아래 작성합니다.
 
 ### 배포 시연 화면
 
-아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
+"https://jooyong-boo.github.io/fe-sprint-my-agora-states/"
 
 ### 가장 자랑하고 싶은 기능
 
