@@ -7,6 +7,7 @@
 
 const KEY = "new_list";
 
+// 새로운 데이터를 agoraStatesDiscussions 배열에 추가하는 함수
 const localStorageSavedData = () => {
   const getlocalStorageData = localStorage.getItem(KEY);
   if (getlocalStorageData) {
@@ -15,10 +16,9 @@ const localStorageSavedData = () => {
   return agoraStatesDiscussions;
 };
 
+//document에 요소를 생성하는 함수
 const createDOM = (element) => document.createElement(element);
-
 const querySelectDOM = (element) => document.querySelector(element);
-
 const formQuerySelectorDOM = (element) => submitForm.querySelector(element);
 
 const convertToDiscussion = (obj) => {
@@ -106,6 +106,60 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+// const pagniation = ({ index = 0, perPage = 10, data = [] }) => {
+//   const per_page = perPage;
+//   const total_page = Math.ceil(data.length / per_page) - 1;
+//   document.getElementById("app").innerHTML = `
+//   <div class="pagination-controls">
+//     Page: <span class="ref-page"></span> of <span class="total-page"></span>
+//     <button class="btn-prev">prev</button>
+//     <button class="btn-next")}">next</button>
+//   </div>
+//   <div class="pagination"></div>
+//   `;
+
+//   const $paginator = document.querySelector(".pagination");
+//   const prevBtn = document.querySelector(".btn-prev");
+//   const nextBtn = document.querySelector(".btn-next");
+//   const page = document.querySelector(".ref-page");
+//   const total = document.querySelector(".total-page");
+
+//   prevBtn.onclick = () => {
+//     if (index < 0) {
+//       return;
+//     }
+//     index--;
+//     renderPage();
+//   };
+//   nextBtn.onclick = () => {
+//     if (index > total_page - 1) {
+//       return;
+//     }
+//     index++;
+//     renderPage();
+//   };
+
+//   const renderPage = () => {
+//     const current_page = index > 0 ? per_page * index : index;
+//     const next_page = current_page + per_page;
+//     const showcurrent = data.slice(current_page, next_page);
+//     console.log(showcurrent);
+//     $paginator.innerHTML = "";
+//     page.textContent = index;
+//     showcurrent.map((item) => {
+//       console.log(item);
+//       const div = createDOM("div");
+//       div.classList.add("item");
+//       div.textContent = [item.title, item.createdAt.toLocaleString("ko-KR")];
+//       $paginator.appendChild(div);
+//     });
+//   };
+//   total.textContent = total_page;
+//   renderPage(index);
+// };
+
+// pagniation({ data: agoraStatesDiscussions });
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
