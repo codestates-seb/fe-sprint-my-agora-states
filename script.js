@@ -4,6 +4,12 @@ const btnSubmit = document.querySelector('.form__submit');
 const form = document.querySelector('.form');
 const btns = document.querySelector('.btn__page--wrapper');
 
+// 로컬 스토리지의 데이터 불러오는 과정
+// 1. 데이터를 담을 변수를 선언한다.
+// 2. 로컬 스토리지에서 'agora...'를 키 값으로 하는 데이터를 불러온다.
+// 3. 만약 데이터가 존재할 경우 data 변수안에 파싱하여 저장
+// 4. 없다면 더미데이터를 slice 하여 저장.
+// data에 배열 > 객체들 형태로 담기게 된다. (더미데이터와 동일하게 생겼음)
 let data;
 const dataFromLocalStorage = localStorage.getItem('agoraStatesDiscussions');
 if (dataFromLocalStorage) {
@@ -127,7 +133,8 @@ const renderContent = (element, page) => {
   // 현재 페이지부터 표시될 최대 컨텐츠까지 반복하여 리스트 생성 함수 실행 후 컨텐츠 표시
   // ... 직전 페이지로부터 넘어온 현재 i값을 한 페이지의 최대 컨텐츠 그리고 전체 컨텐츠 이내의 범위에서 증감시키며, 배열의 i번째 요소로 DOM 생성함수를 호출하여 element(ul)에 추가.
   for (let i = (page - 1) * maxContent; i < page * maxContent && i <= numOfContent; i++) {
-    // 로컬 스토리지에 저장된 item을 불러온다.
+    // 로컬 스토리지에 저장된 data[i]가 존재하는 경우,
+    // data[i]에 대하여 DOM 생성함수를 실행한 뒤 화면에 렌더링한다.
     if (data[i]) {
       element.append(convertToDiscussion(data[i]));
     }
@@ -188,6 +195,9 @@ const makeInputToQuestion = function (e) {
   // data배열에 새롭게 생성한 obj를 추가한다.
   data.unshift(obj);
 
+  // 로컬 스토리지에 obj 가 추가된 data 배열을 새롭게 추가한다.
+  // 'agora...'를 키로 한 전체 data 배열이 저장된다.
+  // 렌더링 할 때 for문으로 하나씩 꺼내서 렌더링 하는 것임.
   localStorage.setItem('agoraStatesDiscussions', JSON.stringify(data));
 
   // 리스트의 상단에 만들어진 li를 붙인다.
