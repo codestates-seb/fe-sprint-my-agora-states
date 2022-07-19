@@ -17,6 +17,12 @@ main {
   align-items: center;
   background: linear-gradient(135deg, #3AB4F2, #F2DF3A)
 }
+h1 {
+  background-color: transparent;
+  color: #F6F6F6;
+  text-shadow: 1px 1px 1px black;
+  
+}
 /* 폼 스타일  */
 .form__container {
   width: 450px;
