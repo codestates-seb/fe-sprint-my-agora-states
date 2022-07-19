@@ -6,7 +6,7 @@ const btns = document.querySelector('.btn__page--wrapper');
 
 // 페이지네이션 구현에 필요한 데이터
 const numOfContent = agoraStatesDiscussions.length;
-const maxContent = 5;
+const maxContent = 10;
 const maxButton = 5;
 const maxPage = Math.ceil(numOfContent / maxContent);
 let page = 1;
