@@ -32,7 +32,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.append(titleLink);
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   discussionContent.append(discussionInformation);
 
   // 그 옆에 아이콘 하여튼 그
@@ -56,9 +56,6 @@ const convertToDiscussion = (obj) => {
 };
 
 
-    // submit을 눌렀을 때.
-    // 객체가 생성이 되고
-    // 객체를 agoraStatesDiscussions에 unshift
 
 const submitBtn = document.querySelector(".form__submit").querySelector('input'); //submit버튼을 눌렀을 경우 이벤트 리스너 작성
 submitBtn.addEventListener("click", (e) => {
@@ -66,21 +63,20 @@ submitBtn.addEventListener("click", (e) => {
   const questionTitle = document.querySelector(".form__input--title").querySelector("input").value; // form__input--title의 input에 적힌 타이틀을 받아옴
   const questionContent = document.querySelector(".form__textbox").querySelector("textarea").value; //".form__textbox"의 textarea에 적힌 질문내용을 받아옴
   const date = new Date();
-  const clickRender = (element) => {
-    // 배열의 0번째를 렌더링 하는 함수
-    element.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
-  return;}
+
   e.preventDefault(); // 버튼을 클릭해도 안넘어가도록
   const newProperty = {
     title: questionTitle,
-    createdAt: date.toISOString(date),
+    createdAt: new Date().toISOString(),
     author: questionName,
     answer: null,
     bodyHTML: questionContent,
-    avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   };
   agoraStatesDiscussions.unshift(newProperty);
-  clickRender(ul);
+  const newDiscussion = convertToDiscussion(newProperty)
+  ul.prepend(newDiscussion)
 
   });
 
