@@ -1,1 +1,203 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* background-color:beige; */
+  /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
+} */ 
+
+/* body {
+  display: flex;
+  justify-content: center;
+}
+main {
+  
+  border: 1px solid black;
+  width: 600px;
+  height: 1100px;
+
+}
+h1 {
+  background-color: #495C83;
+  text-align: center;
+  margin-top: 20px;
+  
+  color: black;
+  text-shadow: 3px 1px gray;
+}
+.form__container {
+  background-color: #7A86B6;
+  /*  */
+  /* border: 1px solid black;
+  margin-bottom: 20px;
+}
+.form__input--name {
+  margin-bottom: 10px;
+}
+.form__input--title{
+  margin-bottom: 10px;
+}
+label {
+  font-size: 20px;
+}
+#name {
+  width: 160px;
+}
+#titleName {
+  margin: 0 0 0 13px;
+  width: 159.5px;
+}
+#story {
+  display: flex;
+  justify-content:left;
+  width: 300px;
+  height: 50px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+.form__submit {
+  
+}
+.submitBtn {
+  background-color: #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px black;
+  transition-duration: 0.3s;
+  width: 300px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+.submitBtn:active {
+  margin-left: 5px;
+  margin-top: 5px;
+  box-shadow: none;
+}
+ul {
+  list-style: none; 
+  /* li태그 점 없애기 */
+/* }  */
+
+
+/* li.discussion__container {
+  display: flex;
+  width: 540px;
+  height: 85px;
+  justify-content: space-between;
+}
+div.discussion__avatar--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+div.discussion__content {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+div.discussion__answered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+img {
+  width: 48px;
+  border-radius: 50%;
+}
+h2 {
+  font-size: 18px;
+}
+
+li > div,a {
+  color: black;
+  font-size: 18px;
+  
+} */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 50px 30px 70px 30px;
+  color: slateblue;
+
+}
+h2 {
+  font-size: 22px;
+}
+input {
+  width: 230px;
+  height: 32px;
+  font-size: 12px;
+  color: black;
+  border: solid 1px slateblue;
+  padding: 10px;
+}
+.form__input--name {
+  margin: 90px 10px 15px 20px;
+}
+.form__input--title {
+  margin: 10px 10px 15px 20px;
+}
+.form__textbox {
+  margin: 10px 10px 10px -20px;
+  display: flex;
+  align-items: center;
+}
+textarea {
+  font-size: 12px;
+  margin: 10px;
+  border: solid 1px slateblue;
+  width: 230px;
+  height: 120px;
+}
+img {
+  width: 48px;
+  border-radius: 50%;
+}
+.form__submit {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin-left: 100px;
+  margin-bottom: 15px;
+}
+.submitBtn {
+  background-color: bisque;
+  color: black;
+  width: 150px;
+  height: 40px;
+}
+.discussion__avatar {
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+}
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 230px;
+}
+.discussion__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+.discussion__container {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  border: solid 1px darkorchid;
+  padding: 20px;
+}
+
