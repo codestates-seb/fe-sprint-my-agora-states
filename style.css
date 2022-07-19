@@ -1,1 +1,207 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-family: "Jua", sans-serif;
+  padding: 20px 20px 75px 20px;
+  color: rgb(228, 119, 137);
+}
+
+h2 {
+  font-size: 16px;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+a:hover {
+  color: #2698cb;
+}
+
+label {
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-family: "Jua", sans-serif;
+  color: rgb(228, 119, 137);
+}
+
+input {
+  font-family: Arial, Sans-Serif;
+  height: 32px;
+  font-size: 12px;
+  color: #726969;
+  outline: none;
+  border: solid 1px #e0c5d0;
+  width: 230px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 3px 3px #e0c5d0;
+  padding: 10px;
+}
+
+input[type="submit"] {
+  vertical-align: auto;
+  cursor: pointer;
+  padding-bottom: 25px;
+}
+
+input[type="submit"]:hover {
+  box-shadow: inset 0 0 3px 3px pink;
+  border: solid 1px pink;
+  background-color: rgb(255, 223, 228);
+  transition-duration: 0.5s;
+  transition-property: background-color;
+}
+
+input:focus,
+input:hover {
+  box-shadow: inset 0 0 3px 3px pink;
+  border: solid 1px pink;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+.header {
+  position: relative;
+}
+.header::before {
+  content: "";
+  background-image: url("background2.jpg");
+  background-size: contain;
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.5;
+}
+
+.Home__title {
+  display: flex;
+  justify-content: center;
+  margin: 0px 10px 10px 10px;
+}
+
+.form__input--name {
+  margin: 10px 10px 10px 16px;
+}
+
+.form__input--title {
+  margin: 10px 10px 10px 20px;
+}
+
+.form__textbox {
+  margin: 10px 10px 10px -14px;
+  display: flex;
+  align-items: center;
+}
+
+textarea {
+  font-size: 12px;
+  margin: 10px;
+  border: solid 1px #e0c5d0;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: inset 0 0 5px 5px #e0c5d0;
+  width: 230px;
+  height: 120px;
+  padding: 10px;
+}
+
+textarea:focus,
+textarea:hover {
+  box-shadow: inset 0 0 3px 3px pink;
+  border: solid 1px pink;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin-left: 100px;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.divider {
+  background-color: grey;
+  height: 0.3px;
+  margin-top: 80px;
+}
+
+.discussion__wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.discussion__container {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  border: solid 1px rgb(201, 113, 128);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.discussion__container:hover {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0px 2px 5px 1px pink;
+  background-color: rgb(255, 223, 228);
+  transition-duration: 0.5s;
+  transition-property: background-color, transform;
+}
+
+.discussion__content {
+  width: 60%;
+}
+
+.discussion__title,
+.discussion__info {
+  margin: 10px;
+}
+
+i {
+  margin: 20px 0px 0px 10px;
+}
+
+.discussion__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #eeeeee;
+  margin: 10px;
+}
+.wating {
+  color: rgb(201, 113, 128);
+}
+
+.finished {
+  color: green;
+}
+
+.fa-trash-can {
+  cursor: pointer;
+}
+
+.new {
+  margin-left: 28px;
+}
