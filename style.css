@@ -1,1 +1,133 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* COMMON */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #4f5459;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+a:hover {
+    color: #0969da;
+}
+
+h1 {
+    margin: 20px 0;
+    color: #4eb5ff;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background: #4eb5ff;
+}
+
+main {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 50px
+}
+
+/* FORM */
+.form__container input, .form__container textarea{
+    width: 100%;
+    padding-left: 5px;
+    border-radius: 10px;
+    border: 3px solid #F0F0F0;
+    font-size: 18px;
+}
+
+.form__container input::placeholder, .form__container textarea::placeholder {
+    color: #a8a8a8;
+}
+
+.form__container input:focus, .form__container textarea:focus{
+    outline: 1px solid #269cf0; 
+}
+
+.form__container input {
+    height: 6vh;
+    margin-bottom: 10px;
+}
+
+.form__container input[type="submit"]{
+    background: #4eb5ff;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.form__container input[type="submit"]:hover {
+    background: #269cf0;
+}
+
+.form__container textarea {
+    height: 10vh;
+    padding-top: 10px;
+}
+
+/* DISCUSSION */
+.discussion__wrapper {
+    width: 540px;
+    margin-top: 20px;
+}
+
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5; 
+}
+
+.discussion__avatar--wrapper {
+    flex-basis: 10%;
+    margin: auto 0;
+}
+
+.discussion__answered {
+    flex-basis: 10%;
+    padding: 0 15px;
+    margin: auto 0;
+}
+
+.discussion__content {
+    flex-basis: 80%;
+    margin-left: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.discussion__avatar--image {
+    border-radius: 30px;
+    width: 48px;
+}
+
+.discussion__title {
+    margin-bottom: 4px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+ 
+.discussion__information {
+    text-align: right;
+    padding: 4px 0;
+    color: #A8A8A8;
+}
+
+.hide {
+    display: none;
+}
