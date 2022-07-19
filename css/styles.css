@@ -3,22 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: black; */
-  /* color: rgb(217, 217, 217); */
   color: rgb(99, 98, 98);
   font-family: "Nanum Gothic", sans-serif;
 }
 
-.discussion__answered p {
-  margin-bottom: 100px;
+body {
+  background-color: antiquewhite;
 }
-
-.discussion__answered button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 main h1 {
   text-align: center;
   margin: 2rem 0;
@@ -27,42 +18,106 @@ main h1 {
   color: black;
 }
 
-label {
-  font-weight: 600;
+.form {
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  border: 1px solid black;
+  width: 60%;
+  margin: 0 auto;
+  background-color: wheat;
+  border-radius: 1rem;
 }
 
-.form__input--wrapper {
+/* 폼 제출 버튼 */
+#submit {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  padding: 3.5rem 1rem;
+  background-color: rgb(41, 166, 32);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: rgb(39, 196, 28);
+}
+
+.discussion__wrapper {
+  display: flex;
+  border-radius: 1rem;
+  width: 60%;
+  padding: 2rem 0;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.discussion__container button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.discussion__answered p {
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.discussion__answered p:hover {
+  opacity: 0.5;
+}
+
+.discussion__answered button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 /* input 창 */
 
 .form__input--name > label {
   font-weight: 600;
+  margin-right: 1rem;
 }
 .form__input--title > label {
   font-weight: 600;
+  margin-right: 1rem;
 }
 
 .form__textbox > label {
   font-weight: 600;
-}
-
-input {
+  margin-right: 1rem;
+  display: flex;
   margin-top: 1rem;
-  border-radius: 0.3rem;
-  background-color: wheat;
 }
 
-input::placeholder {
+input,
+textarea {
+  margin-top: 2rem;
+  border-radius: 0.3rem;
+  border: none;
+
+  padding-bottom: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  text-align: center;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
+  color: rgb(193, 182, 182);
 }
-
+/* 제목 링크 */
 a {
   text-decoration: none;
   color: inherit;
@@ -72,37 +127,8 @@ a:hover {
   opacity: 0.3;
 }
 
-/* 폼 제출 버튼 */
-#submit {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 1rem;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: rgb(24, 100, 133);
-  color: white;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-#submit:hover {
-  opacity: 0.5;
-}
-
-.discussion__wrapper {
-  display: flex;
-  background-color: rgb(95, 89, 89);
-  border-radius: 1rem;
-  width: 96%;
-  padding: 2rem 0;
-  justify-content: center;
-  margin: 1rem 1rem;
-}
-
 .discussion__container {
-  width: 40rem;
+  width: 63rem;
   display: flex;
   justify-content: space-between;
   padding: 1rem 3.2rem;
@@ -112,48 +138,48 @@ a:hover {
 }
 
 .discussion__container button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+  margin-right: 2rem;
 }
-
 .discussion__container button:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 /* 프로필 이미지 */
 
 .discussion__avatar--wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 .discussion__avatar--image {
   border-radius: 50%;
-  width: 48px;
+  margin: 0 1rem;
+  width: 3rem;
 }
 
 /* 제목 */
+
+.discussion__content {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .discussion__content h3 a {
   font-weight: 600;
 }
 
 .discussion__information {
-  margin-top: 2rem;
   color: #57616d;
   font-weight: 300;
+  margin: 2rem auto;
 }
 
 /* 콘텐츠 */
 .discussion__content {
-  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-/* delete 버튼 */
-.discussion__container button {
-  margin-right: 2rem;
 }
 
 /* 마크 버튼 */
