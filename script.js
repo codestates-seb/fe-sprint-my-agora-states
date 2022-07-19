@@ -5,6 +5,7 @@ console.log(agoraStatesDiscussions);
 if (!localStorage.getItem("data")) {
   localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
 }
+let localData = JSON.parse(localStorage.getItem("data"));
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -64,7 +65,6 @@ const addAgoraStatesDiscussionsData = (name, title, question) => {
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
   // localStorage에서 data를 받아와 새로운 데이터를 추가하고 다시 localStorage에 저장
-  let localData = JSON.parse(localStorage.getItem("data"));
   localData = [newData, ...localData];
   localStorage.setItem("data", JSON.stringify(localData));
 };
@@ -106,7 +106,7 @@ const paginationHandler = () => {
     pageLength: (handler) => {
       // pagination의 길이를 설정하는 event handler
       elPagination.innerHTML = "";
-      Array(Math.ceil(JSON.parse(localStorage.getItem("data")).length / 9))
+      Array(Math.ceil(localData.length / 9))
         .fill()
         .forEach((_, i) => {
           const div = document.createElement("div");
@@ -131,9 +131,38 @@ const paginationHandler = () => {
 const elPagination = document.querySelector("#pagination");
 const pagination = paginationHandler();
 
+// search select bar
+const selectBox = document.querySelector(".selected__search");
+const select = (e) => {
+  localData = JSON.parse(localStorage.getItem("data"));
+  if (e.target.value === "done") {
+    localData = localData.filter((v) => v.answer !== null);
+  } else if (e.target.value === "none") {
+    localData = localData.filter((v) => v.answer === null);
+  }
+  elPagination.innerHTML = "";
+  renderForNotice();
+};
+selectBox.addEventListener("change", (e) => {
+  select(e);
+});
+
+// search input serach bar
+const searchBar = document.querySelector(".search__bar");
+const searchInput = document.querySelector(".search__input");
+const search = (e) => {
+  e.preventDefault();
+  localData = JSON.parse(localStorage.getItem("data"));
+  localData = localData.filter((v) => v.title.includes(searchInput.value));
+  elPagination.innerHTML = "";
+  renderForNotice();
+};
+searchBar.addEventListener("submit", (e) => {
+  search(e);
+});
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  const localData = JSON.parse(localStorage.getItem("data"));
   const currentPage = pagination.getPageValue();
   const pageData = pagination.pageSlice(localData, currentPage);
   const maxLength = Math.ceil(localData.length / 9);

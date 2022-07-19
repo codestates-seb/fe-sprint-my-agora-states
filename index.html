@@ -12,6 +12,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+    <script
+      src="https://kit.fontawesome.com/e7bcb9031d.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -68,6 +73,21 @@
           </li>
         </ul>
         <div id="pagination"></div>
+        <div class="search">
+          <div>
+            <select class="selected__search">
+              <option value="total">전체글</option>
+              <option value="done">답변 완료</option>
+              <option value="none">답변 X</option>
+            </select>
+          </div>
+          <form class="search__bar">
+            <input type="text" class="search__input" />
+            <button type="button" class="search__btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
       </section>
     </main>
   </body>

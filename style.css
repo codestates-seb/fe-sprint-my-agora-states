@@ -134,3 +134,32 @@ main h1 {
 .current__page {
   color: red;
 }
+.search {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+}
+.selected__search {
+  height: 2rem;
+  border: 2px solid rgb(174, 184, 192);
+  border-radius: 5px;
+}
+.search__bar {
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgb(174, 184, 192);
+  border-radius: 5px;
+}
+.search__input {
+  width: 10rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+}
+.search__btn {
+  width: 3rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 5px;
+}
