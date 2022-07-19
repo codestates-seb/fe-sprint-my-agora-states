@@ -134,6 +134,7 @@ const paginationHandler = () => {
       return data.slice(sliceStart, sliceEnd);
     },
     getPageValue: () => page,
+    setPageValue: (value) => (page = value),
     getPreventPageValue: () => preventPage,
   };
 };
@@ -150,6 +151,9 @@ const select = (e) => {
     localData.setData(localData.getData().filter((v) => v.answer === null));
   }
   elPagination.innerHTML = "";
+  console.log(pagination.getPageValue(), 1);
+  pagination.setPageValue(1);
+  console.log(pagination.getPageValue());
   renderForNotice();
 };
 selectBox.addEventListener("change", (e) => {
@@ -160,12 +164,14 @@ selectBox.addEventListener("change", (e) => {
 const searchBar = document.querySelector(".search__bar");
 const searchInput = document.querySelector(".search__input");
 const search = (e) => {
+  console.log("as");
   e.preventDefault();
   localData.setData(JSON.parse(localStorage.getItem("data")));
   localData.setData(
     localData.getData().filter((v) => v.title.includes(searchInput.value))
   );
   elPagination.innerHTML = "";
+  pagination.setPageValue(1);
   renderForNotice();
 };
 searchBar.addEventListener("submit", (e) => {
