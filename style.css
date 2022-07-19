@@ -1,1 +1,137 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.form {
+  font-family: "Albert Sans", sans-serif;
+}
+
+.form__input--wrapper {
+  border: 1px solid rgb(157, 206, 157);
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+  row-gap: 20px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.form__submit input {
+  width: 70px;
+  height: 40px;
+  border: 1px solid rgb(157, 206, 157);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.form__input--wrapper input {
+  width: 90px;
+  height: 30px;
+  background-color: rgba(157, 206, 157, 0.527);
+  border-radius: 5px;
+}
+
+.form__input--wrapper label {
+  width: 90px;
+  height: 30px;
+}
+
+.formbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 15px;
+}
+
+textarea {
+  background-color: rgba(157, 206, 157, 0.527);
+  border-radius: 5px;
+  resize: none;
+}
+
+.form__container {
+  margin: 40px 0px 0px 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion__container {
+  width: 540px;
+  margin-bottom: 30px;
+}
+
+.column-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.discussion__information {
+  align-self: flex-end;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+}
+.column_a {
+  align-self: flex-start;
+}
+
+.discussion__avatar--image {
+  border-radius: 40%;
+  width: 48px;
+  margin: 10px 15px 10px 15px;
+}
+
+.discussion__answered > p {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+}
+
+a:link {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Ubuntu", sans-serif;
+}
