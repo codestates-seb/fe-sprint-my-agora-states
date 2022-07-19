@@ -1,12 +1,20 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --white: rgb(255, 255, 255);
+  --palegray: rgb(249, 249, 249);
+  --gray: rgb(218, 223, 224);
+  --ligthblacK: rgb(36, 36, 36);
+  --bordergray: rgb(237, 237, 237);
+}
 * {
   box-sizing: border-box;
   margin: auto;
   /* (이거 적용해도 똑같음 padding: auto; */
-  /* border: 1px solid black; */
   font-size: 16px;
   /* max-width: 800px; */
-  background-color: rgb(218, 223, 224);
+}
+body{
+  background-color: var(--gray);
 }
 li {
   list-style: none;
@@ -17,26 +25,40 @@ body {
 
 /*DISCUSSION CONTAINER 작성공간*/
 form{
-  background-color: blueviolet !important;
+  background-color: var(--palegray);
+  border: 1px ridge var(--bordergray);
 }
 .discussions__container{
-  background-color: rgb(255, 255, 255);
-  padding: 0;
+  background-color: var(--white);
+  padding: 10px 0 10px 0;
 }
+/* .discussion__container, .discussion__avatar--wrapper, a, p, .discussion__content, .discussion__title, .discussion__information, .discussion__answered {
+  background-color: var(--palegray);
+}
+.discussion__container:hover, .discussion__avatar--wrapper:hover, a:hover, p:hover, .discussion__content:hover, .discussion__title:hover, .discussion__information:hover, .discussion__answered:hover{
+  transition: 1s;
+  background-color: rgb(36, 36, 36);
+  color: var(--white);
+} */
 .discussion__container{
   display: flex;
   max-width: 540px;
   justify-content: space-between;
-  background-color: rgb(249, 249, 249);
+  background-color: var(--palegray);
   border-radius: 1rem;
   margin-bottom: 10px;
   height: 85px;
+}
+.discussion__container:hover{
+  transition: 1s;
+  border: 2px bold rgb(36, 36, 36);
+  /* color: var(--white);  */
 }
 .discussion__avatar--wrapper{
   flex-grow: 1;
   text-align: center;
   max-width: 50px;
-  background-color: rgb(249, 249, 249);
+  /* background-color: rgb(249, 249, 249); */
 }
 /*AVATAR 사진 동그리마 표현*/
 img{
@@ -48,17 +70,18 @@ img{
 }
 /*----여기까지 AVATAR 동그라미 */
 a{
-  background-color: rgb(249, 249, 249);
+  text-decoration: none;
+  color: none;
 }
-p{
+/* p{
   background-color: rgb(249, 249, 249);
-}
+} */
 .discussion__content{
   flex-grow: 5;
   display: flex;
   flex-direction: column;
   margin: 0;
-  background-color: rgb(249, 249, 249);
+  /* background-color: rgb(249, 249, 249); */
 }
 .discussion__title{
   flex-grow: 5;
@@ -67,7 +90,7 @@ p{
   max-width: 100%;
   font-size: 1.2rem;
   justify-content: flex-start;
-  background-color: rgb(249, 249, 249);
+  /* background-color: rgb(249, 249, 249); */
   padding-left: 10px;
   padding-top: 10px;
 }
@@ -79,7 +102,7 @@ p{
   font-size: 0.8rem;
   max-width: 100%;
   text-align: right;
-  background-color: rgb(249, 249, 249);
+  /* background-color: rgb(249, 249, 249); */
   max-height: 40px;
 } 
 .discussion__answered{
@@ -87,7 +110,7 @@ p{
   text-align: center;
   max-width: 50px;
   min-width: 50px;
-  background-color: rgb(249, 249, 249);
+  /* background-color: rgb(249, 249, 249); */
 }
 
 
