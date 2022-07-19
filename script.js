@@ -58,11 +58,17 @@ const complateAnswer = (as)=>{
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   //각 li별 아이디 closer
-
+  if(obj===undefined){
+    return ''
+  }
   const li = document.createElement('li');
   li.className = 'discussion__container';
+
+  //새로 추가된 prepend값에 아이디의 충돌을 막기 위함.
+  if(obj.url!==undefined &&obj.url!==null){
   li.id = `id${agoraStatesDiscussions.indexOf(obj)}`
-  
+  }
+
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   // 이미지 리스트
   const avatarWrapper = document.createElement('div');
@@ -118,12 +124,16 @@ const convertToDiscussion = (obj) => {
   editDate.textContent = clickTime();
 } 
   $Date.append(editDate);
-  //answer여부 짓는곳.
+
+  //answer여부 짓는곳.(버튼을 눌러서 hide된 것을 show로 바꿀 예정)
   const discussionAnswered =document.createElement('div');
   discussionAnswered.className = 'discussion__answered';
   const showBtn = document.createElement('input');
   showBtn.type = 'button'
+  //prepend되는 버튼 아이디 충돌을 막기위함
+  if(obj.url!==undefined && obj.url!==null){
   showBtn.id = `btnid${agoraStatesDiscussions.indexOf(obj)}`;
+}
   if(obj.answer!==null && obj.answer !==undefined){
     showBtn.className = 'previewComplate';
   }else{
@@ -132,9 +142,11 @@ const convertToDiscussion = (obj) => {
   //showEvent
   let flag = true;
   const showEvent = (event)=>{
+    // 버튼이 눌린 li태그의 아이디를 이용해서, answerli에 아이디를 적용할 것임.
    let hideId = li.id
 
-   //hideId 뽑는 과정
+   // complateAnswer(obj)를 통해 hideLi들이 각자의 아이디를 가지고있음.
+   // 그 아이디를 찾기 위한 과정.
     if(hideId.length===3){
       hideId = hideId+'-'+hideId[hideId.length-1];
       console.log(hideId);
@@ -143,15 +155,16 @@ const convertToDiscussion = (obj) => {
       console.log(hideId);
     }
    
-    //hide된게 있으면 버튼의 동작과 view 여부를 정함(외부에 flag 이용)
-     const showLi = document.querySelector(`#${hideId}`);
-     const btncolor = document.querySelector(`#${event.target.id}`)
-
+    //answer 있으면 hide된게 있으면 버튼의 동작과 view 여부를 정함(외부에 flag 이용)
+    if(obj.url !==undefined &&obj.url !==null){
+    const showLi = document.querySelector(`#${hideId}`);
+    const btncolor = document.querySelector(`#${event.target.id}`)
+    //hideId를 통해 숨겨진 li태그가 있는 지 확인. 있으면 flag를 통해 노출을 결정
      if(showLi){
      if(flag){
      showLi.classList.add('viewin');
      showLi.classList.remove('viewout');
-    btncolor.classList.add('btnyellow');
+     btncolor.classList.add('btnyellow');
 
      flag = !flag
     }else{
@@ -160,10 +173,10 @@ const convertToDiscussion = (obj) => {
      btncolor.classList.remove('btnyellow')
      flag = !flag
     }}
-    
+    }
   }
 
-  //showBtn을 클릭 시 하단 hide 내용이 지워져야함.
+  //버튼 각각 클릭이벤트 지정, showBtn을 클릭 시 하단 hide 내용이 지워져야함.
   showBtn.addEventListener('click',showEvent)
 
   discussionAnswered.append(showBtn);
@@ -179,78 +192,135 @@ const convertToDiscussion = (obj) => {
   }
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (tagUl)=>{
-  for(let item of agoraStatesDiscussions){
-    if(Array.isArray(convertToDiscussion(item))){
-      tagUl.append(convertToDiscussion(item)[0])
-      tagUl.append(convertToDiscussion(item)[1])
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+
+const render = (tagUl,pagenumber)=>{
+  for(let i = (pagenumber-1)*10; i<pagenumber*10; i++){
+    if(Array.isArray(convertToDiscussion(agoraStatesDiscussions[i]))){
+      tagUl.append(convertToDiscussion(agoraStatesDiscussions[i])[0])
+      tagUl.append(convertToDiscussion(agoraStatesDiscussions[i])[1])
     }else{
-      tagUl.append(convertToDiscussion(item));
+      tagUl.append(convertToDiscussion(agoraStatesDiscussions[i]));
     }
   }
 }
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
 const $form = document.querySelector('form');
 
 const $username = document.querySelector('#username');
 const $usertitle = document.querySelector('#titlename');
 const $question = document.querySelector('#story');
 
-const addquestion = (event)=>{
-  event.preventDefault();
-  // const $removeBtn = document.createElement('input');
-  // $removeBtn.type = 'button';
-  let id = $username.value;
-  let title = $usertitle.value;
-  let questions = $question.value;
-  
-  const pushData = {
-    id,
-    title,
-    questions,
 
-  };
-  console.log(pushData.avatarUrl);
-  agoraStatesDiscussions.unshift(pushData);
-  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
-  
-  $username.value = '';
-  $usertitle.value = '';
-  $question.value = '';
-}
-
-$form.addEventListener('submit',addquestion);
 const $submitBtn = document.querySelector('#submit');
 const enterEvent = (e)=>{
   console.log(e.key)
   if($question.value!==''&&$username.value!==''&&$usertitle.value!==''){
-  $submitBtn.className='submitEvent';
   if(e.keyCode===13){
     let id = $username.value;
     let title = $usertitle.value;
     let questions = $question.value;
-    // 
+    
     const pushData = {
       id,
       title,
       questions,
-  
+      
     };
-    console.log(pushData.avatarUrl);
+    
     agoraStatesDiscussions.unshift(pushData);
     ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
     
     $username.value = '';
     $usertitle.value = '';
     $question.value = '';
-    $question.focus();
+    restartengine();
+    $username.focus();
+
   };
 }else{
   $submitBtn.classList.remove('submitEvent')
 }
 }
 $question.addEventListener('keypress',enterEvent);
+//초기값인 0~9번 항목 구현
+render(ul,1);
+
+
+//해당 내용을 지워주지 않으면 ul에 데이터가 축적됨.
+const showingEvent = (event)=>{
+  let setting = ul.children;
+  for(let i = setting.length-1; i>-1;i--){
+    setting[i].remove();
+  }
+  console.log('동작완')
+  render(ul,event.target.value);
+};
+
+
+
+//페이지네이션을 위한 버튼 구축
+
+
+const $numbering =document.querySelector('.numbering');
+for(let i=1; i<(agoraStatesDiscussions.length/10)+1; i++){
+  const pagebtn = document.createElement('input');
+  pagebtn.type = 'button';
+  pagebtn.value = i;
+  pagebtn.addEventListener('click',showingEvent);
+ 
+  $numbering.append(pagebtn);
+}
+// 제출 이벤트 개수가 추가되면 다시 해야됨.
+  const addquestion = (event)=>{
+    event.preventDefault();
+
+    // const $removeBtn = document.createElement('input');
+    // $removeBtn.type = 'button';
+    let id = $username.value;
+    let title = $usertitle.value;
+    let questions = $question.value;
+    
+    const pushData = {
+      id,
+      title,
+      questions,
+  
+    };
+    
+  
+    
+    agoraStatesDiscussions.unshift(pushData);
+   
+    $username.value = '';
+    $usertitle.value = '';
+    $question.value = '';
+    
+    //submit 시 페이지들을 확인하고 재구성.
+    // 그대로 append해주면 버튼들이 추가적으로 생기기 때문에 버튼도 다시생성
+    // 페이지도 다시 지워야함.
+    restartengine();
+    $username.focus();
+  }
+  
+  const restartengine = ()=>{
+    let clear = ul.children;
+    for(let i = clear.length-1; i>-1;i--){
+      clear[i].remove();
+    }
+
+    while ($numbering.firstChild) {
+      $numbering.removeChild($numbering.firstChild);
+    }
+    for(let i=1; i<(agoraStatesDiscussions.length/10)+1; i++){
+      const pagebtn = document.createElement('input');
+      pagebtn.type = 'button';
+      pagebtn.value = i;
+      pagebtn.addEventListener('click',showingEvent);
+      $numbering.append(pagebtn);
+    }
+    render(ul,1);
+  }
+  $form.addEventListener('submit',addquestion);

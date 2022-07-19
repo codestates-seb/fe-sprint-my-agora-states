@@ -33,6 +33,13 @@
 .form__textbox{
     display: flex;
 }
+
+.page{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
 body{
     display: flex;
     flex-direction: column; 
