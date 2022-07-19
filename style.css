@@ -12,9 +12,15 @@ body {
     background-color: black;
 }
 
+h1 {
+    margin: 20px 0px 20px 0px;
+    font-size: 40px;
+}
+
 .form {
-    border: 1px solid white;
+    background-color: #272727;
     padding: 20px;
+    margin: 20px 0px 20px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,20 +38,20 @@ body {
 
 input {
     padding: 5px;
-    width: 535px;
+    width: 378px;
     font-size: 20px;
     color: white;
-    background-color: black;
+    background-color: #272727;
     border: solid 1px white
 }
 
 textarea {
     padding: 5px;
-    width: 535px;
+    width: 378px;
     height: 100px;
     font-size: 20px;
     color: white;
-    background-color: black;
+    background-color: #272727;
     border: solid 1px white;
 }
 
@@ -68,7 +74,7 @@ ul {
 }
 
 li {
-    width: 700px;
+    width: 540px;
     display: flex;
     justify-content: space-between;
     background-color: #272727;
@@ -91,6 +97,7 @@ img {
 .discussion__content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     flex-grow: 1;
 }
 
