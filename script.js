@@ -60,7 +60,7 @@
   let elnameInput = document.querySelector('#name');
   let eltitle = document.querySelector('#name2');
   let elquestion = document.querySelector('#story');
-  let reagoraStatesDiscussions = agoraStatesDiscussions 
+  let reagoraStatesDiscussions = agoraStatesDiscussions;
 
   elform.addEventListener("submit", (event) =>{
     event.preventDefault();
@@ -84,8 +84,8 @@
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
   const render = (element) => {
-    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    for (let i = 0; i < reagoraStatesDiscussions.length; i += 1) {
+      element.append(convertToDiscussion(reagoraStatesDiscussions[i]));
     }
     return ;
   };
