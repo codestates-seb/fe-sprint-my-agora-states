@@ -1,1 +1,177 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Gowun Dodum', sans-serif;
+    border: 0px;
+
+
+
+    color: rgb(214, 118, 118);
+    font-size: default;
+    list-style: none;
+    
+}
+
+
+body {
+    background-image: linear-gradient(45deg, #ff9a9e 50%, #fad0c4 99%, #fad0c4 100%);
+
+}
+
+
+main {
+    width : 540px;
+    margin : auto;
+    padding: 10px;
+
+}
+
+section.form__container {
+    background-image: linear-gradient(45deg, #ff9a9e 50%, #fad0c4 99%, #fad0c4 100%);
+    
+    height: 145px;
+    border-radius: 20px;
+    margin: 1rem 0;
+
+}
+
+.form__container > form {
+    display: flex;   
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.form__input--wrapper {
+    width : 410px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.2px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    margin: 0.2px;
+}
+
+.form__input--wrapper #name {
+    width : 200px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.form__input--wrapper #title {
+    width : 200px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.form__input--wrapper #stroy {
+    width: 350px;
+    border-radius: 5px;
+}
+
+
+.form__submit #submit {
+    width:70px;
+    height:100px;
+    display: flex;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    background-color: rgb(255, 237, 242);
+    color:rgb(244, 140, 170)
+}
+
+#submit:hover {
+    background-color: rgb(255, 194, 189);
+    color : rgb(244, 224, 224)
+}
+
+
+li.discussion__container {
+    display: flex;
+
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    flex-direction: row;
+    list-style: none;
+    background-color: rgb(255, 237, 242);  
+    border-radius: 15px;
+    padding-left: 20px;
+
+    
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2 {
+    margin-left: 10px;
+    font-size:15px
+}
+
+div.discussion__content {
+    width: 100%;
+    flex-direction: column;
+    padding: 5px;
+    margin: 10px;
+}
+
+
+
+div.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+
+.discussion__information{
+    display: flex;
+    justify-content:end;
+    font-size: 11px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    
+    
+}
+
+
+
+
+div.discussion__avatar--wrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
