@@ -71,7 +71,7 @@ Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다.
     align-items: center;
   }
 
-.discussion__avatar--image{
+ .discussion__avatar--image{
     width: 48px;
     border-radius: 100%;
 }
@@ -96,6 +96,15 @@ Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다.
     height: 120px;
     justify-content: space-between;
   }
+
+  .titleInfo{
+    text-decoration: none;
+    color: rgb(33, 43, 45)
+   }
+
+ .discussion__title a{
+  text-decoration: none;
+ }
 
   .discussion__information{
     display: flex;

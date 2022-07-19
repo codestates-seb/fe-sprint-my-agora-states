@@ -21,36 +21,55 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg)
 
   const titleAncor = document.createElement('a')
+  titleAncor.classList.add('titleInfo')
   titleAncor.textContent = obj.title;
   titleAncor.href = obj.url
   discussionContent.append(titleAncor)
 
   const discussionInfo = document.createElement('div')
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
+  discussionInfo.textContent = "작성자 : " + obj.author + " / " + "작성시간 : " + obj.createdAt;
   discussionContent.append(discussionInfo)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
-const form = document.querySelector('.form')
-const title = document.querySelector('.form__input--title').value
-const nameInput = document.querySelector('.form__input--name').value
-const textbox = document.querySelector('.form__textbox').value
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault()
+
+  let now = new Date();
+  let nowYear = now.getFullYear(); // 년
+  let nowMonth = now.getMonth() + 1; // 월
+  let nowDate = now.getDate(); // 월
+  let nowHour = now.getHours(); // 시간
+  let nowMinutes = ("0" + now.getMinutes()).slice(-2); // 분
+
   const obj = {
       id: 'unique.id',
-      createdAt: new Date().toLocaleString(),
-      title: title,
+      createdAt:
+      nowYear +
+      " - " +
+      nowMonth +
+      " - " +
+      nowDate +
+      " " +
+      nowHour +
+      " : " +
+      nowMinutes,
+      title: title.value,
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-      author: nameInput,
+      author: author.value,
       answer: null,
-      bodyHTML: textbox,
+      bodyHTML: textbox.value,
       avatarUrl:
         "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
     }
+
   agoraStatesDiscussions.unshift(obj);
   const newDiscussion = convertToDiscussion(obj)
   ul.prepend(newDiscussion)
