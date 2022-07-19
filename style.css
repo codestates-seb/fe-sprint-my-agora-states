@@ -1,11 +1,11 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 body {
-  margin: 0;
-  padding: 0;
   background: rgb(238, 238, 238);
 }
 main {
@@ -131,7 +131,6 @@ main h1 {
   margin: 0.5rem;
   font-weight: 600;
 }
-
 .current__page {
   color: red;
 }

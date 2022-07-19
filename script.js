@@ -34,7 +34,9 @@ const convertToDiscussion = (obj) => {
   discussionInformation.className = "discussion__information";
   discussionLink.setAttribute("href", obj.url);
   discussionLink.textContent = obj.title;
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString()}`;
   discussionTitle.append(discussionLink);
   discussionContent.append(discussionTitle);
   discussionContent.append(discussionInformation);
@@ -50,11 +52,10 @@ const convertToDiscussion = (obj) => {
 // add data
 const addAgoraStatesDiscussionsData = (name, title, question) => {
   const today = new Date().toISOString(); // 현재 시간
-
   // 추가할 새로운 데이터
   const newData = {
     id: name,
-    createdAt: today.substring(0, 19) + today.substring(23), // 밀리초 제거
+    createdAt: today.toLocaleString(), // 밀리초 제거
     title,
     author: name,
     answer: null,
@@ -132,13 +133,12 @@ const render = (element) => {
   for (let i = 0; i < pageData.length; i += 1) {
     element.append(convertToDiscussion(pageData[i]));
   }
+  const maxLength = Math.ceil(localData.length / 9);
   if (!elPagination.childNodes.length) {
     // pagination의 데이터가 없을시 길이를 설정하고 첫 페이지에 current__page클래스를 추가
     pagination.pageLength(pagination.pageClickHandler);
     elPagination.children[0].classList.add("current__page");
-  } else if (
-    Math.ceil(localData.length / 9) !== elPagination.childNodes.length
-  ) {
+  } else if (maxLength !== elPagination.childNodes.length) {
     // 데이터가 추가되어 pagination의 길이를 재설정
     pagination.pageLength(pagination.pageClickHandler);
   }
