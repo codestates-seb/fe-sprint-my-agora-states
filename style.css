@@ -1,1 +1,129 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  box-sizing: border-box;
+}
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #262626;
+}
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.discussion__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 540px;
+}
+/* 질문 박스 한칸 */
+.discussion__container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #333333;
+  margin-bottom: 1px;
+  border-bottom: 0.5px solid white;
+}
+.discussion__container:hover {
+  background-color: #2C3439;
+}
+.discussion__container:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 20px;
+}
+.discussion__container:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom: 0;
+  margin-bottom: 30px;
+}
+.discussion__avatar--image {
+  border-radius: 50%;
+  margin: 5px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.discussion__title {
+  font-size: 17px;
+  width: 540px;
+  padding: 15px;
+  color: white;
+  
+}
+.discussion__content a {
+  text-decoration: none;
+  color: #C9D1D9;
+}
+.discussion__information {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-right: 20px;
+  color: #5F9EFF;
+}
+.discussion__answered {
+  display: flex;
+  margin-right: 2px;
+}
+
+main h1 {
+  color: #B4B4B4;
+  font-size: 60px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.form__container {
+  width: 100vh;
+}
+
+#name, #title, #story {
+  background-color: #0D1018;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  border: #2D343A solid 2px;
+}
+
+#name, #title {
+  width: 300px;
+  height: 40px;
+  color: #C9D1D9;
+
+}
+
+#story {
+  width: 300px;
+  height: 90px;
+  padding: 35px;
+  color: #C9D1D9;
+
+}
+.form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+#submit_btn {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: #2D343A solid 3px;
+}
