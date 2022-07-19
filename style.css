@@ -76,7 +76,7 @@ main h1 {
 }
 
 .discussions__container .discussion__container .discussion__avatar--wrapper img {
-    width: 50px;
+    width: 48px;
     border-radius: 50%;
 }
 
@@ -112,6 +112,25 @@ main h1 {
     align-items: center;
     font-size:1.5rem;
 }
+.discussions__container .discussion__container .discussion__answered span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    font-size: .8rem;
+    text-align: center;
+    line-height: 28px;
+    border-radius:50%;
+    font-weight:700;
+}
+.discussions__container .discussion__container .discussion__answered span.true {
+    border: 1px solid #18ba25;
+    color: #18ba25;
+}
+.discussions__container .discussion__container .discussion__answered span.false {
+    border: 1px solid #F05454;
+    color: #F05454;
+}
+
 
 /*  pagination */
 .pagination__container {

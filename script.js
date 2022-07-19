@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
+
 // submit 클릭 시 새로운 질문 추가
 const submitBtn = document.querySelector('.form__submit input');
 submitBtn.addEventListener('click', (e) => {
@@ -68,21 +69,24 @@ const convertToDiscussion = (obj) => {
   discussionInfo.textContent = `${obj.author} / ${new Date(createdAt).toLocaleString("ko-KR")}`
   discussionContent.append(discussionInfo);
 
-  discussionAnswered.textContent = '☑';
+  answerIcon = document.createElement('span');
+  discussionAnswered.append(answerIcon);
+  if(obj.answer !== null) {
+    answerIcon.textContent = 'O'
+    answerIcon.classList.add('true')
+  } else {
+    answerIcon.textContent = `X`;
+    answerIcon.classList.add('false')
+  };
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
-// 시간이 오전인지 오후인지 판단하는 함수.
-const amPm = (time) => {
-  let h = time.getHours() < 12 ? '오전' : '오후';
-  return h
-}
-
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   let data = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+  data = data.slice().splice(pageIndex*10,10);
   for (let i = 0; i < data.length; i += 1) {
     element.append(convertToDiscussion(data[i]));
   }
@@ -102,13 +106,44 @@ const paginationRender = (element) => {
   for (let i = 0; i < data; i += 1) {
     element.append(convertToPagination(i+1));
   }
+  element.prepend(convertToPagination('<'));
+  element.append(convertToPagination('>'));
   return;
 }
 
-window.onload = function(){
-  document.querySelector('.pagination__item').addEventListener('click', (e)=> {
-    console.log('e',e)
+let pageIndex = 0;
+window.onload = ()=>{
+  const pageList = document.querySelectorAll('.pagination__item');
+  const pageContainer = document.querySelector('.pagination__container')
+
+  pageList[0].classList.add('prev');
+  pageList[pageList.length-1].classList.add('next');
+  pageList[1].classList.add('active');
+
+  pageContainer.addEventListener('click', (e)=> {
+    pageIndex = Number(e.target.textContent)-1;
+    if ([...e.target.classList].includes('next') || [...e.target.classList].includes('prev')) return false
+    pageList.forEach(list=> { list.classList.remove('active')})
+    e.target.classList.add('active')
+
+    // 초기화 후 다시 render
+    const ul = document.querySelector("ul.discussions__container");
+    while ( ul.hasChildNodes() )
+    {
+      ul.removeChild( ul.firstChild );       
+    }
+    render(ul);
   })
+
+  const prevBtn = document.querySelector('.pagination__item.prev');
+  const nextBtn = document.querySelector('.pagination__item.next');
+  prevBtn.addEventListener('click', () => {
+    pageList[pageIndex].click();
+    pageIndex = pageIndex -1 
+    console.log(pageList[pageIndex])
+    console.log(pageIndex)
+  })
+
 }
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
