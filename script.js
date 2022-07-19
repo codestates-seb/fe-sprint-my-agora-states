@@ -133,12 +133,98 @@ const convertToDiscussion = (obj) => {
     return li;
 };
 
+// 페이지네이션에 필요한 변수들
+const agoraStatesLocalDiscussions = JSON.parse(localStorage.getItem('data'));
+let currentPage = 1;
+let totalCount = agoraStatesLocalDiscussions.length;
+let limit = 10;
+let totalPage = Math.ceil(totalCount / limit);
+let pageCount = Math.ceil(totalCount / limit);
+let pageGroup = Math.ceil(currentPage / pageCount);
+
+let lastNumber = pageGroup * pageCount;
+if (lastNumber > totalPage) {
+    lastNumber = totalPage;
+}
+let firstNumber = lastNumber - (pageCount - 1);
+
+const next = lastNumber + 1;
+const prev = firstNumber - 1;
+
+// 페이지네이션
+const goPrevPage = () => {
+    if (currentPage === 1) {
+        return;
+    } else {
+        currentPage -= 1;
+        render(ul);
+        console.log(currentPage);
+    }
+};
+
+const goNextPage = () => {
+    if (currentPage === lastNumber) {
+        return;
+    } else {
+        currentPage += 1;
+        render(ul);
+        console.log(currentPage);
+    }
+};
+
+const goFirstPage = () => {
+    currentPage = 1;
+    render(ul);
+};
+
+const goEndPage = () => {
+    currentPage = lastNumber;
+    render(ul);
+};
+
+const nextBtn = document.querySelector('.nextBtn');
+const prevBtn = document.querySelector('.prevBtn');
+const firstBtn = document.querySelector('.firstBtn');
+const endBtn = document.querySelector('.endBtn');
+
+nextBtn.addEventListener('click', goNextPage);
+prevBtn.addEventListener('click', goPrevPage);
+firstBtn.addEventListener('click', goFirstPage);
+endBtn.addEventListener('click', goEndPage);
+// console.log(currentPage);
+
+const selectPage = window.setInterval(() => {
+    const buttonList = document.querySelectorAll('.numberingBtn');
+    const goSelectPage = (item) => {
+        currentPage = item.innerHTML;
+    };
+    buttonList.forEach((value) => {
+        value.onclick = () => {
+            goSelectPage(value);
+            render(ul);
+        };
+    });
+}, 1000);
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
     discussions.innerHTML = null;
     const agoraStatesLocalDiscussions = JSON.parse(localStorage.getItem('data'));
-    for (let i = 0; i < agoraStatesLocalDiscussions.length; i += 1) {
-        element.append(convertToDiscussion(agoraStatesLocalDiscussions[i]));
+
+    // 페이지 버튼 렌더링
+    let html = '';
+    for (let i = firstNumber; i <= lastNumber; i++) {
+        html += `<button class="pageNumber numberingBtn" id="page_${i}">${i}</button>`;
+    }
+    document.getElementById('pageButton').innerHTML = html;
+
+    // 리스트 렌더링
+    for (let i = (currentPage - 1) * limit; i < (currentPage - 1) * limit + limit; i += 1) {
+        if (agoraStatesLocalDiscussions[i] === undefined) {
+            element.append('');
+        } else {
+            element.append(convertToDiscussion(agoraStatesLocalDiscussions[i]));
+        }
     }
     animation();
     return;
@@ -156,7 +242,7 @@ const animation = () => {
         }
     }
 
-    let addActive = setInterval(activeFunc, 130);
+    let addActive = setInterval(activeFunc, 100);
 };
 
 // 목록 초기화
