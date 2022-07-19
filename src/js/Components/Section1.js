@@ -1,5 +1,5 @@
+import { $ } from '../../index.js';
 import Component from '../Core/component.js';
-const $ = (selector) => document.querySelector(selector);
 
 export default class Section1 extends Component {
   constructor(...rest) {
@@ -22,11 +22,6 @@ export default class Section1 extends Component {
               <label for="question">Your question: </label>
               <textarea id="question" name="question" placeholder="질문을 작성하세요" required></textarea>
             </div>
-            <div class="form__image">
-              <label for="question">upload your profile image: </label>
-              <input type="file" id="img_upload" name="img" accept="image/*">
-              <input id="img_submit_btn" type="submit">
-            </div>
           </div>
           <div class="form__submit">
             <input class="submit_btn" type="submit" value="submit" />
@@ -43,13 +38,9 @@ export default class Section1 extends Component {
     this.$target.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (e.target.id === 'img_upload' || e.target.id === 'img_submit_btn') {
-        alert('구현중....');
-      }
       if (!e.target.classList.contains('submit_btn')) {
         return;
       }
-
       this.handleNewData(nameInput.value, titleInput.value, questionContent.value);
       this.handlePostingTime();
     });

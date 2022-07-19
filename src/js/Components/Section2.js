@@ -1,6 +1,7 @@
 import Component from '../Core/component.js';
-import { getRandomNumber, getCurrentTime } from '../common/utils/utils.js';
+import { getCurrentTime } from '../common/utils/utils.js';
 import { agoraStatesDiscussions } from '../common/data/data.js';
+import { ICON, IMG } from '../common/constants/constants.js';
 
 export default class Section2 extends Component {
   constructor(...rest) {
@@ -8,14 +9,13 @@ export default class Section2 extends Component {
   }
 
   template() {
-    let { data, pageStartNum, pageEndNum } = this.props;
+    let { data, pageStartNum, pageEndNum, user } = this.props;
 
     if (!data) {
       data = agoraStatesDiscussions;
     }
 
     const parsedData = [...data];
-
     const reversedData = parsedData.slice(pageStartNum, pageEndNum).reverse();
 
     return `
@@ -30,9 +30,10 @@ export default class Section2 extends Component {
           <div class="discussion__avatar--wrapper">
             <img
               class="discussion__avatar--image"
-              src=${avatarUrl ? avatarUrl : parsedData[getRandomNumber()].avatarUrl}
+              src=${avatarUrl ? avatarUrl : IMG.DEFAULT}
               alt="avatar of ${author}"
               width="50px"
+              data-id=""
             />
           </div>
           <div class="discussion__content">
@@ -40,7 +41,7 @@ export default class Section2 extends Component {
             <div class="discussion__information">${author} / ${createdAt ? createdAt : getCurrentTime()}</div>
           </div>
           <p id="answer-check">답변</p>
-          <div class="discussion__answered">${answer ? `<i class="far fa-check-square"></i>` : `<i class="far fa-square"></i>`}</div>
+          <div class="discussion__answered">${answer ? ICON.CHECK_BOX : ICON.EMPTY_BOX}</div>
         </li>
         `;
         })

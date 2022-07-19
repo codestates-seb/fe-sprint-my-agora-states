@@ -1,12 +1,13 @@
+import { $ } from '../index.js';
+import { LOCALSTORAGE, NUMBER, EMPTY, IMG } from './common/constants/constants.js';
 import { agoraStatesDiscussions } from './common/data/data.js';
 import { getLocalStorage, setLocalStroage } from './common/utils/localStorage.js';
 import { getCurrentTime } from './common/utils/utils.js';
+import ImageUpload from './Components/ImageUpload.js';
 import Section1 from './Components/Section1.js';
 import Section2 from './Components/Section2.js';
 import Section3 from './Components/Section3.js';
 import Component from './Core/component.js';
-
-const $ = (selector) => document.querySelector(selector);
 
 export default class App extends Component {
   constructor(...rest) {
@@ -18,39 +19,42 @@ export default class App extends Component {
   async initialState() {
     this.setState({
       ...this.props,
-      data: getLocalStorage('data') === null ? agoraStatesDiscussions : getLocalStorage('data'),
+      data: getLocalStorage(LOCALSTORAGE.PROPERTY) === null ? agoraStatesDiscussions : getLocalStorage(LOCALSTORAGE.PROPERTY),
       pageStartNum: -10,
       pageEndNum: 9999,
-      currentPage: 0,
-      postingTime: '',
+      currentPage: NUMBER.ZERO,
+      postingTime: EMPTY,
+      user: [],
     });
   }
 
   template() {
     return `
-    <main>
-      <h1 id="title">My Agora States</h1>
-      <section class="form__container"></section>
-      <section class="discussion__wrapper"></section>
-      <section class="page__nation"></section>
-    </main>
+      <main>
+        <h1 id="title">My Agora States</h1>
+        <div class="profile_container"></div>
+        <section class="form__container"></section>
+        <section class="discussion__wrapper"></section>
+        <section class="page__nation"></section>
+      </main>
     `;
   }
 
   componentDidMount() {
-    new Section1($('.form__container'), { ...this.state, updateData: this.updataData.bind(this), updateTime: this.handleCurrentTime.bind(this) });
+    const { updataData, handleCurrentTime, handleCurrentPage, onClickPage, handleProfileUrl, onClickPageIndicator } = this;
+
+    new ImageUpload($('.profile_container'), { ...this.state, updateProfile: handleProfileUrl.bind(this) });
+
+    new Section1($('.form__container'), { ...this.state, updateData: updataData.bind(this), updateTime: handleCurrentTime.bind(this) });
 
     new Section2($('.discussion__wrapper'), { ...this.state });
 
     new Section3($('.page__nation'), {
       ...this.state,
-      updateCurrentPage: this.handleCurrentPage.bind(this),
-      updatePages: this.onClickPage.bind(this),
+      updateCurrentPage: handleCurrentPage.bind(this),
+      updatePages: onClickPage.bind(this),
+      handleIndicator: onClickPageIndicator.bind(this),
     });
-
-    // const array = new Uint32Array(30);
-
-    // console.log(window.crypto.getRandomValues(array));
   }
 
   initLocalStorage() {
@@ -58,8 +62,12 @@ export default class App extends Component {
 
     let data = dataToCopy.slice();
 
-    if (getLocalStorage('data') === null) {
-      setLocalStroage('data', data);
+    if (getLocalStorage(LOCALSTORAGE.PROPERTY) === null) {
+      setLocalStroage(LOCALSTORAGE.PROPERTY, data);
+    }
+
+    if (getLocalStorage('user') === null) {
+      setLocalStroage('user', this.state.user);
     }
 
     return data;
@@ -70,7 +78,7 @@ export default class App extends Component {
 
     const newData = data.concat(newItem);
 
-    setLocalStroage('data', newData);
+    setLocalStroage(LOCALSTORAGE.PROPERTY, newData);
 
     this.setState({
       ...this.state,
@@ -97,7 +105,7 @@ export default class App extends Component {
   onClickPage() {
     let { currentPage, pageStartNum, pageEndNum } = this.state;
 
-    pageStartNum = 0 - 10 * currentPage;
+    pageStartNum = NUMBER.ZERO - 10 * currentPage;
 
     pageEndNum = pageStartNum === -10 ? (pageEndNum = 9999) : (pageEndNum = pageStartNum + 10);
 
@@ -105,6 +113,40 @@ export default class App extends Component {
       ...this.state,
       pageStartNum,
       pageEndNum,
+    });
+  }
+
+  onClickPageIndicator(indicator) {
+    let { currentPage, pageStartNum, pageEndNum } = this.state;
+
+    if (indicator === '<') {
+      currentPage -= 1;
+    } else if (indicator === '>') {
+      currentPage += 1;
+    }
+
+    pageStartNum = NUMBER.ZERO - 10 * currentPage;
+
+    pageEndNum = pageStartNum === -10 ? (pageEndNum = 9999) : (pageEndNum = pageStartNum + 10);
+
+    this.setState({
+      ...this.state,
+      pageStartNum,
+      pageEndNum,
+      currentPage,
+    });
+  }
+
+  handleProfileUrl(id, url) {
+    const newUser = { id, profileUrl: url };
+
+    const newArray = getLocalStorage('user').concat(newUser);
+
+    setLocalStroage('user', newArray);
+
+    this.setState({
+      ...this.state,
+      user: newArray,
     });
   }
 }

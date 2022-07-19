@@ -31,18 +31,43 @@ li {
   list-style: none;
 }
 
+.image_upload {
+  display: none;
+}
+
+#image_submit_btn {
+  border-right: none;
+  border-left: none;
+
+  margin-left: 30px;
+}
+
+.profile_container {
+  display: flex;
+}
+
+#uploaded_image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  margin-left: 100px;
+}
+
 /* Section 1*/
 
 #title {
   border-radius: 10px;
   padding: 10px;
 
-  font-size: 50px;
+  font-size: 40px;
   color: var(--coz-orange-600);
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
 }
-
+.discussion__avatar--image {
+  border-radius: 100%;
+  margin-right: 5px;
+}
 .form__container {
   display: flex;
   justify-content: center;
@@ -137,7 +162,6 @@ li {
   border: none;
   display: flex;
   margin-left: 30px;
-
   width: 200px;
 }
 

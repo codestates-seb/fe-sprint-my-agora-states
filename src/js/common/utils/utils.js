@@ -17,3 +17,11 @@ export const getCurrentTime = () => {
 
   return `${year}-${month}-${date}T${hour}:${minute}:${second}Z`;
 };
+
+export const generateUserId = () => {
+  const array = new Uint32Array(30);
+  const encryptedNumbers = window.crypto.getRandomValues(array);
+  const userId = `D_${encryptedNumbers[0]}`;
+
+  return userId;
+};

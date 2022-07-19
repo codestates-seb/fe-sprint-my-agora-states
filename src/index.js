@@ -1,4 +1,4 @@
 import App from './js/app.js';
-const $ = (selector) => document.querySelector(selector);
+export const $ = (selector) => document.querySelector(selector);
 
 new App($('#root'));
