@@ -1,1 +1,87 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main h1 {
+    text-align: center;
+}
+main .form__container{
+    text-align: center;
+}
+
+.discussion__wrapper .discussions__container {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__input--wrapper {
+    padding: 8px 12px;
+}
+
+.form__input--wrapper .form__input--name {
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper .form__input--title {
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper .form__textbox label {
+   /* 글씨 가운데로 정렬 어캐함 */
+}
+
+.form__submit input {
+    height: 30px;
+    width: 60px;
+}
+ul.discussions__container {
+    padding: 0;
+}
+li.discussion__container {
+    list-style: none;
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .discussion__avatar--wrapper img{ /* 왜 홍식님 이미지만 바뀌고 나머지는 적용이 안될까? 검사로 해서 잘볼것 */
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content {
+    width: 100%;
+    margin: 0 10px;
+    padding: 8px 10px;
+}
+
+.discussion__content .discussion__title {
+    margin: 0;
+    margin-right: auto;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.discussion__title a {
+    text-decoration-line: none;
+}
+
+.discussion__wrapper .discussion__information {
+    text-align: end;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.discussion__answered p {
+    font-size: 24px;
+}
