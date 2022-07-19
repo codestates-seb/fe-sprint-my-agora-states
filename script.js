@@ -42,8 +42,15 @@ const convertToDiscussion = (obj) => {
   //질문자 author + createdAt
   const user_questionID = document.createElement("div");
   user_questionID.className = "discussion__information";
-  user_questionID.textContent= obj.author + obj.createdAt;
+  //user_questionID.textContent= obj.author + obj.createdAt;
+  user_questionID.textContent = obj.author;
+  
+  const user_QTime = document.createElement("div");
+  user_QTime.className = "userQuestionTime"
+  user_QTime.textContent = obj.createdAt;
+
   discussionContent.append(user_questionID);
+  discussionContent.append(user_QTime);
 
   //답변자 전체
   const answerCheck = document.createElement("div");
@@ -69,6 +76,19 @@ const convertToDiscussion = (obj) => {
 
   return li;
 };
+
+const KEY = "new_list";
+// 새로운 데이터를 agoraStatesDiscussions 배열에 추가하는 함수
+const localStorageSavedData = () => {
+  const getlocalStorageData = localStorage.getItem(
+    JSON.parse(JSON.stringify(KEY))
+  );
+  if (getlocalStorageData) {
+    return JSON.parse(getlocalStorageData);
+  }
+  return agoraStatesDiscussions;
+};
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
