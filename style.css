@@ -68,7 +68,12 @@ h2{
     border-radius: 50%;
     background-color: green;
 }
-
+.previewNotComplate{
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: red;
+}
 /* 답변자 항목 */
 
 .discussion__containerhide{
@@ -94,15 +99,18 @@ h2{
     flex-grow: 1;
     font-size : 0.9rem;
     align-self: flex-start;
+    text-align:start;
     padding-left: 1%;
     padding-right: 3%;
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 330px;
+   
 }
 .discussion__informationhide{
     font-weight: 700;
+    text-align : right;
 }
 h2{
     font-size : 0.9rem;
@@ -112,4 +120,13 @@ h2{
     font-size: 0.7rem;
     padding-right:1.5% ;
     padding-left: 1.5%;
+}
+.viewin{
+    display: flex;
+}
+.viewout{
+    display: none;
+}
+.btnyellow{
+    background-color: yellow;
 }

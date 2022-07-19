@@ -19,7 +19,7 @@ const complateAnswer = (as)=>{
   if(inAnswer!==null &&inAnswer!==undefined){
     const li1 = document.createElement('li');
     li1.className = 'discussion__containerhide';
-
+    li1.id = `id${agoraStatesDiscussions.indexOf(as)}-${agoraStatesDiscussions.indexOf(as)}`
     //답변자의 사진
     const avatarWrapper1 = document.createElement('div');
     avatarWrapper1.className="discussion__avatar--wrapperhide";
@@ -56,9 +56,11 @@ const complateAnswer = (as)=>{
 }
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
+  //각 li별 아이디 closer
+
   const li = document.createElement('li');
   li.className = 'discussion__container';
-  
+  li.id = `id${agoraStatesDiscussions.indexOf(obj)}`
   
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   // 이미지 리스트
@@ -118,12 +120,52 @@ const convertToDiscussion = (obj) => {
   //answer여부 짓는곳.
   const discussionAnswered =document.createElement('div');
   discussionAnswered.className = 'discussion__answered';
+  const showBtn = document.createElement('input');
+  showBtn.type = 'button'
+  showBtn.id = `btnid${agoraStatesDiscussions.indexOf(obj)}`;
   if(obj.answer!==null && obj.answer !==undefined){
-    discussionAnswered.textContent = '☑';
+    showBtn.className = 'previewComplate';
   }else{
-    discussionAnswered.textContent = '☒';
+    showBtn.className = 'previewNotComplate';
   }
-  
+  //showEvent
+  let flag = true;
+  const showEvent = (event)=>{
+   let hideId = li.id
+
+   //hideId 뽑는 과정
+    if(hideId.length===3){
+      hideId = hideId+'-'+hideId[hideId.length-1];
+      console.log(hideId);
+    }else if(hideId.length===4){
+      hideId = hideId+'-'+hideId[hideId.length-2]+hideId[hideId.length-1]
+      console.log(hideId);
+    }
+   
+    //hide된게 있으면 버튼의 동작과 view 여부를 정함(외부에 flag 이용)
+     const showLi = document.querySelector(`#${hideId}`);
+     const btncolor = document.querySelector(`#${event.target.id}`)
+
+     if(showLi){
+     if(flag){
+     showLi.classList.add('viewin');
+     showLi.classList.remove('viewout');
+    btncolor.classList.add('btnyellow');
+
+     flag = !flag
+    }else{
+     showLi.classList.add('viewout');
+     showLi.classList.remove('viewin');
+     btncolor.classList.remove('btnyellow')
+     flag = !flag
+    }}
+    
+  }
+
+  //showBtn을 클릭 시 하단 hide 내용이 지워져야함.
+  showBtn.addEventListener('click',showEvent)
+
+  discussionAnswered.append(showBtn);
   //최종 append 값
   let Answerli = complateAnswer(obj)
   
@@ -145,15 +187,12 @@ const render = (tagUl)=>{
     }else{
       tagUl.append(convertToDiscussion(item));
     }
-
-    
   }
 }
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
 const $form = document.querySelector('.form');
 
 const addquestion = (event)=>{
