@@ -99,8 +99,12 @@ input {
   height: 90px;
 }
 
+.discussion__wrapper {
+  padding-bottom: 50px;
+}
+
 .discussions__container {
-  width: 540px;
+  max-width: 540px;
 }
 
 .discussion__container {
