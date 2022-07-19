@@ -1,1 +1,205 @@
+:root {
+  --background-color: #495c83;
+  --color-bg-default: #fff;
+  --color-bg-form: #fbfbfb;
+  --color-fg-default: #515151;
+  --color-fg-subtle: #00000073;
+  --ant-primary-color-hover: #1890ff;
+  --ant-primary-color-active: #096dd9;
+  --border-color: #d9d9d9;
+}
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+menu,
+ol,
+ul {
+  list-style: none;
+}
+h2 {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+main {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 30px 30px;
+  max-height: 90%;
+  background-color: var(--color-bg-default);
+  box-shadow: 5px 5px 18px -7px rgba(0, 0, 0, 0.5);
+}
+main > h1 {
+  color: var(--color-fg-default);
+  font-weight: 350;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+  width: 520px;
+  padding: 24px;
+  background: var(--color-bg-form);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+}
+.form__container > form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.form__input--wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-right: 20px;
+}
+
+.form__input--name,
+.form__input--title {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+.form__input {
+  flex: 1;
+}
+.form__input.r {
+  margin-left: 15px;
+}
+.form__input.c {
+  margin-top: 15px;
+}
+#story {
+  resize: none;
+}
+.form__input > input,
+.form__input > #story {
+  width: 100%;
+  height: 100%;
+  color: #a8a4ce;
+  font-size: 14px;
+  padding: 4px 11px;
+  line-height: 1.5715;
+  background-color: var(--color-bg-default);
+  background-image: none;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.form__submit {
+  flex: 0 0 80px;
+  display: flex;
+}
+.form__submit > input {
+  flex: 0 0 100%;
+  color: var(--color-bg-default);
+  border: none;
+  border-radius: 2px;
+  background: #7a86b6;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+}
+.form__submit > input:hover {
+  background: #65709e;
+}
+.form__submit > input:active {
+  background: var(--background-color);
+}
+
+.discussion__wrapper {
+  overflow: auto;
+  padding: 15px 20px 20px;
+  border: 1px solid rgba(140, 140, 140, 0.35);
+}
+
+.discussion__container {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  flex-basis: 48px;
+  overflow: hidden;
+}
+.discussion__avatar--wrapper > img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.discussion__content {
+  flex: 1;
+  padding: 17px 20px;
+}
+
+.discussion__title > a {
+  text-decoration: none;
+}
+.discussion__title > a:link {
+  color: var(--color-fg-default);
+}
+.discussion__title > a:visited {
+  color: #898aa6; /* #9cb4cc */
+}
+.discussion__title > a:hover {
+  color: var(--ant-primary-color-hover);
+}
+.discussion__title > a:active {
+  color: var(--ant-primary-color-active);
+}
+
+.discussion__information {
+  text-align: right;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--color-fg-subtle);
+}
+.discussion__information > span.active {
+  color: #000;
+  background: linear-gradient(
+    to top,
+    rgba(44, 44, 44, 0.2) 50%,
+    transparent 50%
+  );
+}
+
+.discussion__answered {
+  flex-basis: 18px;
+}
+.discussion__answered > img {
+  width: 100%;
+}
+
+.discussion__container {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.discussion__container:last-child {
+  border-bottom: none;
+}
