@@ -33,7 +33,8 @@ const convertToDiscussion = (obj) => {
   // 2-2. discussionInformation 구현
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
+  //new Date(obj.createdAt).toLocaleString()
 
   // 2-3. discussionContent에 하위 요소들 append
   discussionContent.append(discussionTitle, discussionInformation);
@@ -67,7 +68,54 @@ render(ul);
 
 
 //TODO: form에 작성된 요소를 display에 추가
-// const formsubmit =  document.querySelector('.form')
-// formsubmit.addEventListener('submit', function(event)) {
-//   console.log(event);
+// form 안에 submit버튼이 같이 있음
+const form = document.querySelector('form.form');
+const title = document.querySelector('div.form__input--title > input');
+const nameInput = document.querySelector('div.form__input--name > input');
+const textbox = document.querySelector('div.form__textbox > textarea')
+
+form.addEventListener('submit', (event) => {
+  // 새로운 객체를 만들어야 한다
+  // input에  입력된 값(value)를 넣은 새로운 객체
+  // 새로운 객체 ul 요소 아래로 넣어준다
+  // 더미 데이터(agoraStatesDiscussions)여기에도 추가해준다.
+  event.prevexntDefault();
+  const obj = {
+    id: "unique id",
+    createdAt: new Date().toLocaleString(),
+    title: title.value,
+    url: 'https://github.com/codestates-seb/agora-states-fe/discussions/2',
+    author: nameInput.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl: 'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4',
+  }
+  agoraStatesDiscussions.unshift(obj);
+  const newDiscussion = convertToDiscussion(obj)
+  ul.append(newDiscussion)
+})
+
+
+// Local Storage를 이용하면 새로고침해도 업어지지 않음
+
+
+
+
+
+
+
+// document.getElementsByClassName("form").onsubmit = function() {
+//   const formAcquiredName = this[0][0].value;
+//   const fomrAcquiredTitle = this[0][1].value;
+//   const formAcquiredQuestion = this[0][2].value;
+
+//   const promptDIV = document.createElement('div');
+//   promptDIV.className = 'promptDIV';
+//   promptDIV.textContent = formAcquiredName, fomrAcquiredTitle, formAcquiredQuestion;
+
+//   ul.append(promptDIV);
+  
 // }
+
+// const testForm = document.getElementsByClassName('form');
+// testForm.addEventListner('submit', function)
