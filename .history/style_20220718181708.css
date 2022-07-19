@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    margin-right: 20px;
 }
 
 li {
@@ -33,14 +34,13 @@ li {
 
 li > .discussion__content {
     width: 100vw;
-    /* background-color: red; 범위 체크용 */
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: space-around;
     gap: 5px;
     margin: 10px 0;
-    margin-right: 10px;
 }
 .discussion__content > h2 {
     font-size: 15px;

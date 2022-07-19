@@ -19,36 +19,35 @@ li {
 }
 
 .discussion__avatar--wrapper {
-    /* width: 300px; */
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .discussion__avatar--image {
-    width: 48px;
-    height: 48px;
+    width: 48;
+    height: 48;
     border-radius: 50%;
+    background-color: blue;
 }
 
 li > .discussion__content {
     width: 100vw;
-    /* background-color: red; 범위 체크용 */
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: space-around;
     gap: 5px;
     margin: 10px 0;
-    margin-right: 10px;
 }
 .discussion__content > h2 {
-    font-size: 15px;
+    font-size: 20px;
     margin-left: 15px;
 }
 
 .discussion__information {
-    font-size: 13px;
+    font-size: 15px;
     text-align: right;
     margin-right: 15px;
 }

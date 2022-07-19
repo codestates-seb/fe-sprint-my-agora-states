@@ -33,7 +33,7 @@ li {
 
 li > .discussion__content {
     width: 100vw;
-    /* background-color: red; 범위 체크용 */
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;

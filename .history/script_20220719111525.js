@@ -86,7 +86,7 @@ AskForm.addEventListener("submit", (e) => {   // // 작성폼 제출시 함수 �
     title: titleInput.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: nameInput.value,
-    answer: null,  // 일단 추가될 객체의 답변 상태 여부는 없는 상태로 처리
+    answer: null,
     // answer: {
     //   id: "DC_kwDOHOApLM4AKg6M",
     //   createdAt: "2022-05-16T02:09:52Z",
