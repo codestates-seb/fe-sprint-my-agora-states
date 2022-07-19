@@ -16,14 +16,14 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
-  //avatarWrapper - img
+  //avatarWrapper에 이미지 요소 추가.
   const avatarImg = document.createElement('img');
   avatarImg.className = "discussion__avatar--image";
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of ' + obj.author
   avatarWrapper.append(avatarImg)
 
-  //discussion__content - h2
+  //discussion__content에 a태그를 담은 h2요소 추가.
   const discussionTitle = document.createElement('h2');
   discussionTitle.className = 'discussion__title';
   const discussionTitleA = document.createElement('a');
@@ -32,15 +32,15 @@ const convertToDiscussion = (obj) => {
   discussionTitleA.textContent= obj.title
   discussionTitle.append(discussionTitleA)
 
-  //discussion__content - div
-  const discussionInformation = document.createElement('div');
+  //discussion__content에 div 사용자 정보를 나타내는 div 추가.
+  const discussionInformation = document.createElement('div');가
   discussionInformation.className = 'discussion__information'
   discussionInformation.textContent= `${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR')}`
   discussionContent.append(discussionTitle, discussionInformation)
 
-  //discussion__answered - div
+  //discussion__answered에 p태그 추가.
   const discussionAnsweredP = document.createElement('p');
-  discussionAnsweredP.textContent = '☑'
+  obj.answer ? discussionAnsweredP.textContent = '☑' : discussionAnsweredP.textContent = '☐'
   discussionAnswered.append(discussionAnsweredP)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -55,9 +55,10 @@ const render = (element) => {
   return;
 };
 
+//form에 입력한 새로운 객체를 agoraStatesDiscussions 앞에 추가 후 ul요소 제일 앞에 li요소 추가해주는 함수.
 const appendAgoraStatesDiscussions = (name, title, content) => {
   const newData = {
-    id: "D_kwDOHOApLM4APjJi",
+    id: `D_kwDOHOApLM4APjJi`,
     createdAt: new Date(),
     title:title,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
@@ -77,20 +78,28 @@ const inputName = document.querySelectorAll("#name")[0]
 const inputTitle = document.querySelectorAll("#name")[1]
 const textarea = document.querySelector("#story")
 
-
 const form = document.querySelector('.form')
 
 
-
+//form 버튼 EventListener
 form.addEventListener('submit', (e) => { 
   e.preventDefault();
-
   appendAgoraStatesDiscussions(inputName.value, inputTitle.value, textarea.value) 
 
+  //li요소 추가 후 form 초기화.
   inputName.value = ''
   inputTitle.value = ''
   textarea.value = ''
-
 })
 
+
 render(ul);
+
+const checks = document.querySelectorAll('.discussion__answered');
+
+//checks배열의 요소 하나하나 가져와 이벤트 추가.
+checks.forEach((check) => {
+  check.addEventListener('click', () => { 
+    check.textContent === "☑" ? check.textContent ='☐' : check.textContent ='☑' ;
+  })
+})
