@@ -103,24 +103,3 @@ form.addEventListener("submit", (event) => {
 
 // Local Storage를 이용하면 새로고침해도 업어지지 않음
 
-
-
-
-
-
-
-// document.getElementsByClassName("form").onsubmit = function() {
-//   const formAcquiredName = this[0][0].value;
-//   const fomrAcquiredTitle = this[0][1].value;
-//   const formAcquiredQuestion = this[0][2].value;
-
-//   const promptDIV = document.createElement('div');
-//   promptDIV.className = 'promptDIV';
-//   promptDIV.textContent = formAcquiredName, fomrAcquiredTitle, formAcquiredQuestion;
-
-//   ul.append(promptDIV);
-  
-// }
-
-// const testForm = document.getElementsByClassName('form');
-// testForm.addEventListner('submit', function)
