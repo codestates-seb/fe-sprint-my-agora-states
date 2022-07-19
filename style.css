@@ -1,1 +1,111 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+#footer {margin-top: 40px;}
+
+/* 가운데 영역 */
+.container {width: 1280px; margin: 0 auto;}
+
+/* 로우 영역 */
+.row {padding: 0 16px;}
+
+.nav {display: flex; padding: 16px 32px; font-size: 14px; line-height: 1.5; color: rgba(255, 255, 255, 0.7); background-color: #24292f; align-items: center;}
+.nav .fa-brands {color: #fff; font-size: 32px; margin-right: 16px;}
+.nav .fa-brands:hover {opacity: 0.7;}
+.nav .search {margin-right: 16px; font-size: inherit; color: inherit; background: none;}
+.nav .search input {display: table-cell; font-size: inherit; font-weight: 800; background-color: #24292f; box-shadow: none; border: 1px solid #57606a; border-radius: 5px; padding: 3px 12px;}
+.nav .global_nav {display: flex; font-weight: 600;}
+.nav .global_nav a {color: rgba(255, 255, 255, 1); margin-right: 16px;}
+.nav .global_nav a:hover {color: rgba(255, 255, 255, 0.7);}
+
+main h1 {font-size: 30px; font-weight: 800; margin: 30px 0 20px;}
+.content_flex {display: flex; justify-content: space-between; align-items: stretch;}
+.content_flex > section:nth-child(2) {flex: 2;}
+section:first-child {margin-right: 50px;}
+section > h2 {font-size: 16px; font-weight: 600; margin-bottom: 8px;}
+section .form {font-size: 20px; background: rgba(19, 35, 47, 0.9); padding: 40px; border-radius: 4px; box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);}
+section .form__input--wrapper {width: 300px; text-align: center;}
+section .form__input--wrapper > div {margin-top: 20px;}
+section .form__input--wrapper > div:first-child {margin-top: 0;}
+section .form label {display: block; color: #fff; margin-bottom: 3px;}
+section .form input,textarea {width: 100%;
+    font-size: 18px;
+    color: #fff;
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid #a0b3b0;
+    box-sizing: border-box;
+}
+section .form input:focus,textarea:focus {outline: 0; border-color: #0969da;}
+section .form textarea {height: 150px;}
+section .form__submit > input {border: 0;
+    padding: 15px 0;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    background: #0969da;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+section .form__submit > input:hover {background: #096bda8e;}
+
+/* 오른쪽 content */
+section.discussion__wrapper li {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: hsl(210deg 18% 87%);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    box-sizing: border-box;
+}
+section.discussion__wrapper li > div:nth-child(2) {flex: 2;}
+/* 이미지 */
+.discussion__avatar--wrapper {width: 64px; height: 64px; overflow: hidden; border-radius: 50%;}
+.discussion__avatar--image {width: 100%; height: 100%; object-fit: cover;}
+/* 중앙 컨텐츠 */
+.discussion__content {display: flex; flex-direction: column; justify-content: center; margin-left: 25px; margin-right: 20px;}
+.discussion__content h2 {font-size: 18px; font-weight: 600;}
+.discussion__content h2 a {color: #24292f;}
+/* 체크박스 컨텐츠 */
+.discussion__answered {display: flex; align-items: center;}
+
+/* footer */
+.footer {display: flex; padding: 40px 0; border-top: 1px solid #d0d7de; align-items: center;}
+.git_loc {display: flex; align-items: center; width: 16.66666666%;}
+.git_loc h3 {font-size: 24px; color: #6E7781; cursor: pointer; transition: all 0.5s ease; margin-right: 15px;}
+.git_loc h3:hover {color: rgb(73, 80, 88);}
+.git_loc span {color:#57606a;}
+.git_about {width: 66.66666664%;}
+.git_about > ul {display: flex; justify-content: space-between;}
+.git_about > ul li a {color: #0969da;;}
+
+
+
+
+
+/* 미디어 쿼리 */
+@media (max-width: 1280px) {
+    .container {width: 100%;}
+}
+
+@media (max-width: 870px) {
+    section.form__container {display: none;}
+}
+
+
+@media (max-width: 680px) {
+    .search {display: none;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
