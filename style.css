@@ -1,1 +1,153 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0px auto;
+    padding: 0;
+}
+
+h1 {
+    color: rgb(85, 73, 255);
+}
+
+p {
+    margin-left: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color:#fcf8f4;
+    width: 540px;
+}
+
+li {
+    list-style: none;
+}
+
+.form {
+    display: flex;
+    margin: 0px 10px;
+    justify-content: space-between;
+}
+
+input {
+    margin: 0px;
+}
+
+input[type=submit] {
+    width: 80px;
+    height: 90px;
+    background-color: rgb(99, 174, 255);
+    cursor: pointer;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: 0;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(91, 195, 255);
+    font-weight: bold;
+}
+
+.form__container {
+    border-radius: 10px;
+    background-color:#f6efd8;
+    padding: 20px 20px;
+    width: 500px;
+}
+
+.form__input--wrapper {
+    margin: 0px;
+}
+
+.form__input--name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form__input--title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+label {
+    margin: 0px;
+    color: rgb(85, 73, 255);
+}
+
+textarea {
+    margin: 0px;
+    width: 350px;
+}
+
+.discussion__wrapper {
+    background-color:f6efd8;
+    display: flex;
+}
+
+.discussion__container {
+    padding: 20px 20px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(226, 240, 198);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 380px;
+}
+
+.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 70%;
+}
+
+/*flex 관리용*/
+.discussion__avatar--wrapper {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discussion__content {
+    flex: 3 1 auto;
+}
+
+.discussion__answered {
+    flex: 1 1 auto;
+    text-align: right;
+    font-size: 35px;
+}
+
+.discussion__title{
+    text-align: left;
+    font-size: 15px;
+    margin: 0px 0px 15px 20px;
+}
+
+.discussion__information {
+    margin: 0px;
+    text-align: right;
+}
