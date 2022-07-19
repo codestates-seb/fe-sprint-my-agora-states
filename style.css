@@ -1,1 +1,191 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'PyeongChangPeace-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root{
+    --background: #010B40;
+    --font: #010326;
+    --form: #F2EEAC;
+    --base: #f2f2f2;
+    --point: #94C6F2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: var(--font);
+    font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    max-width: 600px;
+    background: var(--background);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+input, textarea{
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+    outline: none;
+}
+
+main h1{
+    text-align: center;
+    color: var(--base);
+    font-weight: 400;
+    font-family: 'PyeongChangPeace-Bold';
+}
+
+main section{
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+main section.form__container{
+    max-width: 600px;
+    padding: 30px;
+    background: var(--form);
+}
+
+main section.form__container .form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.form__container .form div.form__input--wrapper{
+    flex-grow: 1;
+}
+
+.form>div.form__input--wrapper>div{
+    margin-top: 5px;
+}
+
+.form div.form__input--wrapper label{
+    margin-top: 5px;
+    font-family: 'PyeongChangPeace-Bold';
+}
+
+div.form__input--wrapper .form__input--name input,
+div.form__input--wrapper .form__input--title input
+{
+    width: 150px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+div.form__input--wrapper .form__input--title input{
+    width: 285px;
+    margin-left: 21px;
+}
+
+.form__input--wrapper .form__textbox textarea{
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+textarea::placeholder{
+    line-height: 2;
+}
+
+/* 제출 버튼 */
+.form div.form__submit input{
+    width: 100px;
+    height: 100px;
+    margin-left: 30px;
+    background: #94C6F2;
+    color: var(--base);
+    cursor: pointer;
+    font-family: 'PyeongChangPeace-Bold';
+}
+
+.form div.form__submit input:hover{
+    background: var(--base);
+    color: var(--point);
+}
+
+/* 여기서 부터 질문 리스트 */
+main section.discussion__wrapper{
+    max-width: 600px;
+    height: 500px;
+    margin-top: 20px;
+    display: flex;
+}
+
+section.discussion__wrapper ul.discussions__container{
+    width: 100%;
+    overflow-y: scroll;
+}
+
+/* Discussion container */
+section.discussion__wrapper ul.discussions__container li.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: var(--base);
+    border-radius: 10px;
+}
+
+/* avatar */
+.discussion__container .discussion__avatar--wrapper .discussion__avatar--image{
+    width: 48px;
+    border-radius: 50%;
+}
+
+/* discussion content */
+.discussions__container .discussion__container .discussion__content{
+    margin: 0 20px;
+    flex-grow: 1;
+}
+
+li.discussion__container div.discussion__content h2.discussion__title{
+    font-size: 18px;
+}
+
+.discussion__content h2.discussion__title:hover{
+    text-decoration: underline;
+}
+
+li.discussion__container div.discussion__content div.discussion__information{
+    margin-top: 10px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* discussion answered */
+.discussions__container .discussion__container .discussion__answered{
+    text-align: center;
+    font-size: 40px;
+}
+/* 답변 미완료 */
+.discussion__answered::after{
+    content: '\e92c';
+    font-family: xeicon;
+    color: #cbcbcb
+}
+/* 답변 완료 */
+.discussion__answered.completed::after{
+    content: '\e92b';
+    font-family: xeicon;
+    color: #008000
+}
