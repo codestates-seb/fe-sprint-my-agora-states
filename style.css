@@ -1,4 +1,10 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
     margin:0;
     padding:0;
@@ -7,44 +13,124 @@
 body {
     width: 100vw;
     height: 100vh;
-}
+    background-color: #223ca5;
+    background-size: 100vw 100vh;
+} 
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
-.form {
+h1 {
+    font-family: 'DungGeunMo';
+    font-size: 100px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px white solid;
+    color: white;
+}
+form.form {
     width: 540px;
-    height: 480px;
+    height: 540px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    background-color: #223ca5;
+    border: 1px white solid;
 }
-
-.form__submit {
+::placeholder {
+    font-family: 'DungGeunMo';
+    font-size: 24px;
+}
+textarea#story::placeholder {
+    text-align: center;
+    padding-top: 96px;
+}
+div.form__input--wrapper > div {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+input#name {
+    border:none;
+    outline: none;
+    padding-left: 10px;
+    height: 28px;
+    font-size: 20px;
+    background-color:white;
+    box-shadow: 5px 5px;
+}
+label {
+    display: none;
+}
+div.form__input--title > input {
+    width: 500px;
+}
+textarea#story {
+    resize: none;
+    width:500px; 
+	height:240px; 
+    padding: 8px 10px;
+    outline: none;
+    display: flex;
+    font-size: 1.2rem;
+    border: 1px black solid;
+    background-color: white;
+    box-shadow: 5px 5px;
+}
+div.form__submit {
     display: flex;
     justify-content: center;
+}
+div.form__submit > input {
+    width: 148px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    background-color: #FAF1E1;
+    font-family: 'DungGeunMo';
+    box-shadow: 5px 5px;
+}
+div.form__submit > input:active {
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: none;
+}
+ul.discussions__container{
+    background-color: #FCFFE7;
+    margin-top: 80px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #59acaa;
+    box-shadow: 5px 5px;
+
 }
 li.discussion__container {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     /* list-style: none; */
-    width: 680px;
-    margin: 24px;
+    width: 540px;
+    margin: 36px;
+    padding: 4px 12px;
+    border-bottom: 1px solid white;
 }
 
-.discussion__avatar--wrapper{
+div.discussion__avatar--wrapper{
     display: flex;
+    margin-right: 36px;
 }
-.discussion__avatar--image {
+img.discussion__avatar--image {
     border-radius: 100%;
     width: 48px;
     align-self: center;
 }
 
-.discussion__content {
+div.discussion__content {
     display: flex;
     flex-direction: column;
     width: 524px;
@@ -52,16 +138,29 @@ li.discussion__container {
     justify-content: space-between;
 }
 
-.discussion__title {
+h2.discussion__title {
     display: flex;
     align-items: baseline;
 }
-
-.discussion__information {
+a {
+    color: black;
+    text-decoration: none;
+    font-family: 'DungGeunMo';
+    font-size: 24px;
+    font-weight: 500;
+}
+a:visited {
+    text-decoration: none;
+}
+div.discussion__information {
     display: flex;
     flex-direction: row-reverse;
+    font-family: 'DungGeunMo';
+    font-size: 18px;
+    font-weight: 500;
 }
 
-.discussion__answered {
+div.discussion__answered {
     align-self: center;
+    font-size: 24px;
 }
