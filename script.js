@@ -55,19 +55,37 @@ const newDiscussion = document.querySelector("form");
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputQuestion = document.querySelector("#story");
+const inputImage = document.querySelector(".image")
 
-newDiscussion.addEventListener('submit', (e) =>{
-  e.preventDefault(); 
+newDiscussion.addEventListener('submit', (event) =>{
+  event.preventDefault(); 
   const newQuestion = {};
   newQuestion.createdAt = addNowTime();
   newQuestion.title = inputTitle.value;
   newQuestion.author = inputName.value;
   newQuestion.bodyHTML = inputQuestion.value;
-  newQuestion.avatarUrl = "https://i.pinimg.com/564x/f8/76/b7/f876b7523cd17b2e9b95dd1d1cfceee3.jpg"
+    
+  const IMG_NUMBER = iconSum.length;
+
+  function genRandom() {
+    console.log(Math.round(Math.random() *IMG_NUMBER));
+    const number = Math.round(Math.random() *IMG_NUMBER);
+    return number;
+  }
+
+  function init() {
+    const randomNumber = genRandom();   /* 이미지(갯수) 함수와 randeomNumber변수(랜덤숫자생성함수)를 인자로 설정 */
+    return iconSum[randomNumber];
+  }
+  console.log(init());
+  newQuestion.avatarUrl = init();
+
+  // newQuestion.avatarUrl = "https://cdn-icons.flaticon.com/png/512/4140/premium/4140048.png?token=exp=1658193416~hmac=5e0f522fd64abb1e713a7fd54e89cdac"
 
   agoraStatesDiscussions.unshift(newQuestion);
-  ul.innerHTML = "";
-  render(ul);
+
+  const newDisc = convertToDiscussion(newQuestion);
+  ul.prepend(newDisc);
 
   inputName.value = "";
   inputTitle.value = "";
@@ -104,3 +122,5 @@ const addNowTime = () => {
 
 
 //디스커션
+
+

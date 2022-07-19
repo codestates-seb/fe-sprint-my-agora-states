@@ -1,0 +1,12 @@
+const iconSum = [
+'https://cdn-icons.flaticon.com/png/512/4140/premium/4140048.png?token=exp=1658193416~hmac=5e0f522fd64abb1e713a7fd54e89cdac',
+'https://cdn-icons-png.flaticon.com/512/2922/2922561.png',
+'https://cdn-icons-png.flaticon.com/512/3048/3048122.png',
+'https://cdn-icons-png.flaticon.com/512/4139/4139981.png',
+'https://cdn-icons-png.flaticon.com/512/8055/8055953.png',
+'https://cdn-icons-png.flaticon.com/512/8055/8055957.png',
+'https://cdn-icons-png.flaticon.com/512/2922/2922524.png',
+'https://cdn-icons.flaticon.com/png/512/3280/premium/3280979.png?token=exp=1658203863~hmac=17b35c265a7077b9befd4f695b440500',
+'https://cdn-icons.flaticon.com/png/512/4140/premium/4140049.png?token=exp=1658203863~hmac=ed55ade4202409c185ab8e0b7e1fcacc',
+'https://cdn-icons.flaticon.com/png/512/3590/premium/3590544.png?token=exp=1658203863~hmac=9c41edc069a35b4101f94370d6220a52'
+];
