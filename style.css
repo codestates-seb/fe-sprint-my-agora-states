@@ -10,6 +10,8 @@ body {
     background-color: #FFF0F0;
 }
 
+
+
 main {
     display: flex;
     flex-direction: column;
@@ -18,10 +20,15 @@ main {
 }
 
 h1 {
-    color: #835858;
-    text-decoration-line: underline;
-    text-decoration-style: wavy;
-}
+    color: #463333;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: .3em;
+    font-size: 30px;
+    text-shadow: 0 1px 0 rgba(black, .1);
+    text-indent: .2em;
+  }
 
 section {
     background-color: #EBD4D4;
@@ -38,6 +45,7 @@ form {
 
 .form__container {
     color: #463333;
+    border: 3px dashed #835858;
     margin-top: 20px;
     margin-bottom: 30px;
     font-size: 1em;
@@ -90,7 +98,7 @@ li {
 
 .discussion__container {
     width: 550px;
-    height: 80px;
+    height: 100px;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;

@@ -49,14 +49,25 @@ const submitForm = document.querySelector("form");
 
 //페이지 랜더링
 const render = (element, start) => {
+  let discussions;
+  if (sessionStorage.getItem("discussions")) {
+    console.log("ok");
+    discussions = sessionStorage.getItem("discussions");
+    discussions = JSON.parse(discussions);
+  } else {
+    sessionStorage.setItem(
+      "discussions",
+      JSON.stringify(agoraStatesDiscussions)
+    );
+  }
   for (let i = start; i < start + 10; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-    if (i + 1 === agoraStatesDiscussions.length) break;
+    element.append(convertToDiscussion(discussions[i]));
+    if (i + 1 === discussions.length) break;
   }
   start += 9;
   console.log("start: " + start);
   pageGuide.textContent = `${Math.ceil(start / 10)} of ${Math.ceil(
-    agoraStatesDiscussions.length / 10
+    discussions.length / 10
   )}`;
   return start;
 };
@@ -110,7 +121,11 @@ submitForm.addEventListener("submit", (e) => {
     url: "https://github.com",
     avatarUrl: "./img/user.png",
   };
-  agoraStatesDiscussions.unshift(elDiscussion);
+  let localData = sessionStorage.getItem("discussions");
+  localData = JSON.parse(localData);
+  localData.unshift(elDiscussion);
+  console.log(localData);
+  sessionStorage.setItem("discussions", JSON.stringify(localData));
   ul.innerHTML = "";
   currentpage = render(ul, 0);
 });
