@@ -33,13 +33,15 @@ const convertToDiscussion = (obj) => {
     discussionContent.append(discussionInfo);
     discussionInfo.className = "discussion__information";
 
-  // const checkAnswered = document.createElement("p");
-  //   discussionAnswered.append(checkAnswered);
-  //   obj.answer
-  //   ? (checkAnswered.textContent = "☑")
-  //   : (checkAnswered.textContent = "☒");
+  const checkAnswer = document.createElement("p");
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+    if (obj.answer === null) {
+      checkAnswer.textContent = "☒";
+    } else {
+      checkAnswer.textContent = "☑";
+    }
+    discussionAnswered.append(checkAnswer);
+
 
 
 
