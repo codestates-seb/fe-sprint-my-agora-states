@@ -122,7 +122,7 @@ formSubmit.addEventListener("click", function(){
     story: story.value,
   };
 
-
+  localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
   const originalAgora = JSON.parse(localStorage.getItem('agoraStatesDiscussions'));
   let resultAgora = originalAgora.unshift(newObj);
   localStorage.setItem('agoraStatesDiscussions', JSON.stringify(originalAgora));
