@@ -1,1 +1,198 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    text-decoration-line: none;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.jisikin_img {
+    margin: 30px 30px 0px 30px;
+    width: 70px;
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(234,236,239);
+    padding: 10px 10px 10px 10px;
+
+}
+
+main {
+    background-color: white;
+}
+
+#myagorastates {
+    margin: 0px;
+    padding: 30px 30px 0px 100px;
+    text-align: center;
+    vertical-align: bottom;
+    color: rgb(90,196,81);
+    font-weight:900;
+    font-family: 'Archivo Black', sans-serif;
+}
+#jisikin {
+    margin: 0 30px 30px 30px;
+    text-align:right;
+    vertical-align:super;
+    color: rgb(147, 147, 147);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
+
+.form__container{
+    background-color: rgb(234,236,239);
+    padding: 30px 30px 10px 30px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+
+}
+.form {
+}
+.form__input--wrapper{
+    margin: 0px;
+    padding: 0px;
+
+}
+.form__input--name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: medium;
+    margin: 10px;
+}
+.form__input--title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: medium;
+    margin: 20px;
+}
+.form__textbox {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: medium;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.form__submit {
+    margin: 10px;
+    display: flex;
+    justify-content: right;
+}
+
+.discussion__wrapper {
+
+
+
+}
+.discussions__container {
+    padding: 0px 0px ;
+}
+
+.discussion__container {
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(91, 196, 81);
+    margin: 10px;
+    padding: 10px 0px 10px 0px;
+    border-radius: 20px;
+    color: black;
+
+    
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+.discussion__avatar--image {
+    margin: 30px;
+    border-radius: 100px;
+    width: 48px;
+}
+
+.discussion__content {
+
+}
+.discussion__title{
+
+}
+
+a {
+    color: rgb(234,236,239);
+    font-size: large;
+    font-family: 'Hi Melody', cursive;
+}
+
+.discussion__information {
+    text-align:right;
+    font-family: 'Hi Melody', cursive;
+    font-size: large;
+
+}
+
+.discussion__answered {
+    margin: 30px;
+    font-size: xx-large;
+    font-weight: bolder;
+    
+
+}
+
+
+
+
+
+.submit {
+    position: relative;
+    border: none;
+    min-width: 70px;
+    min-height: 70px;
+    background: linear-gradient(
+        90deg,
+        rgb(90,196,81) 0%,
+        rgb(90,196,81) 100%
+    );
+    border-radius: 1000px;
+    color: darkslategray;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    color: aliceblue;
+
+}
+.submit:hover::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid rgb(90,196,81);
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
