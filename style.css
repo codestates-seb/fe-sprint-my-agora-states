@@ -1,6 +1,17 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&family=Sunflower:wght@300;500;700&display=swap');
 
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+초기 설정 */ 
+
+* {
+    box-sizing: border-box;
+}
+
 body{
     background-color: #8186D5;
     display: flex;
@@ -26,13 +37,12 @@ main > h1 {
 }
 
 section {
-    width: 550px;
+    width: 540px;
     margin: 10px;
     border-radius: 20px;
 }
 
 section.form__container {
-    box-sizing: border-box;
     background-color: #C6CBEF;
     padding: 20px;
 }
@@ -49,14 +59,14 @@ div.form__input--wrapper {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    height: 190px;
+    height: 185px;
 }
 
 section.form__container label {
     font-size: 1.1em;
     padding: 8px 0 8px 6px;
     display: inline-block;
-    width: 130px;
+    width: 140px;
 }
 
 section.form__container input , textarea{
@@ -77,13 +87,14 @@ div.form__textbox{
 }
 
 div.form__textbox > textarea{
-    width: 78.3%;
-    height: 5em;
+    width: 82%;
+    height: 6.5em;
     padding: 10px;
 }
 
 div.form__textbox > input[type='submit'] {
     width: 80px;
+    font-family: 'Sunflower', sans-serif;
     font-size: 1.2em;
     font-weight: 800;
     color: white;
@@ -125,8 +136,9 @@ li.discussion__container:hover {
 
 div.discussion__avatar--wrapper > img {
     border-radius: 50%;
-    padding: 5px;
-    height: 3.3em;
+    margin: 0 0 0 15px;
+    height: 48px;
+    width: 48px;
 }
 
 div.discussion__avatar--wrapper > p {
@@ -144,11 +156,13 @@ div.discussion__avatar--wrapper > p.author {
 div.discussion__avatar--wrapper > p.createdAt {
     font-size: 0.8em;
     margin: 1px 0 3px 15px;
+    /* text-align: end; 생성일자 오른쪽으로 정렬하기 */
 }
 
 div.discussion__content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #fafbfe;
     border-radius: 0 0 15px 15px;
     padding: 0 15px;
