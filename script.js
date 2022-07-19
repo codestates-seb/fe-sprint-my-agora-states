@@ -86,7 +86,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const obj = {
     id: "unique id",
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: title.value,
     url: 'https://github.com/codestates-seb/agora-states-fe/discussions/2',
     author: nameInput.value,
