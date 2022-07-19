@@ -24,10 +24,10 @@ const convertToDiscussion = (obj) => {
 
   const discussionTitle = document.createElement('h2');
     discussionTitle.className = "discussion__title";
-    const discussionArticle = document.createElement('a');
-      discussionArticle.href = obj.url;
-      discussionArticle.textContent = obj.title;
-      discussionTitle.append(discussionArticle);
+    const discussionAnchor = document.createElement('a');
+      discussionAnchor.href = obj.url;
+      discussionAnchor.textContent = obj.title;
+      discussionTitle.append(discussionAnchor);
     discussionContent.append(discussionTitle);  
   const discussionInformation = document.createElement('div');
     discussionInformation.className = "discussion__information";
@@ -46,12 +46,36 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
+
 /* 새 디스커션 추가 */
 let newDiscussion = document.querySelector("form");
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputText = document.querySelector("#story");
 const inputSubmit = document.querySelector("#submit");
+let newObj = '';
+// 로컬 스토리지
+// localStorage.setItem('newObj', JSON.stringify({
+//   id: 'unknown',
+//   createdAt: new Date(),
+//   title: inputTitle.value,
+//   url: null,
+//   author: inputName.value,
+//   answer: null,
+//   bodyHTML: inputText.value,
+//   avatarUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+// }))
 
 const addDiscussion = (event) => {
   event.preventDefault();
@@ -65,23 +89,24 @@ const addDiscussion = (event) => {
     bodyHTML: inputText.value,
     avatarUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
   })
-  newRender(ul);
+  
+  //newRender(ul);
+  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
 }
+
 newDiscussion = addEventListener('submit', addDiscussion);
 
-const newRender = (element) => {
-  element.prepend(convertToDiscussion(agoraStatesDiscussions[0]))
-  return;
-}
+// const newRender = (element) => {
+//   element.prepend(convertToDiscussion(agoraStatesDiscussions[0]))
+//   return;
+// }
+// console.log(newObj);
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+/* 페이지네이션 */
+const pageButton = document.querySelector('.page__button');
+const numOfContent = agoraStatesDiscussions.length
+const maxContent = 10;
+const maxButton = 5;
+const maxPage = Math.ceil(numOfContent / maxContent);
+let page = 1;

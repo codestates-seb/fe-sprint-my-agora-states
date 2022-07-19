@@ -54,21 +54,106 @@ body {
 .discussion__title {
     display: flex;
     flex: 2;
-    font-size: 1.17rem;
-    color: #020715;
+    font-size: 1.1rem;
 }
 
 a {
     text-decoration: none;
+    color: #020715;
 }
+
+a:hover {
+    color : #020715a6;
+  }
+
+a:visited {
+  color : #020715a6;
+} 
 
 .discussion__information {
     display: flex;
     flex: 1;
     justify-content: flex-end;
+    color: #6e6e6e;
 }
 
 .discussion__answered {
     display: flex;
     align-items: center;
+}
+
+form.form {
+    border-radius: 1rem;
+    background-color: #9CB4CC;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    display: flex;
+}
+
+div.form__submit {
+    display: flex;
+}
+
+input#submit {
+    background-color: #748DA6;
+}
+
+div.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.form__input--name {
+    display: flex;
+    flex: 1;
+    padding: 0.25rem;
+}
+
+div.form__input--name > label {
+    display: flex;
+    flex: 1;
+}
+
+div.form__input--name > input {
+    display: flex;
+}
+
+div.form__input--title {
+    display: flex;
+    flex: 1;
+    padding: 0.25rem;
+}
+
+div.form__input--title > label {
+    display: flex;
+    flex: 1;
+}
+
+div.form__input--title > input {
+    display: flex;
+}
+
+div.form__textbox {
+    display: flex;
+    flex: 2;
+    padding: 0.25rem;
+}
+
+div.form__textbox > label {
+    display: flex;
+    flex: 1;
+}
+
+div.form__textbox > input {
+    display: flex;
+    flex: 3 0 1;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 2rem; */
+    margin-bottom: 2rem;
+    font-size: 3rem;
 }
