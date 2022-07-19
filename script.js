@@ -170,7 +170,7 @@ render(ul);
 const submitForm = querySelectDOM("form.form");
 const names = formQuerySelectorDOM("#name");
 const title = formQuerySelectorDOM("#title");
-const textarea = formQuerySelectorDOM("div.form__textbox textarea");
+const textarea = formQuerySelectorDOM("div.form__textbox input");
 
 const resetFormValue = () => {
   names.value = "";
@@ -183,14 +183,14 @@ const handleSubmit = (event) => {
   const data = localStorageSavedData();
 
   const objects = {};
-
-  objects.id = Math.ceil(Math.random() * 9);
+  objects.id = Math.random().toString(36).substring(2, 16);
   objects.author = names.value;
   objects.title = title.value;
+
   objects.avatarUrl =
     "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
-  console.log(objects);
   data.unshift(objects);
+  console.log(objects);
 
   localStorage.setItem(KEY, JSON.stringify(data));
   resetFormValue();
