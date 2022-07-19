@@ -1,5 +1,6 @@
 .discussion__container {
 	border: 1px solid #ccc;
+	background-color: antiquewhite;
 	border-radius: 5px;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -26,11 +27,28 @@
 }
 
 .discussion__content {
-	border: 1px solid black;
 	width: 480px;
 }
 
 a {
 	text-decoration: none;
 	font-size: 18px;
+}
+
+.pagination-btn-container {
+	width: 240px;
+	height: 40px;
+	margin: 20px 50px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.pagination-btn-container > * {
+	width: 32px;
+	height: 28px;
+	margin: 5px;
+	font-size: large;
+	font-weight: bold;
 }

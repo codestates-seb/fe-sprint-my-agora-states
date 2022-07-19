@@ -1,3 +1,9 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	background-color: beige;
 	display: border-box;
@@ -5,8 +11,6 @@ body {
 
 .form {
 	margin: auto;
-	background-color: white;
-	border: 1px solid #b7b7b7;
 	width: 580px;
 	display: flex;
 	flex-direction: row;
@@ -18,9 +22,27 @@ body {
 
 .input-container {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
 	height: 100px;
-	border: 1px solid red;
-	margin: 30px 50px;
+	width: 540px;
+	margin: 30px auto;
+	padding: 54px;
+}
+
+.form__input--wrapper > * {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 12px;
+	font-size: large;
+}
+
+.submit-btn {
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	font-size: large;
+	font-weight: bold;
 }
