@@ -1,6 +1,30 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+const convertTimeFormat = (ISOstring) => {
+  const year = ISOstring.slice(0, 4);
+  const month = ISOstring.slice(5, 7);
+  const day = ISOstring.slice(8, 10);
+  let hour = ISOstring.slice(11, 13);
+  const minute = ISOstring.slice(14, 16);
+
+  if (Number(hour) > 12) {
+    hour = "오후 0" + (Number(hour) - 12);
+  } else if (Number(hour) === 12) {
+    hour = "오후 12";
+  } else {
+    hour = "오전 " + hour;
+  }
+
+  return `${year}.${month}.${day} ${hour}:${minute}`;
+};
+
+const convertTimeToLocal = (time) => {
+  const offset = new Date().getTimezoneOffset() * 60000;
+
+  return time - offset;
+};
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -26,7 +50,9 @@ const convertToDiscussion = (obj) => {
   avatarImage.alt = `avatar of ${obj.author}`;
   discussionTitleLink.textContent = obj.title;
   discussionTitleLink.href = obj.url;
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${convertTimeFormat(
+    obj.createdAt
+  )}`;
   discussionAnsweredParagraph.textContent = obj.answer ? "☑" : "☒";
 
   avatarWrapper.append(avatarImage);
@@ -48,7 +74,7 @@ submitBtn.addEventListener("click", (event) => {
 
   const obj = {
     id: "unique value",
-    createdAt: new Date().toISOString(),
+    createdAt: new Date(convertTimeToLocal(Date.now())).toISOString(),
     title: elInputTitle.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: elInputName.value,
