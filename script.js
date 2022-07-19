@@ -47,7 +47,7 @@ const convertToDiscussion = (obj) => {
     answeredIcon.style.color ='red';
   } else {
     answeredIcon.innerText = "☑";
-    answeredIcon.style.color = "green";
+    answeredIcon.style.color = "black";
   }
   discussionAnswered.append(answeredIcon);
  
@@ -62,7 +62,6 @@ submitBtn.addEventListener("click", (e) => {
   const questionName = document.querySelector(".form__input--name").querySelector("input").value; // ".form__input--name"의 input에 적혀진 이름을 받아옴
   const questionTitle = document.querySelector(".form__input--title").querySelector("input").value; // form__input--title의 input에 적힌 타이틀을 받아옴
   const questionContent = document.querySelector(".form__textbox").querySelector("textarea").value; //".form__textbox"의 textarea에 적힌 질문내용을 받아옴
-  const date = new Date();
 
   e.preventDefault(); // 버튼을 클릭해도 안넘어가도록
   const newProperty = {
@@ -93,3 +92,4 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
