@@ -232,3 +232,9 @@ div[class^="discussion"] {
   flex: 0 0 24px;
   align-items: center;
 }
+.page__btn {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  color: var(--main-font-color);
+}
