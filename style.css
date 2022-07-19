@@ -203,3 +203,16 @@ main > h1 {
 .discussion__container:last-child {
   border-bottom: none;
 }
+
+/* pagination */
+.pagination__container {
+  flex: 0 0 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.discussion__wrapper.hide,
+.pagination__container.hide {
+  display: none;
+}

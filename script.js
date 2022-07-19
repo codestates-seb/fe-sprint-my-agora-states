@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 const dateToLocaleString = (dateString) => {
   let dt = new Date(dateString);
@@ -107,17 +107,66 @@ const onClickSubmitBtn = (event) => {
 const form = document.querySelector(".form__container > form");
 form.addEventListener("submit", onClickSubmitBtn);
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  const localStorageJsonArray = getLocalStorageData("discussion_array");
-  agoraStatesDiscussions.unshift(...localStorageJsonArray);
+// pagination
+const paginationWrapper = document.querySelector(".pagination--wrapper");
+let pageIndex = 0;
+let itemsPerPage = 10;
+let pageSize = 5;
 
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const loadPageNav = () => {
+  paginationWrapper.textContent = "";
+  for (i = 0; i < agoraStatesDiscussions.length / itemsPerPage; i++) {
+    let span = document.createElement("span");
+    span.textContent = i + 1;
+
+    span.addEventListener("click", (e) => {
+      pageIndex = e.target.textContent - 1;
+      loadItems();
+    });
+
+    if (i === pageIndex) {
+      span.style.fontSize = "1.7rem";
+    }
+
+    paginationWrapper.append(span);
   }
+};
+
+const loadItems = () => {
+  ul.textContent = "";
+
+  for (
+    let i = pageIndex * itemsPerPage;
+    i < pageIndex * itemsPerPage + itemsPerPage;
+    i++
+  ) {
+    if (agoraStatesDiscussions.length - 1 < i) break;
+    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  loadPageNav();
+};
+
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = () => {
+  const localStorageJsonArray = getLocalStorageData("discussion_array");
+  if (Array.isArray(localStorageJsonArray))
+    agoraStatesDiscussions.unshift(...localStorageJsonArray);
+  console.log(agoraStatesDiscussions);
+
+  const discussionWrapper = document.querySelector(".discussion__wrapper");
+  const paginationContainer = document.querySelector(".pagination__container");
+  if (!agoraStatesDiscussions.length) {
+    discussionWrapper.classList.add("hide");
+    paginationContainer.classList.add("hide");
+  } else {
+    discussionWrapper.classList.remove("hide");
+    paginationContainer.classList.remove("hide");
+  }
+
+  loadItems();
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render();
