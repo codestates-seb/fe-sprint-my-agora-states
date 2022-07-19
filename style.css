@@ -1,1 +1,77 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    /* 브라우저 초기화 먼저 고고 */
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    
+}
+
+h1 { /* 제목 중앙 정렬 */
+    display:flex;
+    justify-content: center;
+    align-content: center; 
+}
+
+main {
+    display: flex;
+    width: 540px;
+    position: absolute; left: 50%; margin-left: -200px; 
+    border : 5px solid #E8A0BF;
+    border-radius: 10px;
+    background-color: #FFF9CA;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li.discussions__container{
+    display: flex;
+    flex-direction: column;
+    border : 5px solid #C689C6;
+
+}
+li.discussion__container { /*이렇게 써야 좀 더 직관적*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /*여백 균일해짐*/
+    align-items: center;
+    margin: 10px auto;
+    /*border : 5px solid #937DC2;*/
+    border-radius: 10px;
+    background-color: #FFDEB4;
+    
+}
+
+
+div.discussion__avatar--wrapper{ /*div 감싸고 있는 애*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+div.discussions__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.discussion__information {
+    align-self: flex-end;
+}
+
+/* 동그랗게 하기 */
+img {
+    border-radius: 100%; /*px 말고 퍼센트로 하면 됨.*/
+    width: 48px;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+a {
+    font-size: 1.2rem;
+}
