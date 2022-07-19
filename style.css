@@ -10,32 +10,35 @@
 h1 {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: rgb(42, 40, 40);
     color: white;
+    height: 8vh;
 }
 
 img#git_img {
     background-color: white;
     border-radius: 70%;
     width: 48px;
+    height: 48px;
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    background-color: rgb(5, 5, 5);
 }
 
 form {
     background-color:rgb(42, 40, 40);
     margin: 10px 0px;
     display: flex;
-    height: 150px;
+    height: 20vh;
 }
 
 div.form__input--wrapper {
-    background-color: rgb(42, 40, 40);
+    background-color: none;
     display: flex;
     flex-direction: column;
     flex-grow: 2;
@@ -43,7 +46,6 @@ div.form__input--wrapper {
 
 div.form__input--name {
     margin: 5px 10px;
-    background-color: white;
     background-color: black;
     border-style: none;
 }
@@ -57,7 +59,6 @@ div.form__input--name > input {
 
 div.form__input--title {
     margin: 5px 10px;
-    background-color: white;
     background-color: black;
     border-style: none;
 }
@@ -78,17 +79,17 @@ div.form__textbox {
 
 div.form__textbox > textarea {
     width: 100%;
-    height: 78px;
+    height: 11vh;
     background-color: black;
     border-style: none;
     color: white;
 }
 
 div.form__submit {
-    background-color: rgb(42, 40, 40);
+    background-color: none;
     display: flex;
     align-items: flex-end;
-    padding: 5px;
+    padding: 5px 10px 10px 5px;
 }
 
 div.form__submit > input {
@@ -111,10 +112,12 @@ div.form__submit > input:hover {
     display: flex;
     flex-direction: column;
     list-style: none;
+    height: 68vh;
     width: 540px;
     background-color: white;
     margin: 10px 0px;
     color: white;
+    overflow: auto;
 }
 
 /* li */
