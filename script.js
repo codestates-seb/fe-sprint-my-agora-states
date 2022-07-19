@@ -22,7 +22,10 @@ const convertToDiscussion = (obj) => {
   discussionDetail.textContent = obj.title;
   discussionTitle.append(discussionDetail);
   const discussionInfo = document.createElement("div");
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInfo.className = "discussion__info";
+  discussionInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString()}`;
   discussionContent.append(discussionInfo);
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -35,6 +38,12 @@ const convertToDiscussion = (obj) => {
     answerIcon.className = "finished";
   }
   discussionAnswered.append(answerIcon);
+  // const answerContent = document.createElement("span");
+  // answerContent.className = "discussion__answer";
+  // answerContent.textContent = obj.answer.bodyHTML.slice(0, 10);
+  // if (!answerContent.textContent) {
+  //   answerContent.textContent = "답변을 기다리고 있습니다!!";
+  // }
   li.append(avatarWrapper, discussionContent, discussionAnswered);
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
@@ -58,6 +67,19 @@ const nameInput = document.querySelector("#name");
 const titleInput = document.querySelector("#title");
 const questionInput = document.querySelector("textarea");
 
+// localStorage로 저장
+
+// function saveObj() {
+//   localStorage.setItem("newObj", JSON.stringify(agoraStatesDiscussions));
+// }
+
+// let savedObj = JSON.parse(localStorage.getItem("newObj"));
+// if (savedObj.length >= 42) {
+//   savedObj
+// }
+
+// pagination
+
 // create 구현
 
 function handleSubmit(event) {
@@ -67,7 +89,8 @@ function handleSubmit(event) {
   li.className = "discussion__container";
   const newName = nameInput.value;
   const newTitle = titleInput.value;
-  const newTime = event.timestamp;
+  const newTime = new Date().toLocaleString();
+  const newQuestion = questionInput.value;
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const avatarImg = document.createElement("img");
@@ -76,7 +99,7 @@ function handleSubmit(event) {
   avatarImg.className = "discussion__avatar";
   avatarWrapper.append(avatarImg);
   const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
+  discussionContent.className = "discussion__content new";
   const discussionTitle = document.createElement("h2");
   discussionTitle.className = "discussion__title";
   discussionContent.append(discussionTitle);
@@ -84,12 +107,14 @@ function handleSubmit(event) {
   discussionDetail.textContent = newTitle;
   discussionTitle.append(discussionDetail);
   const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discussion__info";
   discussionInfo.textContent = `${newName} / ${newTime}`;
   discussionContent.append(discussionInfo);
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
   const answerIcon = document.createElement("i");
-  answerIcon.innerHTML = '<i class="fa-solid fa-user-clock"></i>';
+  answerIcon.innerHTML =
+    '<i class="fa-solid fa-user-clock"></i> <i class="fa-solid fa-trash-can"></i>';
   answerIcon.className = "wating";
   discussionAnswered.append(answerIcon);
   nameInput.value = "";
@@ -97,6 +122,28 @@ function handleSubmit(event) {
   questionInput.value = "";
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   ul.prepend(li);
+  const newObj = {
+    id: "unique_id",
+    createdAt: newTime,
+    title: newTitle,
+    url: null,
+    author: newName,
+    answer: null,
+    bodyHTML: newQuestion,
+    avatarUrl: "avatar.png",
+  };
+  agoraStatesDiscussions.unshift(newObj);
+  const deleteIcon = document.querySelector(".fa-trash-can");
+  deleteIcon.addEventListener("click", deleteFn);
+  // saveObj();
+  // const newDiscussion = convertToDiscussion(newObj);
+  // ul.prepend(newDiscussion);
   return li;
 }
+
+function deleteFn(event) {
+  event.path[3].remove();
+}
+
 submitForm.addEventListener("submit", handleSubmit);
+// deleteBtn.addEventListener("click", handleDelete);

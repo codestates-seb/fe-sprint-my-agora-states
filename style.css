@@ -9,7 +9,8 @@
 h1 {
   font-family: "Edu NSW ACT Foundation", cursive;
   font-family: "Jua", sans-serif;
-  padding: 20px 20px 50px 20px;
+  padding: 20px 20px 75px 20px;
+  color: rgb(228, 119, 137);
 }
 
 h2 {
@@ -30,6 +31,7 @@ label {
   padding: 5px;
   font-family: "Edu NSW ACT Foundation", cursive;
   font-family: "Jua", sans-serif;
+  color: rgb(228, 119, 137);
 }
 
 input {
@@ -52,15 +54,17 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  box-shadow: inset 0 0 3px 3px #e0c5d0;
-  border: solid 1px #e0c5d0;
-  background-color: #e0c5d0;
+  box-shadow: inset 0 0 3px 3px pink;
+  border: solid 1px pink;
+  background-color: rgb(255, 223, 228);
+  transition-duration: 0.5s;
+  transition-property: background-color;
 }
 
 input:focus,
 input:hover {
-  box-shadow: inset 0 0 3px 3px #b0d98f;
-  border: solid 1px #b0d98f;
+  box-shadow: inset 0 0 3px 3px pink;
+  border: solid 1px pink;
 }
 
 ul,
@@ -119,8 +123,8 @@ textarea {
 
 textarea:focus,
 textarea:hover {
-  box-shadow: inset 0 0 3px 3px #b0d98f;
-  border: solid 1px #b0d98f;
+  box-shadow: inset 0 0 3px 3px pink;
+  border: solid 1px pink;
 }
 
 .form__submit {
@@ -145,11 +149,38 @@ textarea:hover {
 
 .discussion__wrapper {
   margin-top: 60px;
+  display: flex;
+  justify-content: center;
 }
 .discussion__container {
   width: 540px;
   display: flex;
+  justify-content: space-between;
   margin: 20px;
+  border: solid 1px rgb(201, 113, 128);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.discussion__container:hover {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0px 2px 5px 1px pink;
+  background-color: rgb(255, 223, 228);
+  transition-duration: 0.5s;
+  transition-property: background-color, transform;
+}
+
+.discussion__content {
+  width: 60%;
+}
+
+.discussion__title,
+.discussion__info {
+  margin: 10px;
+}
+
+i {
+  margin: 20px 0px 0px 10px;
 }
 
 .discussion__avatar {
@@ -165,4 +196,12 @@ textarea:hover {
 
 .finished {
   color: green;
+}
+
+.fa-trash-can {
+  cursor: pointer;
+}
+
+.new {
+  margin-left: 28px;
 }
