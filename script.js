@@ -58,9 +58,9 @@ const render = (element, start) => {
       "discussions",
       JSON.stringify(agoraStatesDiscussions)
     );
-    discussions = sessionStorage.getItem("discussions");
-    discussions = JSON.parse(discussions);
+    discussions = agoraStatesDiscussions;
   }
+
   for (let i = start; i < start + 10; i += 1) {
     element.append(convertToDiscussion(discussions[i]));
     if (i + 1 === discussions.length) break;
