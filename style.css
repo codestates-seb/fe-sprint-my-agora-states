@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 모든 요소에 border-box적용 */
+    font-family: 'yg-jalnan';
+}
+
+body {
+    background-image: url(/fe-sprint-my-agora-states-main/img/background-img.jpg);
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h1 {
+    font-size: 4em;
+}
+
+.form__container {
+    padding: 60px;
+    font-size: 2em;
+    background-color: aquamarine;
+}
+
+
+.form__submit {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+
+
+.discussion__wrapper{
+    overflow: auto;
+    background-color: whitesmoke;
+    padding: 32px;
+}
+
+li.discussion__container {
+    display: flex;
+    width: 540px;
+    /* Discussion 컴포턴트 전체의 폭 540px  */
+    height: 80px;
+    justify-content: space-between;
+    font-size: 10px;
+    list-style: none; 
+    /* li요소의 기본스타일 점 보이지 않게 */
+    border: 4px solid aquamarine;
+    border-radius: 10px;
+    margin: 10px
+
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+
+/* 가운데 있는 div박스가 전체를 차지하도록 하면 된다. 고민해서 적용하기 */
+
+img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
