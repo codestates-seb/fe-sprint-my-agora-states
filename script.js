@@ -48,7 +48,8 @@ const complateAnswer = (as)=>{
     $Date1.className = 'Datehide';
     const editDate1 = document.createElement('div');
     editDate1.textContent = as.createdAt;
- 
+    $Date1.append(editDate1);
+
     li1.append(avatarWrapper1,discussionContent1,$Date1);
     return li1;
   }
@@ -193,14 +194,16 @@ const render = (tagUl)=>{
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-const $form = document.querySelector('.form');
+const $form = document.querySelector('form');
+
+const $username = document.querySelector('#username');
+const $usertitle = document.querySelector('#titlename');
+const $question = document.querySelector('#story');
 
 const addquestion = (event)=>{
   event.preventDefault();
-  const $username = document.querySelector('#username');
-  const $usertitle = document.querySelector('#titlename');
-  const $question = document.querySelector('#story');
-
+  // const $removeBtn = document.createElement('input');
+  // $removeBtn.type = 'button';
   let id = $username.value;
   let title = $usertitle.value;
   let questions = $question.value;
@@ -212,8 +215,8 @@ const addquestion = (event)=>{
 
   };
   console.log(pushData.avatarUrl);
-  agoraStatesDiscussions.push(pushData);
-  ul.prepend(convertToDiscussion(agoraStatesDiscussions[agoraStatesDiscussions.length-1]));
+  agoraStatesDiscussions.unshift(pushData);
+  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
   
   $username.value = '';
   $usertitle.value = '';
@@ -221,3 +224,33 @@ const addquestion = (event)=>{
 }
 
 $form.addEventListener('submit',addquestion);
+const $submitBtn = document.querySelector('#submit');
+const enterEvent = (e)=>{
+  console.log(e.key)
+  if($question.value!==''&&$username.value!==''&&$usertitle.value!==''){
+  $submitBtn.className='submitEvent';
+  if(e.keyCode===13){
+    let id = $username.value;
+    let title = $usertitle.value;
+    let questions = $question.value;
+    
+    const pushData = {
+      id,
+      title,
+      questions,
+  
+    };
+    console.log(pushData.avatarUrl);
+    agoraStatesDiscussions.unshift(pushData);
+    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+    
+    $username.value = '';
+    $usertitle.value = '';
+    $question.value = '';
+    $question.focus();
+  };
+}else{
+  $submitBtn.classList.remove('submitEvent')
+}
+}
+$question.addEventListener('keypress',enterEvent);
