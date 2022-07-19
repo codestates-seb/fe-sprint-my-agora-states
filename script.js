@@ -128,7 +128,7 @@ form.addEventListener("submit", (event) => {
 
   const obj = {
     id: "unique ID",
-    createdAt: inputCreatedAt,//! 시간 양식에 맞게 변경 필요
+    createdAt: inputCreatedAt,
     title: inputTitle.value,
     url: "",
     author: inputID.value,
@@ -142,5 +142,22 @@ form.addEventListener("submit", (event) => {
   console.log(agoraStatesDiscussions)
   const newDiscussion = convertToDiscussion(obj);
   ul.prepend(newDiscussion);
+
+  inputID.value ="";
+  inputTitle.value = "";
+  inputText.value = "";
 })
 
+
+//궁금해요 버튼 클릭 시 숫자 올라가게 만들기
+const wantedButton = document.querySelectorAll(".discussion__wantedbox--button");
+
+const plusCounter = (e) => {
+  const currentNum = parseInt(e.target.innerText, 10);
+  e.target.innerText = currentNum + 1;
+}
+
+for (const button of wantedButton) {
+  button.addEventListener("click", plusCounter);
+}
+// 반복문을 사용해 querySelectorAll에 addEventListener 적용하는 법
