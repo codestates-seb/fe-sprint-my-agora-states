@@ -64,14 +64,6 @@ const convertToDiscussion = (obj) => {
 
   //discussion 정보 넣기
   const addDiscussionInfo = () => {
-    //날짜 표현\
-    console.log(obj.createdAt.toLocaleString());
-    const year = new Date().getFullYear();
-    const month = new Date().getMonth() + 1;
-    const date = new Date().getDate();
-    const hours = new Date().getHours();
-    const minutes = new Date().getMinutes();
-    const seconds = new Date().getSeconds();
     const discussionInfo = createDOM("div");
 
     discussionInfo.className = "discussion__information"; //class 이름 지정
