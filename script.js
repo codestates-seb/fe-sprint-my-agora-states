@@ -53,7 +53,7 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const obj = {
     id: "unique id",
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: tilte.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: nameInput.value,
@@ -64,7 +64,7 @@ form.addEventListener('submit', (event) => {
   agoraStatesDiscussions.unshift(obj);
   const newDiscussion = convertToDiscussion(obj);
   ul.prepend(newDiscussion);
-  console.log(newDiscussion)
+  console.log(obj)
 
 })
 
