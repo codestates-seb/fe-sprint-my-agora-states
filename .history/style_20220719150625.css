@@ -4,89 +4,28 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Noto Sans KR', sans-serif;
 }
 
 body {
-    background-color: #213C08;
+    background-color: #2F4858;
 }
 
 main {
-    display: flex;;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-
-main > h1 {
-    color: #F5F1E1;
-    text-shadow: 1px 1px 2px #CCEAAC;
-    margin: 20px 0;
-    font-size: 30px;
-}
 
 section.form__container {
     width: 540px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
     background-color: #94CCA4;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 2px 2px #F5F1E1;
-}
-
-.form__input--wrapper {
-    width: 500px;
-    margin-left: 10px;
-}
-
-.form__textbox {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-
-}
-
-.form__submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form__submit > input {
-    margin-right: 5px;
-    margin-bottom: 5px;
-    width: 70px;
-    height: 35px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #FFD18E;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 2px 2px 2px 2px #8D8453;
-}
-
-.form__input--wrapper input, textarea {
-    border-radius: 3px;
-    border-style: none;
-    padding: 5px;
-}
-
-.form__input--wrapper input, textarea:hover {
-    border-style: none;
-}
-
-
-.form__input--name, .form__input--title {
-    margin-bottom: 7px;
-}
-
-.form__textbox > label {
-    margin-bottom: 7px;
 }
 
 .discussion__container {
@@ -98,7 +37,7 @@ section.form__container {
     background-color :#CCEAAC;
     margin-bottom: 10px;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px #67AB9A;
+    box-shadow: 1px 1px 1px 1px #eff2f3;
 }
 
 li {

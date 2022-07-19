@@ -21,7 +21,7 @@ main {
 
 main > h1 {
     color: #F5F1E1;
-    text-shadow: 1px 1px 2px #CCEAAC;
+    text-shadow: 0 0 2px 2px #A6AE9D;
     margin: 20px 0;
     font-size: 30px;
 }
@@ -53,13 +53,13 @@ section.form__container {
 
 .form__submit {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
 .form__submit > input {
     margin-right: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     width: 70px;
     height: 35px;
     padding: 5px;

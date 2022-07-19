@@ -21,7 +21,7 @@ main {
 
 main > h1 {
     color: #F5F1E1;
-    text-shadow: 1px 1px 2px #CCEAAC;
+    text-shadow: 0 0 2px 2px #A6AE9D;
     margin: 20px 0;
     font-size: 30px;
 }
@@ -47,47 +47,18 @@ section.form__container {
 .form__textbox {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
 }
 
 .form__submit {
+    margin-left: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    width: 80px;
+    height: 30px;
 }
 
-.form__submit > input {
-    margin-right: 5px;
-    margin-bottom: 5px;
-    width: 70px;
-    height: 35px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #FFD18E;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 2px 2px 2px 2px #8D8453;
-}
-
-.form__input--wrapper input, textarea {
-    border-radius: 3px;
-    border-style: none;
-    padding: 5px;
-}
-
-.form__input--wrapper input, textarea:hover {
-    border-style: none;
-}
-
-
-.form__input--name, .form__input--title {
-    margin-bottom: 7px;
-}
-
-.form__textbox > label {
-    margin-bottom: 7px;
-}
 
 .discussion__container {
     width: 540px;

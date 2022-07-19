@@ -110,13 +110,12 @@ AskForm.addEventListener("submit", (e) => {   // // 작성폼 제출시 함수 �
   // console.log(arrInputObj)
 
   agoraStatesDiscussions.unshift(newObj); // 기존 객체의 앞부분에 새로운 객체 삽입, mutable 메서드 이므로 원본인 agoraStatesDiscussions도 변경됨
-  arrInputObj.unshift(newObj);  // 초기 셋팅한 배열에 새로운 객체를 앞쪽으로 삽입, arrInputObj도 바뀜
+  arrInputObj.unshift(newObj);
   // console.log(agoraStatesDiscussions) // 배열 형태로 나오는거 확인!
   // console.log(arrInputObj) // 배열 형태로 나오는거, 자료 담긴거 확인!
 
   function saveInputObj(arr) {
     localStorage.setItem("arrInputObj", JSON.stringify(arr)); //  JSON.stringify로 배열을 stirng으로 변환(로컬 스토리지는 string 형태로만 저장 가능)
-    
   }
 
   // console.log(newObj)  // 객체 형태인 거 확인!
@@ -171,7 +170,7 @@ console.log(savedInputObj);
 
 if (savedInputObj) {       // 로컬 스토리지에 데이터가 있다면 (비어있지 않으면)
   const parsedInputObj = JSON.parse(savedInputObj);   // JSON.parse로 데이터들을 array 로 변환
-  console.log(parsedInputObj);
+  // console.log(parsedInputObj);
   arrInputObj = parsedInputObj;   // 파싱된 데이터를 기존 초기 세팅 배열에 다시 담아주고
 
   console.log(arrInputObj);

@@ -105,41 +105,39 @@ AskForm.addEventListener("submit", (e) => {   // // 작성폼 제출시 함수 �
   titleInput.value = "";  // 입력한 후 창이 빈상태로 만들기
   textBox.value = "";  // 입력한 후 창이 빈상태로 만들기
 
-  let arrInputObj = []; // 로컬 스토리지 작업을 위한 기본 배열 초기 세팅 (데이터들이 계속 변동이 되니까 디폴트 박스를 하나 만들어준다고 생각)
-
-  // console.log(arrInputObj)
+  // console.log(newObj);
 
   agoraStatesDiscussions.unshift(newObj); // 기존 객체의 앞부분에 새로운 객체 삽입, mutable 메서드 이므로 원본인 agoraStatesDiscussions도 변경됨
-  arrInputObj.unshift(newObj);  // 초기 셋팅한 배열에 새로운 객체를 앞쪽으로 삽입, arrInputObj도 바뀜
-  // console.log(agoraStatesDiscussions) // 배열 형태로 나오는거 확인!
-  // console.log(arrInputObj) // 배열 형태로 나오는거, 자료 담긴거 확인!
 
-  function saveInputObj(arr) {
-    localStorage.setItem("arrInputObj", JSON.stringify(arr)); //  JSON.stringify로 배열을 stirng으로 변환(로컬 스토리지는 string 형태로만 저장 가능)
-    
-  }
-
-  // console.log(newObj)  // 객체 형태인 거 확인!
-
-  saveInputObj(arrInputObj); // 새로 추가되서 업데이트 된 를 string으로 변환해서 로컬 스토리지에 저장
-
+  saveInputObj(agoraStatesDiscussions); // 새로 추가되서 업데이트된 agoraStatesDiscussions를 string으로 변환해서 로컬 스토리지에 저장
 
   const newdiscussion = convertToDiscussion(newObj); // 새로운 객체가 삽입된 상태의 더미데이터를 변수에 저장
 
   ul.prepend(newdiscussion);  // [질문] 음.. 어차피 unshift로 넣어서 새롭게 생성된 객체인데 prepend로 넣는 이유가 뭘까?
 
-});
+}); 
 
 
-// let arrInputObj = []; // 로컬 스토리지 작업을 위한 기본 배열 초기 세팅 (데이터들이 계속 변동이 되니까 디폴트 박스를 하나 만들어준다고 생각)
 
-// function saveInputObj(arr) {
-//   arrInputObj.push(arr);
-//   localStorage.setItem("arrInputObj", JSON.stringify(arr)); //  JSON.stringify로 stirng으로 변환(로컬 스토리지는 string 형태로만 저장 가능)
+let arrInputObj = []; // 로컬 스토리지 작업을 위한 기본 배열 초기 세팅 (데이터들이 계속 변동이 되니까 디폴트 박스를 하나 만들어준다고 생각)
 
-// }
+function saveInputObj(arr) {
+  localStorage.setItem("arrInputObj", JSON.stringify(arr)); //  JSON.stringify로 stirng으로 변환(로컬 스토리지는 string 형태로만 저장 가능)
+}
 
+const savedInputObj = localStorage.getItem("arrInputObj");  // 로컬 스토리지에 저장된 데이터를 조회(접근)해서 변수에 담기 (string 상태)
+// console.log(savedInputObj);
 
+if (savedInputObj) {       // 로컬 스토리지에 데이터가 있다면 (비어있지 않으면)
+  const parsedInputObj = JSON.parse(savedInputObj);   // JSON.parse로 데이터들을 array 로 변환
+  console.log(parsedInputObj);
+  arrInputObj = parsedInputObj;   // 파싱된 데이터를 기존 초기 세팅 배열에 다시 담아주고
+
+  // console.log(arrInputObj);
+
+  arrInputObj.forEach(convertToDiscussion);
+
+}
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -164,21 +162,6 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
-
-const savedInputObj = localStorage.getItem("arrInputObj");  // 로컬 스토리지에 저장된 데이터를 조회(접근)해서 변수에 담기 (string 상태)
-console.log(savedInputObj);
-
-if (savedInputObj) {       // 로컬 스토리지에 데이터가 있다면 (비어있지 않으면)
-  const parsedInputObj = JSON.parse(savedInputObj);   // JSON.parse로 데이터들을 array 로 변환
-  console.log(parsedInputObj);
-  arrInputObj = parsedInputObj;   // 파싱된 데이터를 기존 초기 세팅 배열에 다시 담아주고
-
-  console.log(arrInputObj);
-
-  arrInputObj.forEach(convertToDiscussion);
-
-}
 
 
 // ======== 디스커션 추가후 상태 유지 (로컬 스토리지 활용) =========
