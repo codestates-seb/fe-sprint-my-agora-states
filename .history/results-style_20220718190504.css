@@ -1,0 +1,28 @@
+.discussion__container {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	width: 540px;
+}
+
+.discussion__avatar--wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.discussion__content {
+	border: 1px solid black;
+}
+
+a {
+	text-decoration: none;
+	font-size: 20px;
+}

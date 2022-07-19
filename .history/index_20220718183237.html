@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>My Agora States</title>
 		<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="results-style.css" />
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
 			integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -19,47 +18,36 @@
 		<main>
 			<h1>My Agora States</h1>
 			<section class="form__container">
-				<div class="input-container">
-					<div class="form__input--wrapper">
-						<div class="form__input--name">
-							<label for="name">Enter your name: </label>
-							<input
-								class="name-input"
-								type="text"
-								name="name"
-								id="name"
-								required
-							/>
-						</div>
-						<div class="form__input--title">
-							<label for="name">Enter your title: </label>
-							<input
-								class="title-input"
-								type="text"
-								name="name"
-								id="name"
-								required
-							/>
-						</div>
-						<div class="form__textbox">
-							<label for="story">Your question: </label>
-							<textarea
-								class="question-input"
-								id="story"
-								name="story"
-								placeholder="질문을 작성하세요"
-								required
-							></textarea>
+				<form action="" method="get" class="form">
+					<div class="input-container">
+						<div class="form__input--wrapper">
+							<div class="form__input--name">
+								<label for="name">Enter your name: </label>
+								<input type="text" name="name" id="name" required />
+							</div>
+							<div class="form__input--title">
+								<label for="name">Enter your title: </label>
+								<input type="text" name="name" id="name" required />
+							</div>
+							<div class="form__textbox">
+								<label for="story">Your question: </label>
+								<textarea
+									id="story"
+									name="story"
+									placeholder="질문을 작성하세요"
+									required
+								></textarea>
+							</div>
 						</div>
 					</div>
 					<div class="form__submit">
-						<button class="submit-btn">Submit</button>
+						<input type="submit" value="submit" />
 					</div>
-				</div>
+				</form>
 			</section>
 			<section class="discussion__wrapper">
 				<ul class="discussions__container">
-					<!-- <li class="discussion__container">
+					<li class="discussion__container">
 						<div class="discussion__avatar--wrapper">
 							<img
 								class="discussion__avatar--image"
@@ -79,9 +67,8 @@
 							</div>
 						</div>
 						<div class="discussion__answered"><p>☑</p></div>
-					</li> -->
+					</li>
 				</ul>
-				<div class="pagination-btn-container"></div>
 			</section>
 		</main>
 	</body>

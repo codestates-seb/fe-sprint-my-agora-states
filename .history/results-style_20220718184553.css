@@ -1,0 +1,11 @@
+.discussion__container {
+	border: 1px solid #ccc;
+}
+
+.discussion__avatar--wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+}

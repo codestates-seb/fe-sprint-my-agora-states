@@ -1,16 +1,7 @@
-const ul = document.querySelector('ul.discussions__container');
-const submitBtn = document.querySelector('.submit-btn');
+// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+console.log(agoraStatesDiscussions);
 
-// check whether discussions are saved in local storage
-if (localStorage.getItem('Discussions')) {
-	agoraStatesDiscussions = JSON.parse(localStorage.getItem('Discussions'));
-}
-
-// local storage
-function saveDiscussions() {
-	localStorage.setItem('Discussions', JSON.stringify(agoraStatesDiscussions));
-}
-
+// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
 	const li = document.createElement('li'); // li 요소 생성
 	li.className = 'discussion__container'; // 클래스 이름 지정
@@ -55,7 +46,14 @@ const convertToDiscussion = (obj) => {
 	return li;
 };
 
-// Pagination
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+	for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+		element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+	}
+	return;
+};
+
 const paginationCtn = document.querySelector('.pagination-btn-container');
 let page = 0;
 for (let i = 0; i < agoraStatesDiscussions.length; i += 10) {
@@ -65,6 +63,7 @@ for (let i = 0; i < agoraStatesDiscussions.length; i += 10) {
 	page++;
 	paginationCtn.appendChild(paginationBtn);
 }
+const ul = document.querySelector('ul.discussions__container');
 
 const paginBtns = document.querySelectorAll('.pagination-btn');
 paginBtns.forEach((btn) => {
@@ -78,21 +77,10 @@ paginBtns.forEach((btn) => {
 	});
 });
 
-// Initial Render
-function initialRender() {
-	ul.innerHTML = ``;
-	for (let i = 0; i < 10; i++) {
-		ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
-	}
-	console.log(agoraStatesDiscussions);
-	saveDiscussions();
-}
-
-initialRender();
+page = 1;
+render(ul);
 
 function getTimeString(obj) {
-	if (!obj.createdAt.includes('-')) return obj.createdAt;
-
 	const timeCreated = new Date(obj.createdAt);
 	const timeCreatedString = timeCreated.toLocaleString('ko-KR', {
 		year: 'numeric',
@@ -104,42 +92,4 @@ function getTimeString(obj) {
 	});
 
 	return timeCreatedString;
-}
-
-function newDiscussion(e) {
-	e.preventDefault();
-	const name = document.querySelector('.name-input').value;
-	const title = document.querySelector('.title-input').value;
-	const question = document.querySelector('.question-input').value;
-
-	// append new discussion to agoraStatesDiscussions array
-	const newDiscussion = {
-		id: String(new Date().getTime()),
-		createdAt: getTime(),
-		title: title,
-		url: `https://www.agora.io/discussions`,
-		author: name,
-		answer: false,
-		avatarUrl: 'https://i.stack.imgur.com/frlIf.png',
-	};
-
-	agoraStatesDiscussions.unshift(newDiscussion);
-	initialRender();
-}
-
-submitBtn.addEventListener('click', newDiscussion);
-
-function getTime() {
-	// return time to locale string
-	const time = new Date();
-	const timeString = time.toLocaleString('ko-KR', {
-		year: 'numeric',
-		month: '2-digit',
-		day: 'numeric',
-		hour: 'numeric',
-		minute: 'numeric',
-		hour12: true,
-		timeZone: 'Asia/Seoul',
-	});
-	return timeString;
 }
