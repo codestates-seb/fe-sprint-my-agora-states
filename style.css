@@ -1,1 +1,291 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* CSS reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {
+    font-family: 'paybooc-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Atomy-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Atomy-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GongGothicLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GoyangIlsan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Global*/
+
+body {
+	line-height: 1;
+    background-color: #5E00E7;
+    position: sticky;
+}
+
+.topFix {
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    background: linear-gradient(#5E00E7 50%, transparent 50%);
+    height: 35px;
+    width: 100%;
+    padding: 40px 80px;
+}
+
+.topFix__border {
+    position: fixed;
+    right: 20px;
+    left: 20px;
+    border-radius: 20px;
+    background:linear-gradient(rgb(246,247,249) 50%, transparent 50%);
+    height: 35px;
+    margin: 0px 20px;
+}
+
+
+/*title*/
+
+h1{
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    position: fixed;
+    z-index: 3;
+    margin: 25px 0 0 30px;
+}
+
+.titleAdd {
+    height: 250px;
+}
+
+.askQ {
+    font-family: 'paybooc-Medium';
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* main box*/
+main {
+    background-color: rgb(246,247,249);
+    margin: 40px;
+    border-radius: 20px;
+}
+
+/* form */
+
+.form {
+    position: relative;
+    background: linear-gradient(150deg, #3C48FB, #E14DFF);
+    margin: auto;
+    width: 540px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+label {
+    font-family: 'GoyangIlsan';
+    font-size: 20px;
+    padding: 20px;
+    color: rgb(246,247,249);
+}
+
+.form__input--wrapper {
+    display: block;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+
+.form__input--name {
+    padding: 30px 20px 20px;
+}
+
+.form__input--storyTitle {
+    padding: 0px 20px 20px;
+}
+
+.form__textbox {
+    padding: 0px 20px 20px;
+}
+
+#storyName, #story, #storyTitle{
+    width: 380px;
+    height: 25px;
+    border-radius: 20px;
+    padding: 5px;
+    border-width: 0px;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=submit] {
+    height: 60px;width: 150px;
+    margin: 10px 0px 20px;
+    border-radius: 20px;
+    border: 0px;
+    background-color: #E14DFF;
+    color: rgb(246,247,249);
+    font-family: 'GongGothicLight';
+    font-size: 20px;
+    box-shadow: 3px 3px #5E00E7
+    
+}
+
+
+
+/* Question box */
+
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 540px;
+
+
+    /* background-color: grey; */
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+    margin: 50px 0px;
+}
+
+img{
+    width: 48px;
+    border-radius: 100%;
+    margin: 10px 15px 10px 10px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    font-family: 'GongGothicLight';
+    font-size: 15px;
+    color: rgb(246,247,249);
+}
+
+.discusstion__title {
+    margin: 10px 0px;
+    background-color: #3C48FB;
+    border-radius: 20px;
+    padding: 10px 15px;
+    width: 390px;
+}
+
+.discusstion__information {
+    font-size: 13px;
+    margin: 10px 10px 0px 250px;
+    text-align: right;
+    color: #3C48FB;
+    font-family: 'GoyangIlsan';
+}
+
+.information__time {
+    margin-top: 5px;
+}
+
+.discusstion__question {
+    margin: 20px 10px;
+    font-family: 'GoyangIlsan';
+
+}
+.discussion__answered {
+    display: flex;
+    margin:10px 20px;
+
+}
+
+p {
+    margin: auto;
+}
+
+p > i {
+    font-size: 25px;
+}
+
+.deleteBtn {
+    position: absolute;
+    right: 250px;
+    display: none;
+}
+
+button {
+    background-color: transparent;
+    border: 0px;
+}
+
+
+
+.grey {
+    color: rgb(210, 210, 210);
+}
+
+.green {
+    color: #E14DFF;
+}
