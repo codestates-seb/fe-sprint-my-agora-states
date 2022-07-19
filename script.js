@@ -87,6 +87,10 @@ const render = (element, array) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 // render(ul);
+
+//현재 위치 저장
+let now;
+
 //최초 1페이지 출력
 pagination(1);
 
@@ -121,6 +125,12 @@ form.addEventListener("submit", () => {
 const pagination__buttons = document.querySelector(".pagination__buttons");
 const page = Math.ceil(resultArray.length / 10); //하단 버튼 갯수
 
+//이전 버튼
+const prev = document.createElement("button");
+prev.className = "prev_btn";
+prev.textContent = "<";
+pagination__buttons.append(prev);
+
 //페이지 버튼 그리기
 for (let i = 1; i <= page; i += 1) {
   const button = document.createElement("button");
@@ -129,9 +139,33 @@ for (let i = 1; i <= page; i += 1) {
   button.textContent = i;
   pagination__buttons.append(button);
 }
+//다음 버튼
+const next = document.createElement("button");
+next.className = "next_btn";
+next.textContent = ">";
+pagination__buttons.append(next);
 
+const prev_btn = document.querySelector(".prev_btn");
+const next_btn = document.querySelector(".next_btn");
 const page__btns = document.querySelectorAll(".page__btn");
 
+//이전 버튼
+prev_btn.addEventListener("click", () => {
+  let prev = now - 1;
+  if (prev < 1) {
+    prev = 1;
+  }
+  pagination(prev);
+});
+//다음 버튼
+next_btn.addEventListener("click", () => {
+  let next = now + 1;
+  if (next > page) {
+    next = page;
+  }
+
+  pagination(next);
+});
 //페이지 버튼 클릭시 이벤트
 page__btns.forEach((page__btn) => {
   page__btn.addEventListener("click", (event) => {
@@ -141,6 +175,7 @@ page__btns.forEach((page__btn) => {
 
 //페이징 함수
 function pagination(end) {
+  now = end;
   end = Number(end + "0");
   let start = end - 10;
   //배열의 시작과 끝을 잘라서 보여줌
