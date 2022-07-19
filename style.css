@@ -2,6 +2,8 @@
 * {
     box-sizing: border-box;
     color: white;
+    margin: 0;
+    padding: 0;
 }
 
 body {
