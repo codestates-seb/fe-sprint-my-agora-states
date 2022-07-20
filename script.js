@@ -4,6 +4,7 @@
 // localStorage 정보 기존 data에 추가
 const inputString = localStorage.getItem('InputInfo');
 const parsInputString = JSON.parse(inputString);
+let arr = [];
 let page = 1;
 
 // 로컬스토리지 비울시 주석처리 save 비우고 나서 해제 save
@@ -12,7 +13,17 @@ let page = 1;
 // agoraStatesDiscussions.unshift(...agoraArray);
 
 console.log(agoraStatesDiscussions);
+console.log(parsInputString);
 
+if(parsInputString !== null){
+  if(agoraStatesDiscussions.length < parsInputString.length){
+    arr = parsInputString;
+    console.log(arr);
+  }else{
+    arr = agoraStatesDiscussions;
+    console.log(arr);
+  }
+}
 // 로컬스토리지 비우기
 // localStorage.clear();  
 
@@ -119,14 +130,14 @@ const render = (element) => {
     // for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     //   element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     // }
-  if(agoraStatesDiscussions.length - page*10 >= 0){
+  if(arr.length - page*10 >= 0){
     for (let i = (page-1)*10; i < page*10; i += 1) {
-      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+      element.append(convertToDiscussion(arr[i]));
     }
   } 
   else{
-    for (let i = (page-1)*10; i < agoraStatesDiscussions.length; i += 1) {
-      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    for (let i = (page-1)*10; i < arr.length; i += 1) {
+      element.append(convertToDiscussion(arr[i]));
     }
   }
   return;
@@ -136,8 +147,8 @@ const render = (element) => {
 // 그전에 생성된 li 제거
 const remove = (element) => {
 
-  if(page === Math.floor(agoraStatesDiscussions.length/10)+1){
-    while(element.children.length > agoraStatesDiscussions.length%10){
+  if(page === Math.floor(arr.length/10)+1){
+    while(element.children.length > arr.length%10){
       // console.log(element.removeChild(element.firstChild));
       element.removeChild(element.firstChild)
     }
@@ -168,12 +179,12 @@ submit.onclick = () => {
   
   
   if(inputIsTrue()){
-    agoraStatesDiscussions.unshift(obj);
+    arr.unshift(obj);
     // 맨앞에 추가하는 속성
     ul.prepend(convertToDiscussion(obj));
-    localStorage.setItem('InputInfo',JSON.stringify(agoraStatesDiscussions))
+    localStorage.setItem('InputInfo',JSON.stringify(arr))
   }
-  console.log(agoraStatesDiscussions);
+  console.log(arr);
   console.log(localStorage);
 }
 
@@ -193,13 +204,13 @@ prevBtn.onclick = () => {
 }
 
 nextBtn.onclick = () => {
-  if(page <= Math.floor(agoraStatesDiscussions.length/10)){
+  if(page <= Math.floor(arr.length/10)){
     page += 1;
     prevBtn.removeAttribute('disabled');
     render(ul);
     remove(ul);
   }
-  if(page === Math.floor(agoraStatesDiscussions.length/10)+1){
+  if(page === Math.floor(arr.length/10)+1){
     
     nextBtn.setAttribute('disabled', true);
   }
