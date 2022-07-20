@@ -165,11 +165,12 @@ input, textarea {
    display: flex;
    justify-content: space-between;
 }
+
 section.buttons {
     display: flex;
     /* background-color: yellow; */
-    margin-top: 20px;
-    margin-bottom: 2px;
+    margin-top: 35px;
+    margin-bottom: 50px;
     justify-content: center; /*브라우저 화면 크기에 맞춰 보임 */
   }
 section.buttons > button {
