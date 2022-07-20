@@ -36,7 +36,9 @@ const convertToDiscussion = (obj) => {
   discussionTitle.firstChild.textContent = obj.title;
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
 
 
   if (obj.answer) {
