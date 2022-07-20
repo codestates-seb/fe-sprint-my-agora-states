@@ -1,1 +1,181 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#title>p {
+    position: absolute;
+    top: 4.5%;
+    left: 4%;
+    margin: 0;
+    color: #F5D23A;
+    text-shadow:5px 5px #D62A18;
+    -webkit-text-stroke: 2px black;
+    font-size: 6vw;
+    font-family: 'Press Start 2P';
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+#title>p::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: attr(data-split);
+    width: 50%;
+    color: #fff;
+    overflow: hidden;
+}
+
+#question__wrapper{
+    background-color: #EFEFEF;
+    border-width: 5px;
+    border-style: dashed;
+} 
+
+#title {
+    height: 15vh;
+    margin: 0;
+    background: linear-gradient(90deg, #F5D23A 50%, #ffffff 50%);
+  }
+
+.form__input--wrapper{
+    display: flex;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    color: black;
+    text-shadow:5px 5px #D62A18;
+    -webkit-text-stroke: 3px black;
+    font-size: 3vw;
+    font-family: 'Press Start 2P';
+} 
+
+#mario2{
+    width:50px;
+    position: absolute;
+    right: 70%;
+    top:52%; 
+}
+
+#mario3{
+    width:50px;
+    position: absolute;
+    right: 20%;
+    top:52%;
+}
+
+#mario4{
+    width:40px;
+    position: absolute;
+    right: 17%;
+    top:57%;
+}
+
+input {
+    width: 600px;
+    height: 50px;
+    /* text-shadow:5px 5px #D62A18; */
+    font-size: 3vw;
+    font-family: 'Press Start 2P';
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+    background-color: #F5D23A;
+    border-width: 5px;
+}
+
+input::placeholder{
+    color: black;
+    font-family: 'Press Start 2P';
+    text-shadow:5px 5px #D62A18;
+}
+
+textarea{
+    width: 600px;
+    height: 170px;
+    font-size: 3vw;
+    font-family: 'Press Start 2P';
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+    background-color: #F5D23A;
+    border-width: 5px;
+    resize: none;
+    padding-top: 10px;
+}
+
+textarea::placeholder{
+    color: black;
+    font-family: 'Press Start 2P';
+    text-shadow:5px 5px #D62A18;
+}
+
+button {
+	box-shadow: 5px 5px 0px -1px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:19px;
+	border:9px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:28px;
+	padding:11px 76px;
+	text-decoration:none;
+	text-shadow:-1px 3px 0px #810e05;
+}
+button:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+#container{
+    background-color: #F5D23A;
+    padding-top:20px
+}
+
+.discussion__container {
+    margin: 0 20px 20px 20px;
+	box-shadow: 5px 5px 0px -1px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:19px;
+	border:20px solid #d02718;
+	display:flex;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:11px 76px;
+	text-decoration:none;
+	text-shadow:-1px 3px 0px #810e05;
+}
+.discussion__container:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.discussion__container:active {
+	position:relative;
+	top:1px;
+}
+
+.discussion__information{
+    display:flex;
+    text-align: right;
+    justify-content: right;
+    padding-top: 10px;
+}
+
+.discussion__title{
+    padding-left: 20px;   
+}
