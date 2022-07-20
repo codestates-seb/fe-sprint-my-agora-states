@@ -1,5 +1,17 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+//agoraStatesDiscussions을 localStorge로 불러옴
+//data란 곳에 agoraStatesDiscussions을 저장?
+let data;
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+
+if(dataFromLocalStorage){
+  console.log('hi');
+  data = JSON.parse(dataFromLocalStorage);
+}else{
+  data = agoraStatesDiscussions.slice();
+  console.log(data)
+}
 
 //랜덤 이미지 뽑기 
 const randomImg = ()=>{
@@ -19,7 +31,7 @@ const complateAnswer = (as)=>{
   if(inAnswer!==null &&inAnswer!==undefined){
     const li1 = document.createElement('li');
     li1.className = 'discussion__containerhide';
-    li1.id = `id${agoraStatesDiscussions.indexOf(as)}-${agoraStatesDiscussions.indexOf(as)}`
+    li1.id = `id${data.indexOf(as)}-${data.indexOf(as)}`
     //답변자의 사진
     const avatarWrapper1 = document.createElement('div');
     avatarWrapper1.className="discussion__avatar--wrapperhide";
@@ -66,7 +78,7 @@ const convertToDiscussion = (obj) => {
 
   //새로 추가된 prepend값에 아이디의 충돌을 막기 위함.
   if(obj.url!==undefined &&obj.url!==null){
-  li.id = `id${agoraStatesDiscussions.indexOf(obj)}`
+  li.id = `id${data.indexOf(obj)}`
   }
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
@@ -132,7 +144,7 @@ const convertToDiscussion = (obj) => {
   showBtn.type = 'button'
   //prepend되는 버튼 아이디 충돌을 막기위함
   if(obj.url!==undefined && obj.url!==null){
-  showBtn.id = `btnid${agoraStatesDiscussions.indexOf(obj)}`;
+  showBtn.id = `btnid${data.indexOf(obj)}`;
 }
   if(obj.answer!==null && obj.answer !==undefined){
     showBtn.className = 'previewComplate';
@@ -198,11 +210,11 @@ const ul = document.querySelector("ul.discussions__container");
 
 const render = (tagUl,pagenumber)=>{
   for(let i = (pagenumber-1)*10; i<pagenumber*10; i++){
-    if(Array.isArray(convertToDiscussion(agoraStatesDiscussions[i]))){
-      tagUl.append(convertToDiscussion(agoraStatesDiscussions[i])[0])
-      tagUl.append(convertToDiscussion(agoraStatesDiscussions[i])[1])
+    if(Array.isArray(convertToDiscussion(data[i]))){
+      tagUl.append(convertToDiscussion(data[i])[0])
+      tagUl.append(convertToDiscussion(data[i])[1])
     }else{
-      tagUl.append(convertToDiscussion(agoraStatesDiscussions[i]));
+      tagUl.append(convertToDiscussion(data[i]));
     }
   }
 }
@@ -231,7 +243,7 @@ const enterEvent = (e)=>{
     };
     
     agoraStatesDiscussions.unshift(pushData);
-    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+    ul.prepend(convertToDiscussion(data[0]));
     
     $username.value = '';
     $usertitle.value = '';
@@ -265,7 +277,7 @@ const showingEvent = (event)=>{
 
 
 const $numbering =document.querySelector('.numbering');
-for(let i=1; i<(agoraStatesDiscussions.length/10)+1; i++){
+for(let i=1; i<(data.length/10)+1; i++){
   const pagebtn = document.createElement('input');
   pagebtn.type = 'button';
   pagebtn.value = i;
@@ -292,8 +304,10 @@ for(let i=1; i<(agoraStatesDiscussions.length/10)+1; i++){
     
   
     
-    agoraStatesDiscussions.unshift(pushData);
-   
+    data.unshift(pushData);
+    
+    //localStorage에 저장
+    localStorage.setItem("agoraStatesDiscussions",JSON.stringify(data))
     $username.value = '';
     $usertitle.value = '';
     $question.value = '';
@@ -314,7 +328,7 @@ for(let i=1; i<(agoraStatesDiscussions.length/10)+1; i++){
     while ($numbering.firstChild) {
       $numbering.removeChild($numbering.firstChild);
     }
-    for(let i=1; i<(agoraStatesDiscussions.length/10)+1; i++){
+    for(let i=1; i<(data.length/10)+1; i++){
       const pagebtn = document.createElement('input');
       pagebtn.type = 'button';
       pagebtn.value = i;
