@@ -1,1 +1,190 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    /* --background: #faf8f4; */
+    --surface: #ffffff;
+    /* --primary: #5e7c96; */
+    /* --secondary: #DA7F8F; */
+    /* --form-surface: #f6eed8; */
+    /* --visited: #E1E5EA; */
+    /* --link: #A7BBC7; */
+  }
+body {
+    background-color: lavenderblush;
+    text-align: center;
+}
+h1 {
+    font-size: 40px;
+    color: royalblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.form__input--wrapper {
+    /* background-color: azure; */
+    width: 420px;
+    height: 100px;
+    /* color: black; */
+    /* font-size: 10px; */
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.form__submit {
+    /* background-color: lightskyblue; */
+    margin-top: 13px;
+    /* display: flex; */
+    
+}
+.form__submit > input {
+    width: 225px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    margin-right: -5px;
+    margin-top: 5px;
+}
+.form__container {
+    text-align: center;
+    width: 540px;
+    height: 185px;
+    border:solid 3px;
+    /* border-radius: 10%; */
+    background: pink;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* .form__container > form {
+    background-color: aqua;
+    display: flex;   
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+} */
+
+.discussion__wrapper {
+    /* background-color: brown; */
+    display:inline-block;
+}
+.discussion__container{
+    display: flex;
+    width: 545px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-right: 40px;
+    background-color: rgb(234, 236, 255);
+    border:solid 3px black;
+    border-bottom: 0px;
+}
+img {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+
+}
+.discussion__avatar--wrapper {
+    /* display: flex; */
+    /* align-items: center; */
+    /* background-color: lightgrey; */
+    margin-left: 20px;
+}
+.discussion__information {
+    width: 280px;
+    margin-top: 25px;
+    margin-left: 135px;
+    margin-bottom: 12px;
+    /* margin-right: 10px; */
+    text-align: center;
+    background-color: white;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    /* font-weight: bold; */
+    border: solid 2px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.discussion__title {
+    /* background-color: lightpink; */
+    padding-left: 10px;
+    text-align: left;
+}
+a {
+    text-decoration-line: none;
+    color: black;
+    font-weight: lighter;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-left: 5px; */
+    /* background-color: aquamarine; */
+    margin-right: 10px;
+    font-size: x-large;
+}
+
+.form__textbox {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 5px;
+    /* align-items: center; */
+    /* text-align: center; */
+
+}
+#story {
+    width: 240px;
+}
+
+.form__input--title {
+    padding-left: 10px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+label {
+    margin-left: -50px;
+}
+
+input, textarea {
+    margin-right: -50px;
+}
+
+#story, #name {
+    border: solid 2px;
+}
+
+.form__input--name {
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-bottom: 3px;
+   display: flex;
+   justify-content: space-between;
+}
+
+section.buttons {
+    display: flex;
+    /* background-color: yellow; */
+    margin-top: 35px;
+    margin-bottom: 50px;
+    justify-content: center; /*브라우저 화면 크기에 맞춰 보임 */
+  }
+section.buttons > button {
+    /* border-radius: 50%; */
+    background-color: var(--surface);
+    /* flex: 1 0 0; */
+    display: flex;
+    align-items: center;
+    border: solid 2px;
+    margin: 0 1rem;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
