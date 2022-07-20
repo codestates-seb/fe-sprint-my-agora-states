@@ -1,1 +1,244 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/*RESET CSS*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Style */
+
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #121212;
+}
+
+main {
+    max-width: 540px;
+}
+
+.title {
+    padding-left: 40px;
+    margin: 30px 0px 80px 0px;
+    font-size: 36px;
+}
+
+/*Form Part*/
+.form__container {
+    width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.form__input--name {
+    margin-bottom: 10px;
+}
+
+#name{
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid #806bfe;
+}
+.form__input--title {
+    margin-bottom: 10px;
+}
+
+#title{
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid #806bfe;
+}
+
+#story{
+    width: 300px;
+    height: 100px;
+    border: none;
+    resize: none;
+    border-bottom: 2px solid #806bfe;
+}
+
+input:focus {outline: none}
+
+textarea:focus {outline: none}
+
+.form__submit {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#submit{
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    background-color: #f0edff;
+    border: none;
+    color: #806bfe;
+    border-radius: 30px;
+}
+
+/*Design Boxes*/
+.design__sections {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.design__sections-first{
+    width: 10%;
+    height: 100%;
+    background-color: #a26bfe;
+    border-radius: 30px;
+}
+
+.design__sections-second{
+    width: 20%;
+    height: 100%;
+    background-color: #9760f4;
+    border-radius: 30px;
+    margin: 0px 20px 0px 10px
+}
+
+.design__sections-third{
+    width: 50%;
+    height: 100%;
+    background-color: #806bfe;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+/*Discussion Part*/
+.discussions__container {
+    list-style: none;
+    padding: 0px;
+}
+
+.discussion__upper--wrapper {
+    display: flex;
+    margin-top: 15px;
+}
+
+.discussion__upper--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.discussion__upper--profile {
+    padding-left: 2%;
+    width: 400px;
+}
+
+.discussion__upper--profile--author {
+    font-size: 15px;
+}
+
+.discussion__upper--profile--writtentime {
+    color: #d0d0d0;
+    font-size: 12px;
+}
+
+.discussion__upper--answersheet {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.discussion__upper--answersheet-answered > img {
+    width: 15px;
+    height: 15px;
+}
+.discussion__upper--answersheet-notanswered > img{
+    width: 15px;
+    height: 15px;
+}
+
+.discussion__content {
+    display: flex;
+    border-bottom: 1px solid #806bfe;
+    padding-bottom: 3vh;
+}
+
+.discussion__title{
+    width: 85%;
+    margin-top: 2vh;
+}
+
+.discussion__title--text {
+    text-decoration: none;
+    color: #121212;
+    font-size: 20px;
+}
+
+.discussion__wantedbox{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__wantedbox--text {
+    font-size: 2px;
+    color: #121212;
+}
+
+.discussion__wantedbox--button {
+    cursor: pointer;
+    border: none;
+    border-radius: 30%;
+    width: 30%;
+    background-color: #806bfe;
+    color: #ffffff;
+    font-size: 1px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
