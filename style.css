@@ -1,4 +1,13 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    /* --background: #faf8f4; */
+    --surface: #ffffff;
+    /* --primary: #5e7c96; */
+    /* --secondary: #DA7F8F; */
+    /* --form-surface: #f6eed8; */
+    /* --visited: #E1E5EA; */
+    /* --link: #A7BBC7; */
+  }
 body {
     background-color: lavenderblush;
     text-align: center;
@@ -83,9 +92,9 @@ img {
 }
 .discussion__information {
     width: 280px;
-    margin-top: 30px;
-    margin-left: 130px;
-    margin-bottom: 10px;
+    margin-top: 25px;
+    margin-left: 135px;
+    margin-bottom: 12px;
     /* margin-right: 10px; */
     text-align: center;
     background-color: white;
@@ -107,8 +116,9 @@ a {
     font-family: 'IBM Plex Sans KR', sans-serif;
 }
 .discussion__answered {
-    /* display: flex; */
-    /* align-items: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     /* padding-left: 5px; */
     /* background-color: aquamarine; */
     margin-right: 10px;
@@ -156,14 +166,22 @@ input, textarea {
    display: flex;
    justify-content: space-between;
 }
-/* #page {
-    padding:0; border:0; margin:0; list-style:none; font-family:'d2coding'; font-size:16px;
+section.buttons {
+    display: flex;
+    /* background-color: yellow; */
+    padding-left: 440px;
+    margin-top: 20px;
+  }
+section.buttons > button {
+    background-color: var(--surface);
+    /* flex: 1 0 0; */
+    display: flex;
+    align-items: center;
+    border: solid 1px;
+    margin: 0 1rem;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-
-.wrap_con .con {display:none;}
-.wrap_con .con.on {display:block;}
-
-페이징
-.paging a {display:none;}
-.paging a.view {display:block;}
-.paging a.on {color:#ff0000; font-weight:bold;}
