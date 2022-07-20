@@ -155,7 +155,7 @@ submit.onclick = () => {
   let date = new Date();
   const obj = {
     id: "unique id",
-    createdAt: date.toLocaleString(),
+    createdAt: date,
     title: inputTitle.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
     author: inputName.value,
