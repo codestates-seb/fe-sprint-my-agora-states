@@ -116,24 +116,19 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  console.log(agoraStatesDiscussions.length - page*10);
     for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
       element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     }
-  // if((agoraStatesDiscussions.length - page*10) >= 0){
-  //   for (let i = (page-1)*10; i < page*10; i += 1) {
-  //     console.log(element.append(convertToDiscussion(agoraStatesDiscussions[i])));
-  //     // element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-
-  //   }
-  // } 
-  // else{
-  //   for (let i = (page-1)*10; i < agoraStatesDiscussions.length; i += 1) {
-  //     console.log(element.append(convertToDiscussion(agoraStatesDiscussions[i])));
-
-  //     // element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  //   }
-  // }
+//   if(agoraStatesDiscussions.length - page*10 >= 0){
+//     for (let i = (page-1)*10; i < page*10; i += 1) {
+//       element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//     }
+//   } 
+//   else{
+//     for (let i = (page-1)*10; i < agoraStatesDiscussions.length; i += 1) {
+//       element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//     }
+//   }
   return;
 };
 
