@@ -18,9 +18,44 @@ body {
     display: flex;
     /* 가로 중앙 정렬 */
     justify-content: center;
+    align-items: center;
     margin: 100px;
-    
 }
+/* 질문 입력창 정렬 */
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 이름, 제목창 테투리 투명하게 */
+div.form__input--name > input,
+div.form__input--title > input {
+  border: 0;
+  flex: 6 0 0;
+}
+
+div.form__input--name > label,
+div.form__input--title > label {
+  border: 0;
+  width: 100px;
+  flex: 4 0 0;
+}
+
+div.form__input--wrapper {
+    flex: 8 0 auto;
+    padding: 0 0.5rem;
+  }
+  
+div.form__input--name,
+div.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+  padding-top: 0.2rem;
+}
+
+
+
 
 
 
@@ -34,16 +69,7 @@ h1 {
 }
 
 
-.form {
-        /* 질문 게시글 배경색 */
-    background-color: #f5efd7;
-    /* 질문 게시글 가로길이*/
-    width: 540px;
-    /* 질문 게시글 모서리 둥글게 */
-    border-radius: 10px;
-    color: #acbbc3;
-    padding: 20px;
-}
+
 
 .form__container{
     /* 질문 등록 가로 중앙 정렬 */
@@ -90,6 +116,11 @@ li.discussion__container {
     justify-content: center; 
      
 
+}
+div.form__textbox > label,
+div.form__textbox > textarea {
+  padding-top: 0.2rem;
+  border: 0;
 }
 
 
@@ -152,8 +183,8 @@ h2 {
 }
 
 #submit {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 100%;
     color: #6c7a86;
     background-color: #fcf9f4;
     border: 0px;
@@ -162,9 +193,14 @@ h2 {
     
 
 }
-
-.form__submit {
-    
-    width: 100px;
-    height: 100px;
-}
+form.form {
+    padding: 1rem;
+    border-radius: 0.5rem;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #acbbc3;
+    background-color: #f5efd7;
+    width: 540px;
+  }

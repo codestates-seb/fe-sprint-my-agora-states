@@ -36,15 +36,9 @@ const convertToDiscussion = (obj) => {
 
     // 체크박스
     const discussionAn = document.createElement('p')
-    const is_checked = document.createElement('input')
-    is_checked.className = "is_checked"
-    is_checked.setAttribute('type', 'checkbox');
-    discussionAn.append(is_checked);
-    discussionAnswered.append(discussionAn);
-    
-       
-   
-
+    const checked = document.createElement("p");
+    checked.textContent = obj.answer ? "☑" : "☒";
+    discussionAnswered.append(checked);
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -77,6 +71,7 @@ form.addEventListener("submit", (event) => {
 
   agoraStatesDiscussions.unshift(obj);
   const newDiscussion = convertToDiscussion(obj)
+  // ul에 다시
   ul.prepend(newDiscussion)
 })
 
