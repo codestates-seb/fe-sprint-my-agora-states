@@ -50,6 +50,7 @@ h1 {
     border:solid 3px;
     /* border-radius: 10%; */
     background: pink;
+    margin-bottom: 10px;
     display: inline-block;
 }
 
