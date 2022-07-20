@@ -64,7 +64,6 @@ h1 {
 .discussion__wrapper {
     /* background-color: brown; */
     display:inline-block;
-    margin-top: 5px;
 }
 .discussion__container{
     display: flex;
@@ -169,10 +168,12 @@ input, textarea {
 section.buttons {
     display: flex;
     /* background-color: yellow; */
-    padding-left: 440px;
     margin-top: 20px;
+    margin-bottom: 2px;
+    justify-content: center; /*브라우저 화면 크기에 맞춰 보임 */
   }
 section.buttons > button {
+    /* border-radius: 50%; */
     background-color: var(--surface);
     /* flex: 1 0 0; */
     display: flex;
@@ -182,6 +183,6 @@ section.buttons > button {
     height: 40px;
     font-size: 18px;
     font-weight: bold;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
