@@ -1,0 +1,22 @@
+{
+  "name": "sebfe40lhn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlagnsk2/fe-sprint-my-agora-states.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlagnsk2/fe-sprint-my-agora-states/issues"
+  },
+  "homepage": "https://github.com/dlagnsk2/fe-sprint-my-agora-states#readme",
+  "dependencies": {
+    "range": "^0.0.3"
+  }
+}
