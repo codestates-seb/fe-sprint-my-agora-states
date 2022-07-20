@@ -4,7 +4,7 @@ ul{list-style: none;}
 a {text-decoration: none; color: black;}
 main {max-width: 800px; padding: 15px; margin: 0 auto;}
 main h1 {
-    text-align:  left; margin: 50px 0 10px; font-size: 56px; color:  rgb(204, 204, 255);
+    text-align:  center; margin: 50px 0 10px; font-size: 56px; color:  rgb(204, 204, 255);
 }
 button {height: 42px; background-color: white; border: 1px solid gray; color: gray; font-size: 16px; text-align: center; }
 .write {width: 100%;  }
@@ -12,19 +12,19 @@ button {height: 42px; background-color: white; border: 1px solid gray; color: gr
 /* input */
 .form__input--wrapper {}
 .form__input--name,.form__input--title {position: relative; width: 100%; margin-bottom: 8px;}
-.form__input--name input,.form__input--title input { width: 50%; padding:10px; height: 32px; border: none; border-bottom: 1px solid rgb(204, 204, 255);margin: 0 auto;}
+.form__input--name input,.form__input--title input { width: 100%; padding:10px; padding-left: 50px; height: 32px; border: none; border-bottom: 1px solid rgb(204, 204, 255);margin: 0 auto;}
 .form__input--name label,.form__input--title label{position: absolute; left: 8px ; top: 50%; transform: translateY(-50%); display: block; width: 50px;  font-size: 14px; color: rgb(117, 117, 117); text-align: left;margin-right: 8px;}
-.form__textbox label{width: 50px; display: block;  font-size: 14px; color: rgb(117, 117, 117); text-align: left;margin-right: 8px; margin-bottom: 4px;margin-left: 8px;}
-.form__textbox textarea{display: block; width: 50%; border: 1px solid rgb(204, 204, 255); border-radius: 0; padding: 10px;}
-.form__submit input {border: 1px solid rgb(204, 204, 255); color: rgb(204, 204, 255); background-color: white; width: 50%; height: 32px; margin-top: 12px;margin-bottom: 30px;}
+.form__textbox label{width: 50px; display: block; margin-top: 15px; font-size: 14px; color: rgb(117, 117, 117); text-align: left;margin-right: 8px; margin-bottom: 4px;margin-left: 8px;}
+.form__textbox textarea{display: block; width: 100%; border: 1px solid rgb(204, 204, 255); border-radius: 0; padding: 10px;}
+.form__submit input {border: 1px solid rgb(204, 204, 255); color: rgb(204, 204, 255); background-color: white; width: 100%; height: 32px; margin-top: 12px;margin-bottom: 30px;}
 
-.discussion_wrap {width: 100%; padding: 12px 12px;}
+.discussion_wrap {width: 100%; padding: 12px 12px; cursor: pointer;}
 .discussion__container{border-top:  1px solid rgb(204, 204, 255);}
 .discussion__wrapper p {margin-bottom: 8px; font-size: 24px; font-weight: 700;}
 /* .discussion_wrap {display: table;  padding: 12px 12px; border-bottom: 1px solid rgb(204, 204, 255);} */
 /* .discussion_wrap:first-child {border-top:  1px solid rgb(204, 204, 255);}
 .discussion_wrap:last-child {border-bottom:  1px solid rgb(204, 204, 255);} */
-.discussion__container:nth-child(2n-1){background-color: rgb(250, 250, 250);}
+.discussion__container:nth-child(2n-1) .discussion_wrap{background-color: rgb(250, 250, 250);}
 .discussion__avatar--wrapper{display: table-cell;vertical-align:middle;}
 .discussion__avatar--wrapper img {border-radius: 50%; overflow: hidden; width: 64px; }
 .discussion__content{display: table-cell;vertical-align:middle; width: 100%; padding:0 20px;}
@@ -35,4 +35,6 @@ button {height: 42px; background-color: white; border: 1px solid gray; color: gr
 .discussion_question div {padding: 20px 12px;}
 .discussion_question .Answer_p { font-size: 13px; color: black; font-weight: 500; margin-bottom: 4px;}
 
-.open {max-height: 2000px;border-top:  1px solid rgb(204, 204, 255);transition: 0.3;}
+.fa-solid{transition: 0.3s;}
+.open {max-height: 10000000px;border-top:  1px solid rgb(204, 204, 255);transition: 0.3;}
+.rotate {transform: rotate(180deg); transition: 0.3s;}
