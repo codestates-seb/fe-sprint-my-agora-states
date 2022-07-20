@@ -4,6 +4,8 @@
 // localStorage 정보 기존 data에 추가
 const inputString = localStorage.getItem('InputInfo');
 const parsInputString = JSON.parse(inputString);
+let page = 1;
+
 // 로컬스토리지 비울시 주석처리 save 비우고 나서 해제 save
 // let agoraArray = parsInputString.slice(0,parsInputString.length - agoraStatesDiscussions.length);
 
@@ -113,23 +115,28 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-let page = 1;
 const render = (element) => {
-    // for (let i = (page-1)*10; i < agoraArray.length; i += 1) {
-    //   element.append(convertToDiscussion(agoraArray[i]));
-    // }
-  if(agoraStatesDiscussions.length - page*10 >= 0){
-    for (let i = (page-1)*10; i < page*10; i += 1) {
+  console.log(agoraStatesDiscussions.length - page*10);
+    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
       element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     }
-  } 
-  else{
-    for (let i = (page-1)*10; i < agoraStatesDiscussions.length; i += 1) {
-      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-    }
-  }
+  // if((agoraStatesDiscussions.length - page*10) >= 0){
+  //   for (let i = (page-1)*10; i < page*10; i += 1) {
+  //     console.log(element.append(convertToDiscussion(agoraStatesDiscussions[i])));
+  //     // element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+
+  //   }
+  // } 
+  // else{
+  //   for (let i = (page-1)*10; i < agoraStatesDiscussions.length; i += 1) {
+  //     console.log(element.append(convertToDiscussion(agoraStatesDiscussions[i])));
+
+  //     // element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  //   }
+  // }
   return;
 };
+
 
 // 그전에 생성된 li 제거
 const remove = (element) => {
@@ -208,7 +215,6 @@ nextBtn.onclick = () => {
 
 // console.log(storageObj);
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-// agoraStatesDiscussions = newagoraDiscussions();
 
 render(ul);
 
