@@ -93,7 +93,7 @@ const convertToDiscussion = (obj) => {
   discussionInfor.className = "discussion__information";
   // new Date(obj.createdAt).toLocaleString() <- 한국 시간으로 표현됨.
   const time = new Date(obj.createdAt).toLocaleString();
-  discussionInfor.textContent = `${obj.author} / ${convertTime(time)}`;
+  discussionInfor.textContent = `${obj.author} / ${time}`;
 
   // 사용자 대답 DOM
   const discussionAnswered = document.createElement("div");
