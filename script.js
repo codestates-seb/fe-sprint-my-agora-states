@@ -52,26 +52,6 @@ const ul = document.querySelector("ul.discussions__container");
 // input이 모두 안 비어있으면 true
 const inputIsTrue = () => inputName.value.length !== 0 && inputTitle.value.length !== 0 && inputStory.value.length !== 0;
 
-// 시간 Form 변경하는 함수 - 운영체제에 따라 new Date().toLocaleString() 결과가 달라서 사용하면 안됨.
-// const convertTime = (date) =>{
-//   let timelist = date.split(','); // ['7/19/2022', ' 10:01:33 AM']
-//   let timeSplit = timelist[1].split(' '); // ['', '10:01:33', 'AM']
-//   let yearSplit = timelist[0].split('/'); // ['7', '19', '2022']
-//   let year = yearSplit[2];
-//   let month = yearSplit[0];
-//   let day = yearSplit[1];
-//   let ampm = timeSplit[2];
-//   let time = timeSplit[1];
-
-//   if(ampm === 'AM'){
-//     ampm = '오전';
-//   } else{
-//     ampm = '오후';
-//   }
-
-//   return `${year}.${month}.${day} ${ampm} ${time}`
-// }
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
