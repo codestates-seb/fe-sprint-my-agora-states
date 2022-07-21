@@ -73,6 +73,8 @@ section.form__container {
 .discussion__content >:nth-child(2){
     height:30px;
     text-align: right;
+    font-size: 10pt;
+    color: #FFF9CA;
 }
 li {
     list-style-type: none;
