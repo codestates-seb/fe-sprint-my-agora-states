@@ -4,7 +4,7 @@
 // localStorage 정보 기존 data에 추가
 const inputString = localStorage.getItem('InputInfo');
 const parsInputString = JSON.parse(inputString);
-let arr = [];
+let arr = agoraStatesDiscussions.slice();
 let page = 1;
 
 console.log(agoraStatesDiscussions);
