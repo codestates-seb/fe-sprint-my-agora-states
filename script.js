@@ -46,12 +46,12 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
+//입력 관련 
   const form = document.querySelector('form.form');
   const inputName = document.querySelector('div.form__input--name > input');
   const inputTitle = document.querySelector('div.form__input--title > input');
   const inputQuestion = document.querySelector('div.form__textbox > textarea');
-  
+// 서브밋 눌렀을때  
   form.addEventListener("submit", (event) => {
     event.preventDefault();
   
@@ -73,7 +73,7 @@ const convertToDiscussion = (obj) => {
     inputQuestion.value = "";
     return;
   });
-
+// 버튼 만들기
   const makeButton = (i) =>{
     const button = document.createElement("button");
     button.classList.add("button");
@@ -88,7 +88,7 @@ const convertToDiscussion = (obj) => {
     });
     return button;
   };
-
+//버튼,페이지 만들기 위해 선언
   const contents = document.querySelector("ul.discussions__container");
   const buttons = document.querySelector("div.buttons");
 
@@ -97,7 +97,7 @@ const convertToDiscussion = (obj) => {
   const maxButton = 5;
   const maxPage = Math.ceil(numOfContent/(maxContent));
   let page = 1;
-
+//콘텐츠 랜더링 함수
   const renderContent = (page) => {
     while(contents.hasChildNodes()){
       contents.removeChild(contents.lastChild);
@@ -107,6 +107,7 @@ const convertToDiscussion = (obj) => {
       contents.appendChild(convertToDiscussion(agoraStatesDiscussions[i]));
     }
   }
+//버튼 랜더링 함수
   const renderButton = (page) =>{
     for(let i = page; i < page + maxButton && i <= maxPage; i++){
       buttons.appendChild(makeButton(i));
@@ -118,13 +119,15 @@ const convertToDiscussion = (obj) => {
     // if(page - maxButton < 1) buttons.removeChild(prev);
     // if(page + maxButton > maxPage) buttons.removeChild(next);
   };
-
+//페이지 랜더링 함수
   const renderPage = (page) => {
     renderContent(page);
     renderButton(page);
   };
+//페이지 랜더링 함수 실행으로 버튼과 콘텐츠 랜더링 함수 실행
   renderPage(page);
 
+  // 페이지 이동에 필요한 버튼 생성
   // const goPrevPage = () => {
   //   page -= maxButton;
   //   renderPage(page);
