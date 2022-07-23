@@ -47,13 +47,6 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
   const form = document.querySelector('form.form');
   const inputName = document.querySelector('div.form__input--name > input');
   const inputTitle = document.querySelector('div.form__input--title > input');
@@ -72,27 +65,87 @@ const render = (element) => {
       bodyHTML: inputQuestion.value,
       avatarUrl: 'mandarin.jpg',
     }
-    // function lastDiscussion (obj){
-    // let objString = JSON.stringify(obj);
-    // localStorage.setItem('newDiscussion',objString);
-    // let newDiscussionString = localStorage.getItem('newDiscussion');
-    // let newDiscussionObj = JSON.parse(newDiscussionString);
-    // }
+
     agoraStatesDiscussions.unshift(obj);
-    ul.prepend(convertToDiscussion(obj));
+    contents.prepend(convertToDiscussion(obj));
     inputName.value = "";
     inputTitle.value = "";
     inputQuestion.value = "";
     return;
   });
-  // const newDiscussionString = localStorage.getItem('newDiscussion');
-  // const newDiscussionObj = JSON.parse(newDiscussionString);
 
-  // agoraStatesDiscussions.unshift(newDiscussionObj);
- // ul.prepend(convertToDiscussion(newDiscussionObj));
+  const makeButton = (i) =>{
+    const button = document.createElement("button");
+    button.classList.add("button");
+    button.dataset.num = i;
+    button.innerText = i;
+    button.addEventListener("click",(e) => {
+      Array.prototype.forEach.call(button.children, (button) => {
+        if (button.dataset.num) {button.classList.remove("active")};
+      });
+      e.target.classList.add("active");
+      renderContent(parseInt(e.target.dataset.num));
+    });
+    return button;
+  };
+
+  const contents = document.querySelector("ul.discussions__container");
+  const buttons = document.querySelector("div.buttons");
+
+  const numOfContent = agoraStatesDiscussions.length;
+  const maxContent = 10;
+  const maxButton = 5;
+  const maxPage = Math.ceil(numOfContent/(maxContent));
+  let page = 1;
+
+  const renderContent = (page) => {
+    while(contents.hasChildNodes()){
+      contents.removeChild(contents.lastChild);
+    }
   
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-// agoraStatesDiscussions.unshift(newDiscussionObj);
-// ul.prepend(convertToDiscussion(newDiscussionObj));
+    for(let i = (page -1) * maxContent ; i < page * maxContent && i <= numOfContent; i++){
+      contents.appendChild(convertToDiscussion(agoraStatesDiscussions[i]));
+    }
+  }
+  const renderButton = (page) =>{
+    for(let i = page; i < page + maxButton && i <= maxPage; i++){
+      buttons.appendChild(makeButton(i));
+    }
+
+    buttons.children[0].classList.add("active");
+
+
+    // if(page - maxButton < 1) buttons.removeChild(prev);
+    // if(page + maxButton > maxPage) buttons.removeChild(next);
+  };
+
+  const renderPage = (page) => {
+    renderContent(page);
+    renderButton(page);
+  };
+  renderPage(page);
+
+  // const goPrevPage = () => {
+  //   page -= maxButton;
+  //   renderPage(page);
+  // };
+
+  // const goNextPage = () => {
+  //   page += maxButton;
+  //   renderPage(page);
+  // };
+  
+  // const prev = document.createElement("button");
+  // prev.classList.add("button","prev");
+  // prev.innerText = '이전';
+  // prev.addEventListener("click", goPrevPage);
+
+  // const next = document.createElement("button");
+  // next.classList.add("button", "next");
+  // next.innerText = '이후';
+  // next.addEventListener("click", goNextPage);
+
+  // buttons.prepend(prev);
+  // buttons.append(next);
+
+   
