@@ -22,6 +22,11 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    contentBase: __dirname + '/dist/',
+    host: 'localhost',
+    port: 3000,
+  },
   plugins: [new HtmlWebpackPlugin({
     template: path.resolve(__dirname, "src", "index.html")
   })]
