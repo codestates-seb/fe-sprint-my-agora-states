@@ -100,6 +100,7 @@ signupForm.addEventListener('submit', event => {
       };
   agoraStatesDiscussions.unshift(submitedDiscussion);
   
+  const ul = document.querySelector(".discussions__container");
   while(ul.children.length > 1){
     ul.removeChild(ul.lastChild);
   }
