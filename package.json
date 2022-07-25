@@ -5,7 +5,7 @@
   "main": "data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -26,6 +26,7 @@
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   }
 }

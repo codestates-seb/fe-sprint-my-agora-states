@@ -5,7 +5,7 @@ module.exports = {
   target: ["web", "es5"],
   entry: './src/script.js',
   output: {
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'app.bundle.js',
     clean:true
   },
@@ -16,6 +16,11 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       }
     ]
+  },
+  devServer: {
+    contentBase: __dirname + '/dist/',
+    host: 'localhost',
+    port: 3000,
   },
   plugins: [new HtmlWebpackPlugin({
     template: path.resolve(__dirname, 'src', 'index.html')
