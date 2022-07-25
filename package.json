@@ -5,7 +5,9 @@
   "main": "data.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,10 @@
   "bugs": {
     "url": "https://github.com/JoeunNAL/fe-sprint-my-agora-states/issues"
   },
-  "homepage": "https://github.com/JoeunNAL/fe-sprint-my-agora-states#readme",
+  "homepage": "https://github.com/JoeunNAL/fe-sprint-my-agora-states",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
