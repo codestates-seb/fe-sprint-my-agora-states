@@ -1,5 +1,7 @@
+const agoraStatesDiscussions = require('./data.js');
+require('./style.css');
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // 현지 시간 변환 함수
 const getLocalDate = function(date) {
