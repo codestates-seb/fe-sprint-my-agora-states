@@ -55,32 +55,27 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+// // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// render(ul);
 
-const form = document.getElementsByClassName("form");
-// const form = document.querySelector('form.form)
-const inputTitle = document.querySelector("div.form__input--title > input");
-const inputName = document.querySelector("div.form__input--name > input");
-const inputTextbox = document.querySelector("div.form__textbox > textarea");
+const submit = document.querySelector(".form__submit");
+const inputTitle = document.querySelector("#inputTitle");
+const inputName = document.querySelector("#inputName");
+const inputTextbox = document.querySelector("#inputQuestion");
 
-form[0].addEventListener("submit", function (e) {
-  // 새로운 객체를 만들어야 한다.
-  // Input에 입력된 값을 얺은 새로운 객체
-  // 새로운 객체를 ul요소 아래로 넣어준다.
-  // 더미 데이터 (agroaStatesDiscussions)에도 추가해준다.
+let arr = []; // 왜 해줬을까...
+submit.addEventListener("submit", function (e) {
   const obj = {
-    id: "unique id",
-    createdAt: new Date().toLocaleString,
+    id: "",
+    createdAt: Date(),
     title: inputTitle.value,
     url: null,
     author: inputName.value,
@@ -88,99 +83,54 @@ form[0].addEventListener("submit", function (e) {
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
-  agoraStatesDiscussions.unshift(obj);
-  const newDiscussion = convertToDiscussion(obj);
-  ul.prepend(newDiscussion);
-  e.preventDefault();
-  localStorage.setItem(
-    "agoraStatesDiscussions",
-    JSON.stringify(agoraStatesDiscussions)
-  );
-  let localStorageObject = localStorage.getItem(agoraStatesDiscussions);
+  agoraStatesDiscussions.unshift(obj); // 더미데이터 맨 처음에 obj 추가해주기
+  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0])); // obj 형식 변경해줘서 uld에 적용하기
+
+  e.preventDefault(); // submit 클릭하면 자동으로 새로고침한다. 새로고침 방지
+  inputName.value = ""; // 작성값 초기화
+  inputTitle.value = "";
+  inputQuestion = "";
+
+  // 로컬스토리지 저장 후 가져오기
+  // 로컬스토리지는 문자형만 지원, 다른 자료형을 저장하려고 하면 문자형으로 변환한다.
+  // JSON 형태로 데이터를 읽고 쓰기
+  localStorage.setItem("newObj", JSON.stringify(obj));
+  let localStorageObject = JSON.parse(localStorage.getItem("newObj"));
+  agoraStatesDiscussions.unshift(localStorageObject);
 });
 
-// // 버튼 & 페이지네이션
+// 페이지 네이션
+const ul = document.querySelector("ul.discussions__container");
+const paginatonoContent = document.querySelector(".paginationContent");
 
-// const buttons = document.querySelector(".buttons");
+function displayContent(page) {
+  ul.innerHTML = ""; // 왜 하는걸까...
+  const agoraData = agoraStatesDiscussions.slice(10 * page, 10 * page + 10);
+  for (let i = 0; i < agoraData.length; i++) {
+    ul.append(convertToDiscussion(agoraData[i]));
+  }
+  return;
+}
 
-// const numOfContent = 50;
-// const maxContent = 10;
-// const maxButton = 5;
-// const maxPage = Math.ceil(numOfContent / maxContent);
-// let page = 1;
+function paginationBtn() {
+  displayContent(0);
 
-// const makeButton = (id) => {
-//   const button = document.createElement("button");
-//   button.classList.add("button");
-//   button.dataset.num = id;
-//   button.innerText = id;
-//   button.addEventListener("click", (e) => {
-//     Array.prototype.forEach.call(buttons.children, (button) => {
-//       if (button.dataset.num) button.classList.remove("active");
-//     });
-//     e.target.classList.add("active");
-//     renderContent(parseInt(e.target.dataset.num));
-//   });
-//   return button;
-// };
+  const pageCount = Math.ceil(agoraStatesDiscussions.length / 10);
+  for (let i = 1; i < pageCount; i++) {
+    const pageBtn = document.createElement("button");
+    pageBtn.className = "pageBtn";
+    pageBtn.textcount = i;
+    paginatonoContent.appendChild(pageBtn);
 
-// const renderContent = (page) => {
-//   // 목록 리스트 초기화
-//   while (ul.hasChildNodes()) {
-//     ul.removeChild(ul.lastChild);
-//   }
-//   // 글의 최대 개수를 넘지 않는 선에서, 화면에 최대 10개의 글 생성
-//   for (
-//     let id = (page - 1) * maxContent + 1;
-//     id <= page * maxContent && id <= numOfContent;
-//     id++
-//   ) {
-//     ul.appendChild(makeContent(id));
-//   }
-// };
+    pageBtn.addEventListener("click", () => {
+      displayContent(i - 1);
+    });
+  }
+  return;
+}
+paginationBtn();
 
-// const renderButton = (page) => {
-//   // 버튼 리스트 초기화
-//   while (buttons.hasChildNodes()) {
-//     buttons.removeChild(buttons.lastChild);
-//   }
-//   // 화면에 최대 5개의 페이지 버튼 생성
-//   for (let id = page; id < page + maxButton && id <= maxPage; id++) {
-//     buttons.appendChild(makeButton(id));
-//   }
-//   // 첫 버튼 활성화(class="active")
-//   buttons.children[0].classList.add("active");
+let localStorageObject = JSON.parse(localStorage.getItem("newObj"));
+ul.prepend(convertToDiscussion(localStorageObject));
 
-//   buttons.prepend(prev);
-//   buttons.append(next);
-
-//   // 이전, 다음 페이지 버튼이 필요한지 체크
-//   if (page - maxButton < 1) buttons.removeChild(prev);
-//   if (page + maxButton > maxPage) buttons.removeChild(next);
-// };
-
-// const renderPage = (page) => {
-//   renderContent(page);
-//   renderButton(page);
-// };
-// renderPage(page);
-
-// const goPrevPage = () => {
-//   page -= maxButton;
-//   renderPage(page);
-// };
-
-// const goNextPage = () => {
-//   page += maxButton;
-//   renderPage(page);
-// };
-
-// const prev = document.createElement("button");
-// prev.classList.add("button", "prev");
-// prev.innerHTML = '<ion-icon name="chevron-back-outline"></ion-icon>';
-// prev.addEventListener("click", goPrevPage);
-
-// const next = document.createElement("button");
-// next.classList.add("button", "next");
-// next.innerHTML = '<ion-icon name="chevron-forward-outline"></ion-icon>';
-// next.addEventListener("click", goNextPage);
+localStorage.clear();
