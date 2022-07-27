@@ -57,6 +57,7 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.append(answerCheck);
   
   li.append(avatarWrapper, discussionContent);
+
   return li;
   /*
   <li class='discussion__container'>
@@ -65,6 +66,7 @@ const convertToDiscussion = (obj) => {
     <div class='discussion__answered'></div>
   </li>
   */
+
 
 };
 
@@ -104,8 +106,66 @@ submitForm.onsubmit = e => {
   render2(ul);
 };
 
-// 날짜 형식 
+// 날짜 출력 형식 변경
 const createdDate = document.querySelectorAll('p.createdAt');
 for(let i = 0; i < createdDate.length; i++){
   createdDate[i].textContent = new Date(Date.parse(createdDate[i].textContent)).toLocaleString()
 }
+
+
+
+// 페이지네이션 작성 중입니다.
+
+/*
+const discussionWrapper = document.querySelector('.discussion__wrapper');
+const pageButtonContainer = document.createElement('div');
+pageButtonContainer.className = 'page__button__container';
+discussionWrapper.append(pageButtonContainer);
+
+
+
+const makeButton = num => {
+  const pageButton = document.createElement('button');
+  pageButton.textContent = num;
+};
+
+const renderButtons = () => {
+  for(let i = 0; i < )
+};
+
+*/
+
+/*
+
+const contents = document.querySelector('ul.discussions__container').children;
+// 콘텐츠 묶음 하나하나를 담은 배열
+const listButtons = document.querySelector('.listButtons');
+
+const numOfContents = contents.length;
+const showContents = 10;
+const showButtons = 10;
+const maxPage = Math.ceil(numOfContents / showContents);
+// Math.ceil()은 소숫점을 올림한 정수를 반환한다.
+let page = 1;
+
+const makeButton = num => {
+  const listButton = document.createElement('button');
+  listButton.classList.add('listButton');
+  listButton.textContent = num;
+  // (버튼 눌렀을 때 나머지 버튼 비활성화)
+  // listButton.addEventListener('click', () => {});
+};
+
+const renderButtons = page => {
+  // 버튼 리스트 초기화
+  while(listButtons.hasChildNodes()){
+    listButtons.removeChild(listButtons.lastChild);
+  }
+
+  // 화면에 최대 10개 페이지 생성
+  for(let i = page; i < page + showButtons && i <= maxPage; i++){
+    listButtons.appendChild(makeButton(i));
+  }
+};
+
+*/
