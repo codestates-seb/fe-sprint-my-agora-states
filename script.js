@@ -93,7 +93,7 @@ const addDiscussion = function(event){
 
   localStorage.setItem('agoraStatesDiscussionsKey' , JSON.stringify(dataFromLocal));
 
-  render(ul);
+  render(ul, startIndex, endIndex);
 };
 submitOccur.addEventListener('submit', addDiscussion);
 ///////////////////////////////////////////////////////////////////////////
@@ -127,42 +127,48 @@ const deleteDiscussion = function(event){
 
 ///////////////////////////////////////////////////////////////////////////
 // ///페이지 이동 함수
-// const pageMoveLeftButton = document.querySelector('.page_move_left');
-// const pageMoveRightButton = document.querySelector('.page_move_right');
-// const pageMoveLeft = function(event){
-//   start -= 6;
-//   end -=6;
-//   console.log(start)
-//   console.log(end)
-//   render(ul, start, end);
-// };
-// const pageMoveRight = function(event){
-//   if(nowpage < Math.ceil(dataFromLocal.length/printNum)){
-//     nowpage +=1;  
-//   }else{
-//     return;
-//   }
-//   start += printNum; 0~9까지 10~19 20~29 30~39 40~41  
-//   if(nowpage === Math.ceil(dataFromLocal.length/printNum)){
-//     end  =  (printNum-1) +(dataFromLocal.length % printNum); 
-//   }
-//   else{
-//     end  =  (printNum-1);
-//   }
-//   consle.log(start)
-//   console.log(end)
-//   render(ul, start, end);
-// };
-// pageMoveLeftButton.addEventListener('click',pageMoveLeft );
-// pageMoveRightButton.addEventListener('click',pageMoveRight);
-// let start =0;
-// let end = 6;
-// let nowpage = 1;
-// let printNum = 10;
+let page = 1;
+let limit = 10;
+const getStartEndIndex = function( ){
+  let len =  dataFromLocal.length-1;
+  let startIndex = (page-1) * limit;
+  let endIndex = startIndex + limit;
+
+  if(endIndex > len) endIndex = len;
+
+
+  return {startIndex, endIndex};
+};
+
+const button_left = document.querySelector('.page_move_left');
+button_left.addEventListener('click',function(){
+  console.log('왼쪽클릭')
+  if(page > 1) page = page = 1;
+  
+  let {startIndex, endIndex} = getStartEndIndex(page, limit);
+  render(ul, startIndex, endIndex);
+})
+
+const button_right = document.querySelector('.page_move_right');
+button_right.addEventListener('click',function(){
+  console.log('오른쪽클릭')
+  if(limit*page < dataFromLocal.length-1) page = page + 1;
+
+  let {startIndex, endIndex} = getStartEndIndex(page, limit);
+  render(ul, startIndex, endIndex);
+})
 
 
 
 
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// ///로컬스토리지 저장함수
 if(localStorage.getItem('agoraStatesDiscussionsKey')){
   dataFromLocal = JSON.parse(localStorage.getItem('agoraStatesDiscussionsKey'));
 }
@@ -174,12 +180,12 @@ else{
 ///////////////////////////////////////////////////////////////////////////
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const ul = document.querySelector("ul.discussions__container");
-const render = (element) => {
+const render = (element, start, end) => {
   while(ul.firstChild){
     element.removeChild(element.firstChild);
   }
   
-  for (let i = 0; i < dataFromLocal.length; i += 1) {
+  for (let i = start; i < end; i += 1) {
     element.append(convertToDiscussion(dataFromLocal[i]));
   }
 
@@ -188,7 +194,7 @@ const render = (element) => {
 };
 ///////////////////////////////////////////////////////////////////////////
 
-render(ul);
+render(ul,0,limit);
 
 
 
