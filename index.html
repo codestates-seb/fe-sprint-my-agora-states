@@ -15,20 +15,22 @@
 <body>
   <main>
     <h1>My Agora States</h1>
+    <button class="page_move_left"><<</button>
+    <button class="page_move_right">>></button>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <input class="idValue" type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
             <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input class="titleValue" type="text" name="name" id="name" required>
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <textarea class="questionValue" id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
@@ -49,6 +51,7 @@
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
+          <div><button class="delete_box">삭제</button></div>
         </li>
       </ul>
     </section>
