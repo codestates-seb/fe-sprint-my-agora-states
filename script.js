@@ -43,7 +43,6 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.append(answerIcon);
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   // li.append(avatarWrapper, discussionContent);
   return li;
@@ -51,32 +50,42 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  console.log(agoraStatesDiscussions);
+  agoraStatesDiscussions.reverse();
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
+// 아고라스테이츠 데이터 배열에 로컬스토리지에 있는 데이터 추가하기
+const arrLength = agoraStatesDiscussions.length;
+for (let i = 0; i < localStorage.length; i++) {
+  // console.log(localStorage);
+  const key = arrLength + i;
+  //스토리지에서 discussion 불러오기
+  const objFromJSON = JSON.parse(localStorage.getItem(key));
+
+  //스토리지 discussion을 기존 데이터 배열에 저장
+  agoraStatesDiscussions.push(objFromJSON);
+}
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-// form
+//// new Disscusion
+// selecting elements
 const formEl = document.querySelector(".form");
-// const formNameEl = document.querySelector(".form__input--name");
-// const formTitleEl = document.querySelector(".form__input--title");
-// const formTextEl = document.querySelector(".form__textbox");
-// const formSubmitEl = document.querySelector(".form__submit");
-// const formName = document.getElementById("name").value;
-// const formTitle = document.getElementById("title").value;
-// const formStory = document.getElementById("story").value;
 const formName = document.getElementById("name");
 const formTitle = document.getElementById("title");
 const formStory = document.getElementById("story");
 
+// Submit event
 formEl.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  //new discussion DOM 불러오기
   const obj = {
     id: "unque id",
     createdAt: new Date(),
@@ -87,9 +96,21 @@ formEl.addEventListener("submit", function (event) {
     url: "#",
     answer: null,
   };
-  ul.prepend(convertToDiscussion(obj));
+  //JSON conversion
+  const objToJSON = JSON.stringify(obj);
 
+  // localStorage key number
+  let newDiscussionIndexNumber = agoraStatesDiscussions.length;
+
+  //new discussion 스토리지에 저장
+  localStorage.setItem("agoraStatesDiscussions", objToJSON);
+
+  //new discussion 기존 데이터 배열에 저장
   agoraStatesDiscussions.push(obj);
   console.log(agoraStatesDiscussions);
+
+  //new discussion DOM 생성하기
+  ul.prepend(convertToDiscussion(obj));
+
   return;
 });
