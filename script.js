@@ -117,12 +117,12 @@ function paintObj(task) {
   const li = convertToDiscussion(task);
   ul.prepend(li); // 첫번째에 추가
 
-  newObjs.push(task);
-  saveObj();
+  /*newObjs.push(task);
+  saveObj();*/
 }
 
 // 이 밑에부터 모르겠음
-
+/*
 function saveObj() { // 저장 함수 만들기
   const objString = JSON.stringify(newObjs); // ?
   localStorage.setItem(NEWOBJ_LS, objString); // ?
@@ -138,10 +138,12 @@ function loadObj() {
     });
   }
 }
-
-
+*/
+submitBtn.addEventListener("submit", handleSubmit);
+/*
 function init() {
   loadObj();
   submitBtn.addEventListener("submit", handleSubmit);
 }
 init();
+*/
