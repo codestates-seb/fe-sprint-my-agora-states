@@ -29,10 +29,10 @@ const convertToDiscussion = (obj) => {
     titleAnchor.textContent = obj.title;
   
     // 날짜
-    const discussionInfo = document.createElement('div')   
-    discussionInfo.className = "discussion__information" ;
-    discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
-    discussionContent.append(discussionTitle, discussionInfo)
+  const discussionInfo = document.createElement('div')
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
+
+  discussionContent.append(discussionTitle, discussionInfo)
 
     // 체크박스
     const discussionAn = document.createElement('p')
