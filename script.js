@@ -65,8 +65,7 @@ form.addEventListener("submit", (event) => {
     author: nameInput.value,
     answer: null,
     bodyHTML: textbox.value,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
+    avatarUrl:"https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   }
 
   agoraStatesDiscussions.unshift(obj);
