@@ -59,7 +59,7 @@ form.addEventListener("submit", (event) => {
   // 더미 데이터에도 추가하기
   const obj = {
     id: "unique id",
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: nameInput.value,
