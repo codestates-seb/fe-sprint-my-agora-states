@@ -1,0 +1,180 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* font-family: 'Spoqa Han Sans Neo', 'sans-serif'; */
+  color: var(--black-600);
+  background-color: var(--white);
+  font-size: var(--default);
+  font-family: 'Roboto Mono', monospace;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  /* border: 1px solid red; */
+}
+
+main {
+  border: 1px solid black;
+  border-radius: 10px;
+
+  width: 500px;
+  height: 1000px;
+  min-height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+.image_upload {
+  display: none;
+}
+
+#image_submit_btn {
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.profile_container {
+  display: flex;
+}
+
+#uploaded_image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  margin-left: 100px;
+}
+
+/* Section 1*/
+
+#title {
+  border-radius: 10px;
+  padding: 10px;
+
+  font-size: 40px;
+  color: var(--coz-orange-600);
+  margin-top: 20px;
+  text-align: center;
+}
+.discussion__avatar--image {
+  border-radius: 100%;
+  margin-right: 5px;
+}
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid red;
+  border-top: 1px solid red;
+}
+
+.form__input--wrapper div {
+  margin-top: 10px;
+}
+
+.form__input--wrapper input,
+.form__input--wrapper textarea {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.form__input--wrapper textarea {
+  font-size: 15px;
+}
+
+.form {
+  display: flex;
+}
+
+.form .form__submit input {
+  color: var(--coz-orange-500);
+  padding: 2px;
+  border-left: none;
+  border-right: none;
+  font-style: italic;
+}
+
+.submit_btn,
+#img_upload,
+#img_submit_btn {
+  cursor: pointer;
+}
+
+/* Section 2 */
+
+.discussions__container {
+  font-size: 13px;
+}
+
+.discussion__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.discussion__container:before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  bottom: 0;
+  height: 1px;
+  width: 90%;
+  border-bottom: 0.5px solid var(--gray-500);
+}
+
+.discussion__content {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  justify-content: start;
+}
+
+#answer-check {
+  font-size: 12px;
+}
+
+/* Section 3 */
+
+.page__nation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page__container {
+  position: absolute;
+  border: none;
+  display: flex;
+  margin-left: 30px;
+  width: 200px;
+}
+
+.page__list {
+  display: flex;
+}
+
+.page__list li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.page_number,
+.page_indicator {
+  cursor: pointer;
+}
