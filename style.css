@@ -1,1 +1,126 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  color: rgb(98, 124, 147);
+  border: none;
+}
+
+input {
+  color: black;
+}
+
+body {
+  background-color: rgb(252, 248, 244);
+}
+
+main {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul.discussions__container {
+  list-style: none;
+}
+
+section.discussion__wrapper {
+  width: 540px;
+}
+
+img.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+div.discussion__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  margin: 10px 0px;
+  padding: 15px;
+  background-color: white;
+}
+
+div.discussion__content {
+  width: 397px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+h3.discussion__title__h3:active a {
+  color: thistle;
+}
+
+div.discussion__information {
+  margin-left: auto;
+}
+
+div.discussion__answered p {
+  font-size: 30px;
+}
+
+section.form__container {
+  margin: 20px 0px 10px 0px;
+  width: 540px;
+  height: 130px;
+  background-color: rgb(246, 239, 216);
+  border-radius: 7px;
+}
+
+form.form {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+div.form__submit input {
+  height: 100px;
+  width: 90px;
+  border-radius: 10%;
+  background-color: rgb(252, 248, 244);
+  color: rgb(98, 124, 147);
+}
+
+div.form__submit input:active {
+  background-color: thistle;
+}
+
+div.form__input--name {
+  display: flex;
+  justify-content: space-between;
+  width: 415px;
+}
+
+div.form__input--name__input input {
+  width: 250px;
+}
+
+div.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  width: 415px;
+}
+
+div.form__input--title__input input {
+  width: 250px;
+}
+
+div.form__textbox label {
+  display: block;
+}
+
+div.form__textbox textarea {
+  width: 415px;
+  height: 35px;
+}
+
+.form__divs {
+  margin-bottom: 4px;
+}
