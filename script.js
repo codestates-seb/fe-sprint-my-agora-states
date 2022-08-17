@@ -1,5 +1,4 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+let serverDiscussions = [];
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -28,7 +27,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionAnsweredIcon = document.createElement('p');
   discussionAnswered.append(discussionAnsweredIcon);
-  
+
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of ' + obj.author;
   discussionTitleAnker.textContent = obj.title;
@@ -91,6 +90,22 @@ const render = (element) => {
   return;
 };
 
+// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+//console.log(agoraStatesDiscussions);
+//let promise = fetch(url) //json으로 하면 reject됨
+//  .then(res => res.json()) //json() 안하면 pending 상태로 promise 받아와짐. body에 readableStream
+//console.log(promise); //undefined 나옴.. json으로 받아야할듯
+
+
+let agoraDiscussions = fetch('http://localhost:4000/discussions') //
+  .then(res => res.json()) //
+  .then(json => {
+    serverDiscussions = json;
+    const ul = document.querySelector('ul.discussions__container');
+    render(ul);
+  });
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
@@ -107,11 +122,11 @@ let restPage = current % 10;
 let firstPage = current - restPage + 1;
 let lastPage = current - restPage + maxPage;
 
-if(lastPage > allPage) {
+if (lastPage > allPage) {
   lastPage = allPage;
 }
 
-for(let i = current; i <= lastPage; i++) {
+for (let i = current; i <= lastPage; i++) {
   const pageSpan = document.createElement('span');
   pageSpan.classList = 'btn';
   prevBtn.after(pageSpan);
