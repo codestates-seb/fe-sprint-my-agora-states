@@ -2,6 +2,7 @@ import Component from '../Core/component.js';
 import { getCurrentTime } from '../common/utils/utils.js';
 import { agoraStatesDiscussions } from '../common/data/data.js';
 import { ICON, IMG } from '../common/constants/constants.js';
+import { fetchDiscussions } from '../common/data/api.js';
 
 export default class Section2 extends Component {
   constructor(...rest) {
@@ -12,7 +13,7 @@ export default class Section2 extends Component {
     let { data, pageStartNum, pageEndNum } = this.props;
 
     if (!data) {
-      data = agoraStatesDiscussions;
+      data = '';
     }
 
     const parsedData = [...data];
