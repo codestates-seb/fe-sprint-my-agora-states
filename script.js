@@ -70,13 +70,29 @@ const convertToDiscussion = (obj) => {
 
 };
 
+// my-agora-states-server 연동하기
+const discussionDataFromServer = () => {
+return fetch(`http://localhost:4000/discussions/`)
+.then(res => res.json())}
+
+// server에서 연동된 데이터 렌더링하기
+const render = el => {discussionDataFromServer()
+  .then((data) => { 
+    for(let i = 0; i < data.length; i++){
+      el.append(convertToDiscussion(data[i]));
+    }
+    return;
+  });
+}
+
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
@@ -111,7 +127,6 @@ const createdDate = document.querySelectorAll('p.createdAt');
 for(let i = 0; i < createdDate.length; i++){
   createdDate[i].textContent = new Date(Date.parse(createdDate[i].textContent)).toLocaleString()
 }
-
 
 
 // 페이지네이션 작성 중입니다.
