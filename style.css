@@ -1,1 +1,206 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+ /* 
+#fcf9f4 전체배경, 버튼 배경색
+#627c93 my 아고라 스테이츠 글자색
+#6c7a86 submit 글자색
+#f5efd7 게시물 배경색
+#acbbc3 게시물 글자색
+ */
+
+/*  레이아웃 리셋 코드 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    /* 가로 중앙 정렬 */
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+}
+/* 질문 입력창 정렬 */
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 이름, 제목창 테투리 투명하게 */
+div.form__input--name > input,
+div.form__input--title > input {
+  border: 0;
+  flex: 6 0 0;
+}
+
+div.form__input--name > label,
+div.form__input--title > label {
+  border: 0;
+  width: 100px;
+  flex: 4 0 0;
+}
+
+div.form__input--wrapper {
+    flex: 8 0 auto;
+    padding: 0 0.5rem;
+  }
+  
+div.form__input--name,
+div.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+  padding-top: 0.2rem;
+}
+
+
+
+
+
+
+h1 {
+    /* 가로 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    /* my Ahora 여백 */
+    margin: 30px;
+    color: #627c93;
+}
+
+
+
+
+.form__container{
+    /* 질문 등록 가로 중앙 정렬 */
+    display: flex;
+    justify-content: center;    
+}
+
+
+
+main {
+    /* 전체 배경색 */
+    background-color: #fcf9f4;
+
+
+    /* 수정해보기!!!!!!!! */
+    width: auto;
+    height: auto;
+
+
+}
+
+
+
+li.discussion__container {
+    /*게시물 배경색, 흰색배경 넣어야함 */
+    background-color: #ffff;
+    /* <li>에 기호나, 숫자를 표시 되지 않게 하는 CSS 스타일 list-style:none 속성 */
+    list-style:none;
+    display: flex;
+    /* 게시물 테투리 여백 */
+    margin: 20px;
+
+    padding: 10px;
+    width: 540px;
+    color: #acbbc3;
+
+    /* word-wrap: break-word; */
+    
+}
+
+.discussion__wrapper {
+    /* 질문 게시글 가로 중앙 정렬 */
+    display: flex;
+    justify-content: center; 
+     
+
+}
+div.form__textbox > label,
+div.form__textbox > textarea {
+  padding-top: 0.2rem;
+  border: 0;
+}
+
+
+
+
+img {
+    /* 프로필 사진 */
+    /* 아바타 사진의 너비를 48px로 설정 */
+    width: 48px;
+    /* 아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현 */
+    border-radius: 50%;
+
+    
+}
+.discussion__avatar--wrapper {
+    display: flex;
+    /* 아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬 */
+    align-items: center;
+    flex: 1 0 0;
+
+
+}
+.discussion__content {
+    display: inline-flex;
+    flex-direction: column;
+    flex: 8 0 0;
+}
+
+
+
+.discussion__information{
+    /* 작성자 이름 / 작성일 */
+    /* 텍스트 오른쪽 정렬 */
+    text-align: right;
+    margin: 10px 30px 10px 10px;
+
+}
+
+.discussion__title {
+    /* 타이틀 제목 */
+    /* 텍스트 왼쪽 정렬 */
+    text-align: left;
+    margin: 10px 10px 30px 10px;
+}
+
+.discussion__answered {
+    /* 체크박스 세로 중앙 정렬 */
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+.is_checked {
+    width: 20px;
+    height: 20px;
+}
+
+h2 {
+    margin: 20px;
+}
+
+#submit {
+    width: 80px;
+    height: 100%;
+    color: #6c7a86;
+    background-color: #fcf9f4;
+    border: 0px;
+    border-radius: 10px;
+   
+    
+
+}
+form.form {
+    padding: 1rem;
+    border-radius: 0.5rem;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #acbbc3;
+    background-color: #f5efd7;
+    width: 540px;
+  }
