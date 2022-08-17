@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
-// window.localStorage.removeItem('data');
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -36,7 +33,7 @@ const convertToDiscussion = (obj) => {
   const isAnswered = document.createElement('p');
   isAnswered.textContent = '☑';
   discussionAnswered.append(isAnswered)
-  
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -47,28 +44,26 @@ let pageTo = 1;
 let pageStart = (pageTo - 1) * 10;
 let pageEnd = pageStart + 10;
 let newData = [];
-let renderData = agoraStatesDiscussions.slice();
+let renderData = [];
 const render = (element) => {
   // ul.innerHTML = '';
 
-  //원본 데이터 가져오기
-  renderData = agoraStatesDiscussions.slice(); 
-  // localStorage 에서 저장된 데이터 불러오기
-  // if(getLocalData()){ 
-    newData = getLocalData(); 
-  // }
-  
-  
-  for (let i = pageStart; i < pageEnd; i += 1) {
-    element.append(convertToDiscussion(renderData[i]));
-  }
+  //데이터 가져오기
+  const serverUrl = 'http://localhost:4000/discussions';
+  fetch(serverUrl)
+    .then((data) => data.json())
+    .then((data) => {
+      renderData = data;
 
-  // 페이지 생성 및 변경
-  createPagination();
+      for (let i = pageStart; i < pageEnd; i += 1) {
+        element.append(convertToDiscussion(renderData[i]));
+      }
 
-  // console.log(renderData[0], newElement);
-  // console.log(pageStart, pageEnd, page);
-  console.log(newData);
+      // 페이지 생성 및 변경
+      createPagination();
+    })
+
+
   return;
 };
 
@@ -78,11 +73,11 @@ const pageContainer = document.querySelector(".pagenation__container");
 render(ul);
 
 // pagenation 생성
-function createPagination(){
+function createPagination() {
   pageContainer.innerHTML = '';
-  page = Math.floor(renderData.length/10);
-  
-  for(let i = 0; i < page; i++){
+  page = Math.floor(renderData.length / 10);
+
+  for (let i = 0; i < page; i++) {
     const pageNav = document.createElement('li');
     pageNav.textContent = i + 1;
     pageContainer.append(pageNav);
@@ -92,7 +87,7 @@ function createPagination(){
 }
 
 // page 변경
-function changePage(){
+function changePage() {
   let pageTo = event.target.textContent;
   pageStart = (pageTo - 1) * 10;
   pageEnd = pageStart + 10;
@@ -105,47 +100,24 @@ const submitForm = document.querySelector('.form');
 
 submitForm.addEventListener('submit', addToDiscussions);
 
-function addToDiscussions(event){
+function addToDiscussions(event) {
   event.preventDefault();
   const inputName = document.querySelector('#name').value;
   const inputTitle = document.querySelector('#title').value;
   const inputQuestion = document.querySelector('#story').value;
   newData;
-  
+
   const addObj = {
     id: "id",
     createdAt: new Date().toLocaleString(),
     title: inputTitle,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: inputName,
-    bodyHTML:inputQuestion,
+    bodyHTML: inputQuestion,
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   }
-  // 로컬저장소에 저장
-  newData.push(addObj);
-  saveLocalData();
   ul.innerHTML = '';
-  render(ul,addObj);
+  render(ul, addObj);
 
-}
-
-// localStorage 데이터 저장하기
-function saveLocalData(){
-  const objString = JSON.stringify(newData);
-  window.localStorage.removeItem('data');
-  window.localStorage.setItem('data', objString);
-}
-
-// localStorage 데이터 받아오기
-function getLocalData(){
-  const localData = window.localStorage.getItem('data');
-  
-  let getData = JSON.parse(localData);
-  if(getData){
-    for(let obj of getData){
-      renderData.unshift(obj);
-    }
-  }
-  return getData;
 }
