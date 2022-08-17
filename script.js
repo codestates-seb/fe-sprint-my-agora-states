@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -80,7 +80,47 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-// ul.append(li);
+// // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// const ul = document.querySelector("ul.discussions__container");
+// render(ul);
+// // ul.append(li);
+
+
+
+const ul = document.querySelector(".discussions__container");
+fetch('http://localhost:4000/discussions')
+.then(res => res.json())
+.then(json => {
+  agoraStatesDiscussions = json;
+  // const ul = document.querySelector("ul.discussion__container");
+  render(ul);
+})
+
+// const paginationContent = document.querySelector('.paginationContent');
+
+// function displayContent(page) {
+//   ul.innerHTML = '';
+//   const agoraData = agoraStatesDiscussions.slice(10*page, 10*page+10);
+//   for (let i = 0; i < agoraData.length; i++) {
+//     ul.append(convertToDiscussion(agoraData[i]));
+//   }
+//   return
+// }
+
+// function paginationBtn() {
+//   displayContent(0);
+
+//   const pageCount = Math.ceil(agoraStatesDiscussions.length / 10);
+//   for (let i =1; i <= pageCount; i++) {
+//     const pageBtn = document.createElement('button');
+//     pageBtn.className = 'pageBtn';
+//     pageBtn.textContent = i;
+//     paginationContent.appendChild(pageBtn);
+
+//     pageBtn.addEventListener('click', () => {
+//       displayContent(i-1);
+//     })
+//   }
+//   return;
+// }
+// paginationBtn();
