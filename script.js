@@ -1,8 +1,9 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+//index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 //localStorage.clear();
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+//convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 
 const aDlength = agoraStatesDiscussions.length;
+
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -95,13 +96,66 @@ const render3 = (element, obj) => {
   return;
 };
 
+//새로추가할때
+function render4(element, min, max) {
+
+  //li제거후 다시 랜더링
+  let t = document.querySelectorAll(".discussion__container");
+  for (let i = 0; i < t.length; i++) {
+    t[i].remove()
+  }
+
+  for (let i = min; i <= max; i++) {
+    if(agoraStatesDiscussions[i] === undefined)
+      break;
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+//새로고침, 초기 실행
+function render5(element, min, max) {
+
+  let localStoragearr = JSON.parse(localStorage.getItem(localStorage.key(0)));  //배열이고 요소가 객체 
+  if (localStoragearr !== null) {
+    for (let i = 0; i < localStoragearr.length; i++) {
+      agoraStatesDiscussions.unshift(localStoragearr[i]);
+    }
+  }
+
+  let t = document.querySelectorAll(".discussion__container");
+  for (let i = 0; i < t.length; i++) {
+    t[i].remove()
+  }
+
+  for (let i = min; i <= max; i++) {
+    if(agoraStatesDiscussions[i] === undefined)
+      break;
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+//서버와 통신
+function render6(element){
+  const URI = "http://localhost:4000/discussions";
+  fetch(URI)
+  .then(response => response.json())
+  .then(discussions => {
+    for(let i =0; i<discussions.length;i++){
+      element.append(convertToDiscussion(discussions[i]));
+    }
+  })
+}
+
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 let df = document.createDocumentFragment();
 const ul = document.querySelector("ul.discussions__container");
 //render(df);
 //render(ul);
 //ul.append(df);
-
 //render2(ul);
 
 const submitBtn = document.querySelector("form.form");
@@ -126,6 +180,8 @@ function readInput(event) {
     addLocalStorage(obj);
   }
 }
+
+
 
 function addLocalStorage(obj) {
 
@@ -200,9 +256,6 @@ function totalpage() {
 
   //ul_page.append(paginationright)
 
-  
-
-
 }
 
 function pagination(event) {
@@ -217,48 +270,11 @@ function pagination(event) {
   //추가했을 때 페이지 구성 달라지는 것 고려해야함.(localstorage + data.js)        
 }
 
-//새로추가할때
-function render4(element, min, max) {
 
-  //li제거후 다시 랜더링
-  let t = document.querySelectorAll(".discussion__container");
-  for (let i = 0; i < t.length; i++) {
-    t[i].remove()
-  }
 
-  for (let i = min; i <= max; i++) {
-    if(agoraStatesDiscussions[i] === undefined)
-      break;
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-//새로고침, 초기 실행
-function render5(element, min, max) {
-
-  let localStoragearr = JSON.parse(localStorage.getItem(localStorage.key(0)));  //배열이고 요소가 객체
-  if (localStoragearr !== null) {
-    for (let i = 0; i < localStoragearr.length; i++) {
-      agoraStatesDiscussions.unshift(localStoragearr[i]);
-    }
-  }
-
-  let t = document.querySelectorAll(".discussion__container");
-  for (let i = 0; i < t.length; i++) {
-    t[i].remove()
-  }
-
-  for (let i = min; i <= max; i++) {
-    if(agoraStatesDiscussions[i] === undefined)
-      break;
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-totalpage();
-render5(ul, 0, 9)
+//totalpage();
+// render5(ul, 0, 9)
+render6(ul);
 
 //document.querySelector(".discussion__information").textContent = convertTime(document.querySelector(".discussion__information").textContent);
 
