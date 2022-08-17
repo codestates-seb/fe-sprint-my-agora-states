@@ -1,0 +1,11 @@
+.form__container {
+	border: 1px solid #b7b7b7;
+}
+
+.form__input--wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
