@@ -3,6 +3,8 @@ console.log(agoraStatesDiscussions);
 // agoraStatesDiscussions = JSON.parse(localStorage.getItem('new agora'));
 
 
+
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -121,6 +123,19 @@ form.addEventListener("submit", (event) => {
   // ul.remove 또는 while롤 removechild
   arr2 = JSON.parse(localStorage.getItem('new agora'));
 })
+
+/* 강사님이 하신 것 
+
+fetch("http://localhost:4000/discussions/", {
+    method: "GET"
+  })
+  .then(res => res.json())
+  .then(data => {
+    agoraStatesDiscussions = data;
+    const ul = document.querySelector("ul.discussions_container");
+    render(ul);
+  })
+*/
 
 //TODO: 페이지네이션
 // const contents = document.querySelector(".contents");
