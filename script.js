@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+let agoraStatesDiscussions = [];
 
 //profile__image 생성
 const getRandomInt = (max) => {
@@ -105,8 +105,8 @@ const pageButtons = document.querySelector(".page__buttons");
 
 let numOfContent = agoraStatesDiscussions.length;
 const maxContent = 10;
-const maxButton = 5;
-const maxPage = Math.ceil(numOfContent / maxContent);
+let maxButton = 5;
+let maxPage = Math.ceil(numOfContent / maxContent);
 let page = 1;
 
 const goPrevPage = () => {
@@ -170,9 +170,25 @@ const render = (element, page) => {   //pagination
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-renderLocalStorage();
-render(ul, page);
-renderPageButton(page);
+
+//fetch로 localhost:4000에서 데이터 가져오기
+fetch('http://localhost:4000/discussions', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+  .then(res => res.json())
+  .then(res => {
+    agoraStatesDiscussions = res;
+  })
+  .then(() => {
+    numOfContent = agoraStatesDiscussions.length;
+    maxPage = Math.ceil(numOfContent / maxContent);
+    renderLocalStorage();
+    render(ul, page);
+    renderPageButton(page);
+  })
 
 // 글 생성 기능
 const makeNewDiscussion = (name, title, text) => { // 새로운 Discussion object 생성 후 반환
