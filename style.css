@@ -90,6 +90,7 @@ div.form__textbox > textarea{
     width: 82%;
     height: 6.5em;
     padding: 10px;
+    resize: none;
 }
 
 div.form__textbox > input[type='submit'] {
