@@ -213,7 +213,10 @@ li.discussion__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    width: 48px;
+    height: 48px;
+    margin: 5px;
 }
 
 .discussion__avatar--image {
@@ -266,4 +269,31 @@ a:hover {
     display: flex;
     justify-content: flex-end;
     color:#1A4D2E;
+}
+
+img{
+  display: flex;
+  border-radius: 50%;
+}
+
+.discussion__content{
+  padding: 5px;
+}
+
+h3{
+  margin: 5px;
+}
+
+.buttons{
+  margin-top: 20px;
+}
+
+button{
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  background-color: #1A4D2E;
+  color:#b3aca7;
+  padding: 10px;
 }
