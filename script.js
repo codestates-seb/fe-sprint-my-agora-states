@@ -1,5 +1,46 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+fetch("http://localhost:4000/discussions").then((res) =>
+  res.json().then((data) => {
+    const render = (element) => {
+      for (let i = 0; i < data.length; i += 1) {
+        element.append(convertToDiscussion(data[i]));
+      }
+      return;
+    };
+
+    const ul = document.querySelector("ul.discussions__container");
+    render(ul);
+
+    const submitBtn = document.querySelector("div.form__submit > input");
+
+    submitBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const elInputName = document.querySelector(
+        "div.form__input--name > input"
+      );
+      const elInputTitle = document.querySelector(
+        "div.form__input--title > input"
+      );
+      const elInputStory = document.querySelector(
+        "div.form__textbox > textarea"
+      );
+
+      const obj = {
+        id: "unique value",
+        createdAt: new Date(convertTimeToLocal(Date.now())).toISOString(),
+        title: elInputTitle.value,
+        url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+        author: elInputName.value,
+        answer: null,
+        bodyHTML: elInputStory.value,
+        avatarUrl: "https://avatars.githubusercontent.com/u/47207736?s=400&v=4",
+      };
+
+      ul.prepend(convertToDiscussion(obj));
+      data.unshift(obj);
+    });
+  })
+);
 
 const convertTimeFormat = (ISOstring) => {
   const year = ISOstring.slice(0, 4);
@@ -62,39 +103,3 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
-const submitBtn = document.querySelector("div.form__submit > input");
-
-submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  const elInputName = document.querySelector("div.form__input--name > input");
-  const elInputTitle = document.querySelector("div.form__input--title > input");
-  const elInputStory = document.querySelector("div.form__textbox > textarea");
-
-  const obj = {
-    id: "unique value",
-    createdAt: new Date(convertTimeToLocal(Date.now())).toISOString(),
-    title: elInputTitle.value,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
-    author: elInputName.value,
-    answer: null,
-    bodyHTML: elInputStory.value,
-    avatarUrl: "https://avatars.githubusercontent.com/u/47207736?s=400&v=4",
-  };
-
-  ul.prepend(convertToDiscussion(obj));
-  agoraStatesDiscussions.unshift(obj);
-});
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
