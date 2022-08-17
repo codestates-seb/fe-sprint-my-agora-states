@@ -2,7 +2,10 @@ const ul = document.querySelector("ul.discussions__container");
 
 fetch(`http://localhost:4000/discussions/`)
   .then((response) => response.json())
-  .then((data) => render(data));
+  .then((data) => render(data))
+  .catch(() => {
+  	console.log('Unable to connect to the server')
+  })
 
 function render(response) {
   for (let i = 0; i < response.length; i += 1) {
