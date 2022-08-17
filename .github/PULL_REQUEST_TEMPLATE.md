@@ -12,29 +12,29 @@ Github Page 배포 링크를 아래 작성합니다.
 
 스스로 구현 완료한 부분까지 체크하여 제출합니다.
 
-- [ ] 디스커션 나열 기능
-    - [ ] `script.js`를 수정하여 `agoraStatesDiscussions` 배열의 데이터를 나열할 수 있게 구현합니다.
-- [ ] CSS
-    - [ ] 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다.
-    - [ ] `style.css`를 수정하여 멋지고 아름답게 나만의 아고라 스테이츠를 꾸밉니다.
-    - [ ] [colorhunt](https://colorhunt.co/palettes/popular), [dribbble](https://dribbble.com/)에서 적절한 색 조합, 디자인을 참고합니다.
-- [ ] 디스커션 추가 기능
-    - [ ] `script.js`를 수정하여 디스커션 추가 기능을 구현합니다.
-    - [ ] `section.form__container` 요소에 새로운 아고라 스테이츠 질문을 추가할 수 있는 입력 폼을 제작합니다. 형식은 자유입니다.
-    - [ ] 아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
-    - [ ] `agoraStatesDiscussions` 배열에 추가한 데이터가 실제 쌓여야 합니다.
-- [ ] Github Page 배포
-  - [ ] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
-- [ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
-  - [ ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
-  - [ ] 주어진 Pull request 형식에 따라주세요.
+- [O] 디스커션 나열 기능
+    - [O] `script.js`를 수정하여 `agoraStatesDiscussions` 배열의 데이터를 나열할 수 있게 구현합니다.
+- [O] CSS
+    - [O] 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다.
+    - [O] `style.css`를 수정하여 멋지고 아름답게 나만의 아고라 스테이츠를 꾸밉니다.
+    - [O] [colorhunt](https://colorhunt.co/palettes/popular), [dribbble](https://dribbble.com/)에서 적절한 색 조합, 디자인을 참고합니다.
+- [O] 디스커션 추가 기능
+    - [O] `script.js`를 수정하여 디스커션 추가 기능을 구현합니다.
+    - [O] `section.form__container` 요소에 새로운 아고라 스테이츠 질문을 추가할 수 있는 입력 폼을 제작합니다. 형식은 자유입니다.
+    - [O] 아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
+    - [O] `agoraStatesDiscussions` 배열에 추가한 데이터가 실제 쌓여야 합니다.
+- [O] Github Page 배포
+  - [O] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
+- [O] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
+  - [O] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
+  - [O] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
 
 스스로 구현 완료한 부분까지 체크하여 제출합니다.
 
-- [ ] 현지 시간 적용
-    - [ ] 샘플 시간을 잘 변형하여, 현지 시간에 맞게 표현합니다. (ex. 오전 10:02:17)
+- [O] 현지 시간 적용
+    - [O] 샘플 시간을 잘 변형하여, 현지 시간에 맞게 표현합니다. (ex. 오전 10:02:17)
 - [ ] 페이지네이션 기능
     - [ ] 페이지네이션에 대해서 스스로 학습합니다.
     - [ ] 한 페이지에 10개씩 디스커션이 보여야 합니다.
@@ -60,12 +60,13 @@ Github Page 배포 링크를 아래 작성합니다.
  
 ### 가장 자랑하고 싶은 기능
 
-> 적어주세요
+> 무지개 폰트?...
 
 ### 구현하고 싶었는데 하지 못한 아쉬운 기능
 
-> 적어주세요
+> 페이지네이션 기능
+> 디스커션 유지 기능
 
 ### 도움을 받고 싶은 부분
 
-> 적어주세요
+> 구글링에 대해서 조언을 좀 구하고 싶습니다. 이번 과정에서 모르는 내용을 스스로 학습하고 적용하는 과정이 아직 많이 어려웠습니다. 특히, 어떤 검색 키워드로 구글링을 하고 어떤 내용이 내 수준에서 적용할 수 있는 수준인가를 판단하는 것이 많이 어려웠습니다.

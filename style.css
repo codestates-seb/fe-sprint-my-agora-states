@@ -1,1 +1,187 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Dongle', sans-serif;
+    background-color: black;
+    color: antiquewhite;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-size: 70px;
+}
+
+/* form */
+section.form__container {
+    width: 540px;
+    height: 350px;
+    border: 3px silver solid;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: larger;
+}
+
+/* Discussion 컴포넌트 */
+
+li.discussion__container {
+    width: 540px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    border-bottom: 1px solid silver;
+}
+
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    justify-content: flex-start;
+    padding: 15px;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+img.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+}
+
+div.discussion__information {
+    text-align: end;
+}
+
+div.discussion__container {
+    flex: 1;
+}
+
+div.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 40px;
+    margin: 5px;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+div.form__input--title {
+    display: flex;
+    flex-direction: column;
+}
+
+div.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+div.form__submit {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit {
+    border: 0;
+    outline: 0;
+    border-radius: 20px;
+    width: 70px;
+    height: 40px;
+    background-color: silver;
+}
+
+#submit:hover,
+#submit:focus {
+    background-color: #ffc52a;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    font-size: 30px;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+textarea {
+    font-size: 30px;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+input:hover,
+input:focus {
+    background-color: #ffc52a;
+    color: black;
+    outline-color: silver;
+}
+
+textarea:hover,
+textarea:focus {
+    background-color: #ffc52a;
+    color: black;
+    outline-color: silver;
+}
+
+a:hover,
+a:focus {
+    animation-duration: 3s;
+    animation-name: rainbowLink;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rainbowLink {
+    0% {
+        color: #ff2a2a;
+    }
+
+    15% {
+        color: #ff7a2a;
+    }
+
+    30% {
+        color: #ffc52a;
+    }
+
+    45% {
+        color: #43ff2a;
+    }
+
+    60% {
+        color: #2a89ff;
+    }
+
+    75% {
+        color: #202082;
+    }
+
+    90% {
+        color: #6b2aff;
+    }
+
+    100% {
+        color: #e82aff;
+    }
+}
