@@ -106,7 +106,7 @@ function render4(element, min, max) {
   }
 
   for (let i = min; i <= max; i++) {
-    if(agoraStatesDiscussions[i] === undefined)
+    if (agoraStatesDiscussions[i] === undefined)
       break;
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -129,7 +129,7 @@ function render5(element, min, max) {
   }
 
   for (let i = min; i <= max; i++) {
-    if(agoraStatesDiscussions[i] === undefined)
+    if (agoraStatesDiscussions[i] === undefined)
       break;
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -137,15 +137,22 @@ function render5(element, min, max) {
 };
 
 //서버와 통신
-function render6(element){
+function render6(element) {
+
+  //li제거후 다시 랜더링
+  let discussion_li = document.querySelectorAll(".discussion__container");
+  for (let i = 0; i < discussion_li.length; i++) {
+    discussion_li[i].remove()
+  }
+
   const URI = "http://localhost:4000/discussions";
   fetch(URI)
-  .then(response => response.json())
-  .then(discussions => {
-    for(let i =0; i<discussions.length;i++){
-      element.append(convertToDiscussion(discussions[i]));
-    }
-  })
+    .then(response => response.json())
+    .then(discussions => {
+      for (let i = 0; i < discussions.length; i++) {
+        element.append(convertToDiscussion(discussions[i]));
+      }
+    })
 }
 
 
@@ -159,7 +166,7 @@ const ul = document.querySelector("ul.discussions__container");
 //render2(ul);
 
 const submitBtn = document.querySelector("form.form");
-submitBtn.addEventListener("submit", readInput);
+submitBtn.addEventListener("submit", inputTweetHandle);
 
 //submit이벤트
 function readInput(event) {
@@ -171,7 +178,7 @@ function readInput(event) {
 
     let obj = {};
     obj.createdAt = new Date().toISOString();
-   // obj.createdAt = new Date().toISOString();
+    // obj.createdAt = new Date().toISOString();
     obj.title = input_name_title[1].value;
     obj.author = input_name_title[0].value;
     obj.avatarUrl = "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
@@ -181,7 +188,40 @@ function readInput(event) {
   }
 }
 
+function inputTweetHandle(event) {
+  event.preventDefault();
+  const input_name_title = document.querySelectorAll("#name");
 
+  const URI = "http://localhost:4000/discussions/addTweet"
+  const data = {
+    title: input_name_title[1].value,
+    author: input_name_title[0].value,
+  }
+
+  let Tweet = postData(URI, data);
+  console.log(Tweet)
+  Tweet.then((data)=>{
+    ul.prepend(convertToDiscussion(data))})
+}
+
+async function postData(url = '', data = {}) {
+  // 옵션 기본 값은 *로 강조
+
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE 등
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
+  });
+  return response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
+}
 
 function addLocalStorage(obj) {
 
@@ -225,7 +265,7 @@ function totalpage() {
 
   let objarr = JSON.parse(localStorage.getItem(localStorage.key(0)))
   let total = objarr === null ? aDlength / 10 : (objarr.length + aDlength) / 10;
-  (total*10) % 10 === 0 ? total: total++;
+  (total * 10) % 10 === 0 ? total : total++;
   console.log(total);
 
   let t = document.querySelectorAll(".pagination--number--li");
@@ -237,15 +277,15 @@ function totalpage() {
 
   // const paginationleft = document.createElement("li");
   // const paginationright = document.createElement("li");
-  
+
   // paginationleft.classList.add("pagination--left")  
   // paginationright.classList.add("pagination--right")
-  
+
   // paginationleft.textContent = "<";
   // paginationright.textContent = ">";
 
   // ul_page.append(paginationleft);
-  
+
   for (let i = 1; i <= total; i++) {
     let li_page = document.createElement("li");
     li_page.textContent = i;
@@ -262,7 +302,7 @@ function pagination(event) {
 
   let target = event.currentTarget;
   let min = target.textContent * 10 - 10;
-  let max = target.textContent * 10 - 1 ;
+  let max = target.textContent * 10 - 1;
 
   render4(ul, min, max);
   //페이지 수 클릭시 해당값 전달
