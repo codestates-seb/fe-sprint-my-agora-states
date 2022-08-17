@@ -1,5 +1,19 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+
+let agoraStatesDiscussions = [];
+
+const ul = document.querySelector("ul.discussions__container");
+
+const fetchData = async () => {
+  await fetch("http://localhost:4000/discussions")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      agoraStatesDiscussions = [...data];
+    });
+
+  render(ul);
+};
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -58,7 +72,7 @@ const inputName = document.querySelector(".form__input--name input");
 const inputTitle = document.querySelector(".form__input--title input");
 const inputQuestion = document.querySelector("textarea");
 
-// submit 버튼 클릭시 디스커션 추가
+//submit 버튼 클릭시 디스커션 추가
 function onSubmit(e) {
   e.preventDefault();
   const username = inputName.value;
@@ -87,7 +101,7 @@ function onSubmit(e) {
 
 discussionSubmit.addEventListener("submit", onSubmit);
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+//agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
@@ -95,40 +109,8 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
+//ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+fetchData();
+// const ul = document.querySelector("ul.discussions__container");
+
 render(ul);
-
-// 페이지네이션 구현
-// currentPage : 현재 페이지 1
-// totalCount : 총 디스커션의 갯수 41(임의)
-// pageCount : 화면에 나타날 페이지의 갯수 10
-// limit : 한 페이지 당 나타낼 디스커션의 갯수 10
-
-// let pagenation = (totalCount, pageCount, limit, currentPage) => {
-//   let totalPage = Math.ceil(totalCount / limit); //5
-
-//   let firstPage = (currentPage % pageCount) + 1; //최초 페이지 숫자
-//   let lastPage = (currentPage % pageCount) + pageCount; // 마지막 페이지 숫자
-
-//   if (lastPage > totalPage) {
-//     lastPage = totalPage;
-//   }
-
-//   return {
-//     firstPage,
-//     lastPage,
-//     totalPage,
-//     totalCount,
-//     pageCount,
-//     limit,
-//     currentPage,
-//   };
-// };
-
-// let info = pagenation(agoraStatesDiscussions.length, 10, 10, 1);
-
-// for (let i = info.firstPage; i <= info.lastPage; i++) {
-//   i === info.currentPage
-//     ? return i : return i;
-// }
