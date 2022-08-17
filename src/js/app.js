@@ -1,7 +1,6 @@
 import { $ } from '../index.js';
 import { LOCALSTORAGE, NUMBER, EMPTY, PAGE } from './common/constants/constants.js';
 import { fetchDiscussions } from './common/data/api.js';
-import { agoraStatesDiscussions } from './common/data/data.js';
 import { getLocalStorage, setLocalStorage } from './common/utils/localStorage.js';
 import { getCurrentTime } from './common/utils/utils.js';
 import ImageUpload from './Components/ImageUpload.js';
@@ -20,7 +19,7 @@ export default class App extends Component {
   async initialState() {
     this.setState({
       ...this.props,
-      data: getLocalStorage(LOCALSTORAGE.PROPERTY_DATA) === null ? agoraStatesDiscussions : getLocalStorage(LOCALSTORAGE.PROPERTY_DATA),
+      data: getLocalStorage(LOCALSTORAGE.PROPERTY_DATA) === null ? await fetchDiscussions() : getLocalStorage(LOCALSTORAGE.PROPERTY_DATA),
       pageStartNum: -10,
       pageEndNum: 9999,
       currentPage: NUMBER.ZERO,
