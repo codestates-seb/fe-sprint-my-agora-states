@@ -1,4 +1,3 @@
-import { $ } from '../../index.js';
 import { PAGE, NUMBER } from '../common/constants/constants.js';
 import Component from '../Core/component.js';
 
@@ -25,7 +24,6 @@ export default class Section3 extends Component {
       </ul>
       <i class="page_indicator" id="next_page">></i>
     </div>
-    
     `;
   }
 

@@ -23,6 +23,7 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "dompurify": "^2.3.9"
   }
 }

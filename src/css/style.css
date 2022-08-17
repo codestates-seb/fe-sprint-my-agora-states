@@ -38,7 +38,7 @@ li {
 #image_submit_btn {
   border-right: none;
   border-left: none;
-
+  cursor: pointer;
   margin-left: 30px;
 }
 

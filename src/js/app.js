@@ -1,7 +1,8 @@
 import { $ } from '../index.js';
 import { LOCALSTORAGE, NUMBER, EMPTY, PAGE } from './common/constants/constants.js';
+import { fetchDiscussions } from './common/data/api.js';
 import { agoraStatesDiscussions } from './common/data/data.js';
-import { getLocalStorage, setLocalStroage } from './common/utils/localStorage.js';
+import { getLocalStorage, setLocalStorage } from './common/utils/localStorage.js';
 import { getCurrentTime } from './common/utils/utils.js';
 import ImageUpload from './Components/ImageUpload.js';
 import Section1 from './Components/Section1.js';
@@ -41,11 +42,11 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const { updataData, handleCurrentTime, handleCurrentPage, onClickPage, handleProfileUrl, onClickPageIndicator } = this;
+    const { updateData, handleCurrentTime, handleCurrentPage, onClickPage, handleProfileUrl, onClickPageIndicator } = this;
 
     new ImageUpload($('.profile_container'), { ...this.state, updateProfile: handleProfileUrl.bind(this) });
 
-    new Section1($('.form__container'), { ...this.state, updateData: updataData.bind(this), updateTime: handleCurrentTime.bind(this) });
+    new Section1($('.form__container'), { ...this.state, updateData: updateData.bind(this), updateTime: handleCurrentTime.bind(this) });
 
     new Section2($('.discussion__wrapper'), { ...this.state });
 
@@ -57,33 +58,33 @@ export default class App extends Component {
     });
   }
 
-  initLocalStorage() {
-    const dataToCopy = [...agoraStatesDiscussions];
-
-    let data = dataToCopy.slice();
-
-    if (getLocalStorage(LOCALSTORAGE.PROPERTY_DATA) === null) {
-      setLocalStroage(LOCALSTORAGE.PROPERTY_DATA, data);
-    }
-
-    if (getLocalStorage(LOCALSTORAGE.PROPERTY_USER) === null) {
-      setLocalStroage(LOCALSTORAGE.PROPERTY_USER, this.state.user);
-    }
-
-    return data;
-  }
-
-  updataData(newItem) {
+  updateData(newItem) {
     const { data } = this.state;
 
     const newData = data.concat(newItem);
 
-    setLocalStroage(LOCALSTORAGE.PROPERTY_DATA, newData);
+    setLocalStorage(LOCALSTORAGE.PROPERTY_DATA, newData);
 
     this.setState({
       ...this.state,
       data: newData,
     });
+  }
+
+  async initLocalStorage() {
+    const dataToCopy = [...(await fetchDiscussions())];
+
+    let data = dataToCopy.slice();
+
+    if (getLocalStorage(LOCALSTORAGE.PROPERTY_DATA) === null) {
+      setLocalStorage(LOCALSTORAGE.PROPERTY_DATA, data);
+    }
+
+    if (getLocalStorage(LOCALSTORAGE.PROPERTY_USER) === null) {
+      setLocalStorage(LOCALSTORAGE.PROPERTY_USER, this.state.user);
+    }
+
+    return data;
   }
 
   handleCurrentTime() {
@@ -147,7 +148,7 @@ export default class App extends Component {
 
     const newArray = getLocalStorage(LOCALSTORAGE.PROPERTY_USER).concat(newUser);
 
-    setLocalStroage(LOCALSTORAGE.PROPERTY_USER, newArray);
+    setLocalStorage(LOCALSTORAGE.PROPERTY_USER, newArray);
 
     this.setState({
       ...this.state,

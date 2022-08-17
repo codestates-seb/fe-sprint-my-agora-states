@@ -43,6 +43,7 @@ export default class Section1 extends Component {
       if (!e.target.classList.contains(BUTTON.SUBMIT)) {
         return;
       }
+
       if (inputValidator(nameInput, titleInput, questionContent)) {
         this.handleNewData(nameInput.value, titleInput.value, questionContent.value);
         this.handlePostingTime();
