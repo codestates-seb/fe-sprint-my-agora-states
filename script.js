@@ -1,6 +1,18 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+let allData;
 
+const render = async (element, start, end) => {
+  // let data = getFetchDataAsync();
+
+  allData = await fetch("http://localhost:4000/discussions").then((res) =>
+    res.json()
+  );
+
+  for (let i = start; i < end; i += 1) {
+    // 10개까지만 렌더링
+    element.append(convertToDiscussion(allData[i]));
+  }
+  return;
+};
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -58,15 +70,6 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, start, end) => {
-  for (let i = start; i < end; i += 1) {
-    // 10개까지만 렌더링
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
 // pagenation에 사용될 변수들
 let minPage = 0;
 let maxPage = 10;
@@ -122,7 +125,7 @@ const btn = (e) => {
   inputTitle.value = "";
   inputStory.value = "";
 
-  agoraStatesDiscussions.unshift(newQuestion);
+  allData.unshift(newQuestion);
   ul.prepend(convertToDiscussion(newQuestion));
 };
 
@@ -146,7 +149,7 @@ prevBtn.addEventListener("click", () => {
 
 nextBtn.addEventListener("click", () => {
   // 앞으로 가기
-  if (maxPage > agoraStatesDiscussions.length) {
+  if (maxPage > allData.length) {
     return;
   }
   while (ul.firstChild) {
