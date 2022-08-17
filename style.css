@@ -1,1 +1,75 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: #218bff;
+}
+ul {
+    list-style: none;
+}
+main{
+    width: 540px;
+    margin: auto;
+}
+.discussion__container{
+    display: flex;
+    height: 100px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    border-bottom: 1px solid #808080;
+    background-color: white;
+}
+.discussion__container:nth-child(2n){
+    background-color: #E4DCCF;
+}
+.discussion__container:last-child{
+    border-bottom: none;
+}
+.discussion__avatar--wrapper{
+    margin: auto 0;
+}
+.discussion__avatar--image{
+    width: 48px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin: 0 10px 0 5px ;
+}
+.discussion__answered{
+    margin: auto 5px auto 0px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    
+}
+.discussion__title{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.discussion__content{
+    height: 70px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 20px;
+
+}
+.discussion__information{
+    font-size: 10px;
+    text-align: end;
+}
+.form__container{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #808080;
+}
