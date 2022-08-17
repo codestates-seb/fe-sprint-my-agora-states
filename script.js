@@ -3,7 +3,6 @@
 fetch("http://localhost:4000/discussions")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     return data.map((el) => convertToDiscussion(el));
   })
   .then((li) => contents.append(...li));
