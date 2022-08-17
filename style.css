@@ -1,1 +1,137 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d4e1f2;
+  font-family: 'Gowun Dodum', sans-serif;
+}   
+
+h1 {
+  color: rgb(70, 70, 70);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__container {
+  background-color: #F8F9D7;
+  border-radius: 10px;
+  height: 350px;
+}
+.discussion__container {
+  display: flex;
+  width: 540px;
+  justify-content: space-between;
+  align-items: center;
+  font-size : 10px;
+  margin : 10px;
+  border-radius: 10px;
+}
+img {
+  width: 48px;
+  border-radius: 70%;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.discussion__title{
+  height: 60px;   
+  width: 430px;
+  text-align: left;
+  margin-top: 10;
+}
+.discussion__information{
+  height: 10px;
+  text-align: right;
+  font-size: 15px;
+}
+li {
+  list-style-type: none;
+}
+.discussion__wrapper{
+  display: flex;
+  flex:4;
+  width: 540px;
+  justify-content: center;
+  align-items:center;
+}
+ul {
+  padding: 0px;
+}
+li.discussion__container {
+  background-color: #8498c5;
+  height: 100px;
+}
+a:link {
+  color: rgb(244, 241, 241);
+  font-size: 18px;
+  text-decoration: none;
+}
+a:visited {
+  color: rgb(232, 232, 203);
+}
+.discussion__answered {
+  font-size: 25px;
+  margin: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+section {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  display: flex;
+  width: 500px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+#story {
+  width: 500px;
+}
+.form__input--wrapper {
+  margin: 5px;
+
+}
+.form__input--wrapper input {
+  width:500px;
+  height: 30px;
+  font-size:15px;
+  margin: 5px;
+}
+textarea {
+  margin : 5px;
+  font-size: 15px;
+  height: 80px;
+}
+.form__submit {
+  flex:1;
+  margin:3px;
+}
+.submit_btn {
+  width: 140px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: 170px;
+  margin-right: auto;
+  border-radius: 10px;
+  background-color: #ffc4c4;
+  cursor: pointer;
+}
+.submit_btn:hover{
+  background-color: #e86e6e;
+  transition: 0.5s ease-in-out;
+}
