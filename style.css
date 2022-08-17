@@ -15,6 +15,7 @@ h1{
     margin-bottom: 5px;
     background-color: #B2C8DF;
     width: 540px;
+    padding :10px;
 }
 .form__input--wrapper{
     display: flex;
@@ -64,6 +65,7 @@ section{
     justify-content:space-around;
     width: 540px;
     background-color: #e9ead2;
+    margin : 1px;
     /* flex-wrap: wrap; */
     /* 글자수를 많이 작성했을 때  */
 }
