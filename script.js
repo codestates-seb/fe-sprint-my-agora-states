@@ -1,17 +1,23 @@
+const start = async()=>{
+  let data;
+const res = await fetch('http://localhost:4000/discussions')
+const result = await res.json()
+data = await result;
+
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+
 //agoraStatesDiscussions을 localStorge로 불러옴
 //data란 곳에 agoraStatesDiscussions을 저장?
-let data;
-const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+// const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
 
-if(dataFromLocalStorage){
-  console.log('hi');
-  data = JSON.parse(dataFromLocalStorage);
-}else{
-  data = agoraStatesDiscussions.slice();
-  console.log(data)
-}
+// if(dataFromLocalStorage){
+//   console.log('hi');
+//   data = JSON.parse(dataFromLocalStorage);
+// }else{
+//   data = agoraStatesDiscussions.slice();
+//   console.log(data)
+// }
 
 //랜덤 이미지 뽑기 
 const randomImg = ()=>{
@@ -257,8 +263,9 @@ const enterEvent = (e)=>{
 }
 }
 $question.addEventListener('keypress',enterEvent);
-//초기값인 0~9번 항목 구현
-render(ul,1);
+
+// //초기값인 0~9번 항목 구현
+await render(ul,1);
 
 
 //해당 내용을 지워주지 않으면 ul에 데이터가 축적됨.
@@ -307,7 +314,7 @@ for(let i=1; i<(data.length/10)+1; i++){
     data.unshift(pushData);
     
     //localStorage에 저장
-    localStorage.setItem("agoraStatesDiscussions",JSON.stringify(data))
+    // localStorage.setItem("agoraStatesDiscussions",JSON.stringify(data))
     $username.value = '';
     $usertitle.value = '';
     $question.value = '';
@@ -338,3 +345,5 @@ for(let i=1; i<(data.length/10)+1; i++){
     render(ul,1);
   }
   $form.addEventListener('submit',addquestion);
+}
+start();
