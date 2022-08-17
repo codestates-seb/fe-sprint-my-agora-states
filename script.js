@@ -95,9 +95,16 @@ form.addEventListener("submit", (event) => {
   
 })
 
+fetch("http://localhost:4000/discussions/")
+  .then(response => response.json())
+  .then(json => {
+    let agoraStatesDiscussions = json; 	//위에서 agoraStatesDiscussions 라는 dummy data를 사용했었다.
+    const ul = document.querySelector("ul.discussions__container"); 
+    render(ul); //화면에 dom elements를 render 해주는 함수를 위에서 구현했었다.
+  })
 // 페이지네이션
 
-const totalCount = agoraStatesDiscussions.length;
-const limit = 10;
+// const totalCount = agoraStatesDiscussions.length;
+// const limit = 10;
 
-let totalPage = Math.ceil(totalCount / limit);
+// let totalPage = Math.ceil(totalCount / limit);
