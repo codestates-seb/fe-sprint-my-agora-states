@@ -1,0 +1,116 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: #213C08;
+}
+
+main {
+    display: flex;;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+main > h1 {
+    color: #F5F1E1;
+    text-shadow: 0 0 2px 2px #A6AE9D;
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+section.form__container {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #94CCA4;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px #F5F1E1;
+}
+
+.form__input--wrapper {
+    width: 500px;
+    margin-left: 10px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+
+}
+
+.form__submit {
+    margin-left: 10px;
+    display: flex;
+    /* justify-content: flex-end; */
+    width: 80px;
+    height: 30px;
+}
+
+
+.discussion__container {
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color :#CCEAAC;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #67AB9A;
+}
+
+li {
+    list-style: none;
+}
+
+.discussion__avatar--wrapper {
+    /* width: 300px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+li > .discussion__content {
+    width: 100vw;
+    /* background-color: red; 범위 체크용 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+    gap: 5px;
+    margin: 10px 0;
+    margin-right: 10px;
+}
+.discussion__content > h2 {
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+.discussion__information {
+    font-size: 13px;
+    text-align: right;
+    margin-right: 15px;
+}
+
+.discussion__answered > p {
+    font-size: 25px;
+}
