@@ -101,6 +101,6 @@ console.log(formattingTime("2022-05-16T01:02:17Z"));
  * 그리고 오전, 오후가 출력되니까 시간이 12시간이 되어야 함
  */
 
-// const addInputEvent = document.querySelector("#submitBtn");
-// console.log(addInputEvent);
-// addInputEvent.addEventListener("click", addDiscussions);
+const addInputEvent = document.querySelector("#submitBtn");
+console.log(addInputEvent);
+addInputEvent.addEventListener("click", addDiscussions);
