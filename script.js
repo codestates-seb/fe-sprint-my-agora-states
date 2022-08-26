@@ -1,6 +1,6 @@
 
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+let agoraStatesDiscussions;
 
 // 각각의 요소가 차례대로 들어온다.
 const convertToDiscussion = (obj) => {
@@ -103,6 +103,13 @@ const render = (element) => {
 // 랜더 함수에 돌려서 브라우저에 그린다
 // ul은 섹션안에 있다
 // 랜더가 나오면 끝난다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul); // 랜더함수 호출!!
+// const ul = document.querySelector("ul.discussions__container");
+// render(ul); // 랜더함수 호출!!
 
+fetch('http://localhost:4000/discussions')
+.then(res => res.json())
+.then(json => {
+  agoraStatesDiscussions = json;
+  const ul = document.querySelector('ul.discussions__container');
+  render(ul);
+})
