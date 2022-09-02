@@ -1,1 +1,98 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 540px;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  color: #1B1A17;
+}
+
+/* form */
+.form__container {
+  text-align: center;
+}
+
+input, textarea {
+  width: 540px;
+  height: 30px;
+  padding: 3px 9px;
+  border-radius: 10px;
+  /* font-size: 10px; */
+  border: 1px solid rgb(241, 241, 185);
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea {
+  height: 60px;
+}
+
+
+/* discussion */
+.discussions__container {
+  padding: 0;
+  font-size: 0.8em;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion__content {
+  margin-left: 10px;
+  flex: auto;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+.discussion__answered > p {
+  font-size: 2em;
+  margin-left: 10px;
+}
+
+/* button */
+.paginationContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageBtn {
+  width: 44px;
+  height: 44px;
+  margin: 5px;
+  font-size: 13px;
+  /* color: black; */
+  border: none;
+  cursor: pointer;
+  background-color: rgba(241, 237, 237, 0.27);
+  /* transition: 0.4s; */
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
