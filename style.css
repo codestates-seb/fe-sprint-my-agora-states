@@ -1,1 +1,87 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+ul {
+    list-style: none;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid red;
+}
+.discussions__container{
+    border: 1px solid red;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}   
+.discussion__container {
+
+    display: flex;
+    width:  540px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discussion__container > .discussion__avatar--wrapper{
+    
+    border-radius: 70%;
+    height: 48px;
+    overflow: hidden;
+}
+
+.discussion__avatar--wrapper .discussion__avatar--image{
+    object-fit: cover;
+}
+.discussion__container > .discussion__content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex-grow: 1;
+
+}
+.discussion__content > .discussion__title{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin: 0px;
+    height: 48px;
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    
+
+}
+.discussion__title a{
+    margin-top: 18.5px; /*사진이 48px 컨테이너높이 69px 사진 상하마진 10.5px a태그도 10.5마진주면 같은라인 글자높이가32px (48-32)/2 위에 8px 마진추가 */
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: line-through;
+    display: inline-block;
+    
+
+}
+.discussion__content > .discussion__information {
+    text-align: right;
+    height: 21px;
+    
+}
+.discussion__avatar--image{
+    width: 48px;
+    height: 48px;
+}
