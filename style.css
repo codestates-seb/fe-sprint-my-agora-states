@@ -33,6 +33,8 @@ body {
     width:  540px;
     justify-content: space-between;
     align-items: center;
+    height: 69px;
+    margin: 5px;
 }
 
 .discussion__container > .discussion__avatar--wrapper{
@@ -64,6 +66,8 @@ body {
     display: flex;
     font-weight: bold;
     flex-direction: column;
+    width: 478px;
+
     
 
 }
@@ -71,8 +75,10 @@ body {
     margin-top: 18.5px; /*사진이 48px 컨테이너높이 69px 사진 상하마진 10.5px a태그도 10.5마진주면 같은라인 글자높이가32px (48-32)/2 위에 8px 마진추가 */
     color: -webkit-link;
     cursor: pointer;
-    text-decoration: line-through;
+    text-decoration: underline;
     display: inline-block;
+    font-size: 15px;
+    
     
 
 }
@@ -84,4 +90,8 @@ body {
 .discussion__avatar--image{
     width: 48px;
     height: 48px;
+}
+.discussion__container > .discussion__answered {
+    flex: 1;
+
 }
