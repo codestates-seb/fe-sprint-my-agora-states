@@ -1,1 +1,115 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 질문 입력 */
+.form__container {
+  background-color: wheat;
+  width: 540px;
+}
+.form {
+  padding: 10px 18px;
+
+  display: flex;
+  justify-content: center;
+}
+.form__input--wrapper {
+  width: 340px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form__input--wrapper > div {
+  width: 100%;
+}
+/* .form__input--wrapper > div:first-child,
+.form__input--wrapper > div:nth-child(2) */
+.form__input--wrapper > div {
+  display: flex;
+  justify-content: space-between;
+}
+.form__input--wrapper > div > input {
+  width: 200px;
+}
+/* textarea#story {
+  width: 200px;
+} */
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+.form__submit > input {
+  width: 100px;
+  height: 91px;
+  border: none;
+  border-radius: 10px;
+
+  margin-left: 6px;
+}
+.form__submit > input:hover {
+  font-weight: 800;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* 디스커션 */
+/* li.discussion__container {} : 이렇게 태그.셀렉터로 표현해주면 좀 더 직관적임 */
+.discussions__container {
+  /* background-color: wheat; */
+  width: 540px;
+}
+
+.discussion__container {
+  /* background-color: gainsboro; */
+  margin-bottom: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 사진 */
+.discussion__avatar--image {
+  width: 60px;
+  margin-right: 10px;
+
+  border-radius: 50%;
+}
+/* 내용 */
+.discussion__content {
+  padding: 10px;
+  flex: 1 1 auto;
+
+  /* border: 1px solid black; */
+}
+.discussion__title {
+  /* background-color: aqua; */
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+.discussion__information {
+  /* background-color: aquamarine; */
+  text-align: right;
+}
+
+/* 체크박스 */
+.discussion__answered {
+  font-size: 36px;
+
+  margin-left: 6px;
+}
