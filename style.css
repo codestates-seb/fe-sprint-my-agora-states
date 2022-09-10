@@ -1,1 +1,280 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@keyframes rain_effect 
+{ 0% {background-position: 0px ;}
+50% {background-position: 40px; background-color: #ff69b400} 
+100% {background-position: 30px; background-color: #f8c8dc00} }
+@-moz-keyframes rain_effect 
+{ 0% {background-position: 100px;} 
+50% {background-position: 500px; background-color: #ff69b400}
+100% {background-position: 0px; background-color: #f8c8dc00} } 
+@-webkit-keyframes rain_effect 
+{0% {background-position: 0px;} 
+50% {background-position: 100px; } 
+100% {background-position: 0px; background-color: #f8c8dc00} } 
+
+body {
+    margin: 0;
+    box-sizing: boder-box;
+    display: flex;
+    justify-content: center;
+    background-color: #1B262C;
+    background-image: url(), url(./img/—Pngtree—white\ cloud\ png\ material_4170932.png), url(./img/gureum-pureun-haneul-aenimeisyeon-byeogji-2048x1536_26.jpg); 
+    animation: rain_effect 10s linear infinite; 
+    -webkit-animation: rain_effect 10s linear infinite; 
+    -moz-animation: rain_effect 20s linear infinite; 
+    -ms-animation: rain_effect 40s linear infinite;
+}
+
+
+h1 {
+    text-align: center;
+    color: #131109;
+}
+h2 {
+    text-align:  center;
+
+}
+
+.form__container {
+    background-color: #cdf8fc;
+    width: 540px;
+    padding: 25px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    top: 0px;
+}
+
+.form__submit {
+    align-self: stretch;
+    display: flex;
+
+}
+
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--wrapper {
+    width: 450px;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 3px 0px;
+}
+
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 3px 0px;
+}
+
+#name {
+    width: 300px;
+}
+
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 580px;
+    height: 50vh;
+}
+
+.discussions__container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.discussions__container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.23);
+    ;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+
+.discussions__container::-webkit-scrollbar-track {
+    background-color: #1B262C;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.432);
+}
+
+/* 1-3. Discussion컴포넌트 전체 폭 540px */
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 540px;
+    height: 120px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    margin: 0.5em 0px;
+}
+
+.discussion__avatar--wrapper {
+    margin: 0px 10px 0px 10px;
+}
+
+.form__input--wrapper {
+    color: rgb(32, 7, 7)
+}
+
+/* 1-2. li 점 보이지 않게 함 */
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+p {
+    font-size: 30px;
+}
+
+a:link {
+    color: #0F4C75;
+    text-align: center ;
+}
+
+a:visited {
+    color: #BBE1FA;
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+/* 아바타 공간 */
+.discussion__avatar--wrapper {
+    display: flex;
+}
+li.discussion__avatar--image {
+    border-radius: 60%;
+    width: 48px;
+    align-self: center;
+}
+
+/* 개별 discussion */
+.discussion__container {
+    color: #0F4C75;
+    background-color: white;
+}
+
+/* 3-1 Discussion제목, 저자, 생성일 간격 충분히 주기 */
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 470px;
+}
+
+.discussion__title {
+    font-size: 20px;
+    margin-block-start: 0.8em;
+    margin-block-end: 0.6em;
+}
+.discussion__information {
+    align-self: flex-end;
+    margin: 0px 0px 10px 0px;
+}
+
+.discussion__answered {
+    align-self: center;
+}
+
+
+
+/* submit 버튼 효과 */
+.submit {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    line-height: 45px;
+    margin-right: 0px;
+    max-width: 100px;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    background-color: #0F4C75;
+    align-self: stretch;
+    border-radius: 20%;
+}
+
+
+.submit {
+    border: 0 solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    outline: 1px solid rgba(254, 86, 86, 0.897);
+    transition: all 1.25s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.submit:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(211, 221, 14, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #de8d14;
+}
+
+
+/* 페이지네이션 */
+
+.article {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    padding: 0.3em 0;
+    list-style: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    overflow-y: scroll;
+    height: 50vh;
+}
+
+.content__id,
+.content__author,
+.content__date {
+    flex-basis: 15%;
+}
+
+.content__title {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    position: relative;
+    padding: 1rem 0;
+    display: inline-flex;
+    justify-content: center;
+}
+.prev {
+    position: absolute;
+    left: -2.5rem;
+}
+
+.next {
+    position: absolute;
+    right: -2.5rem;
+}
