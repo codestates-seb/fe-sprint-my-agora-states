@@ -1,24 +1,77 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-ul {
-    list-style: none;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0px;
-    
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: twayair;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid red;
 }
+/* .inbg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    
+} */
+
 .discussions__container{
     border: 1px solid red;
 
@@ -26,51 +79,42 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #A084CA;
+    opacity: ;
 }   
 .discussion__container {
 
     display: flex;
     width:  540px;
+    height: 50px;
     justify-content: space-between;
     align-items: center;
-    height: 69px;
-    margin: 5px;
+    
 }
 
 .discussion__container > .discussion__avatar--wrapper{
     
+    margin: 1px;
     border-radius: 70%;
     height: 48px;
+    width: 48px;
     overflow: hidden;
 }
 
 .discussion__avatar--wrapper .discussion__avatar--image{
     object-fit: cover;
+    width: 50px;
+    height: 50px;
 }
 .discussion__container > .discussion__content {
     display: flex;
     flex-direction: column;
     align-items: left;
-    flex-grow: 1;
-
+    width: 460px;
+    height: 50px;
 }
-.discussion__content > .discussion__title{
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    margin: 0px;
-    height: 48px;
-    display: flex;
-    font-weight: bold;
-    flex-direction: column;
-    width: 478px;
 
-    
 
-}
 .discussion__title a{
     margin-top: 18.5px; /*사진이 48px 컨테이너높이 69px 사진 상하마진 10.5px a태그도 10.5마진주면 같은라인 글자높이가32px (48-32)/2 위에 8px 마진추가 */
     color: -webkit-link;
@@ -78,20 +122,62 @@ body {
     text-decoration: underline;
     display: inline-block;
     font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis; /*460px 보다 넘치면 ... 로 표시함*/
+    white-space: nowrap;
+    width: 460px;
+    padding: 0 10px;
+    text-decoration: none;
     
+        
     
 
 }
 .discussion__content > .discussion__information {
     text-align: right;
-    height: 21px;
+    padding: 0 10px;
+    font-size: 7.5px;
     
 }
-.discussion__avatar--image{
+.discussin__avatar--image{
     width: 48px;
     height: 48px;
 }
 .discussion__container > .discussion__answered {
-    flex: 1;
+    width: 30px;
+    text-align: center; /*실제 체크박스로 대체될것임*/
+
+}
+
+.form__input--wrapper {
+    background-color: white;
+
+    border: 1px solid red;
+    width: 540px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+
+}
+
+.form__input--name {
+
+    flex-grow: 1;
+    width: 100px;
+    overflow: hidden;
+}
+#name {
+    width: 100px;
+}
+.title_text {
+    
+    flex-grow: 3;
+
+}
+
+.pageNum li {
+    float: left;
+    border: 1px solid red;
+    
 
 }

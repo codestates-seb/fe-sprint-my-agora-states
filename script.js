@@ -1,4 +1,13 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+// var date = new Date();
+// const hour = date.getHours();
+// let light_time = [6,7,8,9,10,11,12,13,14,15,16,17] 
+// console.log(hour)
+
+// if(!light_time.includes(hour)){
+//   const bg = document.querySelector("video");
+//   bg.setAttribute('src','dark.mp4');
+// }
 console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -39,14 +48,78 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-    
+const render = (element,arr) => {
+
+
+
+  
+
+  for(let i of arr){
+    element.append(convertToDiscussion(i));
+
   }
-  return;
+  
 };
+
+function pagenation() {
+  let dataLength = agoraStatesDiscussions.length;
+  if(dataLength <= 10) return;
+  let totalPage = Math.ceil(dataLength/10); //5
+  let pageGroup = Math.ceil(totalPage/3); //2
+  
+
+
+
+  let makepage = document.querySelector('.pageNum');
+  
+  for(let i = 1;i <=totalPage;i++){
+    const page = document.createElement('li');
+    page.className= `page${i}`;
+    const pagesrc = document.createElement('a');
+    pagesrc.setAttribute('target','__blank');
+    pagesrc.innerText = `${i}`;
+    pagesrc.addEventListener('click',evt1);
+    page.append(pagesrc);
+    makepage.append(page);
+  }
+    let pagingArr= [];
+    if(totalPage >= 1)
+    for(let i =0;i <= dataLength; i+=10){
+      
+      pagingArr.push(agoraStatesDiscussions.slice(i,i+10));
+      console.table(pagingArr);
+  } 
+      console.table(pagingArr.length)
+    return pagingArr
+  
+
+
+}
+
+function evt1() {
+  
+  const num = this.innerText;
+  let qnum = document.querySelector(".discussions__container").childElementCount;
+  console.log(document.querySelector('.discussions__container').hasChildNodes())
+  if(document.querySelector('.discussions__container').childElementCount){
+    while(document.querySelector('.discussions__container').childElementCount !== 0){
+      document.querySelector('.discussions__container').removeChild(document.querySelector('.discussion__container'));
+    }
+  
+  }
+
+
+
+
+
+  render(ul,pagearr[num-1]);
+
+W
+
+}
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+
+
+pagearr = pagenation();
