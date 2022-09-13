@@ -85,7 +85,7 @@ const convertToDiscussion = (obj) => {
       return function (){
         if(!isClicked){
           console.log('asd')
-          render2(document.querySelector(this.ELEMENT_NODE),obj.answer)
+          render2(document.querySelector(),obj.answer)
           isClicked = true;
         } else{
           console.log('asasdasdd')
