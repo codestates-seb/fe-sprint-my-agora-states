@@ -1,1 +1,172 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #FFE69A; */
+    width: 550px;
+    background: #FEAC5E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+h1{
+    padding: 5px;
+}
+
+
+
+section.form__container{
+    /* background-color: #DBFFF7; */
+
+    background: #FEAC5E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-bottom: 5px;
+}
+
+/* 이름,타이틀,텍스트공간 사이즈 조절 */
+div.form__input--name > input{
+margin-left: 8.32px;
+}
+
+div.form__input--title > input{
+margin-left: 20.92px;
+}
+
+div.form__textbox > textarea{
+    width: 380.05px;
+    height: 100px;
+    margin-left: 33px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}   
+
+section.form__container{
+    border-radius: 10px;
+    padding: 10px 10px 5px 10px;
+}
+
+/* your question 수직정렬 */
+div.form__textbox{
+    padding-top: 5px;
+    display: flex;
+    align-items: flex-start;
+}
+
+
+/* 버튼 정렬 */
+div.form__submit{
+    display: flex;
+    justify-content: end;
+}
+div.form__submit > input{
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+/* container들 크기조절 및 정렬 */
+li.discussion__container{
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    list-style-type: none;
+    border-radius: 10px;
+}
+
+
+/* 이미지 크기,radius + 중앙정렬 */
+div.discussion__avatar--wrapper > img{
+    width: 48px;
+    border-radius: 100%;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+/* 내용 글자 조절  */
+div.discussion__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    line-height: 15px;
+}
+
+
+/* 콘텐트 내부 질문 왼쪽정렬, 이름+시간 우측정렬 */
+div.discussion__content > h2{
+    justify-content: start;
+    width: 420px;
+}
+div.discussion__content > div{
+    display: flex;
+    justify-content: end;
+}
+
+div.discussion__information{
+    font-size: 14px;
+}
+
+/* 하이퍼링크 조절 */
+a{
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:link{
+    color : black;
+}
+a:visited{
+    color : grey;
+}
+
+a:hover{
+    color : pink;
+}
+
+a:active{
+    color : blue; 
+}
+
+
+
+/* 버튼 조절 */
+div.discussion__answered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+
+
+
+/* 중간 디스커션 콘텐츠 간격주기등부터 시작 */
+
+
+
+
