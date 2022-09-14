@@ -8,10 +8,45 @@ const convertToDiscussion = (obj) => {
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+  // Adding an avatar img
+  const avatarImg = document.createElement('img');
+  avatarImg.classList.add('discussion__avatar--image');
+  avatarImg.src = obj.avatarUrl;
+  avatarWrapper.append(avatarImg);
+
+  // ----------------------------------------------------------------------------------
+
+  // Filling in discussion content
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+
+  // Create Empty H2 tag for containing a-tag and adding className
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.classList.add('discussion__title')
+
+  // Create an a-tag and add it to h2
+  const aHref = document.createElement('a');
+  aHref.href = obj.url;
+  aHref.textContent = obj.title;
+  discussionTitle.append(aHref);
+
+  // create a div tag for discussion information
+  const discussionInfo = document.createElement('div');
+  discussionInfo.textContent = `${obj.author}  /  ${obj.createdAt}`;
+  discussionInfo.classList.add('discussion__information');
+
+  discussionContent.append(discussionTitle, discussionInfo);
+
+  // ----------------------------------------------------------------------------------
+
+  // Checking if it is answered by finding the property of 'answered' is not null
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  if(obj.answer) {
+    const checkMark = document.createElement('p');
+    checkMark.textContent = '☑';
+    discussionAnswered.append(checkMark);
+  }
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
