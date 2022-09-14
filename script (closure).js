@@ -75,15 +75,26 @@ const render = function(element) {
 const nextBtn = document.querySelector('#nextbtn');
 const previousBtn = document.querySelector('#previousbtn');
 const pageElement = document.querySelector('#currentpage');
-let pagenum = 1;
 
-const renderNextPage = function(element) {
+  // Rendering method;
+  // it contains pagenum variable that indicates the current page number
+const renderPage = (function(){
+  let pagenum = 1;
+
+  // Closure; which is actually execute the rendering process with the pagenum variable, auxilary function
+  return function(aux, element) {
+    pagenum = aux(pagenum, element); 
+    // aux function accepts pagenum and element which is expected to append
+    // replace the pagenum with new num
+  }
+})();
+
+const renderNextPage = function(pagenum, element) {
   console.log(pagenum, element);
   
-  if(pagenum * 10 > data.length) return;
+  if(pagenum * 10 > data.length) return pagenum;
 
-  pagenum ++;
-  console.log(pagenum);
+  pagenum++; 
   // when the button clicked, it increase the current pagenum
 
   let endIdx = pagenum * 10;
@@ -110,34 +121,37 @@ const renderNextPage = function(element) {
 
   // replacing the current textContent of currentpage element
   pageElement.textContent = pagenum;
-};
 
-const renderPreviousPage = function(element) {
-  if(pagenum === 1) return;
-  // console.log('hi');
+  return pagenum;
+}
+
+const renderPreviousPage = function(pagenum, element) {
+  console.log(pagenum, element);
+  if(pagenum = 0) return pagenum;
+  
   pagenum--;
 
   let endIdx = pagenum * 10;
   let startIdx = (pagenum - 1) * 10;
+  console.log(pagenum, endIdx, startIdx);
 
   while(element.firstChild) {
     element.removeChild(element.firstChild);
   }
-  
-  console.log(pagenum);
 
-  for(startIdx; startIdx < endIdx; startIdx++) {
+  for (startIdx; startIdx < endIdx; startIdx++) {
     element.append(convertToDiscussion(data[startIdx]));
   }
-  pageElement.textContent = pagenum;
-};
+
+  return pagenum;
+}
 
 function checker() {
   console.log('hi!');
 }
 
-nextBtn.addEventListener('click', () =>{renderNextPage(ul)} );
-previousBtn.addEventListener('click', () => {renderPreviousPage(ul)});
+nextBtn.addEventListener('click', (() => {renderPage(renderNextPage, ul)})());
+// previousBtn.addEventListener('click', () => {renderPage(renderPreviousPage, ul)});
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 // const ul = document.querySelector("ul.discussions__container");
