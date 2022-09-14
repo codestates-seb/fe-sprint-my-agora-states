@@ -72,7 +72,7 @@ const convertToDiscussion = (obj) => {
   discussion__title.className = "discussion__title";
   const discussion__title__a = document.createElement('a');
   const discussion__inform = document.createElement('div');
-  const discussion__answered__p = document.createElement('p');
+  const discussion__answered__img = document.createElement('img');
   discussion__inform.className = "discussion__information"
   discussion__inform.innerText = obj.author +' / '+ obj.createdAt
   discussion__title__a.setAttribute('href',obj.url);
@@ -82,7 +82,10 @@ const convertToDiscussion = (obj) => {
   discussion__title.appendChild(discussion__title__a);
   discussionContent.appendChild(discussion__inform);
   avatarWrapper.appendChild(discussion__avatar__image);
+  discussion__answered__img.className = 'check_image'
   if(obj.answer){
+    discussion__answered__img.setAttribute('src','https://cdn-icons-png.flaticon.com/512/1443/1443000.png');
+
     li.addEventListener('click',function(){
       let isClicked = false;
       
@@ -103,8 +106,10 @@ const convertToDiscussion = (obj) => {
     }())
     
   
+  }else{
+    discussion__answered__img.setAttribute('src','https://cdn-icons-png.flaticon.com/512/6356/6356474.png');
   }
-
+  discussionAnswered.append(discussion__answered__img);
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };

@@ -57,6 +57,8 @@ table {
     box-sizing: border-box;
 }
 main {
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,13 +80,12 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #A084CA;
+    background-color: white;
 }   
 .discussion__container {
 
     display: flex;
     width:  540px;
-    height: ;
     justify-content: space-between;
     align-items: center;
     
@@ -113,7 +114,13 @@ main {
     
     
 }
+h2 {
 
+    display: inline-block;
+    width: 460px;
+    padding: 0 10px;
+    
+} 
 
 
 .discussion__title a{
@@ -121,12 +128,10 @@ main {
     color: -webkit-link;
     cursor: pointer;
     text-decoration: underline;
-    display: inline-block;
-    font-size: 1rem;
-    white-space: nowrap;
-    width: 460px;
-    padding: 0 10px;
+    font-size: 0.9rem;
+    white-space: wrap;
     text-decoration: none;
+    
     
     
         
@@ -152,27 +157,36 @@ main {
 
 .form__input--wrapper {
     background-color: white;
-
+    
     border: 1px solid red;
     width: 540px;
-    height: 180px;
+    height: 130px;
     display: flex;
-    align-items: center;
+    align-items: top;
+    
 
 }
 
 .form__input--name {
-
+    border: 1px solid red;    
     flex-grow: 1;
-    width: 100px;
-    overflow: hidden;
+    height: 30px;
+    display: flex;
+    justify-content: left;
+
 }
-#name {
+.nameForm{
     width: 100px;
+    height: 25.59px;
+
 }
 .title_text {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex-grow: 0;
     
-    flex-grow: 3;
 
 }
 
@@ -190,4 +204,92 @@ main {
     
 }
 
+.titleForm{
+    
+    display: inline-block;
+    width: 250px;
+}
+.storyForm{
 
+    display: inline-block;
+    width: 250px;
+
+}
+
+.form__input--title{
+    margin: 0px;
+    display: flex;
+    justify-content: left;
+    
+
+
+}
+
+.form__textbox{
+margin-top: 10px;
+display: flex;
+justify-content: left;
+
+
+}
+
+.storyForm{
+    width: 244px;
+    height: 90px;
+}
+
+label {
+
+    vertical-align: top;
+    font-size: 0.8rem;
+    color: blueviolet;
+    
+}
+
+label[for='story'] {
+
+    width: 91.7px;
+}
+
+.form__submit{
+
+    height: 80px;
+    text-align: center;
+    
+}
+.submit__button{
+
+    appearance: auto;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    border: solid 2px;
+    cursor: default;
+    background-color: white;
+    padding: 15px 30px;
+    color: black;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: all 0.4s;
+    
+}
+.submit__button:focus {
+
+    outline: none;
+}
+
+.submit__button:hover {
+    background-color: black;
+    color: white;
+
+
+}
+.check_image {
+    
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+
+}
