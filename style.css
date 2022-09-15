@@ -1,1 +1,53 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-family: 'MabinogiClassicR';
+}
+
+/*li에서 점 없애기*/
+ul {
+  list-style: none;
+}
+
+/*discusstion 컴포넌트 폭 조절*/
+li {
+  width: 540px;
+}
+
+/*아바타 사진 둥글게 표현
+  너비 48px
+  discussion 컴포넌트 중앙 정렬*/
+/* .discussion__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+.discussion__container {
+  display: flex;
+  align-items: center;
+}
+.discussion__avatar--image {
+  clip-path: circle();
+  width: 48px;
+}
+
+/*중간 discussion 제목,저자,생성일 간 간격 주기
+  저자, 생성일을 오른쪽 정렬*/
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/*체크표시 중앙정렬*/
+.discussion__answered {
+  text-align: center;
+}
+
+/*배경*/
+.bg {
+  background: url('../img/background.jpg') center center;
+  background-size: cover;
+  background-attachment: fixed; /*background 고정*/
+  height: 1000px; /*650*/
+}
