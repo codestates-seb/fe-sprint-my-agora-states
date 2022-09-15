@@ -15,7 +15,14 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
+  // 아바타 이미지 렌더링 기능 구현
+  const avatarImg = document.createElement("img");
 
+  avatarImg.className = "discussion__avatar--image"
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+
+  avatarWrapper.append(avatarImg);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
