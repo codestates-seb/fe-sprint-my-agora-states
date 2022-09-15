@@ -86,7 +86,6 @@ render(ul);
 // 이벤트 핸들러 : input의 밸류들을 모아 데이터에 추가
 const submitQuestion = (e) => {
   e.preventDefault(); 
-console.log('하하')
 
 let newObj= {
   id: "",
@@ -100,10 +99,8 @@ avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4"
 };
 
 
-console.log(newObj)
 agoraStatesDiscussions.unshift(newObj)
 render(ul);
-console.log(agoraStatesDiscussions)
 }
 
 submitBtn.addEventListener( 'click', submitQuestion )
