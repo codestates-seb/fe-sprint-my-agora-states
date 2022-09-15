@@ -14,7 +14,38 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 1. img 태그를 생성한다.
+  // 2. img 태그에 내용을 담는다.
+  // 3. img 태그를 부모에 append한다.
+  const img = document.createElement("img");
+  img.className = "discussion__avatar--image";
+  img.src = obj.avatarUrl;
+  img.alt = obj.author;
+  avatarWrapper.append(img);
 
+  // 3. h2 태그를 생성한다.
+  // 4. h2 태그에 내용을 담는다.
+  const hTag = document.createElement("h2");
+  hTag.className = "discussion__title";
+  const aTag = document.createElement("a");
+  aTag.href = obj.url;
+  aTag.textContent = obj.title;
+  hTag.append(aTag);
+  discussionContent.append(hTag);
+
+  // 5. div 태그를 생성한다.
+  // 6. div에 내용을 담는다.
+  const information = document.createElement("div");
+  information.className = "discussion__information";
+  information.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(information);
+
+
+  // 7. p태그를 생성한다.
+  // 8. p태그에 내용을 담는다.
+  const pTag = document.createElement("p");
+  pTag.textContent = "☑";
+  discussionAnswered.append(pTag);
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
