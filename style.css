@@ -1,1 +1,127 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-image: url('backimg.png');
+}
+
+main h1 {
+    text-align: center;
+}
+main h1:hover { /* 무지개색으로 변하는 글자 */
+    animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
+    @keyframes rainbowLink {     
+    0% { color: #ff2a2a; }
+    15% { color: #ff7a2a; }
+    30% { color: #ffc52a; }
+    45% { color: #43ff2a; }
+    60% { color: #2a89ff; }
+    75% { color: #202082; }
+    90% { color: #6b2aff; } 
+    100% { color: #e82aff; }
+}
+main .form__container{
+    text-align: center;
+}
+
+.discussion__wrapper .discussions__container { /* 리스트들 가운데로 옮기기 */
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__input--wrapper {
+    padding: 8px 12px;
+}
+
+.form__input--wrapper .form__input--name {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form__input--wrapper .form__input--name label {
+    padding-right: 10px;
+}
+
+.form__input--wrapper .form__input--title {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form__input--wrapper .form__input--title label {
+    padding-right: 10px;
+}
+
+.form__input--wrapper .form__textbox label {
+   /* 글씨 가운데로 정렬 어캐함 */
+   padding-right: 10px;
+   font-weight: bold;
+}
+
+.form__input--wrapper .form__textbox #story {
+    width: 200px;
+    height: 40px;
+}
+
+.form__submit input {
+    height: 30px;
+    width: 70px;
+    font-weight: bold;
+}
+ul.discussions__container {
+    padding: 0;
+    background-color: #ffffff;
+    background-color: rgba( 255, 255, 255, 0.5 ); /* 배경만 투명하게 하기 */
+}
+li.discussion__container {
+    list-style: none;
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .discussion__avatar--wrapper img{ /* 왜 홍식님 이미지만 바뀌고 나머지는 적용이 안될까? 검사로 해서 잘볼것 */
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content {
+    width: 100%;
+    margin: 0 10px;
+    padding: 8px 10px;
+}
+
+.discussion__content .discussion__title {
+    margin: 0;
+    margin-right: auto;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.discussion__title a {
+    text-decoration-line: none;
+}
+
+.discussion__wrapper .discussion__information {
+    text-align: end;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.discussion__answered p {
+    font-size: 24px;
+    display: flex;
+    height: 90px;
+    flex-direction: column;
+    justify-content: center;
+}
