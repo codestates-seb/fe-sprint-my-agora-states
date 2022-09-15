@@ -7,6 +7,17 @@ const userId = document.querySelector("#name")
 const title = document.querySelector("#title")
 const question = document.querySelector("#story")
 
+// 현재 날짜, 시간 구하기
+let today = new Date();
+let year = today.getFullYear();
+let month = ('0' + (today.getMonth() + 1)).slice(-2);
+let day = ('0' + today.getDate()).slice(-2);
+let hours = ('0' + today.getHours()).slice(-2); 
+let minutes = ('0' + today.getMinutes()).slice(-2);
+let seconds = ('0' + today.getSeconds()).slice(-2); 
+
+let currentTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
