@@ -1,1 +1,28 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* Component*/
+@import "components/form_com.css";
+@import "components/discussions_com.css";
+@import "components/avatar_com.css";
+@import "components/content_com.css";
+@import "components/title_com.css";
+/* MIME 에러로 이름 변경 */
+@import "components/answerd.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6bf3e;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: violet;
+  text-decoration-line: none;
+}
+
+main {
+  margin-top: 150px;
+}
