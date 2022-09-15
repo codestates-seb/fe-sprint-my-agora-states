@@ -4,3 +4,171 @@ box-sizing: border-box;
 margin: 0;
 padding: 0;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #e3ddda;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+main {
+  width: 650px;
+  margin: 1rem;
+  padding: 2rem;
+  background-color: #ff7948;
+  border-radius: 1rem;
+  font-size : 10px;
+  color: #4c0bd1;
+  box-shadow: 2px 2px 1px 1px #300781;
+
+  }
+
+h1 {
+  background-color: #4c0bd1;
+  color: #ffffff;
+  border-radius: 2rem;
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0.5rem 2rem;
+  padding: 1rem;
+  box-shadow: 1px 1px 1px 1px #300781;
+
+}
+
+section {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+
+/* 입력 section */
+.form__input--name, .form__input--title, .form__textbox {
+display: flex;
+justify-content: center;
+margin: 1rem 0.5rem;
+}
+
+label {
+flex: 0 1 8rem;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size : 12px; 
+}
+
+.form__input--wrapper input, textarea {
+  flex: 1 1 10rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  border: 2px solid #4c0bd1;
+  font-size : 12px;
+  
+}
+
+.form__input--wrapper input, textarea:focus {
+  outline: none; 
+}
+
+
+.form__submit {
+display: flex;
+justify-content: flex-end;
+margin: 1rem 0.5rem;
+/* border: 2px solid green; */
+}
+
+.form__submit__btn {
+  background-color: #4c0bd1;
+  color: #ffffff;
+  border-radius: 0.3rem;
+  width: 8rem;
+  height: 2rem;
+}
+
+
+/* 디스커션 section */
+.discussions__container {
+  width: 540px; 
+  color: #4c0bd1;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  margin: 0.8rem 0;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.8rem;
+  box-shadow: 1px 1px 1px 1px #a38ed6;;
+
+}
+
+/* 프로필 이미지 */
+.discussion__avatar--wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid fuchsia; */
+  padding: 0.5rem;
+}
+
+.discussion__avatar--image {
+  border-radius: 5rem;
+  width: 48px;
+}
+
+/* 텍스트 */
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 3.3rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.5rem;
+  /* border: 1px solid fuchsia */
+}
+.discussion__content a {
+  text-decoration-line: none;
+}
+
+.discussion__content a:link {
+  color: #4c0bd1;
+}
+
+.discussion__content a:visited {
+  color : #a38ed6;
+}
+
+.discussion__information__container {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.5rem;
+}
+
+/* 체크 박스 */
+.discussion__answered {
+  font-size: 12px;
+  background-color: #4c0bd1;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  color: #ffffff;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2rem;;
+  box-shadow: 1px 1px 1px 1px #bbb4c8;
+  
+}
