@@ -31,10 +31,12 @@ const convertToDiscussion = (obj) => {
   // 제목에 링크 추가
   titleUrl.textContent = obj.title;
   titleUrl.href = obj.url;
+  // 작성자, 작성일 추가
+  discussionInfomation.textContent = `${obj.author} / ${obj.createdAt}`;
   
   
   discussionTitle.appendChild(titleUrl);
-  discussionContent.appendChild(discussionTitle, discussionInfomation);
+  discussionContent.append(discussionTitle, discussionInfomation);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
