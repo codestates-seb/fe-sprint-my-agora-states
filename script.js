@@ -36,9 +36,43 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionTitle, discussionInformation);
 
   // todo : discussion__answered 답변 삽입
-  const discussionAnswerdMark = document.createElement('p');
-  discussionAnswerdMark.textContent = obj.answer === null ? '☒' : '☑';
-  discussionAnswered.append(discussionAnswerdMark);
+  if(obj.answer !== null){
+    // * AnsweredReply 생성 및 내용 삽입
+    const discussionAnsweredReply = document.createElement('div');
+    discussionAnsweredReply.className = 'discussion__answered--reply';
+    discussionAnsweredReply.textContent = '└';
+  
+    // * AnsweredContent 생성 및 내부 컨텐츠 생성 후 내용 삽입
+    const discussionAnsweredContent = document.createElement('div');
+    discussionAnsweredContent.className = 'discussion__answered--content';
+  
+    const discussionAnsweredTitle = document.createElement('h2');
+    discussionAnsweredTitle.className = 'discussion__answered--title';
+    discussionAnsweredContent.append(discussionAnsweredTitle);
+  
+    const discussionAnsweredTitleLink = document.createElement('a');
+    discussionAnsweredTitleLink.href = obj.answer.url;
+    discussionAnsweredTitleLink.textContent = `${obj.answer.bodyHTML.slice(0,30)}...`;
+    discussionAnsweredTitle.append(discussionAnsweredTitleLink);
+  
+    const discussionAnsweredInfomation = document.createElement('div');
+    discussionAnsweredInfomation.className = 'discussion__answered--information';
+    discussionAnsweredInfomation.textContent = `${obj.answer.author} / ${obj.answer.createdAt.slice(0, 10)} ${obj.answer.createdAt.slice(11, 19)}`
+    discussionAnsweredContent.append(discussionAnsweredInfomation);
+  
+    // * AnsweredAvatar 생성 및 내부 컨텐츠 생성 후 내용 삽입
+    const answeredAvatarWrapper = document.createElement('div');
+    answeredAvatarWrapper.className = 'discussion__answared--avatar--wrapper';
+    const answeredAvatarImg = document.createElement('img');
+    answeredAvatarImg.className = 'discussion__answared--avatar--image';
+    answeredAvatarImg.src = obj.answer.avatarUrl;
+    answeredAvatarImg.alt = `avatar of ${obj.answer.author}`
+    answeredAvatarWrapper.append(answeredAvatarImg);
+  
+    // * Answered content append
+    discussionAnswered.append(discussionAnsweredReply, discussionAnsweredContent, answeredAvatarWrapper);
+  }
+
   // todo : discussionAnswered append
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
