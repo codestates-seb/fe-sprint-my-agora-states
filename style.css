@@ -5,7 +5,78 @@
   padding: 0;
 }
 
+main {
+  display: grid;
+  grid-template-columns: 15vw auto 15vw;
+  grid-template-rows: 92vh 8vh auto;
+}
+
+/* landing section */
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-image: linear-gradient(
+    rgba(47, 40, 254, 0.319), 
+    rgba(255, 255, 255, 1)
+  ),
+  url('./img/codestates-motif.png'); */
+  margin-bottom: 10px;
+}
+
+.landing > h1 {
+  font-size: var(--font-xxl);
+  padding: 20px;
+}
+
+.landing > p {
+  font-size: var(--font-xl);
+  padding: 10px;
+}
+
 /* form section */
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--name, .form__input--title, .form__textbox {
+  display: flex;
+}
+
+.form__input--name > label, .form__input--title > label, .form__textbox > label {
+  flex-basis: 20%;
+  margin: 10px;
+  text-align: center;
+}
+
+.form__input--name > input, .form__input--title > input, .form__textbox > textarea {
+  min-width: 250px;
+  margin: 10px;
+  border-color: var(--gray-200);
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.form__submit {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 10px;
+}
+
+
+
+/* discussion count section */
+
+.discussions-num {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  margin: auto;
+}
 
 /* discussion section */
 
@@ -13,20 +84,22 @@ li {
   list-style: none;
 }
 
-.discussion__wrapper {
-  width: 540px;
-}
 
 .discussion__container {
   display: flex;
   justify-content: space-between;
 }
 
+li {
+  border-top: 1px solid var(--gray-200);
+  margin: 10px;
+}
+
 .discussion__avatar--wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px;
+  margin: 10px;
 }
 
 .discussion__avatar--image {
@@ -41,8 +114,55 @@ li {
   justify-content: center;
 }
 
+.discussion__content a {
+  color: var(--gray-800);
+  text-decoration: none;
+  font-size: var(--font-l);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.discussion__content a:hover{
+  color: var(--gray-600);
+}
+
+.discussion__information {
+  color: var(--gray-400);
+  font-size: var(--font-m);
+}
+
 .discussion__answered {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+/* utility */
+
+.hide {
+  display: none;
+}
+
+.btn-l {
+  width: 250px;
+  height: 60px;
+  font-size: var(--font-xl);
+  color: var(--white);
+  font-weight: 700;
+  background-color: var(--coz-purple-600);
+  border: none;
+  border-radius: 5px;
+}
+
+.form__submit > input {
+  width: 80px;
+  height: 40px;
+  font-size: var(--font-m);
+  color: var(--white);
+  font-weight: 400;
+  background-color: var(--coz-purple-600);
+  border: none;
+  border-radius: 5px;
+
 }

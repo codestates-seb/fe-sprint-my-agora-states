@@ -47,6 +47,7 @@ function questionSubmit(event) {
   console.log(agoraStatesDiscussions);
   addNewQuestion(ul);
   saveAgora();
+  discussionMain.textContent = `Discussions (${agoraStatesDiscussions.length})`;
 
   questionName.value = "";
   questionTitle.value = "";

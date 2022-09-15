@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="global-style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -16,33 +17,43 @@
 
   <body>
     <main>
-      <h1>My Agora States</h1>
-      <section class="form__container">
-        <form action="" method="get" class="form">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+      <aside class="blank landing"></aside>
+      <section class="landing">
+        <h1>My Agora States</h1>
+        <p>코드스테이츠의 커뮤니티에 자유롭게 질문하고, 답변을 확인해보세요</p>
+        <button class="form__button btn-l">질문하기</button>
+        <section class="form__container hide">
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <label for="name">Name </label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__input--title">
+                <label for="title">Title </label>
+                <input type="text" name="title" id="title" required />
+              </div>
+              <div class="form__textbox">
+                <label for="story">Content </label>
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder=""
+                  required
+                ></textarea>
+              </div>
             </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required />
+            <div class="form__submit">
+              <input class="btn-s" type="submit" value="submit" />
             </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
-            </div>
-          </div>
-          <div class="form__submit">
-            <input type="submit" value="submit" />
-          </div>
-        </form>
+          </form>
+        </section>
       </section>
+      <aside class="blank landing"></aside>
+      <aside class="blank"></aside>
+      <div class="discussions-num"></div>
+      <aside class="blank"></aside>
+      <aside class="blank"></aside>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
           <!-- <li class="discussion__container">
@@ -68,9 +79,11 @@
           </li> -->
         </ul>
       </section>
+      <aside class="blank"></aside>
     </main>
   </body>
   <script src="data.js"></script>
   <script src="form.js"></script>
   <script src="script.js"></script>
+  <script src="formBtn.js"></script>
 </html>
