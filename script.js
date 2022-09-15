@@ -24,6 +24,22 @@ const convertToDiscussion = (obj) => {
 
   avatarWrapper.append(avatarImg);
 
+  // Discussion 콘텐츠 렌더링 기능 구현
+  const title = document.createElement("h2");
+  const titleLink = document.createElement("a");
+  const information = document.createElement("div");
+
+  title.className = "discussion__title";
+  titleLink.href = obj.url;
+  titleLink.textContent = obj.title;
+  title.append(titleLink);
+  information.className = "discussion__information";
+  information.textContent = `${obj.author} / ${obj.createdAt}`;
+
+  discussionContent.append(title);
+  discussionContent.append(information);
+
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
