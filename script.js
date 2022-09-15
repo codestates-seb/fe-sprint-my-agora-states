@@ -13,6 +13,7 @@ const userQuestion = document.querySelector('#story');
 
 const form = document.querySelector('.form');
 
+//제출버튼 클릭후 창 새로고침 막기
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 });
