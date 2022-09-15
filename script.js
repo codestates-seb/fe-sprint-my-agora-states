@@ -14,20 +14,29 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = 'discussion__answered';
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
+  //li 1번
   const avatarImg = document.createElement('img'); //img 요소 생성
+  avatarImg.className = 'discussion__avatar--image';
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of ' + obj.author;
-
   avatarWrapper.append(avatarImg);
-
+  //li 2번
   const discussionTitle = document.createElement('h2'); //h2 요소 만들기
   discussionTitle.className = 'discussion__title'; //클래스 이름 지정
-  discussionTitle.textContent = obj.title; //text 삽입
+
+  const discussionUrl = document.createElement('a'); //'a'요소 만들기
+  discussionUrl.href = obj.url;
+  discussionUrl.textContent = obj.title; //text 삽입
+  discussionTitle.append(discussionUrl); //h2의 자식 요소로 추가
+
   discussionContent.append(discussionTitle); //discussionContent에 추가
 
-  //const discussionUrl = document.createAttribute('a'); //'a'요소 만들기
+  const discussionInfo = document.createElement('div');
+  discussionInfo.className = 'discussion__information';
+  discussionInfo.textContent = obj.author + ' / ' + obj.createdAt;
+  discussionContent.append(discussionInfo);
 
+  //li 3번
   const discussionAnswer = document.createElement('div'); //div 요소 만들기
   discussionAnswer.className = 'discussion__answered'; //클래스 이름 지정
   if (obj.answer !== null) {
@@ -41,7 +50,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  //element는 ul
+  //여기서 element는 ul
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
