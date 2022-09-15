@@ -25,6 +25,10 @@
   a{
     font-size: 17px;
   }
+  .form{
+    display: flex;
+    flex-direction: row;
+  }
   .form__container{
     background-color: rgb(247, 196, 223);
     width: 540px;
@@ -52,6 +56,52 @@
     padding-left: 20px;
     padding-right: 3px;
  }
+ .form__input--wrapper{
+    flex: 6;
+    margin-right: 10px;
+  }
+  .form__submit{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form__input--name{
+    display: flex;
+  }
+  .nameLabel{
+    flex: 1;
+  }
+  .nameInput{
+    flex: 2;
+  }
+  .form__input--title{
+    display: flex;
+  }
+  .titleLabel{
+    flex: 1;
+  }
+  .titleInput{
+    flex: 2;
+  }
+  .form__textbox{
+    display: flex;
+    flex-direction: column;
+  }
+  .questionLabel{
+    margin-bottom: 7px;
+  }
+  .submitBtn{
+    width: 80px;
+    height: 87px;
+    background-color: rgb(247, 224, 228);
+    border-radius: 10px;
+    border: none;
+  }
+  .submitBtn:hover{
+    background-color: rgb(249, 170, 183);
+    border: none;
+  }
 
  /* 작성자, 작성 시간 오른쪽으로 */
  .discussion__information{
