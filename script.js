@@ -25,7 +25,6 @@ const convertToDiscussion = (obj) => {
 //컴포넌트 title을 data.js에서 가져오기
   const discussionTitle = document.createElement("h2");
   discussionTitle.className = "discussion__title";
-
   const discussionUrl = document.createElement("a");
 
   //질문 클릭시 깃헙 페이지로 넘어가게 한다.
@@ -34,13 +33,19 @@ const convertToDiscussion = (obj) => {
   discussionUrl.textContent = obj.title;
 
   discussionTitle.append(discussionUrl);
-//data.js에서 현지시간 가져오기
+//data.js에서 시간 가져오기
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-//data.js의 내용으로 브라우저상에서 보이도록 한다
+//질문 시간 브라우저 화면에 보여주기
+  let questionDate = new Date(obj.createdAt).toLocaleString()
+
   discussionInformation.textContent = obj.createdAt;
-//디스커션 콘텐트안으로 제목과 현지시간 넣기
+  //질문자 닉네임 화면에 보이게 하기
+  discussionInformation.textContent = `${obj.author} / ${questionDate}`;
+
+  //디스커션 콘텐트안으로 제목과 현지시간 넣기
   discussionContent.append(discussionTitle,discussionInformation);
+
 //답변 체크 부분 DOM 생성
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
