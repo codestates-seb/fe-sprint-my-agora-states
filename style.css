@@ -1,1 +1,38 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin : 10;
+    padding: 10;
+    box-sizing: border-box;
+}
+.discussions__container{
+    border: solid red 1px;
+ }
+li.discussion__container{
+    display: flex;
+    width : 540px;
+    justify-content: space-between;
+    border: double goldenrod 2px;
+}
+div.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: double goldenrod 2px;
+}
+div.discussion__content{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    border: double goldenrod 2px;
+}
+div.discussion__answered{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: double goldenrod 2px;
+}
+img{
+    width: 70px;
+    border-radius: 50%;
+}
