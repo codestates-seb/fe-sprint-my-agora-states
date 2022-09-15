@@ -40,6 +40,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px;
 }
 
 .discussion__answered {
@@ -50,9 +51,55 @@ img {
 
 .discussion__information {
     text-align: right;
+    font-size: 13px;
 }
 
 .discussion__title,
 .discussion__information {
     margin: 5px 5px;
+}
+
+p {
+    font-size: 2em;
+    color: green;
+}
+
+a {
+    font-size: 15px;
+}
+
+input,
+textarea {
+    margin: 5px 0;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__submit {
+    width: 20%;
+}
+
+input[type='submit'] {
+    width: 100%;
+    height: 90%;
+}
+
+#name {
+    width: 100px;
+}
+
+#title {
+    width: 300px;
+}
+
+#story {
+    width: 430px;
+    height: 100px;
+}
+
+h1 {
+    text-align: center;
 }
