@@ -1,1 +1,164 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  background-color: rgb(255, 239, 241);
+}
+img {
+  max-height: 64px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  color: rgb(84, 83, 83);
+  font-weight: 500;
+}
+
+/* form */
+input,
+textarea {
+  background: none;
+  color: black;
+  font-size: 0.9em;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 320px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
+/* .form__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__textbox {
+  display: flex;
+} */
+.form__input--wrapper {
+  width: 30em;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+.form__input--wrapper > div {
+  margin-top: 1em;
+}
+.form__textbox textarea {
+  overflow-y: hidden;
+  height: 3em;
+  width: 80%;
+  transition: all 0.5s ease;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgb(170, 170, 238);
+}
+.autoHeight:focus {
+  outline: none;
+  height: 7em;
+  box-shadow: 0 0 12px rgb(111, 111, 245);
+}
+.form__submit {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+.form__submit input {
+  color: rgb(240, 179, 179);
+  width: 10em;
+  height: 3em;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  border-bottom-color: rgba(0, 0, 0, 0.34);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset,
+    0 2px 0 -1px rgba(0, 0, 0, 0.13), 0 3px 0 -1px rgba(0, 0, 0, 0.08),
+    0 3px 13px -1px rgba(0, 0, 0, 0.21);
+}
+.form__submit input:hover {
+  border-color: blueviolet;
+  color: blueviolet;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+/* discussion */
+.discussions__container {
+  max-width: 700px;
+  border: 1px solid rgb(86, 86, 86);
+  background-color: white;
+  overflow-y: scroll;
+}
+.discussions__container > li:first-child {
+  margin: 0;
+  border-top: none;
+}
+.discussion__container {
+  padding-top: 1em;
+  display: flex;
+  margin-top: 1em;
+  padding-left: 1em;
+  border-top: 1px solid rgb(130, 124, 124);
+}
+.discussion__container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 1em;
+}
+.discussion__content {
+  width: 100%;
+  justify-content: space-evenly !important;
+}
+.discussion__information {
+  font-size: 0.7em;
+  color: black;
+  opacity: 0.5;
+}
+.pageNumber__list {
+  display: flex;
+  justify-content: center;
+}
+.pageNumber__list--item {
+  margin-right: 0.5em;
+}
+.pageNumber__list--item:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+  color: blue;
+}
+
+@media screen and (max-width: 680px) {
+  .discussions__container {
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+  }
+  /* .form__input--wrapper {
+    width: 100%;
+    transition: all 0.8s ease;
+  }
+  input {
+    width: 100px;
+    transition: all 0.8s ease;
+  } */
+  .form__input--wrapper {
+    width: 100%;
+    transition: all 0.8s ease;
+  }
+  .form__input--wrapper input {
+    width: 50%;
+  }
+  textarea {
+    width: 50%;
+  }
+}
