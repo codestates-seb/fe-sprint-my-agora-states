@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Noto Serif KR', serif;
 }
 
 body {
@@ -16,36 +17,65 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 900px;
-    padding: 30px 20px;
-    background-color: beige;
+    margin: 20px;
+    border: 1px solid black;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 25px;
 }
 
-a {
-    font-size: 15px;
-}
 
 .form__container {
+    width: 540px;
+    height: 120px;
+    margin: 20px;
+    padding: 10px;
+    font-size: 12px;
+    border-bottom: 1px solid black;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+}
+
+.form__input--wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 750px;
-    height: 120px;
-    padding: 30px 20px;
-    margin: 0 0 30px;
-    background-color: rgba(220, 217, 109, 0.903);
-    border-radius: 2em;
-    font-size: 20px;
+}
+
+.form__input--wrapper div{
+    display: flex;
+    justify-content: space-between;
+    width: 430px;
+}
+
+.form__textbox{
+    flex-direction: column;
+}
+
+#name {
+    width: 200px;
+}
+
+#story {
+    width: 430px;
+}
+
+.form__submit {
+    padding: 0 5px 0 5px;
+    height: 103.58px;
+    width: 90px;
+}
+
+.form__submit input {
+    height: 100%;
+    width: 100%;
 }
 
 .discussion__wrapper {
-    font-size: 15px;
-    height: 70vh;
+    height: 550px;
     overflow: auto;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -58,24 +88,23 @@ a {
 .discussions__container {
     display: flex;
     flex-direction: column;
-    
+    font-size: 11px;
 }
 
 .discussions__container li{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100px;
-    width: 750px;
+    height: 80px;
+    width: 540px;
     margin: 0 0 10px;
-    background-color: white;
-    border-radius: 1em;
+    border-bottom: 1px solid black;
 }
 
 .discussion__avatar--wrapper {
-    height: 75px;
-    width: 75px;
-    margin: 10px;
+    height: 48px;
+    width: 48px;
+    margin: 15px;
     border-radius: 70%;
     overflow: hidden;
 }
@@ -86,7 +115,38 @@ a {
     object-fit: cover;
 }
 
-.discussion__answered{
+.discussion__content {
+    width: 70%; 
+    align-items: baseline;
+}
+
+.discussion__content h2 {
+    height: 50px;
+}
+
+.discussion__content  a {
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
+
+.discussion__content a:hover {
+    text-decoration: none;
+}
+
+.discussion__content a:focus { 
+    text-decoration: none; 
+}
+
+.discussion__content a:hover, a:active {
+    text-decoration: none; 
+}
+
+.discussion__content div {
+    float: right;
+}
+
+.discussion__answered {
     margin: 10px;
     font-size: 30px;
 }
