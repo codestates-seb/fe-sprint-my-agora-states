@@ -166,9 +166,14 @@ button:hover {
   font-size: 15px;
 }
 
+.discussion__title:hover {
+  color: var(--mint);
+}
+
 .discussion__information {
   margin-bottom: 5px;
   font-size: 13px;
+  color: lightslategray;
 }
 
 .discussion__answered {
@@ -179,7 +184,7 @@ button:hover {
 }
 
 
-/* button */
+/* 페이지네이션 영역 */
 .btn__page--wrapper {
   display: flex;
   justify-content: center;
@@ -195,6 +200,7 @@ button:hover {
 }
 .btn__page--btn:hover {
   cursor: pointer;
+  color: lightslategray;
 }
 
 .prev,
