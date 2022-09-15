@@ -356,3 +356,16 @@ input[type='text'].tf_text,
   color: #2c9995;
   font-weight: bold;
 }
+
+.btn_nav.btn_prev,
+.btn_nav.btn_next {
+  opacity: 0.5;
+}
+
+.btn_nav.btn_prev:hover,
+.btn_nav.btn_next:hover {
+  opacity: 1;
+  border-color: #2c9995;
+  color: #2c9995;
+  font-weight: bold;
+}
