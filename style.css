@@ -1,1 +1,184 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+    background-color: rgb(252,232,192);
+    background: linear-gradient(180deg, rgba(252,232,192,1) 50%, rgba(255,155,146,1) 93%),repeating-linear-gradient(45deg, #444, #444 10px, #888 0, #888 20px);
+    background-repeat: no-repeat;
+}
+
+#img1 {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    width: 250px;
+    left: -300px;
+    top: 150px
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px red;
+    border-radius: 20px;
+    background-color: #ffffff;
+    margin-bottom: 100px;
+}
+
+.main_div {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 35px;
+    background-color: #FCC5C0;
+    border-radius: 20px 20px 0 0;
+}
+
+.div_img{
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 25px;
+    top: -30px;
+    left: 200px;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+.div_img1{
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        width: 25px;
+        height: 25px;
+        top: -55px;
+        left: 240px;
+        position: relative;
+        background-color: #ffffff;
+        border: solid 1.5px #937DC2;
+        border-radius: 6px;
+}
+
+h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 3rem;
+    margin-top: 20px;
+    color: #8065ba;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: row;
+    align-items: row;
+    margin-top: 10px;
+}
+
+label {
+    color: #C689C6;
+    font-weight: 700;
+}
+
+input[type=text]{
+    margin-top: 20px;
+    border: 0;
+    outline: none;
+    height: 25px;
+    background-color: #ffe5e2;
+    border-radius: 20px;
+}
+
+textarea {
+    margin-top: 10px;
+    border: 0;
+    outline: none;
+    width: 300px;
+    height: 100px;
+    background-color: #ffe5e2;
+    border-radius: 10px;
+}
+
+.form__textbox {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#story {
+    padding: 5px;
+}
+
+.form__submit input {
+    margin-top: 20px;
+    padding: 5px;
+    background-color: ;
+}
+
+li.discussion__container {
+    display: flex;
+    list-style: none;
+    width: 540px;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: #bdbdbd;
+    background-color: #eeeeee;
+    padding: 10px;
+}
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+div.discussion__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    flex-grow: 1;
+    font-size: 12px;
+}
+
+.discussion__content div{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 5px;
+    padding-right: 25px;
+}
+
+div.discussion__answered{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: #937DC2;
+}
+
+a:hover {
+    color: #937DC2;
+}
+
+section.discussion__wrapper {
+    margin: 50px 0 50px 0;
+}
+
