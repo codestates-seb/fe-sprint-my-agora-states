@@ -68,28 +68,21 @@ render(ul);
 //id title에 담긴 건 key 'title'에 담겨야 한다.
 //날짜도 담겨야 하네 생각해보니...
 // 배열인 agoraStatesDiscussions의 가장 뒤에 만들어진 객체가 더해진다.
-//agoraStatesDiscussion.push('요소')
+//agoraStatesDiscussion.push('만들어진 객체')
 
 const Form = document.querySelector(".form");
-const submitBtn = document.querySelector("#send");
+// const submitBtn = document.querySelector("#send");
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const inputStory = document.querySelector("#story");
 let ObjectForForm = {};
 
-Form.submit = function () {
-  if (
-    (inputName.textContent !== "",
-    inputTitle.textContent !== "",
-    inputStory !== "")
-  ) {
-    ObjectForForm.author = inputName.textContent;
-    ObjectForForm.title = inputTitle.textContent;
-    ObjectForForm.createdAt = new Date();
-    ObjectForForm.avatarUrl =
-      agoraStatesDiscussions[
-        Math.floor(Math.random() * agoraStatesDiscussions.length)
-      ].avatarUrl;
-    agoraStatesDiscussions.push(ObjectForForm);
-  }
+Form.onsubmit = function () {
+  console.log("동작한다네");
+
+  // ObjectForForm.author = inputName.value;
+  // ObjectForForm.title = inputTitle.value;
+  ObjectForForm.createdAt = `${new Date()}`;
+  agoraStatesDiscussions.push(ObjectForForm);
+  return false;
 };
