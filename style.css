@@ -89,6 +89,7 @@ main > h1{
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #000;
+  flex-wrap: wrap;
 }
 
 .discussion__container:last-child{
@@ -108,7 +109,7 @@ main > h1{
 }
 
 .discussion__content{
-  width: calc(100% - 68px);
+  width: calc(100% - 48px);
   padding: 10px 15px;
 }
 
@@ -121,18 +122,45 @@ main > h1{
 }
 
 .discussion__information{
-  font-size: 1rem;
+  font-size: .85rem;
   text-align: right;
 }
 
 .discussion__answered{
-  width: 20px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion__answered--reply{
+  font-size: 1.5rem;
+}
+
+.discussion__answered--content{
+  width: calc(100% - 48px);
+  padding: 10px 15px;
+}
+
+.discussion__answered--title{
+  margin-bottom: 5px;
+}
+
+.discussion__answered--title > a{
+  font-size: 1.2rem;
+}
+
+.discussion__answered--information{
+  font-size: .85rem;
+  text-align: right;
+}
+
+.discussion__answared--avatar--wrapper{
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.discussion__answered > p{
-  font-size: 1.5rem;
+.discussion__answared--avatar--wrapper > img{
+  border-radius: 50%;
 }
