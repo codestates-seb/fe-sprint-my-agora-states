@@ -1,1 +1,175 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+  v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css");
+
+body {
+    background-color: #ECECEE;
+    overflow:hidden;
+    font-family: 'Pretendard', sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 좌측 폼 컨테이너 */
+.form__container {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+h1 {
+    flex: 1 0 0;
+    font-size: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex: 9 0 0;
+}
+
+.form__input--wrapper {
+    flex: 10 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--name {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.form__input--title {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.form__textbox {
+    flex: 3 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.form__submit {
+    border-top: #ECECEE;
+    flex: 1 0 0;
+    display: flex;
+}
+
+label {
+    flex: 1 0 0;
+    margin: 0.5rem 0;
+}
+
+input:nth-child(2) {
+    flex: 1 0 0;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    resize: none;
+}
+
+input[type=submit] {
+    height: fit-content;
+    background-color: #6D27E8;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: 0;
+}
+
+/* 우측 디스커션 래퍼 */
+
+.discussion__wrapper {
+    background-color: #FFFFFF;
+    margin: 1rem;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__container {
+    display: flex;
+    margin: 0.5rem 1rem;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    flex: 1 0 50%;
+}
+
+.discussion__avatar--wrapper {
+    flex: 1 0 0;
+    
+}
