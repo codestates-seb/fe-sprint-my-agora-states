@@ -1,1 +1,182 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Jua', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #80B77F;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  width: 540px;
+  height: 1000px;
+  background-color: #F7F6DC;
+  border-radius: 13px;
+}
+
+main h1 {
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+main form {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__input--name input, .form__textbox textarea {
+  margin-left: 5px;
+  width: 250px;
+  border: 1px solid #eeeeee;
+}
+
+.form__input--name {
+  margin-bottom: 20px;
+}
+
+.form__textbox {
+  margin-bottom: 20px;
+}
+
+.form__input--name input {
+  height: 30px;
+  padding: 5px;
+}
+
+.form__textbox textarea {
+  height: 60px;
+  padding: 5px;
+}
+
+.form__input--name label {
+  position: relative;
+  top: 2px;
+}
+
+.form__textbox label{
+  position: relative;
+  bottom: 43px;
+}
+
+.form__submit {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form__submit input {
+  border: none;
+  color: black;
+  background-color: #F7F6DC;
+  padding: 7px 30px;
+  border-radius: 10px;
+}
+
+header {
+  border-bottom: 1px solid #828282;
+  background-color: #FFC090;
+}
+
+.discussion__wrapper {
+  height: 670px;
+  overflow: auto;
+}
+
+.discussions__container {
+  padding: 0;
+  margin: 0;
+  
+}
+
+.discussion__container {
+  display: flex;
+  min-height: 90px;
+  border-bottom: 1px solid #828282;
+}
+
+.discussion__avatar--wrapper {
+  flex: 0.15;
+}
+
+.discussion__content {
+  flex: 0.7;
+}
+
+.discussion__answered {
+  flex: 0.15;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__content {
+  padding: 5px;
+}
+
+.discussion__title {
+  font-size: 17px;
+}
+
+.discussion__information {
+  font-size: 12px;
+  text-align: right;
+  margin-top: 23px;
+}
+
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__answered p {
+  font-size: 20px;
+}
+
+#page {
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page span:not(:last-child) {
+  margin-right: 25px;
+}
+
+#page span {
+  background-color: white;
+  padding: 5px 8px;
+}
+
+#page1, #page2, #page3, #page4, #page5 {
+  cursor: pointer;
+}
