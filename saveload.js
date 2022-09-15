@@ -1,3 +1,17 @@
+/** 닉네임 기반키로 프로필랜덤으로 출력 */
+function getRandomprofile(name) {
+  const _profileimageList = ['https://cdn.discordapp.com/attachments/1017286837376655413/1020110014825898034/cat.jpg',
+    'https://cdn.discordapp.com/attachments/1017286837376655413/1020110015123705907/eaf6bf97-6c5f-4b56-bc21-75ee37980968.png',
+    'https://cdn.discordapp.com/attachments/1017286837376655413/1020086428291579945/wa3XJg-b_400x400.jpg'];
+  let _sum = 0;
+  for (let i = 0; i < name.length; i++ ) {
+    _sum += name.charCodeAt(i);
+  }
+  return _profileimageList[_sum % 3];
+}
+
+
+
 /** localStorage 에 데이터를 저장함 */
 function saveLocalstorageData (){
   const _name = document.querySelector("#name").value;
@@ -13,7 +27,7 @@ function saveLocalstorageData (){
     author: _name,
     answer: null,
     bodyHTML:_story,
-    avatarUrl:"https://cdn.discordapp.com/attachments/1017286837376655413/1020086428291579945/wa3XJg-b_400x400.jpg",
+    avatarUrl: getRandomprofile(_name),
   }
   
   // 작성한 object 를 json 으로 변환
@@ -25,7 +39,7 @@ function saveLocalstorageData (){
 
 /** localStorage 에서 데이터를 불러옴 */
 function loadLocalstoragedata() {
-  //window.localStorage.clear();
+  window.localStorage.clear();
   const _objarr = {};
   for ( let i = 0; i < window.localStorage.length; i ++ ) {
     
