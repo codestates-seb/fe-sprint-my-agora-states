@@ -1,7 +1,16 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-* {
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+body {
   box-sizing: border-box;
   font-family: "nanumgothic", "MesloLGS NF", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+}
+.form__container {
+  text-align: center;
 }
 ul,
 li {
@@ -11,7 +20,6 @@ li {
 .discussion__container {
   width: 540px;
   display: flex;
-  align-items: center;
 }
 .discussion__avatar--image {
   border-radius: 50%;
@@ -25,6 +33,7 @@ li {
 }
 h2 {
   margin-top: 0;
+  margin-left: 10px;
   font-size: 18px;
 }
 .discussion__information {

@@ -38,7 +38,7 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
   const isAnswer = document.createElement("p");
-  isAnswer.textContent = obj.answer === null ? "☑" : "☒";
+  isAnswer.textContent = obj.answer !== null ? "☑" : "☒";
   discussionAnswered.append(isAnswer);
   discussionContent.append(discussionAnswered);
 
@@ -59,3 +59,33 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// 제출
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // submit 이벤트 필수
+  // addEventListener 안으로 선언 위치 이동
+  const author = form.querySelector("div.form__input--name > input").value;
+  const title = form.querySelector("div.form__input--title > input").value;
+  const textbox = form.querySelector("div.form__textbox > textarea").value;
+
+  const newObj = {
+    id: "new id",
+    createdAt: new Date().toISOString(),
+    title: title,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author,
+    bodyHTML: textbox,
+    avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+  };
+  // addEventListener 안으로 선언 위치 이동
+  agoraStatesDiscussions.unshift(newObj);
+
+  ul.prepend(convertToDiscussion(newObj));
+
+  // submit 후 빈칸으로 리셋
+  form.querySelector("div.form__input--name > input").value = "";
+  form.querySelector("div.form__input--title > input").value = "";
+  form.querySelector("div.form__textbox > textarea").value = "";
+});
