@@ -1,1 +1,161 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap");
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  color: #222;
+  background: linear-gradient(to right, rgb(153, 107, 234), rgb(255, 120, 129));
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 500;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+}
+
+/*
+li {
+  list-style: none;
+}
+*/
+a:link,
+a:visited {
+  text-decoration: none;
+  box-shadow: none;
+  color: inherit;
+}
+img {
+  object-fit: cover;
+  object-position: center center;
+  width: 48px;
+  border-radius: 30px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+  line-height: 0;
+}
+
+h1 {
+  width: 240px;
+  margin: 50px auto;
+  font-size: 2rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+h1:hover {
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(37, 38, 38));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.4s;
+}
+h2 {
+  font-size: 1rem;
+}
+h3 {
+  font-size: 1.17rem;
+}
+
+h4 {
+  font-size: 1.12rem;
+}
+
+h5 {
+  font-size: 0.83rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+main > section {
+  width: 460px;
+  margin: 30px auto;
+}
+.discussion__avatar--wrapper > img {
+  margin-top: 6px;
+}
+.discussion__container {
+  display: flex;
+  line-height: 15px;
+}
+.discussion__content {
+  width: 400px;
+  float: left;
+  height: 50px;
+  margin-top: 6px;
+}
+.discussion__content > :nth-child(2) {
+  display: block;
+  justify-content: space-between;
+  width: max-content;
+}
+.discussion__content > :nth-child(3) {
+  width: auto;
+  float: left;
+}
+.discussion__information {
+  width: 340px;
+  word-spacing: normal;
+}
+.discussion__content > div {
+  display: inline-block;
+}
+.discussion__answered {
+  padding-top: 20px;
+  font-size: 1.7rem;
+}
+.form__input--name > input,
+.form__input--title > input,
+.form__textbox > textarea {
+  border: 2px solid white;
+  margin-left: 5px;
+  color: #111;
+}
+.form__textbox > textarea {
+  padding: 6px;
+}
+.form__input--wrapper > div,
+.form__input--title > div {
+  margin: 15px 0;
+}
+.form__submit > input {
+  color: #111;
+  font-weight: lighter;
+}
+.form__submit > input {
+  background-color: rgb(46, 46, 46);
+  border: 3px solid white;
+  color: white;
+  padding: 7px;
+  cursor: pointer;
+}
+.form__submit > input:hover {
+  background-color: white;
+  color: #111;
+  font-weight: 500;
+  border: 3px solid black;
+  transition: 0.6s;
+}
+.discussion__avatar--wrapper {
+  margin-right: 13px;
+}
+.discussion__container {
+  border: 5px solid white;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 50%;
+  border-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 0%,
+    rgb(255, 224, 47) 100%
+  );
+  border-image-slice: 1;
+}
