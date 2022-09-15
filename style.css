@@ -117,7 +117,7 @@ body {
 /* make images easier to work with */
 img,
 picutre {
-    max-width: 100%;
+    /* max-width: 100%; */
     display: block;
 }
 
@@ -133,7 +133,7 @@ select {
 /* input */
 
 input {
-    color: #2e3fc6;
+    color: #232323;
 }
 
 /* remove animations for people who've turned them off */
@@ -170,6 +170,7 @@ main {
 
     align-items: center;
     justify-content: center;
+    width: min(80%, 540px);
 
 }
 
@@ -216,16 +217,46 @@ main {
 /* ------------------- */
 .discussion__wrapper {
     background-color: var(--clr-gray-50);
+    width: min(80%, 540px);
 }
 
 .discussions__container {
+    display: flex;
+    flex-direction: column;
     background-color: var(--clr-gray-100);
 }
 
+
 .discussion__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
     background-color: var(--clr-gray-200);
+    
+}
+
+.discussion__avatar--image{
+    border-radius: 100rem;
+    width: min(48px);
 }
 
 .discussion__content {
     background-color: var(--clr-gray-300);
+}
+
+.discussion__title{
+
+}
+
+.discussion__information{
+
+}
+
+.discussion__answered{
+    font-size: var(--fs-600);
+}
+
+.discussion__answered > button {
+    background-color: var(--clr-gray-600);
 }
