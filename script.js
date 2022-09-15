@@ -1,5 +1,9 @@
+// localStorage 
+const localStorage = window.localStorage;
+// localStorage.clear();
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -80,9 +84,17 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+        const key = localStorage.key(i);
+        const obj = JSON.parse(localStorage.getItem(key));
+
+        element.append(convertToDiscussion(obj));
+    }
+
     for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
         element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     }
+
     return;
 };
 
@@ -109,18 +121,21 @@ form.onsubmit = function (e) {
 
     // create input data object 
     const createdDateTime = new Date();
-    const author = document.querySelector('#name').value;
-    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#name');
+    const title = document.querySelector('#title');
 
     const inputData = {
-        avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author}${title}.svg`,
-        author: author,
+        avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author.value}.svg`,
+        author: author.value,
         url: '',
-        title: title,
+        title: title.value,
         createdAt: createdDateTime,
         answer: null,
     };
 
+    const random_id = `_${Math.random().toString(30).substr(2,17) + Math.random().toString(30).substring(2,17)}`;
+    localStorage[random_id] = JSON.stringify(inputData);
+    
     ul.prepend(convertToDiscussion(inputData));
 
     // update pagination on discussion post submission 
@@ -131,6 +146,11 @@ form.onsubmit = function (e) {
     getPaginationNumbers();
     setCurrentPage(1);
     addEventToPaginationNumber();
+
+    // reset submission value 
+    author.value = '';
+    title.value = '';
+    document.querySelector('#story').value = '';
 };
 
 // pagination
@@ -207,7 +227,6 @@ const addEventToPaginationNumber = function () {
 
         if (pageIndex) {
             button.addEventListener("click", () => {
-                console.log("h")
                 setCurrentPage(pageIndex);
             });
         }
