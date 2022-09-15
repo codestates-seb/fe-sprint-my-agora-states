@@ -1,9 +1,16 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 //console.log(agoraStatesDiscussions);
 
-localStorage.setItem('obj', JSON.stringify(agoraStatesDiscussions));
+let localStorageObj = localStorage.getItem('obj');
+if (localStorageObj) {
+  localStorageObj = JSON.parse(localStorage.getItem('obj'));
+} else {
+  localStorageObj = agoraStatesDiscussions.slice();
+  localStorage.setItem('obj', JSON.stringify(localStorageObj));
+}
 
-let localStorageObj = JSON.parse(localStorage.getItem('obj'));
+localStorage.setItem('obj', JSON.stringify(localStorageObj));
+
 console.log(localStorageObj);
 
 let allPagingNum = Math.ceil(localStorageObj.length / 10);
@@ -62,6 +69,19 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+const btnClStorage = document.querySelector('.clear_local_storage');
+
+btnClStorage.addEventListener('click', function () {
+  localStorage.removeItem('obj');
+  localStorageObj = agoraStatesDiscussions.slice();
+  ul.textContent = '';
+  render(ul, 0);
+
+  allPagingNum = Math.ceil(localStorageObj.length / 10);
+  discussionPaging.textContent = '';
+  renderPaging(allPagingNum);
+});
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element, itemStartNum) => {
   itemStartNum = itemStartNum ? itemStartNum : 0;
@@ -104,14 +124,17 @@ const agoName = document.querySelector('#name');
 const agoTitle = document.querySelector('#title');
 const agoStory = document.querySelector('#story');
 let agoCreatedAt = '';
+let agoCreatedAtValue = '';
 
 agoForm.addEventListener('submit', function (e) {
   e.preventDefault();
   agoCreatedAt = new Date();
+  agoCreatedAtValue = `${agoCreatedAt.getFullYear()}-${agoCreatedAt.getMonth()}-${agoCreatedAt.getDate()}T${agoCreatedAt.getHours()}:${agoCreatedAt.getMinutes()}:${agoCreatedAt.getSeconds()}Z`;
+  //2022-05-16T01:02:17Z
 
   const objItem = {
     id: '',
-    createdAt: agoCreatedAt,
+    createdAt: agoCreatedAtValue,
     title: agoTitle.value,
     url: '',
     author: agoName.value,
