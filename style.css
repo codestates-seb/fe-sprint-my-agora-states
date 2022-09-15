@@ -1,1 +1,124 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: #484D51;
+    margin: 16px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D2E4F1;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.form__input--name > label, .form__input--title > label {
+    width: 132px;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0 0 0;
+}
+
+input#name {
+    display: flex;
+    flex: auto;
+    height: 30px;
+    font-size: 16px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding: 4px;
+}
+
+textarea {
+    margin: 8px 0;
+    font-size: 16px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding: 8px;
+}
+
+.form__container {
+    background-color: #818D97;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 12px;
+    color: #ffffff;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: right;
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    width: 540px;
+    flex: auto;
+    padding: 16px;
+    margin: 12px;
+
+    border-radius: 20px;
+    background-color: #ffffff;
+
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    display: flex;
+    width: 48px;
+    border-radius: 70%;
+    overflow: hidden;
+    align-items: center;
+    flex: auto;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    /* height: 160px; */
+    /* flex: auto; */
+    margin: 0 16px;
+    font-size: 12px;
+}
+
+.discussion__title {
+    margin: 0 0 12px 0;
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: right;
+    flex: auto;
+    font-size: 1.2em;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex: auto;
+    font-size: 32px;
+}
