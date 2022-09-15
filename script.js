@@ -50,7 +50,7 @@ const formTitle = document.querySelector('.form__input--title > input');
 const formSubmit = document.querySelector('.form__submit > button');
 
 formSubmit.addEventListener('click', () => {
-  event.preventDefault(); // 새로고침 시 초기화 방지
+  event.preventDefault(); // 초기화 방지
   const submitObj = {
     id: 'id',
     createdAt: new Date().toLocaleString(),
@@ -59,7 +59,7 @@ formSubmit.addEventListener('click', () => {
     title: formTitle.value,
     answer: undefined,
     bodyHTML: formSubmit.value,
-    avatarUrl: undefined
+    avatarUrl: './baby_bunny.jpg'
   };
   agoraStatesDiscussions.unshift(submitObj);
   
