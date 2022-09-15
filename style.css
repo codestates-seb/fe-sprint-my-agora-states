@@ -33,3 +33,19 @@ main {
   width: 48px;
   border-radius: 50%;
 }
+
+/* Discussion 컨텐츠 컴포넌트 스타일 구현 */
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.discussion__title {
+  text-align: start;
+}
+
+.discussion__information {
+  text-align: end;
+}
