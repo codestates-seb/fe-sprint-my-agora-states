@@ -36,6 +36,15 @@ const convertToDiscussion = (obj) => {
   discussionInformation.textContent = obj.author + ' / ' + obj.createdAt;
   discussionContent.append(discussionInformation);
 
+  //answer 유무 조건
+  const discussionAnsweredP = document.createElement('p');
+  if (obj.answer !== null) {
+    discussionAnsweredP.textContent = '☑';
+  } else {
+    discussionAnsweredP.textContent = 'No';
+  }
+  discussionAnswered.append(discussionAnsweredP);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
