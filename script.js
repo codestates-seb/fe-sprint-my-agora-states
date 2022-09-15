@@ -20,7 +20,6 @@ const convertToDiscussion = (obj) => {
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
 
-  // 반복문을 돌며 각 변수의 textContent에 객체의 요소를 할당하기
   // 아바타: 이미지 소스, alt 지정
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
@@ -29,6 +28,8 @@ const convertToDiscussion = (obj) => {
   // 콘텐츠 제목, info에 객체의 값 할당
   discussionTitleUrl.textContent = obj.title;
   discussionTitleUrl.href = obj.url;
+  // 새 창에서 열리도록 속성 부여
+  discussionTitleUrl.setAttribute("target", "_blank");
   discussionTitle.append(discussionTitleUrl);
   discussionInfo.textContent = obj.author + " | " + obj.createdAt;
 
@@ -53,3 +54,27 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// submit 버튼을 눌렀을 때 디스커션이 agora 데이터 배열에 추가되어야 함
+// 그럼 자동으로 convertDiscussion 함수에서 DOM으로 추가됨.
+// 배열에 추가하는 것이 관건!
+// 새 객체를 만들어 배열에 unshift하는 함수 생성
+// 버튼 클릭 시 함수 실행되도록 이벤트 핸들러 작성
+const questionForm = document.querySelector(".form");
+
+questionForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const inputName = event.target["name"];
+  const inputTitle = event.target["title"];
+
+  const newObj = {};
+
+  newObj.author = inputName.value;
+  newObj.title = inputTitle.value;
+  // 이미지 랜덤 링크 받아오기
+  // 현재 시각 받아오기
+
+  agoraStatesDiscussions.unshift(newObj);
+  ul.prepend(convertToDiscussion(newObj));
+});
