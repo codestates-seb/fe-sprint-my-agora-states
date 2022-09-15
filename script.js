@@ -13,12 +13,32 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
+  const discussionAvatarImage = document.createElement("img");
+  discussionAvatarImage.className = "discussion__avatar--image";
+  discussionAvatarImage.src = `${obj.avatarUrl}`;
+  discussionAvatarImage.alt = `avatar of ${obj.author}`;
+
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+
+  const discussionTitleLink = document.createElement("a");
+  discussionTitleLink.href = `${obj.url}`
+  discussionTitleLink.textContent = `${obj.title}`
+  const discussionAnsweredCheckbox = document.createElement("input");
+  discussionAnsweredCheckbox.type = "checkbox";
+
+  
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
+  avatarWrapper.append(discussionAvatarImage);
+  discussionContent.append(discussionTitle, discussionInformation);
+  discussionTitle.append(discussionTitleLink);
+  discussionAnswered.append(discussionAnsweredCheckbox);
+  
+return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -32,3 +52,5 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
