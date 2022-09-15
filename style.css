@@ -1,1 +1,67 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 초기화 */
+*{
+    box-sizing: border-box;
+    font-family: 'Gothic A1', sans-serif;
+    
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+/* ul의 점 속성이 안 보이도록 해라 */
+ul{
+ list-style: none;
+}
+
+/* 나만의 아고라스테이츠 스타일 주기 */
+
+main{
+    /* 컨텐츠 가운데 배치 */
+    display: flex;
+    align-items: center;
+    /* 컨테이너 내의 배치: 주축은 블록 방향, 교차축은 행(가로)방향 */
+    flex-direction: column;
+}
+main h1{
+    font-size: 3em;
+    color: #5C7C95;
+}
+.form__container {
+    margin: 30px 0;
+}
+.discussion__wrapper {
+    width: 540px;
+}
+.discussion__container {
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper {
+    /* 프로필 동그랗게 만들기 */
+    border-radius: 70%;
+    line-height: 0;
+    overflow: hidden; 
+    border: 1px solid black;
+  }
+.discussion__avatar--image{
+    width: 48px;
+ }
+.discussion__content {
+    width: 60%;
+}
+.discussion__title {
+    margin: 0;
+    font-size: 20px;
+}
+.discussion__information {
+    text-align: end;
+    margin-top: 10px;
+}
+.discussion__answered p {
+    font-size: 25px;
+  }
