@@ -63,6 +63,7 @@ submit.addEventListener('click', function() {
     id : name,
     title : title,
     bodyHTML : question,
+    createdAt: "2022-09-15T01:02:17Z",
     avatarUrl:
     "https://pbs.twimg.com/media/EjDeXNOU4AA_lE1.jpg",
   }
