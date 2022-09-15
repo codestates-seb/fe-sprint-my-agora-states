@@ -13,10 +13,33 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // todo : img.discussion__avatar--image 아바타 사진 및 대체 텍스트 입력
+  const avatarImage = document.createElement('img');
+  avatarImage.className = 'discussion__avatar--image';
+  avatarImage.src = obj.avatarUrl;
+  avatarImage.alt = `avatar of ${obj.author}`
+  // todo : 만들어진 아바타 이미지 avatarWrapper에 append
+  avatarWrapper.append(avatarImage);
 
+  // todo : discussion__title 제목 삽입 (링크 포함)
+  const discussionTitle = document.createElement('h2');
+  const discussionTitleLink = document.createElement('a');
+  discussionTitle.className = 'discussion__title';
+  discussionTitleLink.href = obj.url;
+  discussionTitleLink.textContent = obj.title;
+  discussionTitle.append(discussionTitleLink);
+  // todo : discussion__information 작성자 및 작성 일시 삽입
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = 'discussion__information';
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
+  // todo : discussionContent 만들어진 내부 컨텐츠 append
+  discussionContent.append(discussionTitle, discussionInformation);
 
-
+  // todo : discussion__answered 답변 삽입
+  const discussionAnswerdMark = document.createElement('p');
+  discussionAnswerdMark.textContent = obj.answer === null ? '☐' : '☑';
+  discussionAnswered.append(discussionAnswerdMark);
+  // todo : discussionAnswered append
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };

@@ -6,6 +6,10 @@
   list-style: none;
 }
 
+body{
+  font-size: 12px;
+}
+
 .discussion__wrapper{
   width: 540px;
 }
@@ -29,11 +33,15 @@
 
 .discussion__content{
   width: calc(100% - 68px);
-  padding: 10px 5px;
+  padding: 10px 15px;
 }
 
 .discussion__title{
   margin-bottom: 5px;
+}
+
+.discussion__title > a{
+  font-size: 1.2rem;
 }
 
 .discussion__information{
@@ -46,4 +54,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.discussion__answered > p{
+  font-size: 1.5rem;
 }
