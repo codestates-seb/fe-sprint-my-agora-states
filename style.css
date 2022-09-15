@@ -1,1 +1,67 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 그냥 90년대 해외 웹사이트 디자인이 좋던데 주륵 */
+
+/* 기본 body 레이아웃 초기화 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  border: 1px solid red;
+}
+
+/* 창크기에 맞춰서 가자 */
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 지정된크기로 */
+body main {
+    width: 540px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: green;
+}
+
+section {
+    background: blue;
+}
+
+/* 리스트 내 아이템값 수평정렬 */
+.discussion__wrapper li{
+   display: flex;
+   flex-flow: row;
+   justify-content: space-between;
+}
+
+/* 수직정렬 */
+.discussion__avatar--wrapper, .discussion__answered {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.discussion__information {
+    text-align: right;
+    margin: 0.5rem;
+}
+/* 수직정렬 */
+p {
+    display: flex;
+    justify-content: center;
+}
+
+/* 사진모양 */
+img {
+    width: 48px;
+    border-radius: 30%;
+    margin: 0.5rem;
+}
+
+

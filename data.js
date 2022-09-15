@@ -1,3 +1,6 @@
+/**
+ * 아고라 스테이츠 실습용 더미 데이터
+ */
 const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
