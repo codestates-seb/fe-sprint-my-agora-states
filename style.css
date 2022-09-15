@@ -1,1 +1,116 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard Variable';
+    color: #222;
+}
+a{text-decoration: none;}
+ul li{list-style: none;}
+body{
+    background-color: #fbfbfb;
+}
+
+main {
+    background-color: #fff;
+    max-width: 800px;
+    height: calc(100vh - 40px);
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 40px 25px;
+}
+
+h1{
+    font-size: 34px;
+    color: #333236;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.form__input--wrapper > div{
+    width: 100%;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.form__input--wrapper > div label{
+    width: 170px;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.form__input--wrapper > div input, .form__input--wrapper > div textarea{
+    width: calc(100% - 170px);
+}
+
+input, textarea{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}
+
+input:focus-visible, textarea:focus-visible{border-color: transparent;}
+.form__submit input{
+    background-color: rgb(101, 0, 195);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    height: 44px;
+    font-size: 17px;
+    margin-top: 12px;
+}
+
+ul.discussions__container{
+    border: 1px solid #f2f2f2;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.discussions__container li{
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f2f2f2;
+    position: relative;
+}
+.discussions__container li:hover{background-color: #fdfaff;}
+.discussions__container li:last-child{border-bottom: 0;}
+
+.discussion__avatar--wrapper img{
+    border-radius: 50%;
+    margin-right: 18px;
+}
+.discussion__title{
+    font-size: 20px;
+    font-weight: 500;
+}
+.discussion__information{
+    font-size: 14px;
+    color: #999;
+    margin-top: 6px;
+}
+.discussion__answered{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 32px;
+}
+
+.discussion__wrapper {
+    overflow-y: scroll;
+    height: calc(100vh - 450px);
+    margin: 35px 0;
+}
