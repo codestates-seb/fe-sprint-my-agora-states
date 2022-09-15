@@ -39,6 +39,20 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(title);
   discussionContent.append(information);
 
+  // 답변 체크 렌더링 기능 구현
+  const answered = document.createElement("div");
+  const answeredCheck = document.createElement("p");
+
+  if(obj.answer !== null) {
+    answeredCheck.textContent = 'O';
+  } else {
+    answeredCheck.textContent = 'X';
+  }  
+
+  answered.className = "discussion__answered";
+  answered.append(answeredCheck);
+
+  discussionAnswered.append(answered);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
