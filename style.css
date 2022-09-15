@@ -68,21 +68,25 @@
   }
   .form__input--name{
     display: flex;
+    margin-bottom: 5px;
   }
   .nameLabel{
     flex: 1;
   }
   .nameInput{
     flex: 2;
+    border: none;
   }
   .form__input--title{
     display: flex;
+    margin-bottom: 5px;
   }
   .titleLabel{
     flex: 1;
   }
   .titleInput{
     flex: 2;
+    border: none;
   }
   .form__textbox{
     display: flex;
@@ -90,6 +94,9 @@
   }
   .questionLabel{
     margin-bottom: 7px;
+  }
+  .questionInput{
+    border: none;
   }
   .submitBtn{
     width: 80px;
