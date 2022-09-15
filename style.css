@@ -6,6 +6,7 @@
   list-style-type: none;
   color: white;
 }
+
 a {
   text-decoration: none;
 }
@@ -52,7 +53,7 @@ main > h1 {
   z-index: 1;
 }
 
-.form__container>form{
+.form__container>div{
   position: relative;
   z-index: 200;
 }
@@ -112,7 +113,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
   grid-row: 1 / 3;
 }
 
-.form__submit input {
+.form__submit button {
   width: 80px;
   height: 80px;
   border: 2px solid white;
@@ -178,6 +179,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
 }
 
 .discussion__content h2 {
+  height: 64px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
