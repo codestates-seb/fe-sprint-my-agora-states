@@ -3,19 +3,46 @@ console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  // li 요소 생성 및 클래스 맞춰줌
+  const li = document.createElement("li");
+  li.className = "discussion__container";
 
+  // 이미지 div 요소 생성 및 클래스 생성
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+  // img 요소 제작, data.js의 배열 데이터 가져오기
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  // HTML에 맞게 자식으로 넣어주기
+  avatarWrapper.append(avatarImg);
+
+  // content 불러오기
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+  // 제목 불러오기
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+  // 인포메이션 불러오기
+  const discussionInfomation = document.createElement("div");
+  discussionInfomation.className = "discussion__information";
+  discussionInfomation.textContent = `${obj.author} / ${obj.createdAt}`;
+  // 마무으리
+  discussionContent.append(discussionTitle, discussionInfomation);
+
+  // 답변 유무 불러오기
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  const isAnswer = document.createElement("p");
+  isAnswer.textContent = obj.answer === null ? "☑" : "☒";
+  discussionAnswered.append(isAnswer);
+  discussionContent.append(discussionAnswered);
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;

@@ -1,6 +1,7 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
   box-sizing: border-box;
+  font-family: "nanumgothic", "MesloLGS NF", sans-serif;
 }
 ul,
 li {
@@ -19,7 +20,18 @@ li {
 }
 .discussion__content {
   flex-grow: 8;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+.discussion__information {
+  text-align: end;
 }
 .discussion__answered {
-  flex-grow: 0.5;
+  flex-grow: 0.3;
+  margin-left: 10px;
+  font-size: 35px;
 }
