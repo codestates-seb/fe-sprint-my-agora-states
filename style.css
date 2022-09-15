@@ -1,1 +1,63 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    border: 1px;
+    list-style-type: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.mainAgora{
+    background-color: beige;
+    width: 540px;
+    border: 10px solid darkblue;
+}
+
+.discussion__avatar--image{
+    border-radius: 50px;
+    width: 48px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+}
+.discussion__avatar--wrapper{
+    border-radius: 50px;
+    width: 48px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+}
+li{
+    width: 540px;
+    margin-top: 20px;
+    float: left;
+}
+.discussion__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__answered{
+    margin-left: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+textarea{
+    align-items: flex-end;
+}
+.form__submit {
+    align-content: center;
+}
+.form__container {
+    text-align: center;
+}
+.discussion__information{
+    font-size: 13px;
+}
