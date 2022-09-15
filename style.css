@@ -49,3 +49,10 @@ main {
 .discussion__information {
   text-align: end;
 }
+
+
+/* 답변 체크 컴포넌트 스타일 구현 */
+.discussion__answered {
+  display: flex;
+  align-items: center;
+}
