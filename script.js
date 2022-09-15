@@ -23,8 +23,18 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.appendChild(avatarImg)
 
   // discussion__content 요소 생성
-  const discussionTitle = document.createElement
-
+  const discussionTitle = document.createElement("h2")
+  discussionTitle.className = "discussion__title"
+  const discussionInfomation = document.createElement("div");
+  discussionInfomation.className = "discussion__information";
+  const titleUrl = document.createElement("a");
+  // 제목에 링크 추가
+  titleUrl.textContent = obj.title;
+  titleUrl.href = obj.url;
+  
+  
+  discussionTitle.appendChild(titleUrl);
+  discussionContent.appendChild(discussionTitle, discussionInfomation);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
