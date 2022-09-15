@@ -5,20 +5,12 @@
     margin: 0px;
 }
 
+h1 {
+    text-align: center;
+}
+
 ul {
     list-style:none;
-}
-
-.discussion__wrapper {
-    width: 540px;
-    
-}
-
-.discussion__container {
-    Display: Flex;
-    align-items: center;
-    justify-content: space-between;
-
 }
 
 .discussion__avatar--image {
@@ -26,7 +18,43 @@ ul {
     width : 48px;
 }
 
+.discussion__wrapper {
+    display: flex;
+    width: 540px;
+    align-items: center;
+}
+
 .discussion__avatar--wrapper {
     Display: Flex;
     align-items: center;
+}
+
+.discussion__container {
+    Display: Flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+}
+
+.discussion__title {
+    font-size: small;
+}
+
+.form {
+    text-align: center;
+    border: solid;
+}
+
+main {
+    width: 540px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.answered__avatar--image {
+    border-radius: 70%;
+    width : 48px;
 }
