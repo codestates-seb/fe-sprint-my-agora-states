@@ -4,45 +4,38 @@
 }
 main{
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .discussions__container{
     list-style-type: none;
 }
 .discussion__wrapper{
-    width: 540px;
-}
-.discussion__avatar--image{
-    border-radius: 50%;
-    max-width: 100%;
-    max-height: 100%;
-}
-.discussion__avatar--wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width : 480px;
-
+    width: 600px;
 }
 .discussion__container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+.discussion__avatar--image{
+    border-radius: 50%;
+    overflow: hidden;
+    width: 48px;
+}
+.discussion__avatar--wrapper{
+    display: flex;
     align-items: center;
-    padding: 10px;
-    
+}
+.discussion__content{
+    margin: 10px;
+    flex-basis: 500px;
 }
 .discussion__answered{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.discussion__content{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-right: 150px;
+.discussion__information{
+    text-align: right;
 }
