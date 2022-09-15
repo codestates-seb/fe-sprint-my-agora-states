@@ -6,10 +6,11 @@
 }
 
 body {
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 main {
@@ -19,6 +20,10 @@ main {
 
 li {
   list-style: none;
+}
+
+h2 {
+  font-size: 1.25rem;
 }
 
 .discussion__container {
@@ -34,7 +39,7 @@ li {
 }
 
 .discussion__title {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .discussion__answered {
