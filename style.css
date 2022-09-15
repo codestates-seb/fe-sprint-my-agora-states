@@ -92,6 +92,10 @@ p {
     font-weight: 400;
 }
 
+h2 {
+    font-size: var(--fs-400);
+}
+
 /* list style */
 /* ul,
 li {
@@ -216,6 +220,10 @@ main {
 /* discussion          */
 /* ------------------- */
 .discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
     background-color: var(--clr-gray-50);
     width: min(80%, 540px);
 }
@@ -223,7 +231,12 @@ main {
 .discussions__container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 1rem;
     background-color: var(--clr-gray-100);
+    padding: 0px;
+
 }
 
 
@@ -250,7 +263,7 @@ main {
 }
 
 .discussion__information{
-
+    font-size: var(--fs-300);
 }
 
 .discussion__answered{

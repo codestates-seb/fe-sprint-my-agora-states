@@ -6,29 +6,47 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+  // avatar--wrapper
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
 
+  // avatar--image
   const avatarImage = document.createElement("img");
   avatarImage.className ='discussion__avatar--image'
   avatarImage.src = obj["avatarUrl"];
 
+ // discussion__content
+ const discussionContent = document.createElement("div");
+ discussionContent.className = "discussion__content";
+ 
+  // discussion__title
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  const discussionTitleLink = document.createElement("a");
+  discussionTitleLink.href = obj["url"];
+  discussionTitleLink.textContent = obj["title"];
+
+  // discussion__information
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information"
+  discussionInformation.textContent = `${obj["author"]}/ ${obj["createdAt"]}`;
   
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  discussionContent.textContent = obj['title'];
-  
+  // discussion__answered
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
   
   const answeredButton = document.createElement('button');
   answeredButton.textContent = "☑";
-  
 
-  
+ 
+ 
+  li.append(avatarWrapper, discussionContent, discussionAnswered);
+   
+  discussionContent.append(discussionTitle, discussionInformation);
+  discussionTitle.append(discussionTitleLink);
+
   avatarWrapper.append(avatarImage);
   discussionAnswered.append(answeredButton);
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
