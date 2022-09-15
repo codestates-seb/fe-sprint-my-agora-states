@@ -4,17 +4,35 @@
 }
 
 h1 {
+  margin-top: 100px;
   text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  border : 2px solid greenyellow;
+}
+
+.discussion__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form__container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10rem;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border : 2px solid yellow;
 }
 
 .discussions__container {
+  width: 100vw;
+  background-color: aquamarine;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +43,8 @@ h1 {
   width: 540px;
   display: flex;
   justify-content: flex-end;
+  border: 2px solid blueviolet;
+  margin-bottom: 6px;
 }
 
 .discussion__avatar--wrapper{
@@ -39,15 +59,19 @@ h1 {
 }
 
 .discussion__title {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .discussion__information {
   font-size: 0.8rem;
+  margin-bottom: 25px;
 }
 
 
 .discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   flex-grow: 2;
 }
 
@@ -60,8 +84,36 @@ h1 {
 }
 
 .button__container {
+  width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
+}
+
+.button_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#currentpage {
+  padding : 10px;
+  flex-grow: 1;
+}
+
+#previousbtn {
+  font-size: 0.8rem;
+  flex-grow: 1;
+}
+
+#nextbtn {
+  text-align: center;
+  padding-left: 10px;
+  padding-right : 10px;
+  flex-grow: 1;
+}
+
+.pagebtn:hover {
+  cursor: pointer;
+  color: blue;
 }
