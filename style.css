@@ -9,4 +9,10 @@ ul {
   list-style: none;
 }
 
+/* 컨텐츠 중앙 배치 스타일 구현 */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
