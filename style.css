@@ -16,3 +16,9 @@ main {
   align-items: center;
 }
 
+/* Discussion 리스트 스타일 구현 */
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  width: 540px;
+}
