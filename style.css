@@ -21,6 +21,7 @@ h1 {
     color: #EEF2E6;
     border-radius: 10px;
     border: solid 2px #1C6758;
+    margin-bottom: 5px;
 }
 
 ul {
@@ -71,6 +72,7 @@ ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 main {
@@ -85,6 +87,7 @@ body {
     background-color: #1C6758;
     display: flex;
     justify-content: center;
+    padding-top: 15px;
 }
 
 .answered__avatar--image {
