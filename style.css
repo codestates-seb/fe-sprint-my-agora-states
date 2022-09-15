@@ -30,6 +30,7 @@ ul {
 .discussion__avatar--image {
     border-radius: 70%;
     width : 48px;
+    border: solid 2px #EEF2E6;
 }
 
 .discussion__wrapper {
@@ -90,12 +91,14 @@ body {
     border-radius: 70%;
     width : 48px;
     height: 48px;
+    border: solid 2px #EEF2E6;
 }
 
 .discussion__avatar--image {
     border-radius: 70%;
     width : 48px;
     height: 48px;
+    border: solid 2px #EEF2E6;
 }
 
 .discussion__answered {
