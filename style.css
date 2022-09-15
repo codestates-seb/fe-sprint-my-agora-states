@@ -1,5 +1,9 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-
+:root {
+    --base-size: 3px;
+    --mouse-off: none;
+    --mouse-on: '';
+}
 /* tag */
 body {
     text-decoration: none;
@@ -8,33 +12,82 @@ body {
     display: inline;
 }
 
+h1 {
+    display: block;
+    text-align: center;
+}
+
 main {
     display: flex;
     flex-direction: column;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 ul, li {
+
     list-style: none;
-    margin: 30px 10px;
-    border: 1px solid black;
+    margin: calc(var(--base-size)*2) calc(var(--base-size)*1);
 }
 
 
 /* id */
 #_container {
+    position: relative;
+    left: 10%;
     display: flex;
     flex-direction: row;
 }
 /* class */
 .discussion__container {
-    --m: 8; --tan: 0.41
+    display: block;
+    width: calc(var(--base-size)*300);
+    padding: calc(var(--base-size)*3);
+    box-shadow: 5px 5px 2px 1px rgba(113, 113, 255, 0.2);
+    border: 1px solid grey;
+    border-radius: 10px;
 }
+
+
+.discussion__avatar--wrapper {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid grey;
+    padding-bottom : calc(var(--base-size)*2);
+}
+
+.discussion__information {
+    position: relative;
+    left : 1rem;
+    line-height: calc(var(--base-size)*10);
+}
+
 .discussion__avatar--image {
-    width: 50px;
-    height: 50px;
+    width: calc(var(--base-size)*10);
+    height: calc(var(--base-size)*10);
     border-radius: 50%;
 }
 
-.discussion__content {
-    /* display: none; */
+.discussion__title {
+    position: relative;
+    left: 1rem;
+    font-size: medium;
+}
+
+.discussion__content :hover + .discussion__body {
+    display: block;
+}
+
+.discussion__body {
+    display: none;
+    font-size: small;
+    overflow: hidden;  
+    text-overflow: ellipsis;  	
+    white-space: nowrap; 		
+    word-break: break-all;
+    background-color: beige;
+    padding: 5px;
 }
