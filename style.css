@@ -1,7 +1,170 @@
+/*font*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Montserrat:ital,wght@0,200;1,200&family=Poppins:wght@400;700&family=Varela+Round&display=swap');
+@font-face {
+  font-family: 'IBMPlexSansKR-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: 'MabinogiClassicR';
+  font-family: 'IBMPlexSansKR-Regular';
+}
+
+/*전체 항목 중앙 정렬 */
+main {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  z-index: 3;
+  position: relative;
+  margin: 3rem 0 0 0;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2rem;
+  font-size: 5em;
+}
+
+.container {
+  z-index: 3;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rem;
+}
+
+.form__container {
+  padding: 1rem;
+  margin: 1rem 5rem 0 0;
+}
+
+.form {
+  height: 70vh;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.form__input--wrapper {
+  height: 50vh;
+  flex-grow: 2;
+}
+
+.form__submit {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.form__input--name {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+}
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 5;
+}
+
+label {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0.5rem 0.4rem;
+}
+
+#username,
+#title,
+#submit,
+#story {
+  font-family: 'IBMPlexSansKR-Regular';
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  margin: 1rem 0;
+  padding: 1.5rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: none;
+  opacity: 0.8;
+  background-color: aliceblue;
+}
+
+#title {
+  height: 5rem;
+}
+
+#story {
+  height: 17rem;
+}
+
+:root {
+  --clr-neon: hsl(317 100% 54%);
+  --clr-bg: hsl(323 21% 16%);
+}
+
+#submit {
+  width: 60%;
+  height: 4rem;
+  font-size: 2rem;
+  padding: 0.1rem;
+  background-color: aliceblue;
+}
+
+.neons {
+  font-size: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 3px solid;
+  background-color: transparent;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  transition: all 0.5s;
+}
+
+/*마우스 클릭 시 효과*/
+#submit:active {
+  width: 58%;
+  height: 3.8rem;
+  font-size: 1.8rem;
+}
+
+/*마우스를 올렸을 때 효과*/
+.neons:hover {
+  background-color: var(--clr-neon);
+  color: #7a0099;
+}
+
+/*아바타 사진 둥글게 표현
+너비 48px
+discussion 컴포넌트 중앙 정렬*/
+
+.discussion__container {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+.discussion__avatar--image {
+  clip-path: circle();
+  width: 48px;
 }
 
 /*li에서 점 없애기*/
@@ -13,24 +176,6 @@ ul {
 li {
   width: 540px;
 }
-
-/*아바타 사진 둥글게 표현
-  너비 48px
-  discussion 컴포넌트 중앙 정렬*/
-/* .discussion__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-.discussion__container {
-  display: flex;
-  align-items: center;
-}
-.discussion__avatar--image {
-  clip-path: circle();
-  width: 48px;
-}
-
 /*중간 discussion 제목,저자,생성일 간 간격 주기
   저자, 생성일을 오른쪽 정렬*/
 .discussion__content {
@@ -44,10 +189,41 @@ li {
   text-align: center;
 }
 
-/*배경*/
+/*배경 Freepik*/
 .bg {
-  background: url('../img/background.jpg') center center;
+  background-image: url('../fe-sprint-my-agora-states/img/background.jpg');
   background-size: cover;
   background-attachment: fixed; /*background 고정*/
-  height: 1000px; /*650*/
+  height: 100vh;
+  width: 100%;
+  /*background 뒤로 보내기*/
+  z-index: 1;
+  position: fixed;
+}
+
+/*css 시작*/
+
+/*보류*/
+/* position: absolute;
+top: 10%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 2;
+text-align: center; */
+
+/*네온*/
+.neonText {
+  color: whitesmoke;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+    0 0 42px rgb(150, 58, 187), 0 0 82px #cc00ff, 0 0 92px #cc00ff,
+    0 0 102px #cc00ff, 0 0 151px;
+}
+
+.neonborder {
+  border: var(--clr-neon) 3px solid;
+  background-color: transparent;
+  border-radius: 0.25em;
+
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  transition: all 0.5s;
 }

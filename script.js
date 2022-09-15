@@ -1,6 +1,43 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+//디스커션 로컬 스토리지에 저장
+
+const btnAddDiscusstion = document.querySelector('.form__submit input'); //submit 가져옴
+btnAddDiscusstion.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const userName = document.querySelector('#username');
+  const newTitle = document.getElementById('title');
+  const newStory = document.getElementById('story');
+
+  agoraStatesDiscussions.unshift({
+    id: 'D_kwDOHOApLM4APjJi',
+    createdAt: new Date(),
+    title: newTitle.value,
+    url: 'https://github.com/codestates-seb/agora-states-fe/discussions/45',
+    author: userName.value,
+    answer: null,
+    bodyHTML: newStory.value,
+    avatarUrl: 'https://avatars.githubusercontent.com/u/79903256?s=64&v=4',
+  });
+  localStorage.setItem(
+    'agoraStatesDiscussions',
+    JSON.stringify(agoraStatesDiscussions)
+  );
+
+  const ul = document.querySelector('ul.discussions__container');
+  while (ul.hasChildNodes()) {
+    ul.removeChild(ul.firstChild);
+  }
+  render(ul);
+
+  //input clear
+  userName.value = '';
+  newTitle.value = '';
+  newStory.value = '';
+});
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement('li'); // li 요소 생성
@@ -10,6 +47,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.className = 'discussion__avatar--wrapper';
   const discussionContent = document.createElement('div');
   discussionContent.className = 'discussion__content';
+
   const discussionAnswered = document.createElement('div');
   discussionAnswered.className = 'discussion__answered';
 
@@ -59,4 +97,5 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
+
 render(ul);
