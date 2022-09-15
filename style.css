@@ -1,18 +1,24 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
-    border: 1px;
     list-style-type: none;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.mainAgora{
+body{
     background-color: beige;
     width: 540px;
-    border: 10px solid darkblue;
+    height: auto;
+    margin-left: 50px;
 }
-
+.discussion__wrapper{
+    border: 1px solid gray;
+    width: 540px;
+    height: 450px;
+    border-radius: 20px;
+}
 .discussion__avatar--image{
     border-radius: 50px;
     width: 48px;
@@ -22,8 +28,8 @@
     justify-content: center;
     margin-right: 20px;
 }
-.discussion__avatar--wrapper{
-    border-radius: 50px;
+div.discussion__avatar--wrapper{
+   
     width: 48px;
     height: auto;
     display: flex;
@@ -31,15 +37,29 @@
     justify-content: center;
     margin-right: 20px;
 }
-li{
+.discussions__container{
     width: 540px;
+    height: 440px;
+    overflow: auto;
+    
+}
+.discussion__content{
+    font-size: 15px;
+    
+}
+
+li{
+    width: 510px;
     margin-top: 20px;
-    float: left;
+
 }
 .discussion__container{
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+    margin-left: 10px;
+    border-radius: 20px;
 }
 
 .discussion__answered{
@@ -48,16 +68,34 @@ li{
 
 h1 {
     text-align: center;
+    margin-bottom: 5px;
 }
-textarea{
-    align-items: flex-end;
-}
-.form__submit {
-    align-content: center;
-}
+
 .form__container {
     text-align: center;
+    margin-bottom: 10px;
 }
 .discussion__information{
     font-size: 13px;
+}
+
+.form__container{
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+input{
+    font-size: 20px;
+    text-align: left;
+}
+.form__input--wrapper{
+    margin-bottom: 10px;
+}
+
+.form__input--name{
+    margin-bottom: 10px;
+}
+
+.form__input--title{
+    margin-bottom: 10px;
 }

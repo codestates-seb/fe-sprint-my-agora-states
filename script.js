@@ -17,17 +17,22 @@ const convertToDiscussion = (obj) => {
   const avatarImg = document.createElement('img');
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of' + obj.author;
-  console.log(avatarImg)
-  const titleText = obj.title
+  //console.log(avatarImg)
+  const titleText = obj.title;
+   // titleText.url = obj.url;
+    console.log(titleText)
   const information = `${obj.author} / ${obj.createdAt}`
    
-  const check = "v"
-    // if(obj.answer !== 'null')
-    //   check = "☑"
-    // else
-    //   check = "no"
+  let check = "v"
+  console.log(obj.answer)
+    if(obj.answer === null)
+       check = "no"
+    else
+       check = "☑"
+
   avatarWrapper.append(avatarImg);
-  discussionContent.append(titleText, information);
+  discussionContent.append(titleText);
+  discussionContent.append(information);
   discussionAnswered.append(check);
 
 
