@@ -47,3 +47,12 @@ img {
     flex-direction: column;
     justify-content: center;
 }
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__title,
+.discussion__information {
+    margin: 5px 5px;
+}
