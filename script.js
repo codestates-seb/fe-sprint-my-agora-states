@@ -38,18 +38,16 @@ const convertToDiscussion = (obj) => {
     discussionInfo.classList.add('discussion__information');
     discussionContent.append(discussionInfo);
 
-
     // author 
     const discussionInfoAuthor = document.createElement('span');
     discussionInfoAuthor.classList.add('discussion__information--author');
     discussionInfoAuthor.textContent = obj.author;
     discussionInfo.append(discussionInfoAuthor);
 
-
    // author 
     const discussionInfoDate = document.createElement('span');
     discussionInfoDate.classList.add('discussion__information--date');
-    var createdDateTime = new Date(obj.createdAt).toLocaleString('en-US', {
+    const createdDateTime = new Date(obj.createdAt).toLocaleString('en-US', {
         dateStyle: 'short',
         timeStyle: 'short',
     });
@@ -87,3 +85,26 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// add discussion to list on submit 
+let form = document.querySelector('.form');
+form.onsubmit = function (e) {
+    // prevent page from refreshing 
+    e.preventDefault();
+
+    // create input data object 
+    const createdDateTime = new Date();
+    const author = document.querySelector('#name').value;
+    const title = document.querySelector('#title').value;
+
+    const inputData = {
+        avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author}${title}.svg`,
+        author: author,
+        url: '',
+        title: title,
+        createdAt: createdDateTime, 
+        answer: null,
+    };
+
+    ul.prepend(convertToDiscussion(inputData));
+};
