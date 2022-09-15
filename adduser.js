@@ -1,7 +1,20 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+const eventForm = document.querySelector(".form");
+const nameInput = document.querySelector(".form__input--name input");
+const titleInput = document.querySelector(".form__input--title input");
+const questionTextarea = document.getElementById("story");
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
+let users = [];
+const USER = "user";
+
+function saveUser() {
+  localStorage.setItem(USER, JSON.stringify(users));
+}
+function toZero() {
+  nameInput.value = "";
+  titleInput.value = "";
+  questionTextarea.value = "";
+}
+const addContent = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -35,19 +48,44 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(titleContent, discussionInformation);
   titleContent.appendChild(titleHyper);
   li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
+  ul.insertBefore(li, ul.firstElementChild);
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const fragment = document.createDocumentFragment();
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  ul.appendChild(fragment);
-  return;
-};
+const images = [
+  "1.jpeg",
+  "2.jpeg",
+  "3.jpeg",
+  "4.jpeg",
+  "5.jpeg",
+  "6.jpeg",
+  "7.jpeg",
+  "8.jpeg",
+  "9.jpeg",
+  "10.jpeg",
+];
+const chosenImage = images[Math.floor(Math.random() * images.length)];
+console.log(chosenImage);
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(fragment);
+function onHandleSubmit(event) {
+  event.preventDefault();
+  const newObj = {
+    author: nameInput.value,
+    id: Date.now(),
+    title: titleInput.value,
+    createdAt: Date(),
+    avatarUrl: `img/${chosenImage}`,
+  };
+  users.push(newObj);
+  saveUser();
+  addContent(newObj);
+  toZero();
+}
+
+const savedUsers = localStorage.getItem(USER);
+if (savedUsers !== null) {
+  const paresdUsers = JSON.parse(savedUsers);
+  paresdUsers.forEach((user) => addContent(user));
+  users = paresdUsers;
+}
+
+eventForm.addEventListener("submit", onHandleSubmit);
