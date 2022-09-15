@@ -14,10 +14,36 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // agoraStateDiscussions 안에 담긴 배열을 li 태그에 순차대로 나열한다.
+  
+  const a = document.createElement('a')
 
+  const avatarImage = document.createElement('img');
+  avatarImage.className = "discussion__avatar--image";
+  avatarImage.alt = 'avatar of' + obj.author;
+  avatarImage.src = obj.avatarUrl;
+  avatarWrapper.append(avatarImage);
 
+  const avatarTitle = document.createElement('h2')
+  avatarTitle.className = "discussion__content";
+  const avatarTextLink = document.createElement('a')
+  avatarTextLink.textContent = obj.title;
+  avatarTextLink.href = obj.url;
+  avatarTextLink.target = '_blank';
+  avatarWrapper.append(avatarTextLink);
+  
+  const avatarInformation = document.createElement('div');
+  avatarInformation.className = "discussion__information";
+  avatarInformation.textContent = `${obj.author} / ${obj.createdAt}`
+  avatarWrapper.append(avatarTitle, avatarInformation);
 
+  
+  
+  
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
+
+  const discussionAnsweredCheck = document.createElement('span');
   return li;
 };
 
