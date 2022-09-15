@@ -33,10 +33,13 @@ const convertToDiscussion = (obj) => {
   titleUrl.href = obj.url;
   // 작성자, 작성일 추가
   discussionInfomation.textContent = `${obj.author} / ${obj.createdAt}`;
-  
-  
   discussionTitle.appendChild(titleUrl);
   discussionContent.append(discussionTitle, discussionInfomation);
+  // 답변 체크박스 추가
+  const checkAnswered = document.createElement("p");
+  checkAnswered.textContent = '☑';
+  discussionAnswered.appendChild(checkAnswered);
+//.
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
