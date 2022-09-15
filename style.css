@@ -3,8 +3,3 @@
 .discussion__avatar--image{
     border-radius : 10px;
 }
-
-li div {
-   display: flex;
-   justify-content: space-between;
-}
