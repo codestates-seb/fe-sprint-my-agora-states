@@ -3,8 +3,9 @@
 # 🌞 fe-sprint-my-agora-states
 
 ## ✅ 진행 상황과 계획
- | 인덱스 | 날짜 | 시 간 | 내용 | 진행상황 |
- | :--: | :--: | :--: | :--: | :--: |
+
+| 인덱스 | 날짜 | 시 간 | 내용 | 진행상황 |
+| :--: | :--: | :--: | :--: | :--: |
 |1|2022-09-15|11:08|환경구축|![status][DONE]|
 |2|2022-09-15|15:30|Bare Minimum Requirement완료|![status][DONE]|
 |3|2022-09-15|17:00|Advanced Challenge완료|![status][DONE]|
@@ -17,30 +18,33 @@
 |9|2022-09-16|미정|css대규모수정|![status][TODO]|
 
 ## ✅ 사용 툴
+
 - intelliJ
 - vsCode
 
 ## ✅ 참여자
+
 <table>
   <tr>
     <td align="center">
-        <a href="https://github.com/Leewang31">
             <img src="https://avatars.githubusercontent.com/Leewang31?v=4" width="100px;" alt=""/>
-            <br />
-            <sub><b>LeeWang</b>
-            </sub>
-        </a>
-        <br/>
+            <br /> <b>LeeWang</b> <br />
+            <div>
+                <a href="https://github.com/Leewang31">
+                    <img src="https://github.com/Leewang31/fe-sprint-my-agora-states/blob/main/img/githubIcon.png?raw=true" width="40px;" alt=""/>
+                </a>
+                <a href="https://github.com/Leewang31">
+                    <img src="https://github.com/Leewang31/fe-sprint-my-agora-states/blob/main/img/tStoryIcon.png?raw=true" width="40px;" alt=""/>
+                </a>
+            </div>
     </td>
-      </td>
   </tr>
 </table>
 
-## ✅ 사이트
-<a href="https://github.com/Leewang31">
-<img src="https://avatars.githubusercontent.com/Leewang31?v=4" width="100px;" alt=""/>
-</a>
+
 
 [TODO]: https://img.shields.io/badge/-TODO-DFFD26
+
 [DOING]: https://img.shields.io/badge/-DOING-31AE0F
+
 [DONE]: https://img.shields.io/badge/-DONE-0885CC
