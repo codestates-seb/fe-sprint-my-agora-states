@@ -1,0 +1,77 @@
+.discussion__answered .cb{
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid #000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  transition: border-color ease 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.discussion__answered .cb::before, .cb::after{
+  position: absolute;
+  height: 0;
+  width: 4px;
+  background-color: #34b93d;
+  box-sizing: border-box;
+  display: inline-block;
+  transform-origin: left top;
+  border-radius: 5px;
+  content: ' ';
+  transition: opacity ease 0.5;
+}
+
+.cb::before{
+  top: 14.4px;
+  left: 8.2px;
+  box-shadow: 0 0 0 1px transparent;
+  transform: rotate(-135deg);
+}
+
+.cb::after{
+  top: 7.4px;
+  left: 1px;
+  transform: rotate(-45deg);
+}
+
+input[id='cb']:checked + .cb{
+  border-color: #34b93d;
+}
+
+input[id="cb"]:checked + .cb::after {
+  height: 10px;
+  animation: bottomcheck 0.2s ease 0s forwards;
+}
+
+input[id="cb"]:checked + .cb::before {
+  height: 24px;
+  animation: topcheck 0.4s ease 0s forwards;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+@keyframes bottomcheck {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 10px;
+  }
+}
+@keyframes topcheck {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 24px;
+  }
+}
+
