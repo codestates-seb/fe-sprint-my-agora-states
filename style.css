@@ -1,1 +1,371 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+blockquote,
+body,
+button,
+code,
+dd,
+div,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+select,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+dl,
+li,
+menu,
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: '';
+  content: none;
+}
+button,
+input,
+select,
+textarea {
+  vertical-align: middle;
+  font-size: 100%;
+}
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  -webkit-text-size-adjust: none;
+}
+input:checked[type='checkbox'] {
+  background-color: #666;
+  -webkit-appearance: checkbox;
+}
+html input[type='button'],
+input[type='email'],
+input[type='password'],
+input[type='reset'],
+input[type='search'],
+input[type='submit'],
+input[type='tel'],
+input[type='text'] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+body {
+  background: var(--baseBackground);
+}
+body,
+button,
+input,
+select,
+td,
+textarea,
+th {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: KakaoSmall, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕,
+    sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+a {
+  color: #333;
+}
+a,
+a:active,
+a:hover {
+  text-decoration: none;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+  font-weight: 400;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(
+    77.92% 77.92% at 90.91% 100%,
+    #39b0c3 26.61%,
+    #67cea1 100%
+  );
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 540px;
+  padding: 30px 20px;
+  background-color: #fff;
+  border: 3px solid #0b8e8c;
+  border-radius: 20px;
+  box-shadow: 1px 2px 20px 1px rgba(0, 0, 0, 0.3);
+}
+
+.wrap h1 {
+  font-size: 42px;
+}
+
+.form__container {
+  width: 400px;
+  margin: 20px 0;
+}
+
+.form__container form {
+  display: flex;
+}
+
+.form__input--wrapper {
+  flex: 1;
+}
+
+.form__submit {
+  width: 100px;
+}
+
+input[type='submit'].btn__submit {
+  display: block;
+  width: 100%;
+  height: 78px;
+  background: radial-gradient(
+    77.92% 77.92% at 90.91% 100%,
+    #39b0c3 26.61%,
+    #67cea1 100%
+  );
+  color: #fff;
+  font-size: 20px;
+  border: 2px solid #0b8e8c;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+input[type='submit'].btn__submit:active {
+  box-shadow: none;
+}
+
+.clear_local_storage {
+  display: block;
+  width: 100%;
+  height: 54px;
+  margin-top: 8px;
+  background: radial-gradient(
+    77.92% 77.92% at 90.91% 100%,
+    #c39c39 26.61%,
+    #ce6767 100%
+  );
+  color: #fff;
+  font-size: 20px;
+  border: 2px solid #b65e5e;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.clear_local_storage:active {
+  box-shadow: none;
+}
+
+.form__input--name,
+.form__input--title {
+  margin-bottom: 10px;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  align-items: center;
+}
+
+.form__input--wrapper label {
+  width: 130px;
+  font-size: 16px;
+  color: #0b8e8c;
+}
+
+input[type='text'].tf_text,
+.tf_textarea {
+  width: 164px;
+  padding: 5px 8px;
+  border: 1px solid #0b8e8c;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.tf_textarea {
+  resize: none;
+}
+.discussion__wrapper {
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #9f9f9f;
+  border-radius: 10px;
+}
+
+.discussions__container {
+  overflow-y: auto;
+  height: 500px;
+}
+
+.discussion__container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+}
+
+.discussion__container + .discussion__container {
+  margin-top: 10px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 48px;
+}
+
+.discussion__avatar--image {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.discussion__answered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 26px;
+}
+
+.discussion__answered .discussion__done {
+  text-align: center;
+  color: #39b0c3;
+}
+
+.discussion__answered .discussion__open {
+  text-align: center;
+  font-weight: bold;
+  color: #c33939;
+}
+
+.discussion__title a,
+.discussion__information {
+  overflow: hidden;
+  width: 245px;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.discussion__title a {
+  display: block;
+  font-size: 18px;
+  line-height: 20px;
+}
+.discussion__title a:hover {
+  color: #2c9995;
+}
+
+.discussion__information {
+  padding-top: 2px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #9f9f9f;
+}
+
+.discussion__paging {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 14px 20px 0;
+}
+
+.btn_nav {
+  font-size: 16px;
+  line-height: 26px;
+  width: 26px;
+  height: 26px;
+  margin: 0 4px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  color: #888;
+}
+
+.btn_nav.on {
+  border-color: #2c9995;
+  color: #2c9995;
+  font-weight: bold;
+}
+
+.btn_nav.btn_prev,
+.btn_nav.btn_next {
+  opacity: 0.5;
+}
+
+.btn_nav.btn_prev:hover,
+.btn_nav.btn_next:hover {
+  opacity: 1;
+  border-color: #2c9995;
+  color: #2c9995;
+  font-weight: bold;
+}
