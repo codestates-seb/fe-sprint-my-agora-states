@@ -55,18 +55,32 @@ render(ul);
 // submit을 눌렀을때
 const submit = document.querySelector('.form__submit input')
 submit.addEventListener('click', function() {
+  // console.log('submit 버튼 누름')
+  
   const name = document.querySelector('.form__input--name input').value;
   const title = document.querySelector('.form__input--title input').value;
   const question = document.querySelector('.form__textbox textarea').value;
-  console.log('submit 버튼 누름')
+  let today = new Date();
+  let year = today.getFullYear(); //년도
+  let month = today.getMonth() + 1;  // 월
+  let date = today.getDate();  // 날짜
+  const eng = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+  let day = eng[today.getDay()];  // 요일
+  let hours = today.getHours(); // 시
+  let minutes = today.getMinutes();  // 분
+  let seconds = today.getSeconds();  // 초
+
   let newForm = {
     id : name,
     title : title,
     bodyHTML : question,
-    createdAt: "2022-09-15T01:02:17Z",
+    createdAt: `${year}-${month}-${date}${day}${hours}:${minutes}:${seconds}`,
+    url: "#",
     avatarUrl:
     "https://pbs.twimg.com/media/EjDeXNOU4AA_lE1.jpg",
   }
-  agoraStatesDiscussions.unshift(newForm);
-  ul.before(convertToDiscussion(agoraStatesDiscussions[0]));
+  if (name !== '' && title !== '' && question !== '') {
+    agoraStatesDiscussions.unshift(newForm);
+    ul.before(convertToDiscussion(agoraStatesDiscussions[0]));
+  }
 });
