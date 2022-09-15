@@ -46,13 +46,13 @@ const convertToDiscussion = (obj) => {
     const discussionAnsweredContent = document.createElement('div');
     discussionAnsweredContent.className = 'discussion__answered--content';
   
-    const discussionAnsweredTitle = document.createElement('h2');
+    const discussionAnsweredTitle = document.createElement('p');
     discussionAnsweredTitle.className = 'discussion__answered--title';
     discussionAnsweredContent.append(discussionAnsweredTitle);
   
     const discussionAnsweredTitleLink = document.createElement('a');
     discussionAnsweredTitleLink.href = obj.answer.url;
-    discussionAnsweredTitleLink.textContent = `${obj.answer.bodyHTML.slice(0,30)}...`;
+    discussionAnsweredTitleLink.textContent = `${obj.answer.bodyHTML.slice(0,120)}...`;
     discussionAnsweredTitle.append(discussionAnsweredTitleLink);
   
     const discussionAnsweredInfomation = document.createElement('div');
