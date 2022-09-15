@@ -1,5 +1,44 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+//디스커션 추가기능
+//제출 버튼 이벤트 객체 등록
+const submitBtn = document.querySelector('#submit');
+
+//이름 정보
+const userName = document.querySelector('#name');
+
+//제목 정보
+const userTitle = document.querySelector('#title');
+
+//질문 정보
+const userQuestion = document.querySelector('#story');
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
+
+//해당 정보 data.js 에 삽입하는 함수
+function inputValue(e) {
+    if (e.target.type === 'submit') {//해당 이벤트가 일어나는 target 의 type이 submit 일때
+        agoraStatesDiscussions.unshift({
+            createdAt: new Date().toLocaleString(),
+            title: userTitle.value,
+            author: userName.value,
+            answer: null,
+            bodyHTML: userQuestion.value,
+            avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
+        });
+        //해당 정보를 ul 리스트 가장 앞부분에 가장 첫번째 항목으로 보여주기
+        ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]))
+    }
+    //초기화
+    userTitle.value = '';
+    userName.value = '';
+    userQuestion.value = '';
+}
+
+//submit 버튼 누를때 inputValue 함수 실행
+submitBtn.addEventListener('click', inputValue);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -13,7 +52,6 @@ const convertToDiscussion = (obj) => {
     const discussionAnswered = document.createElement("div");
     discussionAnswered.className = "discussion__answered";
 
-    // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
     //1. 아바타 이미지 불러오기
     const avatarImg = document.createElement('img');
     avatarImg.src = obj.avatarUrl;
@@ -22,7 +60,7 @@ const convertToDiscussion = (obj) => {
 
     //2. discussion content 들 불러오기
     //h2 태그 생성
-    const discussionTitle = document.createElement('h2');
+    const discussionTitle = document.createElement('h3');
     discussionTitle.className = 'discussion__title';
 
     //a 태그 생성
@@ -31,7 +69,7 @@ const convertToDiscussion = (obj) => {
     titleAtag.textContent = obj.title;
 
     //div = discussion_info 생성
-    const discussionInfo = document.createElement('fdsszwwdiv');
+    const discussionInfo = document.createElement('div');
     discussionInfo.className = 'discussion__information';
     discussionInfo.textContent = obj.author + ' / ' + obj.createdAt;
 
@@ -54,6 +92,7 @@ const convertToDiscussion = (obj) => {
     return li;
 };
 
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
     for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -62,6 +101,9 @@ const render = (element) => {
     return;
 };
 
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
