@@ -1,1 +1,231 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    /* colors */
+    --clr-gray-50:  #DADADA;
+    --clr-gray-100: #B4B4B4;
+    --clr-gray-200: #9C9C9C;
+    --clr-gray-300: #848484;
+    --clr-gray-400: #6F6E6E;
+    --clr-gray-500: #5B5B5B;
+    --clr-gray-600: #4A4949;
+    --clr-gray-700: #393838;
+    --clr-gray-800: #282727;
+    --clr-gray-900: #1D1D1D;
+
+    
+
+    --clr-light: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+    
+    /* font-sizes */
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-800: 3.5rem;
+    --fs-700: 1.5rem;
+    --fs-600: 1rem;
+    --fs-500: 1rem;
+    --fs-400: 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+    
+    /* font-families */
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* ------------------- */
+/* Media query         */
+/* ------------------- */
+@media (min-width: 35em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
+        --fs-400: 1rem;
+    }
+}
+
+@media (min-width: 45em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 6.25rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-500: 1.75rem;
+        --fs-400: 1.125rem;
+    }
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* list style */
+/* ul,
+li {
+    list-style: none;
+} */
+
+/* set up the body */
+body {
+    font-family: var(--ff-sans-normal);
+    font-size: var(--fs-500);
+    color: var(--clr-gray-900) ;
+    background: linear-gradient(291.13deg, #D91F05 -47.65%, rgba(227, 135, 49, 0) 3.47%, #D91F05 23.77%, #7578C6 39.71%, rgba(205, 212, 255, 0) 86.84%, rgba(125, 113, 183, 0) 135.65%);
+    backdrop-filter: blur(2px);    
+    line-height: 1.5;
+    min-height: 100vh;
+    
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    
+    overflow-x: hidden;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* input */
+
+input {
+    color: #2e3fc6;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+/* main */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+
+/* ------------------- */
+/* form                */
+/* ------------------- */
+.form__container {
+    display: flex;
+    flex-direction: column;
+    background-color:var(--clr-gray-200);
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form__container--name {
+    margin: 1rem;
+
+}
+
+.form__input--title > input {
+    color: #2e3fc6;
+    background-color: var(--clr-gray-200);
+
+}
+.form__input--title > label {
+   font-size: var(--fs-300);
+}
+
+.form__input--title > input::placeholder {
+    color: #bdc0d5;
+    background-color: var(--clr-gray-200);
+
+}
+
+
+.form__input--name > input {
+    color: #2e3fc6;
+    background-color: var(--clr-gray-200);
+
+}
+
+.form__input--name > input::placeholder {
+    color: #bdc0d5;
+    background-color: var(--clr-gray-200);
+
+}
+
+.form__input--name > label {
+    font-size: var(--fs-300);
+ }
+ 
+
+/* ------------------- */
+/* discussion          */
+/* ------------------- */
+.discussion__wrapper {
+    background-color: var(--clr-gray-50);
+}
+
+.discussions__container {
+    background-color: var(--clr-gray-100);
+}
+
+.discussion__container {
+    background-color: var(--clr-gray-200);
+}
+
+.discussion__content {
+    background-color: var(--clr-gray-300);
+}
