@@ -13,11 +13,38 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
+  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + agoraStatesDiscussions[0].author;
+  avatarWrapper.append(avatarImg);
+
+  const discussionTitle = document.createElement('h2');
+  discussionTitle.className = 'discussion__title';
+  const discussionTitleLink = document.createElement('a');
+  discussionTitleLink.href = obj.url;
+  discussionTitleLink.textContent = obj.title;
+  discussionTitleLink.target = '_blank';
+  discussionTitle.append(discussionTitleLink);
+
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = 'discussion__information';
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(discussionTitle, discussionInformation);
+
+  const discussionAnsweredCheck = document.createElement('span');
+
+  if (obj.answer !== null) {
+    discussionAnsweredCheck.textContent = '✔';
+    discussionAnsweredCheck.className = 'discussion__done';
+  } else {
+    discussionAnsweredCheck.textContent = 'X';
+    discussionAnsweredCheck.className = 'discussion__open';
+  }
+  discussionAnswered.append(discussionAnsweredCheck);
+
   return li;
 };
 
