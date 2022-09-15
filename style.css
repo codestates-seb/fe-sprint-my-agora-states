@@ -1,1 +1,13 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+
+/* component */
+body li { text-decoration: none; }
+.discussions__container { background-color: rgb(116, 145, 113); width: 540px; } 
+.discussion__container { background-color: rgb(214, 214, 214) ; display: flex; align-items: center; box-sizing: border-box;}
+.discussion__avatar--wrapper { background-color: blanchedalmond; }
+.discussion__avatar--image { background-color: rgb(103, 68, 15); width: 48px; }
+.discussion__content { background-color: rgb(207, 146, 146);}
+.discussion__title { background-color: rgb(255, 255, 255);}
+.discussion__information { background-color: rgb(255, 255, 255);}
+.discussion__answered { background-color: rgb(248, 205, 205);}
