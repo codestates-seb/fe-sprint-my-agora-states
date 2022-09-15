@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+console.log(agoraStatesDiscussions[0].avatarUrl)
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -14,7 +15,15 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 이미지 생성
+  const avatarImg = document.createElement('img');
+  avatarImg.className = "discussion__avatar--image"
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = `avatar of ${obj.author}`
+  avatarWrapper.appendChild(avatarImg)
 
+  // discussion__content 요소 생성
+  const discussionTitle = document.createElement
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
