@@ -16,28 +16,33 @@ main{
 }
 .discussion__avatar--image{
     border-radius: 50%;
-    width: 48px;
+    max-width: 100%;
+    max-height: 100%;
 }
 .discussion__avatar--wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    width : 480px;
+
 }
 .discussion__container{
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
+    
 }
 .discussion__answered{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 150px;
 }
 .discussion__content{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding : 0 5px;
+    padding-right: 150px;
 }
