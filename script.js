@@ -60,10 +60,10 @@ discussionContent.append(discussionInformationContainer)
 
 // 체크 박스
 const discussionAnsweredP =  document.createElement("p")
-if (obj.answer === null) {
-  discussionAnswered.textContent = `X`;
-} else {
+if (obj.answer) {
   discussionAnswered.textContent = `O`;
+} else {
+  discussionAnswered.textContent = `X`;
 }
 discussionAnswered.append(discussionAnsweredP)
 
