@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bowlby+One+SC&family=IBM+Plex+Sans+KR&family=Monoton&family=Noto+Serif+KR&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,28 +17,38 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+
+
+  <!-- 제목,폼 섹션 -->
+
+
+    <h1 class="title">My<br>Agora<br>States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+          <div class="form__input--name typeBox">
+            <label for="name"><div class = "toType"> Name </div></label>
+            <input class = "inputBox nameBox" type="text" name="name" id="name" required>
           </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+          <div class="form__input--title typeBox">
+            <label for="name"><div class = "toType">Title</div></label>
+            <input class = "inputBox titleBox" type="text" name="name" id="name" required>
           </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+          <div class="form__textbox typeBox">
+            <label for="story"><div class = "toType">Question </div></label>
+            <textarea class = "questionBox inputBox" id="story" name="story" placeholder="Enter your question" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input class = "submit__button" type="submit" value="Submit">
         </div>
       </form>
     </section>
+
+
+
+<!-- 디스커션 섹션 -->
+
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -45,16 +58,20 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <h2 class="discussion__title"><a class = "discussionTitle" href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <div class="discussion__information timeFormat">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+       <button class = "answer__button answerButtonDisabled" disabled="disabled">답변 없음</button>
         </li>
       </ul>
     </section>
   </main>
+
+
+
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="events.js"></script>
 
 </html>
