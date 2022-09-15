@@ -1,1 +1,40 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* tag */
+body {
+    text-decoration: none;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    display: inline;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+ul, li {
+    list-style: none;
+    margin: 30px 10px;
+    border: 1px solid black;
+}
+
+
+/* id */
+#_container {
+    display: flex;
+    flex-direction: row;
+}
+/* class */
+.discussion__container {
+    --m: 8; --tan: 0.41
+}
+.discussion__avatar--image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.discussion__content {
+    /* display: none; */
+}
