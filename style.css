@@ -121,6 +121,7 @@ main > h1{
 }
 
 .discussion__information{
+  font-size: 1rem;
   text-align: right;
 }
 

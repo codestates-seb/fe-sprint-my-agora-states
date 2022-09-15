@@ -31,7 +31,7 @@ const convertToDiscussion = (obj) => {
   // todo : discussion__information 작성자 및 작성 일시 삽입
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt.slice(0, 10)}`
   // todo : discussionContent 만들어진 내부 컨텐츠 append
   discussionContent.append(discussionTitle, discussionInformation);
 
