@@ -6,33 +6,136 @@
 }
 
 body {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(#222744, #222744, #645377, #d07676, #ffeaab);
+}
+
+main {
+    height: 700px;
+    width: 540px;
+    background-color: #ffffff72;
+    border-radius: 10px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.window__container {
+    width: 540px;
+}
+
+.window {
+    position: relative;
+    top: 5px;
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+    border: none;
+}
+
+.window:first-child {
+    left: -240px;
+    background-color: #ff5d76;
+}
+
+.window:nth-child(2) {
+    left: -232px;
+    background-color: #ffcd50;
+}
+
+.window:nth-child(3) {
+    left: -224px;
+    background-color: #82d25e;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.form__container {
+    width: 320px;
+}
+
+.form__input--name, .form__input--title, .form__textbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    width: 160px;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #b2b2b2;
+}
+
+input {
+    height: 28px;
+}
+
+textarea {
+    height: 44px;
+    resize: none;
+}
+
+.form__submit {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.form__submit > button {
+    float: right;
+    border: none;
+    border-radius: 40px;
+    background-color: #d5b5ff;
+    width: 80px;
+    height: 40px;
+
 }
 
 .discussion__container {
     display: flex;
     justify-content: space-between;
-    width: 540px;
+    width: 460px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f8eaff4e;
 }
 
 .discussion__avatar--wrapper {
-    border-radius: 100%;
-    width: 48px;
-    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
 .discussion__avatar--image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
 }
 
 .discussion__content {
-    width: 100%;
+    width: 340px;
     height: 100%;
+    padding: 10px;
+}
+
+.discussion__title {
+    margin-bottom: 10px;
+}
+
+.discussion__information {
+    margin-top: 10px;
+    font-size: small;
 }
 
 .discussion__information {
@@ -40,6 +143,7 @@ body {
 }
 
 .discussion__answered {
+    width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -21,8 +18,8 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg);
 
-  // 질문 내용 추가
-  const contentTitle = document.createElement('h2');
+  // 컨텐트 추가
+  const contentTitle = document.createElement('h3');
   contentTitle.className = "discussion__title"
   discussionContent.append(contentTitle);
 
@@ -40,12 +37,35 @@ const convertToDiscussion = (obj) => {
   // 답변 현황 추가
   const answerChecked = document.createElement('div');
   answerChecked.className = "discussion__answered--checked";
-  answerChecked.textContent = '☑';
+  answerChecked.textContent = obj.answer ? '🥰' : '🥺';
   discussionAnswered.append(answerChecked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+// 입력한 질문을 agoraStatesDiscussions에 업데이트
+const formName = document.querySelector('.form__input--name > input');
+const formTitle = document.querySelector('.form__input--title > input');
+const formSubmit = document.querySelector('.form__submit > button');
+
+formSubmit.addEventListener('click', () => {
+  event.preventDefault(); // 새로고침 시 초기화 방지
+  const submitObj = {
+    id: 'id',
+    createdAt: new Date().toLocaleString(),
+    url: undefined,
+    author: formName.value,
+    title: formTitle.value,
+    answer: undefined,
+    bodyHTML: formSubmit.value,
+    avatarUrl: undefined
+  };
+  agoraStatesDiscussions.unshift(submitObj);
+  
+  const newContent = convertToDiscussion(submitObj);
+  ul.prepend(newContent);
+})
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
