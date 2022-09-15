@@ -1,13 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// var date = new Date();
-// const hour = date.getHours();
-// let light_time = [6,7,8,9,10,11,12,13,14,15,16,17] 
-// console.log(hour)
-
-// if(!light_time.includes(hour)){
-//   const bg = document.querySelector("video");
-//   bg.setAttribute('src','dark.mp4');
-// }
 console.log(agoraStatesDiscussions);
 
 
@@ -92,10 +82,13 @@ const convertToDiscussion = (obj) => {
       return function (){
         if(!isClicked){
           render2(li,obj.answer)
+          li.classList.add('hide');
+          
           isClicked = true;
 
         } else{
           li.nextSibling.remove();
+          li.classList.remove('hide');
           isClicked = false;
 
         }
@@ -132,7 +125,7 @@ const render2 = (element,answerObj) =>{
 
   const li = document.createElement("li"); // li 요소 생성
   li.className = "li_discussion__container"; // 클래스 이름 지정
-
+  li.classList.add('hide');
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -179,7 +172,7 @@ function pagenation() {
     const pagesrc = document.createElement('a');
     pagesrc.setAttribute('target','__blank');
     pagesrc.innerText = `${i}`;
-    pagesrc.addEventListener('click',evt1);
+    page.addEventListener('click',evt1);
     page.append(pagesrc);
     makepage.append(page);
   
@@ -206,13 +199,11 @@ function evt1() {
   if(document.querySelector('.discussions__container').childElementCount){
     while(document.querySelector('.discussions__container').childElementCount !== 0){
       document.querySelector('.discussions__container').removeChild(document.querySelector('.discussion__container'));
-    }
-  
+      
+  }
   }
 
   render(ul,pagearr[num-1]);
-
-
 
 }
 
