@@ -1,1 +1,126 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap');
+
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: 'Jua', sans-serif;
+}
+
+body {
+    margin : 0;
+    padding : 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width : 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    color : white;
+    font-family: Georgia, serif;
+    margin-top: 1.5rem;
+}
+
+.form__input--wrapper input {
+    width : 200px;
+}
+
+.form__input--wrapper textarea {
+    width : 200px;
+}
+
+
+.form__container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form__input--wrapper > div {
+    padding: 0.6rem;
+}
+
+
+.form__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.form__submit input {
+    padding: 0.3rem 1.5rem;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.form label {
+    color : white;
+    vertical-align : top;
+    margin-right: 0.5rem;
+}
+
+.discussion__container {
+    display: flex;
+    width: 540px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width : 48px
+}
+
+.discussion__avatar--wrapper {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.discussion__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.discussion__title{
+    margin-bottom: 0.5rem;
+}
+
+.discussion__title > a {
+    text-decoration: none;  
+    font-size: 22px;
+    color : #9b92ff;
+}
+
+.discussion__information {
+    text-align: right;
+    color: white;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: xx-large;
+    margin-left: 1.2rem;
+    color : white;
+}
