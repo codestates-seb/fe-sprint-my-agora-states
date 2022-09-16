@@ -128,6 +128,7 @@ li.discussion__container {
   flex-direction:column;
   padding: 5px;
   margin-left: 10px;
+  width: 380px;
 }
 
 .discussion__avatar--wrapper {
