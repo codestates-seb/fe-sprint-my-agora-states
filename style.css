@@ -1,1 +1,124 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    background-color: rgb(183, 183, 171);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.form__container{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.form__submit {
+    justify-content: center;
+    display: flex;
+}
+
+
+ul {
+  list-style: none; 
+}
+
+.discussions__container{
+    padding: 0;
+}
+
+.discussion__container {
+    background-color:rgb(240, 238, 215);
+    border: 3px double rgb(0, 0, 0);
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    
+}
+
+.discussion__avatar--image {
+    border-radius: 70%;
+    width: 48px;
+}
+
+.discussion__avatar--wrapper {
+    align-items: center;
+    display: flex;
+    margin-left: 10px;
+}
+
+.discussion__content {
+    flex-grow: 1;
+    margin: 10px;
+}
+
+.discussion__answered {
+    align-items: center;
+    display: flex;
+    font-size: xx-large;
+    margin-right: 10px;
+    
+}
+.discussion__title {
+    margin-bottom: 10px;
+}
+
+.form__input--title{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 290px;
+    margin-bottom: 3px;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.form__textbox  {
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.form__submit {
+    margin-bottom: 10px;
+}
+
+.form__submit > input {
+    width: 60px;
+    border : 1px solid rgb(55, 33, 131);
+    border-radius: 5%;
+}
+
+#name {
+    border : 1px solid rgb(55, 33, 131);
+    border-radius: 5%;
+    border-radius: 5%;
+    box-shadow: 0 5px 10px 0;
+}
+#story {
+    border : 1px solid rgb(55, 33, 131);
+    border-radius: 5%;
+    box-shadow: 0 5px 10px 0;
+}
