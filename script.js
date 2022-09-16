@@ -36,7 +36,7 @@ const avatarImg = document.createElement("img");  // 이미지 태그생성
   // 내용라인
   const titlediv = document.createElement("div"); // 제목 div생성
   titlediv.className = "discussion__information"; // 제목div에 클래스 이름지정
-  titlediv.textContent = obj.author + " / " + obj.createdAt // 제목 div의 내용으로 오브젝트의 key author + creadAt 값할당
+  titlediv.textContent = `${obj.author}   /  ${new Date(obj.createdAt).toLocaleString()}` // 제목 div의 내용으로 오브젝트의 key author + creadAt 값할당
   discussionContent.append(titleH2,titlediv); // a태그를 자식으로 가진 h2와 div태그를 제목 div태그에 추가
   
 // 체크박스라인
@@ -63,7 +63,9 @@ const render = (element) => {
 // 잊지말자 
 // append 는 배열에 추가 하는메서드!!
 // prepend() html 추가하는 메서드 ??
-
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container"); // 모든 li를 감싸고 있는 ul에접근
+render(ul); // 랜더함수에 ul을 인자로 전달
 
 
 const form = document.querySelector(".form"); // form태그에 접근
@@ -82,7 +84,7 @@ form.addEventListener('submit', (e) => {
   
   let test = { // convertToDiscussion 함수에서 기본적으로 들어가는 값의 양식!
     id: "D_kwDOHOApLM4APjJi",
-    createdAt: "2222-05-16T01:02:17Z",
+    createdAt: new Date(),
     title: title.value, // #title의 입력된 값을 돌려줌
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: name.value, // #name의 입력된 값을 돌려줌
@@ -99,12 +101,11 @@ form.addEventListener('submit', (e) => {
   
 })
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container"); // 모든 li를 감싸고 있는 ul에접근
-render(ul); // 랜더함수에 ul을 인자로 전달
 
 
 
+let page; // 총페이지수
+let Display; // 보여질 그룹
 
 
 /************** css 이벤트 효과구간 ****************************/

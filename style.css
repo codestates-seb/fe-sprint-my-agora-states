@@ -13,6 +13,7 @@ img{
     /* 이미지 크기 및 둥글게 */
     border-radius: 50%;
     width: 54px;
+    margin: 0 10px;
 }
 
 li{
