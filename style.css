@@ -116,6 +116,7 @@ main > h1 {
   width: 540px;
   height: 100px;
   margin-bottom: 5px;
+  padding: 5px;
 }
 
 .discussion__avatar--wrapper {
