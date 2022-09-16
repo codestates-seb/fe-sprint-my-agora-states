@@ -50,9 +50,9 @@ const render = (element) => {
 
 // 이벤트 리너
 const form = document.querySelector('.form');
-const author = document.querySelector('.form__input--name > input');
-const title = document.querySelector('.form__input--title > input')
-const textArea = document.querySelector('.form__textbox > textarea');
+const author = document.querySelector('.form__input--name input');
+const title = document.querySelector('.form__input--title input')
+const textArea = document.querySelector('.form__textbox textarea');
 
 form.addEventListener('submit', (event) =>{
   event.preventDefault();
