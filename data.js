@@ -1,3 +1,4 @@
+// 더미 데이터 : 가짜 데이터
 const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
