@@ -13,6 +13,8 @@ body{
     justify-content: center;
     color: black;
     background-image: url("background.png");
+    background-attachment: fixed;
+    background-size: cover;
     
 }
 
@@ -30,6 +32,9 @@ h1 {
 
 .discussion__wrapper {
     width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -66,7 +71,7 @@ h1 {
 .discussion__content {
     flex-grow: 2;
     margin: 0 0 0 15px;
-    font-size: 5px;
+    font-size: 10px;
 
 }
 
@@ -95,6 +100,7 @@ h1 {
 
 .discussion__information {
     color:white;
+    font-size: 8px;
     padding: 0 0 5px 0;
     margin: 0 0 0 15px;
     font-family: 'IBM Plex Sans KR', sans-serif;
@@ -114,9 +120,9 @@ h1 {
     object-fit: cover;
 }
 
-.discussion__answered {
+/* .discussion__answered {
     margin: 0 15px 0 0;
-}
+} */
 
 .hide {
     display: none;
@@ -153,15 +159,19 @@ textarea {
 
 
 .toType {
-    font-size: 10px;
+    font-size: 15px;
     color: gray;
     font-weight: bold;
     margin: 0 0 3px 0;
+    /* flex-grow: 1; */
     
 }
 
 .typeBox {
     margin: 0 0 10px 0;
+    /* width: 300px; */
+    
+    
     
 }
 
@@ -219,10 +229,10 @@ textarea:focus {
     overflow: hidden;
     background-color: rgba(103, 109, 109, 0.475);
     padding: 0;
-    margin: 0   ;
+    margin: 0 0 0 10px;
     width: 50px;
     color: white;
-    font-size: 5px;
+    font-size: 10px;
     font-family: 'IBM Plex Sans KR', sans-serif;
     border: none;
     border-radius: 3px;
@@ -235,7 +245,7 @@ textarea:focus {
     margin: 0;
     width: 50px;
     color: gray;
-    font-size: 5px;
+    font-size: 10px;
 }
 
 
@@ -264,4 +274,35 @@ textarea:focus {
 .newDiscussion {
     border: 1px solid black;
     font-size: 200px;
+}
+
+/* pagination */
+
+.pagination__wrapper {
+    width: 220px;
+    margin: 20px 0 30px 0;
+    display:flex;
+    justify-content: space-between;
+}
+
+.pagination__list {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(120, 144, 136);
+    width :20px;
+    height: 20px;
+    text-align: center;
+}
+
+.pagination__list:active {
+    background-color: rgb(154, 179, 171);
+    width :20px;
+    height: 20px;
+    text-align: center;
+}
+
+.pageNext, .pagePrev {
+    background-color: rgb(166, 181, 176);
 }
