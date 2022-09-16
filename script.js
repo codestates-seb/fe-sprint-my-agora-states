@@ -145,10 +145,12 @@ submitForm.addEventListener("submit", submitQuestion);
 /* search */
 const searchInput = document.querySelector(".search");
 const filterQuestion = (e) => {
+  let getStorage = JSON.parse(localStorage.getItem("data"))
+    ? JSON.parse(localStorage.getItem("data"))
+    : agoraStatesDiscussions;
   let searchTarget = e.target.value;
   let regExp = new RegExp(searchTarget, "i");
-  let filteredList = JSON.parse(localStorage.getItem("data")).filter((item) => {
-    console.log(regExp);
+  let filteredList = getStorage.filter((item) => {
     return regExp.test(item.title);
   });
   displayOnScreen("", "", filteredList);
