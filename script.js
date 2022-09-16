@@ -30,7 +30,7 @@ const convertToDiscussion = (obj) => {
   // 인포메이션 불러오기
   const discussionInfomation = document.createElement("div");
   discussionInfomation.className = "discussion__information";
-  discussionInfomation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInfomation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   // 마무으리
   discussionContent.append(discussionTitle, discussionInfomation);
 
@@ -72,7 +72,7 @@ form.addEventListener("submit", (event) => {
 
   const newObj = {
     id: "new id",
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toLocaleString(),
     title: title,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: author,
