@@ -87,6 +87,7 @@ const generateRandomImg = () => {
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => { // 여기서 매개변수 obj는 agoraStatesDiscussions[i] 이다.
+
   const li = document.createElement("li"); // li 요소 생성, 변수 li에 할당
   li.className = "discussion__container"; // li.discussion__container
 
@@ -168,6 +169,11 @@ form.addEventListener('submit', function(event) {
   storyInput.value = '';
 })
 
+// 2. i = 10부터 19까지 (10개)...
+
+// 3. i = 20부터 29까지
+// 4. i = 30부터 39까지
+// 5. i = 40부터 끝까지
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {

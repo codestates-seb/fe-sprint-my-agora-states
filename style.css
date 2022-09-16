@@ -26,6 +26,10 @@ h1 {
     font-size: 50px;
 }
 
+h1 > i {
+    color: var(--blue);
+}
+
 /* FORM */
 
 section.form__container {
@@ -61,15 +65,45 @@ div.form__input--wrapper {
 label {
     color: white;
     display: inline-block;
-    width: 120px;
+    width: 80px;
+    padding-left: 4px;
+}
+
+label.symbol {
+    display: inline-block;
+    width: 10px;
+    /* font-weight: bold; */
+    font-size: 18px;
 }
 
 input {
-    border-radius: 30px;
-    width: 200px;
+    /* border-radius: 30px; */
+    width: 150px;
     height: 22px;
     border: none;
     padding-left: 8px;
+    background: none;
+    font-size: 16px;
+    color: var(--white);
+}
+
+/* span {
+    color: var(--white);
+    font-size: 20px;
+    display: inline-block;
+    overflow: hidden;
+} */
+
+input:focus {
+    outline: none;
+}
+
+.textbox_and_button {
+    display: flex;
+}
+
+.form__textbox {
+    width: 460px;
 }
 
 textarea {
@@ -77,20 +111,29 @@ textarea {
     height: 50px;
     border-radius: 10px;
     padding: 5px 0 0 8px;
+    resize: none;
+    font-size: 14px;
 }
 
 div.form__submit {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .submit_btn {
+    margin-top: 10px;
     padding: 10px;
-    font-size: 28px;
+    margin-left: 8px;
+    font-size: 33px;
     background: none;
     border: none;
     color: var(--white);
+}
+
+.submit_btn:hover {
+    transform: scale(1.2);
+    transition: all 0.4s;
 }
 
 /* DISCUSSION */
@@ -103,6 +146,11 @@ li.discussion__container{
     border-radius: 20px;
     padding: 20px;
     background: var(--gray);
+}
+
+li.discussion__container:hover {
+    transform: scale(1.05);
+    transition: all 0.4s;
 }
 
 /* 아바타 */
@@ -120,7 +168,7 @@ img.discussion__avatar--image {
 
 /* 내용 */
 div.discussion__content {
-    width: 100%;
+    width: 413px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -135,6 +183,10 @@ h2.discussion__title {
 a,
 a:visited {
     color: black;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 div.discussion__information {
@@ -152,5 +204,6 @@ div.discussion__answered {
 }
 
 .discussion__answered > p {
-    font-size: 20px;
+    font-size: 23px;
+    color: var(--blue)
 }
