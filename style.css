@@ -261,7 +261,7 @@ hr {
 .discussion__article{
     color: var(--color-innertext);
     max-height: 0;
-    transition: all 2s;
+    transition: all 1s;
     display: none;
 }
 

@@ -51,7 +51,7 @@ https://atiakr.github.io/fe-sprint-my-agora-states/
 - [x] 아코디언 탭을 이용한 질문/답변 표시
 - [x] localStorage 에 등록한 순서대로 출력
 - [x] 유니코드를 이용한 닉네임 기반 랜덤프로필
-- [x] 트랜지션을 사용한 hover 애니메이션
+- [x] 트랜지션을 사용한 깔끔한 인터랙션?
 
 ### 배포 시연 화면
 
