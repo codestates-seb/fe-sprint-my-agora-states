@@ -1,1 +1,79 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  font-family: "Montserrat", sans-serif;
+  font-family: "Nanum Gothic Coding", monospace;
+}
+
+/* 링크 색상 */
+a:visted {
+  color: green;
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+  color: darkorange;
+}
+
+/* 입력폼 */
+.form__input--wrapper {
+  display: flex;
+  width: 540px;
+  align-items: center;
+}
+
+.discussion__container {
+  display: grid;
+  box-sizing: border-box;
+  width: 540px;
+  height: auto;
+
+  grid-template-columns: 68px 442px 30px;
+  padding: 15px 5px;
+  border-top: solid orange 5px;
+}
+
+/* li 마커없애기 */
+ul {
+  list-style: none;
+}
+
+/* 프사 조정 */
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+  padding: 10px;
+}
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+}
+
+div {
+  display: block;
+}
+
+/*질문내용*/
+.discussion__content {
+  position: relative;
+}
+
+h2 {
+  display: inline;
+  margin: 5px 10px;
+}
+
+/* 작성자 이름 날짜 오른쪽 정렬 */
+.discussion__information {
+  display: inline;
+  float: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* checkbox */
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
