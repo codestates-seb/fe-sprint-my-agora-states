@@ -1,1 +1,150 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 5px;
+    padding: 0;
+    border: 0px;
+    outline: 0px;
+    box-sizing: border-box;
+    color: #cdd9e5;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c2128;
+}
+main {
+    margin: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 540px;
+    background-color: #1c2128;
+    border: 2px solid #29303a;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+h2 {
+    font-size: 15px;
+}
+div.discussion__information {
+    font-size: 15px;
+}
+input,
+textarea {
+    font-size: 15px;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #bbb;
+    background-color: #1c2128;
+}
+
+.form__container {
+    padding: 20px;
+    width: 90%;
+    background-color: #29303a;
+    margin: 0px;
+    border-radius: 15px;
+    box-shadow: 1px 1px black;
+}
+section.discussion__wrapper {
+    width: 94%;
+}
+
+div.form__input--wrapper {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.form__submit input {
+    width: 70px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #428440;
+}
+div.form__submit input:hover {
+    transform: scale(1.2);
+}
+ul {
+    list-style: none;
+}
+div.discussion__content {
+    flex-grow: 1;
+}
+li.discussion__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    background: #29303a;
+    box-shadow: 1px 1px 1px 1px black;
+}
+li.discussion__container:hover {
+    transform: scale(1.05);
+}
+div.discussion__avatar--wrapper {
+    display: flex;
+}
+img {
+    height: 48px;
+    width: 48px;
+    border-radius: 70%;
+    margin: 5px;
+    overflow: hidden;
+}
+button {
+    background-color: transparent;
+}
+
+div.discussion__information {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.discussion__information button,
+span {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+div.discussion__information button {
+    color: #ad2e2c;
+    font-weight: bold;
+}
+
+#search {
+    top: 30px;
+    position: sticky;
+    width: 300px;
+}
+
+#search input {
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+img.checkImg {
+    width: 25px;
+    height: 25px;
+    border-radius: 0;
+}
+
+div#page button:hover {
+    color: rgb(255, 255, 255);
+    transform: scale(2);
+}
+
+.focus{
+    color: red;
+}
