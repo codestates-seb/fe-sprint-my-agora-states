@@ -1,5 +1,9 @@
 /*font*/
+/*  font-family: 'Montserrat', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Montserrat:ital,wght@0,200;1,200&family=Poppins:wght@400;700&family=Varela+Round&display=swap');
+/*Shadows into light*/
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
 @font-face {
   font-family: 'IBMPlexSansKR-Regular';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff')
@@ -28,7 +32,8 @@ h1 {
   z-index: 3;
   position: relative;
   margin: 3rem 0 0 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Shadows Into Light';
+
   text-transform: uppercase;
   letter-spacing: 2rem;
   font-size: 5em;
@@ -102,8 +107,19 @@ label {
   height: 3rem;
   border-radius: 0.5rem;
   border: none;
-  opacity: 0.8;
-  background-color: aliceblue;
+  border: var(--clr-neon) 3px solid;
+  background-color: transparent;
+  border-radius: 0.25em;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  transition: all 0.5s;
+}
+
+/*클릭 시 검은 박스 삭제*/
+#username,
+#title,
+#submit,
+#story:focus {
+  outline: 0;
 }
 
 #title {
@@ -112,6 +128,10 @@ label {
 
 #story {
   height: 17rem;
+}
+
+#story::placeholder {
+  color: aliceblue;
 }
 
 :root {
@@ -140,17 +160,26 @@ label {
   transition: all 0.5s;
 }
 
-/*마우스 클릭 시 효과*/
-#submit:active {
-  width: 58%;
-  height: 3.8rem;
-  font-size: 1.8rem;
-}
-
 /*마우스를 올렸을 때 효과*/
 .neons:hover {
+  box-shadow: inset 0 0 0.5em 0 #9335ff, 0 0 0.5em 0 #9335ff;
   background-color: var(--clr-neon);
-  color: #7a0099;
+  color: #9335ff;
+}
+
+/*마우스 클릭 시 효과*/
+#submit:active {
+  width: 50%;
+  height: 3.2rem;
+  font-size: 1.8rem;
+}
+/*컨테이너에 마우스 올렸을 때 이동*/
+#username:hover,
+#title:hover,
+#story:hover {
+  opacity: 0.8;
+  background-color: aliceblue;
+  transition: all 1.2s;
 }
 
 /*아바타 사진 둥글게 표현
@@ -160,13 +189,30 @@ discussion 컴포넌트 중앙 정렬*/
 .discussion__container {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  background-color: aliceblue;
+  opacity: 0.8;
+}
+
+.discussion__container:hover {
+  box-shadow: inset 0 0 1.5em 0 #fff, 0 0 2em 0 #fff;
+  transition: all 0.7s;
+  margin: 0 1rem 0;
 }
 .discussion__avatar--image {
   clip-path: circle();
   width: 48px;
 }
 
+.discussion__title {
+  text-align: center;
+}
+.discussion__information {
+  font-size: 1.4rem;
+  text-align: center;
+}
 /*li에서 점 없애기*/
 ul {
   list-style: none;
@@ -174,8 +220,12 @@ ul {
 
 /*discusstion 컴포넌트 폭 조절*/
 li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 540px;
 }
+
 /*중간 discussion 제목,저자,생성일 간 간격 주기
   저자, 생성일을 오른쪽 정렬*/
 .discussion__content {
@@ -186,6 +236,7 @@ li {
 
 /*체크표시 중앙정렬*/
 .discussion__answered {
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -201,29 +252,32 @@ li {
   position: fixed;
 }
 
-/*css 시작*/
-
-/*보류*/
-/* position: absolute;
-top: 10%;
-left: 50%;
-transform: translate(-50%, -50%);
-z-index: 2;
-text-align: center; */
-
 /*네온*/
 .neonText {
   color: whitesmoke;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
-    0 0 42px rgb(150, 58, 187), 0 0 82px #cc00ff, 0 0 92px #cc00ff,
-    0 0 102px #cc00ff, 0 0 151px;
+  text-shadow: 0 0 7px #fff, 0 0 10px #9335ff, 0 0 21px rgb(8, 1, 1),
+    0 0 42px #9335ff, 0 0 82px #cc00ff, 0 0 92px #cc00ff, 0 0 102px;
 }
 
-.neonborder {
+/* .neonborder {
   border: var(--clr-neon) 3px solid;
   background-color: transparent;
   border-radius: 0.25em;
-
   box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
   transition: all 0.5s;
+} */
+
+/*blink effect*/
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
 }
+
+.blink {
+  animation: blink-effect 4s ease-in-out infinite;
+}
+
+/* p {
+  font-size: 1.5rem;
+} */

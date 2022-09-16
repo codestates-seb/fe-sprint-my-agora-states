@@ -6,18 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
     <main>
-      <h1 class="neonText">My Agora States</h1>
+      <h1 class="neonText">
+        My Agora States
+        <i class="fa-regular fa-star blink"></i>
+      </h1>
       <div class="container">
         <section class="form__container">
           <form action="" method="get" class="form">
@@ -30,7 +39,8 @@
                   type="text"
                   name="name"
                   id="username"
-                  class="InputName neonborder"
+                  class="InputName"
+                  autocomplete="off"
                   required
                 />
               </div>
@@ -40,7 +50,7 @@
                   type="text"
                   name="name"
                   id="title"
-                  class="neonborder"
+                  autocomplete="off"
                   required
                 />
               </div>
@@ -50,7 +60,7 @@
                   id="story"
                   name="story"
                   placeholder="질문을 작성하세요"
-                  class="neonborder"
+                  autocomplete="off"
                   required
                 ></textarea>
               </div>
@@ -62,7 +72,7 @@
         </section>
 
         <section class="discussion__wrapper">
-          <ul class="discussions__container" id="paginated-list">
+          <ul class="discussions__container">
             <li class="discussion__container">
               <!--li 1번-->
               <div class="discussion__avatar--wrapper">
@@ -85,16 +95,21 @@
                 </div>
               </div>
               <!--li 3번-->
-              <div class="discussion__answered"><p>☑</p></div>
+              <div class="discussion__answered">
+                <p>☑️</p>
+              </div>
             </li>
           </ul>
+          <!-- <ul class="pagination">
+            <div class = "pagination_pageNum">
+            </div>
+            </ul> -->
         </section>
       </div>
-
-      <!-- <div id="paging"></div> -->
       <div class="bg"></div>
     </main>
   </body>
+
   <script src="data.js"></script>
   <script src="script.js"></script>
 </html>
