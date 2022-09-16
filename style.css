@@ -1,20 +1,27 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 :root {
-    --base-size: 3px;
+    --base-size: 4px;
     --mouse-off: none;
     --mouse-on: '';
 }
 /* tag */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     text-decoration: none;
     font-family: 'Gowun Dodum', sans-serif;
     font-family: 'IBM Plex Sans KR', sans-serif;
     display: inline;
+    background-color: lavender;
 }
 
 h1 {
     display: block;
     text-align: center;
+    margin: 20;
 }
 
 main {
@@ -28,7 +35,6 @@ a {
 }
 
 ul, li {
-
     list-style: none;
     margin: calc(var(--base-size)*2) calc(var(--base-size)*1);
 }
@@ -37,20 +43,67 @@ ul, li {
 /* id */
 #_container {
     position: relative;
-    left: 10%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
+
 /* class */
-.discussion__container {
-    display: block;
-    width: calc(var(--base-size)*300);
-    padding: calc(var(--base-size)*3);
-    box-shadow: 5px 5px 2px 1px rgba(113, 113, 255, 0.2);
-    border: 1px solid grey;
+/*Form part*/
+.form__container {
+    width: 50vw;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.form__input--wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 2px 1px rgba(2, 2, 14, 0.2);
+    background-color: white;
     border-radius: 10px;
 }
 
+.form__header {
+    font-size: large;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px;
+}
+.form__input--wrapper > div > label{
+    flex: 1 0 auto;
+    font-size: medium;
+}
+
+.form__input--wrapper > div > input{
+    flex: 3 0 auto;
+    font-size: medium;
+}
+
+.form__input--wrapper > div > textarea{
+    flex: 3 0 auto;
+    font-size: medium;
+}
+
+
+/*Discussion List part*/
+.discussion__container {
+    display: block;
+    width: 60vw;
+    padding: calc(var(--base-size)*3);
+    margin: calc(var(--base-size)*3);
+    box-shadow: 5px 5px 2px 1px rgba(2, 2, 14, 0.2);
+    background-color: white;
+    border-radius: 10px;
+}
 
 .discussion__avatar--wrapper {
     display: flex;
@@ -74,7 +127,8 @@ ul, li {
 .discussion__title {
     position: relative;
     left: 1rem;
-    font-size: medium;
+    font-size: large;
+    margin: 10px;
 }
 
 .discussion__content :hover + .discussion__body {
