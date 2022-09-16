@@ -75,11 +75,11 @@ submitBtn.addEventListener('click', (event) => {
         bodyHTML: newStory.value,
         avatarUrl: 'https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4',
     };
-
-    agoraStatesDiscussions.unshift(newDiscussion);
-    console.log(agoraStatesDiscussions);
-    ul.prepend(convertToDiscussion(newDiscussion));
-    // 초기화
+    if (newAuthor.value !== '' && newTitle.value !== '' && newStory.value !== '') {
+        agoraStatesDiscussions.unshift(newDiscussion);
+        ul.prepend(convertToDiscussion(newDiscussion));
+    }
+    //
     newAuthor.value = '';
     newTitle.value = '';
     newStory.value = '';
