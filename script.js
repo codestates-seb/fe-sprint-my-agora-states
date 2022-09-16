@@ -53,10 +53,12 @@ const convertToDiscussion = (obj) => {
   // 디스커션에 object 가 있는지 확인하고 없으면 스킵, 있으면 넣기
   const answeredFlag = obj["answer"];
   const disscusionAnsweredPtag = document.createElement("p");
+  const _header = `<a href="${obj['url']}"><i class="fa-brands fa-github"></i></a>`;
+
   if (answeredFlag !== null ) {
-    disscusionAnsweredPtag.innerHTML = `<a href="${obj['url']}"><i class="fa-brands fa-github"></i></a><i class="fa-regular fa-square-check"></i>`;
+    disscusionAnsweredPtag.innerHTML = `${_header}<i class="fa-regular fa-square-check"></i>`;
   } else {
-    disscusionAnsweredPtag.innerHTML = `<a href="${obj['url']}"><i class="fa-brands fa-github"></i></a><i class="fa-regular fa-square"></i>`;
+    disscusionAnsweredPtag.innerHTML = `${_header}<i class="fa-regular fa-square"></i>`;
   }
   
   discussionAnswered.append(disscusionAnsweredPtag);
@@ -105,18 +107,6 @@ const convertToAnswer = (obj) => {
   discussionInformation.textContent = `${obj["answer"]["author"]} / ${discussionCreatedtime}`;
 
   discussionContent.append(discussionInformation);
-
-  // 디스커션에 object 가 있는지 확인하고 없으면 스킵, 있으면 넣기
-  // const answeredFlag = obj["answer"]["answer"];
-  // const disscusionAnsweredPtag = document.createElement("p");
-  // if (answeredFlag !== null ) {
-  //   disscusionAnsweredPtag.textContent = "☑";
-  // } else {
-  //   disscusionAnsweredPtag.textContent = "🔲";
-  // }
-  // 
-  // discussionAnswered.append(disscusionAnsweredPtag);
-
   li.append(avatarWrapper, discussionContent);
   
   return li;
@@ -144,8 +134,7 @@ loadLocalstoragedata();
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-
-
+// submit 버튼에 로컬스토리지 데이터저장 기능 넣기
 const submitBtn = document.querySelector("#saveLs");
 submitBtn.addEventListener('click', () => {
   saveLocalstorageData();
