@@ -12,9 +12,18 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(221, 254, 195);
-
-    height: 100%;
+    background-color: #AAC4FF;
+    width: 100vw;
+    height: 100vh;
+}
+.main{
+    border: 1px solid black;
+    background-color: #D2DAFF;
+    border-radius: 20px;
+    width: 550px;
+    height: 680px;
+    margin-top: 40px;
+    box-shadow: rgba(33, 32, 32, 0.4) -5px 5px, rgba(119, 117, 118, 0.3) -10px 10px, rgba(164, 162, 163, 0.2) -15px 15px, rgba(197, 195, 196, 0.1) -20px 20px, rgba(222, 220, 221, 0.05) -25px 25px;
 }
 h1 {
     text-align: center;
@@ -27,12 +36,12 @@ h1 {
     flex-direction: column;
     align-items:center ;  
     width: 100%;
-    height: 440px;
+    height: 420px;
     overflow: auto;
 
 }
 .discussion__wrapper{
-
+    
     width: 540px;
     height: 450px;
     border-radius: 20px;
@@ -48,12 +57,13 @@ h1 {
     display: flex;
     align-items:center;
     text-align: justify;
-    border: 1px solid black;
+    border: 1px solid gray;
     margin-left: 10px;
     border-radius: 20px;
     margin-bottom: 10px;
     width: 520px;
-    background-color: beige;
+    background-color: #EEF1FF;
+    opacity: 0.8;
 }
 
 .discussion__information{
@@ -88,9 +98,10 @@ h1 {
 
 .form__container{
     justify-content: left;
-    width: 540px;
-    background-color: beige;
+    width: 530px;
+    background-color :rgba(238, 241, 255, 0.3);
     border-radius: 30px;
+    margin-left: 10px;
 }
 
 .btnSubmit{
@@ -99,6 +110,7 @@ h1 {
     border-radius: 10px;
     justify-content: center;
     margin-right: 10px;
+    background-color:beige;
 }
 .discussion__answered{
     font-size: 25px;
@@ -109,8 +121,19 @@ h1 {
   #story{
       width: 400px;
       margin-top: 10px;
+      margin-left: 5px;
+      border: 0;
+      border-radius: 5px;
+      background-color: rgb(238, 241, 255);
   }
 
   .form__submit{
     justify-content: center;
+  }
+
+  #name{
+      border: 0;
+      background-color: rgb(238, 241, 255);
+      border-radius: 5px;
+      height: 25px;
   }
