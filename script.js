@@ -5,10 +5,11 @@ const nameInput = document.querySelector(".form__input--name input");
 const titleInput = document.querySelector(".form__input--title input");
 const questionTextarea = document.getElementById("story");
 const buttonSection = document.querySelector(".button-section");
+const selectOption = document.querySelector("#select-option");
 
 //상수 설정하기
 const USER = "user";
-const CONTENTS = 5;
+let CONTENTS = 5;
 
 //초기 렌더링 설정
 let paresdUsers;
@@ -46,7 +47,9 @@ const convertToDiscussion = (obj) => {
 
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString()}`;
 
   const discussionCheckBox = document.createElement("p");
   discussionCheckBox.textContent = "☑";
@@ -170,3 +173,11 @@ function deleteUser(event) {
   saveUser();
   render(ul, first, last);
 }
+
+function onSelectHandle(event) {
+  CONTENTS = event.target.value;
+  render(ul, 0, CONTENTS);
+  makePages();
+}
+
+selectOption.addEventListener("change", onSelectHandle);

@@ -151,3 +151,9 @@ ul {
 .button-section button:focus {
   color: tomato;
 }
+#select-option {
+  border: none;
+  border-radius: 5px;
+  background-color: #e7eaec;
+  height: 20px;
+}
