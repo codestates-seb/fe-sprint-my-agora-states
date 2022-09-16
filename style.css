@@ -1,4 +1,5 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
 *{
     margin: 0;
     padding: 0;
@@ -51,6 +52,7 @@ section{
 
 .discussion__avatar--image{
     width: 80px;
+    height: 80px;
     border-radius: 50%;
 }
 
@@ -141,4 +143,3 @@ section{
 .form__input--wrapper > div > input{
     flex: 3;
 }
-
