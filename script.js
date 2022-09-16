@@ -84,11 +84,13 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-    for (let i = localStorage.length - 1; i >= 0; i--) {
-        const key = localStorage.key(i);
-        const obj = JSON.parse(localStorage.getItem(key));
+    const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
 
-        element.append(convertToDiscussion(obj));
+    // check if localStorage['submittedDiscussionsArr'] exists
+    if (submittedDiscussionsArr) {
+        for (let i = submittedDiscussionsArr.length - 1; i >= 0; i--) {
+            element.append(convertToDiscussion(submittedDiscussionsArr[i]));
+        }
     }
 
     for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -124,7 +126,11 @@ form.onsubmit = function (e) {
     const author = document.querySelector('#name');
     const title = document.querySelector('#title');
 
+    // random id 
+    const randomId = `_${Math.random().toString(30).substr(2,17) + Math.random().toString(30).substring(2,17)}`;
+
     const inputData = {
+        id: randomId,
         avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author.value}.svg`,
         author: author.value,
         url: '',
@@ -133,9 +139,17 @@ form.onsubmit = function (e) {
         answer: null,
     };
 
-    const random_id = `_${Math.random().toString(30).substr(2,17) + Math.random().toString(30).substring(2,17)}`;
-    localStorage[random_id] = JSON.stringify(inputData);
-    
+    // add inputData to localStorange['submittedDiscussions']
+    if (!localStorage.getItem('submittedDiscussions')) {
+        localStorage.setItem('submittedDiscussions', JSON.stringify([inputData]));
+    } else {
+        const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
+
+        submittedDiscussionsArr.push(inputData);
+
+        localStorage.setItem('submittedDiscussions', JSON.stringify(submittedDiscussionsArr));
+    }
+
     ul.prepend(convertToDiscussion(inputData));
 
     // update pagination on discussion post submission 
