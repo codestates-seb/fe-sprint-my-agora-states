@@ -111,6 +111,8 @@ const convertToAnswer = (obj) => {
   
   return li;
 }
+
+/** 페이지 버튼 추가 */
 function addPagebtn(objectp, object, number){
   //const _btnWrapper = document.createElement("div");
   const _newbtn = document.createElement("button");
@@ -124,6 +126,7 @@ function addPagebtn(objectp, object, number){
   object.append(_newbtn);
   return _newbtn;
 }
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element, currentPage) => {
@@ -190,6 +193,13 @@ const render = (element, currentPage) => {
 
       if (_answer.classList[1] === 'discussion__answer'){
         _answer.classList.toggle('accordion__active');
+      }
+
+      // 부모요소 maxHeight 변경
+      if (_article.style.maxHeight) {
+        _article.style.maxHeight = null;
+      } else {
+        _article.style.maxHeight = _article.scrollHeight + "px";
       }
     });
   }

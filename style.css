@@ -107,8 +107,8 @@ main h1 {
     letter-spacing: -0.25px;
     margin: 20px;
     margin-top: 40px;
+    line-height: 40px;
 }
-
 
 li {
     list-style: none;
@@ -260,6 +260,8 @@ hr {
 /** 답변 내용 커스텀 */
 .discussion__article{
     color: var(--color-innertext);
+    max-height: 0;
+    transition: all 2s;
     display: none;
 }
 

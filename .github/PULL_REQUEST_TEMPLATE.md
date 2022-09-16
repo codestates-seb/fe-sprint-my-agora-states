@@ -6,7 +6,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 ## 배포 링크
 
-Github Page 배포 링크를 아래 작성합니다.
+https://atiakr.github.io/fe-sprint-my-agora-states/
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -51,16 +51,26 @@ Github Page 배포 링크를 아래 작성합니다.
 - [x] 아코디언 탭을 이용한 질문/답변 표시
 - [x] localStorage 에 등록한 순서대로 출력
 - [x] 유니코드를 이용한 닉네임 기반 랜덤프로필
+- [x] 트랜지션을 사용한 hover 애니메이션
 
 ### 배포 시연 화면
 
 아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
 
- ![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+ ![image](https://cdn.discordapp.com/attachments/741022959153578106/1020159949860503562/image1.png)
+ 유니코드값을 이용하여 같은 닉네임을 쓸 경우 같은 프로필로 유지됩니다.
+ 질문글을 localStorage 에 여러개를 등록해도 등록한 시간순으로 정렬됩니다.
+
+![image](https://cdn.discordapp.com/attachments/741022959153578106/1020161687262875729/img2.png)
+ 클릭하면 질문내용과 답변이 출력됩니다.
+ 
+ ![image](https://cdn.discordapp.com/attachments/741022959153578106/1020161832608084068/img3.png)
+ 페이지를 지정하여 바꿀수 있습니다.
+ 
  
 ### 가장 자랑하고 싶은 기능
 
-> 적어주세요
+> 질답이 보기편하게 아코디언 탭으로 만들어져있습니다.
 
 ### 구현하고 싶었는데 하지 못한 아쉬운 기능
 

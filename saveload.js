@@ -19,6 +19,22 @@ function saveLocalstorageData (){
   const _story = document.querySelector("#story").value;
   const _date = new Date();
 
+  if ( _name === "" ){
+    alert("이름을 입력해주세요.");
+    return;
+  }
+
+  if ( _title === "" ){
+    alert("제목을 입력해주세요.");
+    return;
+  }
+
+  if ( _story === "" ){
+    alert("내용을 입력해주세요.");
+    return;
+  }
+
+
   const _object = {
     id: null,
     createdAt: _date,
