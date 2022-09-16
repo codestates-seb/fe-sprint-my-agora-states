@@ -1,1 +1,102 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background: #395B64;
+  border: solid black 1px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;    
+  width: 600px;
+}
+body{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center; 
+   background-image: url("mint.jpeg")
+}
+li{list-style: none;}
+
+.form__container {
+   width: 540px;
+   height: 190px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 20px;
+   background-color: #A5C9CA;
+   border: 1.5px solid #E7F6F2;
+   text-decoration-color: black;
+   font-size: 20px;
+}
+.form,
+.form__input--wrapper{
+   display: flex;
+   flex-direction: column;
+}
+.form__submit{
+   margin-left: 300px;
+   color: #395B64;
+   padding: 15px 30px;
+   cursor: pointer;
+}
+
+
+.discussion__container{
+   width: 540px;
+   height: 100px;
+   display: flex;
+   justify-content: space-between;
+   border-radius: 20px;
+   border: 2px black;
+   margin: 5px;
+   background-color:#A5C9CA;;
+   border: 1.5px solid#A5C9CA;
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    margin: 5px;
+    flex-direction: column;
+    justify-content: center;
+}
+   .discussion__avatar--image{
+      width: auto; height: auto;
+      max-width: 48px;
+      max-height: 48px;
+      border-radius: 50%;
+      border-style: solid;
+      border-color: black;
+      display: block;
+   } 
+
+.discussion__content{
+   width: 450px;
+}
+   .discussion__title{
+      display: inline-block;
+      width: 450px;
+      white-space: nowrap;
+      overflow: hidden; /*cut*/
+      text-overflow: ellipsis;
+      display:inline-block;
+      font-size: 20px;
+   }
+   .discussion__information{
+      text-align: end;
+   }
+
+.discussion__answered{
+   display: flex;
+   flex-basis: auto;
+   flex-direction: column;
+   justify-content: center;
+}
+
