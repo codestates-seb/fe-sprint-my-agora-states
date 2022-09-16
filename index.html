@@ -41,18 +41,67 @@
       <div class="gradient"></div>
       <ul class="discussions__container">
         <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
+          <div class="question">
+            <div class="discussion__avatar--wrapper">
+              <img class="discussion__avatar--image"
+                src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+                alt="avatar of kimploo">
+            </div>
+            <div class="discussion__content">
+              <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+              <div class="discussion__information">kimploo 2022/04/22 14:08:33</div>
+            </div>
+            <div class="discussion__answered"><i class="xi-check-circle"></i></div>
           </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo 2022/04/22 14:08:33</div>
+          <div class="answer hide">
+            <div class="answer__profile">
+              <div class="answer__avatar-wrapper">
+                <img class="answer__avater--image"
+                src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4" 
+                alt="avatar of kimploo">
+              </div>
+              <div class="answer__information">
+                <p class="id">kimploo 2022/04/22</p>
+                <p class="createdAt">14:08:33</p>
+              </div>
+            </div>
+            <div class="answer__body--wrap">
+              <p class="answer__body">
+                "<p dir="auto">--------------- 여기서부터 복사하세요 ---------------</p>
+                <p dir="auto">운영 체제: 예) macOS</p>
+                <p dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에 부딪혔나요?<br>
+                Pair 과제 / JavaScript Koans</p>
+                <p dir="auto">npm install 명령어 입력 시 env: node: No such file or directory 라고 뜹니다</p>
+                <p dir="auto">에러 발생하여 아래 명령어 실행 했는데도 불구하고 똑같은 에러가 발생했습니다<br>
+                npm cache clean --force</p>
+                <p dir="auto">rm package-lock.json</p>
+                <p dir="auto">rm -rf ./node_modules/</p>
+                <p dir="auto">npm --verbose install</p>
+                <p dir="auto">폴더 자체가 문제가 있다고 생각하여 github에서 다시 fork 후 진행했는데도 같은 에러가 발생했습니다<br>
+                리눅스 기초 챕터 때 npm 설치해서 마지막 submit까지는 잘 됐는데 현재 짝수 생성기 폴더도 똑같이 npm install 시 no such file or directory가 발생합니다</p>
+                <p dir="auto">에러가 출력된 곳에서, 이유라고 생각하는 부분을 열 줄 이내로 붙여넣기 해 주세요. (잘 모르겠으면 에러라고 생각하는 곳을 넣어주세요)</p>
+                <div data-snippet-clipboard-copy-content="minjun@dubi fe-sprint-javascript-koans-main % pwd 
+                /Users/minjun/Documents/fe_frontand_39/fe-sprint-javascript-koans-main
+                minjun@dubi fe-sprint-javascript-koans-main % npm install 
+                env: node: No such file or directory" class="highlight highlight-source-js position-relative overflow-auto"><pre><span class="pl-s1">minjun</span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">pwd</span> 
+                <span class="pl-c1">/</span><span class="pl-v">Users</span><span class="pl-c1">/</span><span class="pl-s1">minjun</span><span class="pl-c1">/</span><span class="pl-v">Documents</span><span class="pl-c1">/</span><span class="pl-s1">fe_frontand_39</span><span class="pl-c1">/</span><span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span>
+                <span class="pl-s1">minjun</span><span class="pl-kos"></span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">npm</span> <span class="pl-s1">install</span> 
+                env: node: <span class="pl-v">No</span> <span class="pl-s1">such</span> <span class="pl-s1">file</span> <span class="pl-s1">or</span> <span class="pl-s1">directory</span></pre></div>
+                <p dir="auto">검색했던 링크가 있다면 첨부해 주세요.<br>
+                <a rel="nofollow" href="https://mia-dahae.tistory.com/89">https://mia-dahae.tistory.com/89</a></p>
+                <p dir="auto"><a rel="nofollow" href="https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory">https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory</a></p>
+                <p dir="auto"><a rel="nofollow" href="https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0">https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0</a></p>
+                <p dir="auto"><a rel="nofollow" href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346</a></p>
+                <p dir="auto"><a rel="nofollow" href="https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80">https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80</a></p>
+                <p dir="auto"><a rel="nofollow" href="https://hellowworlds.tistory.com/57">https://hellowworlds.tistory.com/57</a></p>"
+              </p>
+            </div>
           </div>
-          <div class="discussion__answered"><i class="xi-check-circle"></i></div>
         </li>
       </ul>
+    </section>
+    <section class="btn__page--wrapper">
+      <div class="buttons"></div>
     </section>
   </main>
 </body>
