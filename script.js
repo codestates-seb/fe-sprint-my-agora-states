@@ -62,9 +62,16 @@ const Inputtitle = document.querySelector('.form__input--title > input')
 const Inputques = document.querySelector('.form__textbox > textarea')
 const form = document.querySelector('.form')
 
+let itemsArray = localStorage.getItem('items')? JSON.parse(localStorage.getItem('items')):[]; 
+localStorage.setItem('items',JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
+
 form.addEventListener('submit',event =>{
   event.preventDefault();
   
+  itemsArray.push(Inputname.value , Inputtitle.value , Inputques.value);
+  localStorage.setItem('items', JSON.stringify(itemsArray));
+
   const obj ={ 
   id: "unique name",
   createdAt: new Date(),
