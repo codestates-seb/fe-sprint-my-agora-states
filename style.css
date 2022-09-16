@@ -1,1 +1,251 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minhye';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Minhye.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+a {
+    text-decoration-line: none;
+}
+
+* {
+    /*border: 0.4px dotted mediumpurple;*/
+    box-sizing: border-box;
+}
+
+html {
+    background-image: url("/fe-sprint-my-agora-states/realback.png");
+    background-size: 150px;
+}
+
+
+h1 {
+    width: 580px;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+	font-weight: normal;
+	text-align: center;
+    font-family: 'Cafe24Ssurround';
+    text-shadow: 3px 3px 1px white;
+
+	font-size: 40pt;
+	background: linear-gradient(
+		-45deg,
+        #b996ff 25%,
+        #690bff 25%,
+        #ffffff 50%,
+        #9e93ff 50%,
+        #f1a0ff 75%,
+        #e7daff 75%,
+        #7b00ff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+
+}
+
+
+h2 {
+    margin: 0px;
+    text-decoration-line: none;
+}
+
+.form__input--wrapper input {
+    background-color: #d4c5ff;
+    color: white;
+    border: none;
+    height: 30px;
+    font-family: 'Minhye';
+    font-size: 15pt;
+    padding-left: 2px;
+    text-indent: 1em;
+    width: 204px;
+}
+
+
+textarea {
+    background-color: #d4c5ff;
+    color: white;
+    border: none;
+    height: 75px;
+    font-family: 'Minhye';
+    font-size: 15pt;
+    padding-left: 2px;
+    text-indent: 1em;
+
+    width: 204px;
+}
+
+ul{
+ list-style:none;
+ }
+
+main {
+    width: 540px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	border-radius: 80px / 40px;
+}
+
+.form__side {
+    background-image: url("/fe-sprint-my-agora-states/side.png");
+    background-size: 25px;
+    position:relative;
+    /*top:-50px;*/
+    left:60px;
+    height: 100%;
+}
+.form {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border: 2px solid #b291f8;
+    border-radius: 80px / 40px;
+    height: 200px;
+    box-shadow: 0px 0px 8px 10px white;
+    align-items: center;
+}
+.form__container {
+    width: 580px
+}
+
+.form__input--wrapper {
+    font-family: 'Minhye';
+    padding: 20px 60px 20px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: -18px;
+}
+
+.form__input--name, .form__input--title {
+    margin-bottom: 10px;
+}
+
+
+body {
+    width: 540px;
+    margin: 100px auto auto auto;
+    padding: auto
+;
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.discussion__avatar--image {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 48px;
+}
+
+.hearts {
+    width: 13px;
+}
+
+/*img {*/
+/*    width: 48px;*/
+/*    border-radius: 100%;*/
+/*}*/
+
+.discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*각각의 박스 모양*/
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 578px;
+    height: 150px;
+    font-size : 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 0px #b291f8;
+    margin : 30px;
+    padding: 20px;
+    border: 1px solid mediumpurple;
+    background-color: white;
+    font-family: 'Minhye';
+}
+
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 20px;
+}
+
+.discussion__answered {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding-left: 10px;
+    width: 50px;
+    justify-content: center;
+    font-size: 20pt;
+    color: #b291f8;
+}
+
+.discussion__information {
+    width: 100%;
+    text-align: right;
+}
+
+.discussion__content >:nth-child(1){
+    width: 100%;
+    text-align: left;
+    margin-top: 0;
+    font-size: 20pt;
+}
+.discussion__content >:nth-child(2){
+    height:10px;
+    text-align: right;
+    width: 100%;
+    font-size: 12pt;
+}
+
+/*제출 버튼*/
+.form__submit {
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form__submit input {
+    width: 130px;
+    height: 100px;
+	cursor: pointer;
+    color: white;
+    font-family: 'Minhye';
+    filter: brightness(105%);
+}
+
