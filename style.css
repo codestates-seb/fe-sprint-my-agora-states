@@ -32,6 +32,7 @@
 h1 {
   animation: rainbow 1.5s ease infinite;
   font-size: 50px;
+  font-weight: 400;
 }
 
 body {
