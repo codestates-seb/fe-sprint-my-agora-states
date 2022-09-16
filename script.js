@@ -20,7 +20,7 @@ const convertToDiscussion = (obj) => {
 
   // 컨텐트 추가
   const contentTitle = document.createElement('h2');
-  contentTitle.className = "discussion__title"
+  contentTitle.className = "discussion__title";
   discussionContent.append(contentTitle);
 
   const contentTitleA = document.createElement('a');
@@ -35,7 +35,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(contentInform);
 
   // 답변 현황 추가
-  const answerChecked = document.createElement('div');
+  const answerChecked = document.createElement('button');
   answerChecked.className = "discussion__answered--checked";
   answerChecked.textContent = obj.answer ? '🍏' : '🍎';
   discussionAnswered.append(answerChecked);
@@ -50,10 +50,10 @@ const formTitle = document.querySelector('.form__input--title > input');
 const formSubmit = document.querySelector('.form__submit > button');
 
 formSubmit.addEventListener('click', () => {
-  event.preventDefault(); // 초기화 방지
+  event.preventDefault(); // submit 클릭 시 초기화 방지
   const submitObj = {
     id: 'id',
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     url: undefined,
     author: formName.value,
     title: formTitle.value,
@@ -69,6 +69,22 @@ formSubmit.addEventListener('click', () => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  // page
+  // const pageButton = document.querySelectorAll(".page__button");
+  
+  // for (let i = 0; i < 10; i++) {
+  //   element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  // }
+
+  // for (let i = 0; i < pageButton.length; i++) {
+  //   pageButton[i].addEventListener('click', () => {
+  //     for (let j = i * 10; j < i * 10 + 10; j++) {
+        
+  //       element.append(convertToDiscussion(agoraStatesDiscussions[j]));
+  //     }
+  //   })
+  // }
+
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
