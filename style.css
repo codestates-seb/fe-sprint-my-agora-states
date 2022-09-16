@@ -1,1 +1,128 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #C6EBC5;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+    color : #1B2430;
+} 
+
+.form__container {
+    display: flex;
+    width: 540px;
+    justify-content: space-between;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #808080;
+}
+.form__input--name > label, .form__input--title > label {
+    width: 150px;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 0 0;
+}
+
+input#name {
+    display: flex;
+    flex: auto;
+    width: 350px;
+    height: 32px;
+    font-size: 16px;
+    padding: 4px;
+}
+
+textarea {
+    margin: 8px 0;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: right;
+}
+
+.form__submit > input {
+    display: flex;
+    padding : 4px;
+    font-size: 16px;
+    border-radius: 4px;
+    color : #fff;
+    background-color : #1B2430;
+}
+
+.discussion__container {
+    display: flex;
+    width: 540px;
+    flex: auto;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    margin : 10px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #808080;
+}
+
+.discussion__avatar--wrapper {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 48px;
+    margin : 10px;
+}
+.dicussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.discussion__title {
+    display: flex;
+    width: 400px;
+    font-size: 16px;
+    margin : 8px;
+    justify-content: left;
+}
+.discussion__information {
+    display: flex;
+    justify-content: right;
+    font-size: 12px;
+    margin : 8px;
+    flex : auto;
+}
+
+.discussion__answerd {
+    display: flex;
+    width: 48px;
+    margin : 10px;
+    justify-content: center;
+    align-items : center;
+    flex : auto;
+}
+
+.discussion__answerd > p {
+    padding-right: 10px;
+    font-size: 32px;
+    width: 48px;
+}
