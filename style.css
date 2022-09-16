@@ -35,8 +35,8 @@ main {
 .form__container {margin-bottom:20px; padding: 30px 20px; background-color:#fff; border-radius:10px;}
 .form {display:flex; flex-direction: column;}
 .form__input--wrapper {display: flex; flex-direction: row; flex-wrap: wrap; justify-content:space-between;}
-.form__input--wrapper > div{display:flex; flex-direction: column; flex-basis: 49%;}
-.form__input--wrapper > div label {margin-bottom: 5px; color:#aaa;}
+.form__input--wrapper > div{display:flex; flex-direction: column-reverse; flex-basis: 49%;}
+.form__input--wrapper > div label {margin-bottom: 5px; color:#aaa;transition:0.2s all}
 .form__input--wrapper > div:last-child {flex-basis: 100%;}
 input[type="text"] {
     min-height: 32px; 
@@ -44,9 +44,11 @@ input[type="text"] {
     border-radius: 5px; 
     margin-bottom: 20px; 
     padding:10px;
-    transition:0.2s all;
+    transition:0.2
 }
 input[type="text"]:focus {border-color:#6667AB; outline: none;}
+input[type="text"]:focus + label,
+textarea:focus + label {color:#6667AB; font-weight: 500;}
 textarea {
     width: 100%;
     resize: vertical;
