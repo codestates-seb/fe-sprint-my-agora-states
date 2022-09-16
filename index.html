@@ -6,28 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
 <body>
   <main>
     <h1>My Agora States</h1>
-    <section class="form__container">
+    <section class="form__container mb16">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">이름</label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
+            <label for="name">제목</label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story" class="mb08">내용</label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
