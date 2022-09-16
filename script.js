@@ -3,45 +3,36 @@
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  const li = document.createElement("li");
+  li.className = "discussion__container";
 
-  const avatarWrapper = document.createElement("div"); // 그걸 담고있는 div
-  avatarWrapper.className = "discussion__avatar--wrapper"; // 작성되는 area
+  const avatarWrapper = document.createElement("div");
+  avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content"; // 점
+  discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered"; // 답변
+  discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  const img = document.createElement('img'); // 이미지를 만듬
-  img.className = 'discussion__avatar--image'; // 이미지의 클래스 네임
+  const img = document.createElement('img');
+  img.className = 'discussion__avatar--image';
   img.src = obj.avatarUrl
-  // 이미지 주소
   img.alt = '등록되지 않은 이미지'
-  // 이미지가 랜더되지 않았을때 표시되는 문구
+
   avatarWrapper.append(img)
-  // avatarWrapper에 img태그의 정보들을 append
 
-  // discussion__content 에  h2태그를 append 해야한다
-  // h2태그 안에는 a태그가 존재함 그렇기 떄문에 a태그를 h2태그에 append를 하고 h2태그를 content에 append해야한다
-  // discussion__information도 한번더 discussion__content에 append 해야한다
+  const a = document.createElement('a') 
+  a.textContent = obj.title; 
+  a.href = obj.url; 
 
-  const a = document.createElement('a') // a태그의 element를 만들어서
-  a.textContent = obj.title; // data의 title의 textContent를 가져와서
-  a.href = obj.url; // a태그에 href를 넣는다
+  const h2 = document.createElement('h2') 
+  h2.className = "discussion__title"; 
 
-  const h2 = document.createElement('h2') // h2태그의 element를 만들어서
-  h2.className = "discussion__title"; // className을 주고
+  h2.append(a) 
+  discussionContent.append(h2) 
 
-  h2.append(a) // h2태그에 a 상수를 append한다
-  discussionContent.append(h2) // 그다음에 h2태그를 작성되는 area에 append 한다
-
-  // discussionAnswered에 obj.author, obj.createdAt이 들어가야한다 하지만 ' / ' 해당 간격으로
-  // 떨어져 있기 때문에 `${obj.author} / ${obj.createdAt}` 이렇게 적어주면 좋을듯
   
   const answerSection = `${obj.author} / ${obj.createdAt}`
-  // `${obj.author} / ${new Date(obj.createdAt).toLocaleString}`
   discussionContent.append(answerSection)
 
   const checkDiv = document.createElement('div')
@@ -61,22 +52,11 @@ const render = (element) => {
   return;
 };
 
-//agoraStatesDiscussions [질문 List를 가지고 있는 객체]
-
-//submit -> agoraStatesDiscussions 연결을 해줘야함
-// name , title , question input 데이터를 submit 버튼을 눌렀을때 agoraStatesDiscussions의 객체로 정보를
-// 넘겨주고 (앞으로) 그 정보들이 함수 convertToDiscussion에 담겨서 render가 되야한다.
-// 1. name,title, question = textcontant를 설정 해줘야한다.
-// createdAt , title , author , answer , avatarUrl
 
 const submitButton = document.querySelector('.form'); //submitBtn에 정보를 가져오는 상수
 const addName = document.querySelector('.form__input--name > input'); // name input에 정보를 가져오는 상수
 const addTitle = document.querySelector('.form__input--title > input'); // title input에 정보를 가져오는 상수
 const addQuestion = document.querySelector('.form__textbox > textarea'); // questionBox에 정보를 가져오는 상수
-
-console.log(addName)
-console.log(addTitle)
-console.log(addQuestion)
 
 submitButton.addEventListener('submit', discussionPlus)
 
@@ -116,26 +96,6 @@ function discussionPlus(event) {
   console.log(agoraStatesDiscussions)
 
 }
-
-
-
-// function discussionRender(event) {
-//   event.preventDefault()
-//   const submitDiscussions = { // 위에 변수를 사용해서 객체의 형태로 만들어주는 상수
-//     createdAt: new Date().toLocaleString, // 현재시간
-//     title: addTitle.value, // 제목
-//     author: addName.value, // 이름
-//     answer: addQuestion.value, // 질문
-//     avatarUrl: "20220731_122739.jpeg" // 사용자이미지
-//   }
-  
-//   agoraStatesDiscussions.unshift(submitDiscussions)
-//   console.log(agoraStatesDiscussions)
-// }
-
-// submitButton.addEventListener('click', discussionRender)
-
-
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
