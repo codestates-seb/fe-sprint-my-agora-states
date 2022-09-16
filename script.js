@@ -47,7 +47,7 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// 이벤트리스너
+// 이벤트리스너 submit
 const form = document.querySelector(".form");
 const author = document.querySelector(".form__input--name > input")
 const title = document.querySelector(".form__input--title > input")
@@ -74,6 +74,15 @@ form.addEventListener('submit', (event) => {
   ul.prepend(convertToDiscussion(obj));
   agoraStatesDiscussions.unshift(obj);
   console.log(agoraStatesDiscussions)
+  author.value = ''
+  title.value = ''
+  textArea.value = ''
+})
+
+// 이벤트 리스너 reset
+const resetButton = document.querySelector(".button__reset")
+resetButton.addEventListener("click", () => {
+  console.log('reset')
   author.value = ''
   title.value = ''
   textArea.value = ''
