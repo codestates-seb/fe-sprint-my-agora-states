@@ -4,16 +4,16 @@
   box-sizing: border-box;
 }
 
-li {
-  /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
-  list-style: none;
-  display: flex;
-}
-
 ul {
   /* Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
   width: 540px;
   padding: 0;
+}
+
+li {
+  /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
+  list-style: none;
+  display: flex;
 }
 
 /* 아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
@@ -50,4 +50,10 @@ ul {
 /* Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
 li > div {
   margin: 10px;
+}
+
+/* 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다. */
+section[class="discussion__wrapper"] {
+  display: flex;
+  justify-content: center;
 }
