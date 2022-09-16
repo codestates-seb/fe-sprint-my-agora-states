@@ -28,8 +28,10 @@ main{
     align-items: center;
 }
 .discussion__content{
+    display: flex;
+    flex-direction: column;
     margin: 10px;
-    flex-basis: 500px;
+    flex-grow: 1;
 }
 .discussion__answered{
     display: flex;
