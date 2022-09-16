@@ -1,1 +1,345 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
+
+@font-face {
+    font-family: 'Friz Quadrata';
+    src: url('asset/FrizQuadrataTT.ttf');
+}
+
+
+:root{
+    --font-title: 'Friz Quadrata';
+    --good-font: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    --color-largetext: #dacc82;
+    --color-hover-title: #f0e6d2;
+    --color-background: #010a13;
+    --color-border: #383934;
+    --color-border-active: #5d471d;
+    --color-titletext: #cdbe91;
+    --color-innertext: #928e81;
+    --color-uiborder-top: #785a28;
+    --color-imageborder01: #674d26;
+    --color-imageborder02: #f1c772;
+    --color-btn-text: #cdbe91;
+    --color-btn-bacgkround: #1e2328;
+    --color-btn-border01: #a88030;
+    --color-background-answer: #0f1920;
+    --color-background-hover: #0b1218;
+    --color-checked: rgb(153, 255, 153);
+    --color-unchecked: rgb(182, 182, 182);
+}
+
+
+
+.discussion__container > div.discussion__answered {
+    margin: 0px 0px 0px 5px!important;
+}
+
+i {
+    margin: 3px 0px 3px 0px;
+    font-size: 16px;
+    color: var(--color-titletext);
+}
+
+.fa-square-check {
+    color: var(--color-checked);
+}
+
+.fa-square {
+    color: var(--color-unchecked);
+}
+
+i:hover {
+    color: var(--color-hover-title);
+}
+
+* {
+    font-family: var(--good-font);
+    box-sizing: border-box;
+    letter-spacing: -0.25px;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    word-break: keep-all;
+}
+
+pre { 
+    padding:10px;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+
+
+
+a {
+    margin: 0!important;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+body {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('asset/bg-lol.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main { 
+    background-color: var(--color-background);
+    border-top: 3px solid var(--color-uiborder-top);
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+main h1 {
+    font-size: 45px;
+    color: transparent;
+    font-family: var(--font-title);
+    background: linear-gradient(to top, var(--color-imageborder01) 0%,  var(--color-imageborder02) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: -0.25px;
+    margin: 20px;
+    margin-top: 40px;
+    line-height: 40px;
+}
+
+li {
+    list-style: none;
+}
+
+/** input area */
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.form__input--wrapper div {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.form__input--wrapper div label {
+    color: var(--color-innertext);
+    flex: 0 1 10;
+    align-items: center;
+    text-align: right;
+    margin-right: 20px;
+}
+
+input, textarea {
+    flex: 0 1 100%;
+    font-size: 16px;
+    padding: 3px;
+    color: var(--color-titletext);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background-hover);
+}
+input:focus, textarea:focus {
+    border: 1px solid var(--color-btn-text);
+}
+
+
+textarea{
+    height: 150px;
+    resize: none;
+}
+
+/** Discussion area */
+.discussion__wrapper {
+    width: 600px;
+    padding: 10px;
+}
+
+.discussion__container > div {
+    margin: 10px;
+}
+
+.discussion__avatar--image {
+    height: 48px;
+    width: 48px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(#fff, #fff), 
+    linear-gradient(to top, var(--color-imageborder01) 0%,  var(--color-imageborder02) 100%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    flex: 0 1 0%;
+}
+
+hr {
+    margin: 10px 0px 10px 0px;
+    border:1px solid var(--color-uiborder-top);
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-border);
+    padding: 10px 0px 10px 0px;
+}
+
+.discussion__container:hover {
+    transition: all 0.5s;
+    background-color: var(--color-background-hover);
+}
+
+.discussion__content{
+    flex: 0 1 100%;
+}
+
+.discussion__article > *{
+    color: var(--color-innertext);
+    max-width: 456px;
+}
+
+.discussion__content > *{
+    margin: 5px;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    font-size: 12px;
+}
+
+.discussion__information{
+    float: right;
+    font-size: 14px;
+    color: var(--color-innertext);
+}
+
+.discussion__title {
+    font-size: 17px;
+    max-width: inherit;
+}
+
+.discussion__title a{
+    color: var(--color-titletext);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.discussion__title a:hover{
+    color: var(--color-hover-title);
+}
+
+.form__submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form__submit input{
+    flex: 0 1 auto;
+    margin: 10px;
+    padding: 5px;
+    color: var(--color-btn-text);
+    background-color: var(--color-btn-bacgkround);
+    border: 1px solid var(--color-btn-border01);
+}
+
+.form__submit input:hover{
+    color: var(--color-largetext);
+    background: linear-gradient(to top, var(--color-border) 0%,  var(--color-btn-bacgkround) 100%);
+}
+
+/** 답변 내용 커스텀 */
+.discussion__article{
+    color: var(--color-innertext);
+    max-height: 0;
+    transition: all 1s;
+    display: none;
+}
+
+.discussion__article__active{
+    display: block;
+}
+
+.discussion__article div { 
+    color: #aaa;
+    text-shadow: #000 0px 1px;
+    border-top: 1px solid #333;
+    margin: 9px 0px 9px 0px;
+}
+
+
+.discussion__answer{
+    display: none;
+}
+
+.accordion__active{
+    display: flex!important;
+    background-color: var(--color-background-answer);
+}
+
+.accordion__active > .discussion__content > h2{
+    font-size: 16px!important;
+}
+
+.accordion__active * {
+    font-weight: normal !important;
+}
+
+.discussion__answer a:hover{
+    color: var(--color-titletext);
+}
+
+
+/** pagination */
+
+.pagination__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pagination__btn {
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+    margin: 10px 5px 10px 5px;
+    color: var(--color-btn-text);
+    background-color: var(--color-btn-bacgkround);
+    border: 1px solid var(--color-btn-border01);
+}
+
+.pagination__btn:hover {
+    background: linear-gradient(to top, var(--color-border) 30%,  var(--color-btn-bacgkround) 100%);
+    border: 1px solid var(--color-imageborder02);
+}
+
+
+.pagination__btn__special {
+    font-weight: bold;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    margin: 10px 5px 10px 5px;
+    color: var(--color-btn-border01);
+    background-color: inherit;
+    border:none;
+}
+
+.pagination__btn__special:hover {
+    color: var(--color-largetext);
+}
+
+.curpage { 
+    border: 1px solid var(--color-checked);
+    color: var(--color-checked)!important;
+}
