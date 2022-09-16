@@ -95,17 +95,16 @@ function liSubmit() {
       answer: null,
       createdAt:
         year +
-        "-" +
+        "년" +
         month +
-        "-" +
+        "월" +
         date +
-        "T" +
+        "일 " +
         hours +
         ":" +
         minutes +
         ":" +
-        seconds +
-        "Z",
+        seconds
     });
     let change = JSON.stringify(arr);
     localStorage.setItem("list", change);
