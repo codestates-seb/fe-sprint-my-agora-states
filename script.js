@@ -19,7 +19,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg);
 
   // 컨텐트 추가
-  const contentTitle = document.createElement('h3');
+  const contentTitle = document.createElement('h2');
   contentTitle.className = "discussion__title"
   discussionContent.append(contentTitle);
 
@@ -31,7 +31,7 @@ const convertToDiscussion = (obj) => {
   // 작성자 추가
   const contentInform = document.createElement('div');
   contentInform.className = "discussion__information";
-  contentInform.textContent = `${obj.author} / ${obj.createdAt}`;
+  contentInform.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   discussionContent.append(contentInform);
 
   // 답변 현황 추가
