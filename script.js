@@ -37,7 +37,7 @@ const convertToDiscussion = (obj) => {
   // 답변 현황 추가
   const answerChecked = document.createElement('div');
   answerChecked.className = "discussion__answered--checked";
-  answerChecked.textContent = obj.answer ? '🥰' : '🥺';
+  answerChecked.textContent = obj.answer ? '🍏' : '🍎';
   discussionAnswered.append(answerChecked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
