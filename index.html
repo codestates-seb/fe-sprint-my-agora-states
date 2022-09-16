@@ -20,11 +20,11 @@
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" placeholder="이름을 적어주세요" required>
           </div>
           <div class="form__input--title">
             <label for="name">Title</label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" placeholder="제목을 적어주세요" required>
           </div>
           <div class="form__textbox">
             <label for="story">Question</label>
@@ -54,11 +54,13 @@
       </ul>
     </section>
     <div class="pagination__container">
-      <button type="button" class="page__prev">이전</button>
       <div class="page__current--container">
         <p class="page__current"></p>
       </div>
-      <button type="button" class="page__next">다음</button>
+      <div class="page__buttons">
+        <button type="button" class="page__prev">이전</button>
+        <button type="button" class="page__next">다음</button>
+      </div>
     </div>
   </main>
 </body>

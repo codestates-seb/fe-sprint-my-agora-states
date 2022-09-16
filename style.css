@@ -138,6 +138,7 @@ input:nth-child(2) {
     padding: 0 0.5rem;
     border: 1px solid lightgrey;
     border-radius: 5px;
+    font-size: 0.7rem;
     box-shadow: none;
     outline: none;
 }
@@ -153,12 +154,28 @@ textarea {
     outline: none;
 }
 
+.form__submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 1rem;
+}
+
+.button__reset {
+    width: 50px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: red;
+}
+
 input[type=submit] {
-    height: fit-content;
+    width: 100px;
     background-color: #6D27E8;
     color: #FFFFFF;
     border-radius: 10px;
     border: 0;
+    font-size: 1rem;
 }
 
 input[type=submit]:hover {
@@ -185,7 +202,6 @@ input[type=submit]:hover {
     margin: 0.5rem 1rem;
     border: 1px solid lightgrey;
     border-radius: 10px;
-    flex: 1 0 50%;
     padding: 15px;
 }
 
@@ -207,16 +223,20 @@ input[type=submit]:hover {
     flex: 15 0 0;
 }
 
+.discussion__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 550px;
+}
+
 .discussion__title > a {
     color: #1D1D2B;
     font-size: 0.9rem;
     text-decoration: none;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.discussion__information {
-`
+    white-space: nowrap;
 }
 
 .discussion__answered {
@@ -225,4 +245,37 @@ input[type=submit]:hover {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+}
+
+.pagination__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page__current--container {
+    width: 100px;
+    height: 50px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.page__current--container > p {
+    font-size: 2rem;
+    transform: translateY(0.5rem);
+}
+
+.page__buttons {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.page__buttons button {
+    background-color: #6D27E8;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: 0;   
+    margin-top: 10px;
 }
