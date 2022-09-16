@@ -9,7 +9,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:rgb(250, 250, 250);
+    background-color:#EEF1FF;
 }
 .discussion__container {
     display: flex;
@@ -18,7 +18,7 @@ main {
     justify-content: space-between;
     margin-top: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid rgb(218, 206, 206);
+    border-bottom: 1px solid grey;
 }
 .discussion__content {
     display: flex;
@@ -33,7 +33,8 @@ main {
     margin-top: 10px;
 }
 .discussion__wrapper {
-    background-color: rgb(245, 245, 245);
+    background-color: #D2DAFF; 
+    opacity: 0.8;
     border-radius: 8px;
 }
 .discussion__avatar--wrapper > img {
@@ -63,16 +64,17 @@ h1 {
     margin: 25px;
     padding: 20px;
     font-size: large;
-    background-color: rgb(249, 241, 232);
+    background-color: #AAC4FF;
+    opacity: 0.8;
+    box-shadow: 3px 3px whitesmoke;
 }
 .form__input--wrapper {
-    background-color: rgb(249, 241, 232);
+    background-color: #AAC4FF;
     border-radius: 5px;
     text-align: center;
     width: 400px;
     display: flex;
     flex-direction: column;
-
 }
 .form__input--wrapper > input{
     width: 400px;
