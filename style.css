@@ -29,16 +29,31 @@ main{
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0,27,102,0.3);
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.logo > img{
+  width: 100px;
+  opacity: 0.8;
 }
 
 main > h1{
-  margin: 20px 0;
-  margin-bottom: 0;
+  margin: 60px 0;
+  margin-bottom: 10px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   background: linear-gradient(351deg, rgba(0,27,102,1) 0%, rgba(69,44,221,1) 100%);
   color: transparent;
   -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -2px;
 }
 
 .form__container{
