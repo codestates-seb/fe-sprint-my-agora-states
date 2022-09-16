@@ -45,34 +45,11 @@ const answer = `${obj.author} / ${new Date(obj.createdAt)}`
 discussionContent.append(answer);
 
 const checkBox = document.createElement('div')
-checkBox.textContent = '✅'
+checkBox.textContent = '❌'
 checkBox.textContent = obj.answer ? "✅": "❌"
 
 discussionAnswered.append(checkBox);
 
-
-// const otherDiv = document.querySelector('discussions__container')
-// otherDiv.append(checkBox)
-
-
-
-
-
-
-
-
-// const templit = `      
-//   <div class="discussion__avatar--wrapper">  
-//   </div>
-//   <div class="discussion__content">
-//     <h2 class="discussion__title">
-//     <a>${obj.title}</a>
-//     </h2>
-//     <div class="discussion__information">${obj.creatdAt}</div>
-//   </div>
-//   <div class="discussion__answered"><p>☑</p></div>`;
-
-// li.innerHTML += templit;
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -119,15 +96,9 @@ function addList(event) {
       title: addTitle.value,
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
       author: addName.value,
-      answer: {
-        id: "DC_kwDOHOApLM4AKg6M",
-        createdAt: new Date,
-        url: "https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236",
-        author: "Kingsenal",
-        bodyHTML:
-          '<p dir="auto">안녕하세요. <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/dubipy/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/dubipy">@dubipy</a> 님!<br>\n코드스테이츠 교육 엔지니어 권준혁 입니다. <g-emoji class="g-emoji" alias="raised_hands" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64c.png">🙌</g-emoji></p>\n<p dir="auto">질문 주신 내용은 노드 환경이 구성되어 있지 않기 때문에 발생되는 문제로 확인됩니다.</p>\n<p dir="auto"><code class="notranslate">brew unlink node &amp;&amp; brew link node</code></p>\n<p dir="auto">노드를 연결해 보시고 안된다면</p>\n<p dir="auto"><code class="notranslate">brew link --overwrite node</code></p>\n<p dir="auto">이 명령어를 그 다음에도 안된다면 접근권한 문제일 가능성이 큽니다.</p>\n<p dir="auto"><code class="notranslate">$ sudo chmod 776 /usr/local/lib</code> 접근 권한 변경 후<br>\n<code class="notranslate">$ brew link --overwrite node</code> 다시 연결을 해보세요 !</p>\n<p dir="auto">그럼에도 안된다면 다시 한 번 더 질문을 남겨주세요 !</p>\n<p dir="auto">답변이 되셨다면 내용을 간략하게 정리해서 코멘트를 남기고 answered를 마크해주세요 <g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji><br>\n감사합니다.<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji><br>\n코드스테이츠 교육 엔지니어 권준혁</p>',
-        },
-        avatarUrl: `https://placeimg.com/64/64/people/${Math.random()}`,
+      
+       
+      avatarUrl: `https://placeimg.com/64/64/people/${Math.random()}`,
       }
     agoraStatesDiscussions.unshift(submitDiscussions); 
     ul.prepend(convertToDiscussion(submitDiscussions));
@@ -138,7 +109,11 @@ function addList(event) {
     
   }
 
-  
+// 한 페이지에 링크  n개가 노출되게한다.
+// 이전, 다음 버튼 ?
+// 처음, 마지막 버튼
+// 화면에 보여야하는거 구현이 된 상태, 화면에 보여질 첫번째, 마지막, 총 페이지 개수
+// 총 페이지 수 = Math.ceil(전체 개수 / 한 페이지에 나타낼 데이터 수);
 
 
   
