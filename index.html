@@ -10,6 +10,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,23 +21,26 @@
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
+          <div class="topbox">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">이름: </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">제목: </label>
+            <input type="text" name="name" id="name" required  >
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story">질문: </label>
+            <textarea id="story" name="story" placeholder="질문을 작성하세요" required ></textarea>
           </div>
-        </div>
+        
         <div class="form__submit">
-          <input type="submit" value="submit">
+            <button type="submit" class="submit-button" style="text-align:center; width:480px; height:50px;">전송</button>
         </div>
+      </div>
       </form>
+      
     </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
@@ -46,7 +52,7 @@
           </div>
           <div class="discussion__content">
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z h</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
         </li>
@@ -56,5 +62,7 @@
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+
+
 
 </html>
