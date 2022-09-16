@@ -31,7 +31,7 @@ const convertToDiscussion = (obj) => {
   // todo : discussion__information 작성자 및 작성 일시 삽입
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt.slice(0, 10)} ${obj.createdAt.slice(11, 19)}`
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
   // todo : discussionContent 만들어진 내부 컨텐츠 append
   discussionContent.append(discussionTitle, discussionInformation);
 
@@ -57,7 +57,7 @@ const convertToDiscussion = (obj) => {
   
     const discussionAnsweredInfomation = document.createElement('div');
     discussionAnsweredInfomation.className = 'discussion__answered--information';
-    discussionAnsweredInfomation.textContent = `${obj.answer.author} / ${obj.answer.createdAt.slice(0, 10)} ${obj.answer.createdAt.slice(11, 19)}`
+    discussionAnsweredInfomation.textContent = `${obj.answer.author} / ${new Date(obj.createdAt).toLocaleString()}`
     discussionAnsweredContent.append(discussionAnsweredInfomation);
   
     // * AnsweredAvatar 생성 및 내부 컨텐츠 생성 후 내용 삽입
