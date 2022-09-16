@@ -238,20 +238,38 @@ main {
     padding: 0px;
 
 }
-
+    
 
 .discussion__container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:center;
-    background-color: var(--clr-gray-200);
+    justify-content: space-evenly;
+
+    width: 100%;
+    background-color: var(--clr-gray-200); 
+    gap : 1rem;
+}
+
+.discussion__container > :nth-child(1) {
+    flex: 0 1;
+    order: 0;
+    }
     
+.discussion__container > :nth-child(2) {
+    flex: 1 1;
+    order: 2;
+}
+
+.discussion__container > :nth-child(3) {
+    flex: 0 1 1rem;
+    order: 3;
 }
 
 .discussion__avatar--image{
     border-radius: 100rem;
     width: min(48px);
+    margin: 0.5rem;
 }
 
 .discussion__content {
@@ -259,6 +277,7 @@ main {
 }
 
 .discussion__title{
+    font-size: var(--fs-400);
 
 }
 

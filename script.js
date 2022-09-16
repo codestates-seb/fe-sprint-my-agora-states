@@ -29,7 +29,7 @@ const convertToDiscussion = (obj) => {
   // discussion__information
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information"
-  discussionInformation.textContent = `${obj["author"]}/ ${obj["createdAt"]}`;
+  discussionInformation.textContent = `${obj["author"]}/ ${new Date(obj["createdAt"]).toLocaleDateString()}`;
   
   // discussion__answered
   const discussionAnswered = document.createElement("div");
@@ -68,5 +68,34 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-
 render(ul);
+
+
+// form eventlistener 
+const form = document.querySelector(".form");
+
+const author = form.querySelector('form__input--name > input');
+const title = form.querySelector('form__input--title > input');
+const textArea = form.querySelector('form__textbox > textarea');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log('이벤트 발생');
+
+  // 객체를 하나 만듬.
+   const list = {
+   createdAt: new Date(),
+   title: title.value,
+   answer: {},
+   author: author.value,
+   bodyHTML: textArea.value,
+   avatarUrl: "https://avatars.githubusercontent.com/u/52552097?v=4",
+};
+  agoraStatesDiscussions.unshift(list);
+  // 만들어진 객체를 convertToDisCussion에 넣어서 DOM으로 전환 
+
+  // DOM으로 들어간걸 render함수로 붙여줌 
+
+  ul.prepend(convertToDiscussion(list));
+})
+
