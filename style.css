@@ -1,4 +1,4 @@
-gi*{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ ul, ol, li {
 }
 
 body {
-    background: linear-gradient(to right, #141E30, #243B55);
+    background: linear-gradient(to right,#141E30, #243B55);
 }
 
 main {
