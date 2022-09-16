@@ -9,7 +9,6 @@ const submit    = document.querySelector("#submitBtn");
 submit.addEventListener('click', validCheck);
 
 function validCheck() {
-    console.log(question.value.length);
     if(author.value === "") {
         author.focus();
         return;
@@ -37,7 +36,7 @@ function createDiscussion() {
         author : author.value,
         answer : null,
         bodyHTML : question.value,
-        avartarUrl : null
+        avatarUrl : 'https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4'
     };
 
     agoraStatesDiscussions.unshift(obj);
