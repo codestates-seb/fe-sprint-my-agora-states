@@ -1,15 +1,16 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+// 노드 가져오기
 const ul = document.querySelector("ul.discussions__container");
 const eventForm = document.querySelector(".form");
 const nameInput = document.querySelector(".form__input--name input");
 const titleInput = document.querySelector(".form__input--title input");
 const questionTextarea = document.getElementById("story");
 const buttonSection = document.querySelector(".button-section");
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 
+//상수 설정하기
 const USER = "user";
 const CONTENTS = 5;
 
+//초기 렌더링 설정
 let paresdUsers;
 const savedUsers = localStorage.getItem(USER);
 if (savedUsers !== null) {
@@ -18,9 +19,11 @@ if (savedUsers !== null) {
   paresdUsers = agoraStatesDiscussions.slice();
 }
 
+//요소 생성 함수
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  li.className = "discussion__container";
+  li.id = obj.id; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -47,27 +50,30 @@ const convertToDiscussion = (obj) => {
 
   const discussionCheckBox = document.createElement("p");
   discussionCheckBox.textContent = "☑";
+  const discussionDelete = document.createElement("button");
+  discussionDelete.textContent = "X";
+  discussionDelete.addEventListener("click", deleteUser); //삭제 버튼 함수 호출하기
   //자식 요소 넣기
-  discussionAnswered.appendChild(discussionCheckBox);
+  discussionAnswered.append(discussionCheckBox, discussionDelete);
   discussionContent.append(titleContent, discussionInformation);
   titleContent.appendChild(titleHyper);
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
+//초기 렌더링 화면 글 갯수
 let first = 0;
 let last = CONTENTS;
 const render = (element, first, last) => {
   if (ul.hasChildNodes()) {
     ul.replaceChildren();
   }
-
   const fragment = document.createDocumentFragment();
   for (let i = first; i < last; i += 1) {
     if (paresdUsers[i] === undefined) {
+      //요소가 없으면 종료
       break;
     } else {
-      fragment.append(convertToDiscussion(paresdUsers[i]));
+      fragment.append(convertToDiscussion(paresdUsers[i])); //렌더링
     }
   }
   element.appendChild(fragment);
@@ -81,7 +87,16 @@ render(ul, first, last);
 
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ//
 
+function saveUser() {
+  localStorage.setItem(USER, JSON.stringify(paresdUsers)); // 로컬스토리지 저장
+}
+function toZero() {
+  nameInput.value = "";
+  titleInput.value = "";
+  questionTextarea.value = ""; // 작성 창 초기화
+}
 const images = [
+  //이미지 배열
   "1.jpeg",
   "2.jpeg",
   "3.jpeg",
@@ -93,17 +108,9 @@ const images = [
   "9.jpeg",
   "10.jpeg",
 ];
-function saveUser() {
-  localStorage.setItem(USER, JSON.stringify(paresdUsers));
-}
-function toZero() {
-  nameInput.value = "";
-  titleInput.value = "";
-  questionTextarea.value = "";
-}
-
 function onHandleSubmit(event) {
-  event.preventDefault();
+  //새로운 콘텐츠 입력 이벤트 핸들러
+  event.preventDefault(); //새로고침 무시하기
   const chosenImage = images[Math.floor(Math.random() * images.length)];
   const date = new Date();
   const year = date.getFullYear();
@@ -114,7 +121,7 @@ function onHandleSubmit(event) {
   const second = String(date.getSeconds()).padStart(2, "0");
   const newObj = {
     author: nameInput.value,
-    id: Date.now(),
+    id: String(Date.now()),
     title: titleInput.value,
     createdAt: `${year}-${month}-${day}T${hour}:${minute}:${second}Z`,
     avatarUrl: `img/${chosenImage}`,
@@ -147,9 +154,19 @@ function makePages() {
 }
 makePages();
 
-function onButtonHanle(event) {
+function onButtonHandle(event) {
   const idNumber = event.target.id;
+  if (!idNumber) {
+    return;
+  }
   render(ul, (idNumber - 1) * CONTENTS, CONTENTS * idNumber);
 }
+buttonSection.addEventListener("click", onButtonHandle, true);
 
-buttonSection.addEventListener("click", onButtonHanle, true);
+function deleteUser(event) {
+  const li = event.target.parentElement.parentElement;
+  li.remove();
+  paresdUsers = paresdUsers.filter((user) => user.id !== li.id);
+  saveUser();
+  render(ul, first, last);
+}
