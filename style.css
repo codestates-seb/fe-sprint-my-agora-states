@@ -1,1 +1,139 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #AAC4FF;
+    width: 100vw;
+    height: 100vh;
+}
+.main{
+    border: 1px solid black;
+    background-color: #D2DAFF;
+    border-radius: 20px;
+    width: 550px;
+    height: 680px;
+    margin-top: 40px;
+    box-shadow: rgba(33, 32, 32, 0.4) -5px 5px, rgba(119, 117, 118, 0.3) -10px 10px, rgba(164, 162, 163, 0.2) -15px 15px, rgba(197, 195, 196, 0.1) -20px 20px, rgba(222, 220, 221, 0.05) -25px 25px;
+}
+h1 {
+    text-align: center;
+    margin: 25px;
+}
+
+.discussions__container{
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    align-items:center ;  
+    width: 100%;
+    height: 420px;
+    overflow: auto;
+
+}
+.discussion__wrapper{
+    
+    width: 540px;
+    height: 450px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.discussion__avatar--image{
+    border-radius: 50px;
+    width: 48px;
+    height: auto;
+    margin-right: 20px;
+}
+.discussion__container{
+    display: flex;
+    align-items:center;
+    text-align: justify;
+    border: 1px solid gray;
+    margin-left: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 520px;
+    background-color: #EEF1FF;
+    opacity: 0.8;
+}
+
+.discussion__information{
+    text-align: right;
+    font-size: 13px;
+}
+.discussion__title{
+    font-size: 15px;
+    width: 400px;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+.form__input--name{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.form__input--title{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.form__textbox{
+    margin-left: 20px;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    height: 150px;
+}
+
+.form__container{
+    justify-content: left;
+    width: 530px;
+    background-color :rgba(238, 241, 255, 0.3);
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.btnSubmit{
+    width: 70px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-right: 10px;
+    background-color:beige;
+}
+.discussion__answered{
+    font-size: 25px;
+    margin: 0px 10px;
+    justify-content: right;
+}
+
+  #story{
+      width: 400px;
+      margin-top: 10px;
+      margin-left: 5px;
+      border: 0;
+      border-radius: 5px;
+      background-color: rgb(238, 241, 255);
+  }
+
+  .form__submit{
+    justify-content: center;
+  }
+
+  #name{
+      border: 0;
+      background-color: rgb(238, 241, 255);
+      border-radius: 5px;
+      height: 25px;
+  }
