@@ -1,5 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
 
 // 로컬 스토리지 체크
 // 로컬 자료가 없을때 저장
@@ -74,8 +72,11 @@ form.addEventListener('submit', (event) => {
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   }
   
-  const newDiscussion = convertToDiscussion(obj);
+  // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+  console.log(agoraStatesDiscussions);
+  agoraStatesDiscussions.unshift(obj);
 
+  const newDiscussion = convertToDiscussion(obj);
   ul.prepend(newDiscussion);
 
   title.value = '';
