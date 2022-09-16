@@ -1,5 +1,19 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(231, 248, 255);
+}
+
+main > h1 {
+    margin-top: 40px;
+    color: rgb(79, 161, 255);
 }
 
 li {
@@ -10,15 +24,94 @@ li {
     width: 540px;
 }
 
+.form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+    background-color: rgb(185, 228, 247);
+    padding: 10px;
+    width: 540px;
+    border-radius: 10px;
+}
+
+.form__container > form {
+    margin: auto;
+    height: 120px;
+}
+
+.form {
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+  }
+
+  .form__textbox{
+    display: flex;
+    flex-direction: column;
+  }
+
+#name{
+    width: 190px;
+}
+  .form__input--title > input{
+    margin-left: 12px;
+  }
+
+  label{
+    color:rgba(43, 43, 43, 0.589);
+    font-weight: bolder;
+  }
+
+  .form__submit > input {
+    height: 99px;
+    width: 130px;
+    margin-left: 5px;
+    font-size: large;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.521);
+    border: 0;
+    border-radius: 10px;
+}
+
+#submit:hover{
+    background-color:  rgba(47, 201, 193, 0.514);
+    color: white;
+}
+
 .discussion__wrapper{
     display: flex;
-    margin: 0;
+    margin-top: 10px;
+    background-color: rgba(209, 241, 255, 0.685);
+    border-radius: 10px;
+    width: 540px;
 }
 
 .discussion__container{
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    margin: 0;
+    margin: 20px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.589);
+    border-radius: 10px;
+
+}
+
+.discussion__content{
+    flex-grow: 1; /* 여백 전체 차지 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 10px;
+}
+
+.discussion__avatar--wrapper > img {
+    width: 45px;
+    border-radius: 50%;
+    margin-left: 15px;
 }
 
 .discussion__avatar--wrapper{
@@ -28,21 +121,21 @@ li {
     width: 48px;
 }
 
-.discussion__content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10px;
-}
-
-.discussion__avatar--image{
-    border-radius: 70%;
-    width: 48px;
-    height: 48px;
-}
 
 .discussion__title{
-    margin: 0;
+    margin-left: 10px;
+    margin-right: 8px;
+    font-size: large;
+}
+
+a:link{
+    color: rgb(49, 170, 221);
+}
+a:visited{
+    color:rgb(176, 211, 250);
+}
+a:hover{
+    color: rgb(47, 201, 193);
 }
 
 .discussion__information{
@@ -50,6 +143,7 @@ li {
     line-height: 14px;
     text-overflow: ellipsis;
     text-align: right;
+    margin-right: 8px;
 }
 
 .discussion__title .discussion__information {
@@ -58,8 +152,10 @@ li {
 
 .discussion__answered {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 26px;
+    align-self: center;
+    font-size: 25px;
+    margin-right: 5px;
+    color: rgb(79, 161, 255);
 }
 
