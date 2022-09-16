@@ -1,1 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Serif KR', serif;
+    background-image: url("https://blog.kakaocdn.net/dn/c1jbVr/btqEuzcaDHv/keSAKyfdZJ7SnEcCQTZtQk/img.gif");
+    font-family: 'Gugi', cursive;
+    
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 540px;
+    padding: 30px 20px;
+    border: solid 2px silver;
+    border-radius: 20px;
+    background-image: url("http://file.instiz.net/data/file/20140711/0/1/f/01f2a1c9544fe5ae3f098cabd5fdc9f2.gif");
+    background-size: 100% 100vh;
+}   
+
+ h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+.form__container {
+    width: 400px;
+    margin: 20px 0;
+    color: black;
+}
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form__input--name, .form__input--title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper label {
+    width: 130px;
+    font-size: 16px;
+}
+
+.form__textbox {
+    display: flex;
+    align-items: center;
+}
+
+/* .form__container form {
+    display: flex;
+} */
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    width: 500px;
+    padding: 10px;
+    border: 5px solid rgb(144, 52, 202);
+    box-shadow: 5px -5px rgba(167, 47, 236, 0.8);
+    border-radius: 10px;
+    font-family: 'Do Hyeon', sans-serif;
+    
+    
+    font-size: 0.8em;
+  }
+
+.discussion__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 17px;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+img {
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+input[type="text"] {
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: 5px solid rgb(144, 52, 202);
+    box-shadow: 5px -5px rgba(167, 47, 236, 0.8);
+}
+
+textarea {
+    width: 200px;
+    height: 60px;
+    resize: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    border: 5px solid rgb(144, 52, 202);
+    box-shadow: 5px -5px rgba(167, 47, 236, 0.8);
+}
+    
+.discussion__answered{
+    display: flex;
+    align-items: center;
+}
+  
+a:link{
+    color: black;
+
+}
+
+a:visited {
+    color: rgb(0, 0, 0)
+}
+
+input [type="submit"]{
+    height: 40px;
+}
+
+a:hover{
+    color:blueviolet;
+}
