@@ -13,6 +13,7 @@ main {
     justify-content: center;
     align-items: center;
     background-color: #222831;
+    font-family: 'Jua', sans-serif;
 }
 
 li.discussion__container {
