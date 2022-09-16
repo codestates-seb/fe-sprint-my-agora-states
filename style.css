@@ -32,7 +32,12 @@ main {
   cursor: pointer;
   width: 500px;
 }
-
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
 h1 {
   font-size: 80px;
 }
@@ -81,7 +86,7 @@ input[type="submit"] {
   margin: 10px;
   border-radius: 10px;
   border: 10px solid white;
-  width: 100%;
+  width: 90%;
 }
 .discussion__information {
   text-align: right;

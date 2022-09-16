@@ -51,8 +51,8 @@ function setLocal() {
 let saveGetLocal = localStorage.getItem("KEY");
 const parsedLocal = JSON.parse(saveGetLocal);
 const submitHandler = document.querySelector(".form");
-const setName = document.querySelector(".form__input--name >input");
-const setTitle = document.querySelector(".form__input--title > input");
+const setName = document.querySelector(".form__input--name #name");
+const setTitle = document.querySelector(".form__input--title #name");
 const setDiscussion = document.querySelector("#story");
 //이벤트 발생
 submitHandler.addEventListener("submit", function (event) {
