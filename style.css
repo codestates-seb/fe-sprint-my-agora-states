@@ -1,1 +1,123 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Asap&family=Bebas+Neue&family=Koulen&family=Merriweather+Sans:wght@500&family=Noto+Sans+KR:wght@500&family=Raleway:wght@500&family=Roboto&family=Roboto+Serif:opsz,wght@8..144,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap&family=Bebas+Neue&family=Cairo:wght@300&family=Koulen&family=Merriweather+Sans:wght@500&family=Noto+Sans+KR:wght@500&family=Raleway:wght@500&family=Roboto&family=Roboto+Serif:opsz,wght@8..144,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex; /*가로정렬*/
+  flex-direction: column; /*세로정렬*/
+  align-items: center; /* 가운데 정렬*/
+}
+
+.discussion__container {
+  display: flex;
+  width: 540px;
+  justify-content: space-between; /*좌우 나란히 배치*/
+  background-color: #EEF1FF;
+  margin: 10px 0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.discussion__avatar--wrapper > img {
+  border-radius: 50%;
+  width: 48px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.discussion__content {
+  flex-grow: 1; /*여백 전체 차지*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /*around*/
+}
+
+.discussion__information {
+  text-align: right; /* 오른쪽 정렬 */
+  font-family: 'Cairo', sans-serif;
+}
+
+.discussion__answerd {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-size: xx-large;
+}
+
+.form__container {
+  width: 535px;
+  background-color: #D2DAFF;
+  border-radius: 10px;
+  padding: 16px 0;
+  margin-top: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+
+input, textarea {
+  border-radius: 4px;
+  margin-left: 10px;
+  width: 170px;
+}
+
+label, textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type=submit] {
+  background-color: #B1B2FF;
+  border: none;
+  font-size: 20px;
+  height: 100%;
+  width: 100px;
+  padding: 16px;
+  cursor: pointer;
+}
+/*
+.form__submit {
+  
+}
+*/
+input[type=submit]:hover {
+  background-color: #AAC4FF;
+}
+
+/* .form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+} */
+
+.discussion__title {
+  font-size: 18px;
+}
+
+.discussion__title > a:hover {
+  color: black;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
