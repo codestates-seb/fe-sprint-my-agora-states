@@ -98,7 +98,7 @@ const render = (element) => {
 // const form = document.querySelector('form')
 const addName = document.querySelector('.form__input--name > input') // name input을 가져온다
 const addTitle = document.querySelector('.form__input--title > input') // title input 정보를 가져온다
-const addText = document.querySelector('form > .textarea') // textarea 정보를 가져온다
+const addText = document.querySelector('.form__textbox > .addText') // textarea 정보를 가져온다
 const submitBtn = document.querySelector('.submitBtn')
 const clearBtn = document.querySelector('.clearBtn')
 
@@ -108,6 +108,10 @@ submitBtn.addEventListener('click', addList)
 
 function addList(event) {
   event.preventDefault();
+  const addName = document.querySelector('.form__input--name > input') 
+  const addTitle = document.querySelector('.form__input--title > input') 
+  const addText = document.querySelector('.form__textbox > .addText') 
+
   const submitDiscussions = {
     
       id: "D_kwDOHOApLM4APjJi",
@@ -126,8 +130,12 @@ function addList(event) {
         avatarUrl: `https://placeimg.com/64/64/people/${Math.random()}`,
       }
     agoraStatesDiscussions.unshift(submitDiscussions); 
+    ul.prepend(convertToDiscussion(submitDiscussions));
     
-    ul.prepend(convertToDiscussion(submitDiscussions))
+    addName.value="";
+    addTitle.value="";
+    addText.value="";
+    
   }
 
   
