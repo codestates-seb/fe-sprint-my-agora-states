@@ -25,22 +25,23 @@ body {
   word-spacing: 3px;
 }
 
-/* 질문 제목 */
 h2 {
   font-family: "Nanum Brush Script", cursive;
-  color: #124e83;
+  color: #04192c;
 }
-/* 글 작성 칸 */
+
 section.form__container {
   background-color: rgba(162, 148, 255, 0.5);
   border-radius: 20px;
+  box-shadow: 3px 3px 3px #5757f2;
 }
+
 /* 체크 */
 .discussion__answered {
   padding-top: 39px;
-  font-size: 20px;
+  font-size: 30px;
   margin: 5px;
-  color: #090909;
+  color: #eb5b13;
 }
 .discussion__container {
   display: flex;
@@ -87,6 +88,7 @@ ul {
 }
 li.discussion__container {
   background-color: rgba(0, 165, 231, 0.5);
+  box-shadow: 3px 3px 3px hsl(199, 92%, 34%);
 }
 a:link {
   color: white;
@@ -139,7 +141,7 @@ form {
   font-size: 1.2rem;
   margin: 5px;
   border-radius: 10px;
-  border: 2px solid #5e31be;
+  border: 2px solid #6d51a9;
 }
 .form__submit {
   flex: 1;
