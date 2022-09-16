@@ -99,9 +99,9 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 60px;
     width: 540px;
-    margin: 0 0 10px;
+    margin: 0 0 5px;
     border-bottom: 1px solid black;
 }
 
@@ -125,15 +125,15 @@ h1 {
 }
 
 .discussion__content h2 {
-    height: 50px;
+    height: 40px;
 }
-/* tile 제목 밑줄, 파란색 초기화 및 클릭 후 보라색 초기화 */
 .discussion__content  a {
     font-size: 13px;
     text-decoration: none;
     color: black;
 }
 
+/* tile 제목 밑줄, 파란색 초기화 및 클릭 후 보라색 초기화 */
 .discussion__content a:hover {
     text-decoration: none;
 }
@@ -153,4 +153,29 @@ h1 {
 .discussion__answered {
     margin: 10px;
     font-size: 30px;
+}
+
+.page__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.page__wrapper li {
+    width: 20px;
+    margin: 5px;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    list-style: none;
+}
+
+.page__wrapper a {
+    text-decoration: none; 
+    background-color: white;
+    color: black;
+}
+
+.page__wrapper a.active {
+    background-color: black;
+    color: white;
 }
