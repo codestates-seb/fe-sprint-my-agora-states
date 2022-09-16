@@ -1,0 +1,8 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+.discussion__wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row; /*정렬축 = 가로축*/
+  align-items: center; /*정렬축의 수직 방향(=세로 방향) 정렬*/
+  background-color: antiquewhite;
+}
