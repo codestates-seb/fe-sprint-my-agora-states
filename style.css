@@ -1,1 +1,133 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color:white;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gugi', cursive;
+}
+
+body {
+    background-image: url(background.jpg);
+    background-size: cover;
+}
+
+h1  {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-size:xxx-large;
+    text-decoration-style:wavy;
+    letter-spacing: 1px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: 540px;
+    display: flex;
+    background-color: rgb(17, 17, 48);
+    opacity: 0.9;
+    border-bottom: 1px white dotted;
+}
+
+
+.form__input--wrapper {
+    flex:1;
+}
+
+.form div {
+    margin: 2px;
+}
+
+.form__input--name {
+    display: flex;
+}
+.form__input--title {
+    display: flex;
+}
+.form__textbox {
+    display: flex;
+}
+.form__submit {
+    display: flex;
+    justify-content:end;
+}
+label {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#name {
+    flex: 2.6;
+    opacity: 0.3;
+    background-color: black;
+}
+#story {
+    flex: 2.6;
+    height: 140px;
+    opacity: 0.3;
+    background-color: black;
+}
+.form__submit input {
+    background-color: rgb(19, 10, 58);
+    border-style: dotted;
+    padding: 3px;
+}
+
+.discussion__container {
+    list-style-type: none;
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.discussion__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: end;
+    font-size: x-small;
+    font-weight: 200;
+}
+
+img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+li {
+    height:fit-content;
+    margin: 5px;
+    background-color: rgb(17, 17, 48);
+    opacity: 0.9;
+}
+
+a {
+    font-size: medium;
+    font-weight: 600;
+    text-decoration:none;
+}
