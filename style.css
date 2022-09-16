@@ -1,1 +1,163 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebe9e4;
+}
+
+main {
+    background-color: #fcf5ee;
+    padding: 0 20px;
+    width: 540px;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    color: #616161;
+}
+
+.form__container {
+    background-color: #f7ddde;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 75%;
+    gap: 3px;
+}
+
+.form__input--name,
+.form__input--title {
+    color: #616161;
+}
+.form__input--name > input:focus,
+.form__input--title > input:focus,
+.form__textbox > textarea:focus {
+    outline: none;
+}
+
+.form__input--name #name,
+.form__input--title #title {
+    float: right;
+    width: 200px;
+    border: 0.5px solid #616161;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #616161;
+}
+
+.form__textbox #story {
+    border: 0.5px solid #616161;
+}
+
+.form__submit > input {
+    border: 0;
+    padding: 30px 20px;
+    background-color: #ffc4d0;
+    height: 80px;
+    color: #616161;
+    border-radius: 10px;
+}
+
+.form__submit > input:hover {
+    background-color: #f6f6f6;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.discussion__container {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    min-height: 80px;
+}
+
+.discussion__avatar--wrapper {
+    flex-basis: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__title > a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.discussion__content {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.discussion__information {
+    font-size: 13px;
+    text-align: right;
+}
+
+.discussion__answered {
+    flex-basis: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    position: relative;
+    padding: 1rem 0;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.button {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.button.active,
+.button:hover {
+    color: #1f975d;
+    font-weight: 600;
+    text-decoration: underline;
+}
