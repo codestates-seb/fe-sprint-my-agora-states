@@ -1,5 +1,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 
+// 초기데이터를 복사해준다.
+const agoraStatesDiscussions2 = JSON.parse(JSON.stringify(agoraStatesDiscussions));
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -101,12 +103,59 @@ function addList(event) {
       avatarUrl: `https://placeimg.com/64/64/people/${Math.random()}`,
       }
     agoraStatesDiscussions.unshift(submitDiscussions); 
-    ul.prepend(convertToDiscussion(submitDiscussions));
-    
+    const discussons = document.querySelectorAll('li');
+
+    discussons.forEach((discussion)=> {
+        discussion.remove();
+    })
+    render(ul)
     addName.value="";
     addTitle.value="";
     addText.value="";
     
+    
+  }
+
+
+  // 1. 객체의 값을 렌더링으로전부다그린다
+  // clear 버튼 이벤트리스터
+  //이벤트리스터 콜백함수 만들어
+
+
+  //밑 콜백함수
+  //기본 페이지에 그려저잇는 리스트 전부삭제
+  // 기존 페이지의 리스트 가져온다
+  // 가져온 리스트 반복문으로 모두 삭제
+  // 객체 값 초기화로
+  // 객체의 값을 렌더링으로 전부 다그린다
+
+  
+  
+  
+  
+//clearBtn을 눌렀을때 clearList 함수를 실행시킨다.
+  clearBtn.addEventListener('click', clearList)
+  
+  //clearBtn의 이벤트헨들러 함수
+  function clearList(event) {
+    //이벤트 기본 동작을 막는다?
+    event.preventDefault();
+    // 객체를 초기화시켜준다.
+    agoraStatesDiscussions = agoraStatesDiscussions2;  
+    console.log(agoraStatesDiscussions2)
+    // 모든 li의 요소를 가져온다
+    const discussons = document.querySelectorAll('li');
+    //  가져온요소를 순회하면서 모두 제거해준다
+    discussons.forEach((discussion)=> {
+    discussion.remove();
+
+  })
+  
+    
+    
+    // ul태그를 가져와서 ul 태그에 append해준다.
+    const ul = document.querySelector("ul.discussions__container");
+    render(ul);
   }
 
 // 한 페이지에 링크  n개가 노출되게한다.
