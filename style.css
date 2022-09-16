@@ -15,7 +15,7 @@ body {
 
 main {
   width: 650px;
-  margin: 1rem;
+  margin: 3rem;
   padding: 2rem;
   background-color: #ff7948;
   border-radius: 1rem;
@@ -30,7 +30,7 @@ h1 {
   color: #ffffff;
   border-radius: 2rem;
   text-align: center;
-  font-weight: 400;
+  font-weight: 600;
   font-style: italic;
   margin: 0.5rem 2rem;
   padding: 1rem;

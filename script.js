@@ -1,6 +1,11 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+
+// 로컬 스토리지
+localStorage.setItem("discussionData", JSON.stringify(agoraStatesDiscussions));
+let localData = null;
+
 const formSubmit = document.querySelector(".form")
 const ul = document.querySelector("ul.discussions__container");
 
@@ -68,18 +73,30 @@ return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+
+const renderAgoraStatesDiscussions =  (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  return;
+  return 
 };
+
+const renderLocal =  (element) => {
+  for (let i = 0; i < localData.length; i += 1) {
+    element.append(convertToDiscussion(localData[i]));
+  }
+  return 
+};
+
+
+const render =  localData ? renderLocal : renderAgoraStatesDiscussions;
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 render(ul);
 
 // 이벤트 핸들러 : input의 밸류들을 모아 데이터에 추가
 const submitQuestion = (e) => {
+
   e.preventDefault(); 
   let newObj= {
   id: "",
@@ -92,10 +109,16 @@ const submitQuestion = (e) => {
   avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4"
 };
 
-ul.prepend(convertToDiscussion(newObj))
-agoraStatesDiscussions.unshift(newObj)
+ul.prepend(convertToDiscussion(newObj)) // 새 디스커션 요소 추가
+
+localData = JSON.parse(localStorage.discussionData)
+localData.unshift(newObj) 
+
+localStorage.setItem("discussionData", JSON.stringify(localData)); // 추가된 원본 데이터 받아서 로컬 스토리지에 다시 저장
+localData = JSON.parse(localStorage.discussionData)
+console.log(localData);
+
 render(ul);
-console.log(agoraStatesDiscussions)
 
 userId.value = ""
 title.value = ""
