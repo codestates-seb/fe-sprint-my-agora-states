@@ -18,7 +18,10 @@
 
   <body>
     <main>
-      <h1>My Agora States</h1>
+      <div class="title">
+        <h1>My Agora States</h1>
+      </div>
+
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
@@ -27,17 +30,12 @@
               <input type="text" name="name" id="name" required />
             </div>
             <div class="form__input--title">
-              <label for="name">Enter your title: </label>
-              <input type="text" name="name" id="name" required />
+              <label for="title">Enter your title: </label>
+              <input type="text" name="title" id="title" required />
             </div>
             <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
+              <label for="story">Your question</label>
+              <textarea id="story" name="story" required></textarea>
             </div>
           </div>
           <div class="form__submit">
@@ -47,7 +45,7 @@
       </section>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
-          <li class="discussion__container">
+          <!-- <li class="discussion__container">
             <div class="discussion__avatar--wrapper">
               <img
                 class="discussion__avatar--image"
@@ -63,13 +61,14 @@
                 >
               </h2>
               <div class="discussion__information">
-                kimploo / 2022-04-22T14:08:33Z
+                <span class="disussion__name">kimploo</span> / <span class="disussion__date">2022-04-22T14:08:33Z<span>
               </div>
             </div>
             <div class="discussion__answered">
-              <p class="discussion__check">✅</p>
+              <p>✅</p>
+              <button class="discussion__delete">❌</button>
             </div>
-          </li>
+          </li> -->
         </ul>
       </section>
     </main>
