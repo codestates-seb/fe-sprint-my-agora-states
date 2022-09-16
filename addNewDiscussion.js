@@ -1,7 +1,7 @@
 const submitForm = document.querySelector('form');
-const nameInput = document.querySelector('#name');
-const titleInput = document.querySelector('#title');
-const storyInput = document.querySelector('#story');
+const nameInput = document.querySelector('#input-name');
+const titleInput = document.querySelector('#input-title');
+const storyInput = document.querySelector('#input-story');
 
 
 

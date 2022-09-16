@@ -14,10 +14,10 @@ function calculateMaxPage(total, pageInfo) {
     let pagemax = pageInfo.pagemax;
     console.log(pageInfo);
     for(let i = 1; i <= pagemax; i++) {
-      const pageElement = document.createElement('a'); //빈 a태그 생성 후 반복문으로 숫자 자동 할당
+      const pageElement = document.createElement('button'); //빈 a태그 생성 후 반복문으로 숫자 자동 할당
       pageElement.textContent = i;
       pageElement.id = i;
-      pageElement.className = 'pagebtn';
+      pageElement.classList.add('pagebtn', 'btn', 'btn-outline-primary');
       pageElement.onclick = () => {pageInfo.currentPage = pageRender(i, data)}; // 페이지렌더러 함수에 자신의 페이지 번호에 해당하는 인수를 넘겨준뒤 이벤트 바인딩
       el.append(pageElement);
     }

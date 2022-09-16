@@ -1,7 +1,66 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
   box-sizing: border-box;
 }
+
+main {
+  display: flex;
+  justify-content: center;
+
+}
+
+.left-section {
+  /* background-color: rgb(50, 61, 57); */
+  /* margin-top: 30px; */
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: url('./public/background.jpg');
+  background-size: contain;
+}
+
+.icon-line {
+  margin-top: 50px;
+  height : 10px;
+  width : 260px;
+  border-bottom: 2px solid whitesmoke;
+  box-shadow: 0px 4px 2px 1px gray;
+}
+
+.icon-wrapper{
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  border-radius: 3px;
+  margin-top: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+#title {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 1px;
+}
+
+.title-text {
+  color: whitesmoke;
+  height: 100px;
+  font-size: 8rem;
+  font-family: 'Bebas Neue', cursive;
+  margin: 0px;
+  text-shadow: 0px 3px 8px gray;
+}
+
 
 h1 {
   margin-top: 100px;
@@ -11,12 +70,38 @@ h1 {
 form {
   display: flex;
   justify-content: center;
-  width: 500px;
-  border : 2px solid greenyellow;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 300px;
+  background-color: rgba(163, 161, 159, 0.169);
+  border-radius: 30px;
 }
 
-.discussion__wrapper {
+.form__input--wrapper {
+  height : 300px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+
+#submitbtn {
+  margin-top: 10px;
+  height: 40px;
+}
+
+
+.discussion__wrapper {
+  /* flex-grow: 1; */
+  margin-top: 7rem;
+  height: 40rem;
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -25,41 +110,45 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
-  border : 2px solid yellow;
 }
 
 .discussions__container {
-  width: 100vw;
-  background-color: aquamarine;
+  height: 500px;
+  width: 40rem;
+  /* background-color: aquamarine; */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .discussion__container {
   width: 540px;
   display: flex;
   justify-content: flex-end;
-  border: 2px solid blueviolet;
   margin-bottom: 6px;
+  transition: all 0.1s ease-in;
 }
 
 .discussion__avatar--wrapper{
+  width: 12%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
+  background-color: rgb(212, 212, 212);
+  border-radius: 5px;
 }
 
 .discussion__avatar--image {
   width: 48px;
+  border-radius: 20px;
 }
 
 .discussion__title {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
 .discussion__information {
@@ -72,21 +161,27 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex-grow: 2;
+  width: 85%;
+  background-color: whitesmoke;
+  border-radius: 5px;
 }
 
 .discussion__answered {
+  color: green;
   margin-left: 1rem;
+  padding-right: 10px;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 3%;
+  border-radius: 5px;
 }
 
 .button__container {
-  width: 150px;
+  width: 350px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 4rem;
 }
@@ -94,6 +189,7 @@ form {
 .button_wrapper {
   display: flex;
   justify-content: center;
+  width: 500px;
 }
 
 #currentpage {
@@ -102,18 +198,38 @@ form {
 }
 
 #previousbtn {
-  font-size: 0.8rem;
-  flex-grow: 1;
+  text-align: center;
 }
 
 #nextbtn {
   text-align: center;
   padding-left: 10px;
   padding-right : 10px;
-  flex-grow: 1;
 }
+
+#pages_container {
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 .pagebtn:hover {
   cursor: pointer;
   color: blue;
 }
+
+label {
+  color: rgb(181, 181, 181);
+}
+
+h2>a {
+  color : rgb(31, 31, 31);
+  text-decoration: none;
+}
+
+.discussion__container:hover {
+  top : -2px;
+  color: orange;
+}
+
