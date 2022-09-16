@@ -1,1 +1,128 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* Global */
+
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-pink: #fe918d;
+  --color-dark-pink: #ff6863;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #7c7979;
+  --color-grey2: #a4a4a4;
+  --color-blue: #73aace;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;
+  --color-green: #00ff40;
+  --color-red: #ff4000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-dark-grey);
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  background-color: var(--color-light-grey);
+  color: var(--color-light-white);
+}
+
+.form {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+ul {
+  margin-bottom: 10px;
+
+  border-radius: 25px;
+}
+li {
+  /* border: 1px solid red; */
+  margin-bottom: 10px;
+  display: flex;
+  width: 540px;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  background-color: var(--color-light-grey);
+  border-radius: 25px;
+}
+.discussion__information {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.discussion__answered > p {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  width: 10px;
+  height: 10px;
+}
+h1 {
+  margin: 30px;
+  text-align: center;
+}
+.discussion__content {
+  font-size: 12px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.discussion__content a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  text-decoration: none;
+  color: white;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  height: 20px;
+}
+
+section.discussion__wrapper {
+  border-radius: 25px;
+  color: var(--color-light-white);
+}
+
+img {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  margin: 10px;
+  width: 48px;
+}
+/* input {
+  display: flex;
+} */
