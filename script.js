@@ -42,7 +42,6 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
   const checkIcon = document.createElement("i");
   checkIcon.className = "fa-circle-check";
-  // 클래스네임 추가하는 방법
   checkIcon.classList.add("fa-regular");
   // 조건문으로 답변 여부 확인 후 fa-regular -> fa-solid 결정
   if (obj.answer) {

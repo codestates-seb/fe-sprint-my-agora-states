@@ -1,14 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap");
+@font-face {
+  font-family: "IBMPlexSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff")
+    format("woff");
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "IBMPlexSansKR-Regular";
 }
 
 body {
   padding: 40px;
   display: flex;
-  /* flex를 메인에다가 적용 */
   justify-content: center;
   align-items: center;
   background-color: #eae7ed;
@@ -17,37 +23,89 @@ body {
 
 main {
   border-radius: 20px;
-  padding: 40px;
-  background-color: #b793e6;
+  padding: 50px;
+  background: rgb(53, 50, 167);
+  background: linear-gradient(
+    0deg,
+    rgba(53, 50, 167, 1) 0%,
+    rgba(100, 110, 203, 1) 32%,
+    rgba(183, 147, 230, 1) 100%
+  );
   box-shadow: 1px 1px 20px 3px grey;
+  height: 90vh;
+  /* overflow: hidden; */
 }
 
 .form {
   display: flex;
-  align-items: center;
-  padding: 3px;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px 0px;
+  border-radius: 10px;
+  background-color: #ffffff35;
+  color: #ffffff;
+  text-shadow: rgb(99, 99, 99) 1px 0 10px;
 }
 
 .form__input--wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 2;
+  padding: 5px 0px 5px 10px;
 }
 
 .form__input--wrapper > div {
   margin-top: 5px;
 }
 
-.form__submit {
-  flex-grow: 1;
-  text-align: center;
+.form__input--wrapper input {
+  padding-left: 3px;
+}
 
-  /* 버튼 크기 키우고 디자인 적용 */
+#name {
+  width: 120px;
+}
+
+#title {
+  width: 200px;
+}
+
+.form__input--wrapper textarea {
+  width: 300px;
+  height: 64px;
+  padding: 3px;
+  vertical-align: top;
+  resize: none;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  width: 66px;
+}
+
+.form__submit {
+  text-align: center;
+  flex-grow: 1;
+  padding-bottom: 5px;
+}
+
+#submit {
+  background: #3532a7;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 20px 40px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #49469f;
+  transition: 0.3s;
 }
 
 a {
   text-decoration: none;
   color: #000000;
+  font-weight: 600;
 }
 
 a:visited {
@@ -56,31 +114,38 @@ a:visited {
 
 a:hover {
   color: #3532a7;
-  /* text-decoration: underline; */
   transition: all 0.3s;
 }
 
 li {
   list-style: none;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 10px 0px;
-  padding: 20px;
+  padding: 17px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 24px;
   color: #ffffff;
-  /* 웹폰트 받아오기 */
+  font-family: "Lora", serif;
+  font-size: 2.5rem;
+  text-shadow: rgb(99, 99, 99) 1px 0 10px;
 }
 
 h2 {
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .discussion__wrapper {
-  margin-top: 15px;
+  margin-top: 5px;
+  height: 540px;
+  overflow: auto;
   /* padding: 5px; */
+}
+
+.discussion__wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .discussion__container {
@@ -88,11 +153,11 @@ h2 {
   /* justify-content: space-between; */
   align-items: center;
   width: 540px;
-  background-color: #ffffffe0;
+  background-color: #ffffff;
 }
 
 .discussion__container:hover {
-  background-color: #ffffff;
+  background-color: #efeeee;
   transition: 0.3s;
 }
 
@@ -104,7 +169,7 @@ h2 {
 .discussion__avatar--image {
   border-radius: 70%;
   width: 48px;
-  /* flex-wrap */
+  flex-wrap: wrap;
 }
 
 .discussion__title {
@@ -120,17 +185,10 @@ h2 {
 }
 
 .fa-solid {
-  color: #646ecb;
+  color: #3532a7;
 }
 
 .discussion__information {
   font-size: 0.85rem;
   text-align: right;
 }
-
-#submit {
-  width: 70%;
-  /* height: 70%; */
-}
-
-/* 스크롤바 구현 */
