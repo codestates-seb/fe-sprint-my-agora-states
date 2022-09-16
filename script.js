@@ -53,7 +53,7 @@ const parsedLocal = JSON.parse(saveGetLocal);
 const submitHandler = document.querySelector(".form");
 const setName = document.querySelector(".form__input--name >input");
 const setTitle = document.querySelector(".form__input--title > input");
-const setDiscussion = document.querySelector("form__textbox > textarea");
+const setDiscussion = document.querySelector("#story");
 //이벤트 발생
 submitHandler.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -74,11 +74,6 @@ submitHandler.addEventListener("submit", function (event) {
   agoraStatesDiscussions.unshift(newObj);
   setLocal();
   ul.prepend(convertToDiscussion(newObj));
-
-  newSetName = " ";
-  newSetTitle = " ";
-  newSetDiscussion = " ";
-  console.log(newSetName);
 });
 
 //
