@@ -1,1 +1,119 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.form__textbox {
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__submit{
+    text-align: center;
+}
+
+.form__submit input {
+    border: none;
+    background-color:rgb(82, 82, 82);
+    color: white;
+
+}
+
+main, .discussion__container {
+    background-color: rgb(82, 82, 82);
+}
+section {
+    padding: 25px;
+    color: black;
+
+}
+section.form__container {
+    border-radius: 20px;
+    background-color: white;
+
+}
+
+.discussion__title {
+    margin-bottom: 5px;
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    line-height: 1.8rem;
+    padding: 0.3rem;
+    text-decoration: underline;
+}
+
+.discussion__title a {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.discussions__container {
+    width: 540px;
+    padding: 10px;
+    margin: 0px;
+    justify-content: space-between;
+}
+
+
+.discussion__container{
+    width: 100%;
+    height: 110px;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.discussion__avatar--wrapper > img{
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__content{
+    display:  flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 5 1 ;
+}
+
+.discussion__information {
+    text-align: right; 
+}
+
+.discussion__answered{
+    display: flex;
+    justify-content:  center;
+    align-self: center;
+    font-size: xx-large;
+}
+
+.discussion__answered p {
+   font-size: 20px;
+}
