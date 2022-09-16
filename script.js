@@ -88,6 +88,35 @@ $form.addEventListener('submit', (e) => {
 });
 
 
+//페이지 네이션
+// 한 페이지 페이지링크는 7개를 보여준다.
+// 한 페이지에 7개씩 게시물을 보여준다.
+// 이전 다음 버튼이 존재한다.
+// 처음으로 마지막 버튼이 존재한다.
+
+
+//페이지 네이션 구현
+// const pagenation = function(currentPage) {
+//   let currentPage = 1;
+//   let limit = 5;
+//   let totalPage = math.ceil(agoraStatesDiscussions.length / limit);
+//   let pagecount = math.ceil(currentPage / limit)
+
+//   let last = pagecount * 10 
+//   if (last > totalPage ) {
+//     last = totalPage;
+//   }
+//   let first = last - (10 - 1) <= 0 ? 1 : last - (10 - 1);
+
+//   const fragmentPage = document.createDocumentFragment();
+  
+
+// }
+
+
+
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
