@@ -32,7 +32,7 @@ body main {
 }
 
 section {
-    background: blue;
+    background: blueviolet;
 }
 
 /* 리스트 내 아이템값 수평정렬 */
@@ -62,9 +62,7 @@ li div {
     text-align: right;
     margin: 0 0.5rem 0.5rem 0.5rem;
 }
-a {
-    color: yellow;
-}
+
 /* 수직정렬 */
 p {
     display: flex;

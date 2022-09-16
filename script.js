@@ -24,7 +24,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(discussionAvatarImage);
   discussionContent.append(discussionTitle);
   discussionTitle.append(discussionLink);
-  discussionTitle.append(discussionLink);
+  discussionContent.append(discussionInformation);
 
 /*   좋은 삽질이였다.
     letsMappingDatas(
@@ -40,9 +40,7 @@ const convertToDiscussion = (obj) => {
     "https://faopharmacy.unc.edu/wp-content/uploads/sites/200/2022/04/noimage.png";
   discussionLink.textContent = obj.title;
   discussionLink.href = obj.url;
-  discussionInformation.textContent = `${
-    obj.author
-  } / ${new Date(obj.createdAt).toLocaleString()}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
