@@ -1,1 +1,195 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* 
+메인을 중앙으로
+
+*/
+/* h1 {
+  animation: rainbow 1.5s ease infinite;
+} */
+/* @keyframes rainbow {
+  0% {
+    color: #ff0053;
+  }
+  12% {
+    color: #ff5353;
+  }
+  24% {
+    color: #ffcf53;
+  }
+  36% {
+    color: #e8ff53;
+  }
+  48% {
+    color: #53ff5d;
+  }
+  60% {
+    color: #53ffbc;
+  }
+  72% {
+    color: #5393ff;
+  }
+  84% {
+    color: #ca53ff;
+  }
+  100% {
+    color: #ff53bd;
+  }
+} */
+
+h1,
+label {
+  color: white;
+  text-shadow: 2px 2px 2px #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+
+  background-image: url("https://img.allthatboots.com/edimg2/JpjKXi.gif");
+
+  background-size: 100%;
+  /* background-size: cover; */
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* width: 600px; */
+  /* background-color: #fff5e4; */
+}
+
+.discussion__wrapper {
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  margin-top: 10px;
+  /* background-image: url("https://img.allthatboots.com/edimg2/JpjKXi.gif"); 
+  */
+  background-image: url("https://github.com/junpotatoes/fe-sprint-my-agora-states/blob/main/KakaoTalk_20220916_115941236%EC%99%B8%EB%8D%B0%EA%B3%A8.png?raw=true");
+  background-size: 1435px;
+}
+
+.discussions__container {
+  align-items: center;
+  /* border: 1px black; */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+li {
+  flex-direction: column;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+.big_box {
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  /* width: 100%; */
+}
+
+ul,
+li {
+  list-style: none;
+  text-decoration-color: black;
+}
+
+a {
+  color: black;
+}
+li {
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-right: 38px;
+  background-color: rgba(241, 226, 226, 0.8);
+}
+
+form {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form__container {
+  height: 150px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* text-align: left; */
+  /* margin-top: 10px; */
+  margin-right: 60px;
+}
+.submitBtn {
+  width: 100%;
+  height: 60px;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+.clearBtn {
+  width: 100%;
+  margin-top: 10px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+label {
+  width: 130px;
+  height: 23px;
+  justify-content: flex-start;
+}
+
+input {
+  width: 164px;
+  height: 30px;
+  justify-content: flex-end;
+  border: 1px solid #6fd8d6;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 164px;
+  border: 1px solid #6fd8d6;
+  border-radius: 5px;
+}
+
+.form__textbox {
+  display: flex;
+  align-items: center;
+}
+
+/* .discussion__content {
+  display: flex;
+  flex-direction: column;
+} */
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
