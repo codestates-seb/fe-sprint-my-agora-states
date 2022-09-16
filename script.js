@@ -1,10 +1,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-const date = new Date();
+//console.log(agoraStatesDiscussions);
+
 let submitBtn = document.querySelector('.form__submit');
-let elName =  document.querySelector('#name');
-let elTitle =  document.querySelector('#title');
-let elStory =  document.querySelector('#story');
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -19,31 +16,31 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 아바타 영역
   const avatarImg = document.createElement('img');
   avatarImg.className = "discussion__avatar--image";
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg);
 
+  // 콘텐츠 영역
   const titleName = document.createElement('h2');
   titleName.className = "discussion__title";
   const titleLink = document.createElement('a');
   titleLink.setAttribute("href",obj.url);
+  // titleLink.href = obj.url;
   titleLink.textContent = obj.title;
   titleName.append(titleLink);
+
   const information = document.createElement('div');
   information.className = "discussion__information";
-  information.textContent = obj.author + ' / ' + obj.createdAt;
+  information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   discussionContent.append(titleName, information);
 
+  // 체크박스 영역
   const answered_emoji = document.createElement('p');
   answered_emoji.className = "discussion__answered";
-  if (obj.answer !== null){
-    answered_emoji.textContent = '☑';
-  }
-  else{
-    answered_emoji.textContent = '☒';
-  }
+  answered_emoji.textContent = obj.answer ? '☑' : '☒';
   discussionAnswered.append(answered_emoji);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -62,14 +59,25 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-submitBtn.addEventListener('click', (e) =>{
-  e.preventDefault();
+const form = document.querySelector('.form');
+let elName =  document.querySelector('.form__input--name > input');
+let elTitle =  document.querySelector('.form__input--title > input');
+let elStory =  document.querySelector('.form__textbox > textarea');
+
+form.addEventListener('submit', (event) =>{
+  // 새로고침 발생하지 않게
+  event.preventDefault();
   let newDisscussion = new Object();
+  newDisscussion.id = "unique number";
   newDisscussion.author = elName.value;
   newDisscussion.title = elTitle.value;
-  newDisscussion.createdAt = date.toLocaleString('ko-kr');
+  newDisscussion.createdAt = new Date();
   newDisscussion.answer = null;
   newDisscussion.avatarUrl = 'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4';
   agoraStatesDiscussions.unshift(newDisscussion);
   ul.prepend(convertToDiscussion(newDisscussion));
+  console.log(agoraStatesDiscussions);
+  elTitle.value = "";
+  elStory.value = "";
+  elName.value = "";
 })

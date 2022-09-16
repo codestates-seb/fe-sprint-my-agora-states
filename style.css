@@ -19,6 +19,7 @@
     align-items: center;
     background-color: rgb(246, 227, 230);
   }
+  /* form container */
   h1{
     margin-top: 20px;
   }
@@ -30,35 +31,15 @@
     flex-direction: row;
   }
   .form__container{
-    background-color: rgb(247, 196, 223);
-    width: 540px;
+    background-color: rgb(252, 201, 201);
+    width: 570px;
     margin: 20px;
-    padding: 20px;
+    padding: 17px;
     border-radius: 20px
   }
- .discussion__wrapper .discussions__container .discussion__container{
-    width: 540px;
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    background-color: white;
-    margin: 10px;
-    border-radius: 10px
- }
- .discussion__wrapper .discussions__container .discussion__container .discussion__content{
-    flex-grow: 1;
- }
- .discussion__avatar--wrapper{
-    padding-left: 3px;
-    padding-right: 20px;
- }
- .discussion__answered{
-    padding-left: 20px;
-    padding-right: 3px;
- }
- .form__input--wrapper{
+  .form__input--wrapper{
     flex: 6;
-    margin-right: 10px;
+    margin-right: 15px;
   }
   .form__submit{
     flex: 1;
@@ -99,29 +80,56 @@
     border: none;
   }
   .submitBtn{
-    width: 80px;
-    height: 87px;
-    background-color: rgb(247, 224, 228);
+    width: 85px;
+    height: 95px;
+    background-color: rgb(249, 165, 179);
     border-radius: 10px;
     border: none;
   }
   .submitBtn:hover{
-    background-color: rgb(249, 170, 183);
+    background-color: rgb(250, 141, 141);
     border: none;
   }
 
- /* 작성자, 작성 시간 오른쪽으로 */
- .discussion__information{
-    float: right;
-    margin-top: 10px;
+ /* discussion_wrapper*/
+ .discussion__wrapper{
+  background-color: rgb(250, 195, 195);
+  border-radius: 20px
+ }
+ .discussion__wrapper .discussions__container .discussion__container{
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: white;
+    margin: 15px;
+    border-radius: 10px
+ }
+ .discussion__wrapper .discussions__container .discussion__container .discussion__content{
+    flex-grow: 1;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
  }
  .discussion__avatar--wrapper{
+    padding-left: 3px;
+    padding-right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
  }
+ .discussion__answered{
+    padding-left: 8px;
+    padding-right: 3px;
+ }
+ /* 작성자, 작성 시간 오른쪽으로 */
+ .discussion__information{
+    width: 430px;
+    text-align: right;
+    margin-top: 10px;
+}
  /* 이미지 */
- .discussion__avatar--image{
+ .discussion__avatar--image {
     border-radius: 60%;
     width: 48px;
     height: 48px;
