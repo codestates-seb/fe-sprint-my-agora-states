@@ -23,6 +23,7 @@ const convertToDiscussion = (obj) => {
   const discussionAvatarImage = document.createElement("img");
   discussionAvatarImage.className = "discussion__avatar--image";
   discussionAvatarImage.src = obj.avatarUrl;
+  discussionAvatarImage.alt = "avatar of " + obj.author
   avatarWrapper.append(discussionAvatarImage);
   // 컨텐츠 > 제목
   const discussionTitle = document.createElement("h2")
@@ -36,15 +37,15 @@ const convertToDiscussion = (obj) => {
   // 컨텐츠 > 작성자, 작성일
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
   discussionContent.append(discussionInformation);
   // 답변여부 > 답변? V 표시 : X 표시
   const discussionAnsweredMark = document.createElement("p")
   discussionAnsweredMark.textContent = (() => {
     if(obj.answer) {
-      return 'V'
+      return '✅'
     } else {
-      return 'X'
+      return '❌'
     }
   })();
   discussionAnswered.append(discussionAnsweredMark);
