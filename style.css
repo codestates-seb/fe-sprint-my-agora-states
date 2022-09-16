@@ -64,6 +64,7 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: #1D1D2B;
 }
 
 /* 좌측 폼 컨테이너 */
@@ -77,6 +78,7 @@ main {
 
 h1 {
     flex: 1 0 0;
+    transform: translate(0, 30%);
     font-size: 1.5rem;
     text-align: center;
     vertical-align: middle;
@@ -98,21 +100,21 @@ form {
     flex: 1 0 0;
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .form__input--title {
     flex: 1 0 0;
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .form__textbox {
-    flex: 3 0 0;
+    flex: 6 0 0;
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .form__submit {
@@ -123,13 +125,21 @@ form {
 
 label {
     flex: 1 0 0;
-    margin: 0.5rem 0;
+    position: absolute;
+    color: #ECECEE;
+    font-size: 0.5rem;
+    background-color: #FFFFFF;
+    transform: translate(20%, -50%);
+    padding: 0 0.3rem;
 }
 
 input:nth-child(2) {
-    flex: 1 0 0;
+    height: 2rem;
+    padding: 0 0.5rem;
     border: 1px solid lightgrey;
     border-radius: 5px;
+    box-shadow: none;
+    outline: none;
 }
 
 textarea {
@@ -137,6 +147,10 @@ textarea {
     border: 1px solid lightgrey;
     border-radius: 5px;
     resize: none;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.7rem;
+    box-shadow: none;
+    outline: none;
 }
 
 input[type=submit] {
@@ -145,6 +159,10 @@ input[type=submit] {
     color: #FFFFFF;
     border-radius: 10px;
     border: 0;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
 }
 
 /* 우측 디스커션 래퍼 */
@@ -163,13 +181,40 @@ input[type=submit] {
 
 .discussion__container {
     display: flex;
+    justify-content: space-between;
     margin: 0.5rem 1rem;
     border: 1px solid lightgrey;
     border-radius: 10px;
     flex: 1 0 50%;
+    padding: 15px;
 }
 
 .discussion__avatar--wrapper {
+    flex: 3 0 0;
+}
+
+.discussion__avatar--wrapper > img {
+    border-radius: 70%;
+    width: 3rem;
+}
+
+.discussion__content {
+    flex: 15 0 0;
+}
+
+.discussion__title > a {
+    color: #1D1D2B;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__answered {
     flex: 1 0 0;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
