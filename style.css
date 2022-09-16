@@ -56,7 +56,7 @@ h2 {
     margin :5px auto;
     width : 430px;
     height : 35px;
-    border :solid 1px #999 ;
+    border : solid 2px white;
     border-radius: 45px;
     
 }
@@ -74,7 +74,7 @@ h2 {
     margin :5px auto;
     width : 430px;
     height : 35px;
-    border :solid 1px #999 ;
+    border : solid 2px white;
     border-radius: 45px;
 }
 /* form 내용 입력 */
@@ -91,18 +91,18 @@ h2 {
     width : 430px;
     height : 90px;
     resize : none;
-    border :solid 1px #999 ;
+    border : solid 2px white;
     border-radius: 10px;
 }
 
 .form__submit input{
     background-image: linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%);
     color : white;
-    border : solid 1px #999;
+    border : solid 2px white;
     border-radius : 10px;
     font-size : 1.2rem;
     width : 430px;
-    height : 35px;
+    height : 45px;
 }
 
 
@@ -116,7 +116,6 @@ h2 {
 .discussion__wrapper li {
     background-color: white;
     margin : 40px auto;
-    border : solid 2px #999;
     border-radius: 10px;
     height : 100px;
 }
