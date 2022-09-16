@@ -182,6 +182,14 @@ label {
   transition: all 1.2s;
 }
 
+#username:focus,
+#title:focus,
+#story:focus {
+  opacity: 0.8;
+  background-color: aliceblue;
+  transition: all 1.2s;
+}
+
 /*아바타 사진 둥글게 표현
 너비 48px
 discussion 컴포넌트 중앙 정렬*/
