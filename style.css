@@ -1,1 +1,178 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&family=Source+Sans+Pro:wght@300;600&display=swap');
+
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+body { 
+    background-image: linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
+}
+
+main {
+    background-color: whitesmoke;
+    border-radius: 25px;
+    box-shadow :2px 4px 10px 7px #c8699e;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 50px auto;
+    width : 540px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size : 3.5rem;
+    padding-top:15px;
+    color : #7046aa
+}
+
+h2 {
+    font-size : 1.2rem;
+    margin : 0 10px;
+    text-align: left;
+}
+/* form */
+.form__container {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding : 10px;
+    margin : 20px 0 0;
+    border-radius: 15px;
+}
+/* form 이름 입력 */
+.form__input--name {
+    color :#c8699e;
+    margin :5px auto;
+    font-size : 1.2rem;
+}
+
+.form__input--name input {
+    font-size : 1.1rem;
+    text-indent: 10px;
+    margin :5px auto;
+    width : 430px;
+    height : 35px;
+    border : solid 2px white;
+    border-radius: 45px;
+    
+}
+
+/* form 제목 입력 */
+.form__input--title {
+    color : #c8699e;
+    margin :5px auto;
+    font-size : 1.2rem;
+}
+
+.form__input--title input {
+    font-size : 1.1rem;
+    text-indent: 10px;
+    margin :5px auto;
+    width : 430px;
+    height : 35px;
+    border : solid 2px white;
+    border-radius: 45px;
+}
+/* form 내용 입력 */
+.form__textbox {
+    color : #c8699e;
+    margin :5px auto;
+    font-size : 1.2rem;
+}
+
+.form__textbox textarea{
+    font-size : 1.1rem;
+    text-indent: 10px;
+    margin :5px auto;
+    width : 430px;
+    height : 90px;
+    resize : none;
+    border : solid 2px white;
+    border-radius: 10px;
+}
+
+.form__submit input{
+    background-image: linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%);
+    color : white;
+    border : solid 2px white;
+    border-radius : 10px;
+    font-size : 1.2rem;
+    width : 430px;
+    height : 45px;
+}
+
+
+
+/* 질문 */
+.discussion__wrapper {
+    background-color: whitesmoke;
+    margin-top : 25px;
+}
+
+.discussion__wrapper li {
+    background-color: white;
+    margin : 40px auto;
+    border-radius: 10px;
+    height : 100px;
+}
+.discussion__content {
+    flex-grow : 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding : 10px;
+}
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__avatar--wrapper {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.discussion__avatar--image {
+    width : 48px;
+    border-radius: 25px;
+}
+
+.discussion__container {
+    display : flex;
+    justify-content: space-between;
+    width : 480px;
+    list-style: none;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: xx-large;
+    padding-right : 5px;
+}
+
+a {
+    text-decoration: none;
+    font-size : 1.1rem;
+}
+
+a:link {
+    color : black;
+}
+
+a:visited {
+    color : blue;
+}
+
+
+a:hover {
+    text-shadow: 1px 1px 1px rgb(195, 194, 194);
+}
