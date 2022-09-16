@@ -1,1 +1,131 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  main {
+    width: 540px;
+    margin: 50px auto;
+    border: 2px solid #dbdbdb;
+  }
+  
+  h1 {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'HallymGothic-Regular';
+    font-weight: 700;
+    font-style: normal;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .form__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  
+  #name {
+    display: block;
+    width: 360px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #dbdbdb;
+  }
+  
+  #story {
+    display: block;
+    width: 360px;
+    height: 130px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #dbdbdb;
+  }
+  
+  input[type="submit"] {
+    width: 360px;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 0;
+    background-color: #333;
+    color: #fff;  
+  }
+  
+  .discussion__wrapper {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid hotpink; */
+  }
+  
+  .discussion__container {
+    width: 540px;
+    min-height: 130px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  
+  .discussion__avatar--wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  .discussion__avatar--image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .discussion__content {
+    width: 300px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+  }
+  
+  .discussion__title {
+    margin-bottom: 40px;
+    line-height: 16px;
+  }
+  
+  a {
+    color: #000;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  
+  .discussion__information {
+    font-size: 10px;
+  }
+  
+  .nick__name {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .time {
+    color: #999;
+  }  
