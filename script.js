@@ -19,15 +19,20 @@ const convertToDiscussion = (obj) => {
   //이미지 원형 아바타 + 글쓴이 정보
   const avatarImg = document.createElement("img");
   avatarImg.setAttribute('class', 'discussion__avatar--image')
-  avatarImg.src = `${obj.avatarUrl}`;
-  discussionInfo.innerHTML = `${obj.author} / ${obj.createdAt}`
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of" + obj.author;
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
   avatarWrapper.append(avatarImg, discussionInfo);
 
-  //콘텐츠 정보들 삽입
+  //콘텐츠 정보들 삽입 (제목, 본문)
   //h2, a 태그 - 질문제목 해당
   const contentTitle = document.createElement("h3");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  contentTitle.append(titleAnchor);
   contentTitle.className = "discussion__title";
-  contentTitle.innerHTML = `<a href=${obj.url}>${obj.title}</a>`;
+  
 
   const contentBody = document.createElement('div');
   contentBody.className = "discussion__body";
@@ -40,6 +45,21 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+//form 입력 이벤트 핸들러 추가!
+const discussion_form = document.querySelector(".form__container > form");
+discussion_form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  let new_discussion = {
+    author : discussion_form.name.value,
+    createdAt : new Date(),
+    avatarUrl : `https://avatars.dicebear.com/api/human/${Math.random()}.svg`,
+    url : "",
+    title : discussion_form.title.value,
+    bodyHTML : discussion_form.story.value,
+  };
+  ul.prepend(convertToDiscussion(new_discussion));
+})
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
