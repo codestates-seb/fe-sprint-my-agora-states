@@ -81,6 +81,7 @@ input {
   height: 30px;
   border-radius: 5px;
   border: 1px solid #FFF5E4;
+  width: 280px;
 }
 
 textarea {
@@ -88,6 +89,7 @@ textarea {
   flex-grow:2;
   border-radius: 5px;
   border: 1px solid #FFF5E4;
+  width: 178px;
 }
 
 .form__submit {
@@ -178,3 +180,11 @@ li.discussion__container {
   font-size: 35px;
   color: #e68927;
 }
+
+section.buttons{
+  display:flex;
+  width: 200px;
+  height: 50px;
+  align-items: center;
+}
+
