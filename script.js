@@ -13,7 +13,7 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // avatar 
+  // avatar
   const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
@@ -21,22 +21,24 @@ const convertToDiscussion = (obj) => {
   // avatarImg.alt = "avatar of " + agoraStatesDiscussions[0].author;
   avatarWrapper.append(avatarImg);
 
-  // info title 
-  const contentTit = document.createElement('h2');
-  const titAnchor = document.createElement('a');
-  titAnchor.textContent = obj.title;
+  // info title
+  const contentTit = document.createElement("h2");
+  const titAnchor = document.createElement("a");
   titAnchor.href = obj.url;
+  titAnchor.textContent = obj.title;
   contentTit.append(titAnchor);
 
-  const contentInfo = document.createElement('div');
-  contentInfo.textContent = `${obj.author} / ${new Data(obj.createdAt).toLocaleString}`;
+  const contentInfo = document.createElement("div");
   contentInfo.className = "discussion__information";
+  contentInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
   discussionContent.append(contentTit, contentInfo);
-  
+
   // info checkbox
-  const checked = document.createElement('p');
-  checked.textContent = obj.answer ? "☑" : "☒"
-  discussionAnswered.append(checked); 
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑" : "☒";
+  discussionAnswered.append(checked);
 
   // DOM append 메서드를 이용하여,
   // 위에서 생성한 <div>요소들을 li.discussion__container의 자식 요소로 추가.
@@ -44,39 +46,60 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
- // event 
- const form = document.querySelector('.form');
- form.addEventListener('submit' , (event) => {
-    event.preventDefault();
-    console.log('🎇🎆🎇🎆');
-    // 객체 생성 
-    const obj = {
-      id: "D_kwDOHOApLM4APjJi",
-      createdAt: "2022-05-16T01:02:17Z",
-      title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
-      url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-      author: "dubipy",
-      answer: {
-        id: "DC_kwDOHOApLM4AKg6M",
-        createdAt: "2022-05-16T02:09:52Z",
-        url: "https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236",
-        author: "Kingsenal",
-        bodyHTML:
-          '<p dir="auto">안녕하세요. <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/dubipy/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/dubipy">@dubipy</a> 님!<br>\n코드스테이츠 교육 엔지니어 권준혁 입니다. <g-emoji class="g-emoji" alias="raised_hands" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64c.png">🙌</g-emoji></p>\n<p dir="auto">질문 주신 내용은 노드 환경이 구성되어 있지 않기 때문에 발생되는 문제로 확인됩니다.</p>\n<p dir="auto"><code class="notranslate">brew unlink node &amp;&amp; brew link node</code></p>\n<p dir="auto">노드를 연결해 보시고 안된다면</p>\n<p dir="auto"><code class="notranslate">brew link --overwrite node</code></p>\n<p dir="auto">이 명령어를 그 다음에도 안된다면 접근권한 문제일 가능성이 큽니다.</p>\n<p dir="auto"><code class="notranslate">$ sudo chmod 776 /usr/local/lib</code> 접근 권한 변경 후<br>\n<code class="notranslate">$ brew link --overwrite node</code> 다시 연결을 해보세요 !</p>\n<p dir="auto">그럼에도 안된다면 다시 한 번 더 질문을 남겨주세요 !</p>\n<p dir="auto">답변이 되셨다면 내용을 간략하게 정리해서 코멘트를 남기고 answered를 마크해주세요 <g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji><br>\n감사합니다.<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji><br>\n코드스테이츠 교육 엔지니어 권준혁</p>',
-        avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
-    }
- })
-
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  // 더미데이터 길이 만큼, 더미데이터 안에 있는 모든 요소 탐색 ㄱㄱ 
+const render = (ul) => {
+  // 더미데이터 길이 만큼, 더미데이터 안에 있는 모든 요소 탐색 ㄱㄱ
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     // i번째 요소를 convertToDiscussion에 전달 -> 결과를 ul에 append
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
+// 페이지네이션을 위한 변수
+// let limit = 10,
+//   page = 1;
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+// render(ul, 0, limit);
+
+// event listener
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // console.log('🎇🎆🎇🎆');
+  // 객체 생성
+  const obj = {
+    id: "unique id",
+    createdAt: new Date().toISOString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+  };
+  data.unshift(obj);
+
+  // 로컬스토리지에 저장
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+
+  // 렌더링
+  render(ul, 0, limit);
+});
+
+// 첫번째 배열에 추가
+// agoraStatesDiscussions.unshift(obj);
+// 그 객체를 convertToDiscussion에 넣어서 DOM으로 변환
+// 그걸 또 render함수에 넣어서 브라우저에 렌더링 -> 맨 앞으로!
+// ul.prepend(convertToDiscussion(obj));
+// title.value = ""';
+// author.value = ""';
+// textArea.value = ""';
