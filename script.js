@@ -1,5 +1,4 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -51,6 +50,7 @@ const discussion_form = document.querySelector(".form__container > form");
 discussion_form.addEventListener('submit', (event) => {
   event.preventDefault();
   let new_discussion = {
+    id : "any random string",
     author : discussion_form.name.value,
     createdAt : new Date(),
     avatarUrl : `https://avatars.dicebear.com/api/human/${Math.random()}.svg`,
@@ -59,6 +59,7 @@ discussion_form.addEventListener('submit', (event) => {
     bodyHTML : discussion_form.story.value,
   };
   ul.prepend(convertToDiscussion(new_discussion));
+  agoraStatesDiscussions.push(new_discussion);
 })
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
