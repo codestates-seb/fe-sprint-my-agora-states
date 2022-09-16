@@ -6,6 +6,8 @@
 }
 
 body {
+    height: 100vh;
+    width: 100vw;
     background-image: url(./paw.jpg);
     background-size: cover;
 }
@@ -68,13 +70,16 @@ h1 {
 }
 
 .discussion__content{
+    flex-grow: 1;
 }
 
 .discussion__title{
+    font-size: 15px;
 }
 
 .discussion__information{
     float : right;
+    font-size: 10px;
 }
 
 .discussion__answered{
