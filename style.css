@@ -6,19 +6,16 @@
     /* border: 1px solid red; */
 }
 
-body {
+main {
+    padding: 30px 0px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-main {
-    padding: 30px 0px;
-}
-
 li.discussion__container {
     display: flex;
-    flex-direction: row;
     list-style: none;
     justify-content: space-between;
     align-items: center;
@@ -27,11 +24,12 @@ li.discussion__container {
 }
 
 div.discussion__avatar--wrapper {
-    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
-    border-radius: 100%;
+    border-radius: 50%;
     width: 48px;
 }
 
@@ -39,14 +37,15 @@ img {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
     margin: 10px;
 }
 
 .discussion__answered {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .discussion__information {
