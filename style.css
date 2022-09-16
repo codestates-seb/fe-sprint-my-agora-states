@@ -18,10 +18,11 @@ a:visited{
 body{
   font-size: 12px;
   background: rgb(0,27,102);
-  background: linear-gradient(351deg, rgba(0,27,102,1) 0%, rgba(69,44,221,1) 100%);
+  background: linear-gradient(280deg, rgba(0,27,102,1) 0%, rgba(69,44,221,1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10vh 0;
 }
 
 main{
@@ -88,8 +89,11 @@ main > h1{
 .discussion__container{
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #ccc;
   flex-wrap: wrap;
+}
+.discussion__container:hover{
+  background-color: #eee;
 }
 
 .discussion__container:last-child{
@@ -101,6 +105,7 @@ main > h1{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 5px;
 }
 
 .discussion__avatar--image{
@@ -109,7 +114,7 @@ main > h1{
 }
 
 .discussion__content{
-  width: calc(100% - 48px);
+  width: calc(100% - 53px);
   padding: 10px 15px;
 }
 
@@ -134,7 +139,14 @@ main > h1{
 }
 
 .discussion__answered--reply{
-  font-size: 1.5rem;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__answered--reply > img{
+  width: 20px;
 }
 
 .discussion__answered--content{
@@ -161,6 +173,7 @@ main > h1{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5px;
 }
 
 .discussion__answared--avatar--wrapper > img{

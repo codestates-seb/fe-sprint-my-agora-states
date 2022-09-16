@@ -90,7 +90,10 @@ const convertToDiscussion = (obj) => {
     // * AnsweredReply 생성 및 내용 삽입
     const discussionAnsweredReply = document.createElement('div');
     discussionAnsweredReply.className = 'discussion__answered--reply';
-    discussionAnsweredReply.textContent = '└';
+    const discussionAnsweredReplyImg = document.createElement('img');
+    discussionAnsweredReplyImg.src = './reply-solid.svg'
+    discussionAnsweredReplyImg.alt = 'reply icon'
+    discussionAnsweredReply.append(discussionAnsweredReplyImg);
   
     // * AnsweredContent 생성 및 내부 컨텐츠 생성 후 내용 삽입
     const discussionAnsweredContent = document.createElement('div');
@@ -102,7 +105,7 @@ const convertToDiscussion = (obj) => {
   
     const discussionAnsweredTitleLink = document.createElement('a');
     discussionAnsweredTitleLink.href = obj.answer.url;
-    discussionAnsweredTitleLink.textContent = `${obj.answer.bodyHTML.slice(0,120)}...`;
+    discussionAnsweredTitleLink.textContent = `${obj.answer.bodyHTML.replace(/(<([^>]+)>)/ig,"").slice(0,120)}...`;
     discussionAnsweredTitle.append(discussionAnsweredTitleLink);
   
     const discussionAnsweredInfomation = document.createElement('div');
