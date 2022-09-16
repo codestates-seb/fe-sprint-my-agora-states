@@ -38,7 +38,11 @@ const convertDiscussionToDom = (obj) => {
         >
       </h5>
       <div class="discussion__information">
-        ${obj.author} / ${new Date(obj.createdAt).toLocaleDateString()}
+        ${obj.author} / ${
+    new Date(obj.createdAt).toLocaleDateString() +
+    " " +
+    new Date(obj.createdAt).toLocaleTimeString()
+  }
       </div>
       <div class="discussion__detail">질문 펼치기</div>
   </div>
@@ -59,6 +63,7 @@ const countPage = () => {
 };
 countPage();
 const displayOnScreen = (e, page = 0, array) => {
+  discussionsContainer.innerHTML = "";
   let loopCondition =
     page * 10 + 10 > array.length ? array.length : page * 10 + 10;
   for (let i = page * 10; i < loopCondition; i++) {
@@ -76,7 +81,6 @@ const handleClickPageNum = (e) => {
   e.target.style.color = "red";
   let page = e.target.textContent - 1;
   if (e.target.tagName === "LI") {
-    discussionsContainer.innerHTML = "";
     displayOnScreen("", page, getStorage);
   }
 };
@@ -131,10 +135,22 @@ const submitQuestion = (e) => {
   };
   const newagoraStatesData = [newObj, ...getStorage];
   localStorage.setItem("data", JSON.stringify(newagoraStatesData));
-  discussionsContainer.innerHTML = "";
   displayOnScreen("", 0, newagoraStatesData);
   formInput[0].value = "";
   formInput[1].value = "";
   document.querySelector(".textarea__question").value = "";
 };
 submitForm.addEventListener("submit", submitQuestion);
+
+/* search */
+const searchInput = document.querySelector(".search");
+const filterQuestion = (e) => {
+  let searchTarget = e.target.value;
+  let regExp = new RegExp(searchTarget, "i");
+  let filteredList = JSON.parse(localStorage.getItem("data")).filter((item) => {
+    console.log(regExp);
+    return regExp.test(item.title);
+  });
+  displayOnScreen("", "", filteredList);
+};
+searchInput.addEventListener("keyup", filterQuestion);
