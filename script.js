@@ -64,11 +64,16 @@ render(ul);
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault(); // submit 이벤트 필수
-  // addEventListener 안으로 선언 위치 이동
+  // submit 이벤트 필수, 새로고침 안되게
+  event.preventDefault();
+  // 제출된 내용(Value) 변수화
   const author = form.querySelector("div.form__input--name > input").value;
   const title = form.querySelector("div.form__input--title > input").value;
   const textbox = form.querySelector("div.form__textbox > textarea").value;
+  // 들어갈 임시 객체 그릇 만들기
+  // 입력되면 객체 그릇에 내용 담기
+  // data.js에 옮기고 convertToDiscussion로 DOM 변환
+  // render에 넣어서 렌더링 되게 하기
 
   const newObj = {
     id: "new id",
@@ -77,9 +82,9 @@ form.addEventListener("submit", (event) => {
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: author,
     bodyHTML: textbox,
-    avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+    avatarUrl: "./img/Rhino.jpeg",
   };
-  // addEventListener 안으로 선언 위치 이동
+
   agoraStatesDiscussions.unshift(newObj);
 
   ul.prepend(convertToDiscussion(newObj));
