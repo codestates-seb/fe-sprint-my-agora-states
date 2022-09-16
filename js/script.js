@@ -74,7 +74,7 @@ form.addEventListener("submit", (event) => {
   // 객체 생성
   const obj = {
     id: "D_kwDOHOApLM4APjJi",
-    createdAt: "2022-05-16T01:02:17Z",
+    createdAt: new Date(),
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: author.value,
