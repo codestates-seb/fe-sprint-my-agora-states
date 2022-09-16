@@ -19,10 +19,12 @@
     font-weight: normal;
     font-style: normal;
 }
+a {
+    text-decoration-line: none;
+}
 
 * {
     /*border: 0.4px dotted mediumpurple;*/
-    border-radius: 5px;
     box-sizing: border-box;
 }
 
@@ -63,7 +65,33 @@ h1 {
 
 h2 {
     margin: 0px;
+    text-decoration-line: none;
+}
 
+.form__input--wrapper input {
+    background-color: #d4c5ff;
+    color: white;
+    border: none;
+    height: 30px;
+    font-family: 'Minhye';
+    font-size: 15pt;
+    padding-left: 2px;
+    text-indent: 1em;
+    width: 204px;
+}
+
+
+textarea {
+    background-color: #d4c5ff;
+    color: white;
+    border: none;
+    height: 75px;
+    font-family: 'Minhye';
+    font-size: 15pt;
+    padding-left: 2px;
+    text-indent: 1em;
+
+    width: 204px;
 }
 
 ul{
@@ -102,11 +130,11 @@ main {
 
 .form__input--wrapper {
     font-family: 'Minhye';
-    padding: 20px 100px 20px 100px;
+    padding: 20px 60px 20px 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 10px;
+    margin: -18px;
 }
 
 .form__input--name, .form__input--title {
@@ -132,11 +160,14 @@ body {
     width: 48px;
 }
 
-
-img {
-    width: 48px;
-    border-radius: 100%;
+.hearts {
+    width: 13px;
 }
+
+/*img {*/
+/*    width: 48px;*/
+/*    border-radius: 100%;*/
+/*}*/
 
 .discussion__wrapper {
     display: flex;
@@ -208,17 +239,13 @@ img {
     justify-content: center;
 }
 
+
 .form__submit input {
-    width: 40px;
-    height: 150px;
+    width: 130px;
+    height: 100px;
 	cursor: pointer;
-	background-color: #a60bff;
-	background-image: linear-gradient(315deg, #b793ff 0%, #d8c1ff 74%);
-	border: none;
-	border-radius: 10px;
-	transition: 1s;
-	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     color: white;
     font-family: 'Minhye';
+    filter: brightness(105%);
 }
 
