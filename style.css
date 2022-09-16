@@ -1,1 +1,121 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+} 
+
+
+body{
+
+    margin: 0;
+  padding: 0;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    
+}
+
+.form {
+
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+    
+}
+.form__input--name{
+   margin: 20px;
+}
+.form__input--title{
+    margin: 20px;
+}
+.form__textbox {
+    margin: 20px;
+}
+
+label{
+    width: 132px;
+
+}
+
+input#name{
+
+}
+
+.form__input--title, .form__textbox, .form__input--name {
+    
+    padding-left: 50px;
+    display: flex;
+
+}
+
+
+main {
+    background-color: aquamarine;
+    
+    
+ 
+  
+}
+
+.input_text{
+    flex: 1;
+} 
+
+h1{
+    text-align: center;
+}
+
+
+
+main > section {
+
+}
+
+
+li{
+    display: flex;
+    width: 500px;
+    padding: 20px;
+
+}
+
+.discussions__container{
+    background-color: brown;
+    padding: 0;
+ 
+}
+
+img{
+  width: 80px;
+  height: 80px;
+    border-radius: 50%;
+
+}
+
+P{
+
+}
+
+
+
+.discussion__avatar--wrapper{
+    width: 90px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.discussion__content{
+    flex: 1;
+   
+}
+
+.discussion__answered{
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+   
+}
