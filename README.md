@@ -14,7 +14,8 @@ git clone을 통해 pull해왔기 때문에 자동적으로 local repo에서  re
 
 local branch variants를 생성하여 해당 브렌치에서 작성하였다
 
-
+https://github.com/bakjonghyo52/fe-sprint-my-agora-states/blob/variants/demo/demo2.gif
+  
 fe-sprint-my-agora-states git:(variants) git remote show origin
 * remote origin
   Fetch URL: git@github.com:bakjonghyo52/fe-sprint-my-agora-states.git
