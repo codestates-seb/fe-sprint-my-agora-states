@@ -61,12 +61,12 @@ h1 {
 
 .form__input--wrapper {
   height: 50vh;
-  flex-grow: 2;
+  /* flex-grow: 2; */
 }
 
 .form__submit {
   text-align: center;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .form__input--name {
@@ -83,7 +83,7 @@ h1 {
 .form__textbox {
   display: flex;
   flex-direction: column;
-  flex-grow: 5;
+  flex-grow: 3;
 }
 
 label {
@@ -127,7 +127,7 @@ label {
 }
 
 #story {
-  height: 17rem;
+  height: 10rem;
 }
 
 #story::placeholder {
@@ -281,3 +281,44 @@ li {
 /* p {
   font-size: 1.5rem;
 } */
+
+/* media query */
+@media screen and (max-height: 1100px) {
+  /*1100보다 작아질 때*/
+  #username,
+  #title {
+    height: 1rem;
+  }
+  #story {
+    height: 7rem;
+  }
+}
+@media screen and (max-height: 960px) {
+  .container {
+    flex-direction: column;
+  }
+  .form__submit {
+    padding: 5rem;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .form__submit {
+    padding: 7rem 0;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
