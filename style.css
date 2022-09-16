@@ -1,1 +1,150 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discussion__container {
+  display: flex;
+  width: 540px;
+  justify-content: space-between;
+}
+
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  font-family: "Permanent Marker", cursive;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  background-color: yellow;
+}
+
+label {
+  font-family: "Klee One", cursive;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.form__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 400px;
+  margin: 50px;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 10em;
+}
+
+.form__textbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: right;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 95px;
+  font-family: "Klee One", cursive;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+  background-color: gray;
+  color: yellow;
+  font-weight: bold;
+}
+
+body {
+  background-color: rgba(128, 128, 128, 0.233);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  margin-top: 15px;
+  height: 135px;
+  background-color: white;
+  opacity: 0.8;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.discussion__avatar--wrapper {
+  flex-grow: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.discussion__avatar--image {
+  border-radius: 70%;
+  width: 48px;
+}
+
+.discussion__answered {
+  display: flex;
+  font-size: xx-large;
+  align-self: center;
+  justify-content: center;
+}
+
+a {
+  font-size: 20px;
+}
+
+input[type="text"] {
+  width: 200px;
+  height: 20px;
+}
+
+textarea {
+  width: 200px;
+}
