@@ -190,7 +190,9 @@ input[type=submit]:hover {
 }
 
 .discussion__avatar--wrapper {
-    flex: 3 0 0;
+    flex: 2 0 0;
+    display: flex;
+    justify-content: center;
 }
 
 .discussion__avatar--wrapper > img {
@@ -199,6 +201,9 @@ input[type=submit]:hover {
 }
 
 .discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex: 15 0 0;
 }
 
@@ -206,10 +211,12 @@ input[type=submit]:hover {
     color: #1D1D2B;
     font-size: 0.9rem;
     text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .discussion__information {
-    text-align: right;
+`
 }
 
 .discussion__answered {
@@ -217,4 +224,5 @@ input[type=submit]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
 }
