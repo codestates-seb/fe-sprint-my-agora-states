@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/yeonhwan/fe-sprint-my-agora-states/issues"
   },
-  "homepage": "https://github.com/yeonhwan/fe-sprint-my-agora-states#readme",
+  "homepage": "https://github.com/yeonhwan/fe-sprint-my-agora-states/index.html",
   "devDependencies": {
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
