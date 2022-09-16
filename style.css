@@ -38,8 +38,6 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    max-width: 90%;
-    max-height: 90%;
 }
 
 .form__input--wrapper {
@@ -84,7 +82,7 @@ textarea {
 
 .form__input--wrapper #story::placeholder {
     font-size: 20px;
-    color: rgb(6, 68, 32);
+    color: rgba(6, 68, 32, 0.5);
     padding: 8px;
 }
 
