@@ -67,7 +67,7 @@ function discussionPlus(event) {
           id: "Spacial Number",
           createdAt: new Date(),
           title: addTitle.value,
-          url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+          url: "https://www.youtube.com/watch?v=Qpf26PtBXgo",
           author: addName.value,
           answer: {
             id: "DC_kwDOHOApLM4AKg6M",
