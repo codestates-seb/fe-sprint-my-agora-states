@@ -1,1 +1,161 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poor Story", cursive;
+  color: #f2789f;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("dylan-sauerwein-ixJ6KX8P2Yk-unsplash.jpg");
+  background-size: 100%;
+}
+
+section {
+  margin: 15px;
+}
+
+h1 {
+  margin: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #f2789f;
+}
+
+a:visited {
+  color: #3f0071;
+}
+
+a:hover {
+  color: #3f0071;
+}
+
+label {
+  font-size: 20px;
+}
+
+.form {
+  display: flex;
+  width: 540px;
+  flex-direction: row;
+}
+
+.form__input--wrapper {
+  flex-grow: 1;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1%;
+}
+
+.form__input--wrapper > div:not(:last-of-type) {
+  padding-bottom: 1%;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form__textbox > label {
+  padding-bottom: 1%;
+}
+
+#name {
+  width: 250px;
+  border: transparent;
+  border-radius: 5px;
+  outline: none;
+  color: #3f0071;
+  font-size: 14.5px;
+  box-shadow: 1px 1px 10px #f2789f;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 3px;
+}
+
+#story {
+  height: 70px;
+  border: transparent;
+  border-radius: 10px;
+  outline: none;
+  color: #3f0071;
+  font-size: 14.5px;
+  box-shadow: 1px 1px 10px #f2789f;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+}
+
+.form__submit > input {
+  width: 100px;
+  height: 100%;
+  border: transparent;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #f2789f;
+  background-color: rgb(242, 120, 159, 0.8);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.form__submit > input:hover {
+  background-color: rgb(249, 197, 213, 0.8);
+  color: #3f0071;
+}
+
+.discussions__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  width: 540px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 1px 1px 10px #f2789f;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.discussion__information {
+  text-align: right;
+  font-size: 13px;
+}
+
+.discussion__answered {
+  text-align: center;
+  font-size: 25px;
+  margin: 15px;
+  line-height: 48px;
+}
