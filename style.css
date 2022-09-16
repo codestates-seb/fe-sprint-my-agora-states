@@ -1,1 +1,308 @@
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+body{
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    color: black;
+    background-image: url("background.png");
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 33px;
+}
+
+.form__input--wrapper {
+    background-color: rgba(255, 255, 255, 0.485);
+    border-radius: 10px;
+    padding: 10px
+}
+
+
+.discussion__wrapper {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.discussions__container {
+    /* border: 1px solid black; */
+    background-color: rgba(85, 111, 100, 0.343);
+    border-radius: 10px;
+    display: center;
+    padding: 10px;
+}
+
+.discussion__container {
+    /* border: 1px solid black; */
+    
+    background-color: rgba(68, 81, 74, 0.264);
+
+    border-radius: 7px;;
+    list-style:none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+
+    /* border-collapse: collapse; */
+
+}
+
+.discussion__container:nth-of-type(even) {
+    background-color: rgba(184, 199, 183, 0);
+
+    border-radius: 7px;;
+}
+
+.discussion__content {
+    flex-grow: 2;
+    margin: 0 0 0 15px;
+    font-size: 10px;
+
+}
+
+.discussion__title {
+    width: 350px;
+    margin: 10px;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    text-decoration: none;
+    color: inherit;
+}
+
+.discussionTitle:link {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    color: rgb(31, 31, 31);
+    text-decoration: none; 
+}
+
+
+
+.discussionTitle:visited {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    color: rgb(31, 31, 31);
+    text-decoration: none; 
+}
+
+
+.discussion__information {
+    color:white;
+    font-size: 8px;
+    padding: 0 0 5px 0;
+    margin: 0 0 0 15px;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    border-radius : 70%;
+}
+
+.discussion__avatar--image { 
+    width: 48px;
+    height: 48px;
+    border-radius : 70%;
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
+}
+
+/* .discussion__answered {
+    margin: 0 15px 0 0;
+} */
+
+.hide {
+    display: none;
+}
+
+
+
+.form__container {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    border: 1px solid gray;
+    width: 200px;
+    border-radius: 2px;
+}
+
+
+
+.form__textbox {
+    display:flex;
+    flex-direction: column;
+}
+
+textarea {
+
+    border-radius: 2px;
+    font-size: 10px;
+    
+}
+
+
+
+
+.toType {
+    font-size: 15px;
+    color: gray;
+    font-weight: bold;
+    margin: 0 0 3px 0;
+    /* flex-grow: 1; */
+    
+}
+
+.typeBox {
+    margin: 0 0 10px 0;
+    /* width: 300px; */
+    
+    
+    
+}
+
+.questionBox {
+    width: 200px;
+    height: 100px;
+    border: 1px solid gray;
+}
+
+input:focus {
+    outline: none;
+    /* border: 1px solid blue; */
+    border-radius: 2px;
+}
+
+textarea:focus {
+    outline: none;
+    /* border: 1px solid blue; */
+    border-radius: 2px;
+}
+
+.submit__button {
+    width: 202px;
+    margin: 15px 0 40px 10px;
+    border: none;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    background-color: rgb(144, 161, 153);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+    0 2px 2px rgba(0,0,0,0.15), 
+    0 4px 4px rgba(0,0,0,0.15), 
+    0 8px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+.submit__button:active {
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.15), 
+    0 4px 2px rgba(0,0,0,0.15), 
+    0 0px 0px rgba(0,0,0,0.15), 
+    0 10px 8px rgba(0,0,0,0.15);
+}
+
+.title {
+    color: rgb(55, 55, 55);
+    background-color: rgba(255, 255, 255, 0.095);
+    width: 150px;
+    height: 130px;
+    padding: 10px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    margin: 30px 10px 50px 10px;
+}
+
+.answerButton{
+    overflow: hidden;
+    background-color: rgba(103, 109, 109, 0.475);
+    padding: 0;
+    margin: 0 0 0 10px;
+    width: 50px;
+    color: white;
+    font-size: 10px;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.answerButtonDisabled{
+    padding: 0;
+    margin: 0;
+    width: 50px;
+    color: gray;
+    font-size: 10px;
+}
+
+
+.answerContainer {
+    background-color: rgba(68, 68, 68, 0.227);
+    /* border: 1px solid black; */
+    width: 370px;
+    display: flex;
+    overflow: hidden;
+    /* padding: 10px; */
+    justify-content: center;
+    border-radius: 5px;
+
+}
+
+.answer__content{
+    width: 280px;
+    color: rgb(46, 46, 46);
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    padding: 5px 0 5px 0;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+}
+
+.newDiscussion {
+    border: 1px solid black;
+    font-size: 200px;
+}
+
+/* pagination */
+
+.pagination__wrapper {
+    width: 220px;
+    margin: 20px 0 30px 0;
+    display:flex;
+    justify-content: space-between;
+}
+
+.pagination__list {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(120, 144, 136);
+    width :20px;
+    height: 20px;
+    text-align: center;
+}
+
+.pagination__list:active {
+    background-color: rgb(154, 179, 171);
+    width :20px;
+    height: 20px;
+    text-align: center;
+}
+
+.pageNext, .pagePrev {
+    background-color: rgb(166, 181, 176);
+}
