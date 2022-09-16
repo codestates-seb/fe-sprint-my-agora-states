@@ -1,1 +1,176 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+box-sizing: border-box;
+padding: 0px;
+margin: 0px;
+}
+main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+h1{
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
+    color:rgb(42, 42, 42);
+    word-spacing: 5px;
+    font-size:2.5rem;
+    margin-bottom: 15px;
+}
+
+li{
+list-style: none;
+margin:25px 10px;
+border-radius: 10px;
+padding:20px;
+box-shadow: 1px 4px 41px -1px rgba(194,191,191,0.41);
+-webkit-box-shadow: 1px 4px 41px -1px rgba(194,191,191,0.41);
+-moz-box-shadow: 1px 4px 41px -1px rgba(194,191,191,0.41);
+}
+a{
+    font-weight: 200;
+    display:block;
+    text-decoration: none;
+    color:rgb(14, 14, 14);
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+button{
+    background-color: transparent;
+    border-color: transparent;
+    margin: 0px 10px 30px 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.form__input--wrapper{
+    width:540px;
+    display: flex;
+    flex-direction: column;
+}
+div.form__input--wrapper div{
+    font-size: 0.9rem;
+    flex-grow:1;
+    justify-content: center;
+}
+
+div.form__input--name{
+    display:flex;
+    padding: 5px;
+    
+}
+div.form__input--title{
+    display:flex;
+    padding: 5px;
+}
+div.form__textbox{
+    display:flex;
+    padding: 5px;
+}
+
+label{
+    padding: 10px;
+}
+
+input{
+    flex-grow:1;
+    margin-right:30px;
+    border-style: none;
+    background-color: rgb(229, 229, 229);
+    border-radius: 5px;
+}
+textarea{
+    flex-grow:1;
+    margin-right:30px;
+    border-style: none;
+    background-color: rgb(229, 229, 229);
+    border-radius: 5px;
+}
+
+.discussion__container{
+    display: flex;
+    width: 540px;
+    justify-content: space-between;
+}
+
+.discussion__avatar--wrapper{
+    
+    width: 48px;
+    height:48px;
+    margin:10px;
+    
+}
+
+.discussion__avatar--image{
+    border-radius: 100%;
+    width: 48px;
+    height:48px;
+   
+}
+
+.discussion__content{
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 10px;
+    margin-left:20px;
+}
+div.form__submit{
+    text-align: right;
+
+}
+input[type='submit']{
+   background-color: rgb(255, 255, 255);
+    padding:5px 20px;
+    
+}
+h2{
+    padding: top 50%;;
+    font-size: 0.8rem;
+}
+.discussion__information{
+    font-size:0.7rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: right;  
+    color:rgb(165, 165, 165);
+}
+
+.discussion__answered{
+    padding:12px;
+    margin:auto;
+    font-size:1.5rem;
+    
+}
+i{
+    margin:0%;
+    padding:50%;
+    font-size: 1.2rem;
+    color:rgba(69, 44, 221, 1);
+}
+i:before{
+
+    font-family:'Font Awesome 5 Free','Font Awesome 5 Brands'!important;
+}
+li#notice{
+    background-color: rgb(0, 0, 0);
+}
+i#notice{
+    color:rgb(227,219,227);
+}
+a#notice{
+    color:rgb(255, 255, 255);
+}
+
+a:hover{
+    color:rgba(69, 44, 221, 1);
+    transition:all 0.3s;
+}
+
+input[type='submit']:hover{
+    color:rgba(69, 44, 221, 1);
+    transition:all 0.3s;
+}
