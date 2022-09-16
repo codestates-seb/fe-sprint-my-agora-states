@@ -19,7 +19,7 @@ main {
 }
 
 body {
-  background: url('./public/background.jpg');
+  background: url('../public/background.jpg');
   background-size: contain;
 }
 
