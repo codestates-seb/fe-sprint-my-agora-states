@@ -18,6 +18,7 @@ main {
     height: 750px;
     width: 540px;
     border: solid 3px#32267B;
+    box-shadow: 20px 20px #32267B;
     background-color: #fcfffd;
     overflow: auto;
     display: flex;
@@ -127,13 +128,17 @@ textarea {
     font-family: 'Poor Story', cursive;
 }
 
-a {
-    text-decoration: none;
-    color: #ffff;
-}
-
 .discussion__title {
     font-size: 18px;
+    color: #ffff;
+    text-align: left;
+    font-family: 'Poor Story', cursive;
+    background-color: #d59c60;
+    border: none;
+}
+
+.discussion__title:hover {
+    color: #bfd5c5;
 }
 
 .discussion__information {
@@ -150,4 +155,10 @@ a {
 
 .discussion__answered--checked {
     font-size: 30px;
+    background-color: #d59c60;
+    border: none;
+}
+
+.hide {
+    display: none;
 }
