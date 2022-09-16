@@ -1,1 +1,132 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("1.gif");
+    background-size: 100% 100%;
+    margin: 0px;
+
+}
+
+/* div {
+    border: 1px solid black
+} */
+
+li {
+    list-style: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.discussion__wrapper {
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+
+}
+
+h1 {
+    font-family: 'Nabla', cursive;
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+}
+
+.form__container {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Noto Serif KR', serif;
+    width: 540px;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+}
+
+.discussion__avatar--wrapper img {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    justify-content: space-evenly;
+    text-align: right;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+textarea {
+    width: 540px;
+    height: 6.25em;
+    border: none;
+    resize: none;
+}
+
+.form__submit {
+    text-align: center;
+    width: 100%;
+}
+
+#submitBtn {
+    width: 100%;
+    background: transparent;
+    font-family: 'Noto Serif KR', serif;
+    font-size: x-large;
+    color: white;
+    font-weight: 600;
+
+}
+
+#submitBtn:hover {
+    background: red;
+    transition-duration: 0.7s;
+}
+
+label,
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+
+}
+
+.discussion__content div {
+    color: white;
+    font-weight: 600;
+}
