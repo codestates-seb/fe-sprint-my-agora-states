@@ -4,11 +4,57 @@
   box-sizing: border-box;
 }
 
+/* 기본 배경 색상 */
+html {
+  background-color: #fff5e4;
+}
+
 /* 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다. */
 h1,
 section {
   display: flex;
   justify-content: center;
+  color: #850e35;
+}
+
+form {
+  background-color: #ffc4c4;
+  width: 540px;
+  border: 1px solid #ffc4c4;
+  border-radius: 20px;
+  display: flex;
+}
+
+/* 디스커션 추가 박스 스타일 구현 */
+.form__input--wrapper {
+  margin: 10px;
+  flex-grow: 1;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__submit {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="submit"] {
+  width: 103px;
+  height: 103px;
+  border-radius: 20px;
+  background-color: #fff5e4;
+  border: none;
+  color: #850e35;
+  font-size: medium;
+}
+
+input[type="submit"]:hover {
+  background-color: #ee6983;
+  color: white;
 }
 
 ul {
@@ -21,6 +67,12 @@ li {
   /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
   list-style: none;
   display: flex;
+}
+
+/* 디스커션 컴포넌트 스타일 적용 */
+.discussion__container {
+  background-color: white;
+  margin: 5px;
 }
 
 /* 아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
@@ -37,8 +89,18 @@ li {
   width: 48px;
 }
 
+/* 디스커션 컴포넌트 스타일 적용 */
 .discussion__content {
   flex-grow: 1;
+}
+
+.discussion__title > a:link {
+  font-size: medium;
+  color: inherit;
+}
+
+.discussion__title > a:visited {
+  color: lightgray;
 }
 
 /* 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다. */
@@ -47,14 +109,15 @@ li {
   justify-content: flex-end;
 }
 
+/* Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
+li > div {
+  margin: 10px;
+}
+
 /* 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
 .discussion__answered {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
-li > div {
-  margin: 10px;
+  font-size: large;
 }
