@@ -18,24 +18,6 @@
   --color-black: #000000;
   --color-green: #00ff40;
   --color-red: #ff4000;
-
-  /* Font size */
-  --font-large: 48px;
-  --font-medium: 28px;
-  --font-regular: 18px;
-  --font-small: 16px;
-  --font-micro: 14px;
-
-  /* Font weight */
-  --weight-bold: 700;
-  --weight-semi-bold: 600;
-  --weight-regular: 400;
-
-  /* Size */
-  --size-border-radius: 4px;
-
-  /* Animation-duration */
-  --animation-duration: 300ms;
 }
 
 * {
@@ -48,15 +30,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
   min-height: 100vh;
   background-color: var(--color-dark-grey);
 }
 
 .form__container {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -64,6 +45,22 @@ body {
   background-color: var(--color-light-grey);
   color: var(--color-light-white);
 }
+
+.form {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
 ul {
   margin-bottom: 10px;
 
@@ -97,9 +94,8 @@ h1 {
   text-align: center;
 }
 .discussion__content {
-  margin: 10px 20px;
   font-size: 12px;
-  width: 100%;
+  flex-grow: 1;
   text-align: center;
 }
 
@@ -113,22 +109,6 @@ h1 {
   height: 20px;
 }
 
-.form {
-  width: 540px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form__input--wrapper {
-  text-align: center;
-  width: 100%;
-  margin: 20px;
-}
-.form__submit {
-  margin: 10px;
-}
-
 section.discussion__wrapper {
   border-radius: 25px;
   color: var(--color-light-white);
@@ -137,10 +117,9 @@ section.discussion__wrapper {
 img {
   display: flex;
   align-items: center;
-  border-radius: 25%;
+  border-radius: 50%;
   margin: 10px;
   width: 48px;
-  height: 48px;
 }
 /* input {
   display: flex;
