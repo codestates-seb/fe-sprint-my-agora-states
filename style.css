@@ -56,3 +56,7 @@ main {
   display: flex;
   align-items: center;
 }
+
+.discussion__answered > p {
+  font-size: 30px;
+}
