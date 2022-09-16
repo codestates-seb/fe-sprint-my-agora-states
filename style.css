@@ -233,3 +233,25 @@ h2>a {
   color: orange;
 }
 
+
+@media screen and (max-width: 800px) {
+  main {
+    flex-direction: column;
+  }
+  
+  .discussion__wrapper {
+    width: auto;
+    height: auto;
+    justify-content: center;
+  }
+
+  .discussion__container {
+    width: 470px
+  }
+
+  .discussions__container {
+    align-items: center;
+    width: auto;
+    height: auto;
+  }
+}
