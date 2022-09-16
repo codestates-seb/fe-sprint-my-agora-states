@@ -8,7 +8,6 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 ## 배포 링크
 
-Github Page 배포 링크를 아래 작성합니다.
 https://rhino-ty.github.io/fe-sprint-my-agora-states/
 
 ## Bare Minimum Requirement Self Checklist
@@ -34,8 +33,6 @@ https://rhino-ty.github.io/fe-sprint-my-agora-states/
 
 ## Advanced Challenge Self Checklist
 
-스스로 구현 완료한 부분까지 체크하여 제출합니다.
-
 - [x] 현지 시간 적용
   - [x] 샘플 시간을 잘 변형하여, 현지 시간에 맞게 표현합니다. (ex. 오전 10:02:17)
 - [ ] 페이지네이션 기능
@@ -49,12 +46,17 @@ https://rhino-ty.github.io/fe-sprint-my-agora-states/
 
 ### My Own Self Checklist
 
-자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
-
 - [x] 지금 시간을 제목 아래에 배치에 시계 기능도 구현 ㅋㅋ
-- []
-- []
+- [x] 스크롤 맨위로 가는 버튼 구현
 
 ### 배포 시연 화면
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/94962427/190580139-cca6b943-9a7f-4a73-b1c5-b38397d76a9f.gif)
+
+### 가장 자랑하고 싶은 기능
+
+> 시계 ㅋㅋㅋ
+
+### 구현하고 싶었는데 하지 못한 아쉬운 기능
+
+> 페이지네이션, SPA같이 타이틀을 눌렀을때 디스커션이 확장되며 안에 있는 내용이 보이게 하고싶음,,
