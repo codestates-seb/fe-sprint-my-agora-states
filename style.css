@@ -1,1 +1,212 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "elandchoice";
+  src: url("./src/ELAND 초이스 B.ttf");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fabbb9;
+  width: 600px;
+  margin: 50px;
+  border-radius: 50px;
+  box-shadow: inset 1.5px 1.5px 2px rgb(193, 174, 174);
+}
+
+h1 {
+  margin: 20px;
+  color: #070707;
+  font-weight: 400;
+  font-size: 50px;
+  font-family: "elandchoice";
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+form {
+  border-radius: 30px;
+  background-color: #f9f9f9;
+  font-weight: lighter;
+  color: black;
+  margin-bottom: 50px;
+  width: 500px;
+  font-family: "elandchoice";
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
+}
+
+li {
+  list-style-type: none;
+}
+
+div {
+  margin: 5px;
+  padding: 5px;
+}
+
+.discussion__wrapper {
+  margin-bottom: 50px;
+}
+
+.discussion__container {
+  width: 540px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 234, 180);
+  border-radius: 30px;
+  margin: 10px;
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
+}
+
+.discussion__container:hover {
+  background-color: #fe9e8a;
+}
+
+.discussion__content {
+  font-size: 10px;
+  font-weight: lighter;
+  margin: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  font-family: "elandchoice";
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-img {
+  border-radius: 100%;
+  width: 48px;
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+}
+
+.discussion__title {
+  font-size: 13px;
+}
+
+#send {
+  border: none;
+  background-color: rgb(255, 234, 180);
+  width: 100px;
+  height: 30px;
+}
+
+#send:hover {
+  background-color: #fe9e8a;
+}
+
+#name {
+  width: 200px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+#title {
+  width: 250px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+#story {
+  width: 300px;
+  height: 59px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+label {
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.form__textbox,
+.form__input--title,
+.form__input--name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#name,
+#title,
+#story {
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.buttons {
+  border: none;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
