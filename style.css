@@ -159,3 +159,20 @@ h2 {
     padding-right : 5px;
 }
 
+a {
+    text-decoration: none;
+    font-size : 1.1rem;
+}
+
+a:link {
+    color : black;
+}
+
+a:visited {
+    color : blue;
+}
+
+
+a:hover {
+    text-shadow: 1px 1px 1px rgb(195, 194, 194);
+}
