@@ -6,22 +6,25 @@
 }
 /* tag */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 body {
     text-decoration: none;
-    font-family: 'Gowun Dodum', sans-serif;
-    font-family: 'IBM Plex Sans KR', sans-serif;
     display: inline;
-    background-color: lavender;
 }
 
-h1 {
+h1 {    
     display: block;
     text-align: center;
-    margin: 20;
+    font-size: 60px;
+    background: linear-gradient(45deg, rgba(34,32,32,1) 0%, rgba(29,29,99,1) 26%, rgba(122,151,158,1) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    font-size: 45px;
+    text-decoration: dashed;
+    word-spacing: 5px;
+    letter-spacing: -2px;
+    
 }
 
 main {
@@ -46,6 +49,8 @@ ul, li {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgb(34,32,32);
+    background: linear-gradient(45deg, rgba(34,32,32,1) 0%, rgba(29,29,99,1) 26%, rgba(122,151,158,1) 100%);
 }
 
 /* class */
@@ -55,18 +60,18 @@ ul, li {
     padding: 20px;
     margin-bottom: 20px;
 }
-.form__input--wrapper {
+form {
     width: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    box-shadow: 5px 5px 2px 1px rgba(2, 2, 14, 0.2);
+    box-shadow: 7px 10px 2px 1px rgba(2, 2, 14, 0.541);
     background-color: white;
     border-radius: 10px;
 }
 
 .form__header {
-    font-size: large;
+    font-size: 24px;
     font-weight: 400;
     padding-bottom: 10px;
 }
@@ -74,22 +79,22 @@ ul, li {
 .form__input--wrapper > div {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: flex-start;
     padding-bottom: 10px;
 }
 .form__input--wrapper > div > label{
-    flex: 1 0 auto;
+    flex: 2 0 auto;
     font-size: medium;
 }
 
 .form__input--wrapper > div > input{
-    flex: 3 0 auto;
+    flex: 2 0 auto;
     font-size: medium;
 }
 
 .form__input--wrapper > div > textarea{
-    flex: 3 0 auto;
+    flex: 2 0 auto;
     font-size: medium;
 }
 
@@ -100,7 +105,7 @@ ul, li {
     width: 60vw;
     padding: calc(var(--base-size)*3);
     margin: calc(var(--base-size)*3);
-    box-shadow: 5px 5px 2px 1px rgba(2, 2, 14, 0.2);
+    box-shadow: 5px 5px 2px 1px rgba(2, 2, 14, 0.541);
     background-color: white;
     border-radius: 10px;
 }
