@@ -1,1 +1,87 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: auto;
+    padding: auto;
+    box-sizing : border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./paw.jpg);
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width : 100%;
+}
+
+h1 {
+    font-size: 3em;
+    padding: 10px;
+}
+
+.form__container {
+    padding: 10px 30px;
+    font-size: 2em;
+    width : 540px;
+    background-color: rgb(253, 225, 173);
+}
+
+.form__container input{
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 10px;
+    border: 2px solid rgb(248, 182, 82);
+  }
+
+#story {
+    width : 100%;
+    height: 4rem;
+    border: 2px solid rgb(248, 182, 82);
+  }
+
+.form__submit {
+    width: 20%;
+    text-align: center;
+}
+
+.form__input--wrapper > div{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.discussion__wrapper{
+    width : 540px;
+    border: 4px solid rgb(248, 182, 82);
+    padding: 10px;
+    background-color: rgb(253, 249, 234);
+}
+
+.discussions__container{
+    list-style : none;
+}
+
+.discussion__avatar--image{
+    border-radius : 70%;
+    width : 48px;
+}
+
+.discussion__content{
+    flex-grow: 1;
+}
+
+.discussion__title{
+    font-size: 15px;
+}
+
+.discussion__information{
+    float : right;
+    font-size: 10px;
+}
+
+.discussion__answered{
+    align-items: center;
+}
