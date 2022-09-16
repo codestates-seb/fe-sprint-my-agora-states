@@ -63,16 +63,22 @@ const images = [
   "9.jpeg",
   "10.jpeg",
 ];
-const chosenImage = images[Math.floor(Math.random() * images.length)];
-console.log(chosenImage);
 
 function onHandleSubmit(event) {
   event.preventDefault();
+  const chosenImage = images[Math.floor(Math.random() * images.length)];
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth()).padStart(2, "0");
+  const day = String(date.getDay()).padStart(2, "0");
+  const hour = String(date.getHours()).padStart(2, "0");
+  const minute = String(date.getMinutes()).padStart(2, "0");
+  const second = String(date.getSeconds()).padStart(2, "0");
   const newObj = {
     author: nameInput.value,
     id: Date.now(),
     title: titleInput.value,
-    createdAt: Date(),
+    createdAt: `${year}-${month}-${day}T${hour}:${minute}:${second}Z`,
     avatarUrl: `img/${chosenImage}`,
   };
   users.push(newObj);
