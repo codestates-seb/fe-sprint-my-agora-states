@@ -94,3 +94,21 @@ form.addEventListener("submit", (event) => {
   form.querySelector("div.form__input--title > input").value = "";
   form.querySelector("div.form__textbox > textarea").value = "";
 });
+
+// 시계
+const clock = document.getElementById("clock");
+function getClock() {
+  // 현재 시간 가져옴, 시간분초 다 따로 가져와야함
+  const date = new Date();
+  // get~으로 시분초 가져와서 변수 할당
+  // number이기 때문에 String 변환해 textContent로 갖고오기
+  const hours = String(date.getHours());
+  const minutes = String(date.getMinutes());
+  const seconds = String(date.getSeconds());
+  // 10 이상 즉 2자리수 이상일 시 0을 붙이게 삼항연사자 썼음
+  clock.textContent = `${hours < 10 ? `0${hours}` : hours} : 
+    ${minutes < 10 ? `0${minutes}` : minutes} : ${seconds < 10 ? `0${seconds}` : seconds}`;
+}
+getClock();
+// 코드 조각이나 함수를 1000ms로 계속 실행시키게 만드는
+setInterval(getClock, 1000);
