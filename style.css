@@ -14,17 +14,24 @@ li.discussion__container {
   display: flex;
   justify-content: space-between;
   width: 540px;
-  height: 70px;
+  /* height: 70px; */
 }
 div.discussion__avatar--wrapper {
   width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 div.discussion__content {
-  width: 450px;
+  flex-grow: 1;
   
 }
 div.discussion__answered {
   width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
 }
 /* discussion__content 정렬 */
 div.discussion__information {
@@ -38,5 +45,5 @@ h2.discussion__title {
 img.discussion__avatar--image {
   border-radius: 50%;
   width: 48px;
-  margin-top: 11px;
+  
 }
