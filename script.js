@@ -77,7 +77,7 @@ form.addEventListener("submit", (event) => {
 
   const newObj = {
     id: "new id",
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: title,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: author,
