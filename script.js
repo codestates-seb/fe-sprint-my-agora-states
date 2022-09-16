@@ -57,8 +57,6 @@ const render = (element) => {
 };
 
 //디스커션 추가기능
-//제출 버튼 이벤트 객체 등록
-const submitBtn = document.querySelector('#submit');
 //form 등록
 const form = document.querySelector('.form');
 //이름 정보
@@ -67,7 +65,6 @@ const userName = document.querySelector('#name');
 const userTitle = document.querySelector('#title');
 //질문 정보
 const userQuestion = document.querySelector('#story');
-
 
 form.addEventListener('submit', (event) => {
 
@@ -94,9 +91,11 @@ form.addEventListener('submit', (event) => {
         avatarUrl:
             "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
     };
+
     //맨앞에 추가
     agoraStatesDiscussions.unshift(obj);
     ul.prepend(convertToDiscussion(obj));
+
     //초기화
     userTitle.value = '';
     userName.value = '';
