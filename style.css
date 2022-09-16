@@ -104,11 +104,15 @@ input:focus {
   border-top: none;
 }
 .discussion__container {
-  padding-top: 1em;
+  padding: 1em 0;
   display: flex;
-  margin-top: 1em;
+
   padding-left: 1em;
   border-top: 1px solid rgb(130, 124, 124);
+}
+.discussion__container:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.08);
 }
 .discussion__container > div {
   display: flex;
@@ -124,6 +128,19 @@ input:focus {
   font-size: 0.7em;
   color: black;
   opacity: 0.5;
+}
+.hidden {
+  display: none;
+}
+.discussion__detail {
+  font-size: small;
+}
+.discussion__detail:hover {
+  color: red;
+}
+.openQuestion {
+  color: rgb(60, 27, 227);
+  transition: all 1s ease;
 }
 .pageNumber__list {
   display: flex;
