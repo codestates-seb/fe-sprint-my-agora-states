@@ -70,7 +70,7 @@ form.addEventListener("submit", (event) => {
   //그걸 또 reder함수에 넣어 브라우저에 랜더링
   const author = form.querySelector("div.form__input--name > input").value;
   const title = form.querySelector("div.form__input--title > input").value;
-  const textarea = form.querySelector("div.form__textbox > textarea").value;
+  const textbox = form.querySelector("div.form__textbox > textarea").value;
 
   const newObj = {
     id: "new id",
