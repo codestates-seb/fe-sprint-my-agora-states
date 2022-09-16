@@ -1,4 +1,6 @@
-localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions))
+if(!localStorage.getItem("data")){
+    localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions))
+}
 let dataObj = JSON.parse(localStorage.getItem("data"));
 
 //질문 리스트 생성
@@ -111,17 +113,17 @@ page2.onclick = () => {
 };
 page3.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(20,30)
+    newArr = dataObj.slice(30,40)
     render(ul)
 };
 page4.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(20,30)
+    newArr = dataObj.slice(40,50)
     render(ul)
 };
 page5.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(20,30)
+    newArr = dataObj.slice(50,60)
     render(ul)
 };
 newArr = dataObj.slice(0,10)

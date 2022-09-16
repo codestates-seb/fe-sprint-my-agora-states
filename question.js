@@ -69,5 +69,5 @@ submitButton.addEventListener('click', alt);
 
 function alt() {
     alert("성공적으로 등록했습니다");
-    // window.close();
+    window.close();
 }
