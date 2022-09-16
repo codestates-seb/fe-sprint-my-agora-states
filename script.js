@@ -8,14 +8,41 @@ const convertToDiscussion = (obj) => {
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion_title";
+
+  const discussionLink = document.createElement("a");
+  discussionLink.href = obj.url;
+  discussionLink.textContent = obj.title;
+  discussionTitle.append(discussionLink);
+
+  const discussionInformation = document.createElement("div");
+  const date = new Date(obj.createdAt).toLocaleString();
+  discussionInformation.textContent = `${obj.author} / ${date}`;
+  discussionInformation.className = "discussion__information";
+  discussionContent.append(discussionTitle, discussionInformation);
+
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
+  const discussionAnswerCheckbox = document.createElement("p");
+  if (obj.answer !== null) {
+    discussionAnswerCheckbox.textContent = "☑";
+    discussionAnswerCheckbox.style.color = "#3fb950";
+  } else {
+    discussionAnswerCheckbox.textContent = "□";
+  }
+  discussionAnswered.append(discussionAnswerCheckbox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -30,5 +57,5 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
+const ul = document.querySelector("ul.discussions__list");
 render(ul);
