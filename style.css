@@ -1,1 +1,75 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 모든 요소에 border-box 적용, padding 및 margin 초기화 */
+* {
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;;
+}
+
+.discussions__container {
+    list-style: none;
+}
+
+.discussion__container{
+    width: 540px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    border-radius:50%;
+    width:48px
+}
+
+.discussion__content {
+    flex-grow:1;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.discussion__title {
+    padding:0 5px;
+}
+
+.discussion__title > a{
+    text-align: left;
+}
+
+.discussion__information {
+    padding:0 5px;
+    text-align:right;
+}
+
+.discussion__answered {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:xx-large;
+}
+
+.discussions__pagination {
+    display:flex;
+    justify-content: center;
+}
+
+.move__btn {
+    font-size:xx-large;
+    cursor: pointer;
+}
+
+#pages__btn {
+    display: flex;
+    justify-content: space-evenly;
+}
