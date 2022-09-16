@@ -60,11 +60,7 @@ discussionContent.append(discussionInformationContainer)
 
 // 체크 박스
 const discussionAnsweredP =  document.createElement("p")
-if (obj.answer) {
-  discussionAnswered.textContent = `O`;
-} else {
-  discussionAnswered.textContent = `X`;
-}
+discussionAnswered.textContent = obj.answer ? `✅` :`❌`;
 discussionAnswered.append(discussionAnsweredP)
 
 li.append(avatarWrapper, discussionContent, discussionAnswered);
