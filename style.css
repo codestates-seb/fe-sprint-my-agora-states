@@ -112,7 +112,7 @@ main {
 .discussion__container:hover{
 
     width: 560px;
-    height: 55px;
+    
 }
 
 .discussion__avatar--wrapper{
@@ -156,7 +156,6 @@ h2 {
     font-size: 0.9rem;
     white-space: wrap;
     text-decoration: none;
-    
     
     
     
@@ -363,7 +362,7 @@ justify-content: left;
 }
 
 .hide {
-    background-color: rgb(184, 164, 196);
+    background-color: rgb(196, 181, 204);
 
 
 }
