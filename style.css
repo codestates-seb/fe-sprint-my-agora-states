@@ -1,33 +1,111 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 main {
-    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: justify;
+    justify-content: center;
+    width: 540px;
+    padding: 30px 20px;
+    border: solid 2px silver;
+    border-radius: 20px;
 }
 
+ h1 {
+    font-size: 40px;
+}
+
+.form__container {
+    width: 400px;
+    margin: 20px 0;
+}
+.form__input--wrapper {
+    flex: 1;
+}
+.form__input--name, .form__input--title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper label {
+    width: 130px;
+    font-size: 16px;
+}
+
+.form__textbox {
+    display: flex;
+    align-items: center;
+}
+
+.form__container form {
+    display: flex;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    width: 500px;
+    padding: 10px;
+    border: 1px solid rgb(107, 78, 5);
+    border-radius: 10px;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 0.8em;
+  }
+
+.discussion__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.discussion__information {
+    text-align: right;
+}
 
 img {
-    height: 48px;
+    height: 50px;
     border-radius: 50px;
+    display: flex;
 }
 
-li {
-    border: solid 1px red;
-    overflow: hidden;
+a{
+    text-decoration: none;
 }
-.discussion__wrapper {
-    border: solid 1px blue;
-    width: 50%;
-    height: 50%;
+input[type="text"] {
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
- 
+textarea {
+    width: 200px;
+    height: 60px;
+    resize: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+}
     
-
+.discussion__answered{
+    display: flex;
+    align-items: center;
+}
+  
+     
