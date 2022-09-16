@@ -16,6 +16,7 @@ main {
     box-shadow :2px 4px 10px 7px #c8699e;
     display : flex;
     flex-direction: column;
+    align-items: center;
     margin : 50px auto;
     width : 540px;
 }
@@ -23,6 +24,7 @@ main {
 h1 {
     text-align: center;
     font-size : 3.5rem;
+    padding-top:15px;
 }
 
 h2 {
@@ -101,37 +103,52 @@ h2 {
 
 /* 질문 */
 .discussion__wrapper {
-    background-color:#CCE1FF;
-    border : solid 2px black;
-    margin : 20px auto;
-    padding : 20px;
-    text-align: left;
+    background-color: whitesmoke;
+    margin-top : 25px;
 }
 
 .discussion__wrapper li {
-    background-color: whitesmoke;
-    display : flex;
-    justify-content: space-between;
+    background-color: white;
     margin : 40px auto;
-    border : solid 2px black;
+    border : solid 2px #999;
     border-radius: 10px;
-    height : 100x;
+    height : 100px;
 }
 .discussion__content {
-    width : 100%;
+    flex-grow : 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding : 10px;
 }
 .discussion__information {
     text-align: right;
-    vertical-align: bottom;
+}
+
+.discussion__avatar--wrapper {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
 }
 
 .discussion__avatar--image {
     width : 48px;
     border-radius: 25px;
-    vertical-align: middle;
 }
 
 .discussion__container {
+    display : flex;
+    justify-content: space-between;
+    width : 480px;
     list-style: none;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: xx-large;
+    padding-right : 5px;
 }
 
