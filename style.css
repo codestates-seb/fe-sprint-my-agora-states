@@ -1,4 +1,4 @@
-₩* {
+* {
   box-sizing: border-box;
   font-size: 20px;
 }
@@ -10,17 +10,19 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 1.5rem;
   color: rgb(69, 138, 228);
+  text-shadow: -1px 0px wheat, 0px 1px wheat, 1px 0px wheat, 0px -1px wheat;
   font-family: "Courier New";
 }
 
 main {
+  background-color: powderblue;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 700px;
-  background: rgb(185, 230, 247);
 }
 .form {
   display: flex;
@@ -40,6 +42,9 @@ main {
 }
 h1 {
   font-size: 80px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #18fbff,
+    0 0 30px #18fbff, 0 0 40px #18fbff, 0 0 55px #18fbff, 0 0 75px #18fbff,
+    -39px 20px 6px rgba(206, 89, 55, 0), -39px 20px 6px rgba(206, 89, 55, 0);
 }
 
 ul.discussions__container {
@@ -73,7 +78,6 @@ li.discussion__container {
   font-size: xx-large;
 }
 input[type="submit"] {
-  font-size: 30x;
   border: 2px solid white;
   border-radius: 20px;
   height: 50px;
@@ -88,7 +92,12 @@ input[type="submit"] {
   border: 10px solid white;
   width: 90%;
 }
+input[type="submit"]:active {
+  color: #ffffff;
+  background: #f7c1c1;
+  text-shadow: 4px 3px 0px #656464;
+}
 .discussion__information {
   text-align: right;
-  color: white;
+  color: rgb(226, 244, 174);
 }

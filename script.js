@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+//
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -36,7 +37,7 @@ const convertToDiscussion = (obj) => {
   //체크박스영역
   const checked = document.createElement("p");
   discussionAnswered.append(checked);
-  checked.textContent = obj.answer === null ? "❎" : "✅";
+  checked.textContent = parsedLocal.obj === null ? "❎" : "✅";
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -44,17 +45,14 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-function setLocal() {
-  localStorage.setItem("KEY", JSON.stringify(agoraStatesDiscussions));
-}
+
 //
-let saveGetLocal = localStorage.getItem("KEY");
-const parsedLocal = JSON.parse(saveGetLocal);
 const submitHandler = document.querySelector(".form");
 const setName = document.querySelector(".form__input--name #name");
 const setTitle = document.querySelector(".form__input--title #name");
 const setDiscussion = document.querySelector("#story");
-//이벤트 발생
+//이벤트 발생할시 실행된다
+
 submitHandler.addEventListener("submit", function (event) {
   event.preventDefault();
   const newSetName = setName.value;
@@ -74,17 +72,28 @@ submitHandler.addEventListener("submit", function (event) {
   agoraStatesDiscussions.unshift(newObj);
   setLocal();
   ul.prepend(convertToDiscussion(newObj));
+  setName.value = "";
+  setTitle.value = "";
+  setDiscussion.value = "";
 });
+function setLocal() {
+  localStorage.setItem("KEY", JSON.stringify(agoraStatesDiscussions));
+}
+
+let saveGetLocal = localStorage.getItem("KEY");
+let parsedLocal = JSON.parse(saveGetLocal);
 
 //
 const ul = document.querySelector("ul.discussions__container");
-
 //ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 랜더링합니다
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    //i 번째 요소룰 convertToDiscussion 전달후 ul 에 append
+    //i 번째 요소를 convertToDiscussion() 전달후 ul 에 append
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 render(ul);
+if (saveGetLocal.setItem !== null) {
+  agoraStatesDiscussions = parsedLocal;
+}
