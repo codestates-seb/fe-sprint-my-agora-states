@@ -1,1 +1,254 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 15vw auto 15vw;
+  grid-template-rows: 90vh 10vh auto;
+}
+
+/* header */
+
+header {
+  width: 100%;
+  position: fixed;
+  background-color: var(--white);
+  top: 0;
+  height: 50px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+header > img {
+  height: 80%;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+header > a {
+  float: right;
+  display: block;
+  text-align: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-size: var(--font-l);
+  color: var(--coz-purple-800);
+  font-weight: 500;
+}
+
+header > a:hover {
+  color: var(--coz-blue-700);
+}
+
+/* landing section */
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; 
+  background-image:
+  url('./img/codestates-motif.png');
+  padding-top: 20vh;
+  margin-bottom: 10px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.landing > h1 {
+  font-size: 4rem;
+  padding: 20px;
+  font-weight: 600;
+  color: var(--coz-purple-900);
+  font-family: 'Overpass', sans-serif;
+}
+
+.landing > p {
+  font-size: var(--font-xl);
+  padding: 20px;
+
+}
+
+/* form section */
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--name, .form__input--title, .form__textbox {
+  display: flex;
+}
+
+.form__input--name > label, .form__input--title > label, .form__textbox > label {
+  flex-basis: 20%;
+  margin: 10px;
+  text-align: center;
+}
+
+.form__input--name > input, .form__input--title > input, .form__textbox > textarea {
+  min-width: 250px;
+  margin: 10px;
+  border-color: var(--gray-200);
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.form__submit {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 10px;
+}
+
+
+
+/* discussion count section */
+
+.discussions-num {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  margin: auto;
+}
+
+/* discussion section */
+
+li {
+  list-style: none;
+}
+
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  border-top: 1px solid var(--gray-200);
+  margin: 10px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 60px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.discussion__content a {
+  color: var(--gray-800);
+  text-decoration: none;
+  font-size: var(--font-l);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.discussion__content a:hover{
+  color: var(--gray-600);
+}
+
+.discussion__information {
+  color: var(--gray-400);
+  font-size: var(--font-m);
+}
+
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.discussion__answered > p {
+font-size: 1.5rem;
+}
+
+/* pagination */
+
+.pagination-container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pagination-numbers > button {
+  font-size: var(--font-m);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem;
+  color: var(--gray-500);
+
+}
+
+#pagination-numbers > button:hover {
+  color: var(--gray-800);
+}
+
+#pagination-numbers > button.active {
+  color: var(--gray-800);
+}
+
+/* footer */
+
+.footer {
+  height: 100px;
+  background-image:
+  url('./img/codestates-motif.png');
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* utility */
+
+.hide {
+  display: none;
+}
+
+.btn-l {
+  width: 250px;
+  height: 60px;
+  font-size: var(--font-xl);
+  color: var(--white);
+  font-weight: 700;
+  background-color: var(--coz-purple-600);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-l:hover {
+  background-color: var(--coz-blue-600);
+}
+
+.form__submit > input {
+  width: 80px;
+  height: 40px;
+  font-size: var(--font-m);
+  color: var(--white);
+  font-weight: 400;
+  background-color: var(--coz-purple-600);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form__submit > input:hover {
+  background-color: var(--coz-blue-600);
+}
