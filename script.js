@@ -28,11 +28,15 @@ const convertToDiscussion = (obj) => {
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image"
   avatarImg.src = obj.avatarUrl; // data.js의 키값 바로 가져와도 되나..?
-  avatarImg.alt = "avatar" + "of" + obj.author;
+  avatarImg.alt = "avatar of " + obj.author;
   
   const discussionTitle = document.createElement("h2");
   discussionTitle.className = "discussion__title";
   // h2에는 href 속성을 가지는 <a> 자식이 있다.
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  discussionTitle.append(titleAnchor);
+
   // const discussionTitleUrl = document.createElement("a");
   // discussionTitleUrl.href = obj.url;
   
@@ -55,9 +59,9 @@ const convertToDiscussion = (obj) => {
   // 2. 작성자와 작성날짜
   // 3. 체크박스
 
-  discussionTitle.textContent = obj.title;
-  discussionInformation.textContent = obj.author + " / " + obj.createdAt;
-  discussionAnsweredCheckbox.textContent = "☑";
+  titleAnchor.textContent = obj.title;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
+  discussionAnsweredCheckbox.textContent = obj.answer ? "☑": "☒";
   
 
 
