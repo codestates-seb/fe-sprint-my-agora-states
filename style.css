@@ -1,1 +1,115 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    text-align: center;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    background-color: #CEAB93;
+}
+
+.discussion__container{
+    /* list-style: none; */
+    /* border: solid 1px skyblue; */
+    width: 540px;
+    display: flex; 
+    align-items: center; 
+   justify-content: space-between;
+}
+.discussion__avatar--wrapper > img{
+    border-radius: 50%;
+    width: 48px;
+    
+}
+.discussion__content{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+ /* 시간,이름을 우측으로 정렬 */
+/* .discussion__information{
+    text-align: right;
+}  */   
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+/* .discussion__container > div > p {
+    font-size: 35px;
+    width: 230px;
+    float: right;
+    display: flex;
+    justify-content: right;
+    
+}    */
+
+
+.form__submit > input{
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+}
+/* section > form > div > input {
+    background-color: white;
+    width: 100px;
+    height: 50px;
+} */
+#name {
+    background-color: #EEF2E6;
+}
+    
+label {
+    padding-right: 100px ;
+}
+ul > li{
+    background-color: #EEE3CB;
+    border-radius: 10px;
+    border: solid 1px #967E76;
+    display: flex;
+    width: 550px;
+    margin: 5px;
+    padding: 15px;
+}
+input {
+    width: 100%;
+    background-color: #EEF2E6;
+  }
+textarea{
+    width: 100%;
+    background-color: #EEF2E6;
+}
+.form__container{
+    background-color: #E5DCC3;
+    padding: 10px;
+    border-radius: 10px;
+}
+.discussions__container{
+    margin: 10px;
+
+}
+.discussion__wrapper{
+    padding: 10px;
+    background-color: #FFFBE9;
+    border-radius: 20px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+/* display: flex;가 있어야 다른것들이 적용 되는듯 함
+align-items: center 은 위아래에서 센터인듯 */
