@@ -179,3 +179,7 @@ a:hover {
     border-radius: 5px;
     background-color: #e1b4a3;
 }
+
+button:active {
+    background-color: #ffe3d8;
+}
