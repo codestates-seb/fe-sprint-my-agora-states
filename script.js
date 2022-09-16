@@ -20,6 +20,98 @@ const generateRandomImg = () => {
   return randomImg;
 }
 
+// 페이지네이션
+// 1, 2, 3, 4, 5 를 DOM을 이용해 만든다.
+const nav = document.querySelector('.pagenation__container')
+const one = document.createElement('button');
+  one.innerHTML = '<i class="fa-solid fa-1"></i>';
+const two = document.createElement('button');
+  two.innerHTML = '<i class="fa-solid fa-2"></i>';
+const three = document.createElement('button');
+  three.innerHTML = '<i class="fa-solid fa-3"></i>';
+const four = document.createElement('button');
+  four.innerHTML = '<i class="fa-solid fa-4"></i>';
+const five = document.createElement('button');
+  five.innerHTML = '<i class="fa-solid fa-5"></i>';
+
+// nav 요소에 1, 2, 3, 4, 5를 넣어준다.
+nav.append(one, two, three, four, five);
+
+// page라는 변수를 선언하고, 기본값으로 0을 할당해준다.
+let page = 0; 
+
+const appendToUl = () => {
+  ul.innerHTML = ''; // ul을 빈 값으로 초기화시켜준 후,
+  for(let i = page; i < page + 10; i++) { // i는 page부터 page에서 10개까지, ul에 10개의 요소를 추가한다.
+    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+}
+
+// 페이지 맨 앞으로 이동하는 함수
+function moveToFirst() {
+  page = 0;
+  ul.innerHTML = '';
+  for(let i = page; i < page + 10; i++) {
+  appendToUl();
+}}
+
+// 1을 클릭하면, 배열의 0 ~ 9번째 요소만 보여준다. (10개)
+one.addEventListener('click', () => {
+  moveToFirst();
+  one.className = 'selected'; // 강조 효과 주는 class 추가
+
+  two.classList.remove('selected'); // 나머지는 class 삭제
+  three.classList.remove('selected');
+  four.classList.remove('selected');
+  five.classList.remove('selected');
+})
+
+// 1을 클릭하면, 배열의 10 ~ 19번째 요소만 보여준다. (10개)
+two.addEventListener('click', () => {
+  page = 10;
+  appendToUl();
+  two.className = 'selected';
+
+  one.classList.remove('selected');
+  three.classList.remove('selected');
+  four.classList.remove('selected');
+  five.classList.remove('selected');
+})
+
+three.addEventListener('click', () => {
+  page = 20; 
+  appendToUl();
+  three.className = 'selected';
+
+  one.classList.remove('selected');
+  two.classList.remove('selected');
+  four.classList.remove('selected');
+  five.classList.remove('selected');
+});
+
+four.addEventListener('click', () => {
+  page = 30; 
+  appendToUl();
+  four.className = 'selected';
+
+  one.classList.remove('selected');
+  two.classList.remove('selected');
+  three.classList.remove('selected');
+  five.classList.remove('selected');
+});
+
+five.addEventListener('click', () => {
+  page = 40; 
+  appendToUl();
+  five.className = 'selected';
+
+  one.classList.remove('selected');
+  two.classList.remove('selected');
+  three.classList.remove('selected');
+  four.classList.remove('selected');
+});
+
+
 // form 섹션 DOM으로 바꾸기
 // const printForm = () => {
 // // 1. form 안에 formWrapper, formSubmit
@@ -160,24 +252,18 @@ form.addEventListener('submit', function(event) {
 
   agoraStatesDiscussions.unshift(newObj); // 배열 agoraStatesDicussions에 newObj객체를 추가한다.
 
-  // 그 객체는 convertToDiscussion에 넣어서 DOM으로 변환한다.
-  // 그 객체를 ul의 맨 앞에 넣어준다.
-  ul.prepend(convertToDiscussion(newObj)); // ul에 newObj를 컴포넌트를 추가한다.
+  // 1 페이지로 이동 시킨 후,
+  // newObj를 convertToDiscussion에 넣어서 DOM으로 변환하고 그 객체를 ul의 맨 앞에 넣어준다.
+  moveToFirst();
 
   nameInput.value = '';
   titleInput.value = '';
   storyInput.value = '';
 })
 
-// 2. i = 10부터 19까지 (10개)...
-
-// 3. i = 20부터 29까지
-// 4. i = 30부터 39까지
-// 5. i = 40부터 끝까지
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// 초기화면은 agoraStatesDiscussions 배열의 0 ~ 9 번째 데이터만 화면에 렌더링한다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = 0; i < 10; i++) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -186,4 +272,3 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul); // ul.append(convertToDiscussion(arr[i]));
-
