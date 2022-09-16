@@ -109,17 +109,17 @@ render(ul); // 랜더함수에 ul을 인자로 전달
 
 /************** css 이벤트 효과구간 ****************************/
 
-// 버튼전역변수
-let CB = document.querySelector(".CB");
-// 등록창 전역변수
-let FORM = document.querySelector(".form")
+// // 버튼전역변수
+// let CB = document.querySelector(".CB");
+// // 등록창 전역변수
+// let FORM = document.querySelector(".form")
 
-CB.addEventListener("click",(()=>{
-  console.log("테스트")
+// CB.addEventListener("click",(()=>{
+//   console.log("테스트")
 
-  FORM.style.display = "block";
+//   FORM.style.display = "block";
 
   
   
-}))
+// }))
  
