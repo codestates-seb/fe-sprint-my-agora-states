@@ -1,1 +1,89 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(69, 138, 228);
+  font-family: "Courier New";
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  background: rgb(185, 230, 247);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 30px;
+  background-color: rgb(252, 246, 215);
+  cursor: pointer;
+  width: 500px;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+ul.discussions__container {
+  display: flex;
+  width: 540px;
+  flex-direction: column;
+}
+li.discussion__container {
+  display: flex;
+}
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1.2 0;
+}
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 30%;
+}
+.discussion__content {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  flex-grow: 2;
+}
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+}
+input[type="submit"] {
+  font-size: 30x;
+  border: 2px solid white;
+  border-radius: 20px;
+  height: 50px;
+  color: rgb(69, 138, 228);
+  background-color: rgb(193, 237, 250);
+  cursor: pointer;
+}
+#story,
+#name {
+  margin: 10px;
+  border-radius: 10px;
+  border: 10px solid white;
+  width: 100%;
+}
+.discussion__information {
+  text-align: right;
+  color: white;
+}
