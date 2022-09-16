@@ -4,6 +4,44 @@
 메인을 중앙으로
 
 */
+/* h1 {
+  animation: rainbow 1.5s ease infinite;
+} */
+/* @keyframes rainbow {
+  0% {
+    color: #ff0053;
+  }
+  12% {
+    color: #ff5353;
+  }
+  24% {
+    color: #ffcf53;
+  }
+  36% {
+    color: #e8ff53;
+  }
+  48% {
+    color: #53ff5d;
+  }
+  60% {
+    color: #53ffbc;
+  }
+  72% {
+    color: #5393ff;
+  }
+  84% {
+    color: #ca53ff;
+  }
+  100% {
+    color: #ff53bd;
+  }
+} */
+
+h1,
+label {
+  color: white;
+  text-shadow: 2px 2px 2px #000;
+}
 
 * {
   box-sizing: border-box;
@@ -15,7 +53,9 @@ body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  background-image: url("https://github.com/junpotatoes/fe-sprint-my-agora-states/blob/main/KakaoTalk_20220916_115941236%EC%99%B8%EB%8D%B0%EA%B3%A8.png?raw=true");
+
+  background-image: url("https://img.allthatboots.com/edimg2/JpjKXi.gif");
+
   background-size: 1905px;
   /* background-size: cover; */
 }
@@ -30,7 +70,6 @@ main {
   display: flex;
   justify-content: center;
   /* width: 600px; */
-
   /* background-color: #fff5e4; */
 }
 
@@ -38,9 +77,10 @@ main {
   /* border: 1px solid black; */
   border-radius: 10px;
   margin-top: 10px;
-  /* width: 65%; */
-  /* background-image: url("/아스날-로고.png"); */
-  background-size: 1440px;
+  /* background-image: url("https://img.allthatboots.com/edimg2/JpjKXi.gif"); 
+  */
+  background-image: url("https://github.com/junpotatoes/fe-sprint-my-agora-states/blob/main/KakaoTalk_20220916_115941236%EC%99%B8%EB%8D%B0%EA%B3%A8.png?raw=true");
+  background-size: 1435px;
 }
 
 .discussions__container {
