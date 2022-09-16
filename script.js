@@ -46,7 +46,7 @@ discussionContent.append(answer);
 
 const checkBox = document.createElement('div')
 checkBox.textContent = '✅'
-checkBox.textContent = obj.answer ? "✅": "x"
+checkBox.textContent = obj.answer ? "✅": "❌"
 
 discussionAnswered.append(checkBox);
 
@@ -102,41 +102,8 @@ const addText = document.querySelector('form > .textarea') // textarea 정보를
 const submitBtn = document.querySelector('.submitBtn')
 const clearBtn = document.querySelector('.clearBtn')
 
-console.log(submitBtn)
-// const submitDiscussions = { // 위의 변수를 사용하여 객체 형태로 만들어주는 함수
-  
-//   createdAt : new Date(), //현재시간
-//   title : addTitle.value, // 제목
-//   author : addName.value, // 이름
-//   story : addText.value, // 질문
-//   avatarUrl : `https://placeimg.com/64/64/people/${Math.random()}`,
-// }
+console.log(clearBtn)
 
-
-// function addList(event) {
-//   event.preventDefault()
-//   const allLi = document.querySelectorAll('li')
-
-//   const submitDiscussions = { // 위의 변수를 사용하여 객체 형태로 만들어주는 함수
-  
-//     createdAt : new Date(), //현재시간
-//     title : addTitle.value, // 제목
-//     author : addName.value, // 이름
-//     story : addText.value, // 질문
-//     avatarUrl : `https://placeimg.com/64/64/people/${Math.random()}`,
-//   }
-//   console.log(allLi)
-//   agoraStatesDiscussions.unshift(submitDiscussions)
-
-//   for(let i = 0; i < allLi.length; i++) {
-//     allLi[i].remove();
-//   }
-//   addName.value= "";
-//   addTitle.value= "";
-//   addText.value= "";
-//   render(ul)
-
-// }
 
 submitBtn.addEventListener('click', addList)
 
@@ -164,31 +131,10 @@ function addList(event) {
     ul.prepend(convertToDiscussion(submitDiscussions))
   }
 
-  // 운도님해설
-  // const form = document.quertySelctor('.form')
-  // const author = document.querySelector('.addTitle')
-  // const title = document.querySelector('.addText')
-  // const textArea = document.querySelector('.addText')
-
-  // form.addEventListener('submit', (event) => {
-  //   event.preventDefault;
-
-  //   const obj = {
-      
-  //   };
-
-  //   agoraStatesDiscussions.unshift(obj);
-
-  //   ul.prepend(convertToDiscussion(obj));
-  // title.value= "";
-  // author.value= "";
-  // textArea.value= "";
-  // })
+  
 
 
-
-
-
+  
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
