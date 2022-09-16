@@ -170,7 +170,7 @@ a:hover {
     margin: 20px;
 }
 
-.page__button {
+.page__wrapper button {
     width: 40px;
     height: 40px;
     font-family: 'Bebas Neue', cursive;
