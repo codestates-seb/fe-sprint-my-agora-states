@@ -1,4 +1,4 @@
-if(!localStorage.getItem("data")){
+if (!localStorage.getItem("data")) {
     localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions))
 }
 let dataObj = JSON.parse(localStorage.getItem("data"));
@@ -81,7 +81,7 @@ const convertToAnswerIsNull = () => {
 }
 
 const render = (element) => {
-    for (let i = 0; i < newArr.length; i ++) {
+    for (let i = 0; i < newArr.length; i++) {
         if (dataObj[i].answer == null) {
             element.append(convertToDiscussion(newArr[i]), convertToAnswerIsNull());
         } else {
@@ -102,32 +102,53 @@ let ul = document.querySelector("ul.discussions__container");
 
 page1.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(0,10)
+    newArr = dataObj.slice(0, 10)
     render(ul)
 };
 
 page2.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(20,30)
-    render(ul)
+    if (dataObj.slice(20, 30) == '') {
+        alert('해당페이지는 비어있습니다')
+        page1.onclick();
+    } else {
+        newArr = dataObj.slice(20, 30)
+        render(ul)
+    }
 };
 page3.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(30,40)
-    render(ul)
+    if (dataObj.slice(30, 40) == '') {
+        alert('해당페이지는 비어있습니다')
+        page1.onclick();
+    } else {
+        newArr = dataObj.slice(30, 40)
+        render(ul)
+    }
 };
 page4.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(40,50)
-    render(ul)
+    if (dataObj.slice(40, 50) == '') {
+        alert('해당페이지는 비어있습니다')
+        page1.onclick();
+    } else {
+        newArr = dataObj.slice(40, 50)
+        render(ul)
+    }
 };
 page5.onclick = () => {
     removeChildren();
-    newArr = dataObj.slice(50,60)
-    render(ul)
+    if (dataObj.slice(50, 60) == '') {
+        alert('해당페이지는 비어있습니다')
+        page1.onclick();
+    } else {
+        newArr = dataObj.slice(50, 60)
+        render(ul)
+    }
 };
-newArr = dataObj.slice(0,10)
+newArr = dataObj.slice(0, 10)
 render(ul)
+
 function removeChildren() {
     while (ul.firstChild) {
         ul.removeChild(ul.firstChild);
