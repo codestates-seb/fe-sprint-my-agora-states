@@ -15,27 +15,30 @@
 <body>
   <main>
     <h1>My Agora States</h1>
+    <!-- 질문 입력창 -->
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name"> Name </label>
+            <input type="text" name="name" id="name" placeholder="Please enter your Name" required >
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name"> Title </label>
+            <input type="text" name="name" id="name" placeholder="Please enter your Title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story"> Questions </label>
+            <textarea id="story" name="story" placeholder="Please enter your Questions" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="📩">
         </div>
       </form>
     </section>
+
+    <!-- discussion section -->
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -48,7 +51,7 @@
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>✔️</p></div>
         </li>
       </ul>
     </section>
