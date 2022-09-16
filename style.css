@@ -1,1 +1,168 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+ 
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://cdn1.vectorstock.com/i/1000x1000/85/60/seamless-background-with-big-colorful-polka-dots-vector-1718560.jpg);
+ 
+}
+main{
+  display:flex;
+ flex-direction:column;
+ align-items:center;
+  border: 5px solid rgba(15, 158, 15, 0.825)/*rgb(100, 171, 228)*/;
+  width:555px;
+  background-color: rgb(249, 251, 251);
+  border-radius: 40px;
+}
+h1{
+  color:rgb(43, 141, 163);
+  font-size:30pt;
+}
+
+
+/*입력란*/
+.form__container{
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  padding:0px 50px;
+  margin:5px;
+  border: 4px solid rgb(20, 117, 149)/*rgb(201, 226, 119)*/;
+  border-radius: 40px;
+  width:500px;
+  height:210px;
+}
+.form__input--wrapper{
+  display:flex;
+  flex-direction :column;
+  align-items : left;
+  width: 300px;
+}
+.form__input--name, .form__input--title,.form__textbox {
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  padding:2px;
+}
+.form__input--name input, .form__input--title input, .form__textbox textarea{
+  box-shadow: 2px 2px 5px rgb(162, 162, 162);
+  border-radius: 5px 5px 5px 5px;
+  border:1px solid rgb(126, 190, 249)/*rgb(201, 226, 119)*/;
+}
+.form__submit{
+  display:flex;
+  justify-content: center;
+}
+.form__submit input{
+  background-color:rgb(49, 144, 203)/*rgb(151, 211, 129)*/;
+  box-shadow: 0px 4px 0px  #74a3b0;/*#87a86f*/;
+  color:white;
+  border:3px solid rgb(49, 144, 203)/*rgb(151, 211, 129)*/;
+  border-radius: 5px 5px 5px 5px;
+  width:100px;
+   height: 30px;
+   margin-top:5px;
+}
+.form__submit input:hover{
+  box-shadow: 2px 2px 4px 1px #dadce0;
+   cursor:pointer;
+   
+}
+.form__submit input:active{
+  box-shadow: 0 0 #74a3b0/*#87a86f*/;
+   background-color: #709CA8/*#87a86f*/;
+}
+
+/*출력란*/
+.discussion__wrapper{
+  width:540px;
+  border-radius: 40px;
+  margin: 2px 2px;
+}
+ul{
+  list-style:none;
+  }
+  .discussion__container{
+    Width:500px;
+    Display:flex;
+    Justify-content: center;
+    padding: 10px 5px;
+    border-radius: 20px 20px 20px 20px;
+    margin: 5px 20px ;
+    background-color: /*rgb(211, 241, 248)*/ rgb(232, 238, 204);
+    }
+    .discussion__container:hover{
+      box-shadow: 2px 2px 4px 1px #dadce0;
+       cursor:pointer;
+       
+    }
+    .discussion__avatar--image{
+    Border-radius:70%;
+    Width:48px;
+    }
+    .discussion__avatar—wrapper{
+    Display:flex;
+    Justify-content:center;
+    Align-items:center;
+    Width:48px;
+    }
+    .discussion__content{
+      display: flex;
+      flex-direction : column ;
+      Justify-content:space-between;  
+      padding:0px 10px;
+      width:350px;
+    }
+    h2{
+      padding: 0px 0px 10px 0px; 
+      font-size: medium;
+    }
+    .discussion__information{
+      text-align:right; 
+      }
+     .dicussion__answered{
+        Display:flex;
+        Justify-content:center;
+        Align-items:center;
+       
+        }
+      .discussion__answered p{
+        font-size: 20pt;
+        padding:10px 5px;
+      
+      }
+/*페이지네이션*/
+.page{
+  text-align:center;
+  width:50%;
+}
+.pagination{
+  margin:20px;
+  background-color:#d4eef6;
+  display:flex;
+}
+.pagination li{
+  flex-direction: row;
+  text-align:center;
+}
+.modal.num{
+  margin-left:3px;
+  padding:0;
+  width:30px;
+  line-height:30px;
+  border-radius:100%;
+  color:white;
+}
+.modal .num:hover{
+  background-color: #2e9cdf;
+  cursor:pointer;
+}
+
+
