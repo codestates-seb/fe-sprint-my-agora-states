@@ -1,11 +1,8 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, sans-serif; 
-    /* Tahoma, monospace, cursive;*/
-    /* -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji" */
+    font-family: sans-serif, Tahoma, monospace, cursive, sans-serif;
 }
 
 body {
@@ -13,101 +10,175 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-
 }
 
 main {
-    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 450px;
     height: 600px;
     border-radius: 10px;
     background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-031.jpg');
-    padding: 30px 30px;
+    padding: 20px 20px;
+    /* border: 1px solid red; */
 }
 
 h1 {
-    /* flex: 0 1 0; */
     color: #395B64;
     text-shadow: 4px 2px 2px #AAC4FF;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 
-.form__container {
-    padding: 20px 20px;
-    border: 1.5px solid #7FBCD2;
-    border-radius: 5px;
-    background-color : rgba(255, 255, 255, 0.5);
-}
-
-ul li {
+.form {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    list-style: none;
+    padding: 15px 15px;
+    background-color: #b7d2dc;
+    border-radius: 5px;
+    border: 1.5px solid #71aec5;
+    background-color : rgba(255, 255, 255, 0.1);
+}
+
+.form__input--wrapper {
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.form__input--name, .form__input--title {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
+}
+
+label[for=name] {
+    width: 40%;
+}
+
+.form input[type=text] {
+    width: 60%;
+    height: 25px;
+    border-radius: 5px;
+    padding: 3px 3px;
+    border: 1.5px solid #7FBCD2;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__textbox textarea {
+    height: 50px;
+    border: 1.5px solid #7FBCD2;
+    border-radius: 5px;
     padding: 5px 5px;
-    margin: 10px 0 2px;    
-    background-color: #b7d2dc; /* #C6DCE4 */
-    /* border-radius: 5px; */
-    box-shadow: 1px 2px 1px 1px #e5f1f5;
-    /* border-bottom: 1px solid #7FBCD2;
-    border: 1.5px solid #7FBCD2; */
+}
+
+.form input[type=submit] {
+    width: 100%;
+    height: 100%;
+    color: white;
+    margin-left: 5px;
+    border-radius: 7px;
+    border: 1.5px solid #90c7db;
+    box-shadow: 1px 2px 1px 1px #90c7db;
+    background-color: #4b7682;
+}
+
+.form__submit {
+    width: 100px;
+}
+
+.discussion__wrapper {
+    overflow: scroll;
+    margin-top: 10px;
+    /* padding-bottom: 5px; */
+}
+
+.discussions__container > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 8px 8px;
+    margin-bottom: 5px;
+    border: 1.5px solid #71aec5;
+    border-radius: 5px;
+    background-color: #b7d2dc;    
+}
+
+li {
+    list-style: none;
 }
 
 ul li:hover {
-    background-color: #cae5ef;
+    background-color: #d5ecf4;
 }
 
 .discussion__avatar--wrapper {
-    flex: 0 1 60px;
+    /* flex: 0 1 50px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* border: 1px solid yellow; */
 }
 
-.discussion__avatar--wrapper img {
-    border: 3px solid #7FBCD2;
+.discussion__avatar--wrapper > img {
+    border: 3px solid #d8eef7; 
     border-radius: 50px;
     -moz-border-radius: 50px;
     -khtml-border-radius: 50px;
     -webkit-border-radius: 50px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .discussion__content {
-    flex: 0 1 100%;
-    padding: 5px 5px;
+    flex-grow: 1;
+    padding: 0 15px 0 15px;
     /* border: 1px solid blue; */
 }
 
 .discussion__title {
-    font-size: 1.2rem;
+    font-size: 14px;
+    padding-bottom: 10px;
 }
 
 .discussion__information {
-    font-size: 14px;
+    font-size: 13px;
     text-align: right;
 }
 
 .discussion__answered {
-    flex: 0 1 25px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
+    justify-content: center;
+    /* align-content: center; */
+    color: #395B64;
+    font-size: 20px;
     /* border: 1px solid aqua; */
 }
 
-.discussion__delete {
-    color: black;
-    width: 18px;
-    height: 18px;
-    font-size: 15px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #395B64;
-    border-radius: 5px;
-    background-color: #7FBCD2;
+/*
+.navigator__page {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
+
+.navigator__page > li {
+    font-size:15px;
+    border-radius: 2px;
+    padding: 5px 5px;
+}
+
+.navigator__page > li > a {
+    text-decoration: none;
+}
+*/
