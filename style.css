@@ -68,6 +68,16 @@ p {
 
 a {
     font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #f38181;
+}
+
+a:visited {
+    color: gray;
 }
 
 input[type='text'],
