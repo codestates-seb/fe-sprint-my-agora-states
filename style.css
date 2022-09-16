@@ -1,1 +1,185 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #32267B;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #EFD7AE;
+}
+
+main {
+    height: 750px;
+    width: 540px;
+    border: solid 3px#32267B;
+    box-shadow: 20px 20px #32267B;
+    background-color: #fcfffd;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__title {
+    height: 85px;
+    width: 460px;
+    margin-top: 20px;
+    border: solid 3px#32267B;
+    border-radius: 5px;
+    background-color: #bfd5c5;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.form__container {
+    width: 460px;
+    margin: 20px;
+    border: solid 3px#32267B;
+    border-radius: 5px;
+    background-color: #dc7d52;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.form__input--name, .form__input--title, .form__textbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    padding: 20px 20px 0 20px;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    width: 300px;
+    padding: 5px;
+    border: solid 3px#32267B;
+    border-radius: 5px;
+    background-color: #d59c60;
+    font-family: 'Poor Story', cursive;
+    font-size: 18px;
+}
+
+input {
+    height: 46px;
+}
+
+textarea {
+    height: 65px;
+    resize: none;
+}
+
+.form__submit {
+    height: 40px;
+    margin: 20px 20px 20px 20px;
+}
+
+.form__submit > button {
+    float: right;
+    border: solid 3px#32267B;
+    border-radius: 5px;
+    background-color: #e1b4a3;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    width: 100px;
+    height: 50px;
+
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    width: 460px;
+    height: auto;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    border: solid 3px#32267B;
+    border-radius: 5px;
+    background-color: #d59c60;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__content {
+    width: 340px;
+    height: 100%;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    font-family: 'Poor Story', cursive;
+}
+
+.discussion__title {
+    font-size: 18px;
+    color: #ffff;
+    text-align: left;
+    font-family: 'Poor Story', cursive;
+    background-color: #d59c60;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+a:hover {
+    color: #bfd5c5;
+}
+
+.discussion__information {
+    font-size: 14px;
+    text-align: right;
+}
+
+.discussion__answered {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__answered--checked {
+    font-size: 30px;
+    background-color: #d59c60;
+    border: none;
+}
+
+.page__wrapper {
+    margin: 20px;
+}
+
+.page__wrapper button {
+    width: 40px;
+    height: 40px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    border: solid 3px#32267B;
+    border-radius: 5px;
+    background-color: #e1b4a3;
+}
+
+button:active {
+    background-color: #ffe3d8;
+}
