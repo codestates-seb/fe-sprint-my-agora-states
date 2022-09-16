@@ -132,13 +132,84 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < localAgoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(localAgoraStatesDiscussions[i]));
+// const render = (element) => {
+//   for (let i = 0; i < localAgoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(localAgoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
+
+
+
+
+// todo : 페이지 네이션 구현 시도
+
+// * list를 만들어주는 함수
+const renderList = (num) => {
+  const pageList = document.createElement('li');
+  pageList.className = 'list__wrapper--list';
+  const pageListLink = document.createElement('a');
+  pageListLink.href = '#';
+  pageListLink.textContent = num;
+  pageList.append(pageListLink);
+  return pageList;
+}
+
+
+
+const pageUl = document.createElement('ul');
+// * ulList를 렌더하는 함수
+const renderUl = (element) => {
+  const langthDiscussion = localAgoraStatesDiscussions.length - 1;
+  const showDiscussion = 10;
+  const maxDiscussionList = Math.ceil(langthDiscussion / showDiscussion);
+  pageUl.className = 'list__wrapper';
+  
+  for (let page = 1; page <= maxDiscussionList; page++){
+    pageUl.append(renderList(page));
   }
+  pageUl.firstChild.classList.add('active');
+  element.append(pageUl);
+}
+const discussionWrapper = document.querySelector(".discussion__wrapper");
+
+
+let startList = 0;
+let endList = 10;
+
+const ul = document.querySelector('.discussions__container');
+const render = (element) => {
+  for (let i = startList; i < endList; i += 1) {
+    ul.append(convertToDiscussion(localAgoraStatesDiscussions[i]));
+  }
+  element.prepend(ul);
   return;
 };
-
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+
+render(discussionWrapper);
+renderUl(discussionWrapper);
+
+// * 페이지네이션을 동작하는 이벤트 리스너
+const listWrapperList = document.querySelectorAll('.list__wrapper--list');
+for(let e = 0; e < listWrapperList.length; e++){
+  listWrapperList[e].addEventListener('click', (event) =>{
+    event.preventDefault();
+    for(let i = 0; i < listWrapperList.length; i++){
+      listWrapperList[i].classList.remove('active');
+    }
+    listWrapperList[e].classList.add('active');
+    startList = e === 0 ? 0 : e * 10;
+    // 0 클릭할때 0, 1 클릭할때 10, 2클릭할때 20, 3 클릭할때 30
+    console.log(startList);
+    if(e === listWrapperList.length - 1){
+      endList = localAgoraStatesDiscussions.length - 1;
+    } else {
+      endList = e === 0 ? 10 : (e + 1) * 10;
+    }
+    // 0클릭할때 10, 1클릭할때 20, 2클릭할때 30, 3클릭할때 40
+    console.log(endList);
+    ul.textContent = '';
+    render(discussionWrapper);
+  })
+}
