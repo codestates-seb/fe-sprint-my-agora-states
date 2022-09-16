@@ -39,7 +39,6 @@ function saveLocalstorageData (){
 
 /** localStorage 에서 데이터를 불러옴 */
 function loadLocalstoragedata() {
-  window.localStorage.clear();
   const _objarr = {};
   for ( let i = 0; i < window.localStorage.length; i ++ ) {
     
