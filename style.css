@@ -143,15 +143,22 @@ a{
   height: 78px;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid #9e9e9e;
+  font-weight: bold;
+  background-color: #d9526d00;
+  border: none;
+  box-shadow: -1px -1px 10px 5px rgb(255 233 233) inset;
 }
 
 .clearButton {
-  width: 100%;
   height: 54px;
+  width: 100%;
   border-radius: 10px;
-  border: 1px solid #9e9e9e;
+  font-weight: bold;
+    background-color: #d9526d00;;
+    border: none;
+    box-shadow: -1px -1px 10px 5px rgb(255 233 233) inset;
   margin-top: 10px;
+  
 }
 
 .form__input--wrapper {
@@ -205,3 +212,18 @@ label {
   font-size: 13px;
 }
 
+.submit__button:hover {
+  background-color: #d9526d00;
+  box-shadow: 0px 15px 20px rgba(255, 77, 160, 0.484);
+  color: black;
+  transform: translateY(-7px);
+  cursor: pointer;
+}
+
+.clearButton:hover {
+  background-color: #d9526d00;
+  box-shadow: 0px 15px 20px rgba(255, 77, 160, 0.484);
+  color: black;
+  transform: translateY(-7px);
+  cursor: pointer;
+}
