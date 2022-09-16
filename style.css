@@ -23,9 +23,11 @@ main {
 }
 
 h1 {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     font-size : 3.5rem;
     padding-top:15px;
+    color : #7046aa
 }
 
 h2 {
