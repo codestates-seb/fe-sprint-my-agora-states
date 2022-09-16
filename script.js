@@ -1,10 +1,14 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
+// console.logagoraStatesDiscussions();
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
+  // 질문 영역 지정
+  const question = document.createElement("div")
+  question.className = ("question")
+
   // 아바타 코드
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -40,11 +44,49 @@ const convertToDiscussion = (obj) => {
   // } else {
   //   discussionAnsweredP.className = "xi-check-circle-o"
   // }
-  
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(question);
+  // 질문 영역 append
+  question.append(avatarWrapper, discussionContent, discussionAnswered)
   avatarWrapper.append(avatarImg);
   discussionContent.append(discussionTitle, discussionInformation);
   discussionAnswered.append(discussionAnsweredP);
+  // 답변 영역
+  if (obj.answer !== null) {
+    // 답변 영역 지정
+    const answer = document.createElement("div");
+    answer.className = "answer hide";
+    // profile
+    const answerProfile = document.createElement("div");
+    answerProfile.className = "answer__profile";
+    // 아바타 warp
+    const answerAvatarWrap = document.createElement("div");
+    answerAvatarWrap.className = "answer__avatar-wrapper";
+    // 아바타
+    const answerAvatar = document.createElement("img");
+    answerAvatar.className = "answer__avater--image";
+    answerAvatar.src = obj.answer.avatarUrl;
+    answerAvatar.alt = 'avatar of ' + obj.answer.author;
+    // information
+    const answerInformation = document.createElement("div");
+    answerInformation.className = "answer__information";
+    // id
+    const answerInformationID = document.createElement("p");
+    answerInformationID.className = "id";
+    answerInformationID.textContent = obj.answer.id;
+    // createdAt
+    const answerInformationAt = document.createElement("p");
+    answerInformationAt.className = "createdAt";
+    answerInformationAt.textContent = obj.answer.createdAt;
+    // body
+    const answerBody = document.createElement("div");
+    answerBody.className = "answer__body--wrap";
+    answerBody.innerHTML = obj.answer.bodyHTML;
+    li.append(answer);
+    answer.append(answerProfile, answerBody);
+    answerProfile.append(answerAvatarWrap, answerInformation);
+    answerInformation.append(answerInformationID, answerInformationAt)
+    answerAvatarWrap.append(answerAvatar);
+  }
   return li;
 };
 
@@ -83,7 +125,7 @@ form.addEventListener('submit', (e) => {
   let seconds = today.getSeconds();  // 초
 
   const newForm = {
-    id : "unique number",
+    id : name.value,
     title : title.value,
     bodyHTML : question.value,
     createdAt: `${year}/${month}/${date} ${hours}:${minutes}:${seconds}`,
@@ -100,3 +142,31 @@ form.addEventListener('submit', (e) => {
     title.value = "";
     question.value = "";
 });
+
+// 답변 클릭 이벤트
+const discussion = document.querySelectorAll ('.discussion__container');
+for (const i of discussion) {
+  if (i.querySelector(".answer")) {
+    i.addEventListener('click', function() {
+      let answer = i.querySelector(".answer")
+      answer.classList.toggle("hide");
+      console.log(i);
+    });
+  }
+}
+
+
+// 글 목록을 담기 위한 부모 리스트 요소 
+const contents = document.querySelector("ul.discussions__container");
+// 페이지 버튼을 담기 위한 부모 리스트 요소
+const buttons = document.querySelector(".buttons");
+
+// 전체 글의 개수
+let numOfCountent = agoraStatesDiscussions.length;
+// 한번에 보여 줄 글의 개수
+const showCountent = 5;
+// 한 화면에 보여 줄 페이지 버튼의 개수
+const showButton = 5;
+// 글을 모두 보여주기 위해 필요한 페이지의 개수
+let MaxPage = Math.ceil(numOfCountent / showCountent)
+let page = 1;
