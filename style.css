@@ -1,4 +1,5 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&family=Source+Sans+Pro:wght@300;600&display=swap');
 
 * {
     margin : 0;
@@ -34,6 +35,7 @@ h2 {
 }
 /* form */
 .form__container {
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +45,7 @@ h2 {
 }
 /* form 이름 입력 */
 .form__input--name {
-    color :#0c1db8;
+    color :#c8699e;
     margin :5px auto;
     font-size : 1.2rem;
 }
@@ -61,6 +63,7 @@ h2 {
 
 /* form 제목 입력 */
 .form__input--title {
+    color : #c8699e;
     margin :5px auto;
     font-size : 1.2rem;
 }
@@ -76,6 +79,7 @@ h2 {
 }
 /* form 내용 입력 */
 .form__textbox {
+    color : #c8699e;
     margin :5px auto;
     font-size : 1.2rem;
 }
@@ -90,11 +94,13 @@ h2 {
     border :solid 1px #999 ;
     border-radius: 10px;
 }
-.form__submit {
-    font : 1.2rem;
-}
 
 .form__submit input{
+    background-image: linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%);
+    color : white;
+    border : solid 1px #999;
+    border-radius : 10px;
+    font-size : 1.2rem;
     width : 430px;
     height : 35px;
 }
