@@ -65,6 +65,8 @@ input, textarea {
     border: solid 3px#32267B;
     border-radius: 5px;
     background-color: #d59c60;
+    font-family: 'Poor Story', cursive;
+    font-size: 18px;
 }
 
 input {
