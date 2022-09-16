@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+/* 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다. */
+h1,
+section {
+  display: flex;
+  justify-content: center;
+}
+
 ul {
   /* Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
   width: 540px;
@@ -50,10 +57,4 @@ li {
 /* Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
 li > div {
   margin: 10px;
-}
-
-/* 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다. */
-section[class="discussion__wrapper"] {
-  display: flex;
-  justify-content: center;
 }
