@@ -50,10 +50,10 @@ const render = (element) => {
 };
 
 //submit function
-const form = document.querySelector(".form")
-const author =document.querySelector(".form__input--name > input");
-const title =document.querySelector(".form__input--title > input");
-const textArea =document.querySelector(".form__textbox > textarea");
+const form = document.querySelector(".form");
+const author = document.querySelector(".form__input--name > input");
+const title = document.querySelector(".form__input--title > input");
+const textArea = document.querySelector(".form__textbox > textarea");
 
  
 form.addEventListener("submit", (event) => {

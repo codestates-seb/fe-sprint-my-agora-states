@@ -34,15 +34,12 @@ li{list-style: none;}
    background-color: #A5C9CA;
    border: 1.5px solid #E7F6F2;
    text-decoration-color: black;
+   font-size: 20px;
 }
 .form,
 .form__input--wrapper{
    display: flex;
    flex-direction: column;
-}
-.font{
-   font-size: 20px;
-   padding-top: 5px;
 }
 .form__submit{
    margin-left: 300px;
@@ -75,6 +72,8 @@ li{list-style: none;}
       max-width: 48px;
       max-height: 48px;
       border-radius: 50%;
+      border-style: solid;
+      border-color: black;
       display: block;
    } 
 
