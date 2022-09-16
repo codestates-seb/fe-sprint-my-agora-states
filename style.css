@@ -1,1 +1,174 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+#top {
+  display: flex;
+  align-items: stretch;
+}
+
+.form__container {
+  padding-top: 0.7rem;
+  padding-left: 4rem;
+}
+
+h1 {
+  padding-left: 0.8rem;
+  text-align: left;
+  padding-bottom: 1.6rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 55px;
+  font-weight: 800;
+  line-height: 72px;
+  text-transform: uppercase;
+}
+
+.form__input--name,
+.form__input--title {
+  padding-bottom: 0.8rem;
+}
+
+#name,
+#title {
+  /* padding-left: 1rem; */
+  margin-left: 0.9rem;
+  width: 9.7rem;
+  padding-left: 0.1rem;
+}
+
+#title {
+  margin-left: 1.6rem;
+}
+
+.form__textbox {
+  display: flex;
+  padding-top: 0.4rem;
+}
+
+.form__textbox > label {
+  padding-top: 0.35rem;
+}
+
+#story {
+  margin-left: 1.5rem;
+  width: 10.7rem;
+  height: 7rem;
+  padding: 0.5rem 0.8rem;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  /* background-color: #f8f8f8; */
+  resize: none;
+}
+
+.discussion__container {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.6rem;
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.discussion__wrapper {
+  padding-top: 1.5rem;
+}
+
+li {
+  padding: 0.5rem 0 1rem 0;
+  border-top: 1.5px solid;
+}
+
+.imgParentDiv {
+  display: flex;
+  align-items: center;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 100%;
+}
+
+.discussion__content {
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.discussion__title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.form__submit {
+  text-align: right;
+}
+
+#submit {
+  margin-top: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.discussion__information {
+  text-align: right;
+  color: rgb(66, 66, 66);
+}
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid;
+}
+
+.hidden {
+  display: none;
+}
+
+.testPagination-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  margin-bottom: 4.5rem;
+}
+
+#testPrev-button,
+#testNext-button {
+  font-size: 3rem;
+  border: none;
+  background-color: white;
+}
+
+/**/
