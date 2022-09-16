@@ -37,7 +37,8 @@ const convertToDiscussion = (obj) => {
 
   /*** 3.오른쪽 체크 표시 ***/
   const isAnswered = document.createElement("p");
-  isAnswered.textContent = obj.answer ? '☑' : '☒';
+  isAnswered.textContent = obj.answer ? "☑" : "☒";
+  isAnswered.style.color = obj.answer ? "#00927a" : "#e90f6a";
   discussionAnswered.append(isAnswered);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
