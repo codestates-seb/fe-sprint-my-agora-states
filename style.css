@@ -1,27 +1,37 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0px;
     padding:0px;
     box-sizing: border-box;
+    background-color: #FAF4B7;
 }
 
 body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-family: 'GmarketSansMedium';
 }
 
 h1 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 10px;
 }
 
 .form__container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 20px;
+    margin: 30px;
 }
 
 .form__submit {
@@ -36,10 +46,11 @@ li {
     justify-content: space-between;
     width: 540px;
     height: 70px;
+    padding: 50px; 0px; 50px;
 }
 
 div {
-    border: 1px solid gray; 
+    /* border: 1px solid gray;  */
 }
 
 .discussion__avatar--wrapper {
@@ -57,9 +68,9 @@ div {
 .discussion__content {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-grow: 1;
-    padding: 5px;
+    padding: 10px;
 }
 
 .discussion__title {
@@ -67,10 +78,13 @@ div {
 
 a {
     font-weight: bolder;
+    text-decoration : none;
+    color : black;
 }
 
 .discussion__information {
     text-align: right;
+    font-size: small;
 }
 
 .discussion__answered {
