@@ -8,40 +8,115 @@
 body {
   padding: 40px;
   display: flex;
+  /* flex를 메인에다가 적용 */
   justify-content: center;
   align-items: center;
+  background-color: #cdcdcd;
   /* height: 100vh; */
 }
 
 main {
-  border: 1px solid green;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 40px;
+  background-color: #f2f2f2;
+  box-shadow: 1px 1px 20px 3px grey;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+
+.form__input--wrapper > div {
+  margin-top: 5px;
+}
+
+.form__submit {
+  flex-grow: 1;
+  text-align: center;
+
+  /* 버튼 크기 키우고 디자인 적용 */
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:visited {
+  color: #7c7c7c;
+}
+
+a:hover {
+  color: #005691;
+  /* text-decoration: underline; */
+  transition: all 0.3s;
 }
 
 li {
   list-style: none;
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+  /* 웹폰트 받아오기 */
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
+}
+
+.discussion__wrapper {
+  margin-top: 15px;
+  /* padding: 5px; */
 }
 
 .discussion__container {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   width: 540px;
+  background-color: #ffffff;
+}
+
+.discussion__content {
+  padding: 0px 13px;
+  flex-grow: 1;
 }
 
 .discussion__avatar--image {
   border-radius: 70%;
   width: 48px;
+  /* flex-wrap */
 }
 
 .discussion__title {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .discussion__answered {
-  font-size: 36px;
+  font-size: 24px;
 }
+
+.discussion__information {
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+#submit {
+  width: 70%;
+  /* height: 70%; */
+}
+
+/* 스크롤바 구현 */

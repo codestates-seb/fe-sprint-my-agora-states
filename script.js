@@ -31,13 +31,16 @@ const convertToDiscussion = (obj) => {
   // 새 창에서 열리도록 속성 부여
   discussionTitleUrl.setAttribute("target", "_blank");
   discussionTitle.append(discussionTitleUrl);
-  discussionInfo.textContent = obj.author + " | " + obj.createdAt;
+  discussionInfo.textContent =
+    obj.author + " | " + new Date(obj.createdAt).toLocaleString();
 
   // 부모 요소 content에 append
   discussionContent.append(discussionTitle, discussionInfo);
 
   // 체크표시
-  discussionAnswered.textContent = "☑";
+  // 살짝 응용하면 아이콘 넣을 수 있을 듯
+  // fontawesome에서 아이콘 불러오기
+  discussionAnswered.textContent = obj.answer ? "☑️" : "✖️";
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -56,8 +59,7 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // submit 버튼을 눌렀을 때 디스커션이 agora 데이터 배열에 추가되어야 함
-// 그럼 자동으로 convertDiscussion 함수에서 DOM으로 추가됨.
-// 배열에 추가하는 것이 관건!
+// 추가된 게 렌더링되도록 convertDiscussion 함수 호출
 // 새 객체를 만들어 배열에 unshift하는 함수 생성
 // 버튼 클릭 시 함수 실행되도록 이벤트 핸들러 작성
 const questionForm = document.querySelector(".form");
@@ -67,14 +69,25 @@ questionForm.addEventListener("submit", (event) => {
 
   const inputName = event.target["name"];
   const inputTitle = event.target["title"];
+  const inputQuestion = event.target["story"];
 
-  const newObj = {};
-
-  newObj.author = inputName.value;
-  newObj.title = inputTitle.value;
-  // 이미지 랜덤 링크 받아오기
-  // 현재 시각 받아오기
+  const newObj = {
+    id: "unique number",
+    createdAt: new Date(),
+    title: inputTitle.value,
+    url: "#",
+    author: inputName.value,
+    bodyHTML:
+      '<p dir="auto">블로그에 그날 배운 내용을 정리할 때 UrClass 에 있는 이미지를 인용해도 괜찮을까요 ??<br>\n저작권 문제가 있을 수 있어서 여쭤봅니다 !</p>',
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/95295766?s=64&u=85d493e0be0d2ca55965efd9f6c5b268c9dca168&v=4",
+  };
 
   agoraStatesDiscussions.unshift(newObj);
   ul.prepend(convertToDiscussion(newObj));
+
+  // 렌더링 후에는 폼 비우기
+  inputName.value = "";
+  inputTitle.value = "";
+  inputQuestion.value = "";
 });
