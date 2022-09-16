@@ -1,6 +1,43 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+// todo : submit 기능 추가
+// * 이벤트 핸들러 추가
+const form = document.querySelector('.form');
+form.addEventListener('submit', (event) => {
+  // * input:submit 기능 제거
+  event.preventDefault();
+  // * 각 input querySelector 지정
+  const author = document.querySelector('.form__input--name > input');
+  const title = document.querySelector('.form__input--title > input');
+  const textArea = document.querySelector('.form__textbox > textarea');
+  // * 변수 선언 및 객체 할당
+  const obj = {
+    // * input value 객체 내 key 값 할당
+    id: "unique number",
+    createdAt: new Date(),
+    title: title.value,
+    url: "#",
+    author: author.value,
+    answer: null,
+    bodyHTML:
+      textArea.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/87750478?s=64&v=4",
+  }
+
+  // * convertToDiscussion 함수 실행으로 데이터 추가
+  ul.prepend(convertToDiscussion(obj));
+  // * 기존 객체에 추가 (unshift)
+  agoraStatesDiscussions.unshift(obj);
+
+  // * submit 후 value 값 지워주기
+  author.value = '';
+  title.value = '';
+  textArea.value = '';
+})
+
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
