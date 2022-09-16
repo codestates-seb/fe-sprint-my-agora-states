@@ -14,7 +14,7 @@ body{
     /* flex-direction: column; */
     background-color: #CEAB93;
 }
-
+/* 내용이 들어가있는 전체 li틀 */
 .discussion__container{
     /* list-style: none; */
     /* border: solid 1px skyblue; */
@@ -22,27 +22,33 @@ body{
     display: flex; 
     align-items: center; 
    justify-content: space-between;
+  
 }
 .discussion__avatar--wrapper > img{
     border-radius: 50%;
     width: 48px;
-    
+    padding-right: 15px;
+   
 }
+/* li속 내용  */
 .discussion__content{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
  /* 시간,이름을 우측으로 정렬 */
 /* .discussion__information{
     text-align: right;
 }  */   
+    /* 체크 */
 .discussion__answered{
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: xx-large;
+    
 }
 /* .discussion__container > div > p {
     font-size: 35px;
@@ -53,26 +59,31 @@ body{
     
 }    */
 
-
+ /* submit */
 .form__submit > input{
   font-size: 25px;
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
   border: none;
+   
 }
 /* section > form > div > input {
     background-color: white;
     width: 100px;
     height: 50px;
 } */
+    /* name,title 적는 창*/
 #name {
     background-color: #EEF2E6;
-}
     
+}
+    /* Enter yuar name.tilte */
 label {
     padding-right: 100px ;
+    
 }
+
 ul > li{
     background-color: #EEE3CB;
     border-radius: 10px;
@@ -81,6 +92,7 @@ ul > li{
     width: 550px;
     margin: 5px;
     padding: 15px;
+    flex-grow: 1;
 }
 input {
     width: 100%;
@@ -97,12 +109,15 @@ textarea{
 }
 .discussions__container{
     margin: 10px;
-
+    width: 100%;
 }
+
+/* li 끝에 틀 */
 .discussion__wrapper{
     padding: 10px;
     background-color: #FFFBE9;
     border-radius: 20px;
+    
 }
 
 a{
