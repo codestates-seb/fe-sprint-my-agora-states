@@ -1,10 +1,10 @@
 const ul = document.querySelector('ul.discussions__container');
 const div_page = document.querySelector('div#page');
-let renderData; //data는 랜더링할 데이터들이 들어있음
+let renderData; //renderData는 랜더링할 데이터들이 들어있음
 let page = 1;
 const pageButtons = document.querySelector('#page');
 
-//로컬스토리지가 비어있지 않으면 data에 로컬스토리지 할당
+//로컬스토리지가 비어있지 않으면 renderData에 로컬스토리지 할당
 if (localStorage.getItem('agoraStatesDiscussions')) {
     renderData = JSON.parse(localStorage.getItem('agoraStatesDiscussions')).slice(0,10);
 } else {
@@ -163,7 +163,7 @@ form.addEventListener('submit', (event) => {
 
     let tmp = JSON.parse(localStorage.getItem('agoraStatesDiscussions'));
     tmp.unshift(obj);
-    //로컬스토리지와 renderData 동기화(새로 추가한 데이터와)
+    //로컬스토리지에 데이터 추가(새로 생성한)
     localStorage.setItem(
         'agoraStatesDiscussions',
         JSON.stringify(tmp)
