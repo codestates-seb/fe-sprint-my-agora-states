@@ -1,1 +1,107 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: ;
+}
+
+body {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  color: rgb(9, 188, 204);
+  /* background-attachment: fixed;
+  background-size: cover; */
+}
+
+h1 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 33px;
+}
+
+.form__input--wrapper {
+  background-color: rgba(255, 255, 255, 0.485);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.discussion__wrapper {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discussions__container {
+  /*목록 container*/
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  display: center;
+  padding: 10px;
+}
+
+.discussion__container {
+  /* border: 1px solid black; */
+
+  background-color: rgba(61, 199, 126, 0.264);
+
+  border-radius: 7px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+
+  /* border-collapse: collapse; */
+}
+
+.discussion__container:nth-of-type(even) {
+  background-color: rgba(184, 199, 183, 0);
+
+  border-radius: 7px;
+}
+
+.discussion__content {
+  flex-grow: 2;
+  margin: 0 0 0 15px;
+  font-size: 10px;
+}
+
+.discussion__title {
+  width: 350px;
+  margin: 10px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+.discussionTitle:link {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  color: rgb(31, 31, 31);
+  text-decoration: none;
+}
+
+.discussionTitle:visited {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  color: rgb(31, 31, 31);
+  text-decoration: none;
+}
+
+.discussion__information {
+  color: white;
+  font-size: 8px;
+  padding: 0 0 5px 0;
+  margin: 0 0 0 15px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--wrapper > img {
+  border-radius: 50%;
+  width: 48px;
+}
