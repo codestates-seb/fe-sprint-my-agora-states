@@ -14,17 +14,42 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 1. 아바타 영역
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  // 2. 콘텐츠 영역
+  // 2.1. 제목
+  const contentTitle = document.createElement('h2');
+  const titleAnchor = document.createElement('a');
+  contentTitle.className = "discussion__title";
+  titleAnchor.textContent = obj.title;
+  titleAnchor.href = obj.url;
 
+  contentTitle.append(titleAnchor);
+
+  // 2.2. 정보
+  const contentInfo = document.createElement('div');
+  contentInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
+  contentInfo.className = "discussion__information"
+  discussionContent.append(contentTitle, contentInfo);
+  
+  // 3. 체크박스 영역
+  const checked = document.createElement('p');
+  checked.textContent = obj.answer ? "▪︎" : "▫︎";
+
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = (ul) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
@@ -32,3 +57,4 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
