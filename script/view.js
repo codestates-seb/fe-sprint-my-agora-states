@@ -37,7 +37,7 @@ const convertToDiscussion = (obj, i) => {
   discussionAnswered.append(p);
 
   const img2 = document.createElement("img");
-  img2.src = "/img/extend.png"
+  img2.src = "./img/extend.png"
   img2.id = i;
   img2.className = "cursor";
   img2.onclick = popOnOff;
