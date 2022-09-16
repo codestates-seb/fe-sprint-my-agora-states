@@ -17,11 +17,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(246, 227, 230);
+    /* background-color: rgb(246, 227, 230); */
+    background-image: url(https://mblogthumb-phinf.pstatic.net/MjAxNzA4MDZfMTYw/MDAxNTAyMDMwNzU2MTg1.W_vJHpxyRi-sZVUcdk99h2HJ5hheTzPY8xCRFxMr5ZQg.SEQliRzWHDNa-OCebzaYgoIxwr0KQJgXXU00Jzh1UP0g.JPEG.cloud_jw/NaverBlog_20170806_234555_04.jpg?type=w420);
+    background-repeat: repeat;
   }
-  /* form container */
+  /* form 부분 */
   h1{
     margin-top: 20px;
+    color:rgb(97, 97, 97);
   }
   a{
     font-size: 17px;
@@ -31,7 +34,7 @@
     flex-direction: row;
   }
   .form__container{
-    background-color: rgb(252, 201, 201);
+    background-color: rgb(255, 221, 221);
     width: 570px;
     margin: 20px;
     padding: 17px;
@@ -79,21 +82,22 @@
   .questionInput{
     border: none;
   }
+  /* submit 버튼 */
   .submitBtn{
     width: 85px;
     height: 95px;
-    background-color: rgb(249, 165, 179);
+    background-color: rgb(253, 186, 198);
     border-radius: 10px;
     border: none;
   }
   .submitBtn:hover{
-    background-color: rgb(250, 141, 141);
+    background-color: rgb(251, 177, 190);
     border: none;
   }
 
- /* discussion_wrapper*/
+ /* discussion 부분*/
  .discussion__wrapper{
-  background-color: rgb(250, 195, 195);
+  background-color: rgb(249, 209, 209);
   border-radius: 20px
  }
  .discussion__wrapper .discussions__container .discussion__container{
@@ -118,26 +122,42 @@
     justify-content: center;
     align-items: center;
  }
- .discussion__answered{
-    padding-left: 8px;
-    padding-right: 3px;
+ /* discussion 제목 */
+ .discussion__title > a{
+    text-decoration-line: none;
+    color:rgb(111, 111, 111);
  }
- /* 작성자, 작성 시간 오른쪽으로 */
+ .discussion__title > a:hover{
+  text-decoration: underline;
+  color:rgb(64, 64, 64); 
+ }
+ .discussion__title > a:visited{
+  text-decoration-line: none;
+  color:rgb(196, 193, 193);
+ }
+  /* 작성자, 작성 시간 오른쪽으로 */
  .discussion__information{
     width: 430px;
     text-align: right;
     margin-top: 10px;
-}
+    color:rgb(111, 111, 111);
+ }
  /* 이미지 */
  .discussion__avatar--image {
     border-radius: 60%;
     width: 48px;
     height: 48px;
  }
- /* 체크박스 */
+  /* 체크박스 */
  .discussion__answered{
+    width: 25px;
     display: flex;
     align-items: center;
-    font-size: 30px;
+    padding-right: 2px; 
  }
- 
+ /* 체크박스 글씨 크기 */
+ .discussion__answered > p{
+    font-size: 30px;
+    color: rgb(161, 160, 160);
+ }
+
