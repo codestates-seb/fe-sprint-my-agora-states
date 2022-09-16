@@ -170,9 +170,9 @@ li.discussion__container:nth-child(even){
 
 /* pagination */
 .pagination__container {
-    position: absolute;
-    top: 60px;
-    right: -40px;
+    position: fixed;
+    top: 110px;
+    right: calc(50% - (540px / 2) - 40px);
 }
 .pagination {
     display: flex;
