@@ -67,23 +67,30 @@ const formSubmit = document.querySelector(".form__submit > input");
 formSubmit.addEventListener("click", (event) => {
   // a.페이지 새로고침 막기 위해 submit 이벤트 취소
   event.preventDefault();
-  // b.입력된 값을 객체에 담아서 ui 요소에 렌더링
-  const newObj = {
-    id: "new unique id",
-    createdAt: new Date(),
-    title: formInputTitle.value,
-    url: "#",
-    author: formInputName.value,
-    answer: null,
-    bodyHTML: "new unique bodyHTML",
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
-  };
-  agoraStatesDiscussions.unshift(newObj);
-  console.log(agoraStatesDiscussions);
-  ul.prepend(convertToDiscussion(newObj));
-  // d.form에 작성한 내용 초기화
-  formInputName.value = "";
-  formInputTitle.value = "";
-  formInputText.value = "";
+  // b-1.입력사항을 다 채웠으면 입력된 값을 객체에 담아서 ui 요소에 렌더링
+  if (formInputName.value !== "" && formInputTitle.value !== "" && formInputText.value !== "") {
+    const newObj = {
+      id: "new unique id",
+      createdAt: new Date(),
+      title: formInputTitle.value,
+      url: "#",
+      author: formInputName.value,
+      answer: null,
+      bodyHTML: "new unique bodyHTML",
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
+    };
+    agoraStatesDiscussions.unshift(newObj);
+    console.log(agoraStatesDiscussions);
+    ul.prepend(convertToDiscussion(newObj));
+    
+    // form에 작성한 내용 초기화
+    formInputName.value = "";
+    formInputTitle.value = "";
+    formInputText.value = "";
+  } 
+  // b-2.입력사항을 다 채우지 않았으면
+  else {
+    alert('질문 내용을 입력해주세요.')
+  }
 });
