@@ -61,6 +61,7 @@ main > h1 {
 .form__input--name > input {
   width: 200px;
   height: 30px;
+  padding: 10px;
 }
 
 .form__input--title {
@@ -72,6 +73,7 @@ main > h1 {
 .form__input--title > input {
   width: 200px;
   height: 30px;
+  padding: 10px;
 }
 
 .form__textbox{
@@ -83,6 +85,7 @@ main > h1 {
 .form__textbox > textarea {
   width: 450px;
   height: 100px;
+  padding: 10px;
 }
 
 .form__submit {
