@@ -1,7 +1,15 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+// ! localStorage를 활용한 브라우저 discussion 
+// * localStorage에 아무것도 없으면 agaraStatesDiscussions을 localStorage에 추가
+if(!localStorage.length){
+  // * 추가 시 객체를 문자열로 변환하여 저장
+  localStorage.setItem('json', JSON.stringify(agoraStatesDiscussions));
+}
+// * 문자열로 저장된 localStorage 내의 값을 객체로 변환하여 변수 할당
+const localAgoraStatesDiscussions = JSON.parse(localStorage.getItem('json'));
 
-// todo : submit 기능 추가
+//! submit 기능
 // * 이벤트 핸들러 추가
 const form = document.querySelector('.form');
 form.addEventListener('submit', (event) => {
@@ -28,13 +36,18 @@ form.addEventListener('submit', (event) => {
 
   // * convertToDiscussion 함수 실행으로 데이터 추가
   ul.prepend(convertToDiscussion(obj));
-  // * 기존 객체에 추가 (unshift)
-  agoraStatesDiscussions.unshift(obj);
+  
+  // * localStorage에 들어갈 객체에 obj 추가
+  localAgoraStatesDiscussions.unshift(obj);
 
   // * submit 후 value 값 지워주기
   author.value = '';
   title.value = '';
   textArea.value = '';
+
+  // * 추가 된 객체를 localStorage에 다시 추가
+  localStorage.setItem('json', JSON.stringify(localAgoraStatesDiscussions));
+  console.log(agoraStatesDiscussions);
 })
 
 
@@ -50,29 +63,29 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // todo : img.discussion__avatar--image 아바타 사진 및 대체 텍스트 입력
+  // * img.discussion__avatar--image 아바타 사진 및 대체 텍스트 입력
   const avatarImage = document.createElement('img');
   avatarImage.className = 'discussion__avatar--image';
   avatarImage.src = obj.avatarUrl;
   avatarImage.alt = `avatar of ${obj.author}`
-  // todo : 만들어진 아바타 이미지 avatarWrapper에 append
+  // * 만들어진 아바타 이미지 avatarWrapper에 append
   avatarWrapper.append(avatarImage);
 
-  // todo : discussion__title 제목 삽입 (링크 포함)
+  // * discussion__title 제목 삽입 (링크 포함)
   const discussionTitle = document.createElement('h2');
   const discussionTitleLink = document.createElement('a');
   discussionTitle.className = 'discussion__title';
   discussionTitleLink.href = obj.url;
   discussionTitleLink.textContent = obj.title;
   discussionTitle.append(discussionTitleLink);
-  // todo : discussion__information 작성자 및 작성 일시 삽입
+  // * discussion__information 작성자 및 작성 일시 삽입
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
   discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
-  // todo : discussionContent 만들어진 내부 컨텐츠 append
+  // * discussionContent 만들어진 내부 컨텐츠 append
   discussionContent.append(discussionTitle, discussionInformation);
 
-  // todo : discussion__answered 답변 삽입
+  // * discussion__answered 답변 삽입
   if(obj.answer !== null){
     // * AnsweredReply 생성 및 내용 삽입
     const discussionAnsweredReply = document.createElement('div');
@@ -110,15 +123,15 @@ const convertToDiscussion = (obj) => {
     discussionAnswered.append(discussionAnsweredReply, discussionAnsweredContent, answeredAvatarWrapper);
   }
 
-  // todo : discussionAnswered append
+  // ! discussionAnswered append
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < localAgoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(localAgoraStatesDiscussions[i]));
   }
   return;
 };
