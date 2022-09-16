@@ -2,6 +2,6 @@ function new_window() {
     window.open(
         "question.html",
         "Child",
-        "width=600, height=500, top=100, left=100"
+        "width=400, height=300, top=100, left=700",
     );
 }

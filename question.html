@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="questionStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 </head>
@@ -23,8 +23,28 @@
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
         </div>
     </div>
+    <div class="userImgBox">
+        <div class="userImgSmallBox">
+            <div class="userImg" id="img1" onclick="img1();">
+                <img src=./img/face%20(1).png></div>
+            <div class="userImg" id="img2" onclick="img2();">
+                <img src=./img/face%20(2).png>
+            </div>
+            <div class="userImg" id="img3" onclick="img3();">
+                <img src=./img/face%20(3).png>
+            </div>
+        </div>
+        <div class="userImgSmallBox">
+            <div class="userImg" id="img4" onclick="img4();">
+                <img src=./img/face%20(4).png></div>
+            <div class="userImg" id="img5" onclick="img5();">
+                <img src=./img/face%20(5).png></div>
+            <div class="userImg" id="img6" onclick="img6();">
+                <img src=./img/face%20(6).png></div>
+        </div>
+    </div>
     <div class="form__submit">
-        <input type="submit" value="submit" id="submit" >
+        <input type="submit" value="submit" id="submit">
     </div>
 </form>
 <script src="question.js"></script>

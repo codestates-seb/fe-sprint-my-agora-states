@@ -1,13 +1,37 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-main{
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 75px;
+    padding: 1rem;
+    color: white;
+    background: darkgrey;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.8;
+}
+
+#helpButton {
+    border-style: none;
+}
+
+main {
+    margin: 100px 0px 100px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 li {
     /* TODO: <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. ✅ */
     list-style: none;
@@ -63,6 +87,7 @@ li {
     display: flex;
     justify-content: right;
 }
+
 /* *****************answer***************** */
 .answer__container {
     width: 600px;
@@ -101,13 +126,15 @@ li {
     display: flex;
     justify-content: right;
 }
-.nullAnswer{
+
+.nullAnswer {
     color: #5e85e8;
     font-size: 15px;
     margin: 0px 15px 0px 15px;
     display: flex;
     align-items: center;
 }
+
 .answer__avatar--wrapper > img {
     border-radius: 50%;
     width: 30px;
