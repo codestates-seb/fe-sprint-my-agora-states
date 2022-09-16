@@ -33,7 +33,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt)}`;
   discussionContent.append(discussionTitle, discussionInfo);
 
   const discussionAnsweredCheck = document.createElement("p");

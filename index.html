@@ -7,6 +7,12 @@
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="global-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -16,6 +22,12 @@
   </head>
 
   <body>
+    <header class="header">
+      <img src="./img/logo.png" alt="Agorastates-logo" />
+      <a href="#">My Page</a>
+      <a href="#">Ur Class</a>
+      <a href="#">Code States</a>
+    </header>
     <main>
       <aside class="blank landing"></aside>
       <section class="landing">
@@ -81,9 +93,14 @@
       </section>
       <aside class="blank"></aside>
     </main>
+    <nav class="pagination-container">
+      <div id="pagination-numbers"></div>
+    </nav>
+    <footer class="footer"></footer>
   </body>
   <script src="data.js"></script>
   <script src="form.js"></script>
   <script src="script.js"></script>
   <script src="formBtn.js"></script>
+  <script src="pagination.js"></script>
 </html>
