@@ -18,17 +18,23 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #cdf0ea;
+  background-color: #fe9e8a;
   width: 700px;
   margin: 50px;
   border-radius: 50px;
+  box-shadow: inset 1.5px 1.5px 2px rgb(193, 174, 174);
 }
 
 h1 {
   margin: 20px;
-  color: #f9f9f9;
+  color: #070707;
   font-weight: 400;
   font-size: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: coral;
 }
 
 form {
@@ -37,7 +43,7 @@ form {
   font-weight: lighter;
   color: black;
   margin-bottom: 50px;
-  width: 400px;
+  width: 500px;
 }
 
 .form__container {
@@ -52,6 +58,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
 }
 
 li {
@@ -73,9 +80,10 @@ div {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #faf4b7;
+  background-color: #ffffff;
   border-radius: 30px;
   margin: 10px;
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
 }
 
 .discussion__content {
@@ -84,7 +92,17 @@ div {
   margin: 2px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: space-around;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatar-img {
@@ -93,9 +111,74 @@ div {
 }
 
 .discussion__avatar--image {
-  border-radius: 100px;
+  border-radius: 50%;
 }
 
 .discussion__title {
   font-size: 13px;
+}
+
+#send {
+  border: none;
+  background-color: rgb(255, 234, 180);
+  width: 100px;
+  height: 30px;
+}
+
+#send:hover {
+  background-color: #fe9e8a;
+}
+
+#name {
+  width: 200px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+#title {
+  width: 250px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+#story {
+  width: 300px;
+  height: 59px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+label {
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.form__textbox,
+.form__input--title,
+.form__input--name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
 }
