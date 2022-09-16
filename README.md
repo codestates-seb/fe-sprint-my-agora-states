@@ -13,8 +13,6 @@ git pull origin main(default branch)
 git clone을 통해 pull해왔기 때문에 자동적으로 local repo에서  remote repo를 부르는 이름은 origin으로 생성 되었다.
 
 local branch variants를 생성하여 해당 브렌치에서 작성하였다
-
-https://github.com/bakjonghyo52/fe-sprint-my-agora-states/blob/variants/demo/demo2.gif
   
 fe-sprint-my-agora-states git:(variants) git remote show origin
 * remote origin
