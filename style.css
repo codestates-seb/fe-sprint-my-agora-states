@@ -9,22 +9,88 @@
     font-size: 16px;
   }
 
+  .logoWrapper {
+    display: flex;
+    background-color: rgb(251,250,249)
+  }
+
+
+  .logoImg {
+    width: 150px;
+    border-radius: 100%;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    /* border: 1px solid blue; */
+    border-radius: 10px;
+    margin: 25px 0px;
+  }
+
+  .form__input--wrapper {
+    /* border: 1px solid red; */
+    margin-left: 20px;
+    display: flex;
+    height: 300px;
+    width: 500px;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #name {
+    border: none;
+  }
+
+  #title {
+    width: 450px;
+    border: none;
+  }
+
+  #story {
+    margin-top: 10px;
+    resize: none;
+    width: 500px;
+    height: 120px;
+  }
+
+  .form__submit {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .submitBtn {
+    border-radius: 10px;
+    border: none;
+    width: 75px;
+    margin-right: 20px;
+    padding: 2px;
+    background-color: rgb(235, 216, 208);
+    font-weight: bold;
+    color: white;
+  }
+
   main {
     display:flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(251,250,249);
   }
 
-
   .discussions__container {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     width: 540px;
   }
 
   .discussion__container {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
+    background-color: rgb(237, 226, 222);
     display: flex;
     justify-content: space-between;
+    margin: 18px 0px;
+    padding: 9px;
+    border-radius: 10px;
     /* flex-direction: column; */
   }
 
@@ -54,3 +120,5 @@
     align-items: center;
     justify-content: center;
   }
+
+ 
