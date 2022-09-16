@@ -3,7 +3,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Noto Serif KR', serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 body {
@@ -32,12 +32,13 @@ h1 {
     margin: 20px;
     padding: 10px;
     font-size: 12px;
-    border-bottom: 1px solid black;
 }
 
 .form {
     display: flex;
     flex-direction: row;
+    width: 520px;
+    height: 110px;
 }
 
 .form__input--wrapper {
@@ -59,13 +60,16 @@ h1 {
     width: 200px;
 }
 
+#title {
+    width: 200px;
+}
+
 #story {
     width: 430px;
 }
 
 .form__submit {
     padding: 0 5px 0 5px;
-    height: 103.58px;
     width: 90px;
 }
 
@@ -123,7 +127,7 @@ h1 {
 .discussion__content h2 {
     height: 50px;
 }
-
+/* tile 제목 밑줄, 파란색 초기화 및 클릭 후 보라색 초기화 */
 .discussion__content  a {
     font-size: 13px;
     text-decoration: none;
@@ -141,9 +145,9 @@ h1 {
 .discussion__content a:hover, a:active {
     text-decoration: none; 
 }
-
+/* ------------------------------------------ */
 .discussion__content div {
-    float: right;
+    text-align: right;
 }
 
 .discussion__answered {
