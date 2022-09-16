@@ -1,7 +1,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-const submitBtn = document.querySelector(".form__submit__btn")
+const formSubmit = document.querySelector(".form")
 const ul = document.querySelector("ul.discussions__container");
 
 const userId = document.querySelector("#name")
@@ -69,7 +69,6 @@ return li;
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  element.innerHTML = ""; 
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -82,21 +81,25 @@ render(ul);
 // 이벤트 핸들러 : input의 밸류들을 모아 데이터에 추가
 const submitQuestion = (e) => {
   e.preventDefault(); 
-
-let newObj= {
+  let newObj= {
   id: "",
-createdAt: currentTime,
-title: title.value,
-url: "https://github.com/codestates-seb/agora-states-fe/discussions/3",
-author : userId.value,
-answer: null,
-bodyHTML: "",
-avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4"
+  createdAt: currentTime,
+  title: title.value,
+  url: "https://github.com/codestates-seb/agora-states-fe/discussions/3",
+  author : userId.value,
+  answer: null,
+  bodyHTML: "",
+  avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4"
 };
 
-
+ul.prepend(convertToDiscussion(newObj))
 agoraStatesDiscussions.unshift(newObj)
 render(ul);
+console.log(agoraStatesDiscussions)
+
+userId.value = ""
+title.value = ""
+question.value = ""
 }
 
-submitBtn.addEventListener( 'click', submitQuestion )
+formSubmit.addEventListener( 'submit', submitQuestion )
