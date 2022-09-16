@@ -8,7 +8,7 @@ const addPost = function(event){
   event.preventDefault();
   agoraStatesDiscussions.unshift({
     id: '비공개',
-    createdAt: new Date().toLocaleString,
+    createdAt: new Date(),
     title: newTitle.value,
     url: null,
     author: newName.value,
@@ -33,9 +33,6 @@ const addPost = function(event){
 };
 
 newContent.addEventListener('submit', addPost);
-
-
-
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
