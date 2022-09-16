@@ -47,7 +47,6 @@ const convertToDiscussion = (obj) => {
   imgParentDiv.append(avatarWrapper);
 
   // 체크박스
-  // <div class="discussion__answered"><p>☑</p></div>
   const tagP = document.createElement("p");
   tagP.textContent = `☑`;
   discussionAnswered.append(tagP);
