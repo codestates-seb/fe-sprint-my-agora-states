@@ -72,30 +72,24 @@ render(ul);
 
 
 // form eventlistener 
-const form = document.querySelector(".form");
+let form = document.querySelector('.form');
+form.onsubmit = function (event) {
+    // prevent page from refreshing 
+    event.preventDefault();
 
-const author = form.querySelector('form__input--name > input');
-const title = form.querySelector('form__input--title > input');
-const textArea = form.querySelector('form__textbox > textarea');
+    // create input data object 
+    const createdDateTime = new Date();
+    const author = document.querySelector('#name').value;
+    const title = document.querySelector('#title').value;
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  console.log('이벤트 발생');
+    const inputData = {
+        avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author}${title}.svg`,
+        author: author,
+        url: '',
+        title: title,
+        createdAt: createdDateTime, 
+        answer: null,
+    };
 
-  // 객체를 하나 만듬.
-   const list = {
-   createdAt: new Date(),
-   title: title.value,
-   answer: {},
-   author: author.value,
-   bodyHTML: textArea.value,
-   avatarUrl: "https://avatars.githubusercontent.com/u/52552097?v=4",
+    ul.prepend(convertToDiscussion(inputData));
 };
-  agoraStatesDiscussions.unshift(list);
-  // 만들어진 객체를 convertToDisCussion에 넣어서 DOM으로 전환 
-
-  // DOM으로 들어간걸 render함수로 붙여줌 
-
-  ul.prepend(convertToDiscussion(list));
-})
-
