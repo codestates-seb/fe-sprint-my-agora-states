@@ -1,5 +1,9 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+if (localStorage.length === 0) {
+  localStorage.setItem('dataSet', JSON.stringify(agoraStatesDiscussions));
+}
+const dataSet = JSON.parse(localStorage.getItem('dataSet'));  
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -51,7 +55,7 @@ const convertToDiscussion = (obj) => {
 const moveBtn = document.querySelectorAll(".move__btn");
 const pagesBtn = document.querySelector("#pages__btn");
 
-let totalContLength = agoraStatesDiscussions.length;
+let totalContLength = dataSet.length;
 let totalPageLength = Math.ceil(totalContLength / 10);
 let currentPage = 0;
 let currentPageContNumb = 10;
@@ -116,7 +120,7 @@ moveBtn.forEach((btn) => {
     }
     // 마지막 페이지에서의 콘텐츠 수에 대한 예회처리
     if (currentPage === totalPageLength-1) {
-      currentPageContNumb = agoraStatesDiscussions.length % 10;
+      currentPageContNumb = dataSet.length % 10;
     } else {
       currentPageContNumb = 10;
     }
@@ -133,7 +137,7 @@ moveBtn.forEach((btn) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수
 const render = (element) => {  
   for (let i = 0; i < currentPageContNumb; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i + currentPage*10]));
+    element.append(convertToDiscussion(dataSet[i + currentPage*10]));
   }
   return;
 };
@@ -167,7 +171,14 @@ formSubmit.addEventListener("submit", (e) => {
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   }
   // 새롭게 만들어진 객체를 데이터셋에 추가
-  agoraStatesDiscussions.unshift(newObj);
+  if (typeof(Storage) !== "undefined") {
+    dataSet.unshift(newObj);
+    localStorage.setItem('dataSet', JSON.stringify(dataSet));
+  } else {
+    agoraStatesDiscussions.unshift(newObj);
+    localStorage.setItem('dataSet', JSON.stringify(agoraStatesDiscussions));
+  }
+
   // append는 맨 뒤에 추가하는 반면, prepend는 맨 앞에 추가
   ul.prepend(convertToDiscussion(newObj));
   // 질문 제출시 form 초기화
