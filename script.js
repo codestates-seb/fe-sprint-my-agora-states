@@ -109,8 +109,8 @@ containerForm.onsubmit = (event) => {
   const copyObj = Object.assign({}, randomObj);
   copyObj.author = this.id.value;
   copyObj.title = this.title.value;
-  copyObj.createdAt = new Date().toUTCString;
-  copyObj.answer = Math.random > 0.5 ? null : copyObj.answer;
+  copyObj.createdAt = new Date();
+  copyObj.answer = Math.random() > 0.5 ? null : copyObj.answer;
 
   agoraStatesDiscussions.unshift(copyObj);
 
