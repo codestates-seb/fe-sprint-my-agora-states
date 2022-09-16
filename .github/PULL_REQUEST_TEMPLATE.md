@@ -6,7 +6,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 ## 배포 링크
 
-Github Page 배포 링크를 아래 작성합니다.
+https://junpotatoes.github.io/fe-sprint-my-agora-states/
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -60,11 +60,11 @@ Github Page 배포 링크를 아래 작성합니다.
 
 ### 가장 자랑하고 싶은 기능
 
-> 적어주세요
+> 기능은 아니지만 아스날 리그 1위입니다
 
 ### 구현하고 싶었는데 하지 못한 아쉬운 기능
 
-> 적어주세요
+> 페이지네이션과 로컬스토리지를 구현하지 못하여 아쉽습니다.
 
 ### 도움을 받고 싶은 부분
 

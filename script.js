@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -102,7 +102,6 @@ const addText = document.querySelector('form > .textarea') // textarea 정보를
 const submitBtn = document.querySelector('.submitBtn')
 const clearBtn = document.querySelector('.clearBtn')
 
-console.log(clearBtn)
 
 
 submitBtn.addEventListener('click', addList)
@@ -127,7 +126,7 @@ function addList(event) {
         avatarUrl: `https://placeimg.com/64/64/people/${Math.random()}`,
       }
     agoraStatesDiscussions.unshift(submitDiscussions); 
-    console.log(agoraStatesDiscussions)
+    
     ul.prepend(convertToDiscussion(submitDiscussions))
   }
 
