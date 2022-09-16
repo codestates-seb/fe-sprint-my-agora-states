@@ -1,1 +1,112 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F0EBE3;
+}
+
+.ul{
+    list-style: none; 
+    /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다 */
+ }
+
+ .discussion__wrapper{
+    margin : 10px
+ } 
+
+ .discussion__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 540px;
+    border: 2px solid rgb(208, 208, 208);
+    border-radius: 10px;
+    background-color: #efe5d2;
+    margin: 10px;
+    padding: 10px;
+ }
+
+.discussion__content {
+    flex-grow : 1;
+    display: flex;
+    flex-direction: column; 
+    /* 세로정렬해주고 */
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.discussion__title{
+   font-size: 15px;
+}
+
+ .discussion__avatar--image{
+    border-radius: 50%;
+    width: 48px;
+    /* 아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요.
+        아바타 사진의 너비를 48px로 설정하세요. */
+  }  
+
+ .discussion__information{
+    text-align: right;
+    /* 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다. */
+ }
+
+  /* 체크박스 */
+ .discussion__answered{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    font-size: 30px;
+ }
+
+
+
+ /* 폼 디자인 */
+
+.form__container{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 10px;
+   margin: 10px;
+   font-family: 'Open Sans', sans-serif;
+}
+
+.form__input--wrapper > * {
+   display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 12px;
+   font-size: 20px;   
+}
+
+h1 {
+   text-align: center;
+   margin: 30px;
+   color : #678382; 
+   font-family: 'Kanit', sans-serif;
+   font-size: 38px;
+}
+
+/* 제출부분 */
+.form__submit input {
+   width: 300px;
+   height : 40px;
+   margin: 10px 15px;
+   font-size: 20px;
+   background-color: #d7c6b9;
+   border-radius: 10px;
+   border: 1px solid #7c7c7c;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: bold;
+}
+
