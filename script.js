@@ -41,13 +41,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInformation);
   // 답변여부 > 답변? V 표시 : X 표시
   const discussionAnsweredMark = document.createElement("p")
-  discussionAnsweredMark.textContent = (() => {
-    if(obj.answer) {
-      return '✅'
-    } else {
-      return '❌'
-    }
-  })();
+  discussionAnsweredMark.textContent = obj.answer ? '✅' : '❌';
   discussionAnswered.append(discussionAnsweredMark);
 
 
