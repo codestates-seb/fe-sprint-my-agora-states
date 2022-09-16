@@ -28,6 +28,7 @@ main {
 /* 아바타 컴포넌트 스타일 구현 */
 .discussion__avatar--wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -40,12 +41,9 @@ main {
 .discussion__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   flex-grow: 1;
-}
-
-.discussion__title {
-  text-align: start;
+  padding: 10px;
 }
 
 .discussion__information {
