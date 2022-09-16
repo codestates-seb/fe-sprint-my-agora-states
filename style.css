@@ -1,1 +1,145 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.box-row{
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    align-items: center;
+}
+
+h1{
+    font-size: 50px;
+    color: #3D3C42;
+    margin-top: 15px;
+}
+
+section{
+    margin-top: 10px;
+}
+
+.discussion__container{
+    flex: 1;
+    width: 540px;
+    height: 110px;
+    justify-content: space-between;
+    border-bottom: solid 1px gray;
+}
+
+.discussion__content {
+    flex-grow: 1;
+    justify-content: space-evenly;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.discussion__avatar--wrapper{
+    justify-content: center;
+    padding: 5px;
+}
+
+.discussion__avatar--image{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.discussion__title{
+    font-size: 17px;
+}
+
+.discussion__title > a {
+    text-decoration: none;
+    color: #3D3C42;
+}
+
+.discussion__title > a:hover {
+    text-decoration: none;
+    color: #495C83;
+}
+
+.discussion__information{
+    font-size: 13px;
+    text-align: right;
+    color: #3D3C42;
+}
+
+.discussion__answered{
+    justify-content: center;
+    font-size: 30px;
+    padding: 0px 10px 0px 10px;
+}
+
+
+.discussion__answered > i{
+    color: #495C83;
+}
+
+.form{
+    width: 500px;
+    margin: 10px 0px 10px 0px;
+}
+
+.form__input--wrapper{
+    flex: 3;
+}
+
+.form__input--wrapper > div{
+    justify-content: space-between;
+}
+
+.form__submit{
+    flex: 1;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.form__submit > input{
+    flex-basis: 100%;
+    text-align: center;
+    background-color: white;
+    border: solid 2px #495C83;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #495C83;
+    cursor: pointer;
+}
+
+.form__submit > input:hover{
+    background-color: #495C83;
+    color: white;
+}
+
+.form__submit > input:active{
+    background-color: #303e59;
+    border: solid 2px #303e59;
+}
+
+.form__input--name, .form__input--title{
+    margin-bottom: 3px;
+}
+
+.form__input--wrapper > div > input, textarea{
+    border: solid 1px lightgray;
+    color: #3D3C42;
+}
+
+.form__input--wrapper > div > label{    
+    flex: 2;
+}
+
+.form__input--wrapper > div > input{
+    flex: 3;
+}
