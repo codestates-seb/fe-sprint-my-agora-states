@@ -85,6 +85,7 @@ input[type='text'],
 textarea {
     min-height: 30px;
     padding: 5px;
+    font-family: 'Jua', sans-serif;
 }
 
 .form {
@@ -109,6 +110,7 @@ input[type='submit'] {
     height: 90%;
     background-color: #cbf1f5;
     border-radius: 10px;
+    font-family: 'Jua', sans-serif;
 }
 
 #name {
