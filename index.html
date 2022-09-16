@@ -10,6 +10,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    body{
+      background-image: url(data:image/png;base64,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);
+      background-repeat: no-repeat;
+      background: size 60px;
+      background-position-x: 10%;
+      background-position-y: 20%;
+      background-attachment: fixed;
+    } 
+  </style>
 </head>
 
 <body>
@@ -19,20 +29,20 @@
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label class = 'bold' for="name">이름을 입력해주세요: </label>
+            <input type="text" name="name" id="name" required />
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label class = 'bold' for="name">제목을 입력해주세요: </label>
+            <input type="text" name="name" id="name" required />
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label class = 'bold' for="story">질문을 입력해주세요 </label>
+            <textarea id="story" name="story" placeholder="500글자 이내로 작성해주세요." required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input id="sub" type="submit" value="submit" />
         </div>
       </form>
     </section>
@@ -40,15 +50,20 @@
       <ul class="discussions__container">
         <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
+            <img
+              class="discussion__avatar--image"
               src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
+              alt="avatar of kimploo"
+            />
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <h2 class="discussion__title">
+              <a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a>
+            </h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>◻︎</p></div>
+          <!-- <button class="discussion__answer__button">답변 보기</button> -->
         </li>
       </ul>
     </section>
@@ -56,5 +71,4 @@
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
-
 </html>
