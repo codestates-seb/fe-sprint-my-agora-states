@@ -15,8 +15,6 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement("h2");
   discussionTitle.className = "discussion__title";
   const discussionTitleUrl = document.createElement("a");
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
 
@@ -40,7 +38,17 @@ const convertToDiscussion = (obj) => {
   // 체크표시
   // 살짝 응용하면 아이콘 넣을 수 있을 듯
   // fontawesome에서 아이콘 불러오기
-  discussionAnswered.textContent = obj.answer ? "☑️" : "✖️";
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+  const checkIcon = document.createElement("i");
+  checkIcon.className = "fa-circle-check";
+  // 클래스네임 추가하는 방법
+  checkIcon.classList.add("fa-regular");
+  // 조건문으로 답변 여부 확인 후 fa-regular -> fa-solid 결정
+  if (obj.answer) {
+    checkIcon.classList.replace("fa-regular", "fa-solid");
+  }
+  discussionAnswered.append(checkIcon);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -79,8 +87,7 @@ questionForm.addEventListener("submit", (event) => {
     author: inputName.value,
     bodyHTML:
       '<p dir="auto">블로그에 그날 배운 내용을 정리할 때 UrClass 에 있는 이미지를 인용해도 괜찮을까요 ??<br>\n저작권 문제가 있을 수 있어서 여쭤봅니다 !</p>',
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/95295766?s=64&u=85d493e0be0d2ca55965efd9f6c5b268c9dca168&v=4",
+    avatarUrl: "https://avatars.githubusercontent.com/u/79880249?s=64&v=4",
   };
 
   agoraStatesDiscussions.unshift(newObj);
