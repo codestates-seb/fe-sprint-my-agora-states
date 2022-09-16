@@ -1,1 +1,179 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  display: flex;
+  margin: 20px;
+  border: 2px solid #76BA99;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px;
+  padding: 10px;
+  color: #346751;
+}
+
+.form__container{
+  background-color: #76BA99;
+  border: 1px solid #76BA99;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px;
+}
+
+main {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.form{
+  display: flex;
+  flex-direction: row;
+  width: 540px;
+}
+
+.form__input--wrapper{
+  display:flex;
+  flex-direction: column;
+  flex-grow: 3;
+  margin: 10px 5px;
+}
+
+.form__input--name{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.form__input--title{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.form__textbox{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+label {
+  flex-grow:1;
+  color: #FDFAF6;
+}
+
+label.questionType{
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+}
+
+input {
+  padding: 6px;
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #FFF5E4;
+}
+
+textarea {
+  padding: 6px;
+  flex-grow:2;
+  border-radius: 5px;
+  border: 1px solid #FFF5E4;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+input.submitButton {
+  height: 90px;
+  width: 75px;
+  background-color: #E8EAE6;
+  font-size: 17px;
+  color: #3B5249;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  line-style-type: none;
+  flex:1;
+  margin: 15px;
+  width: 540px;
+  height: 100px;
+  border: 1px solid #76BA99;
+  border-radius: 15px;
+  box-shadow: 2px 3px 5px 0px;
+}
+
+.discussion__content {
+  flex-grow: 1;
+  display:flex;
+  flex-direction:column;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.discussion__avatar--wrapper {
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin-left: 10px;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  box-shadow: 2px 2px 5px #000;
+}
+
+.discussion__title {
+  margin-top: 8px;
+  flex: 2;
+  padding-bottom: 5px;
+  padding-top:10px
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.discussion__information {
+  flex: 1;
+  text-align: end;
+  font-size: 1rem;
+}
+
+.discussion__answered, .discussion__unanswered {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.discussion__answered > p {
+  font-size: 35px;
+  color: #00cc99;
+}
+
+.discussion__unanswered > p {
+  font-size: 35px;
+  color: #e68927;
+}
