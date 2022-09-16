@@ -1,13 +1,26 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
+/* layout */
+body {background-color: #303339;} 
+main { margin: 32px; padding: 32px; box-sizing: border-box; background-color: #FFF; border-radius: 16px; border: .5px solid #B6BACE; box-shadow: 0px 1px 5px rgba(18, 32, 61, 0.2); }
 
 /* component */
-body li { text-decoration: none; }
-.discussions__container { background-color: rgb(116, 145, 113); width: 540px; } 
-.discussion__container { background-color: rgb(214, 214, 214) ; display: flex; align-items: center; box-sizing: border-box;}
-.discussion__avatar--wrapper { background-color: blanchedalmond; }
-.discussion__avatar--image { background-color: rgb(103, 68, 15); width: 48px; }
-.discussion__content { background-color: rgb(207, 146, 146);}
-.discussion__title { background-color: rgb(255, 255, 255);}
-.discussion__information { background-color: rgb(255, 255, 255);}
-.discussion__answered { background-color: rgb(248, 205, 205);}
+main h1 {margin: 16px 0; text-align: center; }
+.form__container form { display: flex; align-items: flex-end; justify-content:space-between; }
+.form__container, .discussion__wrapper { padding: 16px; background-color: #f1f4f6; border: 1px solid #828c9b; border-radius: 12px; }
+.form__input--wrapper { width: 84% ;}
+.form__submit input { background-color: #FFF;  border: 1px solid #B6BACE;  display: flex;  align-content: center; justify-content: center;width: 84px; height: 84px; border-radius: 8px; font-size: 16px; color: #393D45; font-weight: 300; cursor: pointer; }
+.form__submit input:hover { background-color: #157AFF; color: #FFF; font-weight: 500; border: none; }
+.form__input--wrapper > div:not(:last-child) { margin-bottom: 8px; }
+.form__textbox { display: flex; flex-direction: column; }
+.form__textbox textarea { width: 100%; height: 84px; }
+.discussion__container { background-color: #FFF;  }
+
+.discussions__container { width: 100%; } 
+.discussion__container {  margin: 16px 0; padding: 8px; display: flex; align-items: center; box-sizing: border-box; border-radius: 8px; justify-content: space-between; }
+.discussion__avatar--wrapper { margin-right: 8px; width: 48px; height: 48px; overflow: hidden; border-radius: 50%; background-color: #24db9c; display: flex; justify-content: center; align-items: center; }
+.discussion__container > img { width: 48px; height: 48px;  }
+.discussion__content { display: flex; flex-grow: 1; flex-direction: column; justify-content: space-around ; }
+.discussion__title { margin-bottom: 8px; }
+.discussion__information { text-align: right; }
+.discussion__answered { margin-left: 8px; display: flex; justify-content: center; align-items: center; font-size: large; }
