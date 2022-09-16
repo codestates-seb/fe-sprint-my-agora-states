@@ -54,6 +54,37 @@ const render = (element) => {
     return;
 };
 
+// 디스커션 추가 기능
+// submit 버튼에 이벤트 리스너 추가
+const submitBtn = document.querySelector('.form__submit > input');
+submitBtn.addEventListener('click', (event) => {
+    // 새로고침 방지
+    event.preventDefault();
+
+    const newAuthor = document.querySelector('#name');
+    const newTitle = document.querySelector('#title');
+    const newStory = document.querySelector('#story');
+    // 새 객체 생성
+    const newDiscussion = {
+        id: 'unique value',
+        createdAt: new Date(),
+        title: newTitle.value,
+        url: 'https://github.com/codestates-seb/agora-states-fe/discussions/45',
+        author: newAuthor.value,
+        answer: null,
+        bodyHTML: newStory.value,
+        avatarUrl: 'https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4',
+    };
+
+    agoraStatesDiscussions.unshift(newDiscussion);
+    console.log(agoraStatesDiscussions);
+    ul.prepend(convertToDiscussion(newDiscussion));
+    // 초기화
+    newAuthor.value = '';
+    newTitle.value = '';
+    newStory.value = '';
+});
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
