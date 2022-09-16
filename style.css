@@ -103,6 +103,8 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
+  text-decoration: none;
+  color: white;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
