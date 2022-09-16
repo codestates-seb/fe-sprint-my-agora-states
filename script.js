@@ -89,10 +89,13 @@ function discussionPlus(event) {
     for(let i = 0 ; i < listAll.length; i++){
       listAll[i].remove()
     }
+    addName.value = ""
+    addTitle.value = ""
+    addQuestion.value = ""
     
     agoraStatesDiscussions.unshift(informationOfObj)
-    ul.prepend(convertToDiscussion(informationOfObj))
     render(ul)
+    ul.append(convertToDiscussion(informationOfObj))
   console.log(agoraStatesDiscussions)
 
 }
