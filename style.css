@@ -1,1 +1,157 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --main-border-radius: 15px;
+  --main-box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.4);
+  --main-color-white: white;
+  --main-color-purple-100: #ebc7e8;
+  --main-color-purple-300: #bface0;
+  --main-color-purple-600: #a084ca;
+  --main-color-purple-900: #645caa;
+  --main-color-pink-100: #fff2f2;
+  --main-color-pink-300: #fad4d4;
+  --main-color-pink-600: #ef9f9f;
+  --main-color-pink-900: #f47c7c;
+}
+
+/********** 공통 설정 **********/
+main {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(#a084ca, #ebc7e8);
+}
+
+/********** title **********/
+.main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 30px 0;
+  color: var(--main-color-white);
+}
+
+/********** form 전체 설정 **********/
+.form__container {
+  width: 500px;
+  padding: 15px;
+  margin-bottom: 30px;
+
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--main-box-shadow);
+  background-color: var(--main-color-white);
+}
+.form {
+  height: 150px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form__input--wrapper > div {
+  width: 380px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form__input--wrapper > div > label {
+  font-size: 1rem;
+  font-weight: 400;
+}
+/* input box 설정 */
+#name,
+#title,
+#story {
+  width: 300px;
+}
+#story {
+  height: 73px;
+  resize: none;
+}
+/* submit 제출 */
+.form__submit > input {
+  width: 70px;
+  height: 150px;
+
+  border: none;
+  border-radius: var(--main-border-radius);
+  background-color: var(--main-color-purple-600);
+  color: var(--main-color-white);
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.form__submit > input:hover {
+  background-color: var(--main-color-purple-300);
+}
+
+/********** discussion 전체 설정 **********/
+.discussion__wrapper {
+  margin-bottom: 30px;
+}
+.discussion__container {
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 15px;
+  box-shadow: var(--main-box-shadow);
+  background-color: var(--main-color-white);
+
+  transition: transform 0.3s ease-in-out;
+}
+.discussion__container:hover {
+  transform: scale(1.1);
+}
+/***** discussion 내부 설정 *****/
+/* 왼쪽 설정 */
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.discussion__avatar--image {
+  width: 50px;
+  border-radius: 50%;
+}
+/* 중간 설정 */
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+.discussion__title {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.discussion__information {
+  text-align: right;
+  font-size: 0.75rem;
+}
+/* 오른쪽 설정 */
+.discussion__answered {
+  margin-left: 10px;
+  font-size: x-large;
+}
+
+/********** page-btns  **********/
+.page {
+  width: 300px;
+  height: 30px;
+  margin-bottom: 30px;
+  background-color: #645caa;
+}
