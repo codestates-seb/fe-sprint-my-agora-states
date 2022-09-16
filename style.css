@@ -1,1 +1,332 @@
+/*font*/
+/*  font-family: 'Montserrat', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Montserrat:ital,wght@0,200;1,200&family=Poppins:wght@400;700&family=Varela+Round&display=swap');
+/*Shadows into light*/
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+@font-face {
+  font-family: 'IBMPlexSansKR-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBMPlexSansKR-Regular';
+}
+
+/*전체 항목 중앙 정렬 */
+main {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  z-index: 3;
+  position: relative;
+  margin: 3rem 0 0 0;
+
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2rem;
+  font-size: 5em;
+}
+
+.container {
+  z-index: 3;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rem;
+}
+
+.form__container {
+  padding: 1rem;
+  margin: 1rem 5rem 0 0;
+}
+
+.form {
+  height: 70vh;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.form__input--wrapper {
+  height: 50vh;
+  /* flex-grow: 2; */
+}
+
+.form__submit {
+  text-align: center;
+  /* flex-grow: 1; */
+}
+
+.form__input--name {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+}
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+}
+
+label {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0.5rem 0.4rem;
+}
+
+#username,
+#title,
+#submit,
+#story {
+  font-family: 'IBMPlexSansKR-Regular';
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  margin: 1rem 0;
+  padding: 1.5rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: none;
+  border: var(--clr-neon) 3px solid;
+  background-color: transparent;
+  border-radius: 0.25em;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  transition: all 0.5s;
+}
+
+/*클릭 시 검은 박스 삭제*/
+#username,
+#title,
+#submit,
+#story:focus {
+  outline: 0;
+}
+
+#title {
+  height: 5rem;
+}
+
+#story {
+  height: 10rem;
+}
+
+#story::placeholder {
+  color: aliceblue;
+}
+
+:root {
+  --clr-neon: hsl(317 100% 54%);
+  --clr-bg: hsl(323 21% 16%);
+}
+
+#submit {
+  width: 60%;
+  height: 4rem;
+  font-size: 2rem;
+  padding: 0.1rem;
+  background-color: aliceblue;
+}
+
+.neons {
+  font-size: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 3px solid;
+  background-color: transparent;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  transition: all 0.5s;
+}
+
+/*마우스를 올렸을 때 효과*/
+.neons:hover {
+  box-shadow: inset 0 0 0.5em 0 #9335ff, 0 0 0.5em 0 #9335ff;
+  background-color: var(--clr-neon);
+  color: #9335ff;
+}
+
+/*마우스 클릭 시 효과*/
+#submit:active {
+  width: 50%;
+  height: 3.2rem;
+  font-size: 1.8rem;
+}
+/*컨테이너에 마우스 올렸을 때 이동*/
+#username:hover,
+#title:hover,
+#story:hover {
+  opacity: 0.8;
+  background-color: aliceblue;
+  transition: all 1.2s;
+}
+
+#username:focus,
+#title:focus,
+#story:focus {
+  opacity: 0.8;
+  background-color: aliceblue;
+  transition: all 1.2s;
+}
+
+/*아바타 사진 둥글게 표현
+너비 48px
+discussion 컴포넌트 중앙 정렬*/
+
+.discussion__container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  background-color: aliceblue;
+  opacity: 0.8;
+}
+
+.discussion__container:hover {
+  box-shadow: inset 0 0 1.5em 0 #fff, 0 0 2em 0 #fff;
+  transition: all 0.7s;
+  margin: 0 1rem 0;
+}
+.discussion__avatar--image {
+  clip-path: circle();
+  width: 48px;
+}
+
+.discussion__title {
+  text-align: center;
+}
+.discussion__information {
+  font-size: 1.4rem;
+  text-align: center;
+}
+/*li에서 점 없애기*/
+ul {
+  list-style: none;
+}
+
+/*discusstion 컴포넌트 폭 조절*/
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 540px;
+}
+
+/*중간 discussion 제목,저자,생성일 간 간격 주기
+  저자, 생성일을 오른쪽 정렬*/
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/*체크표시 중앙정렬*/
+.discussion__answered {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/*배경 Freepik*/
+.bg {
+  background-image: url('../fe-sprint-my-agora-states/img/background.jpg');
+  background-size: cover;
+  background-attachment: fixed; /*background 고정*/
+  height: 100vh;
+  width: 100%;
+  /*background 뒤로 보내기*/
+  z-index: 1;
+  position: fixed;
+}
+
+/*네온*/
+.neonText {
+  color: whitesmoke;
+  text-shadow: 0 0 7px #fff, 0 0 10px #9335ff, 0 0 21px rgb(8, 1, 1),
+    0 0 42px #9335ff, 0 0 82px #cc00ff, 0 0 92px #cc00ff, 0 0 102px;
+}
+
+/* .neonborder {
+  border: var(--clr-neon) 3px solid;
+  background-color: transparent;
+  border-radius: 0.25em;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  transition: all 0.5s;
+} */
+
+/*blink effect*/
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink-effect 4s ease-in-out infinite;
+}
+
+/* p {
+  font-size: 1.5rem;
+} */
+
+/* media query */
+@media screen and (max-height: 1100px) {
+  /*1100보다 작아질 때*/
+  #username,
+  #title {
+    height: 1rem;
+  }
+  #story {
+    height: 7rem;
+  }
+}
+@media screen and (max-height: 960px) {
+  .container {
+    flex-direction: column;
+  }
+  .form__submit {
+    padding: 5rem;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .form__submit {
+    padding: 7rem 0;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
