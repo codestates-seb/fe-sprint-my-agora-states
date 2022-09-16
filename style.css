@@ -1,5 +1,4 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -93,4 +92,22 @@ a:hover {
 .discussion__answered {
   margin-left: auto;
   font-size: xx-large;
+}
+
+/*SCROLL TO TOP*/
+#to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9;
+  width: 42px;
+  height: 42px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

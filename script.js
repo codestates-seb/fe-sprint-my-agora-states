@@ -112,3 +112,37 @@ function getClock() {
 getClock();
 // 코드 조각이나 함수를 1000ms로 계속 실행시키게 만드는
 setInterval(getClock, 1000);
+
+/**
+ * 페이지 스크롤에 따른 요소 제어
+ */
+// 페이지 스크롤에 영향을 받는 요소들을 검색!
+
+const toTopEl = document.querySelector("#to-top");
+// window: 윈도우 객체, 윈도우 창을 뜻함, 우리가 보는 화면 자체
+window.addEventListener(
+  "scroll",
+  _.throttle(function () {
+    // lodash 라이브러리를 통해 등록 후 여기서 사용
+    console.log(window.scrollY);
+    if (window.scrollY > 500) {
+      // 상단으로 스크롤 버튼 보이기!
+      gsap.to(toTopEl, 0.2, {
+        x: 0,
+      });
+    } else {
+      // 상단으로 스크롤 버튼 숨기기!
+      gsap.to(toTopEl, 0.2, {
+        x: 100,
+      });
+    }
+  }, 300)
+); // 300 ms라는 뜻, 스크롤을 굴려도 0.3초마다 실행되게!
+// _.throttle(함수() {}, 시간)
+// 상단으로 스크롤 버튼을 클릭하면,
+toTopEl.addEventListener("click", function () {
+  // 페이지 위치를 최상단으로 부드럽게(0.7초 동안) 이동.
+  gsap.to(window, 0.7, {
+    scrollTo: 0, // 회면의 위치를 0으로
+  });
+});
