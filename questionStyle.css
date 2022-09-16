@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userImgBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userImgSmallBox{
+    display: flex;
+    flex-direction: row;
+}
+
+.userImgSmallBox > div{
+    margin: 5px;
+}
+.check{
+    background-color: rgb(120,250,10);
+}
+.form__submit{
+    display: flex;
+    justify-content: right;
+}

@@ -1,1 +1,149 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 75px;
+    padding: 1rem;
+    color: white;
+    background: darkgrey;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+header > *{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+#helpButton {
+    border-style: none;
+}
+
+main {
+    margin: 100px 0px 100px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    /* TODO: <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. ✅ */
+    list-style: none;
+}
+
+.discussions__container {
+    /* TODO: Discussion 컴포넌트 전체의 폭을 540px로 만드세요. ✅*/
+    width: 600px;
+}
+
+.discussion__avatar--wrapper {
+    /*TODO: 아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.✅*/
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper > img {
+    /*TODO: 아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요.✅*/
+    /*TODO: 아바타 사진의 너비를 48px로 설정하세요.✅*/
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content > * {
+    /* TODO: Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다.*/
+    margin: 5px;
+}
+
+.discussion__container {
+    /* TODO: 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다.*/
+    display: flex;
+}
+
+.discussion__content {
+    flex-grow: 1;
+}
+
+.discussion__answered {
+    /* TODO: 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.*/
+    display: flex;
+    align-items: center;
+}
+
+.discussion__title {
+    /*질문 타이틀*/
+    font-size: 15px;
+    display: flex;
+}
+
+.discussion__information {
+    /*질문 시간*/
+    font-size: 10px;
+    display: flex;
+    justify-content: right;
+}
+
+/* *****************answer***************** */
+.answer__container {
+    width: 600px;
+}
+
+.answer__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+
+.answer__content > * {
+    margin: 5px;
+}
+
+.answer__container {
+    display: flex;
+}
+
+.answer__content {
+    flex-grow: 1;
+}
+
+.answer__answered {
+    display: flex;
+    align-items: center;
+    margin: 0px 15px 0px 15px;
+}
+
+.answer__title {
+    font-size: 10px;
+}
+
+.answer__information {
+    font-size: 10px;
+    display: flex;
+    justify-content: right;
+}
+
+.nullAnswer {
+    color: #5e85e8;
+    font-size: 15px;
+    margin: 0px 15px 0px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.answer__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 30px;
+}
+
+#pageBox > span {
+    margin: 15px;
+}
