@@ -16,7 +16,7 @@ const convertToDiscussion = (obj) => {
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
    // 1. 프로필 사진 넣기 (이미지)
  const avatarImg = document.createElement('img');  
- avatarImg.className = "discussion__avatar--image";    // 안넣으면 사진 깨지는게 생김....왜지????
+ avatarImg.className = "discussion__avatar--image";    // 안넣으면 사진 깨지는게 생김
  avatarImg.src = obj.avatarUrl;  // 이미지 사진의 url
  avatarImg.alt = 'avatar of ' + obj.author;  // "avatar of kimploo" 이런식으로 나오게끔 (이미지깨질때 설명나오게해줌)
  avatarWrapper.append(avatarImg);
