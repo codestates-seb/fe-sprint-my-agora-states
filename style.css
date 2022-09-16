@@ -1,1 +1,132 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    /* 모든 요소에 border-box 적용 */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+}
+body {
+    background-color: #92B4EC;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div {
+    display: flex;
+    padding: 0.5rem;
+}
+
+/* form 영역 */
+/* form - 제목*/
+h1 {
+    margin: 10px;
+    justify-content: center;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+/* form - 입력란 관련 */
+.form {
+    display: flex;
+    margin: 10px;
+    background-color: #FFE69A;
+    box-shadow: 3px 3px gray;
+    border-radius: 10px;
+}
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+    
+}
+div[class^='form']{
+    flex-direction: column;
+    align-items: flex-start;
+}
+label {
+    color: rgb(63, 63, 63);
+}
+input, textarea {
+    width: 300px;
+    padding: 0.4rem;
+    border: 0;
+    border-radius: 20px;
+    background-color: #f1f3f6;
+    box-shadow: 3px 3px #FFD24C;
+ 
+}
+/* form - 제출 버튼 관련 */
+.form__submit {
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+input[type='submit'] {
+    background-color: #bec5d1;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 3px 3px gray;
+    width: 100px;
+    height: 200px;
+    font-size: large;
+    color: rgb(63, 63, 63);
+}
+
+/* discussion 영역 */
+ul {
+    display: flex;
+    flex-direction: column;
+}
+li {
+    margin: 10px;
+    /* 점 보이지 않게 수정  */
+    /* 폭 540px로 수정 */
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    list-style: none;
+    width: 540px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 3px 3px gray;
+}
+
+/* discussion - avatar 관련 */
+.discussion__avatar--image {
+    /* 아바타 사진 원 모양으로 표현 */
+    /* 아바타 사진 중간 정렬 */
+    /* 아바타 사진 너비 48px로 수정 */
+    align-items: center;
+    box-shadow: 2px 2px rgb(56, 56, 56);
+    width: 48px;
+    height: 48px;
+    border: 2px solid gray;
+    border-radius: 50%;
+}
+/* discussion - content 관련 */
+.discussion__content {
+    
+    flex-direction: column;
+    width: 450px;
+}
+
+.discussion__title {
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.discussion__information {
+    font-size: 14px;
+    align-items: flex-end;
+    justify-content: right;
+}
+
+/* discussion - answer 관련 */
+.discussion__answered {
+    /* 체크 표시 높이의 중간 정렬 */
+    align-items: center;
+}
