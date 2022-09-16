@@ -1,1 +1,368 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: twayair;
+    white-space: normal;
+    
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    
+    background-color: rgb(218 150 77);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+
+    
+}
+
+.bg_div {
+    z-index: -1;
+    position: absolute;
+    left: 0px;
+    height: 100vh;
+}
+.bg_div .bg_in{
+    height: 100vh;
+    width: 50vw;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 200px;
+    
+    
+}
+
+
+.discussions__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid rgb(167 185 220) ;
+    opacity: 80%;
+    transition: 1s;
+
+}
+.discussions__container:hover {
+    opacity: 100%;
+    
+}   
+.discussion__container {
+
+    display: flex;
+    width:  540px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.discussion__container:hover{
+
+    width: 560px;
+    
+}
+
+.discussion__avatar--wrapper{
+    
+    margin: 1px;
+    border-radius: 70%;
+    height: 48px;
+    width: 48px;
+    overflow: hidden;
+    border: #1890ff solid 1px;
+}
+
+.discussion__avatar--wrapper .discussion__avatar--image{
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+.discussion__container > .discussion__content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 460px;
+    display: block;
+    
+    
+}
+h2 {
+
+    display: inline-block;
+    width: 460px;
+    padding: 0 10px;
+    
+} 
+
+
+.discussion__title a{
+    margin-top: 18.5px; /*사진이 48px 컨테이너높이 69px 사진 상하마진 10.5px a태그도 10.5마진주면 같은라인 글자높이가32px (48-32)/2 위에 8px 마진추가 */
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    white-space: wrap;
+    text-decoration: none;
+    
+    
+    
+    
+    
+}
+.discussion__information {
+    text-align: right;
+    padding: 0 10px;
+    font-size: 7.5px;
+    
+}
+.discussin__avatar--image{
+    width: 48px;
+    height: 48px;
+}
+.discussion__answered {
+    width: 30px;
+    text-align: center; /*실제 체크박스로 대체될것임*/
+    
+}
+.li_discussion__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    
+}
+
+
+.form__input--wrapper {
+    background-color: white;
+    position: absolute;
+    right: 100px;
+    top: 200px;
+    width: 350px;
+    padding: 0;
+    height: 300px;
+    display: flex;
+    align-items: top;
+    text-align: center;
+    padding: 1px;
+    display: flex;
+    border-radius: 30px;
+    border: 2px solid rgb(167 185 220) ;
+
+}
+.form__input--wrapper p {
+    margin-top: 15px;
+    display: block;
+    height: 25px;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: left;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+}
+.form__input--title{
+    padding: 1px;
+    display: flex;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    
+}
+.title_text {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 0;
+    
+    
+}
+
+.nameForm{
+    width: 100px;
+    height: 30px;
+    
+}
+.titleForm{
+    width: 200px;
+    height: 30px;
+
+}
+.storyForm{
+    
+    width: 200px;
+    height: 150px;
+    padding: 0;
+    border: 1;
+    margin: 1px;
+    margin-top: 0px;
+}
+
+.form__textbox{
+margin-top: 10px;
+display: flex;
+justify-content: left;
+
+}
+
+.form__submit{
+    margin-top: 70px;
+    text-align: center;
+    margin-right: 5px;
+    
+}
+.submit__button{
+    
+    appearance: auto;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    border: solid 2px;
+    cursor: default;
+    background-color: white;
+    padding: 15px 30px;
+    color: black;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s;
+    width: 120px;
+    height: 120px;
+    
+}
+.submit__button:focus {
+
+    outline: none;
+}
+
+.submit__button:hover {
+    background-color: black;
+    color: white;
+
+
+}
+.check_image {
+    
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+
+}
+
+.logo {
+    position: absolute;
+    top: 5vh;
+    right: -40px;
+    width: 700px;
+    height: 120px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 4.5rem;
+    text-decoration-line: underline;
+    
+    text-underline-offset: 10px;
+    text-decoration-thickness: 4px;
+    text-align: center;
+}
+
+.pagination {
+    position: absolute;
+    top: 520px;
+    right: 50px;
+    width: 400px;
+    height: 150px;
+    display: flex;
+    justify-content: left;
+    align-items: stretch;
+    
+
+}
+
+.pagination .pageNum {
+
+    display: flex;
+    justify-content: space-around;
+    
+}
+.pageNum li {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    text-align: center;
+    border: black 1px solid;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+}
+.pageNum li:hover{
+
+    background-color: red;
+    color: white;
+    height: 50px;
+    width: 50px;
+}
+
+.hide {
+    background-color: rgb(196, 181, 204);
+
+
+}
