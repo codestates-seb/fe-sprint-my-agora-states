@@ -32,7 +32,7 @@ const convertToDiscussion = (obj) => {
   titleLink.textContent = obj.title;
   title.append(titleLink);
   information.className = "discussion__information";
-  information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR')}`;
+  information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
 
   discussionContent.append(title);
   discussionContent.append(information);
@@ -45,7 +45,7 @@ const convertToDiscussion = (obj) => {
     answeredCheck.textContent = '☑︎';
   } else {
     answeredCheck.textContent = '☒';
-  }  
+  }
 
   answered.className = "discussion__answered";
   answered.append(answeredCheck);
@@ -67,4 +67,34 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// 입력 폼 기능 구현
+const form = document.querySelector(".form__container > form");
+const inputName = form.querySelector(".form__input--name > input");
+const inputTitle = form.querySelector(".form__input--title > input");
+const textarea = form.querySelector(".form__textbox > textarea");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  let data = {
+    id: "number",
+    createdAt: new Date(),
+    title: inputTitle.value,
+    url: "https://avatars.githubusercontent.com/u/106383277?v=4",
+    author: inputName.value,
+    answer: null,
+    bodyHTML: null,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/106383277?v=4",
+  }
+
+  agoraStatesDiscussions.unshift(data);
+
+  inputName.value = '';
+  inputTitle.value = '';
+  textarea.value = '';
+
+  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+})
 
