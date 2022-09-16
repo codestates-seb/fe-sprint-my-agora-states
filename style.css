@@ -1,1 +1,157 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    font-family: 'Jua', sans-serif;
+}
+
+
+body {
+    text-align: center;
+    background-image: url('https://iphoneswallpapers.com/wp-content/uploads/2017/09/Sunset-Scenery-Sky-Shooting-Stars-iPhone-Wallpaper-iphoneswallpapers_com.jpg');
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.discussions__container {
+    display: inline-block;
+    padding: 0px;
+}
+
+.discussion__container {
+    display: flex;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    background-color: rgba( 255, 255, 255, 0.1 ); 
+    border-radius: 20px;
+    border-color: rgba( 255, 255, 255, 0.3);
+    margin-right: 20px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px 2px rgba( 255, 255, 255, 0.15);
+}
+
+.discussion__content:hover {
+    transform: scale(1.2);
+    background-color: rgb(26, 29, 58); 
+    box-shadow: 2px 2px 2px 2px rgba(18, 18, 51, 0.15);
+
+    
+}
+
+input[type=text] {
+    width:400px;
+    margin-left: 15px;
+}
+
+input:hover {
+    color:white;
+    background-color: rgb(26, 29, 58); 
+    border:0px;
+}
+
+textarea {
+    width: 405px;
+    height: 200px;
+}
+
+textarea:hover {
+    color:white;
+    background-color: rgb(26, 29, 58); 
+    border:0px;
+}
+
+
+label {
+    vertical-align: top;
+    font-size: 20px;
+}
+
+.form__input--wrapper {
+    display: inline-block;
+    color: rgb(206, 206, 206);
+}
+
+.form__input--name {
+    width:600px;
+    background-color: rgba( 255, 255, 255, 0.1 ); 
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px 2px rgba( 255, 255, 255, 0.15)
+}
+
+.form__input--title {
+    width:600px;
+    background-color: rgba( 255, 255, 255, 0.1 ); 
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px 2px rgba( 255, 255, 255, 0.15)
+}
+
+.form__textbox {
+    background-color: rgba( 255, 255, 255, 0.1 ); 
+    border-radius: 30px; 
+    margin-bottom: 10px;
+    vertical-align: middle;
+    box-shadow: 2px 2px 2px 2px rgba( 255, 255, 255, 0.15)
+}
+
+.form__submit {
+    margin-bottom: 20px;
+}
+
+#inputSubmit {
+    width: 80px;
+    height: 50px;
+    background-color: rgba( 255, 255, 255, 0.1 ); 
+    color: white;
+    border-radius: 45px;
+    border: 0px;
+    font-size: 20px;
+}
+
+#inputSubmit:hover {
+    background-color: rgba( 255, 255, 255, 0.5 );
+    color:black; 
+}
+.discussion__avatar--image {
+    border-radius: 45px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-style: dotted;
+    border-color: white;
+}
+
+.discussion__title {
+    flex-grow: 1;
+    text-align:left;
+    margin: 15px 0px 0px 15px;
+    font-size: 18px;
+    
+}
+
+.discussion__title > a {
+    color:white;
+    text-decoration: none;
+}
+
+.discussion__information {
+    text-align: right;
+    color: rgb(204, 203, 203);
+    margin-right: 18px;
+}
+
+.discussion__answered > p {
+    font-size: xx-large;
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.discussion__avatar--image {
+    width: 64px;
+    height: 64px;
+}

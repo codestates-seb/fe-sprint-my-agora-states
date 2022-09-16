@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    </style>
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
@@ -14,25 +17,25 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <h1 style="color:white;"> ･ ﾟ*｡･ﾟ★ My Agora States º☆ ｡ * ★*. ﾟ</h1>
     <section class="form__container">
-      <form action="" method="get" class="form">
+      <form action="" method="get" class="form" onsubmit="return false;">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">Name:</label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Title: &nbsp;</label>
+            <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">Question: </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input id ="inputSubmit" type="submit" value="submit">
         </div>
       </form>
     </section>
