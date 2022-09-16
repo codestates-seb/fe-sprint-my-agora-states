@@ -16,14 +16,14 @@ const convertToDiscussion = (obj) => {
     elTitle.className = "discussion__title";
     const elTitleATAG = document.createElement('a');
     elTitleATAG.href = obj.url;
-    elTitleATAG.textContent = " [Question] "+obj.title;
+    elTitleATAG.textContent = " [Question] " + obj.title;
     elTitle.append(elTitleATAG);
     const elInformation = document.createElement('div');
     elInformation.className = "discussion__information";
-    elInformation.textContent = obj.author + ' / ' + new Date (obj.createdAt).toLocaleDateString();
+    elInformation.textContent = obj.author + ' / ' + new Date(obj.createdAt).toLocaleDateString();
     discussionContent.append(elTitle, elInformation);
 
-    li.append(avatarWrapper, discussionContent, );
+    li.append(avatarWrapper, discussionContent,);
     return li;
 };
 //답변리스트 생성
@@ -51,7 +51,7 @@ const convertToAnswer = (value) => {
     answerTitle.append(answerTitleATAG);
     const answerInformation = document.createElement('div');
     answerInformation.className = "answer__information";
-    answerInformation.textContent = obj.author + ' / ' + new Date (obj.createdAt).toLocaleDateString();
+    answerInformation.textContent = obj.author + ' / ' + new Date(obj.createdAt).toLocaleDateString();
     answerContent.append(answerTitle, answerInformation);
 
     const answerAnsweredPTag = document.createElement('p');
@@ -62,7 +62,7 @@ const convertToAnswer = (value) => {
     return li;
 };
 //빈 대답 리스트
-const convertToAnswerIsNull = () =>{
+const convertToAnswerIsNull = () => {
     const li = document.createElement('li');
     li.className = "answer__container";
 
@@ -73,20 +73,20 @@ const convertToAnswerIsNull = () =>{
     nullAnswer.textContent = "답변이 없습니다 "
     nullAnswer.className = 'nullAnswer';
 
-    li.append(pTag,nullAnswer)
+    li.append(pTag, nullAnswer)
     return li
 }
 
 const render = (element) => {
     for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-        if(agoraStatesDiscussions[i].answer==null){
-            element.append(convertToDiscussion(agoraStatesDiscussions[i]),convertToAnswerIsNull());
-        }
-        else{
-            element.append(convertToDiscussion(agoraStatesDiscussions[i]),convertToAnswer(agoraStatesDiscussions[i]));
+        if (agoraStatesDiscussions[i].answer == null) {
+            element.append(convertToDiscussion(agoraStatesDiscussions[i]), convertToAnswerIsNull());
+        } else {
+            element.append(convertToDiscussion(agoraStatesDiscussions[i]), convertToAnswer(agoraStatesDiscussions[i]));
         }
     }
-return;
+    element.prepend(convertToDiscussion(JSON.parse(localStorage.getItem("localObj"))));
+    return;
 }
 
 
@@ -97,9 +97,9 @@ render(ul);
 const form = document.querySelector(".form");
 const author = document.querySelector('.form__input--name > input');
 const title = document.querySelector('.form__input--title > input');
-const textArea = document.querySelector('.form__textbox > textarea');
-form.addEventListener('submit',(event)=>{
+form.addEventListener('submit', (event) => {
     event.preventDefault(); //todo: 알아보기
+    console.log(localStorage.obj);
     const obj = {
         id: "unique_number",
         createdAt: new Date(),
@@ -113,8 +113,10 @@ form.addEventListener('submit',(event)=>{
             "https://avatars.githubusercontent.com/u/77476348?s=64&u=64243db62117de5c254c9a76184753b76d7303ff&v=4",
 
     }
-        ul.prepend(convertToDiscussion(obj))
+    localStorage.setItem("localObj", JSON.stringify(obj))
+    ul.prepend(convertToDiscussion(obj))
     title.value = "";
     author.value = "";
     form.value = "";
 })
+
