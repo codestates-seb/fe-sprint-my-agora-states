@@ -31,9 +31,9 @@ fe-sprint-my-agora-states
          - ~~저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다.~~
       4. ~~오른쪽 체크 표시~~
          - ~~체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.~~
-  - script.js를 수정하여 agoraStatesDiscussions 배열의 데이터를 나열할 수 있게 구현합니다.
+  - ~~script.js를 수정하여 agoraStatesDiscussions 배열의 데이터를 나열할 수 있게 구현합니다.~~
 - CSS
-  - 아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다.
+  - ~~아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다.~~
   - style.css를 수정하여 멋지고 아름답게 나만의 아고라 스테이츠를 꾸밉니다.
   - colorhunt, dribbble에서 적절한 색 조합, 디자인을 참고합니다.
 - 디스커션 추가 기능

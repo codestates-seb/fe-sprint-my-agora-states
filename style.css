@@ -13,10 +13,11 @@
 /* 창크기에 맞춰서 가자 */
 body{
     width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+      background-color: aquamarine;
 }
 
 /* 지정된크기로 */
@@ -42,14 +43,27 @@ section {
 }
 
 /* 수직정렬 */
-.discussion__avatar--wrapper, .discussion__answered {
+li div {
     display: flex;
     flex-flow: column;
     justify-content: center;
+    flex-grow: 0;
 }
+
+.discussion__content{
+    flex-grow: 1;
+}
+
+.discussion__title {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+}
+
 .discussion__information {
     text-align: right;
-    margin: 0.5rem;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+}
+a {
+    color: yellow;
 }
 /* 수직정렬 */
 p {
