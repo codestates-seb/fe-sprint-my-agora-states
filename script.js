@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // *** Form event ***
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -38,9 +35,9 @@ const convertToDiscussion = (obj) => {
 
   const discussionAnsweredCheck = document.createElement("p");
   if (obj.answer === null) {
-    discussionAnsweredCheck.textContent = "x";
+    discussionAnsweredCheck.textContent = "🤔";
   } else {
-    discussionAnsweredCheck.textContent = "v";
+    discussionAnsweredCheck.textContent = "❤️";
   }
 
   discussionAnswered.append(discussionAnsweredCheck);
