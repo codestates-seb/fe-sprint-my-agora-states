@@ -12,7 +12,8 @@ body{
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: linear-gradient(170deg, white,aqua, white);
+    margin: 50px;
+    background: linear-gradient(170deg, white, beige, white);
 }
 
 main {
@@ -21,8 +22,8 @@ main {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  margin: 50px;
   background-position: center;
+  box-shadow: 3px 3px 3px 3px black;
   background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.5))
   , url(https://pixabay.com/get/gb360056d0251f56e5eb4e9cfeb1404b008282ff103806ba9faa03b112a6b23dd48ad98925d9486fcb08b3f6c9ce0de1582815448acc257349e7549df0080add195171185c963c2e81a61ace8f5899fab_1920.jpg);
 }
@@ -78,10 +79,20 @@ height: 100px;
 }
 .form__submit input:hover{
     background-color: aqua;
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
+    margin-right: 3px;
 }
 
+.form__submit input:active{
+    background-color: aqua;
+    color: white;
+}
 
+.discussion__wrapper{
+    height: 100vh;
+    overflow: scroll;
+    margin-top: 10px;
+}
 
 .discussion__container {
   width: 540px;
@@ -100,6 +111,7 @@ height: 100px;
     box-shadow: 1px 1px black;
     background-color: rgba(0,255,255,0.5);
     transition-duration: 0.5s;
+    margin: 20px 10px;
 }
 
 .discussion__avatar--wrapper {
@@ -148,4 +160,10 @@ height: 100px;
     margin-top: 20px;
     margin-left: 10px;
     width: 200px;
+    border-radius: 30px;
+}
+
+.form__logo:hover{
+    background-color: white;
+    transition-duration: 0.5s;
 }
