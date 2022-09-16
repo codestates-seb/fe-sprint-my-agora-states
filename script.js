@@ -46,9 +46,11 @@ const convertToDiscussion = (obj) => {
     return li;
 };
 
+let startIdx = 0;
+let endIdx = 10;
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.s
-const render = (element) => {
-    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const render = (element, startIdx, endIdx) => {
+    for (let i = startIdx; i < endIdx; i += 1) {
         element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     }
     return;
@@ -69,22 +71,54 @@ submitBtn.addEventListener('click', (event) => {
         id: 'unique value',
         createdAt: new Date(),
         title: newTitle.value,
-        url: 'https://github.com/codestates-seb/agora-states-fe/discussions/45',
+        url: 'https://github.com/codestates-seb/agora-states-fe/discussions/42',
         author: newAuthor.value,
         answer: null,
         bodyHTML: newStory.value,
         avatarUrl: 'https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4',
     };
+
     if (newAuthor.value !== '' && newTitle.value !== '' && newStory.value !== '') {
+        removeChildes(ul);
         agoraStatesDiscussions.unshift(newDiscussion);
-        ul.prepend(convertToDiscussion(newDiscussion));
+        render(ul, startIdx, endIdx);
     }
     //
     newAuthor.value = '';
     newTitle.value = '';
     newStory.value = '';
 });
+// 자식요소 삭제 함수
+const removeChildes = (el) => {
+    while (el.firstChild) {
+        el.firstChild.remove();
+    }
+};
 
+// 페이지네이션
+const nextPageBtn = document.querySelector('.next');
+const prevPageBtn = document.querySelector('.prev');
+nextPageBtn.addEventListener('click', () => {
+    if (endIdx > agoraStatesDiscussions.length) {
+        return;
+    }
+    startIdx += 10;
+    endIdx += 10;
+
+    removeChildes(ul);
+    render(ul, startIdx, endIdx);
+});
+
+prevPageBtn.addEventListener('click', () => {
+    if (startIdx <= 0) {
+        return;
+    }
+    startIdx -= 10;
+    endIdx -= 10;
+
+    removeChildes(ul);
+    render(ul, startIdx, endIdx);
+});
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
-render(ul);
+render(ul, startIdx, endIdx);
