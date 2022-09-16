@@ -1,1 +1,156 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --blue: rgb(17, 107, 255);
+    --white: rgb(255, 255, 255);
+    --gray: rgb(228, 227, 230);
+}
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+main { /* 중앙 정렬*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    width: 100%;
+    margin: 70px 0 40px 0;
+    text-align: center;
+    font-size: 50px;
+}
+
+/* FORM */
+
+section.form__container {
+    background-color: var(--blue);
+    width: 560px;
+    height: 165px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+form.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox{
+    margin-bottom: 5px;
+}
+
+.form__textbox > label {
+    margin-bottom: 5px;
+}
+
+label {
+    color: white;
+    display: inline-block;
+    width: 120px;
+}
+
+input {
+    border-radius: 30px;
+    width: 200px;
+    height: 22px;
+    border: none;
+    padding-left: 8px;
+}
+
+textarea {
+    width: 450px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 5px 0 0 8px;
+}
+
+div.form__submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.submit_btn {
+    padding: 10px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: var(--white);
+}
+
+/* DISCUSSION */
+
+li.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    width: 560px;
+    margin: 17px 0px;
+    border-radius: 20px;
+    padding: 20px;
+    background: var(--gray);
+}
+
+/* 아바타 */
+div.discussion__avatar--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+    margin: 20px 10px;
+}
+
+/* 내용 */
+div.discussion__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h2.discussion__title {
+    text-align: left;
+    margin: 15px 10px;
+    font-size: 16px;
+}
+
+a,
+a:visited {
+    color: black;
+}
+
+div.discussion__information {
+    text-align: right;
+    margin: 5px;
+}
+
+/* 체크 박스 */
+div.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0px 10px;
+    font-size: 30px;
+}
+
+.discussion__answered > p {
+    font-size: 20px;
+}
