@@ -36,6 +36,7 @@ main,
   border: none;
   border-radius: 5px;
 }
+
 #story {
   width: 525px;
   height: 150px;
@@ -148,9 +149,7 @@ ul {
 .button-section button:hover {
   background-color: tomato;
 }
-.button-section button:focus {
-  color: tomato;
-}
+
 #select-option {
   border: none;
   border-radius: 5px;

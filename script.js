@@ -162,7 +162,12 @@ function onButtonHandle(event) {
   if (!idNumber) {
     return;
   }
+  for (let i = 0; i < buttonSection.children.length; i++) {
+    buttonSection.children[i].style.color = "black";
+  }
+
   render(ul, (idNumber - 1) * CONTENTS, CONTENTS * idNumber);
+  event.target.style.color = "tomato";
 }
 buttonSection.addEventListener("click", onButtonHandle, true);
 
