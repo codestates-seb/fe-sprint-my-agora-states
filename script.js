@@ -95,6 +95,7 @@ form.addEventListener('submit', (event) => {
 
 
 
+
     // 그걸 또 render에 넣어서 브라우저에 렌더링 (맨앞으로 -> prepend)
     ul.prepend(discussion);
     title.value = '';
