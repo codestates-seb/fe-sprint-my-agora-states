@@ -1,9 +1,118 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
-
-.discussion__avatar--image{
-    border-radius : 10px;
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: 'Noto Serif KR', serif;
+    
+    
 }
 
-.discussion__avatar--image{
-    border-radius : 10px;
+main{            /* 부모 요소인 main에 display flex */
+    display : flex;    
+    flex-direction : column;
+    align-items: center;     /* 수직축 방향 가운데정렬 */
+    border : 3px solid;
+    background-image: url('https://i.stack.imgur.com/jGlzr.png');
+}
+
+.discussion__container{
+    width : 540px;
+    height : auto;
+    display : flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    border : 2px solid;
+    margin : 10px;
+    
+    
+}
+
+.discussion__content{
+    display : flex;
+    flex-grow: 1;
+    flex-direction : column;
+    justify-content: space-around;
+    margin : 10px;
+    font-size : small;
+}
+
+
+
+.discussion__information{
+    text-align : right;
+}
+
+.discussion__avatar--wrapper{
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.discussion__answered{
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    font-size : xx-large;
+    
+}
+
+.discussion__avatar--wrapper > img{
+
+    border-radius : 60%;
+    width : 50px;
+    margin : 15px;
+    
+}
+
+form{
+    display : flex;
+    flex-direction : column;   
+    flex-grow : 1;
+    background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+    width : 540px;
+    border-radius: 10px;
+    border : 2px solid;
+    padding : 15px;
+}
+
+.form__submit > input {
+	box-shadow: 3px 4px 0px 0px #899599;
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color:#ededed;
+	border-radius:15px;
+	border:1px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:#3a8a9e;
+	font-family:Arial;
+	font-size: 35px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+}
+.form__submit > input :hover {
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+.form__submit > input:active {
+	position:relative;
+	top:1px;
+}
+
+.form__submit{
+    display :flex;
+    justify-content: right;
+}
+
+h1{
+    margin : 30px;
+}
+
+.discussion__information{
+    margin : 10px;
 }
