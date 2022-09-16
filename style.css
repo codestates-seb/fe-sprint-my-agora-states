@@ -170,7 +170,7 @@ input[type=submit]:hover {
 .discussion__wrapper {
     background-color: #FFFFFF;
     margin: 1rem;
-    overflow: hidden;
+    overflow-y:scroll;
     border-radius: 10px;
 }
 
