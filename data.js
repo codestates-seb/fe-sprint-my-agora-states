@@ -713,16 +713,16 @@ const agoraStatesDiscussions = [
   if (discussion.answer) {
     return {
       ...discussion,
-      bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
+      bodyHTML: '',
       answer: {
         ...discussion.answer,
-        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
+        bodyHTML: ''
       }
     }
   }
 
   return {
     ...discussion,
-    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
+    bodyHTML: ''
   }
 })

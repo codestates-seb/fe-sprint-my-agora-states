@@ -16,11 +16,15 @@ header {
     background: darkgrey;
     font-weight: bold;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     opacity: 0.8;
 }
-
+header > *{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
 #helpButton {
     border-style: none;
 }
@@ -138,4 +142,8 @@ li {
 .answer__avatar--wrapper > img {
     border-radius: 50%;
     width: 30px;
+}
+
+#pageBox > span {
+    margin: 15px;
 }

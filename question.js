@@ -50,13 +50,15 @@ form.addEventListener('submit', (event) => {
         id: "unique_number",
         createdAt: new Date(),
         title: title.value,
-        url: "https://github.com/codestates-seb/agora-states-fe/discussions/43",
         author: author.value,
         answer: null,
         avatarUrl: imgSelectClass.childNodes[1].src
     }
-    localStorage.setItem("localObj", JSON.stringify(obj))
-    ul.prepend(convertToDiscussion(obj))
+    let dataObj = JSON.parse(localStorage.getItem("data"));
+    dataObj.unshift(obj)
+    console.log(obj)
+    console.log(JSON.parse(localStorage.getItem("data")));
+    localStorage.setItem("data", JSON.stringify(dataObj))
     title.value = "";
     author.value = "";
     form.value = "";
@@ -66,11 +68,6 @@ let submitButton = document.querySelector('#submit')
 submitButton.addEventListener('click', alt);
 
 function alt() {
-    Swal.fire({
-        width: '60%',
-        icon: 'success',
-        title: '성공적으로 등록되었습니다',
-    }).then((result) => {
-        window.close();
-    });
+    alert("성공적으로 등록했습니다");
+    // window.close();
 }

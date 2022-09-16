@@ -11,16 +11,12 @@
 <form action="" method="get" class="form">
     <div class="form__input--wrapper">
         <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name"> 이름 : </label>
+            <input type="text" placeholder="이름을 적어주세요" name="name" id="name" required>
         </div>
         <div class="form__input--title">
-            <label for="name">Enter your title: </label>
+            <label for="name"> 내용 : </label>
             <input type="text" name="title" id="title1" required>
-        </div>
-        <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
         </div>
     </div>
     <div class="userImgBox">
@@ -47,6 +43,7 @@
         <input type="submit" value="submit" id="submit">
     </div>
 </form>
+<script src="data.js"></script>
 <script src="question.js"></script>
 </body>
 </html>

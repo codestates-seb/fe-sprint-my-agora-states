@@ -1,3 +1,6 @@
+localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions))
+let dataObj = JSON.parse(localStorage.getItem("data"));
+
 //질문 리스트 생성
 const convertToDiscussion = (obj) => {
     const li = document.createElement("li"); // li 요소 생성
@@ -15,7 +18,6 @@ const convertToDiscussion = (obj) => {
     const elTitle = document.createElement('h2');
     elTitle.className = "discussion__title";
     const elTitleATAG = document.createElement('a');
-    elTitleATAG.href = obj.url;
     elTitleATAG.textContent = " [Question] " + obj.title;
     elTitle.append(elTitleATAG);
     const elInformation = document.createElement('div');
@@ -46,7 +48,6 @@ const convertToAnswer = (value) => {
     const answerTitle = document.createElement('h2');
     answerTitle.className = "answer__title";
     const answerTitleATAG = document.createElement('a');
-    answerTitleATAG.href = "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4";
     answerTitleATAG.textContent = ' [ANSWER] ' + value.title;
     answerTitle.append(answerTitleATAG);
     const answerInformation = document.createElement('div');
@@ -78,25 +79,55 @@ const convertToAnswerIsNull = () => {
 }
 
 const render = (element) => {
-    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-        if (agoraStatesDiscussions[i].answer == null) {
-            element.append(convertToDiscussion(agoraStatesDiscussions[i]), convertToAnswerIsNull());
+    for (let i = 0; i < newArr.length; i ++) {
+        if (dataObj[i].answer == null) {
+            element.append(convertToDiscussion(newArr[i]), convertToAnswerIsNull());
         } else {
-            element.append(convertToDiscussion(agoraStatesDiscussions[i]), convertToAnswer(agoraStatesDiscussions[i]));
+            element.append(convertToDiscussion(newArr[i]), convertToAnswer(newArr[i]));
         }
     }
-    element.prepend(convertToDiscussion(JSON.parse(localStorage.getItem("localObj"))));
     return;
 }
 
+const page1 = document.querySelector("#page1");
+const page2 = document.querySelector("#page2");
+const page3 = document.querySelector("#page3");
+const page4 = document.querySelector("#page4");
+const page5 = document.querySelector("#page5");
+let newArr = [];
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+let ul = document.querySelector("ul.discussions__container");
 
-//여깄었음
+page1.onclick = () => {
+    removeChildren();
+    newArr = dataObj.slice(0,10)
+    render(ul)
+};
 
-function load (){
-    console.log('hi');
-    console.log(JSON.parse(localStorage.getItem("localObj")));
+page2.onclick = () => {
+    removeChildren();
+    newArr = dataObj.slice(20,30)
+    render(ul)
+};
+page3.onclick = () => {
+    removeChildren();
+    newArr = dataObj.slice(20,30)
+    render(ul)
+};
+page4.onclick = () => {
+    removeChildren();
+    newArr = dataObj.slice(20,30)
+    render(ul)
+};
+page5.onclick = () => {
+    removeChildren();
+    newArr = dataObj.slice(20,30)
+    render(ul)
+};
+newArr = dataObj.slice(0,10)
+render(ul)
+function removeChildren() {
+    while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+    }
 }
