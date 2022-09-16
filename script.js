@@ -1,20 +1,14 @@
-console.log(agoraStatesDiscussions);
-
-
-
-
 const newContent = document.querySelector('.form__container form');
 const newName = document.querySelector('div.form__input--name input');
 const newTitle = document.querySelector('div.form__input--title input');
 const newText = document.querySelector('div.form__textbox textarea');
 const avatarUrls= ["https://cdn-icons-png.flaticon.com/512/1797/1797287.png","https://cdn-icons-png.flaticon.com/512/4717/4717946.png","https://cdn-icons-png.flaticon.com/512/4717/4717946.png","https://cdn-icons-png.flaticon.com/512/141/141695.png","https://cdn-icons-png.flaticon.com/512/6018/6018583.png","https://cdn-icons-png.flaticon.com/512/141/141689.png",'https://cdn-icons-png.flaticon.com/512/8453/8453752.png','https://cdn-icons-png.flaticon.com/512/8453/8453740.png','https://cdn-icons-png.flaticon.com/512/8453/8453747.png'];
 
-
 const addPost = function(event){
   event.preventDefault();
   agoraStatesDiscussions.unshift({
     id: '비공개',
-    createdAt: new Date(),
+    createdAt: new Date().toLocaleString,
     title: newTitle.value,
     url: null,
     author: newName.value,
@@ -64,9 +58,9 @@ const convertToDiscussion = (obj) => {
   const discussion__inform = document.createElement('div');
   const discussion__answered__img = document.createElement('img');
   discussion__inform.className = "discussion__information"
-  discussion__inform.innerText = obj.author +' / '+ obj.createdAt
+  discussion__inform.textContent = obj.author +' / '+ new Date(obj.createdAt).toLocaleString()
   discussion__title__a.setAttribute('href',obj.url);
-  discussion__title__a.innerText = obj.title
+  discussion__title__a.textContent = obj.title
   discussion__avatar__image.setAttribute('src',obj.avatarUrl);
   discussionContent.appendChild(discussion__title);
   discussion__title.appendChild(discussion__title__a);
@@ -124,7 +118,7 @@ const render = (element,arr) => {
 const render2 = (element,answerObj) =>{
 
   const li = document.createElement("li"); // li 요소 생성
-  li.className = "li_discussion__container"; // 클래스 이름 지정
+  li.className = "discussion__container"; // 클래스 이름 지정
   li.classList.add('hide');
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -141,7 +135,7 @@ const render2 = (element,answerObj) =>{
   const discussion__inform = document.createElement('div');
   const discussion__answered__p = document.createElement('p');
   discussion__inform.className = "discussion__information"
-  discussion__inform.innerText = answerObj.author +' / '+ answerObj.createdAt
+  discussion__inform.textContent = answerObj.author +' / '+ new Date(answerObj.createdAt).toLocaleString()
   discussion__title__a.setAttribute('href',answerObj.url);
   discussion__title__a.innerHTML = answerObj.bodyHTML;
   discussion__avatar__image.setAttribute('src',answerObj.avatarUrl);
@@ -171,7 +165,7 @@ function pagenation() {
     page.className= `page${i}`;
     const pagesrc = document.createElement('a');
     pagesrc.setAttribute('target','__blank');
-    pagesrc.innerText = `${i}`;
+    pagesrc.textContent = `${i}`;
     page.addEventListener('click',evt1);
     page.append(pagesrc);
     makepage.append(page);
@@ -183,10 +177,9 @@ function pagenation() {
     for(let i =0;i <= dataLength; i+=10){
       
       pagingArr.push(agoraStatesDiscussions.slice(i,i+10));
-      console.table(pagingArr);
   } 
-      console.table(pagingArr.length)
-    return pagingArr
+    
+  return pagingArr
   
 
 
@@ -194,15 +187,14 @@ function pagenation() {
 
 function evt1() {
   
-  const num = this.innerText;
+  const num = this.textContent;
   let qnum = document.querySelector(".discussions__container").childElementCount;
   if(document.querySelector('.discussions__container').childElementCount){
-    while(document.querySelector('.discussions__container').childElementCount !== 0){
+    while(document.querySelector('.discussions__container').childElementCount){
       document.querySelector('.discussions__container').removeChild(document.querySelector('.discussion__container'));
-      
-  }
-  }
 
+        }
+      }
   render(ul,pagearr[num-1]);
 
 }
@@ -210,13 +202,6 @@ function evt1() {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 const li = document.querySelector('li.discussion__container')
-
-
-
-
-
-
-
 
 let pagearr = pagenation();
 render(ul,pagearr[0]);
