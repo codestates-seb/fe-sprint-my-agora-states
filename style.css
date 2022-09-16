@@ -137,7 +137,12 @@ textarea {
     border: none;
 }
 
-.discussion__title:hover {
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+a:hover {
     color: #bfd5c5;
 }
 
@@ -157,8 +162,4 @@ textarea {
     font-size: 30px;
     background-color: #d59c60;
     border: none;
-}
-
-.hide {
-    display: none;
 }
