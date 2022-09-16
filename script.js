@@ -62,15 +62,13 @@ const Inputtitle = document.querySelector('.form__input--title > input')
 const Inputques = document.querySelector('.form__textbox > textarea')
 const form = document.querySelector('.form')
 
-let itemsArray = localStorage.getItem('items')? JSON.parse(localStorage.getItem('items')):[]; 
-localStorage.setItem('items',JSON.stringify(itemsArray));
-const data = JSON.parse(localStorage.getItem('items'));
 
 form.addEventListener('submit',event =>{
   event.preventDefault();
-  
-  itemsArray.push(Inputname.value , Inputtitle.value , Inputques.value);
-  localStorage.setItem('items', JSON.stringify(itemsArray));
+
+  const stor = JSON.stringify(agoraStatesDiscussions);
+  const stor2 = JSON.parse(stor)
+  localStorage.setItem('items' , stor);
 
   const obj ={ 
   id: "unique name",
@@ -91,12 +89,15 @@ form.addEventListener('submit',event =>{
     '<h3 dir="auto">운영 체제: 예) macOS, Ubuntu</h3>\n<ul dir="auto">\n<li>Ubuntu</li>\n</ul>\n<h3 dir="auto">Node.js 버전(node -v): 예)v14.16.0</h3>\n<ul dir="auto">\n<li>v8.10.0</li>\n</ul>\n<h3 dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에 부딪혔나요?</h3>\n<ul dir="auto">\n<li>Chapter3-1. nvm &amp; node.js</li>\n<li>nvm을 install 하는 과정에서</li>\n</ul>\n<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/104333249/167332095-67a26963-bcf9-4a0b-a5aa-f089c483ef71.png"><img src="https://user-images.githubusercontent.com/104333249/167332095-67a26963-bcf9-4a0b-a5aa-f089c483ef71.png" alt="image" style="max-width: 100%;"></a></p>\n<ul dir="auto">\n<li>이 부분은 성공해서 =&gt; nvm is already installed 됐습니다!</li>\n<li>nvm --version 이 부분을 입력하면</li>\n</ul>\n<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/104333249/167332678-1680a18b-8cb7-4400-9cda-d56eb4e3befa.png"><img src="https://user-images.githubusercontent.com/104333249/167332678-1680a18b-8cb7-4400-9cda-d56eb4e3befa.png" alt="image" style="max-width: 100%;"></a></p>\n<p dir="auto"><strong>Command \'nvm\' not found, did you mean:<br>\nnvm을 찾을 수 없다고 나옵니다ㅜㅜ</strong></p>\n<ul dir="auto">\n<li>node.js 버전도 확인되고 js도 잘 출력됩니다.</li>\n</ul>\n<br>\n<h3 dir="auto">어떠한 부분에서 이해가 안 되었나요?</h3>\n<ul dir="auto">\n<li>nvm 공식문서도 따라해봤지만 같은 상황입니다.<br>\n<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/104333249/167333904-e41e05e3-4fdb-43bb-83f0-53a1db8847a9.png"><img src="https://user-images.githubusercontent.com/104333249/167333904-e41e05e3-4fdb-43bb-83f0-53a1db8847a9.png" alt="image" style="max-width: 100%;"></a></li>\n</ul>\n<h3 dir="auto">검색했던 링크가 있다면 첨부해 주세요.</h3>\n<ul dir="auto">\n<li><a href="https://stackoverflow.com/questions/16904658/node-version-manager-install-nvm-command-not-found" rel="nofollow">Node Version Manager install - nvm command not found</a></li>\n</ul>',
   avatarUrl: "https://avatars.githubusercontent.com/u/104333249?s=64&v=4",};
 
+  
   agoraStatesDiscussions.unshift(obj);
-
+  
   ul.prepend(convertToDiscussion(obj));
 
   Inputtitle.value = "";
   Inputques.value = "";
   Inputname.value = "";
+  stor2.push(obj);
+  localStorage.setItem('items',JSON.stringify(stor2));
 }
 )
