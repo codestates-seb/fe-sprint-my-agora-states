@@ -1,6 +1,6 @@
 const agoraStatesDiscussions = [
   {
-    id: "null",
+    id: null,
     createdAt: "2022-04-22T14:08:33Z",
     title: "[notice] 좋은 질문하는 법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
