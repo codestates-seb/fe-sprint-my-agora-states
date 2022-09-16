@@ -61,18 +61,34 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+let start = 0;
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  console.log(element);
   element.innerHTML = '';
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = start; i < count(start); i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
+function count(len){
+  if(len+10 > agoraStatesDiscussions.length){
+    return agoraStatesDiscussions.length;
+  } else{
+    return len + 10
+  }
+}
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
+if(JSON.parse(localStorage.getItem('list')) !== null){
+  for(let i = 0; i < JSON.parse(localStorage.getItem('list')).length; i++){
+    agoraStatesDiscussions.unshift(JSON.parse(localStorage.getItem('list'))[i])
+  }
+}
+  
 render(ul);
 
 function test(e){
@@ -84,9 +100,8 @@ function test(e){
   e.childNodes[1].style.animation = 'bottomcheck 0.2s ease 0s forwards';
   return false;
 }
-// localStorage.setItem('list' , '[]');
+
 function liSubmit(){
-  console.log('ㅎㅇ');
   const title = document.getElementById('title');
   const name = document.getElementById('name');
   const story = document.getElementById('story');
@@ -104,7 +119,7 @@ function liSubmit(){
     arr = [];
     localStorage.setItem('count', 0);
   }
-  console.log(arr);
+
   if(title.value !== '' && name.value !== '' && story.value !== ''){
     arr.push({'title' : title.value, 'author' : name.value, 'story' : story.value, answer : null ,'createdAt' : year + '-'+month+'-'+date+'T'+hours + ':' + minutes + ':' + seconds+'Z'})
     let change = JSON.stringify(arr)
@@ -114,12 +129,23 @@ function liSubmit(){
     localStorage.setItem('count', count);
     
     agoraStatesDiscussions.unshift(JSON.parse(localStorage.getItem('list'))[count-1]);
-    console.log(agoraStatesDiscussions)
     render(ul);
   }
-  
-
-  console.log(year + '-'+month+'-'+date+'T'+hours + ':' + minutes + ':' + seconds+'Z');
-
-  // 
 }
+
+const leftArrow = document.querySelector('.left');
+const rightArrow = document.querySelector('.right');
+
+leftArrow.addEventListener('click',function(){
+  if(start !== 0){
+    start = start - 10;
+  }
+  render(ul);
+});
+
+rightArrow.addEventListener('click',function(){
+  if(start + 10 < agoraStatesDiscussions.length){
+    start = start + 10;
+  }
+  render(ul);
+});

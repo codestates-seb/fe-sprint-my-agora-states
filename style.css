@@ -201,3 +201,16 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
 .discussion__answered {
   position: absolute;
 }
+
+.arrow{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.arrow div{
+  position: relative;
+  bottom: 40px;
+  font-size: 50px;
+  cursor: pointer;
+}
