@@ -11,6 +11,11 @@ ul {
   list-style: none;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -19,7 +24,7 @@ main {
 }
 
 .discussions__container {
-  border: 1px solid #eee;
+  border: 1px solid white;
   border-radius: 10px;
   padding: 5px;
   background-color: #442cdc;
