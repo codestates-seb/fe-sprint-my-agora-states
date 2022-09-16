@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: "elandchoice";
+  src: url("./src/ELAND 초이스 B.ttf");
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -18,8 +23,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fe9e8a;
-  width: 700px;
+  background-color: #fabbb9;
+  width: 600px;
   margin: 50px;
   border-radius: 50px;
   box-shadow: inset 1.5px 1.5px 2px rgb(193, 174, 174);
@@ -29,12 +34,13 @@ h1 {
   margin: 20px;
   color: #070707;
   font-weight: 400;
-  font-size: 60px;
+  font-size: 50px;
+  font-family: "elandchoice";
 }
 
 a {
   text-decoration: none;
-  color: coral;
+  color: rgb(0, 0, 0);
 }
 
 form {
@@ -44,6 +50,7 @@ form {
   color: black;
   margin-bottom: 50px;
   width: 500px;
+  font-family: "elandchoice";
 }
 
 .form__container {
@@ -80,10 +87,14 @@ div {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  background-color: rgb(255, 234, 180);
   border-radius: 30px;
   margin: 10px;
   box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
+}
+
+.discussion__container:hover {
+  background-color: #fe9e8a;
 }
 
 .discussion__content {
@@ -93,6 +104,7 @@ div {
   display: flex;
   flex-direction: column;
   align-items: space-around;
+  font-family: "elandchoice";
 }
 
 .discussion__information {
@@ -108,6 +120,7 @@ discussion__avatar--wrapper {
 .avatar-img {
   border-radius: 100%;
   width: 48px;
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
 }
 
 .discussion__avatar--image {
@@ -176,9 +189,24 @@ label {
   align-items: center;
 }
 
+#name,
+#title,
+#story {
+  box-shadow: inset 1.5px 1.5px 1.5px rgb(174, 174, 174);
+}
+
 .form__input--wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: baseline;
+}
+
+.buttons {
+  border: none;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

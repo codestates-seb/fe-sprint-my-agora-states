@@ -71,7 +71,6 @@ const inputTitle = document.querySelector(".form__input--title > input");
 const inputtext = document.querySelector(".form__textbox > textarea");
 
 Form.addEventListener("submit", (event) => {
-  console.log("동작한다네");
   event.preventDefault();
   const ObjectForForm = {
     id: "unique number",
@@ -102,9 +101,34 @@ Form.addEventListener("submit", (event) => {
   inputtext.value = "";
 });
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+//페이지네이션 구현해보기
+
+// const contents = document.querySelector("ul");
+// const buttons = document.querySelector(".buttons");
+
+// const numOfContent = agoraStatesDiscussions.length;
+// const maxContent = 5;
+// const maxButton = 5;
+// const maxPage = Math.ceil(numOfContent / maxContent);
+// let page = 1;
+
+// const makeButton = (id) => {
+//   const button = document.createElement("button");
+//   button.classList.add("button");
+//   button.dataset.num = id;
+//   button.innerText = id;
+//   button.addEventListener("click", (e) => {
+//     Array.prototype.forEach.call(buttons.children, (button) => {
+//       if (button.dataset.num) button.classList.remove("active");
+//     });
+//     e.target.classList.add("active");
+//     renderContent(parseInt(e.target.dataset.num));
+//   });
+//   return button;
+// };
 
 //내가 만들었던 수도코드
 //폼에다가 입력하고, submit 버튼을 클릭했을 때(onclick 이벤트 핸들러 써야하는 건 맞는 거 같음)
