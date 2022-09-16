@@ -1,1 +1,144 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+}
+
+/* 몸통부분 */
+main {
+    background-color: #EEF1FF;
+    border: solid 5px #B1B2FF 
+}
+h1 {
+    color: #B1B2FF;
+}
+
+.cat {
+    margin-top: 50px;
+    margin-left: 50px;
+    height : 250px;
+    width : 250px;
+    background-image: url('https://t1.daumcdn.net/cfile/tistory/2160283A560CF46E09');
+    background-position: center;
+    background-size : cover;
+    border-radius: 50%;
+    border: solid 3px #AAC4FF;
+}
+
+.dog {
+    margin-top: 50px;
+    margin-right: 50px;
+    height : 250px;
+    width : 250px;
+    background-image: url('https://play-lh.googleusercontent.com/Aplur_bhIh3txOtoUQHpv9QbG4B_SnA11E0t2qtlrO6xpACKzy6zdYY17uPM8Zt-k9E');
+    background-position: center;
+    background-size : cover;
+    border-radius: 50%;
+    border: solid 3px #AAC4FF;
+}
+
+/* 제목 부분 */
+
+h1{
+    text-align: center;
+}
+
+
+/* 등록 부분 */
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input--wrapper {
+    width: 60%;
+}
+
+.form__input--wrapper div {
+    display: flex;  
+    justify-content: space-between;
+}
+
+.form__input--name {
+    width: 100%;
+    display: flex;  
+    justify-content: space-around;
+}
+
+.form__textbox {
+    flex-direction: column;
+}
+
+#story {
+    width: 100%;
+}
+
+
+
+/* 과제 부분 */
+
+.discussions__container {
+    padding-left: 0;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: solid 3px #AAC4FF;
+    border-radius: 3%;
+    background-color: white;
+}
+
+.discussion__wrapper {
+    width: 540px;   
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    width : 48px;
+    border-radius: 70%;
+}
+
+.discussion__content {
+    padding-left: 10px;  
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.discussion__information {
+    width: 100%;
+    padding-right: 20px;
+    text-align: right;
+
+}
+
+.discussion__title {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
+
+
