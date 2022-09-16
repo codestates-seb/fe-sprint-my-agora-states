@@ -1,15 +1,20 @@
-const inputName = document.querySelector('#name');
-const inputTitle = document.querySelector('#title');
-const inputTextBox = document.querySelector('#story');
-const form = document.querySelector('.form');
-const submitButton = document.querySelector('.form__submit');
+const inputName = document.querySelector("#name");
+const inputTitle = document.querySelector("#title");
+const inputTextBox = document.querySelector("#story");
+const form = document.querySelector(".form");
+const submitButton = document.querySelector(".form__submit");
 
-//해당 이벤트의 기본 동작이 실행되지 않도록 한다
-submitButton.addEventListener('submit' , (event) =>{
-    event.preventDefault();
-})
-
-
+//해당 이벤트의 기본 동작(새로고침이 되면서 이벤트 발생 전으로 돌아간다)이 실행되지 않도록 한다
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
+const addLocalStorage = {
+      createdAt: new Date().toLocaleString(),
+      title: inputTitle.value,
+      author: inputName.value,
+      answer: null,
+      avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4",
+    };
 //event.preventDefault가 예외되는 상황을 조건문으로 표현
 function inputValue(event){
     if(inputName.value === ""){
