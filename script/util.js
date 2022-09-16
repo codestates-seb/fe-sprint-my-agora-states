@@ -10,15 +10,20 @@ function getParameter(name) {
 //===========================================================//
 //======================= paging 함수 ========================//
 //===========================================================//
+const preBtn = document.querySelector('#preBtn');
+const nextBtn = document.querySelector('#nextBtn');
+const length = agoraStatesDiscussions.length;
+let curPage = getParameter('page');
+const endPage = parseInt(length % 5 === 0 ? length / 5 : length / 5 + 1);
+const pageArea = document.querySelector("#pageBtn");
 
 function paging() {
     // 주소의 parameter에서 현재 페이지와 조회 게시물을 불러온다.
-    let curPage = getParameter('page');
     console.log(":" + curPage + ":");
     if(curPage === undefined) curPage = 1;
-    const range = agoraStatesDiscussions.length - curPage * 10;
-    const startContents = (curPage - 1 ) * 10;
-    const countContents = range < 0 ? curPage * 10 + range : curPage * 10;
+    const range = agoraStatesDiscussions.length - curPage * 5;
+    const startContents = (curPage - 1 ) * 5;
+    const countContents = range < 0 ? curPage * 5 + range : curPage * 5;
     
     const result = [curPage, range, startContents, countContents];
 
@@ -27,18 +32,28 @@ function paging() {
 }
 
 function pageBtn() {
-    const paging = document.querySelector("#paging_area");
-    const length = agoraStatesDiscussions.length;
-    const page = length % 10 === 0 ? length / 10 : length / 10 + 1;
-  
-    for(let i = 1; i < page; i++) {
+    for(let i = 1; i <= endPage; i++) {
       const btn = document.createElement('a');
       btn.href = `?page=${i}`;
       btn.textContent = i;
-      paging.append(btn);
+      if(i === Number(curPage)) btn.id = "current";
+      pageArea.append(btn);
     }
     return;   
 }
+
+
+function prePage() {
+  if(Number(curPage) > 1) location.href= `?page=${Number(curPage) - 1}`
+}
+
+function nextPage() {
+  console.log(endPage);
+  if(curPage < endPage) location.href= `?page=${Number(curPage) + 1}`
+}
+
+preBtn.onclick = prePage;
+nextBtn.onclick = nextPage;
 
 //===========================================================//
 //================== 현재 시간을 호출하는 함수 ===================//
@@ -57,8 +72,22 @@ function curTime() {
     let minute = today.getMinutes(); 
     let second = today.getSeconds(); 
 
-    return `${year}-${month}-${date}T${hour}:${minute}${second}Z`;
+    return `${year}-${month < 10 ? "0" + month : month}-${date}T${hour}:${minute}:${second}Z`;
 }
 
+//===========================================================//
+//====================== popup 제어 함수 ======================//
+//===========================================================//
+const quitBtn = document.querySelector("#quit")
+const popContent = document.querySelector("#popup_content")
 
-  
+quitBtn.addEventListener('click', popOnOff);
+
+function popOnOff(event) {
+  popup.style.display = popup.style.display === "block" ? "none" : "block";
+  console.log(event.target.id);
+}
+
+function popRender(id) {
+  console.log(id);
+}

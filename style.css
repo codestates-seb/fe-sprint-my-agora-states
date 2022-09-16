@@ -1,45 +1,246 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 공통 적용 css */
 * {
     margin : 0px 0px 0px 0px;
     padding : 0px 0px 0px 0px;
+    box-sizing: border-box;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
+#current {
+    color : black !important;
+}
+
+/* 레이아웃 설정 */
 body {
-    margin : 0px;
+    height: 100vh;
     text-align: center;
+    background: rgb(250,243,255);
+    background: linear-gradient(131deg, rgba(250,243,255,1) 2%, rgba(220,235,255,1) 45%, rgba(223,229,255,1) 100%);
 }
 
+main {
+    display: inline-block;
+    margin: 100px 0px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    width: 1200px;
+    height : 750px;
+    box-shadow: 5px 5px 70px #fcffe8;
+}
+
+main > section {
+    display : inline-flex;
+    height : 100%;
+    width : 65%;
+    flex-direction : column;
+    padding : 20px 30px 15px 40px;
+}
+
+header {
+    height: 15%;
+    padding : 0px 0px 0px 0px;    
+    text-align: left;
+}
+
+header > h1 {
+    font-size: 40pt;
+    margin-bottom: 5px;
+}
+
+header > p {
+    font-size : 15pt;
+}
+
+aside {
+    float: right;
+    height : 100%;
+    width : 35%;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* discussion section */
 .discussion__wrapper {
     display: inline-block;
-    width : 1100px;
-    border : 1px solid blue;
-    margin: 30px 0px 0px 0px;
+    text-align: left;
+    margin-top : 20px;
 }
 
 .discussions__container {
     display: inline-block;
+    min-height: 545px;
 }
 
 .discussion__container {
-    display : flex;
+    display : inline-flex;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 15px;
+    border-radius: 20px;
+    height : 10vh;
+    text-align: center;
+    padding : 13px 15px 0px 15px;
+    min-width: 400px;
 }
 
 .discussion__content {
     display : flex;
     flex-direction: column;
-    width : 500px;
+    margin : 0px 15px 0px 15px;
+}
+
+.discussion__content > div {
+    text-align: right;
 }
 
 .discussion__avatar--image {
     width : 64px;
     height : 64px;
+    border-radius: 35px;
 }
 
 .discussion__title {
-    margin : -12px 0px 0px 0px;
+    font-size: 13pt;
+    text-align: left;
+    color : black;
+    margin-top : 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 555px;
+}
+
+.discussion__title > a {
+    color : black;
+    text-decoration-line: none;
 }
 
 .discussion__answered > p {
     font-size: 25px;
     margin : 0px 0px 0px 0px;
+    margin-top : 5px;
+}
+
+.discussion__answered > img {
+    margin-top : 5px;
+}
+
+/* aside CSS */
+#profile {
+    display: inline-flex;
+    margin : 55px 0px 0px 0px;
+}
+
+#profile > #pro_avartar > img {
+    border-radius: 15px;
+}
+
+.form__input--wrapper > div {
+    margin-top : 15px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input {
+    margin-top : 15px;
+    width : 300px;
+    height : 30px;
+}
+
+form textarea {
+    margin-top : 15px;
+    width : 300px;
+    height : 330px;
+    max-width: 300px;
+    max-height: 330px;
+}
+
+#submitBtn {
+    background-color : #B1B2FF;
+    border : #B1B2FF;
+    border-radius: 5px;
+    width : 300px;
+    height : 40px;
+    color : white;
+    font-size: 20pt;
+    font-weight: bold;
+    margin-top : 20px;
+}
+
+/* paging area CSS */
+#paging_area {
+    text-align: center;
+    margin-top : 5px;
+}
+#paging_area > img {
+    width : 18px;
+    filter: invert(55%) sepia(1%) saturate(1148%) hue-rotate(103deg) brightness(91%) contrast(81%);
+}
+
+#paging_area > img:hover {
+    filter: none;
+}
+
+#pageBtn {
+    display: inline-block;
+    font-size: 20pt;
+}
+
+#pageBtn > a {
+    text-decoration-line: none;
+    color : gray;
+    margin-right: 5px;
+}
+
+#pageBtn > a:last-child {
+    margin-right: 0px;
+}
+
+#pageBtn > a:hover {
+    color : black;
+}
+
+/* popup창 CSS */
+#popup {
+    display: none;
+    position: absolute;
+    top : 0px;
+    left : 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#popup_body {
+    display: inline-block;
+    position: absolute;
+    top : 110px;
+    left : 660px;
+    width : 600px;
+    height : 700px;
+    background-color: white;
+    z-index: 31;
+    border-radius: 15px;
+}
+
+#popup_body > img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width : 16px;
+}
+
+#popup_bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color : gray;
+    opacity: 0.5;
 }

@@ -3,7 +3,7 @@
 //===========================================================//
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
+const convertToDiscussion = (obj, i) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -33,8 +33,15 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(div);
 
   const p = document.createElement("p");
-  p.textContent = "☑";
+  p.textContent = obj.answer !== null ? '☑' : '□';
   discussionAnswered.append(p);
+
+  const img2 = document.createElement("img");
+  img2.src = "/img/extend.png"
+  img2.id = i;
+  img2.className = "cursor";
+  img2.onclick = popOnOff;
+  discussionAnswered.append(img2);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -46,8 +53,11 @@ const render = (element) => {
   //console.log(setting);
 
   for (let i = pageSet[2]; i < pageSet[3]; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(agoraStatesDiscussions[i], i));
   }
   return;
 };
 
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
+pageBtn();
