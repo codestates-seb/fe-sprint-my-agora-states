@@ -98,5 +98,6 @@ margin-top: 25px;
 }
 
 .discussion__container{
-    
+    margin: 0px;
+    padding: 5px;
 }
