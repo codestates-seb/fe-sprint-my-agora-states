@@ -16,7 +16,8 @@ body {
 
 li {
     list-style: none;
-}
+    box-shadow: 0 0 10px;
+    }
 
 main {
     display: flex;
@@ -63,6 +64,8 @@ h2 {
 .discussion__avatar--wrapper img {
     border-radius: 50%;
     width: 48px;
+    box-shadow: 0 0 10px;
+    
 }
 
 .discussion__answered {
@@ -79,7 +82,7 @@ h2 {
     display: flex;
     flex-direction: column;
     flex-grow: 2;
-    justify-content: space-evenly;
+    justify-content: space-between;
     text-align: right;
 }
 
@@ -125,8 +128,19 @@ a {
     font-weight: 600;
 
 }
-
+.discussion__content{
+    padding-left: 10px;
+}
 .discussion__content div {
     color: white;
     font-weight: 600;
+}
+
+.form__input--name,.form__input--title{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+#name{
+    width: 380px;
 }
