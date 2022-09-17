@@ -1,0 +1,228 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: "BM_font";
+  src: url(./../assets/font/BMJUA_otf.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: #4040ed;
+
+}
+
+a:visited {
+  color: #9f9f9f;
+}
+
+
+main { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(./../assets/images/eberhard-grossgasteiger-xC7Ho08RYF4-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main h1 {
+  font-family: "BM_font";
+  text-align: center;
+  margin: 30px 0;
+  color: #25316D;
+}
+
+.main__wrapper {
+  max-width: 80%;
+  width: 100%;
+}
+
+/* FORM */
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 15vh;
+  width: 80vw;
+  min-height: 325px;
+  font-size: 1.2rem;
+  color: #25316D;
+  background: #A8ECE7;
+}
+
+form * {
+  font-family: "BM_font";
+}
+
+form {
+  height: 100%;
+  width: 95%;
+  display: flex;
+}
+
+form label {
+  display: inline-block;
+  width: 10%;
+}
+
+form input {
+  padding: 5px;
+  margin: 10px 0;
+  width: 50%;
+  font-size: 0.9rem;
+}
+
+form textarea {
+  margin-top: 10px;
+  font-size: 1.15rem;
+}
+
+input[type='submit'] {
+  vertical-align: middle;
+  width: 40%;
+  height: 50%;
+  padding: 10px;
+  border-style: none;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  margin: 135px 0 auto 15px;
+  color: #25316D;
+}
+
+input[type='submit']:hover {
+  background-color: #bebebe;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.form__textbox {
+  height: 50%;
+  margin-top: 10px;
+}
+
+.form__textbox > textarea {
+  height: 100%;
+  width: 100%;
+}
+
+/* DISCUSSIONS */
+
+.discussions__container {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  background-color: rgb(233, 240, 249);
+}
+
+.discussion__container {
+  display: flex;
+  margin: 10px 10px;
+  padding: 20px 10px;
+  justify-content: space-between;
+  background-color: #FEF5AC;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  border: solid rgb(35, 90, 255) 1px;
+}
+
+
+.discussion__smallwrapper {
+  width: 100%;
+  display: flex;
+  margin: 5px 0 ;
+}
+
+.discussion__avatar--wrapper > img {
+  border-radius: 50%;
+  width: 48px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  margin-left: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion__content h2 {
+  font-size: 1.3rem;
+}
+
+.discussion__information {
+  flex-grow: 1;
+  text-align: end;
+}
+
+.discussion__answered {
+  display: flex;
+  font-size: 1.4rem;
+}
+
+.pagination-container {
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pagination links */
+.pagination a {
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination-number,
+.pagination-button{
+  color: white;
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: none;
+  margin: 0.25rem 0.25rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: .2rem;
+}
+ 
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+  background: rgb(155, 155, 155);
+}
+ 
+.pagination-number.active {
+  color: #fff;
+  background: rgb(58, 150, 200);
+}
+
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+.hidden {
+  display: none;
+}
