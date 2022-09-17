@@ -3,3 +3,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.button.active,
+.button:hover {
+    color: #1f975d;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+ion-icon {
+    padding-top: 0.05rem;
+}

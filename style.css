@@ -116,10 +116,10 @@ li {
 }
 
 img {
-    display: block;
     border-radius: 70%;
     width: 48px;
     object-fit: cover;
+    overflow: hidden;
 }
 
 /*discussion content 오른쪽 정렬*/
@@ -145,4 +145,22 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*pagination*/
+section.buttons {
+    display: flex;
+}
+
+section.buttons > button {
+    flex: 1 0 0;
+    border: 0;
+    margin: 0 0.5rem;
+}
+
+button {
+    font-size: 100%;
+    vertical-align: baseline;
+    line-height: normal;
+    *vertical-align: middle;
 }

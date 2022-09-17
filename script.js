@@ -1,109 +1,183 @@
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
-    const li = document.createElement("li"); // li 요소 생성
-    li.className = "discussion__container"; // 클래스 이름 지정
+//로컬 스토리지에 정보 저장
+let data;
+//agoraStatesDiscussions 으로부터 string 타입으로 가져옴
+const dataFromLocalStorage = localStorage.getItem('agoraStatesDiscussions');
 
-    const avatarWrapper = document.createElement("div");
-    avatarWrapper.className = "discussion__avatar--wrapper";
-    const discussionContent = document.createElement("div");
-    discussionContent.className = "discussion__content";
-    const discussionAnswered = document.createElement("div");
-    discussionAnswered.className = "discussion__answered";
+if (dataFromLocalStorage) {
+    //있으면 data 변수에 문자열로 가져온 dataFromLocalStorage 을 배열로 다시 변환하여 할당
+    data = JSON.parse(dataFromLocalStorage);
+} else {
+    //없으면 data 에 agoraStatesDiscussions과 다른 주소를 가진 새로운 배열 할당
+    //로컬 스토리지 삭제 후에는 데이터 초기화시키기
+    data = agoraStatesDiscussions.slice();
+}
 
-    //1. 아바타 이미지 불러오기
-    const avatarImg = document.createElement('img');
-    avatarImg.src = obj.avatarUrl;
-    avatarImg.alt = obj.author;
-    avatarWrapper.append(avatarImg);
+//DOM 으로 데이터 바꾸기
+const makeContent = (obj) => {
+    const li = document.createElement('li');
+    li.className = 'discussion__container';
 
-    //2. discussion content 들 불러오기
-    //h2 태그 생성
+    //1. 아바타 정보 만들기
+    const avatarWrapper = document.createElement('div');
+    avatarWrapper.className = 'discussion__avatar--wrapper';
+
+    const avatarImage = document.createElement('img');
+    avatarImage.className = 'discussion__avatar--image';
+    avatarImage.src = obj.avatarUrl;
+    avatarImage.alt = `avatar of ${obj.author}`;
+
+    avatarWrapper.append(avatarImage);
+
+    //2.content 내용 만들기
+    const discussionContent = document.createElement('div');
+    discussionContent.className = 'discussion__content';
+
+    //2-1. content 제목 만들기
     const discussionTitle = document.createElement('h3');
     discussionTitle.className = 'discussion__title';
 
-    //a 태그 생성
-    const titleAtag = document.createElement('a');
-    titleAtag.href = obj.url;
-    titleAtag.textContent = obj.title;
+    const titleAnchor = document.createElement('a');
+    titleAnchor.href = obj.url;
+    titleAnchor.textContent = obj.title;
 
-    //div = discussion_info 생성
+    discussionTitle.append(titleAnchor);
+
+    //2-2. content 작성자, 작성시간 만들기
     const discussionInfo = document.createElement('div');
     discussionInfo.className = 'discussion__information';
     discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
 
-    //append 통해서 정보 붙이기
-    discussionTitle.append(titleAtag);
-    discussionContent.append(discussionTitle);
-    discussionContent.append(discussionInfo);
+    discussionContent.append(discussionTitle, discussionInfo);
 
-    //3.discussionAnswered 불러오기
-    const answeredPtag = document.createElement('p');
+    //3.답변유무 체크박스 만들기
+    const checked = document.createElement('div');
+    checked.className = 'discussion__answered';
 
-    answeredPtag.textContent = obj.answer ? '✅' : '❎';
+    const checkedParagraph = document.createElement('p');
+    checkedParagraph.textContent = obj.answer ? '✅' : '❎';
 
-    discussionAnswered.append(answeredPtag);
+    checked.append(checkedParagraph);
 
-    li.append(avatarWrapper, discussionContent, discussionAnswered);
+    //4. 모든 내용 붙이기
+    li.append(avatarWrapper, discussionContent, checked);
     return li;
-};
+}
 
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-        element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//데이터 렌더링 함수
+const render = (element, from, to) => {
+    //시작 값과 끝값이 정해지지 않은 상태라면 정해주기
+    if (!from && !to) {
+        from = 0;
+        to = data.length;
     }
+
+    //렌더해줄때마다 남아있는 정보가 있다면 모두 지우고
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+
+    //처음부터 다시 데이터 붙이기
+    for (let i = from; i < to; i++) {
+        element.append(makeContent(data[i]));
+    }
+    //렌더링 완료 후 함수 종료시키기
     return;
-};
+}
 
-//디스커션 추가기능
-//form 등록
-const form = document.querySelector('.form');
-//이름 정보
-const userName = document.querySelector('#name');
-//제목 정보
-const userTitle = document.querySelector('#title');
-//질문 정보
-const userQuestion = document.querySelector('#story');
+//페이지네이션 변수
+//한 화면에 보여질 질문 갯수
+let maxContent = 5;
+//첫페이지 설정
+let page = 1;
 
+//전체 목록 렌더링
+const ul = document.querySelector('ul.discussions__container');
+render(ul, 0, maxContent);
+
+//페이지 시작과 끝 계산하는 함수
+const getPage = (maxContent, page) => {
+    const len = data.length;
+    let start = (page - 1) * maxContent;
+    let end = start + maxContent;
+
+    if (page <= 0) {
+        start = 0;
+    }
+
+    if (end >= len) {
+        end = len;
+    }
+
+    return {start, end};
+}
+
+//페이지 버튼 클릭 이벤트
+const buttons = document.querySelector('.buttons');
+
+//이전 버튼 클릭시 발생 이벤트
+buttons.children[0].addEventListener('click', () => {
+    if (page > 1) {//현재 페이지가 2페이지면 1페이지로 이동
+        page -= 1;
+    }
+
+    const {start, end} = getPage(maxContent, page);
+    render(ul, start, end);
+})
+
+//다음 버튼 클릭시 발생 이벤트
+buttons.children[1].addEventListener('click', () => {
+    if (maxContent * page < data.length) {
+        //현재 위치한 페이지에 있는 데이터 순서가 현재 데이터의 끝 인덱스보다 작은 상황일때
+        //다음 버튼 누르면 다음페이지로 이동
+        page += 1;
+    }
+
+    const {start, end} = getPage(maxContent, page);
+    render(ul, start, end);
+})
+
+//정보 삭제 버튼 클릭시 이벤트
+buttons.children[2].addEventListener('click', () => {
+    //전체 삭제
+    localStorage.removeItem('agoraStatesDiscussions');
+    //data 에 다시 할당
+    data = agoraStatesDiscussions.slice();
+    //페이징 초기화 후 다시 첫번째 페이지 보여주기
+    maxContent = 5;
+    page = 1;
+    render(ul, 0, maxContent);
+})
+
+//제출시 사용되는 변수
+const form = document.querySelector('form.form');
+const author = document.querySelector('div.form__input--name > input');
+const title = document.querySelector('div.form__input--title > input');
+const textBox = document.querySelector('div.form__textbox > textarea');
+
+//제출 이벤트
 form.addEventListener('submit', (event) => {
-
-    //제출버튼 클릭후 창 새로고침 막기
+    //새로고침으로 정보 초기화 방지
     event.preventDefault();
 
     const obj = {
-        id: "unique number",
+        id: "D_kwDOHOApLM4APjJi",
         createdAt: new Date(),
-        title: userTitle.value,
-        url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-        author: userName.value,
-        answer: {
-            id: "DC_kwDOHOApLM4AKg6M",
-            createdAt: "2022-05-16T02:09:52Z",
-            url: "https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236",
-            author: "Kingsenal",
-            bodyHTML:
-                '<p dir="auto">안녕하세요. <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/dubipy/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/dubipy">@dubipy</a> 님!<br>\n코드스테이츠 교육 엔지니어 권준혁 입니다. <g-emoji class="g-emoji" alias="raised_hands" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64c.png">🙌</g-emoji></p>\n<p dir="auto">질문 주신 내용은 노드 환경이 구성되어 있지 않기 때문에 발생되는 문제로 확인됩니다.</p>\n<p dir="auto"><code class="notranslate">brew unlink node &amp;&amp; brew link node</code></p>\n<p dir="auto">노드를 연결해 보시고 안된다면</p>\n<p dir="auto"><code class="notranslate">brew link --overwrite node</code></p>\n<p dir="auto">이 명령어를 그 다음에도 안된다면 접근권한 문제일 가능성이 큽니다.</p>\n<p dir="auto"><code class="notranslate">$ sudo chmod 776 /usr/local/lib</code> 접근 권한 변경 후<br>\n<code class="notranslate">$ brew link --overwrite node</code> 다시 연결을 해보세요 !</p>\n<p dir="auto">그럼에도 안된다면 다시 한 번 더 질문을 남겨주세요 !</p>\n<p dir="auto">답변이 되셨다면 내용을 간략하게 정리해서 코멘트를 남기고 answered를 마크해주세요 <g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji><br>\n감사합니다.<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji><br>\n코드스테이츠 교육 엔지니어 권준혁</p>',
-            avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
-        },
-        bodyHTML:
-            '<p dir="auto">--------------- 여기서부터 복사하세요 ---------------</p>\n<p dir="auto">운영 체제: 예) macOS</p>\n<p dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에 부딪혔나요?<br>\nPair 과제 / JavaScript Koans</p>\n<p dir="auto">npm install 명령어 입력 시 env: node: No such file or directory 라고 뜹니다</p>\n<p dir="auto">에러 발생하여 아래 명령어 실행 했는데도 불구하고 똑같은 에러가 발생했습니다<br>\nnpm cache clean --force</p>\n<p dir="auto">rm package-lock.json</p>\n<p dir="auto">rm -rf ./node_modules/</p>\n<p dir="auto">npm --verbose install</p>\n<p dir="auto">폴더 자체가 문제가 있다고 생각하여 github에서 다시 fork 후 진행했는데도 같은 에러가 발생했습니다<br>\n리눅스 기초 챕터 때 npm 설치해서 마지막 submit까지는 잘 됐는데 현재 짝수 생성기 폴더도 똑같이 npm install 시 no such file or directory가 발생합니다</p>\n<p dir="auto">에러가 출력된 곳에서, 이유라고 생각하는 부분을 열 줄 이내로 붙여넣기 해 주세요. (잘 모르겠으면 에러라고 생각하는 곳을 넣어주세요)</p>\n<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="minjun@dubi fe-sprint-javascript-koans-main % pwd \n/Users/minjun/Documents/fe_frontand_39/fe-sprint-javascript-koans-main\nminjun@dubi fe-sprint-javascript-koans-main % npm install \nenv: node: No such file or directory"><pre><span class="pl-s1">minjun</span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">pwd</span> \n<span class="pl-c1">/</span><span class="pl-v">Users</span><span class="pl-c1">/</span><span class="pl-s1">minjun</span><span class="pl-c1">/</span><span class="pl-v">Documents</span><span class="pl-c1">/</span><span class="pl-s1">fe_frontand_39</span><span class="pl-c1">/</span><span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span>\n<span class="pl-s1">minjun</span><span class="pl-kos"></span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">npm</span> <span class="pl-s1">install</span> \nenv: node: <span class="pl-v">No</span> <span class="pl-s1">such</span> <span class="pl-s1">file</span> <span class="pl-s1">or</span> <span class="pl-s1">directory</span></pre></div>\n<p dir="auto">검색했던 링크가 있다면 첨부해 주세요.<br>\n<a href="https://mia-dahae.tistory.com/89" rel="nofollow">https://mia-dahae.tistory.com/89</a></p>\n<p dir="auto"><a href="https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory" rel="nofollow">https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory</a></p>\n<p dir="auto"><a href="https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0" rel="nofollow">https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0</a></p>\n<p dir="auto"><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346" rel="nofollow">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346</a></p>\n<p dir="auto"><a href="https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80" rel="nofollow">https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80</a></p>\n<p dir="auto"><a href="https://hellowworlds.tistory.com/57" rel="nofollow">https://hellowworlds.tistory.com/57</a></p>',
+        title: title.value,
+        url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+        author: author.value,
+        answer: null,
+        bodyHTML: textBox.value,
         avatarUrl:
             "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
     };
 
-    //맨앞에 추가
-    agoraStatesDiscussions.unshift(obj);
-    ul.prepend(convertToDiscussion(obj));
+    //앞에 추가
+    data.unshift(obj);
 
-    //초기화
-    userTitle.value = '';
-    userName.value = '';
-    userQuestion.value = '';
+    //로컬스토리지에 추가된 정보를 반영 후 저장
+    localStorage.setItem('agoraStatesDiscussions', JSON.stringify(data));
+
+    //렌더링
+    render(ul, 0, maxContent);
 })
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
 
