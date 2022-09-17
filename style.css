@@ -14,11 +14,10 @@
     background-color: rgb(251,250,249)
   }
 
-
-  .logoImg {
-    width: 150px;
-    border-radius: 100%;
-    margin-left: 45px;
+  .logo {
+    padding: 50px 50px;
+    font-family: 'Federo', sans-serif;
+    font-size: 22px;
   }
 
   .form {
