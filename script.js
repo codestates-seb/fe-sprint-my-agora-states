@@ -1,5 +1,19 @@
+// 로컬 스토리지 값이나 객체를 JSON 문자열로 변환
+const jsonLocalStorage = {
+  setItem: (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  },
+  getItem: (key) => {
+    return JSON.parse(localStorage.getItem(key));
+  },
+};
+// discussionList라는 배열을 만들건데
+// discussionList는 로컬 스토리지에서 'discussion'의 값을 받아와
+// 로컬 스토리지에 "discussion"이 없으면 agoraStatesDiscussions를 받아와
+const discussionList = jsonLocalStorage.getItem("discussion") || agoraStatesDiscussions;
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+console.log(discussionList);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -47,8 +61,8 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < discussionList.length; i += 1) {
+    element.append(convertToDiscussion(discussionList[i]));
   }
   return;
 };
@@ -81,10 +95,15 @@ formSubmit.addEventListener("click", (event) => {
       avatarUrl:
         "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
     };
-    agoraStatesDiscussions.unshift(newObj);
-    console.log(agoraStatesDiscussions);
-    ul.prepend(convertToDiscussion(newObj));
-    
+    discussionList.unshift(newObj);
+    console.log(discussionList);
+    // ul.prepend(convertToDiscussion(newObj));
+    // [notice]좋은 질문 하는 법(index.html에 하드코딩 된 데이터)이 제일 위에 고정되도록 함
+    const notice = document.querySelector(".discussion__container");
+    notice.after(convertToDiscussion(newObj));
+
+    jsonLocalStorage.setItem("discussion", discussionList);
+        
     // form에 작성한 내용 초기화
     formInputName.value = "";
     formInputTitle.value = "";
