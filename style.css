@@ -154,3 +154,10 @@ main > h1 {
 .discussion__answered > p {
   font-size: 30px;
 }
+
+.page__buttons button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #FEF5AC;
+}
