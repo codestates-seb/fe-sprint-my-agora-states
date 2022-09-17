@@ -1,10 +1,15 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+let data; 
 
-// 로컬 스토리지
-localStorage.setItem("discussionData", JSON.stringify(agoraStatesDiscussions));
-let localData = null;
+// 로컬 스토리지에 데이터 있으면 => 업데이트 / 없으면 => agoraStatesDiscussions 복사(최초 1번, 처음 1번만 쓸 것이기 때문에 그냥 얕은 복사로. 주소값 같아도 상관없어서?)
+const localStorageData = localStorage.getItem("discussionData");
+if(localStorageData) {
+  data = JSON.parse(localStorageData) // 문자열을 자바스크립트 객체로 변환
+} else {
+  data = agoraStatesDiscussions.slice(); 
+}
 
 const formSubmit = document.querySelector(".form")
 const ul = document.querySelector("ul.discussions__container");
@@ -73,31 +78,25 @@ return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-
-const renderAgoraStatesDiscussions =  (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const render = (element) => {
+  // 일단 ul 안의 내용 다 지우기
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  // 다시 하나씩 ul에 요소로 붙이기
+  for (let i = 0; i < data.length; i += 1) {
+    element.append(convertToDiscussion(data[i]));
   }
   return 
 };
-
-const renderLocal =  (element) => {
-  for (let i = 0; i < localData.length; i += 1) {
-    element.append(convertToDiscussion(localData[i]));
-  }
-  return 
-};
-
-
-const render =  localData ? renderLocal : renderAgoraStatesDiscussions;
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 render(ul);
 
 // 이벤트 핸들러 : input의 밸류들을 모아 데이터에 추가
 const submitQuestion = (e) => {
-
   e.preventDefault(); 
+
   let newObj= {
   id: "",
   createdAt: currentTime,
@@ -109,14 +108,10 @@ const submitQuestion = (e) => {
   avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4"
 };
 
-ul.prepend(convertToDiscussion(newObj)) // 새 디스커션 요소 추가
+// ul.prepend(convertToDiscussion(newObj)) // 새 디스커션 요소 추가  (로컬 스토리지 없이 할 떄)
+data.unshift(newObj) // 데이터 추가 (업데이트))
 
-localData = JSON.parse(localStorage.discussionData)
-localData.unshift(newObj) 
-
-localStorage.setItem("discussionData", JSON.stringify(localData)); // 추가된 원본 데이터 받아서 로컬 스토리지에 다시 저장
-localData = JSON.parse(localStorage.discussionData)
-console.log(localData);
+localStorage.setItem("discussionData", JSON.stringify(data)); // 추가된 원본 데이터 받아서 로컬 스토리지에 다시 저장
 
 render(ul);
 
