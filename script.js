@@ -1,10 +1,17 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
 //
+let setAgora = agoraStatesDiscussions;
+let saveGetLocal = localStorage.getItem("KEY");
+let parsedLocal = JSON.parse(saveGetLocal);
+if (localStorage.length === 0) {
+  setLocal();
+} else {
+  setAgora = parsedLocal;
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   //객체를 매개변수로 받는다
+
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -28,7 +35,7 @@ const convertToDiscussion = (obj) => {
   information.className = "discussion__information";
   discussionContent.append(information);
   information.textContent = `${obj.author} 💕${obj.createdAt}`;
-  //아바타영역
+  //이미지영역
   const avatarImg = document.createElement("img");
   avatarImg.src = agoraStatesDiscussions[0].avatarUrl; //obj.avatarUrl
   avatarImg.alt = "avatar of " + agoraStatesDiscussions[0].author;
@@ -37,7 +44,7 @@ const convertToDiscussion = (obj) => {
   //체크박스영역
   const checked = document.createElement("p");
   discussionAnswered.append(checked);
-  checked.textContent = parsedLocal.obj === null ? "❎" : "✅";
+  checked.textContent = checked.obj === null ? "❎" : "✅";
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -69,31 +76,28 @@ submitHandler.addEventListener("submit", function (event) {
     avatarUrl:
       "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
   };
-  agoraStatesDiscussions.unshift(newObj);
+  setAgora.unshift(newObj);
   setLocal();
   ul.prepend(convertToDiscussion(newObj));
+
   setName.value = "";
   setTitle.value = "";
   setDiscussion.value = "";
 });
-function setLocal() {
-  localStorage.setItem("KEY", JSON.stringify(agoraStatesDiscussions));
-}
 
-let saveGetLocal = localStorage.getItem("KEY");
-let parsedLocal = JSON.parse(saveGetLocal);
+function setLocal() {
+  localStorage.setItem("KEY", JSON.stringify(setAgora));
+}
 
 //
 const ul = document.querySelector("ul.discussions__container");
 //ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 랜더링합니다
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = 0; i < setAgora.length; i += 1) {
     //i 번째 요소를 convertToDiscussion() 전달후 ul 에 append
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(setAgora[i]));
   }
   return;
 };
+
 render(ul);
-if (saveGetLocal.setItem !== null) {
-  agoraStatesDiscussions = parsedLocal;
-}
