@@ -1,1 +1,189 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb (220, 220, 221);
+  }
+
+  html,body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body{
+    background-color: black;
+  }
+
+  main {
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    height: 540px;
+    border-radius: 6px;
+  }
+
+  .neon{
+    font-family: 'Neonderthaw', cursive;
+    font-size: 70px;
+    font-weight: 500;
+    text-align: center;
+    color: #FB4264;
+    text-shadow: 0 0 3vw #F40A35;
+    margin-bottom: 30px;
+  }
+
+  .neon {
+    animation: neon 4s ease infinite;
+    -moz-animation: neon 3s ease infinite;
+    -webkit-animation: neon 2s ease infinite;
+  }
+
+  @keyframes neon {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+      color: #FED128;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+      color: #806914;
+    }
+  }
+
+ .form__container {
+    margin: 0 auto;
+    width: 540px;
+    font-size: 14pt;
+    display: block;
+  }
+
+  .form__input--name{
+    color: white;
+  }
+  .form__input--name input{
+    width: 540px;
+    height: 40px;
+    font-size: 20px;
+    margin: 5px 0 20px 0;
+  }
+
+  .form__input--title{
+    color: white;
+  }
+  .form__input--title input{
+    width: 540px;
+    height: 40px;
+    font-size: 20px;
+    margin: 5px 0 20px 0;
+  }
+
+  .form__textbox{
+    color: white;
+  }
+  .form__textbox textarea{
+    width: 540px;
+    height: 100px;
+    resize: vertical;
+    resize: horizontal;
+    resize: initial;
+    font-size: 20px;
+    margin: 5px 0 20px 0;
+  }
+
+ .form__input--wrapper {
+    margin-top: 10px;
+  }
+
+ .form__submit {
+    text-align: center;
+  }
+
+.form__submit input:hover{
+  color: white;
+  background-color: black;
+}
+
+  .form__submit input{
+    font-size: 24px;
+    padding: 5px 40px;
+    margin: 30px;
+    border-radius: 4px;
+    border: none;
+  }
+
+ .discussion__wrapper {
+    width: 680px;
+    height: 6000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    background-color: #222;
+    border-radius: 4px;
+  }
+
+ .discussion__avatar--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .discussion__avatar--image{
+    width: 64px;
+    border-radius: 100%;
+    margin: 10px;
+}
+
+ .discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: 1.5px solid rgb(46, 46, 46);
+    border-radius: 10px;
+    width: 600px;
+    height: 140px;
+  }
+
+  .discussion__content{
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    justify-content: space-between;
+    vertical-align: middle;
+  }
+
+  .discussion__content div{
+    text-align: right;
+    margin: 10px 0 0 0;
+  }
+
+  .titleInfo{
+    text-decoration: none;
+    color: rgb(33, 43, 45);
+    font-size: 20px;
+   }
+
+ .discussion__title a{
+  text-decoration: none;
+ }
+
+  .discussion__information{
+    display: flex;
+    justify-content: end;
+  }
+
+  .discussion__wrapper p {
+    font-size: 28px;
+    margin-right: 10px;
+  }
