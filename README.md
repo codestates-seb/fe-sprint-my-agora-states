@@ -8,5 +8,6 @@ https://pikadev1771.github.io/fe-sprint-my-agora-states/
 * 현지 시간 적용
 
 ## 배포 시연 화면
-![아고라 스테이츠_박경현](https://user-images.githubusercontent.com/111509842/190598861-b3b76764-e4b2-48e3-bba5-b6effdf882ff.gif)
+![아고라 스테이츠_박경현](https://user-images.githubusercontent.com/111509842/190858427-9f40ba5c-2322-4327-b258-3b781647b042.gif)
+
 
