@@ -109,6 +109,7 @@ h1 {
     border-right: 1px solid #666;
     border-bottom: 1px solid #666;
     border-left: 1px solid #d5b289;
+    cursor: pointer;
 }
 
 /* Discussions */
@@ -189,6 +190,7 @@ li.discussion__container:nth-child(even){
     font-size: 0.8rem;
     border-left: 1px solid rgba(0,0,0,0.1);
     box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
 }
 .pagination li:nth-child(5n+1) {
     background-color: #FFA1A1;
@@ -209,4 +211,8 @@ li.discussion__container:nth-child(even){
     font-weight: 900;
     width: 60px;
     border-left: 0;
+}
+
+.hidden {
+    display: none;
 }
