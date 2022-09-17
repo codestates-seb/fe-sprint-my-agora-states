@@ -1,1 +1,165 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    color: var(--gray-900);
+    background-color: var(--white);
+    font-size: 16px;
+  }
+
+  .logoWrapper {
+    display: flex;
+    background-color: rgb(251,250,249)
+  }
+
+
+  .logoImg {
+    width: 150px;
+    border-radius: 100%;
+    margin-left: 45px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    /* border: 1px solid blue; */
+    border-radius: 10px;
+    margin: 25px 0px;
+  }
+
+  .form__container {
+    border: 2px solid rgb(237, 226, 222);
+    border-radius: 15px;
+    display: flex;
+  }
+
+  .form__input--wrapper {
+    /* border: 1px solid red; */
+    margin-left: 20px;
+    display: flex;
+    height: 300px;
+    width: 500px;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .formName {
+    font-family: 'Federo', sans-serif;
+    font-size: 20px;
+  }
+
+  label {
+    font-family: 'Federo', sans-serif;
+  }
+
+  #name {
+    border: none;
+  }
+
+  #title {
+    width: 450px;
+    border: none;
+  }
+
+  #story {
+    resize: none;
+    width: 500px;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid rgb(237, 226, 222);
+    font-family: 'Federo', sans-serif;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgb(215, 190, 181);
+  }
+
+  .form__submit {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .submitBtn {
+    border-radius: 10px;
+    border: 1px solid rgb(235, 216, 208);
+    width: 75px;
+    margin-right: 20px;
+    padding: 2px;
+    font-size: 15px;
+    color: black;
+    font-family: 'Federo', sans-serif;
+  }
+
+  .submitBtn:focus {
+    /* transform: scale(1.05); */
+    box-shadow: 0 0 5px rgb(215, 190, 181);
+  }
+
+  main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(251,250,249);
+  }
+
+  .discussions__container {
+    /* border: 1px solid orange; */
+    width: 540px;
+  }
+
+  .discussion__container {
+    /* border: 1px solid orange; */
+    background-color: rgb(237, 226, 222);
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 0px;
+    padding: 9px;
+    border-radius: 10px;
+    /* flex-direction: column; */
+  }
+
+  .discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .discussion__avatar--image {
+    border-radius: 100%;
+    width: 48px;
+  }
+
+  .discussion__information {
+    text-align: right;
+    font-size: 13px;
+  }
+
+  .discussion__content {
+    flex-grow: 0.85;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0px 18px;
+  }
+
+  .discussion__container:hover,
+  .discussion__container:focus {
+    transform: translateY(-0.25em)
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
