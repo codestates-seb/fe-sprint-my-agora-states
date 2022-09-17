@@ -2,6 +2,7 @@
 console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+// 해당 함수는 li 뭉치 만듬
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -14,7 +15,7 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  // 아바타 이미지
+  // 1. 아바타 영역
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
   avatarImg.src = obj.avatarUrl;
@@ -22,13 +23,24 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg);
 
   // 콘텐츠
-  const avatarTitle = document.createElement("h2");
-  const avatarAnchor = document.createElement("a");
-  avatarTitle.className = "discussion__title";
+  const avatarTitle = document.createElement("h2"); // 질문 타이틀을 만듬
+  const avatarAnchor = document.createElement("a"); // 링크를 만듬
+  avatarTitle.className = "discussion__title"; //
   discussionContent.append(avatarTitle);
   avatarTitle.append(avatarAnchor);
   avatarAnchor.setAttribute("href", obj.url);
   avatarAnchor.textContent = obj.title;
+
+  // 인포메이션 불러오기
+  // div 만드는 변수 (질문글의 정보)
+  const discussionInformation = document.createElement("div"); // div생성
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(discussionInformation);
+
+  const checkBox = document.createElement("p");
+  checkBox.textContent = obj.answer ? "😇" : "👿";
+  discussionAnswered.append(checkBox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
