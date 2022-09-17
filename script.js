@@ -1,4 +1,12 @@
-let data = agoraStatesDiscussions; // data.js의 agoraStatesDiscussions를 가져온다.
+let data;
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions"); // localStorage의 데이터
+
+// localStorage에 데이터가 없다면 data.js의 agoraStatesDiscussions를 가져온다.
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 
 // convertToDiscussion은 data를 DOM으로 바꿔준다.
 const convertToDiscussion = (obj) => {
@@ -157,7 +165,8 @@ form.addEventListener("submit", (e) => {
   inputTitle.value = '';
   textarea.value = '';
 
-  ul.prepend(convertToDiscussion(data[0]));
+  // 로컬스토리지에 data 저장
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
 
   render(ul, 0, pageContentCount);
 })
