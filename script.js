@@ -42,6 +42,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 
+
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
@@ -87,3 +88,19 @@ textArea.value = "";
 
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+//페이지네이션 시작 
+//페이지네이션이란 콘텐츠를 여러 페이지로 나누고, 
+//이전 혹은 다음 페이지로 넘어가거나 
+// 특정 페이지로 넘어갈 수 있는 일련의 링크를 
+// 페이지 상단이나 하단에 배치하는 방법 
+
+//요구 조건들 4가지 
+//한 페이지에 페이지 링크는 10개로 보여준다. 
+// 이전 다음 버튼이 존재한다. 
+// 처음으로, 마지막으로 버튼이 존재한다. 
+
+// 화면에 보여질 페이지 그룹 Math.ceil(현재 페이지/ 한 화면에 나타낼 페이지 수 )
+// 화면에 보여질 첫번째 페이지 
+// 화면에 보여질 마지막 페이지 
+// 총 페이지 수 Math.ceil(전체 개수/ 한 페이지에 나타낼 데이터 수)

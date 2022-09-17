@@ -18,7 +18,7 @@ main{
 } 
 h1{
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .form{
     width: 100%;
@@ -96,8 +96,20 @@ margin-top: 25px;
 .discussion__title > a {
     font-size:15px;
 }
-
+.discussions__container{
+    background-color: #F2D388;
+}
 .discussion__container{
-    margin: 0px;
+    background-color: aliceblue;
+    margin: 10px;
     padding: 5px;
+    border-radius: 10px;
+}
+.discussion__title{
+    display: flex;
+    justify-content: flex-start;
+}
+.discussion__information{
+    display: flex;
+    justify-content: end;
 }
