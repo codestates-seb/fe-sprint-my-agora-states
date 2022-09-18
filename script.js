@@ -1,10 +1,42 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+const initialPageNum = 1;
+const elementCountByPage = 10;
+const totalPageCounts = Math.ceil(agoraStatesDiscussions.length/elementCountByPage);
+//pagenation을 생성합니다.
+
+const createPagenation = (num) => {
+  const paginationContainer = document.querySelector('.pagination');
+  const leftArrow = document.createElement('a');
+  leftArrow.textContent = '<<';
+  paginationContainer.append(leftArrow);
+  for (let i = 1; i<num+1; i++) {
+    let pageIndex = document.createElement('a');
+    pageIndex.textContent = i;
+    pageIndex.className = `page${i} ${i}`;
+    if (i == initialPageNum) {
+      pageIndex.setAttribute('id', 'selected');
+    }
+    pageIndex.addEventListener('click', showContentBySelectedPage)
+    paginationContainer.append(pageIndex);
+  }
+  const rightArrow = document.createElement('a');
+  rightArrow.textContent = '>>';
+  paginationContainer.append(rightArrow);
+  return;
+}
+//pagenation 동작 핸들러 설정 
+const showContentBySelectedPage = (event) => {
+  event.preventDefault();
+  //기존 선택된 index class 찾아 제거
+  const prevSelected = document.querySelector('#selected');
+  prevSelected.setAttribute('id','');
+  //새로 선택된 index class 찾아 설정
+  renderByPageIndex(ul, event.target.classList[1]);
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
-
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -53,6 +85,7 @@ discussion_form.addEventListener('submit', (event) => {
     id : "any random string",
     author : discussion_form.name.value,
     createdAt : new Date(),
+    //랜덤 아바타 생성
     avatarUrl : `https://avatars.dicebear.com/api/human/${Math.random()}.svg`,
     url : "",
     title : discussion_form.title.value,
@@ -63,14 +96,24 @@ discussion_form.addEventListener('submit', (event) => {
 })
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const renderByPageIndex = (element, index) => {
+  const selectedIndex = document.querySelector(`.page${index}`);
+  selectedIndex.setAttribute('id','selected');
+  while (element.hasChildNodes()) {
+    element.removeChild(element.firstChild);
+  }
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    //해당 pageIndex에 요소만 convert
+    if (i >= (index-1)*elementCountByPage && i < index*elementCountByPage) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    } 
+    if (i == index*elementCountByPage) return;
   }
   return;
 };
 
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
+createPagenation(totalPageCounts);
+renderByPageIndex(ul, initialPageNum)

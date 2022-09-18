@@ -11,11 +11,16 @@
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
+html, body {
+    height: 100%;
+}
+
 header {
     border-bottom: 2px solid black;
     height: 6rem;
     line-height: 6rem;
 }
+
 body {
     text-decoration: none;
     display: inline;
@@ -44,6 +49,7 @@ main {
 }
 
 a {
+    cursor: pointer;
     text-decoration: none;
     color: black;
 }
@@ -56,9 +62,10 @@ ul, li {
 
 /* id */
 #_container {
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
@@ -67,6 +74,7 @@ ul, li {
     #_container {
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         background-color: #4158D0;
         background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
     }
@@ -138,7 +146,22 @@ form {
     border: 0;
     box-shadow: 3px 3px 0 0 rgba(2, 2, 14, 0.541);
 }
-
+/*Pagenation*/
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+.pagination a {
+    color: black;
+    font-size: larger;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+#selected {
+    color: red;
+}
 /*Discussion List part*/
 .discussion__wrapper {
     margin-top: 10px;
