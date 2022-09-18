@@ -11,15 +11,16 @@
     box-sizing: border-box;
     font-family: 'GangwonEdu_OTFBoldA';
   }
+  body{
+    background-image: url(https://mblogthumb-phinf.pstatic.net/MjAxNzA4MDZfMTYw/MDAxNTAyMDMwNzU2MTg1.W_vJHpxyRi-sZVUcdk99h2HJ5hheTzPY8xCRFxMr5ZQg.SEQliRzWHDNa-OCebzaYgoIxwr0KQJgXXU00Jzh1UP0g.JPEG.cloud_jw/NaverBlog_20170806_234555_04.jpg?type=w420);
+    background-repeat: repeat;
+  }
 
   /* main container */
   main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: rgb(246, 227, 230); */
-    background-image: url(https://mblogthumb-phinf.pstatic.net/MjAxNzA4MDZfMTYw/MDAxNTAyMDMwNzU2MTg1.W_vJHpxyRi-sZVUcdk99h2HJ5hheTzPY8xCRFxMr5ZQg.SEQliRzWHDNa-OCebzaYgoIxwr0KQJgXXU00Jzh1UP0g.JPEG.cloud_jw/NaverBlog_20170806_234555_04.jpg?type=w420);
-    background-repeat: repeat;
   }
   /* form 부분 */
   h1{
