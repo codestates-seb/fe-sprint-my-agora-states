@@ -1,1 +1,306 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'LeferiPoint-BlackA';
+}
+
+@font-face {
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ a { color: #243b55;  text-decoration: none; }
+ a:visited {color: #243b55;}
+
+ul, ol, li {
+    list-style: none;
+}
+
+body {
+    background: linear-gradient(to right,#141E30, #243B55);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    font-size: 50px;
+    color: #ffd200;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form__container {
+    width: 540px;
+    display: flex;
+    justify-content : center ;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    padding-top:  30px;
+    background-color: #007885 ;
+    font-size: 14px;
+}
+
+.form {
+    width: 540px ;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input--wrapper input {
+    width: 300px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid rgb(63, 114, 175);
+}
+
+.form__input--title > label {
+   margin-right: 30px;
+}
+
+.form__textbox {
+    display: flex;
+    align-items: center;
+}
+
+textarea {
+    width : 300px ;
+    margin : 5px;
+    border: 1px solid rgb(63, 114, 175);  
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form__submit input {
+    width: 380px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 30px;
+    background-color: rgb(17, 45, 78);
+    color: rgb(219, 226, 239);
+    border: 3px solid rgb(17, 45, 78);
+    margin-bottom: 10px;
+}
+
+.discussion__container {
+    width: 540px ;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #E2F1FF;
+    border-radius: 30px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.discussion__content{
+    flex-grow: 1;
+}
+
+.discussion__title {
+    width: 430px ;
+    margin-bottom: 10px;
+}
+
+.discussion__information {
+    height: 30px;
+    text-align: right;
+    padding-top: 15px;
+    font-size: 13px;
+}
+
+.discussion__answered > p {
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+/* 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'LeferiPoint-BlackA';
+}
+
+@font-face {
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ a { color: #243b55;  text-decoration: none; }
+ a:visited {color: #243b55;}
+
+ul, ol, li {
+    list-style: none;
+}
+
+body {
+    background: linear-gradient(to right, #8e9eab, #eef2f3);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    font-size: 60px;
+    color: #1B2A34 ;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form__container {
+    width: 540px;
+    display: flex;
+    justify-content : center ;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    padding-top:  30px;
+    background-color: #96BBD8;
+    font-size: 14px;
+}
+
+.form {
+    width: 540px ;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input--wrapper input {
+    width: 300px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid rgb(63, 114, 175);
+}
+
+.form__input--title > label {
+   margin-right: 30px;
+}
+
+.form__textbox {
+    display: flex;
+    align-items: center;
+}
+
+textarea {
+    width : 300px ;
+    margin : 5px;
+    border: 1px solid rgb(63, 114, 175);  
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form__submit input {
+    width: 380px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 30px;
+    background-color: rgb(17, 45, 78);
+    color: rgb(219, 226, 239);
+    border: 3px solid rgb(17, 45, 78);
+    margin-bottom: 10px;
+}
+
+.discussion__container {
+    width: 540px ;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #DCF3EE;
+    border-radius: 30px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.discussion__content{
+    flex-grow: 1;
+}
+
+.discussion__title {
+    width: 430px ;
+    margin-bottom: 10px;
+}
+
+.discussion__information {
+    height: 30px;
+    text-align: right;
+    padding-top: 15px;
+    font-size: 13px;
+}
+
+.discussion__answered > p {
+    font-size: 16px;
+}
+ */
+
+
+
