@@ -1,8 +1,10 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 :root {
-    --base-size: 4px;
+    --base-size: 3px;
     --mouse-off: none;
     --mouse-on: '';
+    --theme--gradient : linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    --theme--text-gradient : -webkit-linear-gradient(43deg, #C850C0 40%, #FFCC70 60%);
 }
 /* tag */
 * {
@@ -29,18 +31,18 @@ body {
 h1 {    
     display: block;
     text-align: center;
-    font-size: 60px;
-    font-size: 45px;
+    font-size: 42px;
     text-decoration: dashed;
     word-spacing: 5px;
-    letter-spacing: -2px;
-    
-}
-
-h3 {
-    background: -webkit-linear-gradient(43deg, #C850C0 0%, #FFCC70 100%);
+    letter-spacing: -3px;
+    background: var(--theme--text-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+h3 > a {
+    color: white;
+    font-size: 14px;
 }
 
 main {
@@ -59,15 +61,19 @@ ul, li {
     margin: calc(var(--base-size)*2) calc(var(--base-size)*1);
 }
 
+footer {
+    margin-top: 1px;
+    background-color: black;
+}
 
 /* id */
 #_container {
+    padding: 10px;
     min-height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-image: var(--theme--gradient);
 }
 
 @media (max-width: 60rem) {
@@ -75,8 +81,8 @@ ul, li {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        background-color: #4158D0;
-        background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+        align-items: center;
+        background-image: var(--theme--gradient);
     }
 }
 
@@ -139,8 +145,7 @@ form {
     width: 10rem;
     height: 2rem;
     margin: 0 auto;
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-image: var(--theme--gradient);
     color: white;
     font-weight: bold;
     border: 0;
@@ -158,9 +163,16 @@ form {
     font-size: larger;
     padding: 8px 16px;
     text-decoration: none;
+    border-bottom: 2px solid black;
+    border-left: 1px solid grey;
+    margin-left: 10px;
+    background-color: white;
+    opacity: 0.5;
+    border-radius: 20%;
 }
 #selected {
-    color: red;
+    opacity: 1;
+    font-weight: bold;
 }
 /*Discussion List part*/
 .discussion__wrapper {
@@ -169,8 +181,9 @@ form {
 .discussion__container {
     display: block;
     min-width: 40rem;
+    max-width: 40rem;
     padding: calc(var(--base-size)*3);
-    margin: calc(var(--base-size)*3);
+    margin: calc(var(--base-size)*4);
     box-shadow: 5px 5px 2px 1px rgba(2, 2, 14, 0.541);
     background-color: black;
     color: white;
@@ -189,6 +202,10 @@ form {
     position: relative;
     left : 1rem;
     line-height: calc(var(--base-size)*10);
+    font-size: 12px;
+    background: var(--theme--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .discussion__avatar--image {
@@ -204,7 +221,11 @@ form {
     margin: 10px;
 }
 
-.discussion__content :hover + .discussion__body {
+.discussion__container :hover + .discussion__body {
+    display: block;
+}
+
+.discussion__body :hover {
     display: block;
 }
 
@@ -215,7 +236,8 @@ form {
     text-overflow: ellipsis;  	
     white-space: nowrap; 		
     word-break: break-all;
-    background-color: beige;
+    background-color: white;
+    border-radius: 5px;
     color: black;
     padding: 5px;
 }

@@ -1,13 +1,12 @@
+const new_agoraStatesDiscussions = [...Object.values(JSON.parse(localStorage.getItem('discussion-list') ?? "")), ...agoraStatesDiscussions, ]
+console.log(new_agoraStatesDiscussions);
 const initialPageNum = 1;
 const elementCountByPage = 10;
-const totalPageCounts = Math.ceil(agoraStatesDiscussions.length/elementCountByPage);
-//pagenation을 생성합니다.
+const totalPageCounts = Math.ceil(new_agoraStatesDiscussions.length/elementCountByPage);
 
+//pagenation을 생성합니다.
 const createPagenation = (num) => {
   const paginationContainer = document.querySelector('.pagination');
-  const leftArrow = document.createElement('a');
-  leftArrow.textContent = '<<';
-  paginationContainer.append(leftArrow);
   for (let i = 1; i<num+1; i++) {
     let pageIndex = document.createElement('a');
     pageIndex.textContent = i;
@@ -18,9 +17,6 @@ const createPagenation = (num) => {
     pageIndex.addEventListener('click', showContentBySelectedPage)
     paginationContainer.append(pageIndex);
   }
-  const rightArrow = document.createElement('a');
-  rightArrow.textContent = '>>';
-  paginationContainer.append(rightArrow);
   return;
 }
 //pagenation 동작 핸들러 설정 
@@ -46,7 +42,6 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   //이미지 원형 아바타 + 글쓴이 정보
   const avatarImg = document.createElement("img");
   avatarImg.setAttribute('class', 'discussion__avatar--image')
@@ -64,7 +59,6 @@ const convertToDiscussion = (obj) => {
   contentTitle.append(titleAnchor);
   contentTitle.className = "discussion__title";
   
-
   const contentBody = document.createElement('div');
   contentBody.className = "discussion__body";
   contentBody.innerHTML = obj.bodyHTML;
@@ -77,7 +71,7 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-//form 입력 이벤트 핸들러 추가!
+//form 입력 이벤트 핸들러 추가 + localstorage 동작
 const discussion_form = document.querySelector(".form__container > form");
 discussion_form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -92,20 +86,27 @@ discussion_form.addEventListener('submit', (event) => {
     bodyHTML : discussion_form.story.value,
   };
   ul.prepend(convertToDiscussion(new_discussion));
-  agoraStatesDiscussions.push(new_discussion);
+  
+  // 
+  let discussionList = JSON.parse(localStorage.getItem('discussion-list')) ?? Object.assign({});
+  console.log('삽입 전',discussionList);
+  discussionList[Object.keys(discussionList).length] = new_discussion;
+  console.log('삽입 후', discussionList)
+  localStorage.setItem('discussion-list',JSON.stringify(discussionList));
+  console.log(JSON.parse(localStorage.getItem('disscussion-list')));
 })
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// new_agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const renderByPageIndex = (element, index) => {
   const selectedIndex = document.querySelector(`.page${index}`);
   selectedIndex.setAttribute('id','selected');
   while (element.hasChildNodes()) {
     element.removeChild(element.firstChild);
   }
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = 0; i < new_agoraStatesDiscussions.length; i += 1) {
     //해당 pageIndex에 요소만 convert
     if (i >= (index-1)*elementCountByPage && i < index*elementCountByPage) {
-      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+      element.append(convertToDiscussion(new_agoraStatesDiscussions[i]));
     } 
     if (i == index*elementCountByPage) return;
   }
@@ -117,3 +118,4 @@ const renderByPageIndex = (element, index) => {
 const ul = document.querySelector("ul.discussions__container");
 createPagenation(totalPageCounts);
 renderByPageIndex(ul, initialPageNum)
+
