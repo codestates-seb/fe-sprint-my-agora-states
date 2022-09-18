@@ -1,1 +1,129 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(69, 138, 228);
+  text-shadow: -1px 0px wheat, 0px 1px wheat, 1px 0px wheat, 0px -1px wheat;
+  font-family: "Courier New";
+}
+
+main {
+  background-color: powderblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+}
+.form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 30px;
+  background-color: rgb(252, 246, 215);
+  cursor: pointer;
+  width: 500px;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+h1 {
+  font-size: 80px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #18fbff,
+    0 0 30px #18fbff, 0 0 40px #18fbff, 0 0 55px #18fbff, 0 0 75px #18fbff,
+    -39px 20px 6px rgba(206, 89, 55, 0), -39px 20px 6px rgba(206, 89, 55, 0);
+}
+
+ul.discussions__container {
+  display: flex;
+  width: 540px;
+  flex-direction: column;
+}
+li.discussion__container {
+  display: flex;
+}
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1.2 0;
+}
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 30%;
+}
+.discussion__content {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  flex-grow: 2;
+}
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+}
+input[type="submit"] {
+  border: 2px solid white;
+  border-radius: 20px;
+  height: 50px;
+  color: rgb(69, 138, 228);
+  background-color: rgb(193, 237, 250);
+  cursor: pointer;
+}
+#story,
+#name {
+  margin: 10px;
+  border-radius: 10px;
+  border: 10px solid white;
+  width: 90%;
+}
+input[type="submit"]:active {
+  color: #ffffff;
+  background: #f7c1c1;
+  text-shadow: 4px 3px 0px #656464;
+}
+.discussion__information {
+  text-align: right;
+  color: rgb(226, 244, 174);
+}
+.parent {
+  display: flex;
+  justify-content: end;
+}
+.asks {
+  display: none;
+}
+textarea {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgb(247, 232, 174);
+  border: 2px solid white;
+  width: 400px;
+}
+.click_button {
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 50px;
+  color: rgb(69, 138, 228);
+  background-color: rgb(252, 246, 215);
+  cursor: pointer;
+}
