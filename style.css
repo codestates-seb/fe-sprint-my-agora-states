@@ -26,6 +26,7 @@ main {
 }
 .form {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   border-radius: 25px;
@@ -100,4 +101,29 @@ input[type="submit"]:active {
 .discussion__information {
   text-align: right;
   color: rgb(226, 244, 174);
+}
+.parent {
+  display: flex;
+  justify-content: end;
+}
+.asks {
+  display: none;
+}
+textarea {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgb(247, 232, 174);
+  border: 2px solid white;
+  width: 400px;
+}
+.click_button {
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 50px;
+  color: rgb(69, 138, 228);
+  background-color: rgb(252, 246, 215);
+  cursor: pointer;
 }

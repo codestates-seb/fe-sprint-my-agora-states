@@ -1,12 +1,12 @@
 //
 let setAgora = agoraStatesDiscussions;
-let saveGetLocal = localStorage.getItem("KEY");
-let parsedLocal = JSON.parse(saveGetLocal);
 if (localStorage.length === 0) {
   setLocal();
-} else {
-  setAgora = parsedLocal;
 }
+let saveGetLocal = localStorage.getItem("KEY");
+let parsedLocal = JSON.parse(saveGetLocal);
+
+setAgora = parsedLocal;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -30,11 +30,33 @@ const convertToDiscussion = (obj) => {
   anchor.href = obj.url;
   h_title.append(anchor);
   anchor.textContent = obj.title;
+
   //인포메이션 영역
   const information = document.createElement("div");
   information.className = "discussion__information";
   discussionContent.append(information);
   information.textContent = `${obj.author} 💕${obj.createdAt}`;
+  //추가 질문지
+  const btnParent = document.createElement("menu");
+  btnParent.className = "parent";
+  btnParent.id = parseInt(Math.random() * 100000);
+  discussionContent.append(btnParent);
+  const ask = document.createElement("textarea");
+  ask.className = "asks";
+  btnParent.append(ask);
+  ask.textContent = obj.bodyHTML;
+  const btn = document.createElement("button");
+  btn.className = "click_button";
+  btn.textContent = "클릭";
+  btnParent.append(btn);
+
+  //
+  let toggle = false;
+  btn.addEventListener("click", function (event) {
+    event.preventDefault();
+    toggle = !toggle;
+    toggle ? ask.classList.remove("asks") : ask.classList.add("asks");
+  });
   //이미지영역
   const avatarImg = document.createElement("img");
   avatarImg.src = agoraStatesDiscussions[0].avatarUrl; //obj.avatarUrl
@@ -45,7 +67,9 @@ const convertToDiscussion = (obj) => {
   const checked = document.createElement("p");
   discussionAnswered.append(checked);
   checked.textContent = checked.obj === null ? "❎" : "✅";
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
   return li;
 };
 
@@ -72,10 +96,11 @@ submitHandler.addEventListener("submit", function (event) {
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
     author: newSetName,
     answer: null,
-    bodyHTML: "",
+    bodyHTML: newSetDiscussion,
     avatarUrl:
       "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
   };
+
   setAgora.unshift(newObj);
   setLocal();
   ul.prepend(convertToDiscussion(newObj));
@@ -85,6 +110,7 @@ submitHandler.addEventListener("submit", function (event) {
   setDiscussion.value = "";
 });
 
+//localstorage 생성
 function setLocal() {
   localStorage.setItem("KEY", JSON.stringify(setAgora));
 }
@@ -97,7 +123,6 @@ const render = (element) => {
     //i 번째 요소를 convertToDiscussion() 전달후 ul 에 append
     element.append(convertToDiscussion(setAgora[i]));
   }
-  return;
 };
 
 render(ul);
