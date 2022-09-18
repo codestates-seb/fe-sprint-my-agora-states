@@ -1,10 +1,26 @@
+// 로컬 스토리지 값이나 객체를 JSON 문자열로 변환
+const jsonLocalStorage = {
+  setItem: (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  },
+  getItem: (key) => {
+    return JSON.parse(localStorage.getItem(key));
+  },
+};
+// discussionList라는 배열을 만들건데
+// discussionList는 로컬 스토리지에서 'discussion'의 값을 받아와
+// 로컬 스토리지에 "discussion"이 없으면 agoraStatesDiscussions를 받아와
+
+const discussionList =
+  jsonLocalStorage.getItem("discussion") || agoraStatesDiscussions;
+// console.log(discussionList);
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
+  li.dataset = "";
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -47,8 +63,11 @@ const convertToDiscussion = (obj) => {
   const discordappDelete = document.createElement("button");
   discordappDelete.className = "discussion__delete";
   discordappDelete.textContent = "❌";
+  // 해당 게물 삭제기능
   discordappDelete.addEventListener("click", (e) => {
+    const liList = document.querySelector(".discussion__container");
     li.remove();
+    discussionList.removeItem();
   });
   if (obj.answer !== null) {
     discussionCheck.textContent = "✅";
@@ -63,8 +82,8 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < discussionList.length; i += 1) {
+    element.append(convertToDiscussion(discussionList[i]));
   }
   return;
 };
@@ -95,7 +114,10 @@ agoForm.addEventListener("submit", (e) => {
       "https://avatars.githubusercontent.com/u/77476348?s=64&u=64243db62117de5c254c9a76184753b76d7303ff&v=4",
   };
   ul.prepend(convertToDiscussion(objItem));
-  agoraStatesDiscussions.unshift(objItem);
+  discussionList.unshift(objItem);
+
+  jsonLocalStorage.setItem("discussion", discussionList);
+
   agoName.value = "";
   agoTitle.value = "";
   agoStory.value = "";
