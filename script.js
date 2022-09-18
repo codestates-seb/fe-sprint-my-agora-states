@@ -1,4 +1,5 @@
-const new_agoraStatesDiscussions = [...Object.values(JSON.parse(localStorage.getItem('discussion-list') ?? "")), ...agoraStatesDiscussions, ]
+const lsDiscussionList = localStorage.hasOwnProperty('discussion-item') ? Object.values(JSON.parse(localStorage.getItem('discussion-list'))) : [];
+const new_agoraStatesDiscussions = [...lsDiscussionList, ...agoraStatesDiscussions, ]
 console.log(new_agoraStatesDiscussions);
 const initialPageNum = 1;
 const elementCountByPage = 10;
