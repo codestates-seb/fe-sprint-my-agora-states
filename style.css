@@ -32,7 +32,7 @@ main {
     rgba(183, 147, 230, 1) 100%
   );
   box-shadow: 1px 1px 20px 3px grey;
-  height: 90vh;
+  height: 90%;
   /* overflow: hidden; */
 }
 
@@ -139,7 +139,7 @@ h2 {
 
 .discussion__wrapper {
   margin-top: 5px;
-  height: 540px;
+  max-height: 49vh;
   overflow: auto;
   /* padding: 5px; */
 }
