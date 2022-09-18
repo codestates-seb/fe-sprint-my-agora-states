@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   font-size: medium;
+  color: #9e9e9e;
 }
 
 body {
@@ -76,23 +77,26 @@ main {
 .form__input--wrapper {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   margin-right: 10px;
 }
 .form__input--name {
   display: flex;
   margin: 5px;
   align-content: center;
+  justify-content: center;
 }
 .form__input--title {
   display: flex;
   margin: 5px;
   align-content: center;
+  justify-content: flex-end;
 }
 .form__input--textbox {
   display: flex;
   margin: 5px;
   align-content: center;
+  justify-content: center;
 }
 .form__container > form {
   width: 100%;

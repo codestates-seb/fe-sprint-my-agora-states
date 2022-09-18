@@ -25,7 +25,7 @@ const convertToDiscussion = (obj) => {
   // 콘텐츠
   const avatarTitle = document.createElement("h2"); // 질문 타이틀을 만듬
   const avatarAnchor = document.createElement("a"); // 링크를 만듬
-  avatarTitle.className = "discussion__title"; //
+  avatarTitle.className = "discussion__title";
   discussionContent.append(avatarTitle);
   avatarTitle.append(avatarAnchor);
   avatarAnchor.setAttribute("href", obj.url);
@@ -39,7 +39,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInformation);
 
   const checkBox = document.createElement("p");
-  checkBox.textContent = obj.answer ? "😇" : "👿";
+  checkBox.textContent = obj.answer ? "😇" : "👿"; // 삼항연산자 참 : 거짓
   discussionAnswered.append(checkBox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -48,7 +48,9 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  // data.js파일의 데이터 legnth만큼 배열 속의 객체를 찾는다.
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    // i번째 데이터를 convertToDiscussion의 전달인자로 갖고 element에 추가
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -57,3 +59,27 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const obj = {
+    id: "newID",
+    createdAt: new Date(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+  };
+  agoraStatesDiscussions.unshift(obj);
+  ul.prepend(convertToDiscussion(obj));
+  title.value = "";
+  author.value = "";
+  textbox.value = "";
+});
