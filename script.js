@@ -86,6 +86,7 @@ const form = document.querySelector('.form');
 let elName =  document.querySelector('.form__input--name > input');
 let elTitle =  document.querySelector('.form__input--title > input');
 let elStory =  document.querySelector('.form__textbox > textarea');
+const randomAvatar= ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1B4uflzH2bZd3i1edrC2Td9JWtXTP48k7AQ&usqp=CAU","https://i.pinimg.com/originals/1a/97/7b/1a977b5b0d6a8e8f62b3ba2dfd6d3150.jpg","https://www.sqler.com/files/attach/images/2020/12/28/243b820c83ce80838ac870d11b8fe7af.jpg","https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/717/887e0550fb7030f257ae4b39a6719a25_res.jpeg","https://1.gall-img.com/hygall/files/attach/images/82/997/219/228/5f9f339fbc3309a33f6c2a19be58d6ae.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_X7O0aqGRB3DcNihsI7IIxxF5SJJxIeUjlH5qhj6A14XTXPANlB-sAekhAdH1PjZC-yA&usqp=CAU"];
 
 form.addEventListener('submit', (event) =>{
   // 새로고침 발생하지 않게
@@ -96,7 +97,8 @@ form.addEventListener('submit', (event) =>{
   newDisscussion.title = elTitle.value;
   newDisscussion.createdAt = new Date().toISOString();
   newDisscussion.answer = null;
-  newDisscussion.avatarUrl = 'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4';
+  // 이미지 랜덤으로 보여지게
+  newDisscussion.avatarUrl = randomAvatar[Math.floor(Math.random()*randomAvatar.length)];
   data.unshift(newDisscussion);
 
   // 로컬스토리지에 저장(data를 문자열로 바꿔줌)
