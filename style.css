@@ -1,1 +1,99 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(220, 214, 247);
+}
+
+h1{
+    font-size: 400%;
+    text-shadow: 10px 10px 5px rgb(166, 177, 225);
+}
+
+.form__container{
+    background-color: rgb(66, 72, 116);
+    border-radius: 20px;
+    width: 540px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    padding: 20px;
+}
+
+.input {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    height: 30px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.submitBtn {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: rgb(166, 177, 225);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;;
+}
+
+.discussion__container{
+    display: flex;
+    width: 540px;
+    justify-content: space-between;
+    background-color: rgb(244, 238, 255);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.discussion__title{
+    margin: 10px;
+}
+
+.discussion__information{
+    text-align: right;
+    margin: 10px;
+}
+
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    font-size: x-large;
+}
