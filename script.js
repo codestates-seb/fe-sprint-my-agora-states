@@ -135,12 +135,13 @@ document.querySelector(".form").onsubmit = (event) => {
   agoraStatesDiscussions.unshift(obj)
   ul.prepend(convertToDiscussion(obj))
   // displayRows(0);
+  // console.log(agoraStatesDiscussions);
 }
 
 // Advanced Challenge 페이지네이션
 const rowsperPage = 10;
-const rows = document.querySelectorAll("li.discussion__container");
-const rowsCounts = rows.length;
+const rows = agoraStatesDiscussions;
+const rowsCounts = agoraStatesDiscussions.length;
 const pageCounts = Math.ceil(rowsCounts/rowsperPage);
 const pageWrapper = document.querySelector(".page__wrapper");
 
@@ -159,9 +160,11 @@ btnPage.forEach((item, index) => {
 })
 
 const displayRows = (index) => {
-  let rowsArr = [...rows];
+  let rowsRest = document.querySelectorAll("li.discussion__container");
+  let rowsArr = [...rowsRest];
   let start = index * rowsperPage;
   let end = start + rowsperPage;
+  console.log(rowsArr);
 
   for(let rowA of rowsArr) {
     rowA.style.display = 'none';
