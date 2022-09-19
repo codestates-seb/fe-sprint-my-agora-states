@@ -101,26 +101,14 @@ form.addEventListener('submit', (e) => {
   
 })
 
+let btns = document.querySelectorAll(".btns");
+console.log(btns.target);
+
+
+// btns.addEventListener("click",(()=>{
+//   console.log
+// })
 
 
 
-let page; // 총페이지수
-let Display; // 보여질 그룹
-
-
-/************** css 이벤트 효과구간 ****************************/
-
-// // 버튼전역변수
-// let CB = document.querySelector(".CB");
-// // 등록창 전역변수
-// let FORM = document.querySelector(".form")
-
-// CB.addEventListener("click",(()=>{
-//   console.log("테스트")
-
-//   FORM.style.display = "block";
-
-  
-  
-// }))
  
