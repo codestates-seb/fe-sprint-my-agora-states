@@ -1,1 +1,166 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Kalam', cursive;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__container {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EEF1FF;
+    border-radius: 15px;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+.form__input--wrapper div {
+    margin: 5px 0;
+    border: none;
+    text-align: center;
+}
+
+#name, #title {
+    width: 300px;
+}
+
+textarea {
+    height: 130px;
+    width: 300px;
+    max-width: 300px;
+    max-height: 130px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    font-size: 13px;
+}
+
+input[type=text] {
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
+
+#submit {
+    border: none;
+    border-radius: 15px;
+    background-color: #FF9551;
+    color: black;
+    padding: 50px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.discussions__container {
+    padding: 20px 40px;
+    background-color: #EEF1FF;
+    border-radius: 10px;
+}
+
+.discussion__container {
+    display: flex;
+    flex: 0 1 auto;
+    width: 540px;
+    margin: 15px 0;
+    padding: 0 10px;
+    justify-content: space-between;
+    border: 2px solid #AAC4FF;
+    border-radius: 10px;
+}
+
+/*li 점 없애기*/
+li {
+    list-style: none;
+}
+
+/*img 사진 테두리 동그랗게 수정*/
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    border-radius: 70%;
+    width: 48px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/*discussion content 오른쪽 정렬*/
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 16px;
+}
+
+.discussion__title {
+    margin-top: 5px;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+
+/*체크박스 중간에 오게 하기*/
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*pagination*/
+section.buttons {
+    display: flex;
+}
+
+section.buttons > button {
+    flex: 1 0 0;
+    border: 0;
+    margin: 0 0.5rem;
+}
+
+button {
+    font-size: 100%;
+    vertical-align: baseline;
+    line-height: normal;
+    *vertical-align: middle;
+}
