@@ -140,7 +140,7 @@ document.querySelector(".form").onsubmit = (event) => {
 
 // Advanced Challenge 페이지네이션
 const rowsperPage = 10;
-const rows = agoraStatesDiscussions;
+
 const rowsCounts = agoraStatesDiscussions.length;
 const pageCounts = Math.ceil(rowsCounts/rowsperPage);
 const pageWrapper = document.querySelector(".page__wrapper");
