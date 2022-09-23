@@ -1,1 +1,90 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+  }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 650px;
+    border: 2px solid darkgray;
+    border-radius: 40px;
+    background-image: url("https://i.pinimg.com/736x/a7/eb/4e/a7eb4e9e1b79a2b4f84029b0e081a608.jpg");
+
+}
+
+li.discussion__container {
+    display: flex;
+    justify-content : space-between; 
+    list-style: none;
+    width: 540px;
+    height: 80px;
+    border: 1px dotted gray;
+    border-radius: 10px;
+    font-size: 11px;
+    
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+
+
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    flex-direction : column;
+    justify-content: center;
+    
+}
+
+.discussion__answered {
+    display: flex;
+    flex-direction : column;
+    justify-content: center;
+    margin-right: 10px;
+    
+}
+
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content : space-between; 
+    width: 450px
+
+}
+
+a{
+    color: black;
+    text-decoration : none;
+    transition: color .5s;
+    
+    
+}
+a:hover {
+    color: rgb(109, 140, 168);
+  }
+
+div.discussion__information {
+    display: flex;
+    flex-direction: row-reverse;
+    
+
+}
+
+p {
+    font-size: 20px;
+}
