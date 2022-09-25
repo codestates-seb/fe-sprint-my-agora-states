@@ -1,6 +1,21 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+// agoraStates 데이터를 local storage에 넣는다.
+if (!localStorage.getItem("dummyData")) {
+  saveLocalStorage(agoraStatesDiscussions);
+}
+
+// 저장 함수
+function saveLocalStorage(obj) {
+  localStorage.setItem("dummyData", JSON.stringify(obj));
+}
+
+// 로컬 스토리지에서 가져오는 함수
+function getLocalStorage(name) {
+  return JSON.parse(localStorage.getItem(name));
+}
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -29,6 +44,7 @@ const convertToDiscussion = (obj) => {
   // 새 창에서 열리도록 속성 부여
   discussionTitleUrl.setAttribute("target", "_blank");
   discussionTitle.append(discussionTitleUrl);
+
   discussionInfo.textContent =
     obj.author + " | " + new Date(obj.createdAt).toLocaleString();
 
@@ -36,7 +52,6 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionTitle, discussionInfo);
 
   // 체크표시
-  // 살짝 응용하면 아이콘 넣을 수 있을 듯
   // fontawesome에서 아이콘 불러오기
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -53,15 +68,17 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+let dataFromLocalStorage = getLocalStorage("dummyData");
+
+// local storage에 저장된 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < dataFromLocalStorage.length; i += 1) {
+    element.append(convertToDiscussion(dataFromLocalStorage[i]));
   }
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// ul 요소에 local storage에 저장된 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
@@ -89,7 +106,8 @@ questionForm.addEventListener("submit", (event) => {
     avatarUrl: "https://avatars.githubusercontent.com/u/79880249?s=64&v=4",
   };
 
-  agoraStatesDiscussions.unshift(newObj);
+  dataFromLocalStorage.unshift(newObj); // 새로 만들어진 객체를 local storage 배열에 넣음
+  saveLocalStorage(dataFromLocalStorage); // 새 객체가 들어간 local storage 배열을 다시 local storage에 넣음
   ul.prepend(convertToDiscussion(newObj));
 
   // 렌더링 후에는 폼 비우기
@@ -97,3 +115,13 @@ questionForm.addEventListener("submit", (event) => {
   inputTitle.value = "";
   inputQuestion.value = "";
 });
+
+// local storage로 입력된 데이터가 새로고침되어도 남아있도록 하기
+// 로컬 스토리지는 문자열 데이터만 받기 때문에 JSON으로 변환해주어야 함!
+// 렌더링될 때 로컬스토리지에도 들어가도록? (이제 전에 JSON으로 변환을 해주는 과정도 추가해야 함.)
+// localStorage.setItem('question', JSON.stringify(newObj))
+// 로컬 스토리지에는 잘 들어가는데 새로고침하면 화면에서 사라짐. 흠?
+// 뭐가 문젤까?
+// agoraStates 데이터를 싹 다 local storage에 넣어놓아야 할까?
+// 그 다음에 새로 입력된 걸 local storage에 또 넣어놓고 ??
+// local storage에서 parse한 데이터를 렌더링해야 하나?
