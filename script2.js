@@ -21,7 +21,7 @@ const convertToDiscussion = (obj) => {
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = "avatar of " + obj.author; //웹접근성이 좋아짐 시각장애인분들이 사진을 볼수없을때 이것을 읽어준다고함 접근성굳
+  avatarImg.alt = "avatar of " + agoraStatesDiscussions.author; //웹접근성이 좋아짐 시각장애인분들이 사진을 볼수없을때 이것을 읽어준다고함 접근성굳
   avatarWrapper.append(avatarImg);
 
   // 내용
@@ -47,25 +47,6 @@ const convertToDiscussion = (obj) => {
     discussionAnswered.innerHTML = `<input type="checkbox" class="active"  />`;
   }
 
-  // 자세히보기 기능
-  const contentsDetailView = document.querySelector(
-    ".discussion__inner--contentanswer"
-  );
-  const discussionDetail = () => {
-    contentsDetailView.classList.remove("hide");
-  };
-  innerBoxMain.addEventListener("click", discussionDetail);
-  // 자세히보기 닫기 기능
-  const contentsClose = document.querySelector(".contetn__close");
-  const discussionClose = () => {
-    contentsDetailView.classList.add("hide");
-  };
-  contentsClose.addEventListener("click", discussionClose);
-
-  // 글 내용 데이터 연동
-  const clickTitleA = document.querySelector(".click__title > a");
-  clickTitleA.href = obj.url;
-  clickTitleA.textContent = obj.title;
   innerBoxMain.append(avatarWrapper, discussionContent, discussionAnswered);
   li.append(innerBoxMain);
   return li;
@@ -88,7 +69,6 @@ const InputSubmit = document.querySelector(".submit");
 const author = document.querySelector(".form__input--name #name");
 const title = document.querySelector(".form__input--title #name");
 const story = document.querySelector("#story");
-console.log(author);
 const newobj = {
   id: "D_kwDOHOApLM4APewe",
   createdAt: "2022-05-07T08:33:57Z",
@@ -100,9 +80,8 @@ const newobj = {
     "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
 };
 const addClickDiscussion = (e) => {
-  // submit 누르면 페이지를 새로고침해주기 때문에 입력한게 날아가기 때문에 새로고침막아주는것
-  // 기본 동작 막아주는 것
-  e.preventDefault(); // submit이벤트가 실행되면 다시 로드됨? 그래서 해주는것 같음.....
+  //e가 인자
+  e.preventDefault(); //submit이벤트가 실행되면 다시 로드됨? 그래서 해주는것 같음.....
   newobj.title = title.value;
   newobj.author = author.value;
   newobj.createdAt = addNowTime();
@@ -114,14 +93,13 @@ const addClickDiscussion = (e) => {
     )
   );
 };
-// 하나의 스크립트에는 하나의 onClick만 들어간다.
 
-InputSubmit.addEventListener("click", addClickDiscussion); // 권장되는 방법이라고 합니다.
+InputSubmit.addEventListener("click", addClickDiscussion);
 
 // 현재 시간 추가 기능
 const addNowTime = () => {
   const date = new Date();
-  let hour = String(date.getHours()).padStart(2, "0"); // 현재 문자열의 시작을 다른 문자열로 채워 주어진 길이를 만족하는 새로운 문자열 반환
+  let hour = String(date.getHours()).padStart(2, "0"); //현재 문자열의 시작을 다른 문자열로 채워 주어진 길이를 만족하는 새로운 문자열 반환
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const second = String(date.getSeconds()).padStart(2, "0");
   if (hour >= 12) {
@@ -137,36 +115,9 @@ const addNowTime = () => {
 // 화면에 보여질 첫번째 페이지
 // 화면에 보여질 마지막 페이지
 // 총페이지수
-
-const paginationWrapper = document.querySelector(".pagination__wrapper");
-
-const numOfContent = agoraStatesDiscussions.length; // 글 개수
-const maxContent = 10; //한 페이지에 있는 글 개수
-const maxButoon = 5; // 페이지 버튼 수
-const maxPage = Math.ceil(numOfContent / maxContent); //글개수 나누기 한페이지에 있는 글
-let page = 1;
-
-const makeButton = (a) => {
-  const button = document.createElement("button");
-  button.classList.add("button");
-  button.dataset.num = a;
-  button.innerText = a;
-  button.addEventListener("click", (e) => {
-    Array.prototype.forEach.call(paginationWrapper.children, (button) => {
-      if (button.dataset.num) button.classList.remove("active");
-    });
-    e.target.classList.add("active");
-    renderContent(parseInt(e.target.dataset.num));
-  });
-  return button;
+const numOfContent = addClickDiscussion.length;
+const showContent = 10;
+const renderPadgination = (currentpage) => {
+  const totalPage = Math.ceil(totalData / dataPerPage);
+  const pageGrounp = Math.ceil(currentpage / pageCount);
 };
-
-// const renderContent = (page) => {
-//   for (
-//     let id = (page - 1) * maxContent + 1;
-//     id <= page * maxContent && id <= numOfContent;
-//     id++
-//   ) {
-//     contents.appendChild(makeContent(id));
-//   }
-// };
