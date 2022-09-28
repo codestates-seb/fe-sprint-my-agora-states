@@ -52,20 +52,12 @@ const avatarImg = document.createElement("img");  // 이미지 태그생성
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => { 
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) { // agoraStatesDiscussions의 개수만큼 반복
-    let conv = convertToDiscussion(agoraStatesDiscussions[i]); // agoraStatesDiscussions의 0번째 부터
-    element.append(conv); // ul에 추가
-  }
-  return;
-};
+
 
 // 잊지말자 
 // append 는 배열에 추가 하는메서드!!
 // prepend() html 추가하는 메서드 ??
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container"); // 모든 li를 감싸고 있는 ul에접근
-render(ul); // 랜더함수에 ul을 인자로 전달
 
 
 const form = document.querySelector(".form"); // form태그에 접근
@@ -101,14 +93,107 @@ form.addEventListener('submit', (e) => {
   
 })
 
-let btns = document.querySelectorAll(".btns");
-console.log(btns.target);
-
-
-// btns.addEventListener("click",(()=>{
-//   console.log
-// })
 
 
 
+let btns = document.querySelector(".btns");
+let display = 5;
+let page = 1;
+
+
+
+
+
+
+btns.children[0].addEventListener("click",(()=>{
+  console.log("왼쪽버튼 클릭");  
+  // while(ul.firstChild){
+  //   ul.removeChild(ul.firstChild);
+  // }
+  // let start = page * display;
+  // let end = start + display;
+  // page = page - 1;
+
+
+  // render(ul,start,end)
+
+  
+}))
+btns.children[1].addEventListener("click",(()=>{
+  console.log("오른쪽버튼 클릭");
+  
+
+  while(ul.firstChild){
+    ul.removeChild(ul.firstChild);
+  }
+  // page = page + 1;
+  // let start = Number(page -1) * Number(display);
+  // let end = Number(start) + Number(display);
+  
+
+
+
+  
+  let start = page * display;
+  console.log("start",start)
+
+
+  let end = start + display;
+  console.log("end",end)
+  
+  // if(start + 5 >= end){
+  //   console.log(`>>>1 ${start}`)
+  //   start = start;
+  //   console.log(`>>>2 ${start}`)
+  // }
+  
+  if(end >= agoraStatesDiscussions.length){
+    end = agoraStatesDiscussions.length;
+  }
+  
+  if(end < agoraStatesDiscussions.length){
+
+    page = page + 1;
+  }
+  console.log("page",page)
+  
+
+  render(ul, start, end)
+
+  //  5, 10
+  // 10, 15
+  // 15, 20
+  // 20, 25 
+  // 25, 30
+  // 30, 35
+  // 35, 40
+  // 40, 45
+  // 45, 50
+
+}))
+
+/* 
+1. 첫페이지에는 5개의 리스트만 보여야한다.
+2. 오른쪽 버튼을 눌렀을때 다음5개의 데이터가 보여야한다.
+
+*/ 
+// const render = (element) => { 
+//   for (let i = 0; i < display; i += 1) { // agoraStatesDiscussions의 개수만큼 반복
+//     let conv = convertToDiscussion(agoraStatesDiscussions[i]); // agoraStatesDiscussions의 0번째 부터
+//     element.append(conv); // ul에 추가
+//   }
+//   return;
+// };
+const render = (element,page,display) => { 
  
+  
+    for(let i = page; i < display; i++){
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]))
+    }
+};
+
+
+const ul = document.querySelector("ul.discussions__container"); // 모든 li를 감싸고 있는 ul에접근
+render(ul,0,display);
+
+

@@ -51,6 +51,7 @@ a{
     right: 0;
     padding-top: 520px;
     text-align: center;
+    display: none;
     
     
     
@@ -107,7 +108,7 @@ a{
     /* 부모요소 ul 중앙정렬 */
     margin: 0 auto;
     height: 500px;
-    overflow: scroll;
+    /* overflow: scroll; */
 
 }
 
