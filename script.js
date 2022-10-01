@@ -1,5 +1,6 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// 제출시 로컬스토리지를 불러오는 변수를 전역에서 선언하여 렌더링 함수에도 쓸 수 있게
+let getLocalDate = JSON.parse(localStorage.getItem("agoraLocalData"));
+agoraStatesDiscussions.unshift(getLocalDate);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -48,24 +49,13 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
 // 제출
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
   // submit 이벤트 필수, 새로고침 안되게
-  event.preventDefault();
+  // 로컬스토리지화 되면서 새로고침돼도 안없어지니 필요없어짐
+  // event.preventDefault();
   // 제출된 내용(Value) 변수화
   const author = form.querySelector("div.form__input--name > input").value;
   const title = form.querySelector("div.form__input--title > input").value;
@@ -81,19 +71,34 @@ form.addEventListener("submit", (event) => {
     title: title,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: author,
+    answer: null,
     bodyHTML: textbox,
-    avatarUrl: "./img/Rhino.jpeg",
+    // 랜덤 이미지 출력
+    avatarUrl: "https://i.pravatar.cc/300",
   };
-
-  agoraStatesDiscussions.unshift(newObj);
-
-  ul.prepend(convertToDiscussion(newObj));
+  // 로컬스토리지에 저장, getItem으로 불러와야함
+  localStorage.setItem("agoraLocalData", JSON.stringify(newObj));
 
   // submit 후 빈칸으로 리셋
   form.querySelector("div.form__input--name > input").value = "";
   form.querySelector("div.form__input--title > input").value = "";
   form.querySelector("div.form__textbox > textarea").value = "";
 });
+
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  for (let i = 0; i < getLocalDate.length; i++) {
+    element.append(convertToDiscussion(getLocalDate));
+  }
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
 
 // 시계
 const clock = document.getElementById("clock");
