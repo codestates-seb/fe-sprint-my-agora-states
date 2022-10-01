@@ -1,6 +1,6 @@
 // 제출시 로컬스토리지를 불러오는 변수를 전역에서 선언하여 렌더링 함수에도 쓸 수 있게
-let getLocalDate = JSON.parse(localStorage.getItem("agoraLocalData"));
-agoraStatesDiscussions.unshift(getLocalDate);
+let getLocalDates = JSON.parse(localStorage.getItem("agoraLocalData"));
+agoraStatesDiscussions.unshift(getLocalDates);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -87,8 +87,8 @@ form.addEventListener("submit", (event) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < getLocalDate.length; i++) {
-    element.append(convertToDiscussion(getLocalDate));
+  for (let i = 0; i < getLocalDates.length; i++) {
+    element.append(convertToDiscussion(getLocalDates));
   }
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
