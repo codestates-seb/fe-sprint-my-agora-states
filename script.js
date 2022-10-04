@@ -154,3 +154,11 @@ form.addEventListener("submit", (event) => {
   // 렌더링
   render(ul, 0, limit);
 });
+
+fetch('http://localhost:4000/discussions')
+.then(res => res.json())
+.then(json => {
+  agoraStatesDiscussions = json;
+  const ul = doucument.querySelector('ul.discussions__container');
+  render(ul);
+})
