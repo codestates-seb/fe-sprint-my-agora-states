@@ -159,3 +159,36 @@ a:hover{
     color: rgb(79, 161, 255);
 }
 
+.pagination-container {
+    display: flex;
+}
+   
+.pagination-number, .pagination-button{
+    font-size: 1.1rem;
+    background-color: transparent;
+    color: rgb(49, 170, 221);
+    border: none;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+   
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+    background: #a6c5e2;
+}
+   
+.hidden {
+    display: none;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.pagination-number {
+    color: rgb(79, 161, 255);
+}

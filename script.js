@@ -1,7 +1,5 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {    // 객체를 매개변수로
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -45,7 +43,7 @@ const convertToDiscussion = (obj) => {    // 객체를 매개변수로
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수
 const render = (element) => {
   // 더미데이터 길이만큼, 더미데이터 안에 있는 모든 요소를 탐색
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -100,3 +98,123 @@ form.addEventListener('submit', (event) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+
+
+
+// pagination
+const paginationNumbers = document.querySelector('#pagination-numbers');
+const listItems = ul.querySelectorAll("li");
+const nextButton = document.getElementById("next-button");
+const prevButton = document.getElementById("prev-button");
+
+const paginationLimit = 10;     // 한 페이지에 나태날 데이터 수
+const pageCount = Math.ceil(listItems.length / paginationLimit);    // 총페이지 수
+let currentPage;
+
+// 페이지 넘버 버튼 생성
+const appendPageNumber = (index) => {
+  const pageNumber = document.createElement("button");
+  pageNumber.className = "pagination-number";
+  pageNumber.innerHTML = index;
+  pageNumber.setAttribute("page-index", index);
+  pageNumber.setAttribute("aria-label", "Page " + index);
+ 
+  paginationNumbers.appendChild(pageNumber);
+};
+ 
+const getPaginationNumbers = () => {
+  for (let i = 1; i <= pageCount; i++) {
+    appendPageNumber(i);
+  }
+};
+
+// paginationLimit 개수만큼 display
+// 만약 현재 1페이지에 있다면 1~10까지의 item 나타내기
+// 2페이지에 있다면 11~20까지의 item 나타내기
+const setCurrentPage = (pageNum) => {
+  currentPage = pageNum;
+   
+  // 새로운 페이지가 set 될때마다 active page number가 업데이트
+  handleActivePageNumber();
+  // prev, next disable/enable
+  handlePageButtonsStatus();
+
+  const prevRange = (pageNum - 1) * paginationLimit;
+  const currRange = pageNum * paginationLimit;
+
+  // 배열을 반복문으로 돌려서 전부다 hide 했다가 range에 속하는 부분만 unhide
+  listItems.forEach((item, index) => {
+    item.classList.add("hidden");
+    // 배열은 인덱스 0부터 시작 -> range 설정 유의
+    if (index >= prevRange && index < currRange) {
+      item.classList.remove("hidden");
+    }
+  });
+};
+
+// 웹페이지가 load 될 때 getPaginationNumbers 함수 호출해서 페이지 넘버 표시
+window.addEventListener("load", () => {
+  getPaginationNumbers();
+  setCurrentPage(1);
+
+  // prev, next 버튼 처리
+  prevButton.addEventListener("click", () => {
+    setCurrentPage(currentPage - 1);
+  });
+
+  nextButton.addEventListener("click", () => {
+    setCurrentPage(currentPage + 1);
+  });
+ 
+  document.querySelectorAll(".pagination-number").forEach((button) => {
+    const pageIndex = Number(button.getAttribute("page-index"));
+ 
+    if (pageIndex) {
+      // 페이지 버튼 클릭했을 때 setCurrentPage 함수 실행
+      button.addEventListener("click", () => {
+        setCurrentPage(pageIndex);
+      });
+    }
+  });
+});
+
+// 현재 active한 페이지의 버튼에 class="active" 추가
+const handleActivePageNumber = () => {
+  document.querySelectorAll(".pagination-number").forEach((button) => {
+    button.classList.remove("active");
+     
+    const pageIndex = Number(button.getAttribute("page-index"));
+    if (pageIndex === currentPage) {
+      button.classList.add("active");
+    }
+  });
+};
+
+// prev, next 버튼 disable 기능
+const disableButton = (button) => {
+  button.classList.add("disabled");
+  button.setAttribute("disabled", true);
+};
+
+// prev, next 버튼 enable 기능
+const enableButton = (button) => {
+  button.classList.remove("disabled");
+  button.removeAttribute("disabled");
+};
+ 
+// 현재 첫페이지면 prev disable, 현재 마지막 페이지면 next disable
+const handlePageButtonsStatus = () => {
+  if (currentPage === 1) {
+    disableButton(prevButton);
+  } else {
+    enableButton(prevButton);
+  }
+ 
+  if (pageCount === currentPage) {
+    disableButton(nextButton);
+  } else {
+    enableButton(nextButton);
+  }
+};
