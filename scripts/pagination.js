@@ -1,10 +1,21 @@
 const paginationNumbers = document.querySelector("#pagination-numbers");
 const prevButton = document.querySelector("#prev-button");
 const nextButton = document.querySelector("#next-button");
-const paginationLimit = 10;
+const paginationLimit = document.querySelector("#pagination-limit");
 let currentPage;
 
-const ul = document.querySelectorAll("ul.discussions__container");
+// 공지와 일반질문 분류하기
+const sortingDiscussion = () => {
+  let localDiscussion = JSON.parse(localStorage.getItem("local-discussion"));
+  if (localDiscussion === null) {
+    localDiscussion = [];
+  }
+  const AllDiscussions = localDiscussion.concat(agoraStatesDiscussions);
+  return {
+    noti: AllDiscussions.filter((element) => element.notice === true),
+    normal: AllDiscussions.filter((element) => !element.notice),
+  };
+};
 
 // Add Page Numbers
 const appendPageNumber = (index) => {
@@ -20,11 +31,14 @@ const appendPageNumber = (index) => {
 const getPaginationNumbers = () => {
   paginationNumbers.innerHTML = "";
 
-  const pageCount = Math.ceil(render(ul).length / 10);
+  const { noti, normal } = sortingDiscussion();
+
+  const pageCount = Math.ceil(normal.length / Number(paginationLimit.value));
 
   for (let i = 1; i <= pageCount; i += 1) {
     appendPageNumber(i);
   }
+  return { noti, normal };
 };
 
 // Display Active Page
@@ -34,19 +48,9 @@ const setCurrentPage = (pageNum) => {
   handleActivePageNumber();
   handlePageButtonsStatus();
 
-  const prevRange = (pageNum - 1) * paginationLimit;
-  const currRange = pageNum * paginationLimit;
-
-  const paginatedList = document.querySelectorAll(
-    "ul.discussions__container"
-  )[1];
-  const listItems = paginatedList.querySelectorAll("li");
-  listItems.forEach((item, index) => {
-    item.classList.add("hidden");
-    if (index >= prevRange && index < currRange) {
-      item.classList.remove("hidden");
-    }
-  });
+  const prevRange = (pageNum - 1) * Number(paginationLimit.value);
+  const currRange = pageNum * Number(paginationLimit.value);
+  return { prevRange, currRange };
 };
 
 // Set Active Page Number
@@ -85,42 +89,5 @@ const handlePageButtonsStatus = () => {
     enableButton(nextButton);
   }
 };
-
-prevButton.addEventListener("click", () => {
-  setCurrentPage(currentPage - 1);
-});
-
-nextButton.addEventListener("click", () => {
-  setCurrentPage(currentPage + 1);
-});
-
-window.addEventListener("load", () => {
-  getPaginationNumbers();
-  setCurrentPage(1);
-
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    const pageIndex = Number(button.getAttribute("page-index"));
-    if (pageIndex) {
-      button.addEventListener("click", () => {
-        setCurrentPage(pageIndex);
-      });
-    }
-  });
-});
-
-discussionForm.addEventListener("submit", () => {
-  getPaginationNumbers();
-  setCurrentPage(1);
-
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    const pageIndex = Number(button.getAttribute("page-index"));
-    if (pageIndex) {
-      button.addEventListener("click", () => {
-        setCurrentPage(pageIndex);
-      });
-    }
-  });
-});
-
 
 // 출처: https://webdesign.tutsplus.com/tutorials/pagination-with-vanilla-javascript--cms-41896

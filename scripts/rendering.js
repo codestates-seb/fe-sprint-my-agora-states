@@ -1,7 +1,5 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-
 // 올린지 얼마나 시간이 지났는지 계산
-function timePassed(value) {
+const timePassed = (value) => {
   now = new Date().getTime();
   created = new Date(value).getTime();
   time = now - created;
@@ -55,7 +53,7 @@ function timePassed(value) {
     }
   }
   return timepassed;
-}
+};
 
 const convertToNotice = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -64,43 +62,42 @@ const convertToNotice = (obj) => {
   const arrowUp = document.createElement("div");
   arrowUp.className = "discussion__noti";
   arrowUp.innerHTML += `<i class="fa-solid fa-circle-exclamation"></i>`;
+
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   avatarImage = `<img class="discussion__avatar--image" src="${obj.avatarUrl}" alt="avatar of ${obj.author}" />`;
   avatarWrapper.innerHTML += avatarImage;
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
   discussionTitle = `<h2 class="discussion__title"><a href="${obj.url}">${obj.title}</a></h2>`;
+
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.innerHTML += `${obj.author} asked ${timePassed(
-    obj.createdAt
-  )} ago`;
+  discussionInformation.innerHTML += `${obj.author} asked ${timePassed(obj.createdAt)} ago`;
   discussionContent.innerHTML += discussionTitle;
+
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
   if (obj.answer === null) {
     discussionInformation.innerHTML += `&nbsp;·&nbsp;Unanswered`;
     discussionAnswered.innerHTML += `<i
-    class="fa-solid fa-circle-exclamation"
-    style="color: #f2cc60"
-  ></i>`;
+      class="fa-solid fa-circle-exclamation"
+      style="color: #f2cc60"
+    ></i>`;
   } else {
     discussionInformation.innerHTML += `&nbsp;<span style="color: #3fb950">·&nbsp;Answered</span>`;
     discussionAnswered.innerHTML += `<i
-    class="fa-solid fa-circle-exclamation"
-    style="color: #f2cc60"
-  ></i>`;
+      class="fa-solid fa-circle-exclamation"
+      style="color: #f2cc60"
+    ></i>`;
   }
   discussionContent.append(discussionInformation);
-
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
   li.append(arrowUp, discussionContent, avatarWrapper, discussionAnswered);
   return li;
 };
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -108,19 +105,21 @@ const convertToDiscussion = (obj) => {
   const arrowUp = document.createElement("div");
   arrowUp.className = "discussion__arrow";
   arrowUp.innerHTML += `<button><i class="fa-solid fa-arrow-up"></i></button>`;
+
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   avatarImage = `<img class="discussion__avatar--image" src="${obj.avatarUrl}" alt="avatar of ${obj.author}" />`;
   avatarWrapper.innerHTML += avatarImage;
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
   discussionTitle = `<h2 class="discussion__title"><a href="${obj.url}">${obj.title}</a></h2>`;
+
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.innerHTML += `${obj.author} asked ${timePassed(
-    obj.createdAt
-  )} ago`;
+  discussionInformation.innerHTML += `${obj.author} asked ${timePassed(obj.createdAt)} ago`;
   discussionContent.innerHTML += discussionTitle;
+
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
   if (obj.answer === null) {
@@ -132,52 +131,34 @@ const convertToDiscussion = (obj) => {
   }
   discussionContent.append(discussionInformation);
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
   li.append(arrowUp, discussionContent, avatarWrapper, discussionAnswered);
   return li;
 };
 
-const sortingDiscussion = (noti, normal) => {
-  let localDiscussion = JSON.parse(localStorage.getItem("local-discussion"));
-  if (localDiscussion === null) {
-    localDiscussion = [];
-  }
-  let AllDiscussions = localDiscussion.concat(agoraStatesDiscussions);
-
-  for (el of AllDiscussions) {
-    if (el.notice === true) {
-      noti.push(el);
-    } else {
-      normal.push(el);
-    }
-  }
-};
-
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = (noti, normal, prevRange, currRange) => {
   // 렌더링 초기화
-  for (el of element) {
-    el.innerHTML = "";
-  }
+  const ul = document.querySelectorAll(".discussions__container");
+  ul.forEach((element) => {
+    element.innerHTML = "";
+  });
 
-  // 공지와 일반질문 분류하기
-  let notiDiscussion = [];
-  let normalDiscussion = [];
-  sortingDiscussion(notiDiscussion, normalDiscussion);
+  const discussionBar = document.createElement("div");
+  discussionBar.className = "discussion__bar";
 
-  // const discussionBar = document.createElement("div");
-  // discussionBar.className = "discussion__bar";
+  noti.forEach((notiele) => {
+    const discussionBar = document.createElement("div");
+    discussionBar.className = "discussion__bar";
 
-  for (let i = 0; i < notiDiscussion.length; i += 1) {
-    element[0].append(convertToNotice(notiDiscussion[i]));
-    // element[0].append(discussionBar);
-  }
+    ul[0].append(convertToNotice(notiele), discussionBar);
+  });
 
-  for (let i = 0; i < normalDiscussion.length; i += 1) {
-    element[1].append(convertToDiscussion(normalDiscussion[i]));
-    // element[1].append(discussionBar);
-  }
+  normal.forEach((normalele, index) => {
+    if (index >= prevRange && index < currRange) {
+      const discussionBar = document.createElement("div");
+      discussionBar.className = "discussion__bar";
 
-  return normalDiscussion;
+      ul[1].append(convertToDiscussion(normalele), discussionBar);
+    }
+  });
 };

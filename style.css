@@ -24,8 +24,8 @@ body {
 
 main {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
   width: 90%;
   height: auto;
@@ -46,7 +46,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  width: 100%;
+  width: auto;
 }
 
 .form__container > form {
@@ -126,6 +126,27 @@ h1 {
 
 .discussion__wrapper {
   margin: 40px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-limit__wrapper {
+  width: 540px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#pagination-limit {
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
 }
 
 #notice-bar {
@@ -226,15 +247,15 @@ h1 {
 .discussion__bar {
   margin: 3px 0px;
   width: 540px;
-  height: 10px;
+  height: 1px;
   border-radius: 2px;
-  background-color: rgba(201, 209, 217, 1);
+  background-color: rgba(201, 209, 217, 0.1);
 }
 
 .pagination-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 50px;
+  margin: 20px 0px;
 }
 
 #pagination-numbers {

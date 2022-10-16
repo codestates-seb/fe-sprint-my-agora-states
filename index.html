@@ -15,37 +15,20 @@
   </head>
 
   <body>
+    <h1>My Agora States</h1>
     <main>
-      <h1>My Agora States</h1>
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
             <div>Start a new discussion</div>
             <div class="form__input--name">
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Name"
-                required
-              />
+              <input type="text" name="name" id="name" placeholder="Name" required />
             </div>
             <div class="form__input--title">
-              <input
-                type="text"
-                name="title"
-                id="title"
-                placeholder="Title"
-                required
-              />
+              <input type="text" name="title" id="title" placeholder="Title" required />
             </div>
             <div class="form__textbox">
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
             </div>
             <div class="form__input--notice">
               <label for="notice">공지로 등록할까요? </label>
@@ -58,6 +41,15 @@
         </form>
       </section>
       <section class="discussion__wrapper">
+        <div class="pagination-limit__wrapper">
+          정렬 개수
+          <select name="pagination-limit" id="pagination-limit">
+            <option>5</option>
+            <option selected>10</option>
+            <option>15</option>
+            <option>20</option>
+          </select>
+        </div>
         <ul class="discussions__container" id="notice-bar"></ul>
         <ul class="discussions__container">
           <!-- <li class="discussion__container">
@@ -91,24 +83,22 @@
           </li>
           <div class="discussion__bar"></div> -->
         </ul>
+        <nav class="pagination-container">
+          <button class="pagination-button" id="prev-button">
+            <i class="fa-solid fa-chevron-left"></i> Previous
+          </button>
+          <div id="pagination-numbers"></div>
+          <button class="pagination-button" id="next-button">
+            Next <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </nav>
       </section>
     </main>
-    <nav class="pagination-container">
-      <button class="pagination-button" id="prev-button">
-        <i class="fa-solid fa-chevron-left"></i> Previous
-      </button>
-      <div id="pagination-numbers"></div>
-      <button class="pagination-button" id="next-button">
-        Next <i class="fa-solid fa-chevron-right"></i>
-      </button>
-    </nav>
   </body>
-  <script src="data.js"></script>
-  <script src="localstorage.js"></script>
-  <script src="script.js"></script>
-  <script src="pagination.js"></script>
-  <script
-    src="https://kit.fontawesome.com/b294cb09b8.js"
-    crossorigin="anonymous"
-  ></script>
+  <script src="./scripts/data.js"></script>
+  <script src="./scripts/localstorage.js"></script>
+  <script src="./scripts/pagination.js"></script>
+  <script src="./scripts/rendering.js"></script>
+  <script src="./scripts/script.js"></script>
+  <script src="https://kit.fontawesome.com/b294cb09b8.js" crossorigin="anonymous"></script>
 </html>
