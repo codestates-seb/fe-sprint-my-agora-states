@@ -1,224 +1,237 @@
-// localStorage 
+let serverDiscussions = [];
+
+fetch('http://localhost:4000/discussions')
+  .then((res) => res.json())
+  .then((data) => {
+    serverDiscussions = data;
+
+    const ul = document.querySelector('ul.discussions__container');
+    render(ul);
+    pagination();
+  });
+
+console.log(serverDiscussions);
+
+// localStorage
 const localStorage = window.localStorage;
 // localStorage.clear();
 
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-    const li = document.createElement("li"); // li 요소 생성
-    li.className = "discussion__container"; // 클래스 이름 지정
+  const li = document.createElement('li'); // li 요소 생성
+  li.className = 'discussion__container'; // 클래스 이름 지정
 
-    const discussionContentContainer = document.createElement('div');
-    discussionContentContainer.className = 'discussion__content--container';
+  const discussionContentContainer = document.createElement('div');
+  discussionContentContainer.className = 'discussion__content--container';
 
-    const avatarWrapper = document.createElement("div");
-    avatarWrapper.className = "discussion__avatar--wrapper";
-    discussionContentContainer.append(avatarWrapper);
+  const avatarWrapper = document.createElement('div');
+  avatarWrapper.className = 'discussion__avatar--wrapper';
+  discussionContentContainer.append(avatarWrapper);
 
-    const discussionContent = document.createElement("div");
-    discussionContent.className = "discussion__content";
-    discussionContentContainer.append(discussionContent);
+  const discussionContent = document.createElement('div');
+  discussionContent.className = 'discussion__content';
+  discussionContentContainer.append(discussionContent);
 
-    const discussionAnswered = document.createElement("div");
-    discussionAnswered.className = "discussion__answered";
-    discussionContentContainer.append(discussionAnswered);
+  const discussionAnswered = document.createElement('div');
+  discussionAnswered.className = 'discussion__answered';
+  discussionContentContainer.append(discussionAnswered);
 
-    // profile image
-    const avatarImg = document.createElement('img');
-    avatarImg.classList.add('discussion__avatar--image');
-    avatarImg.src = obj.avatarUrl;
-    avatarImg.alt = 'avatar of ' + obj.author;
-    avatarWrapper.append(avatarImg);
+  // profile image
+  const avatarImg = document.createElement('img');
+  avatarImg.classList.add('discussion__avatar--image');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
 
-    // title
-    const discussionTitle = document.createElement('h2');
-    discussionTitle.classList.add('discussion__title');
-    discussionContent.append(discussionTitle);
+  // title
+  const discussionTitle = document.createElement('h2');
+  discussionTitle.classList.add('discussion__title');
+  discussionContent.append(discussionTitle);
 
-    // title -> url
-    const discussionURL = document.createElement('a');
-    discussionURL.href = obj.url;
-    discussionURL.textContent = obj.title;
-    discussionTitle.append(discussionURL);
+  // title -> url
+  const discussionURL = document.createElement('a');
+  discussionURL.href = obj.url;
+  discussionURL.textContent = obj.title;
+  discussionTitle.append(discussionURL);
 
-    // information
-    const discussionInfo = document.createElement('div');
-    discussionInfo.classList.add('discussion__information');
-    discussionContent.append(discussionInfo);
+  // information
+  const discussionInfo = document.createElement('div');
+  discussionInfo.classList.add('discussion__information');
+  discussionContent.append(discussionInfo);
 
-    // author 
-    const discussionInfoAuthor = document.createElement('span');
-    discussionInfoAuthor.classList.add('discussion__information--author');
-    discussionInfoAuthor.textContent = obj.author;
-    discussionInfo.append(discussionInfoAuthor);
+  // author
+  const discussionInfoAuthor = document.createElement('span');
+  discussionInfoAuthor.classList.add('discussion__information--author');
+  discussionInfoAuthor.textContent = obj.author;
+  discussionInfo.append(discussionInfoAuthor);
 
-    // author 
-    const discussionInfoDate = document.createElement('span');
-    discussionInfoDate.classList.add('discussion__information--date');
-    const createdDateTime = new Date(obj.createdAt).toLocaleString('en-US', {
-        dateStyle: 'short',
-        timeStyle: 'short',
-    });
-    discussionInfoDate.textContent = createdDateTime;
-    discussionInfo.append(discussionInfoDate);
+  // author
+  const discussionInfoDate = document.createElement('span');
+  discussionInfoDate.classList.add('discussion__information--date');
+  const createdDateTime = new Date(obj.createdAt).toLocaleString('en-US', {
+    dateStyle: 'short',
+    timeStyle: 'short',
+  });
+  discussionInfoDate.textContent = createdDateTime;
+  discussionInfo.append(discussionInfoDate);
 
+  const discussionAnsweredSign = document.createElement('i');
 
-    const discussionAnsweredSign = document.createElement('i');
+  if (!obj.answer) {
+    discussionAnsweredSign.classList.add('fa-regular', 'fa-circle-check');
+  } else {
+    discussionAnsweredSign.classList.add('fa-solid', 'fa-circle-check');
+  }
 
-    if (!obj.answer) {
-        discussionAnsweredSign.classList.add('fa-regular', 'fa-circle-check');
-    } else {
-        discussionAnsweredSign.classList.add('fa-solid', 'fa-circle-check');
-    }
+  discussionAnswered.append(discussionAnsweredSign);
 
-    discussionAnswered.append(discussionAnsweredSign);
+  const hr = document.createElement('div');
+  hr.classList.add('hr');
 
-    const hr = document.createElement('div');
-    hr.classList.add('hr');
-
-    li.append(discussionContentContainer, hr);
-    return li;
+  li.append(discussionContentContainer, hr);
+  return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-    const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
+  const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
 
-    // check if localStorage['submittedDiscussionsArr'] exists
-    if (submittedDiscussionsArr) {
-        for (let i = submittedDiscussionsArr.length - 1; i >= 0; i--) {
-            element.append(convertToDiscussion(submittedDiscussionsArr[i]));
-        }
+  // check if localStorage['submittedDiscussionsArr'] exists
+  if (submittedDiscussionsArr) {
+    for (let i = submittedDiscussionsArr.length - 1; i >= 0; i--) {
+      element.append(convertToDiscussion(submittedDiscussionsArr[i]));
     }
+  }
 
-    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-        element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-    }
+  for (let i = 0; i < serverDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(serverDiscussions[i]));
+  }
 
-    return;
+  return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// const ul = document.querySelector('ul.discussions__container');
+// render(ul);
 
-// declare/set pagination variables
-const paginationNumbers = document.querySelector("#pagination-numbers");
-const paginatedList = document.querySelector("#paginated-list");
-let listItems = paginatedList.querySelectorAll(".discussion__container");
-const nextButton = document.querySelector("#next-button");
-const prevButton = document.querySelector("#prev-button");
+const pagination = function () {
+  // declare/set pagination variables
+  const paginationNumbers = document.querySelector('#pagination-numbers');
+  const paginatedList = document.querySelector('#paginated-list');
+  let listItems = paginatedList.querySelectorAll('.discussion__container');
+  const nextButton = document.querySelector('#next-button');
+  const prevButton = document.querySelector('#prev-button');
 
-const paginationLimit = 7;
-let pageCount = Math.ceil(listItems.length / paginationLimit);
-let currentPage = 1;
+  const paginationLimit = 7;
+  let pageCount = Math.ceil(listItems.length / paginationLimit);
+  let currentPage = 1;
 
-// add discussion to list on submit 
-let form = document.querySelector('.form');
-form.onsubmit = function (e) {
-    // prevent page from refreshing 
+  // add discussion to list on submit
+  let form = document.querySelector('.form');
+  form.onsubmit = function (e) {
+    // prevent page from refreshing
     e.preventDefault();
 
-    // create input data object 
+    // create input data object
     const createdDateTime = new Date();
     const author = document.querySelector('#name');
     const title = document.querySelector('#title');
 
-    // random id 
-    const randomId = `_${Math.random().toString(30).substr(2,17) + Math.random().toString(30).substring(2,17)}`;
+    // random id
+    const randomId = `_${
+      Math.random().toString(30).substr(2, 17) + Math.random().toString(30).substring(2, 17)
+    }`;
 
     const inputData = {
-        id: randomId,
-        avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author.value}.svg`,
-        author: author.value,
-        url: '',
-        title: title.value,
-        createdAt: createdDateTime,
-        answer: null,
+      id: randomId,
+      avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author.value}.svg`,
+      author: author.value,
+      url: '',
+      title: title.value,
+      createdAt: createdDateTime,
+      answer: null,
     };
 
     // add inputData to localStorange['submittedDiscussions']
     if (!localStorage.getItem('submittedDiscussions')) {
-        localStorage.setItem('submittedDiscussions', JSON.stringify([inputData]));
+      localStorage.setItem('submittedDiscussions', JSON.stringify([inputData]));
     } else {
-        const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
+      const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
 
-        submittedDiscussionsArr.push(inputData);
+      submittedDiscussionsArr.push(inputData);
 
-        localStorage.setItem('submittedDiscussions', JSON.stringify(submittedDiscussionsArr));
+      localStorage.setItem('submittedDiscussions', JSON.stringify(submittedDiscussionsArr));
     }
 
     ul.prepend(convertToDiscussion(inputData));
 
-    // update pagination on discussion post submission 
-    listItems = paginatedList.querySelectorAll(".discussion__container");
+    // update pagination on discussion post submission
+    listItems = paginatedList.querySelectorAll('.discussion__container');
     pageCount = Math.ceil(listItems.length / paginationLimit);
 
-    document.querySelector("#pagination-numbers").textContent = '';
+    document.querySelector('#pagination-numbers').textContent = '';
     getPaginationNumbers();
     setCurrentPage(1);
     addEventToPaginationNumber();
 
-    // reset submission value 
+    // reset submission value
     author.value = '';
     title.value = '';
     document.querySelector('#story').value = '';
-};
+  };
 
-// pagination
-const disableButton = (button) => {
-    button.classList.add("disabled");
-    button.setAttribute("disabled", true);
-};
+  // pagination
+  const disableButton = (button) => {
+    button.classList.add('disabled');
+    button.setAttribute('disabled', true);
+  };
 
-const enableButton = (button) => {
-    button.classList.remove("disabled");
-    button.removeAttribute("disabled");
-};
+  const enableButton = (button) => {
+    button.classList.remove('disabled');
+    button.removeAttribute('disabled');
+  };
 
-const handlePageButtonsStatus = () => {
+  const handlePageButtonsStatus = () => {
     if (currentPage === 1) {
-        disableButton(prevButton);
+      disableButton(prevButton);
     } else {
-        enableButton(prevButton);
+      enableButton(prevButton);
     }
 
     if (pageCount === currentPage) {
-        disableButton(nextButton);
+      disableButton(nextButton);
     } else {
-        enableButton(nextButton);
+      enableButton(nextButton);
     }
-};
+  };
 
-const handleActivePageNumber = () => {
-    document.querySelectorAll(".pagination-number").forEach((button) => {
-        button.classList.remove("active");
-        const pageIndex = Number(button.getAttribute("page-index"));
-        if (pageIndex == currentPage) {
-            button.classList.add("active");
-        }
+  const handleActivePageNumber = () => {
+    document.querySelectorAll('.pagination-number').forEach((button) => {
+      button.classList.remove('active');
+      const pageIndex = Number(button.getAttribute('page-index'));
+      if (pageIndex == currentPage) {
+        button.classList.add('active');
+      }
     });
-};
+  };
 
-const appendPageNumber = (index) => {
-    const pageNumber = document.createElement("button");
-    pageNumber.className = "pagination-number";
+  const appendPageNumber = (index) => {
+    const pageNumber = document.createElement('button');
+    pageNumber.className = 'pagination-number';
     pageNumber.innerHTML = index;
-    pageNumber.setAttribute("page-index", index);
-    pageNumber.setAttribute("aria-label", "Page " + index);
+    pageNumber.setAttribute('page-index', index);
+    pageNumber.setAttribute('aria-label', 'Page ' + index);
 
     paginationNumbers.appendChild(pageNumber);
-};
+  };
 
-const getPaginationNumbers = () => {
+  const getPaginationNumbers = () => {
     for (let i = 1; i <= pageCount; i++) {
-        appendPageNumber(i);
+      appendPageNumber(i);
     }
-};
+  };
 
-const setCurrentPage = (pageNum) => {
+  const setCurrentPage = (pageNum) => {
     currentPage = pageNum;
 
     handleActivePageNumber();
@@ -228,36 +241,37 @@ const setCurrentPage = (pageNum) => {
     const currRange = pageNum * paginationLimit;
 
     listItems.forEach((item, index) => {
-        item.classList.add("hidden");
-        if (index >= prevRange && index < currRange) {
-            item.classList.remove("hidden");
-        }
+      item.classList.add('hidden');
+      if (index >= prevRange && index < currRange) {
+        item.classList.remove('hidden');
+      }
     });
-};
+  };
 
-const addEventToPaginationNumber = function () {
-    document.querySelectorAll(".pagination-number").forEach((button) => {
-        const pageIndex = Number(button.getAttribute("page-index"));
+  const addEventToPaginationNumber = function () {
+    document.querySelectorAll('.pagination-number').forEach((button) => {
+      const pageIndex = Number(button.getAttribute('page-index'));
 
-        if (pageIndex) {
-            button.addEventListener("click", () => {
-                setCurrentPage(pageIndex);
-            });
-        }
+      if (pageIndex) {
+        button.addEventListener('click', () => {
+          setCurrentPage(pageIndex);
+        });
+      }
     });
-};
+  };
 
-window.addEventListener("load", () => {
+  window.addEventListener('load', () => {
     getPaginationNumbers();
     setCurrentPage(1);
 
-    prevButton.addEventListener("click", () => {
-        setCurrentPage(currentPage - 1);
+    prevButton.addEventListener('click', () => {
+      setCurrentPage(currentPage - 1);
     });
 
-    nextButton.addEventListener("click", () => {
-        setCurrentPage(currentPage + 1);
+    nextButton.addEventListener('click', () => {
+      setCurrentPage(currentPage + 1);
     });
 
     addEventToPaginationNumber();
-});
+  });
+};
