@@ -58,6 +58,7 @@ const timePassed = (value) => {
 const convertToNotice = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
+  li.id = obj.id;
 
   const arrowUp = document.createElement("div");
   arrowUp.className = "discussion__noti";
@@ -99,8 +100,11 @@ const convertToNotice = (obj) => {
 };
 
 const convertToDiscussion = (obj) => {
+  const container = document.createElement("div");
+
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
+  li.id = obj.id;
 
   const arrowUp = document.createElement("div");
   arrowUp.className = "discussion__arrow";
@@ -113,7 +117,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
-  discussionTitle = `<h2 class="discussion__title"><a href="${obj.url}">${obj.title}</a></h2>`;
+  discussionTitle = `<h2 class="discussion__title"><a href="${obj.url}" target="_blank">${obj.title}</a></h2>`;
 
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
@@ -130,9 +134,34 @@ const convertToDiscussion = (obj) => {
     discussionAnswered.innerHTML += `<i class="fa-solid fa-circle-check" style="color: #3fb950"></i>`;
   }
   discussionContent.append(discussionInformation);
-
   li.append(arrowUp, discussionContent, avatarWrapper, discussionAnswered);
-  return li;
+  container.append(li);
+
+  // 아코디언 답변 파트
+  if (obj.answer) {
+    container.className = "discussion__container__wrapper";
+
+    const discussionAccordion = document.createElement("div");
+    discussionAccordion.className = "discussion__accordion";
+
+    const discussionAnswerContent = document.createElement("div");
+    discussionAnswerContent.className = "discussion__accordion__content";
+    discussionAnswerContent.innerHTML += `<div><img src="${obj.answer.avatarUrl}" class="discussion__avatar--image" /></div>`;
+    discussionAnswerContent.innerHTML += `<span>${obj.answer.author}</span>`;
+    discussionAnswerContent.innerHTML += `<span class="discussion__information">${timePassed(
+      obj.answer.createdAt
+    )} ago</span>`;
+
+    const discussionAnswerText = document.createElement("div");
+    discussionAnswerText.className = "discussion__accordion__text";
+    discussionAnswerText.innerHTML = `${obj.answer.bodyHTML}<br />`;
+    discussionAnswerText.innerHTML += `<div class="discussion__accordion__text__tick"><i class="fa-solid fa-circle-check"></i><span>Marked as answer</span></div>`;
+
+    discussionAccordion.append(discussionAnswerContent, discussionAnswerText);
+    container.append(discussionAccordion);
+  }
+
+  return container;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.

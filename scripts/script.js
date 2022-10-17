@@ -9,7 +9,8 @@ const rendering = (num) => {
       button.addEventListener("click", () => {
         const { prevRange, currRange } = setCurrentPage(pageIndex);
         render(noti, normal, prevRange, currRange);
-        window.scrollTo({ top: 520, behavior: "smooth" });
+        scrollUnderTitle();
+        dynamicAccordion();
       });
     }
   });
@@ -44,32 +45,64 @@ const dynamicTextArea = () => {
   }
 };
 
+const dynamicAccordion = () => {
+  // 아코디언. 답이 있는 경우 누르면 아래로 펼쳐짐
+  const accordion = document.querySelectorAll(".discussion__container__wrapper");
+
+  accordion.forEach((element, index) => {
+    element.addEventListener("click", () => {
+      element.classList.toggle("selected");
+      const answer = element.querySelector(".discussion__accordion");
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+};
+
+const scrollUnderTitle = () => {
+  if (window.innerWidth > 1000) {
+    window.scrollTo({ top: 150, behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: 520, behavior: "smooth" });
+  }
+};
+
 window.addEventListener("load", () => {
   dynamicTextArea();
   rendering(1);
   window.scrollTo({ top: 0, behavior: "smooth" });
+  dynamicAccordion();
 });
 
 discussionForm.addEventListener("submit", (event) => {
   event.preventDefault();
   submitDiscussion(event);
   rendering(1);
-  window.scrollTo({ top: 520, behavior: "smooth" });
+  scrollUnderTitle();
+  dynamicAccordion();
 });
 
 paginationLimit.addEventListener("change", () => {
   rendering(1);
-  window.scrollTo({ top: 520, behavior: "smooth" });
+  scrollUnderTitle();
+  dynamicAccordion();
 });
 
 prevButton.addEventListener("click", () => {
   rendering(currentPage - 1);
-  window.scrollTo({ top: 520, behavior: "smooth" });
+  scrollUnderTitle();
+  dynamicAccordion();
 });
 
 nextButton.addEventListener("click", () => {
   rendering(currentPage + 1);
-  window.scrollTo({ top: 520, behavior: "smooth" });
+  scrollUnderTitle();
+  dynamicAccordion();
 });
 
 // 반응형. 가로로 길면 폼이 왼쪽에

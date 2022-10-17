@@ -8,6 +8,7 @@
   --white: #c9d1d9;
   --yellow: #f2cc60;
   --blue: #4d99f1;
+  --gray: #6e7681;
   box-sizing: border-box;
 }
 
@@ -162,6 +163,18 @@ h1 {
   width: 540px;
 }
 
+.discussion__container__wrapper > .discussion__container:hover {
+  background-color: rgba(63, 185, 80, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/*아코디언 눌렀을때*/
+.selected {
+  outline: 2px solid var(--green);
+  border-radius: 10px;
+}
+
 .discussion__container {
   display: flex;
   flex-direction: row;
@@ -211,8 +224,12 @@ h1 {
   word-break: keep-all;
 }
 
-.discussion__title > a:active {
-  color: rgba(201, 209, 217, 0.7);
+.discussion__title > a:visited {
+  color: var(--gray);
+}
+
+.discussion__title > a:hover {
+  color: var(--blue);
 }
 
 .discussion__information {
@@ -250,6 +267,62 @@ h1 {
   height: 1px;
   border-radius: 2px;
   background-color: rgba(201, 209, 217, 0.1);
+}
+
+.discussion__accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.discussion__accordion__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.discussion__accordion__content > span {
+  margin-left: 10px;
+  margin-top: 0px;
+}
+
+.discussion__accordion__text {
+  line-height: 25px;
+}
+
+.discussion__accordion__text a {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.discussion__accordion__text a:hover {
+  color: var(--blue);
+}
+
+.discussion__accordion__text__tick {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  padding: 10px;
+  height: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(63, 185, 80, 0.4);
+  background-color: rgba(63, 185, 80, 0.1);
+  color: var(--green);
+  font-weight: bold;
+}
+
+.discussion__accordion__text__tick > i {
+  font-size: 25px;
+  margin-right: 10px;
 }
 
 .pagination-container {
