@@ -14,6 +14,10 @@
 }
 
 /********** 공통 설정 **********/
+body {
+  /* background: linear-gradient(#a084ca, #ebc7e8); */
+  background-color: var(--main-color-purple-300);
+}
 main {
   height: 100%;
   width: 100%;
@@ -22,8 +26,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background: linear-gradient(#a084ca, #ebc7e8);
 }
 
 /********** title **********/
@@ -104,54 +106,75 @@ main {
   padding: 10px;
   margin-bottom: 10px;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  gap: 15px;
   align-items: center;
 
   border-radius: 15px;
   box-shadow: var(--main-box-shadow);
   background-color: var(--main-color-white);
 
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .discussion__container:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
+
 /***** discussion 내부 설정 *****/
 /* 왼쪽 설정 */
 .discussion__avatar--wrapper {
   display: flex;
   align-items: center;
-  margin-right: 10px;
 }
 .discussion__avatar--image {
   width: 50px;
   border-radius: 50%;
 }
+
 /* 중간 설정 */
 .discussion__content {
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
+  gap: 8px;
 }
 .discussion__title {
-  margin-bottom: 5px;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 600;
+
+  /* 제목이 너무 길면 ...으로 생략하는 설정 */
+  width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.discussion__title:hover {
+  color: var(--main-color-purple-900);
 }
 .discussion__information {
   text-align: right;
-  font-size: 0.75rem;
-}
-/* 오른쪽 설정 */
-.discussion__answered {
-  margin-left: 10px;
-  font-size: x-large;
+  font-size: 0.9rem;
 }
 
-/********** page-btns  **********/
-.page {
-  width: 300px;
-  height: 30px;
-  margin-bottom: 30px;
-  background-color: #645caa;
+/* 오른쪽 설정 */
+.discussion__answered > button {
+  border: none;
+  background-color: var(--main-color-white);
+  font-size: x-large;
+  cursor: pointer;
 }
+.discussion__answered > button:hover {
+  color: #645caa;
+}
+
+/********** page-btn *********/
+/* .page-buttons {
+  display: flex;
+}
+
+.page-buttons > button {
+  background-color: var(--surface);
+  flex: 1 0 0;
+  border: 0;
+  margin: 0 0.5rem;
+} */
