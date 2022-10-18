@@ -1,16 +1,14 @@
 let serverDiscussions = [];
+const ul = document.querySelector('ul.discussions__container');
 
 fetch('http://localhost:4000/discussions')
   .then((res) => res.json())
   .then((data) => {
     serverDiscussions = data;
 
-    const ul = document.querySelector('ul.discussions__container');
     render(ul);
     pagination();
   });
-
-console.log(serverDiscussions);
 
 // localStorage
 const localStorage = window.localStorage;
@@ -115,70 +113,14 @@ const render = (element) => {
 // render(ul);
 
 const pagination = function () {
-  // declare/set pagination variables
   const paginationNumbers = document.querySelector('#pagination-numbers');
   const paginatedList = document.querySelector('#paginated-list');
   let listItems = paginatedList.querySelectorAll('.discussion__container');
   const nextButton = document.querySelector('#next-button');
   const prevButton = document.querySelector('#prev-button');
-
   const paginationLimit = 7;
   let pageCount = Math.ceil(listItems.length / paginationLimit);
   let currentPage = 1;
-
-  // add discussion to list on submit
-  let form = document.querySelector('.form');
-  form.onsubmit = function (e) {
-    // prevent page from refreshing
-    e.preventDefault();
-
-    // create input data object
-    const createdDateTime = new Date();
-    const author = document.querySelector('#name');
-    const title = document.querySelector('#title');
-
-    // random id
-    const randomId = `_${
-      Math.random().toString(30).substr(2, 17) + Math.random().toString(30).substring(2, 17)
-    }`;
-
-    const inputData = {
-      id: randomId,
-      avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author.value}.svg`,
-      author: author.value,
-      url: '',
-      title: title.value,
-      createdAt: createdDateTime,
-      answer: null,
-    };
-
-    // add inputData to localStorange['submittedDiscussions']
-    if (!localStorage.getItem('submittedDiscussions')) {
-      localStorage.setItem('submittedDiscussions', JSON.stringify([inputData]));
-    } else {
-      const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
-
-      submittedDiscussionsArr.push(inputData);
-
-      localStorage.setItem('submittedDiscussions', JSON.stringify(submittedDiscussionsArr));
-    }
-
-    ul.prepend(convertToDiscussion(inputData));
-
-    // update pagination on discussion post submission
-    listItems = paginatedList.querySelectorAll('.discussion__container');
-    pageCount = Math.ceil(listItems.length / paginationLimit);
-
-    document.querySelector('#pagination-numbers').textContent = '';
-    getPaginationNumbers();
-    setCurrentPage(1);
-    addEventToPaginationNumber();
-
-    // reset submission value
-    author.value = '';
-    title.value = '';
-    document.querySelector('#story').value = '';
-  };
 
   // pagination
   const disableButton = (button) => {
@@ -261,9 +203,6 @@ const pagination = function () {
   };
 
   window.addEventListener('load', () => {
-    getPaginationNumbers();
-    setCurrentPage(1);
-
     prevButton.addEventListener('click', () => {
       setCurrentPage(currentPage - 1);
     });
@@ -271,7 +210,54 @@ const pagination = function () {
     nextButton.addEventListener('click', () => {
       setCurrentPage(currentPage + 1);
     });
-
-    addEventToPaginationNumber();
   });
+
+  getPaginationNumbers();
+  setCurrentPage(1);
+  addEventToPaginationNumber();
+};
+
+let form = document.querySelector('.form');
+form.onsubmit = function (e) {
+  e.preventDefault();
+
+  // create input data object
+  const createdDateTime = new Date();
+  const author = document.querySelector('#name');
+  const title = document.querySelector('#title');
+
+  // random id
+  const randomId = `_${
+    Math.random().toString(30).substr(2, 17) + Math.random().toString(30).substring(2, 17)
+  }`;
+
+  const inputData = {
+    id: randomId,
+    avatarUrl: `https://avatars.dicebear.com/api/identicon/:${author.value}.svg`,
+    author: author.value,
+    url: '',
+    title: title.value,
+    createdAt: createdDateTime,
+    answer: null,
+  };
+
+  // add inputData to localStorange['submittedDiscussions']
+  if (!localStorage.getItem('submittedDiscussions')) {
+    localStorage.setItem('submittedDiscussions', JSON.stringify([inputData]));
+  } else {
+    const submittedDiscussionsArr = JSON.parse(localStorage.getItem('submittedDiscussions'));
+
+    submittedDiscussionsArr.push(inputData);
+
+    localStorage.setItem('submittedDiscussions', JSON.stringify(submittedDiscussionsArr));
+  }
+
+  ul.prepend(convertToDiscussion(inputData));
+
+  document.querySelector('#pagination-numbers').textContent = '';
+  pagination();
+
+  author.value = '';
+  title.value = '';
+  document.querySelector('#story').value = '';
 };
