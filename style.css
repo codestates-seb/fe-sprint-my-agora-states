@@ -7,7 +7,6 @@ body {
     background-image: url("1.gif");
     background-size: 100% 100%;
     margin: 0px;
-
 }
 
 /* div {
@@ -31,7 +30,6 @@ main {
     display: flex;
     justify-content: space-between;
     overflow: auto;
-
 }
 
 h1 {
@@ -113,7 +111,6 @@ textarea {
     font-size: x-large;
     color: white;
     font-weight: 600;
-
 }
 
 #submitBtn:hover {
@@ -121,25 +118,32 @@ textarea {
     transition-duration: 0.7s;
 }
 
-label,
+
 a {
     color: white;
     text-decoration: none;
     font-weight: 600;
-
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000 ;
+}
+label{
+   color: yellow;
+   font-weight: 900;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000 ;
 }
 .discussion__content{
     padding-left: 10px;
 }
 .discussion__content div {
     color: white;
-    font-weight: 600;
+    font-weight:bolder; 
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000 ;
 }
 
 .form__input--name,.form__input--title{
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    padding-left: 0px;
 }
 #name{
     width: 380px;
