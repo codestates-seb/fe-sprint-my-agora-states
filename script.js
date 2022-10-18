@@ -2,6 +2,14 @@ const ul = document.querySelector('ul.discussions__container');
 const btnSubmit = document.querySelector('.form__submit');
 const form = document.querySelector('.form');
 const btns = document.querySelector('.btn__page--wrapper');
+const url = `http://localhost:4000/discussions/`
+
+// connect to local server
+fetch (url)
+  .then((response) => response.json())
+  .then((data) => {
+    let agoraStatesDiscussions = data
+  })
 
 let data;
 const dataFromLocalStorage = localStorage.getItem('agoraStatesDiscussions');
