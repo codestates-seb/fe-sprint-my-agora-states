@@ -7,7 +7,7 @@ fe-sprint-my-agora-states
 > ㅏㅡ index.html   
 > ㅏㅡ script.js   
 > ㅏㅡ style.css   
-> ㅏㅡ index_init.js &rightarrow; init 파일생성
+> ㅏㅡ (new file)index_init.js &rightarrow; init 파일생성
 
 # 나만의 아고라 스테이츠 만들기 개요
 
