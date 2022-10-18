@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => { //객체를 매개변수로 받음.
@@ -49,15 +49,15 @@ discussionAnswered.append(answer);
   return li;
 };
 
-// // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// const render = (element) => {
-//   //더미데이터의 길이만큼, 더미데이터 안에 있는 모든 요소를 탐색
-//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-//     // i 번째 요소를 convertToDiscussion에 전달해서 결과를 낸 append
-//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-//   }
-//   return;
-// };
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  //더미데이터의 길이만큼, 더미데이터 안에 있는 모든 요소를 탐색
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    // i 번째 요소를 convertToDiscussion에 전달해서 결과를 낸 append
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
 
 //이벤트리스너
 //문서 내용 가져오기
