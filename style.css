@@ -28,6 +28,21 @@ h1 {
 }
 section.form__container {
   width: 540px;
+  margin-top: 10px;
+}
+section.form__container > form {
+  display: flex;
+  justify-content: space-between;
+}
+section.form__container > form > div.form__submit {
+  flex-grow: 0.5;
+  display: flex;
+}
+section.form__container > form > div.form__submit > input {
+  flex-grow: 1;
+}
+section.form__container > form > div.form__input--wrapper {
+  flex-grow: 1;
 }
 section.form__input--wrapper > div.form__input--name {
   display: flex;

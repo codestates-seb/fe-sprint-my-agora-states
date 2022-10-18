@@ -1,6 +1,9 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-console.log(agoraStatesDiscussions[0].avatarUrl)
+// console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions[0].avatarUrl)
+function loadAllDataFromServer(endpoint)  {
+  return fetch(`http://localhost:4000/${endpoint}`).then(res => res.json())
+} 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -115,6 +118,10 @@ const render = (element) => {
   return;
 };
 
+loadAllDataFromServer('discussions').then(el => {
+  agoraStatesDiscussions = el
+  const ul = document.querySelector("ul.discussions__container");
+  render(ul);
+})
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
