@@ -1,1 +1,108 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "-apple-system,BlinkMacSystemFont","Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#EEF1FF;
+}
+.discussion__container {
+    display: flex;
+    /* flex-direction: row; */
+    width: 500px;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid grey;
+}
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 10px;
+}
+.discussion__information {
+    text-align: right;
+    margin-top: 10px;
+}
+.discussion__wrapper {
+    background-color: #D2DAFF; 
+    opacity: 0.8;
+    border-radius: 8px;
+}
+.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 50px;
+}
+.discussion__answered {
+    display: flex;
+    align-self: center;
+    font-size: xx-large;
+}
+a:link {
+    color:rgb(69, 68, 68);
+    text-decoration: none;
+}
+a:visited { 
+    color:grey; 
+}
+a:hover {
+    color:skyblue
+}
+h1 {
+    margin: 20px;
+    color: darkslategrey;
+    }
+.form__container {
+    margin: 25px;
+    padding: 20px;
+    font-size: large;
+    background-color: #AAC4FF;
+    opacity: 0.8;
+    box-shadow: 3px 3px whitesmoke;
+}
+.form__input--wrapper {
+    background-color: #AAC4FF;
+    border-radius: 5px;
+    text-align: center;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.form__input--wrapper > input{
+    width: 400px;
+    padding: 200px;
+}
+.form__submit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form__submit > input{
+    width: 80px;
+    margin: 10px;
+    background-color: beige;
+    border-color: beige;
+    font-size: large;
+}
+.form__input--name {
+    padding: 5px;
+}
+.form__input--title {
+    padding: 5px;
+}
+.form__textbox {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.form__textbox > textarea {
+    height: 100px;
+}
