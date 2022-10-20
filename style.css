@@ -1,1 +1,143 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    box-sizing: border-box;
+    font-family: 'Arimo', sans-serif;
+    
+}
+
+body {
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 540px;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+input[type=text] {
+    width: 200px;
+}
+
+input[type=submit] {
+    width: 150px;
+    height: 36px;
+}
+
+input[type=submit]:active {
+    box-shadow: 2px 2px 0 rgb(0,0,0,0.5);
+    position: relative;
+    top:2px;
+}
+
+.form__submit { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 54px;
+}
+
+.form__textbox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+textarea[id=story] {
+    width: 200px;
+    height: 50px;
+}
+
+.form__container {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px;
+    height: 200px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    
+}
+
+.discussion__avatar--image {
+    border-radius: 70%;
+    width: 48px;
+}
+
+.discussion__container {
+    display: flex;
+    background-color: white;
+    margin: 10px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 12px;
+    padding: 3px;
+
+}
+
+.discussion__answered {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    padding-right: 8px;
+}
+
+.form__input--name, .form__input--title, .form__textbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discussion__information {
+    text-align: end;
+}
+
+.discussion__title {
+}
