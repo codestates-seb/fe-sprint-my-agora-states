@@ -803,3 +803,7 @@ const agoraStatesDiscussions = [
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
   }
 })
+
+// const new_agoraStatesDiscussions = async () => {
+//   return await fetch("http://localhost:4000/discussions").then((response) => response.json());
+// }

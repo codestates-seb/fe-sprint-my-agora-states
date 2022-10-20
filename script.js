@@ -1,10 +1,8 @@
-const lsDiscussionList = localStorage.hasOwnProperty('discussion-item') ? Object.values(JSON.parse(localStorage.getItem('discussion-list'))) : [];
-const new_agoraStatesDiscussions = [...lsDiscussionList, ...agoraStatesDiscussions, ]
-console.log(new_agoraStatesDiscussions);
+let agoraStatesDiscussions = [];
+
 const initialPageNum = 1;
 const elementCountByPage = 10;
-const totalPageCounts = Math.ceil(new_agoraStatesDiscussions.length/elementCountByPage);
-
+const totalPageCounts = Math.ceil(agoraStatesDiscussions.length/elementCountByPage);
 //pagenation을 생성합니다.
 const createPagenation = (num) => {
   const paginationContainer = document.querySelector('.pagination');
@@ -100,23 +98,32 @@ discussion_form.addEventListener('submit', (event) => {
 // new_agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const renderByPageIndex = (element, index) => {
   const selectedIndex = document.querySelector(`.page${index}`);
-  selectedIndex.setAttribute('id','selected');
+  if (selectedIndex != null) selectedIndex.setAttribute('id','selected');
   while (element.hasChildNodes()) {
     element.removeChild(element.firstChild);
   }
-  for (let i = 0; i < new_agoraStatesDiscussions.length; i += 1) {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     //해당 pageIndex에 요소만 convert
     if (i >= (index-1)*elementCountByPage && i < index*elementCountByPage) {
-      element.append(convertToDiscussion(new_agoraStatesDiscussions[i]));
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     } 
     if (i == index*elementCountByPage) return;
   }
   return;
 };
 
+fetch('http://localhost:4000/discussions')
+.then(res => res.json())
+.then(json => {
+  agoraStatesDiscussions = json;
+  const ul = document.querySelector("ul.discussions__container");
+  createPagenation(totalPageCounts);
+  return ul;
+}).then((ul) => {
+  renderByPageIndex(ul, initialPageNum);
+})
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-createPagenation(totalPageCounts);
-renderByPageIndex(ul, initialPageNum)
+
 
