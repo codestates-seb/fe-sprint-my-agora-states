@@ -22,7 +22,7 @@ const submitDiscussion = (event) => {
     author: event.target[0].value,
     text: event.target[2].value,
     answer: null,
-    avatarUrl: `https://picsum.photos/seed/${this.author}/200/200`,
+    avatarUrl: `https://picsum.photos/seed/${event.target[0].value}/200/200`,
     notice: event.target[3].checked,
   };
 

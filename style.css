@@ -27,7 +27,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   width: 90%;
   height: auto;
 }

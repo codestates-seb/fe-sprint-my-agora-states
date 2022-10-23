@@ -21,6 +21,7 @@ const dynamicTextArea = () => {
   const textarea = document.querySelector("#story");
   if (window.innerWidth > 1000) {
     main.style.flexDirection = "row";
+    main.style.alignItems = "flex-start";
     textarea.style["min-height"] = "500px";
     textarea.addEventListener("keydown", () => {
       textarea.style.height = "1px";
@@ -32,6 +33,7 @@ const dynamicTextArea = () => {
     });
   } else {
     main.style.flexDirection = "column";
+    main.style.alignItems = "center";
     textarea.style["min-height"] = "auto";
     textarea.addEventListener("keydown", () => {
       textarea.style.height = "1px";

@@ -146,7 +146,7 @@ const convertToDiscussion = (obj) => {
 
     const discussionAnswerContent = document.createElement("div");
     discussionAnswerContent.className = "discussion__accordion__content";
-    discussionAnswerContent.innerHTML += `<div><img src="${obj.answer.avatarUrl}" class="discussion__avatar--image" /></div>`;
+    discussionAnswerContent.innerHTML += `<img src="${obj.answer.avatarUrl}" class="discussion__avatar--image" />`;
     discussionAnswerContent.innerHTML += `<span>${obj.answer.author}</span>`;
     discussionAnswerContent.innerHTML += `<span class="discussion__information">${timePassed(
       obj.answer.createdAt
