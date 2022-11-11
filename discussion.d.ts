@@ -1,3 +1,6 @@
+/**
+ * 더미데이터 데이터 타입
+ */
 type Discussions = Discussion[];
 interface Discussion {
   id: string;
