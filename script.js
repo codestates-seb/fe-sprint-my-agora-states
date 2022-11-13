@@ -12,14 +12,15 @@ const makeDiscussionData = () => {
     title: inputTitle.value,
     url: inputStory.value,
     createdAt: new Date(),
+    answer: null,
   };
 };
 
 form.addEventListener('submit', e => {
   e.preventDefault();
+
   const li = convertToDiscussion(makeDiscussionData());
   ul.prepend(li);
-  render(ul);
 });
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
