@@ -23,8 +23,14 @@ const convertDate = createdAt => {
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  const li = convertToDiscussion(makeDiscussionData());
+  const newDiscussionData = makeDiscussionData();
+
+  agoraStatesDiscussions.unshift(newDiscussionData);
+
+  const li = convertToDiscussion(newDiscussionData);
   ul.prepend(li);
+
+  console.log(agoraStatesDiscussions);
 });
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -50,6 +56,7 @@ const convertToDiscussion = obj => {
 
   const discussionTitle = document.createElement('h2');
   discussionTitle.className = 'discussion_title';
+
   const discussionUrl = document.createElement('a');
   discussionUrl.textContent = title;
   discussionUrl.href = url;
