@@ -13,7 +13,26 @@ body {
 }
 
 main {
-  width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 li {
@@ -25,6 +44,15 @@ li {
   width: 540px;
 }
 
+img {
+  width: 48px;
+  border-radius: 50%;
+}
+
+a {
+  font-size: 1rem;
+}
+
 .discussion__avatar--wrapper {
   display: flex;
   flex-direction: column;
@@ -32,19 +60,11 @@ li {
   align-items: center;
 }
 
-img {
-  width: 48px;
-  border-radius: 50%;
-}
-
 .discussion__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.discussion_information {
-  text-align: end;
+  flex-grow: 1;
 }
 
 .discussion__answered {
@@ -52,4 +72,8 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.discussion_information {
+  text-align: end;
 }
