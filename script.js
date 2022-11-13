@@ -18,6 +18,7 @@ const convertToDiscussion = obj => {
 
   const avatarImg = document.createElement('img');
   avatarImg.className = 'discussion_avatar--image';
+  avatarImg.src = avatarUrl;
   avatarImg.alt = `avatar of ${author}`;
   avatarWrapper.append(avatarImg);
 
@@ -33,6 +34,12 @@ const convertToDiscussion = obj => {
   discussionInfo.className = 'discussion_information';
   discussionInfo.textContent = `${author} / ${createdAt}`;
   discussionContent.append(discussionInfo);
+
+  const answerCheck = document.createElement('p');
+  answerCheck.textContent = answer
+    ? String.fromCharCode(0x2713)
+    : String.fromCharCode(0x2716);
+  discussionAnswered.append(answerCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
