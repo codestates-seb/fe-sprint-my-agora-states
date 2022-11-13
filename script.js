@@ -26,6 +26,13 @@ const convertToDiscussion = obj => {
   const discussionUrl = document.createElement('a');
   discussionUrl.textContent = title;
   discussionUrl.href = url;
+  discussionTitle.append(discussionUrl);
+  discussionContent.append(discussionTitle);
+
+  const discussionInfo = document.createElement('div');
+  discussionInfo.className = 'discussion_information';
+  discussionInfo.textContent = `${author} / ${createdAt}`;
+  discussionContent.append(discussionInfo);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
