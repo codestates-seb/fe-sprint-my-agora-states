@@ -1,6 +1,27 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+const form = document.querySelector('.form');
+const inputName = document.querySelector('#name');
+const inputTitle = document.querySelector('#title');
+const inputStory = document.querySelector('#story');
+
+const makeDiscussionData = () => {
+  return {
+    author: inputName.value,
+    title: inputTitle.value,
+    url: inputStory.value,
+    createdAt: new Date(),
+  };
+};
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const li = convertToDiscussion(makeDiscussionData());
+  ul.prepend(li);
+  render(ul);
+});
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = obj => {
   const li = document.createElement('li'); // li 요소 생성
