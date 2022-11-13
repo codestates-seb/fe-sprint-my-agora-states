@@ -16,6 +16,10 @@ const makeDiscussionData = () => {
   };
 };
 
+const convertDate = createdAt => {
+  return new Date(createdAt).toLocaleString();
+};
+
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -54,7 +58,7 @@ const convertToDiscussion = obj => {
 
   const discussionInfo = document.createElement('div');
   discussionInfo.className = 'discussion_information';
-  discussionInfo.textContent = `${author} / ${createdAt}`;
+  discussionInfo.textContent = `${author} / ${convertDate(createdAt)}`;
   discussionContent.append(discussionInfo);
 
   const answerCheck = document.createElement('p');
@@ -78,3 +82,6 @@ const render = element => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
+
+// pagination
+const pagination = () => {};
