@@ -65,7 +65,6 @@ const render = (element, startIdx, endIdx) => {
 let page = 1; // 현재 페이지 인덱스
 const PAGE_ITEM_NUMBERS = 5; // 한번에 보여줄 개수
 const totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
-
 /**
  * 첫 페이지네이션을 렌더링하는 함수
  * @param totalPage 총 페이지 개수
@@ -144,7 +143,7 @@ $form.addEventListener("submit", (e) => {
 */
 const $pagination = document.getElementById("pagination");
 // 이벤트 위임
-$pagination.addEventListener("click", (e) => {
+const changePage = (e) => {
   const $paginationBtns = document.querySelector(".pagination__btns");
   // button 태그인 경우에만 이벤트 처리하기
   if (
@@ -166,7 +165,43 @@ $pagination.addEventListener("click", (e) => {
   // 화면 다시 렌더링하기
   render(
     ul,
-    parseInt(page) * PAGE_ITEM_NUMBERS,
-    parseInt(page) * PAGE_ITEM_NUMBERS + parseInt(PAGE_ITEM_NUMBERS)
+    parseInt(page - 1) * PAGE_ITEM_NUMBERS,
+    parseInt(page - 1) * PAGE_ITEM_NUMBERS + parseInt(PAGE_ITEM_NUMBERS)
   ); // 초기 화면 렌더링
+};
+$pagination.addEventListener("click", changePage);
+
+// prev, next  버튼 이벤트 핸들러
+const $paginationPrevBtn = document.querySelector(".pagination__prev");
+const $paginationNextBtn = document.querySelector(".pagination__next");
+
+$paginationPrevBtn.addEventListener("click", () => {
+  // page가 0보다 작아지는 경우
+  if (page - 1 <= 0) return;
+  page--;
+  // 이전 페이지 클릭하기
+  const $paginationBtns = document.querySelector(".pagination__btns");
+  const children = [...$paginationBtns.children];
+  // 현재 눌려야하는 엘리먼트 찾기
+  for (const pageBtn of children) {
+    if (parseInt(pageBtn.textContent) === page) {
+      pageBtn.click(); // 클릭
+      break;
+    }
+  }
+});
+$paginationNextBtn.addEventListener("click", () => {
+  // page가 토탈 페이지보다 커지는 경우
+  if (parseInt(page) + 1 > totalPage) return; // 자꾸 page가 string 타입이 된다.
+  page++;
+  // 다음 페이지 클릭하기
+  const $paginationBtns = document.querySelector(".pagination__btns");
+  const children = [...$paginationBtns.children];
+  // 현재 눌려야하는 엘리먼트 찾기
+  for (const pageBtn of children) {
+    if (parseInt(pageBtn.textContent) === page) {
+      pageBtn.click(); // 클릭
+      break;
+    }
+  }
 });
