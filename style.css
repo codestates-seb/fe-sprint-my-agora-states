@@ -1,1 +1,99 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fasthand&family=Gaegu:wght@700&family=Noto+Sans+KR:wght@700&family=Trispace&family=Varela+Round&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #000;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.form__container,
+h1 {
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.form__container {
+  font-size: 20px;
+}
+
+.form__input--name {
+  align-items: flex-start;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+
+.form__submit > input {
+  width: 250px;
+  height: 40px;
+  background-color: antiquewhite;
+  border: 1px solid red;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+/* 카드요소 */
+
+.discussions__container {
+  background-color: antiquewhite;
+}
+
+.discussion__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discussion__container {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 540px;
+  margin: 20px;
+  border: 2px solid red;
+  padding: 13px;
+  border-radius: 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+.discussion__avatar--image {
+  border-radius: 50px;
+  width: 48px;
+}
+
+.discussion__content {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.discussion__avatar--image {
+  margin-right: 30px;
+}
+
+.discussion__answered {
+  font-size: 30px;
+}
+
+.discussion__title {
+  margin-bottom: 6px;
+}
+
+/* 오른쪽 정렬 */
+.discussion__information {
+  margin-left: auto;
+  font-size: 14px;
+}
