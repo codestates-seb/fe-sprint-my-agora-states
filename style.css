@@ -17,29 +17,61 @@
     /* overflow : auto; 
 } */
 
-/* body {
+body {
     background-image: url('./image/background1.png'); 
     background-position: 100% 100%;
-} */
+}
 
 body {
     display: flex;
+    position: relative;
 }
 
 main {
     margin: 0 auto;
-    width: 540px;
+    /* width: 540px; */
 }
 
 h1 {
     text-align: center;
     font-size: 40px;
+    padding: 10px;
+    background-color: white;
+}
+
+h2 {
+    font-size: 1.3em;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
 }
 
 .form__container {
+    align-items: center;
     text-align: center;
+    background-color: white;
 }
 
+.form__input--name input {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 1;
+}
+
+.form__input--title input {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 1;
+}
+
+.form__submit input:active {
+    background-color: yellow;
+}
 
 li.discusstion__container {
     align-items: center; 
@@ -55,44 +87,46 @@ li.discusstion__container {
 
 .discussions__container {
     list-style-type: none;
-    /* align-items: center; */
-    /* position: absolute;
-    top: 50%;
-    left: 50%; */
+    background-color: white;
+    overflow: auto;
+    height: 540px;
 }
 
 .discussion__container {
     display: flex;
     justify-content: space-between;
     padding: 15px 0px;
+    width: 540px;
+}
+
+.discussion__content div {
+    text-align: right;
+}
+
+.discussion__content p {
+    text-align: right;
+    font-size: 28px;
 }
 
 .discussion__information {
     text-align: right;
+    
 }
 
-.discussion__avatar--wrapper > img{
+.discussion__avatar--wrapper img {
     flex-direction: column;
     justify-content: center;
     border-radius: 100%;
     width: 64px;
 }
 
-.discussion__content{
+.discussion__content {
     display: flex;
     flex-direction: column;
     width: 540px;
     justify-content: space-between;
-    vertical-align: middle;
-}
-
-.discussion__answered{
-    display: flex;
-    align-items: center;
-    
 }
 
 .discussion__wrapper p {
     font-size: 28px;
-    padding: 10px;
 }
