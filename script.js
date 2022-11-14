@@ -63,7 +63,7 @@ const render = (element, startIdx, endIdx) => {
   페이지네이션 처리
 */
 let page = 1; // 현재 페이지 인덱스
-const PAGE_ITEM_NUMBERS = 5; // 한번에 보여줄 개수
+const PAGE_ITEM_NUMBERS = 10; // 한번에 보여줄 개수
 const totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
 /**
  * 첫 페이지네이션을 렌더링하는 함수
@@ -80,7 +80,9 @@ const renderPagination = (totalPage, maxShowPage) => {
   if (totalPage <= maxShowPage) {
     for (let i = 1; i <= totalPage; i++) {
       const $pageBtn = document.createElement("button");
-      $pageBtn.className = `pagination__btn ${i === 1 ? "active" : ""}`; // i===1이면 active 클래스 추가
+      $pageBtn.className = `pagination__btn ${
+        parseInt(page) === i ? "active" : ""
+      }`; // i===1이면 active 클래스 추가
       $pageBtn.textContent = i;
       $pageFragment.appendChild($pageBtn);
     }
@@ -118,20 +120,23 @@ const renderPagination = (totalPage, maxShowPage) => {
     $pageFragment.append($pageNextTrack, $lastPage);
   }
 
+  // total이 크고
   // 만약 자식 중의 contenteText 중에 total이 있다면 마지막 제거
-  for (const pageBtn of [...$pageFragment.children]) {
-    if (
-      parseInt(pageBtn.textContent) === totalPage &&
-      !pageBtn.classList.contains("pagination__last")
-    ) {
-      console.log("pageBtn", pageBtn);
-      const nextTrack = $pageFragment.querySelector(".pagination__next-track");
-      const lastPage = $pageFragment.querySelector(".pagination__last");
-      $pageFragment.removeChild(nextTrack);
-      $pageFragment.removeChild(lastPage);
+  if (totalPage > maxShowPage) {
+    for (const pageBtn of [...$pageFragment.children]) {
+      if (
+        parseInt(pageBtn.textContent) === totalPage &&
+        !pageBtn.classList.contains("pagination__last")
+      ) {
+        const nextTrack = $pageFragment.querySelector(
+          ".pagination__next-track"
+        );
+        const lastPage = $pageFragment.querySelector(".pagination__last");
+        $pageFragment.removeChild(nextTrack);
+        $pageFragment.removeChild(lastPage);
+      }
     }
   }
-
   // DOM에 붙이기
   $discussionPagination.appendChild($pageFragment);
 };
@@ -242,7 +247,3 @@ $paginationNextBtn.addEventListener("click", () => {
     }
   }
 });
-
-// 버튼을 이동할 때,
-// 만약 총 페이지가 5보다 큰 경우
-// 3페이지(5/2) 부터 맨 앞은 무조곤 1번 페이지와 prev-stack를 추가해준다.
