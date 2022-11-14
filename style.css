@@ -7,11 +7,54 @@
     box-sizing: border-box;
     color: black;
     list-style: none;
-    max-width: 540px;
-
+    /* max-width: 540px; */
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* ul > li:last-child { } */
+/* body{
+    width: 100%;
+} */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: bisque;
+}
+
+h1{
+    padding: 15px;
+}
+.form__container{
+    background-color: white;
+    width : 540px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+textarea{
+    width: 330px;
+    height: 100px;
+}
+.form__input--wrapper > div{
+    margin: 10px;
+    align-content: center;
+}
+
+input,textarea{
+    border:1px solid rgb(228, 228, 228);
+}
 
 .discussion__container{
     display : flex;
@@ -19,9 +62,10 @@
     justify-content : space-between;
     /* align-items : center; */
     width : 540px;
-    background-color : rgb(255, 225, 225);
-    padding : 15px;
+    background-color : rgb(255, 255, 255);
+    padding : 15px 20px 15px 20px; /*위 오른쪽 아래 왼*/
     margin-top: 10px ;
+    border-radius: 15px;
 }
 
 
@@ -33,13 +77,13 @@
 .discussion__answered{
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
 .discussion__avatar--image{
     border-radius: 100%;
     width: 48px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .discussion__content{
@@ -54,7 +98,7 @@
 .discussion__title{
     display: block;
     width: 100%;
-    font-size: 0.9em;
+    font-size: 0.8em;
 
 }
 
@@ -62,6 +106,6 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
-    font-size: 0.8em;
+    font-size: 0.7em;
 
 }
