@@ -12,13 +12,28 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  
+  const Title1 = document.createElement('h2');
+  Title1.className = 'discussion__title';
+  discussionContent.append(Title1);
+  const Title2 = document.createElement('a')
+  Title1.append(Title2);
+  Title2.src = agoraStatesDiscussions[0].title;
+  Title2.alt = 'Title of ' + agoraStatesDiscussions[0].title;
+  
+
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
+  const avatarImg = document.createElement('img');
+  avatarImg.src = agoraStatesDiscussions[0].avatarUrl;
+  avatarImg.alt = 'avatar of ' + agoraStatesDiscussions[0].author;
+  avatarWrapper.append(avatarImg);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
+
+  
+
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
