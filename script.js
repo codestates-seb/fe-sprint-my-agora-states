@@ -1,7 +1,15 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+import {
+  removeAllchild,
+  getAgoraStatesDiscussions,
+  setLocalStorage,
+} from "./common.js";
 
-const ul = document.querySelector("ul.discussions__container");
+// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+// console.log(agoraStatesDiscussions);
+
+let agoraStatesDiscussions = getAgoraStatesDiscussions();
+
+const $ul = document.querySelector("ul.discussions__container");
 const $paginationNumbers = document.querySelector("#pagination-numbers");
 const $paginationContainer = document.querySelector("#pagination-container");
 const paginationLimit = 10;
@@ -9,8 +17,8 @@ let pagenationCurrentNum = 1;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  const $li = document.createElement("li"); // $li 요소 생성
+  $li.className = "discussion__container"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -48,8 +56,8 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
   removeButton.textContent = "☑";
   discussionAnswered.append(removeButton);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
+  $li.append(avatarWrapper, discussionContent, discussionAnswered);
+  return $li;
 };
 
 $paginationNumbers.addEventListener("click", (event) => {
@@ -60,7 +68,7 @@ $paginationNumbers.addEventListener("click", (event) => {
   }
 
   pagenationCurrentNum = $a.id;
-  render(ul, $a.id);
+  render($ul, $a.id);
 });
 
 $paginationContainer.addEventListener("click", (event) => {
@@ -75,17 +83,19 @@ $paginationContainer.addEventListener("click", (event) => {
     return;
   }
 
-  const signal = event.id === "prev-button" ? -1 : 1;
-  const nextPage = pagenationCurrentNum + signal;
+  const signal = $a.id === "prev-button" ? -1 : 1;
+  const nextPage = parseInt(pagenationCurrentNum, 10) + parseInt(signal, 10);
 
   // 더이상 이동할 곳이 없는 경우
   if (nextPage === 0 || nextPage > pageCount) {
     return;
   }
 
+  console.log(nextPage);
+
   pagenationCurrentNum = nextPage;
 
-  render(ul, pagenationCurrentNum);
+  render($ul, pagenationCurrentNum);
 });
 
 const renderPageNations = () => {
@@ -93,11 +103,11 @@ const renderPageNations = () => {
   const pageCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit);
 
   for (let i = 1; i <= pageCount; i++) {
-    const a = document.createElement("a");
-    a.href = "#";
-    a.textContent = i;
-    a.id = i;
-    $paginationNumbers.append(a);
+    const $a = document.createElement("a");
+    $a.href = "#";
+    $a.textContent = i;
+    $a.id = i;
+    $paginationNumbers.append($a);
   }
 };
 
@@ -117,8 +127,8 @@ const render = (element, pageNum = 1) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-render(ul);
+// $ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+render($ul);
 
 //디스커션 추가 기능
 const formSubmitButton = document.querySelector(".form__submit > input");
@@ -139,12 +149,6 @@ formSubmitButton.addEventListener("click", (event) => {
   };
 
   agoraStatesDiscussions = [discussionItem, ...agoraStatesDiscussions];
-  render(ul);
+  setLocalStorage("agoraStatesDiscussions", agoraStatesDiscussions);
+  render($ul);
 });
-
-//입력 받은 요소의 자식 노드를 모두 삭제하는 함수
-function removeAllchild(div) {
-  while (div.hasChildNodes()) {
-    div.removeChild(div.firstChild);
-  }
-}
