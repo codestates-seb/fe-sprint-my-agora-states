@@ -135,3 +135,30 @@ $form.addEventListener("submit", (e) => {
   const li = convertToDiscussion(newDiscussion);
   ul.prepend(li); // 앞에 추가할 때는 prepend를 써준다.
 });
+
+/* 
+  페이지네이션 이벤트 핸들러
+*/
+const $pagination = document.getElementById("pagination");
+// 이벤트 위임
+$pagination.addEventListener("click", (e) => {
+  const $paginationBtns = document.querySelector(".pagination__btns");
+  // button 태그인 경우에만 이벤트 처리하기
+  if (
+    e.target.tagName !== "BUTTON" ||
+    e.target.classList.contains("pagination__last") ||
+    e.target.classList.contains("pagination__prev") ||
+    e.target.classList.contains("pagination__next")
+  )
+    return;
+  // 모든 요소에서 active 제거하기 -> 다른 방법이 없을까?
+  for (let i = 0; i < $paginationBtns.children.length; i++) {
+    $paginationBtns.children[i].classList.remove("active");
+  }
+  // 현재 클릭한 요소에 클래스 추가하기
+  e.target.classList.add("active");
+  // 해당 값으로 page값 변경하기
+  page = e.target.textContent;
+
+  // 화면 다시 렌더링하기
+});

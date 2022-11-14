@@ -201,6 +201,7 @@ textarea:focus {
   background: transparent;
   border: none;
   cursor: pointer;
+  font-size: 0.8rem;
 }
 .pagination__btn:hover {
   background: var(--light-color);
