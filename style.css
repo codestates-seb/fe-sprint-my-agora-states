@@ -1,29 +1,106 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-*{
+* {
   list-style: none;
   box-sizing: border-box;
+  padding: 2px;
+  font-family: 'Stylish', sans-serif;
 }
 
-.discussions__container{
+h1 {
+  font-size: 50px;
+  font-family: 'Rubik Bubbles', cursive;
+  color: #7fccde;
+  font-style: italic;
+  text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 3px -1px black;
+}
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.form__container {
+  background-color: antiquewhite;
+  font-size: 30px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+}
+.form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 10px 5px 10px;
+  font-family: 'Rubik Bubbles', cursive;
+}
+
+
+
+.discussions__container {
   width: 540px;
 }
-.discussion__container{
+.btn-3d.cyan {
+  background-color: #7fccde;
+  box-shadow: 0 0 0 1px #7fccde inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 8px 0 0 rgba(102, 164, 178, .6),
+        0 8px 0 1px rgba(0,0,0,.4),
+        0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.cyan:active {
+  box-shadow: 0 0 0 1px #7fccde inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 0 0 1px rgba(0,0,0,0.4);
+}
+.btn-3d.cyan:hover   {background-color: #82D1E3;}
+.btn-3d:active {
+  top: 9px;
+}
+.btn-3d {
+
+  font-size: 32px;
+  padding: 10px 40px;
+  color: white;
+  margin: 10px 10px 10px;
+  border-radius: 6px;
+  text-align: center;
+  transition: top .01s linear;
+  text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 2px -1px black;
+  /* text-shadow: 0 1px 0 rgba(3, 3, 3, 0.15); */
+  border: 0;
+}
+.discussion__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.discussion__avatar--image{
+.discussion__avatar--image {
   border-radius: 50px;
   width: 48px;
 }
-.discussion__content{
+
+.discussion__avatar--wrapper img {
+  width: 48px;
+  border-radius: 50px;
+}
+
+.discussion__content {
   display: flex;
   flex-direction: column;
-  width: 100%;      
+  width: 100%;
 }
+
 /* 양쪽으로 붙게 만들어줌.플렉스를 위아래로 정렬,그리고 인포메이션 값을 주어 오른쪽으로 정렬. */
-.discussion__information{
+.discussion__information {
   margin-top: auto;
   margin-left: auto;
 }
