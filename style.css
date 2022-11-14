@@ -1,1 +1,181 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    border: 1px solid black;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+
+.form__container {
+    width: 540px;
+    height: 120px;
+    margin: 20px;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    width: 520px;
+    height: 110px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--wrapper div{
+    display: flex;
+    justify-content: space-between;
+    width: 430px;
+}
+
+.form__textbox{
+    flex-direction: column;
+}
+
+#name {
+    width: 200px;
+}
+
+#title {
+    width: 200px;
+}
+
+#story {
+    width: 430px;
+}
+
+.form__submit {
+    padding: 0 5px 0 5px;
+    width: 90px;
+}
+
+.form__submit input {
+    height: 100%;
+    width: 100%;
+}
+
+.discussion__wrapper {
+    height: 550px;
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.discussion__wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+}
+
+.discussions__container li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 540px;
+    margin: 0 0 5px;
+    border-bottom: 1px solid black;
+}
+
+.discussion__avatar--wrapper {
+    height: 48px;
+    width: 48px;
+    margin: 15px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+
+.discussion__avatar--image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.discussion__content {
+    width: 70%; 
+    align-items: baseline;
+}
+
+.discussion__content h2 {
+    height: 40px;
+}
+.discussion__content  a {
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
+
+/* tile 제목 밑줄, 파란색 초기화 및 클릭 후 보라색 초기화 */
+.discussion__content a:hover {
+    text-decoration: none;
+}
+
+.discussion__content a:focus { 
+    text-decoration: none; 
+}
+
+.discussion__content a:hover, a:active {
+    text-decoration: none; 
+}
+/* ------------------------------------------ */
+.discussion__content div {
+    text-align: right;
+}
+
+.discussion__answered {
+    margin: 10px;
+    font-size: 30px;
+}
+
+.page__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.page__wrapper li {
+    width: 20px;
+    margin: 5px;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    list-style: none;
+}
+
+.page__wrapper a {
+    text-decoration: none; 
+    background-color: white;
+    color: black;
+}
+
+.page__wrapper a.active {
+    background-color: black;
+    color: white;
+}
