@@ -7,11 +7,23 @@
   box-sizing: border-box;
 }
 
+h1 {
+  text-align: center;
+}
+
 /* 
   ##########   Discussion   ##########
 */
+.discussion__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .discussions__container {
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .discussion__container {
   display: flex;
@@ -61,4 +73,12 @@
   align-items: center;
   font-size: 2rem;
   cursor: pointer;
+}
+
+/* 
+  ########## FORM ##########
+*/
+.form__container {
+  display: flex;
+  justify-content: center;
 }
