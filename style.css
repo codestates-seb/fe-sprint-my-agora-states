@@ -1,1 +1,130 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fce38a;
+}
+
+.head-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 300px;
+  margin: 30px 0;
+  background-color: #95e1d3;
+  border-radius: 15px;
+}
+
+h1 {
+  margin-right: 30px;
+  color: #f38181;
+  font-size: 55px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+input[type='text'],
+textarea {
+  border: none;
+  width: 500px;
+  background-color: #95e1d3;
+  border-bottom: 2px solid #f38181;
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+}
+
+.form__input--wrapper {
+  width: 100%;
+  color: #f38181;
+}
+
+.form__input--name,
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  margin-bottom: 25px;
+}
+
+.form__textbox {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+textarea {
+  border: 2px solid #f38181;
+  border-radius: 10px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 550px;
+  height: 110px;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background-color: #eaffd0;
+  border-radius: 15px;
+}
+
+.discussion__content {
+  display: flex;
+  width: 80%;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discussion__information {
+  text-align: right;
+  font-size: 13px;
+  color: #f38181;
+}
+
+h2 {
+  text-align: left;
+  font-size: 18px;
+}
+
+img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  color: #76ba99;
+}
