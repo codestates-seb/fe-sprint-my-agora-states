@@ -5,6 +5,7 @@
   --sub-color: #4e6c50;
   --brown-color: #aa8b56;
   --light-color: #f0ebce;
+  --text-color: #333;
   --header-font-color: #fff;
 }
 /* Reset CSS */
@@ -102,6 +103,7 @@ textarea:focus {
 
 .discussions__container {
   margin: 1rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +114,11 @@ textarea:focus {
   width: 540px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--brown-color);
+}
+.discussion__container:first-child {
+  border-top: 1px solid var(--brown-color);
 }
 
 /* discussion__avatar */
@@ -140,12 +146,21 @@ textarea:focus {
   flex-grow: 1;
 }
 .discussion__title {
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
+}
+.discussion__title a {
+  color: var(--sub-color);
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.discussion__title a:hover {
+  color: var(--brown-color);
 }
 .discussion__information {
   font-size: 0.8rem;
   text-align: end;
+  color: var(--text-color);
 }
 
 /* discussion__answered */
@@ -154,6 +169,13 @@ textarea:focus {
   align-items: center;
   font-size: 2rem;
   cursor: pointer;
+}
+.discussion__check {
+  color: var(--text-color);
+  transition: all 0.3s ease-out;
+}
+.discussion__check:hover {
+  color: var(--sub-color);
 }
 
 /* 
