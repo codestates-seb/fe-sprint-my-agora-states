@@ -1,0 +1,144 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  /* reset */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 전체 가운데 정렬 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefbe7;
+}
+
+h1 {
+  text-align: center;
+  margin: 10px;
+  font-size: 30px;
+  color: #4d5e4f;
+}
+
+/* 폼 컨테이너 시작 */
+section.form__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 540px;
+  margin: 20px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  border: solid 2px #9b9178;
+  background-color: #f9ebc8;
+}
+
+div.form__input--wrapper {
+  font-size: 20px;
+  color: #4d5e4f;
+}
+
+/* 이름, 제목 input */
+input[type="text"] {
+  height: 25px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: solid 1px #9b9178;
+}
+
+/* 내용 input */
+.form__textbox {
+  margin: 10px 0;
+}
+
+.form__submit > input {
+  width: 100%;
+  color: #4d5e4f;
+  font-size: 15px;
+  background-color: #e9d3ad;
+  border: solid rgb(79, 66, 48) 1px;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.1s ease;
+}
+
+.form__submit > input:hover {
+  color: #4d5e4f;
+  background-color: #faecd4;
+}
+/* 폼 컨테이너 끝 */
+
+/* 디스커션 시작 */
+section.discussion__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 디스커션 컨테이너 배치 */
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 540px;
+  border-radius: 5px;
+  list-style: none;
+  margin-bottom: 15px;
+  border: solid 2px #9b9178;
+  background-color: #dae5d0;
+}
+
+/* 아바타사진부분 */
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+}
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+
+/* 내용부분 */
+.discussion__content {
+  width: 100%;
+  overflow: hidden;
+  margin: 0px 10px 0px 10px;
+  line-height: 26px;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+div.discussion__title {
+  font-size: 19px;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: #4d5e4f;
+}
+a:hover {
+  color: #91a794;
+}
+
+.discussion__information {
+  float: right;
+}
+
+/* 답변체크부분 */
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  font-size: 25px;
+  margin: 0 10px;
+}
+
+/* 디스커션 컨테이너 끝 */
