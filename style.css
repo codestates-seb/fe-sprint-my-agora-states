@@ -6,16 +6,21 @@
     border: 0px;
 }
 
+main > h1 {
+    color: white;
+    padding: 15px 0px 30px 15px;
+}
+
+.discussions__container h1{ 
+    color: white;
+    padding: 30px 10px 10px 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 10%);  
+}
+
 body {
     width: 100vw;
     height: 100vh;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    height: 250px;
-    border: 1px solid;
+    background-color:rgba(0, 0, 0, 90%);
 }
 
 li{
@@ -28,27 +33,93 @@ a {
 }
 
 h3 {
-    color:aliceblue;
+    color:white;
 }
 
 span {
-    color:aliceblue;
+    color:white;
     font-weight: 500;
 }
+
+.form__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid;
+    position: fixed;
+    bottom: 0; left: 0;
+    background-color:rgba(0, 0, 0, 90%);
+    padding: 0px 0px 30px 0px;
+}
+
+.form__container h2{
+   color:white;
+   padding: 0px 0px 5px 0px;
+}
+
+.form__input--wrapper{
+    display: flex;
+}
+
+.form__input--wrapper div:first-child div{
+    display: flex;
+    padding: 0px 10px 3px 0px;
+}
+
+.form__textbox {
+    display: flex;
+    padding: 0px 10px 0px 0px;
+}
+
+.form__submit{
+    display: flex;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border-color: var(--gray-10);
+    justify-content: center;
+    background-color: white;
+    margin: 4px;
+    padding: 8px 12px;
+    height: 20px;
+  }
+
+  textarea {
+    border-radius: 4px;
+    border-color: var(--gray-10);
+    justify-content: center;
+    margin: 4px;
+    padding: 8px 12px;
+    height: 100px;
+    background-color: white;
+  }
+  
+  label {
+    display: inline-block;
+    color: white;
+  }
+
+.discussion__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
 ul.discussion__container{
     display: flex;
     flex-direction: column;
 }
 
 li.discussion__container{
-    display: flex;
     width: 540px;
-    flex: 1 0 150px;
 }
 
-.discussion__wrapper{
-    display: flex;
-    justify-content: center;
+li.discussion__container div{
+    padding: 2px 0px;
 }
 
 .notice__wrapper{
@@ -108,9 +179,9 @@ li.notice__container:hover{
 
 
 .discussion__container{
-    border: 1px solid;
     display: flex;
     flex-direction: column;
+    border-bottom: 2px solid rgba(255, 255, 255, 10%);  
 }
 
 .discussion__container > div{
@@ -120,15 +191,22 @@ li.notice__container:hover{
 
 
 .discussion__avatar--wrapper{
-    flex: 1;
+    flex: 0.8;
     display: flex;
     justify-content: center;
     align-items:  center;
 }
+
+.discussion__container img{
+    height: 40px;
+    width: 40px;
+}
+
 .discussion__content {
-    flex: 4;
+    flex: 5;
     display: flex;
     flex-direction: column;
+    color: rgba(255, 255, 255, 80%);
 }
 
 .discussion__title{
@@ -137,37 +215,74 @@ li.notice__container:hover{
 .discussion__information{
     display: flex;
     justify-content: flex-end;
+    font-size: x-small;
 }
 
 .discussion__answered{
-    flex: 1;
+    flex: 1.2;
     display: flex;
     justify-content: center;
     align-items:  center;
 }
 
+.discussion__content div:last-child{
+    cursor: pointer;;
+    color: rgb(59,114,255);
+    font-weight: 600;
+}
+
+
+.discussion__answered label{
+    color: rgb(59,114,255);
+    font-size: xx-small;
+    font-weight: 600;
+}
+
+.answer__container--wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
 .answer__avatar--wrapper{
     flex: 2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 .answer__content {
     flex: 4;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    text-decoration-line: underline;
+    font-weight: 500;
+}
+.answer__content:hover {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    text-decoration-line: underline;
+    font-weight: 700;
 }
 
 .answer__title{
     display: flex;
+    color: rgba(255, 255, 255, 99%);
 }
 .answer__information{
+    flex: 2;
     display: flex;
-    justify-content: flex-end;
+    font-size: xx-small;
+    color: rgba(255, 255, 255, 99%);
 }
 
+.answer__avatar--wrapper img{
+    height: 30px;
+    width: 30px;
+}
 
 img {
     border-radius: 50%;
-    width: 48px;
 }
+

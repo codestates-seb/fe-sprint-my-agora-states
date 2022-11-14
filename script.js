@@ -15,6 +15,8 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  const answered = document.createElement("div");
+ 
 
 
   const avatarImg = document.createElement('img');
@@ -32,11 +34,12 @@ const convertToDiscussion = (obj) => {
   
   const contentInformation = document.createElement('div');
   contentInformation.className = 'discussion__information';
-  contentInformation.textContent = obj.createdAt;
-  discussionContent.append(contentTitle, contentInformation);
-
-  // 답변
+  contentInformation.textContent = `${obj.createdAt.slice(0,4)}년 ${obj.createdAt.slice(5,7)}월 ${obj.createdAt.slice(8,10)}일`;
+  discussionContent.append(contentTitle, contentInformation, answered);
   
+  // 답변
+
+
   const answerWrapper = document.createElement("div"); 
   answerWrapper.className = "answer__container--wrapper"; 
 
@@ -45,11 +48,21 @@ const convertToDiscussion = (obj) => {
   answerAvatarWrapper.className = "answer__avatar--wrapper";
   const answerContent = document.createElement("div");
   answerContent.className = "answer__content";
-  
+  const answercontentInformation = document.createElement('div');
+    answercontentInformation.className = 'answer__information';
+
   const answerCheckbox =  document.createElement('input');
   answerCheckbox.type = 'checkbox';
+  answerCheckbox.id = 'answeredCheckbox';
+
+  const answerCheckboxName =  document.createElement('label');
+  answerCheckboxName.htmlFor = 'answeredCheckbox';
+  answerCheckboxName.textContent = 'Answered';
+
+
   if(obj.answer){
     answerCheckbox.checked = true;
+    answered.textContent = '답변 보기'
 
     const answerAvatarImg = document.createElement('img');
     answerAvatarImg.src = obj.answer.avatarUrl;
@@ -57,28 +70,30 @@ const convertToDiscussion = (obj) => {
     answerAvatarWrapper.append(answerAvatarImg);
 
 
-    const answercontentTitle = document.createElement('h4');
+    const answercontentTitle = document.createElement('p');
     answercontentTitle.className = "answer__title";
     const answercontentTitleUrl =document.createElement('a');
     answercontentTitleUrl.href =obj.answer.url;
-    answercontentTitleUrl.textContent = obj.answer.author + '님의 답변보기';
+    answercontentTitleUrl.textContent = obj.answer.author + '님의 답변';
     answercontentTitleUrl.target ='_blank';
     answercontentTitle.appendChild(answercontentTitleUrl);
-    
-    const answercontentInformation = document.createElement('div');
-    answercontentInformation.className = 'answer__information';
-    answercontentInformation.textContent = obj.answer.createdAt;
-    answerContent.append(answercontentTitle, answercontentInformation);
+    answerContent.append(answercontentTitle);
+
+    answercontentInformation.textContent = `${obj.answer.createdAt.slice(0,4)}년 ${obj.answer.createdAt.slice(5,7)}월 ${obj.answer.createdAt.slice(8,10)}일`;
 
   }
   else{answerCheckbox.checked  = false;}
 
-  discussionAnswered.append(answerCheckbox);
-  discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
-  answerWrapper.append(answerAvatarWrapper,answerContent);
-  li.append(discussionWrapper,answerWrapper );
+  answered.onclick = () => {
+    li.append(discussionWrapper, answerWrapper); 
+  }
 
+  discussionAnswered.append(answerCheckboxName, answerCheckbox);
+  discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
+  answerWrapper.append(answerAvatarWrapper, answerContent, answercontentInformation);
+  li.append(discussionWrapper);
   return li;
+
 };
 
 const convertToNotice = (obj) => {
