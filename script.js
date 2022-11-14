@@ -98,6 +98,7 @@ const formObject =  {
   }
 
 ul.append(convertToDiscussion(formObject))
+agoraStatesDiscussions.push(formObject)
 
 console.log(event)
 
