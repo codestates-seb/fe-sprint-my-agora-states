@@ -31,7 +31,10 @@ const convertToDiscussion = (obj) => {
 
   $title.textContent = obj.title;
   $title.href = obj.url;
-  $discussionInfo.textContent = `${obj.id}\t/\t${obj.createdAt}`;
+  const createdAt = obj.createdAt
+    ? new Date(obj.createdAt).toLocaleString()
+    : "-";
+  $discussionInfo.textContent = `${obj.id}\t/\t${createdAt}`;
   $titleWrapper.appendChild($title);
   discussionContent.append($titleWrapper, $discussionInfo);
 
@@ -69,7 +72,7 @@ $form.addEventListener("submit", (e) => {
   // 배열에 입력한 데이터를 추가하기
   const newDiscussion = {
     id: $formName.value,
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: $formTitle.value,
     url: "",
     author: $formName.value,
