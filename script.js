@@ -129,10 +129,18 @@ btn.addEventListener("click", () => {
   addObj["title"] = title.value;
   addObj["text"] = text.value;
 
+if(agoraStatesDiscussions.length === newDiscussions.length) {
   agoraStatesDiscussions.unshift(addObj);
+  localStorage.setItem("info", JSON.stringify(agoraStatesDiscussions));
+} else {
+  newDiscussions.unshift(addObj);
+  localStorage.setItem("info", JSON.stringify(newDiscussions));
+
+}
+
+ 
 
   // 로컬 저장소에 수정된 데이터 추가(배열은 입력이 되지 않으므로 문자열로 변환 후 추가)
-  localStorage.setItem("info", JSON.stringify(agoraStatesDiscussions));
   console.log(agoraStatesDiscussions);
   const ul = document.querySelector("ul.discussions__container");
   while (ul.hasChildNodes()) {
@@ -169,9 +177,10 @@ for (let i in check) {
       newDiscussions.splice(i, 1);
       console.log(newDiscussions);
       localStorage.setItem("info", JSON.stringify(newDiscussions));
-      location.reload();
 
       render(ul);
+      location.reload();
+
     }
   });
 }
