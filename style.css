@@ -77,14 +77,21 @@ main {
   border: none;
 }
 
+.discussion__wrapper {
+  width: 100%;
+}
+
 .discussions__container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .discussion__container {
   display: flex;
+  height: 100px;
+}
+
+.discussion__avatar--wrapper > img {
+  height: 100%;
 }
