@@ -18,6 +18,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 600px;
+  background-color: #c9b6e4;
 }
 
 section {
@@ -33,6 +34,12 @@ form {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  background-color: #e1ccec;
+}
+
+ul {
+  width: 540px;
+  background-color: #f1f1f6;
 }
 
 li {
@@ -41,7 +48,7 @@ li {
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  width: 540px;
+  width: 100%;
 }
 
 img {
@@ -51,6 +58,24 @@ img {
 
 a {
   font-size: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 540px;
+}
+
+button {
+  border: none;
+}
+
+.discussion__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 800px;
 }
 
 .discussion__avatar--wrapper {
@@ -86,4 +111,22 @@ a {
 
 .hidden {
   display: none;
+}
+
+/* nav css */
+button {
+  background-color: transparent;
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 0 0.5rem 1rem 0.5rem;
+}
+
+button:hover {
+  background-color: #fff;
+}
+
+.active {
+  background-color: #fff;
 }

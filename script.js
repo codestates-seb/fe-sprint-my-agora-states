@@ -150,7 +150,7 @@ const setCurrentPage = pageNum => {
   });
 };
 
-// 현재 페이지에 active 클래스 추가 그 외 페이지는 제거 : CSS
+// 현재 페이지 넘버 버튼에 active 클래스 추가 그 외 페이지는 제거
 const handleActiveClass = () => {
   const allPageNum = document.querySelectorAll('.pagination_number');
 
