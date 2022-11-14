@@ -1,1 +1,316 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+main {
+  min-width: 1000px;
+
+  width: 100%;
+  height: 150%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  min-width: 1000px;
+  display: flex;
+  height: 55px;
+  width: 100vw;
+  background-color: black;
+  align-items: center;
+  border-bottom: 1px solid;
+  border-color: #ccc;
+  position: fixed;
+  z-index: 2;
+  margin: auto;
+}
+
+.logo {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+
+  height: 50px;
+  width: 50px;
+}
+#title {
+  position: absolute;
+  top: 11px;
+  left: 60px;
+  font-size: 25px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-family: "Meta", sans-serif;
+  cursor: pointer;
+}
+
+#login {
+  position: absolute;
+  top: 17px;
+  left: 95%;
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-family: "Meta", sans-serif;
+  cursor: pointer;
+}
+
+#login:hover {
+  font-family: "Meta", sans-serif;
+  color: #b2bec3;
+  transition: opacity 0.5s ease 0s;
+}
+
+.main__sction {
+  min-width: 1000px;
+  width: 100vw;
+  height: 70vh;
+  background-color: #dfe4ea;
+  position: relative;
+}
+
+.bgvideo {
+  min-width: 1000px;
+  width: 100vw;
+  height: 70vh;
+  opacity: 0.8;
+}
+
+.main__sction .content {
+  min-width: 400px;
+  min-height: 100px;
+  position: absolute;
+  color: white;
+  font-size: 250%;
+  height: 200px;
+  width: 100px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: block;
+  line-height: 1.6;
+}
+
+.askBtn {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 150px;
+  height: 55px;
+  color: white;
+  border: none;
+  font-size: 23px;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: #e67e22;
+}
+
+.askBtn:hover {
+  background-color: #f39c12;
+  transition: opacity 0.5s ease 0s;
+}
+
+li {
+  list-style: none;
+}
+
+.discussion__wrapper {
+  min-width: 800px;
+  width: 80%;
+  margin-top: 1vh;
+  margin-right: 1vw;
+}
+
+.discussion__container {
+  min-width: 700px;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 0.1fr;
+  width: 100%;
+  border: 0.5px solid #636e72;
+  border-left: 0;
+  border-right: 0;
+  height: 80px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.discussion__avatar--image {
+  border-radius: 100%;
+  width: 100%;
+  width: 100%;
+}
+.discussion__content {
+  width: 95%;
+}
+.discussion__container img {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  margin: 2%;
+  margin: auto;
+  place-items: center;
+}
+
+.discussion__answered {
+  margin: auto;
+  place-items: center;
+}
+.discussion__answered p {
+  font-size: 40px;
+  margin: 0;
+  color: white;
+}
+
+.discussion__information {
+  font-size: 15px;
+  font-weight: 300;
+  float: right;
+  color: white;
+  margin-top: 5px;
+}
+
+.discussion__title {
+  font-size: 90%;
+}
+
+.discussion__title a {
+  text-decoration: none;
+  font-size: 120%;
+  color: white;
+}
+.discussion__title a:hover {
+  text-decoration: none;
+  color: #718093;
+}
+
+/* input   */
+
+section.form__container {
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  width: 400px;
+  height: 340px;
+  margin: auto;
+  display: flex;
+  background-color: white;
+  padding: 1%;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.form__input--name input {
+  width: 102%;
+  height: 40%;
+  font-size: 20px;
+  margin: 10px 0;
+  border: 0;
+  border-radius: 8px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+.form__input--title input {
+  width: 102%;
+  height: 30%;
+  font-size: 20px;
+  margin: 10px 0;
+  border: 0;
+  border-radius: 8px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+.form__textbox textarea {
+  width: 102%;
+  height: 30%;
+  font-size: 20px;
+  margin: 10px 0;
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+.form__textbox label {
+  display: block;
+  color: black;
+  font-size: 21px;
+}
+
+.form__input--name label {
+  display: block;
+  color: black;
+  font-size: 21px;
+}
+
+.form__input--title label {
+  display: block;
+  color: black;
+  font-size: 21px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: right;
+}
+
+.form__submit input {
+  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, Apple Gothic, HY Gulim,
+    MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  display: inline-block;
+  padding: 5px 8px;
+  font-weight: 500;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #0071e3;
+  transition: 0.5s;
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 4px;
+  margin-right: 5px;
+}
+
+.form__submit input:hover {
+  opacity: 0.8;
+}
+
+.cancel {
+  margin-left: 340px;
+}
+
+.check {
+  cursor: pointer;
+}
+
+/* 페이징 */
