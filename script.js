@@ -29,7 +29,8 @@ const convertDate = date => {
 
 // form element submit event handler
 form.addEventListener('submit', e => {
-  // e.preventDefault();
+  // e.preventDefault(); ------> 다시 렌더링하기 위해 주석 처리.
+  // 주석 처리 안할시, submit은 작동하지만 다시 렌더링되지 않음. 아래 코드는 실행된다.
 
   const newDiscussionData = makeDiscussionData();
 
@@ -84,14 +85,14 @@ const convertToDiscussion = obj => {
   return li;
 };
 
-const makeListItems = element => {
+const renderData = element => {
   const database = JSON.parse(localStorage.getItem('data'));
 
   database.forEach(data => element.append(convertToDiscussion(data)));
   return;
 };
 
-makeListItems(ul);
+renderData(ul);
 
 // 페이지네이션
 // 한 페이지당 디스커션 10개
