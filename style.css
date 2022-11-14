@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+/*font-family: 'Gamja Flower', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -14,42 +17,91 @@ main{
   background-color: rgba(255, 192, 203, 0.445);
 }
 h1{
+  padding-top: 50px;
   text-align: center;
+  height: 150px;
+  
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.form__container{
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 600;
+  width: 600px;
+  
+  margin: 20px 0;
+  padding: 20px 10px;
+}
+.form__input--name{ 
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+ 
+}
+.form__input--name > input{
+  margin-right: 25px;
+  width: 45%;
+  
+}
+.form__input--name > label{
+  margin-left: 20px;
+ 
+}
+.form__input--title{
+  display: flex;
+  justify-content: space-between;  
+  margin: 5px;
+}
+.form__input--title > input{
+  width: 45%;
+  margin-right: 25px;
 }
 
+.form__input--title > label{
+  margin-left: 20px;
+  
+}
+.form__textbox{
+  display: flex;
+  justify-content: space-between;  
+  flex-direction: column;
+  margin: 5px;
+ 
+}
+.form__textbox > label{
+  margin-left: 20px;
+  margin-bottom: 5px;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+.form__textbox > textarea{
+  margin-top: 5px;
+  width: 90%;
+  height: 50px;
+  
+  align-self: center;
+}
+.form__submit{
+  display: flex;
+  justify-content: center;
+  
+}
+.form__submit > input{
+  font-weight: bold;
+  width: 300px;
+  height: 50px;
+  margin: 5px;
+  background-color: blue;
+}
 li {
   list-style-type: none;
 }
 .discussions__container li{
-  width: 540px;
-  /*border: 1px solid black; */
+  /*width: 540px;*/
+  border: 1px solid black; 
   padding: 7.5px;
   display: flex;
   align-content: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .discussion__avatar--wrapper{
   flex-direction: row;
