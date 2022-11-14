@@ -24,6 +24,9 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement("h2");
   const discussionLink = document.createElement("a");
 
+  const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discussion__information";
+
   const discussionAnsweredCheck = document.createElement("i");
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
@@ -34,17 +37,16 @@ const convertToDiscussion = (obj) => {
   //discussionContent
   discussionLink.setAttribute("href", `${obj.url}`);
   discussionLink.textContent = `${obj.title}`;
+  discussionInfo.textContent = `${obj.author}/${obj.createdAt}`;
   discussionTitle.append(discussionLink);
-  discussionContent.append(discussionTitle);
-
-  //discussionInformation
-  discussionInformation.textContent = `${obj.author}/${obj.createdAt}`;
+  discussionContent.append(discussionTitle, discussionInfo);
 
   //discussionAnswered
   discussionAnsweredCheck.className = obj.answer
     ? "fa-solid fa-circle-check"
     : "fa-solid fa-circle-xmark";
   discussionAnswered.append(discussionAnsweredCheck);
+
   li.append(
     avatarWrapper,
     discussionContent,

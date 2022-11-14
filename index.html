@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
+    <link rel="stylesheet" href="reset-styled.css" />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
@@ -17,26 +18,25 @@
   </head>
 
   <body>
+    <header>
+      <h1>
+        My<br />
+        Agora<br />
+        States
+      </h1>
+    </header>
     <main>
-      <h1>My Agora States</h1>
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
+            <div class="form__input--name form__input">
               <input type="text" name="name" id="name" required />
             </div>
-            <div class="form__input--title">
-              <label for="name">Enter your title: </label>
+            <div class="form__input--title form__input">
               <input type="text" name="name" id="name" required />
             </div>
             <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required></textarea>
+              <textarea id="story" name="story" required></textarea>
             </div>
           </div>
           <div class="form__submit">
