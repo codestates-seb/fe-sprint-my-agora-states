@@ -23,6 +23,9 @@ h2 {
   color: #000;
   font-weight: 400;
 }
+body {
+  overflow: hidden;
+}
 .form__container {
   height: 300px;
   background: url(./bg.jpg);
@@ -65,10 +68,17 @@ h2 {
 
 /* discussion*/
 .discussion__wrapper {
-  height: 500vh;
+  height: 357px;
   background-color: #404258;
   color: #fff;
   padding: 40px;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.discussion__wrapper::-webkit-scrollbar { 
+  display: none;
+  width: 0 !important;
 }
 li.discussion__container {
   width: 1000px;
