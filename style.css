@@ -1,1 +1,374 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap");
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --green: #3fb950;
+  --black: #0d1017;
+  --white: #c9d1d9;
+  --yellow: #f2cc60;
+  --blue: #4d99f1;
+  --gray: #6e7681;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 90%;
+  height: auto;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  margin-top: 50px;
+  font-family: "GFS Didot", serif;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: auto;
+}
+
+.form__container > form {
+  width: 540px;
+}
+
+.form__input--wrapper > div {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.form__input--wrapper > div:first-child {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.form__input--wrapper input,
+.form__input--wrapper textarea {
+  background-color: rgba(1, 1, 1, 0);
+  border-radius: 5px;
+  border: 2px solid rgba(201, 209, 217, 0.3);
+  padding: 10px 15px;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--white);
+}
+
+.form__input--wrapper input::placeholder,
+.form__input--wrapper textarea::placeholder {
+  font-size: 15px;
+}
+
+.form__input--wrapper input:focus,
+.form__input--wrapper textarea:focus {
+  border: 2px solid var(--blue);
+  outline: none;
+}
+
+.form__input--notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.form__input--notice > label {
+  width: auto;
+}
+
+.form__input--notice > input {
+  width: 20px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.form__submit > input {
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(63, 185, 80, 0.7);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  width: 180px;
+  height: 35px;
+}
+
+.form__submit > input:hover {
+  background-color: var(--green);
+  cursor: pointer;
+}
+
+.discussion__wrapper {
+  margin: 40px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-limit__wrapper {
+  width: 540px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#pagination-limit {
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#notice-bar {
+  background-color: rgba(201, 209, 217, 0.1);
+  border-radius: 10px;
+}
+
+.discussions__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 540px;
+}
+
+.discussion__container__wrapper > .discussion__container:hover {
+  background-color: rgba(63, 185, 80, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/*아코디언 눌렀을때*/
+.selected {
+  outline: 2px solid var(--green);
+  border-radius: 10px;
+}
+
+.discussion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 120px;
+}
+
+.discussion__noti,
+.discussion__arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--yellow);
+  font-size: 20px;
+  width: 100px;
+  margin: 0px 20px;
+}
+
+.discussion__arrow > button {
+  color: rgba(201, 209, 217, 0.7);
+  background-color: rgba(1, 1, 1, 0);
+  width: 50px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 209, 217, 0.3);
+}
+
+.discussion__arrow > button:hover {
+  border: 1px solid rgba(201, 209, 217, 0.7);
+  cursor: pointer;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.discussion__title > a {
+  color: white;
+  text-decoration: none;
+  line-height: 20px;
+  word-break: keep-all;
+}
+
+.discussion__title > a:visited {
+  color: var(--gray);
+}
+
+.discussion__title > a:hover {
+  color: var(--blue);
+}
+
+.discussion__information {
+  color: rgba(201, 209, 217, 0.7);
+  margin-top: 10px;
+}
+
+.discussion__avatar--wrapper {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 20px;
+}
+.discussion__avatar--image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-size: cover; /*<-- background size */
+  background-position: center; /*<-- background position */
+}
+
+.discussion__answered {
+  font-size: 20px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 20px;
+}
+
+.discussion__bar {
+  margin: 3px 0px;
+  width: 540px;
+  height: 1px;
+  border-radius: 2px;
+  background-color: rgba(201, 209, 217, 0.1);
+}
+
+.discussion__accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.discussion__accordion__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.discussion__accordion__content > span {
+  margin-left: 10px;
+  margin-top: 0px;
+}
+
+.discussion__accordion__text {
+  line-height: 25px;
+}
+
+.discussion__accordion__text a {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.discussion__accordion__text a:hover {
+  color: var(--blue);
+}
+
+.discussion__accordion__text__tick {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  padding: 10px;
+  height: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(63, 185, 80, 0.4);
+  background-color: rgba(63, 185, 80, 0.1);
+  color: var(--green);
+  font-weight: bold;
+}
+
+.discussion__accordion__text__tick > i {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+}
+
+#pagination-numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-button,
+.pagination-number {
+  background-color: rgba(1, 1, 1, 0);
+  color: var(--blue);
+  padding: 8px 15px;
+  border-radius: 7px;
+  border: 1px solid rgba(1, 1, 1, 0);
+  font-size: 16px;
+  margin: 2px;
+}
+
+.pagination-button:hover,
+.pagination-number:hover {
+  border: 1px solid rgba(201, 209, 217, 0.3);
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  background-color: var(--blue);
+  color: white;
+}
+
+.disabled {
+  background-color: rbga(1, 1, 1, 0);
+  color: rgba(201, 209, 217, 0.5);
+}
+
+.disabled:hover {
+  cursor: default;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
