@@ -60,17 +60,6 @@ a {
   font-size: 1rem;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 540px;
-}
-
-button {
-  border: none;
-}
-
 .discussion__wrapper {
   display: flex;
   flex-direction: column;
@@ -114,7 +103,15 @@ button {
 }
 
 /* nav css */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 540px;
+}
+
 button {
+  border: none;
   background-color: transparent;
   font-size: 1.5rem;
   width: 2rem;
@@ -124,7 +121,7 @@ button {
 }
 
 button:hover {
-  background-color: #fff;
+  border-style: solid;
 }
 
 .active {
