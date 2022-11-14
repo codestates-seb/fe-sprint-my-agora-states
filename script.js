@@ -42,7 +42,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information"; //<div class="discussion__information"></div>
-  discussionInformation.textContent = obj.author + ' / ' +obj.createdAt;
+  discussionInformation.textContent = obj.author + ' / ' + new Date(obj.createdAt).toLocaleTimeString();
   
   discussionContent.append(discussionTitle, discussionInformation);
 
@@ -93,7 +93,7 @@ form.addEventListener("submit", function(event){
 
   const addDiscussion = {
     id: "new id",
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toLocaleTimeString(),
     title: formTitle,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: formAuthor,
