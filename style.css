@@ -41,3 +41,8 @@ li {
   width: 48px;
   align-items: center;
 }
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+}
