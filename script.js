@@ -125,6 +125,7 @@ const setCurrentPage = pageNum => {
   currentPage = pageNum;
 
   handleActivePageNumber();
+  disableButton();
 
   const prevRange = (pageNum - 1) * paginationLimit;
   const currRange = pageNum * paginationLimit;
@@ -150,10 +151,28 @@ const handleActivePageNumber = () => {
   });
 };
 
+// 페이지 이동 버튼 활성화, 비활성화
+const disableButton = () => {
+  currentPage === 1
+    ? prevButton.setAttribute('disabled', true)
+    : prevButton.removeAttribute('disabled');
+
+  currentPage === pageCount
+    ? nextButton.setAttribute('disabled', true)
+    : nextButton.removeAttribute('disabled');
+};
 // 페이지 로딩 시 페이지 번호 생성, 현재 페이지 첫 번째 페이지로 설정
 window.addEventListener('load', () => {
   getPaginationNumbers();
   setCurrentPage(1);
+
+  prevButton.addEventListener('click', () => {
+    setCurrentPage(currentPage - 1);
+  });
+
+  nextButton.addEventListener('click', () => {
+    setCurrentPage(currentPage + 1);
+  });
 
   document.querySelectorAll('.pagination_number').forEach(button => {
     const pageIndex = Number(button.getAttribute('page-index'));
