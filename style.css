@@ -170,15 +170,20 @@ img {
 .discussion__content {
     padding-left: 10px;
     flex: 8;
+    display: flex;
+    flex-direction: column;
 }
 
 .discussion__title {
     padding-top: 5px;
     font-size: 17px;
+    flex: 3;
 }
 
 .discussion__information {
     text-align: right;
+    font-size: 14px;
+    flex: 1;
     }
 
 .discussion__answered {

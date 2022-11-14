@@ -13,11 +13,11 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
 // <img> 태그 생성 후 avatarImg 변수에 할당
-  const avatarImg = document.createElement('img');
+  const avatarImg = document.createElement("img");
 // 이미지 주소 설정
   avatarImg.src = obj.avatarUrl;
 // 대체 이미지 설정
-  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarImg.alt = "avatar of " + obj.author;
 // <div class = discussion__avatar--wrapper> 태그 마지막에 <img> 태그 추가
   avatarWrapper.append(avatarImg);
 
@@ -45,12 +45,20 @@ const convertToDiscussion = (obj) => {
 // <div class = discussion__content> 태그 마지막에 <div class = "discussion__information"> 태그 추가
   discussionContent.append(discussionInfo);
 
+// 답글체크
+const discussionAnsweredCheck = document.createElement("p");
 
+  if (obj.answer !== null) {
+    discussionAnsweredCheck.innerHTML = '<i class="fa-regular fa-square-check"></i>';
+  } else {
+    discussionAnsweredCheck.innerHTML = '<i class="fa-regular fa-square"></i>';
+  }
 
+  discussionAnswered.append(discussionAnsweredCheck);
 
+  
 
-
-
+  
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
