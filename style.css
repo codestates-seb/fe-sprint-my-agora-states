@@ -1,1 +1,163 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 30px 5px 5px 5px;
+  background-color: #5F6F94;
+}
+
+main > h1 {
+  color: #25316D;
+}
+
+.form__container {
+  margin-top: 30px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form__input--name > input {
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form__input--title > input {
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form__textbox{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form__textbox > textarea {
+  width: 450px;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 30px;
+}
+
+.form__submit > input {
+  width: 100%;
+  height: 50px;
+  background-color: #97D2EC;
+  border-radius: 5px;
+}
+
+.form__submit > input:hover {
+  cursor: pointer;
+}
+
+.discussions__container {
+  border-radius: 10px;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 540px;
+  height: 150px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.discussion__information {
+  text-align: end;
+}
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+}
+
+.discussion__answered > p {
+  font-size: 30px;
+}
+
+.page__buttons button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #FEF5AC;
+}
