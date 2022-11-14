@@ -1,5 +1,9 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+// localStorage에 디스커션 목록이 있는 경우, 해당 목록을 사용하기
+let discussionList = localStorage.getItem("discussionList")
+  ? JSON.parse(localStorage.getItem("discussionList"))
+  : agoraStatesDiscussions;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -57,7 +61,7 @@ const convertToDiscussion = (obj) => {
  */
 const render = (element, startIdx, endIdx) => {
   element.textContent = ""; // 기존 화면 비우기
-  const paginationList = agoraStatesDiscussions.slice(startIdx, endIdx);
+  const paginationList = discussionList.slice(startIdx, endIdx);
   for (let i = 0; i < paginationList.length; i += 1) {
     element.append(convertToDiscussion(paginationList[i]));
   }
@@ -162,7 +166,7 @@ const $paginationNextBtn = document.querySelector(".pagination__next");
 */
 let page = 1; // 현재 페이지 인덱스
 const PAGE_ITEM_NUMBERS = 10; // 한번에 보여줄 개수
-let totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
+let totalPage = Math.ceil(discussionList.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
@@ -189,15 +193,18 @@ $form.addEventListener("submit", (e) => {
     avatarUrl: "",
   };
   // 배열 가장 앞에 넣어주기
-  agoraStatesDiscussions.unshift(newDiscussion);
+  discussionList.unshift(newDiscussion);
 
   page = 1; // 페이지 1로 변경
-  totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 토탈 페이지 다시 계산
+  totalPage = Math.ceil(discussionList.length / PAGE_ITEM_NUMBERS); // 토탈 페이지 다시 계산
 
   // 맨 앞 페이지로 이동하고, 다시 렌더링
   render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
   // 페이지네이션 다시 렌더링
   renderPagination(totalPage, 5);
+
+  // 제출한 배열을 로컬 스토리지에 저장한다.
+  localStorage.setItem("discussionList", JSON.stringify(discussionList));
 });
 
 // 페이지네이션 이벤트 핸들러 - 이벤트 위임
