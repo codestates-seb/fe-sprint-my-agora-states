@@ -64,7 +64,7 @@ const render = (element, startIdx, endIdx) => {
 */
 let page = 1; // 현재 페이지 인덱스
 const PAGE_ITEM_NUMBERS = 10; // 한번에 보여줄 개수
-const totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
+let totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
 /**
  * 첫 페이지네이션을 렌더링하는 함수
  * @param totalPage 총 페이지 개수
@@ -171,10 +171,14 @@ $form.addEventListener("submit", (e) => {
   };
   // 배열 가장 앞에 넣어주기
   agoraStatesDiscussions.unshift(newDiscussion);
-  console.log("배열 추가 확인", agoraStatesDiscussions);
-  // 하나만 렌더링 해주기
-  const li = convertToDiscussion(newDiscussion);
-  ul.prepend(li); // 앞에 추가할 때는 prepend를 써준다.
+
+  page = 1; // 페이지 1로 변경
+  totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 토탈 페이지 다시 계산
+
+  // 맨 앞 페이지로 이동하고, 다시 렌더링
+  render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
+  // 페이지네이션 다시 렌더링
+  renderPagination(totalPage, 5);
 });
 
 /* 
