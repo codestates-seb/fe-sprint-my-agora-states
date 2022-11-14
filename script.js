@@ -1,10 +1,6 @@
-// 디스커션 추가 기능
-const discussionForm = document.querySelector('.form');
-const discussionInput = discussionForm.querySelector('input');
+const ul = document.querySelector("ul.discussions__container");
 
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
+// 출력
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -60,5 +56,5 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
+
 render(ul);

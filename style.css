@@ -47,3 +47,7 @@ main {
 .discussion__answered i {
   color: green;
 }
+
+.hidden {
+  display: none;
+}
