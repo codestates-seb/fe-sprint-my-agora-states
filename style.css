@@ -23,8 +23,9 @@ body {
 }
 
 h1 {
+  font-size: 45px;
   text-align: center;
-  padding: 20px 0px;
+  padding: 30px 0px;
 }
 
 .discussion__container {
