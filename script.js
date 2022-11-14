@@ -1,10 +1,10 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  console.log(obj)
+  // console.log(obj)
 
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -18,6 +18,16 @@ const convertToDiscussion = (obj) => {
 
 
 // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+
+// 삭제 함수
+const deleteDiscussion = (event) => {
+  // console.log(event)
+  // console.log(event.target.parentElement.parentElement)
+
+  const removingOne = event.target.parentElement.parentElement;
+  removingOne.remove();
+
+}
 
 // 아바타 
 const img = document.createElement("img");
@@ -47,6 +57,12 @@ avatarWrapper.append(img);
   const p = document.createElement("p");
   p.textContent = "☑";
   discussionAnswered.append(p);
+
+  // x button
+  const button = document.createElement("button");
+  button.textContent = "x";
+  discussionAnswered.append(button);
+  button.addEventListener("click", deleteDiscussion);
   
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -101,6 +117,8 @@ const render = (element) => {
   }
   return;
 };
+
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");

@@ -1,4 +1,6 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -27,15 +29,16 @@ main {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 70px;
   margin-top: 20px;
   margin-bottom: 30px;
   color: rgb(255, 255, 255);
   opacity: 0.7;
-  background: linear-gradient(194deg, rgba(2,0,36,1) 0%, rgba(108,9,121,1) 12%, rgba(0,212,255,1) 65%, rgba(12,190,241,1) 91%);
+  /* background: rgb(255,201,225); */
+  /* background: radial-gradient(circle, rgba(255,201,225,1) 0%, rgba(255,192,233,1) 16%, rgba(242,209,255,1) 38%, rgba(228,226,255,1) 59%, #C4B6F0 100%); */
   padding: 30px 70px; 
   border-radius: 20px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Amatic SC', cursive;
 }
 
 a {
@@ -50,7 +53,7 @@ a {
 .form__container {
   display: flex;
   width: 600px;
-  height: 220px;
+  height: 240px;
   background: rgba(157, 194, 240, 0.5);
   margin-bottom: 50px;
   padding: 10px;
@@ -59,7 +62,7 @@ a {
 
 .form__container form {
   width: 560px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .form__submit input {
@@ -67,7 +70,9 @@ a {
   height: 80px;
   border: 2px solid white;
   background-color: rgba(79, 75, 138, 0.6);
-  border-radius: 10px;
+  border-radius: 30px;
+  font-family: 'Caveat', cursive;
+  
 }
 
 .form__input--wrapper {
@@ -80,6 +85,7 @@ a {
 }
 .form__input--wrapper div {
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 
@@ -97,19 +103,20 @@ a {
   width: 100%;
 }
 
-/* 이름, 제목 input 창 길이 */
+/* 이름, 제목 input */
 input {
-  width: 200px;
+  width: 300px;
   height: 30px;
   padding-right: 10px;
   border-radius: 10px;
   border: none;
   color: #ffffff;
   background: rgba(112, 167, 234, 0.5);
-
+  text-align: right;
+  
 }
 
-/* 질문 작성칸 */
+/* 질문 */
 .form__textbox {
   display: flex;
   flex-direction: column;
@@ -118,7 +125,7 @@ input {
 }
 
 .form__textbox label {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .form__textbox textarea {
@@ -209,6 +216,21 @@ input {
   font-size: 24px;
   text-align: center;
   color: #FFFfff;
+}
+
+.discussion__answered > button {
+  border: 0;
+  outline: 1px solid white;
+  color: white;
+  width: 12px;
+  height: 14px;
+  background-color: transparent;
+  line-height: 10px;
+}
+
+.discussion__answered > button:hover {
+  color: black;
+  font-size: large;
 }
 
 
