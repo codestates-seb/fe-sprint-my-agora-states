@@ -32,9 +32,10 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
   contentTitle.append(contentTitleLink);
   discussionContent.append(contentTitle);
 
+  const createdAtToLocale = new Date(createdAt).toLocaleString();
   const contentInfo = document.createElement("div");
   contentInfo.className = "discussion__information";
-  contentInfo.textContent = `${author} / ${createdAt}`;
+  contentInfo.textContent = `${author} / ${createdAtToLocale}`;
   discussionContent.append(contentInfo);
 
   // checkbox
@@ -63,7 +64,7 @@ render(ul);
 const formSubmitButton = document.querySelector(".form__submit > input");
 formSubmitButton.addEventListener("click", (event) => {
   const { name, title, story } = event.target.form;
-  const createdAt = new Date();
+  const createdAt = new Date().toISOString();
 
   if (!name.value || !title.value || !story.value) {
     return;
