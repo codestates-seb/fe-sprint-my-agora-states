@@ -14,7 +14,7 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  // avatarWrapper
+  // avatarWrapper 아바타 DOM
   const $avatarImg = document.createElement("img");
   $avatarImg.className = "discussion__avatar--image"; // img 태그
   $avatarImg.setAttribute("alt", `avatar of ${obj.author || ""}`); // alt 속성
@@ -22,7 +22,7 @@ const convertToDiscussion = (obj) => {
     obj.avatarUrl || "https://github.com/identicons/jasonlong.png";
   avatarWrapper.appendChild($avatarImg);
 
-  // discussionContent
+  // discussionContent 토론 내용 DOM
   const $titleWrapper = document.createElement("h2");
   $titleWrapper.className = "discussion__title";
   const $title = document.createElement("a");
@@ -38,7 +38,7 @@ const convertToDiscussion = (obj) => {
   $titleWrapper.appendChild($title);
   discussionContent.append($titleWrapper, $discussionInfo);
 
-  // discussionAnswered
+  // discussionAnswered 토론 기타 정보 DOM
   const $discussionAnswered = document.createElement("p");
   $discussionAnswered.textContent = "☑";
   $discussionAnswered.className = "discussion__check";
@@ -48,10 +48,15 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+/**
+ * @description agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+ * @param element DOM 요소
+ * @param startIdx 화면에 보여줄 배열 시작 인덱스
+ * @param endIdx 화면에 보여줄 배열 마지막 인덱스 (포함 X )
+ * @returns
+ */
 const render = (element, startIdx, endIdx) => {
-  // 기존 화면 비우기
-  element.textContent = "";
+  element.textContent = ""; // 기존 화면 비우기
   const paginationList = agoraStatesDiscussions.slice(startIdx, endIdx);
   for (let i = 0; i < paginationList.length; i += 1) {
     element.append(convertToDiscussion(paginationList[i]));
@@ -59,23 +64,16 @@ const render = (element, startIdx, endIdx) => {
   return;
 };
 
-/* 
-  페이지네이션 처리
-*/
-let page = 1; // 현재 페이지 인덱스
-const PAGE_ITEM_NUMBERS = 10; // 한번에 보여줄 개수
-let totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
 /**
- * 첫 페이지네이션을 렌더링하는 함수
+ * @description 첫 페이지네이션을 렌더링하는 함수
  * @param totalPage 총 페이지 개수
  * @param maxShowPage 한 번에 보여줄 페이지네이션 개수
  */
 const renderPagination = (totalPage, maxShowPage) => {
   const $discussionPagination = document.querySelector(".pagination__btns");
-  $discussionPagination.textContent = "";
+  $discussionPagination.textContent = ""; // 렌더링 전 초기화
   const $pageFragment = document.createDocumentFragment(); // fragment로 한번만 DOM 변경하기
 
-  // 첫 렌더링
   // 총 페이지가 한 번에 보여줄 페이지 개수보다 작거나 같은 경우
   if (totalPage <= maxShowPage) {
     for (let i = 1; i <= totalPage; i++) {
@@ -88,16 +86,18 @@ const renderPagination = (totalPage, maxShowPage) => {
     }
   } else {
     // 총 페이지가 한 번에 보여줄 페이지 개수보다 많은 경우
-    // 만약 현재 페이지가 중간 이상인 경우 앞에 prevTrack 추가..
+    // 만약 현재 페이지(page)가 중간 이상 숫자인 경우 앞에 1번 페이지와 prevTrack 추가
     if (page >= Math.ceil(maxShowPage / 2)) {
       const $firstPage = document.createElement("button");
       $firstPage.className = "pagination__btn";
       $firstPage.textContent = "1";
+
       const $pagePrevTrack = document.createElement("span");
       $pagePrevTrack.textContent = "...";
       $pageFragment.appendChild($firstPage);
       $pageFragment.appendChild($pagePrevTrack);
     }
+    // 나머지 페이지네이션 추가
     for (
       let i = parseInt(page) === 1 ? 1 : parseInt(page) - 1;
       i < parseInt(page) + maxShowPage - 1 && i <= totalPage;
@@ -110,18 +110,20 @@ const renderPagination = (totalPage, maxShowPage) => {
       $pageBtn.textContent = i;
       $pageFragment.appendChild($pageBtn);
     }
-    // ...와 마지막 페이지 숫자 붙여주기
+    // nexdTrack(...)와 마지막 페이지 숫자 붙여주기
     const $pageNextTrack = document.createElement("span");
     $pageNextTrack.textContent = "...";
     $pageNextTrack.className = "pagination__next-track";
+
     const $lastPage = document.createElement("button");
     $lastPage.textContent = totalPage;
     $lastPage.className = "pagination__btn pagination__last";
     $pageFragment.append($pageNextTrack, $lastPage);
   }
 
-  // total이 크고
+  // 총 페이지 개수 totalPage가 최대 보여줘야하는 페이지네이션보다 큰 경우
   // 만약 자식 중의 contenteText 중에 total이 있다면 마지막 제거
+  // = 화면에 마지막 페이지 번호가 나왔기 때문에 존재할 이유가 없음
   if (totalPage > maxShowPage) {
     for (const pageBtn of [...$pageFragment.children]) {
       if (
@@ -141,19 +143,36 @@ const renderPagination = (totalPage, maxShowPage) => {
   $discussionPagination.appendChild($pageFragment);
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+/* 
+  DOM 선언문
+*/
+// Discussion List DOM
 const ul = document.querySelector("ul.discussions__container");
-render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
-
-// 페이지네이션 렌더링 하기
-renderPagination(totalPage, 5);
-
-// 질문 작성하는 로직
+// form DOM
 const $form = document.getElementById("form");
 const $formName = document.getElementById("name");
 const $formTitle = document.getElementById("title");
+// 페이지네이션 DOM
+const $pagination = document.getElementById("pagination");
+const $paginationPrevBtn = document.querySelector(".pagination__prev");
+const $paginationNextBtn = document.querySelector(".pagination__next");
 
-// submit 이벤트 캐치
+/* 
+  렌더링
+*/
+let page = 1; // 현재 페이지 인덱스
+const PAGE_ITEM_NUMBERS = 10; // 한번에 보여줄 개수
+let totalPage = Math.ceil(agoraStatesDiscussions.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
+// 페이지네이션 렌더링 하기
+renderPagination(totalPage, 5);
+
+/* 
+  이벤트 핸들러
+*/
+// form 제출 이벤트 핸들러
 $form.addEventListener("submit", (e) => {
   // 기존 submit 기능 중지시키기
   e.preventDefault();
@@ -181,11 +200,7 @@ $form.addEventListener("submit", (e) => {
   renderPagination(totalPage, 5);
 });
 
-/* 
-  페이지네이션 이벤트 핸들러
-*/
-const $pagination = document.getElementById("pagination");
-// 이벤트 위임
+// 페이지네이션 이벤트 핸들러 - 이벤트 위임
 const changePage = (e) => {
   const $paginationBtns = document.querySelector(".pagination__btns");
   // button 태그인 경우에만 이벤트 처리하기
@@ -217,10 +232,7 @@ const changePage = (e) => {
 };
 $pagination.addEventListener("click", changePage);
 
-// prev, next  버튼 이벤트 핸들러
-const $paginationPrevBtn = document.querySelector(".pagination__prev");
-const $paginationNextBtn = document.querySelector(".pagination__next");
-
+// prev 버튼, next 버튼 이벤트 핸들러
 $paginationPrevBtn.addEventListener("click", () => {
   // page가 0보다 작아지는 경우
   if (page - 1 <= 0) return;
