@@ -1,3 +1,5 @@
+
+
 // 디스커션 추가 기능
 const discussionForm = document.querySelector('.form');
 const inputName = discussionForm.querySelector('#name');
@@ -12,7 +14,7 @@ function saveDiscussions(){
 
 const savedDiscussions = localStorage.getItem(DISCUSSION_KEY);
 
-if(saveDiscussions !== null){
+if(savedDiscussions !== null){
   const parsedDiscussions = JSON.parse(savedDiscussions);
   discussions = parsedDiscussions;
   parsedDiscussions.forEach((dc)=>{
@@ -38,4 +40,3 @@ function handleSubmit(event){
   saveDiscussions();
 }
 discussionForm.addEventListener('submit', handleSubmit);
-
