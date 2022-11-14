@@ -241,6 +241,13 @@ const changePage = (e) => {
 
   // 페이지네이션 다시 렌더링
   renderPagination(totalPage, 5);
+
+  // 페이지 변경 시, 스크롤을 최상단으로 변경
+  window.scrollTo({
+    top: 0,
+    // left: 0,
+    behavior: "smooth",
+  });
 };
 $pagination.addEventListener("click", changePage);
 
