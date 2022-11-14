@@ -1,1 +1,170 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 100;
+    color: rgb(42, 42, 42);
+    margin-bottom: 15px;
+    font-size: 2.25rem;
+    word-spacing: 7px;
+}
+
+li {
+    list-style: none;
+    border-radius: 10px;
+    margin: 25px 10px;
+    padding: 20px;
+    box-shadow: 1px 4px 41px 1px rgba(177, 177, 170, 0.41)
+}
+
+li#notice {
+    background-color: rgb(0, 0, 0);
+}
+i#notice {
+    color: white;
+}
+a#notice{
+    color: white;
+}
+
+a {
+    font-weight: 200;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: rgba(69, 44, 221, 1) ;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+button {
+    background-color: transparent;
+    border-color: transparent;
+    margin:  0px 10px 30px 10px;
+}
+
+.form_input_wrapper {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.form__input--name {
+    display: flex;
+    padding: 3px;
+}
+
+div.form__input--title {
+    display: flex;
+    padding: 3px;
+}
+
+div.form__input--wrapper div {
+    font-size: 0.9rem;
+    flex-grow: 1;
+    justify-content: center;
+    box-shadow: 1px 4px 41px 1px rgba(177, 177, 170, 0.41)
+}
+
+div.form__textbox { 
+    display: flex;
+    padding: 5px;
+}
+
+input {
+    flex-grow: 1;
+    border-style: none;
+    margin-right: 30px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 8px;
+}
+
+label {
+    padding: 10px;
+}
+
+textarea {
+    flex-grow: 1;
+    border-style: none;
+    background-color: rgb(229, 229, 229);
+    border-radius: 8px;
+    margin-right: 30px;
+}
+
+.discussion__container {
+    display: flex;
+    width: 550px;
+    justify-content: space-between;
+}
+
+.discussion__avatar--image{
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+}
+
+.discussion__avatar--wrapper {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+}
+
+.discussion__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+div.form__submit {
+    text-align: right;
+}
+
+h2 {
+    padding:top 50%;
+    font-size: 25px;
+}
+
+.discussion__information {
+    font-size: 0.7rem;
+    text-align: right;
+    color: rgb(165, 165, 165);
+}
+
+.discussion__answered {
+    padding: 14px;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+input[type='submit'] {
+    background-color: rgb(129, 105, 234);
+    padding: 5px 20px;
+    margin-top: 10px;
+    color: rgb(60, 27, 16)
+}
+
+i {
+    margin: 0%;
+    font-size: 1.25rem;
+    padding: 50%;
+    color: rgba(69, 44, 221, 1);
+}
+
