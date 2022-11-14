@@ -77,3 +77,13 @@ a {
 .discussion_information {
   text-align: end;
 }
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
