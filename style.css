@@ -1,1 +1,243 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --base-size: 3px;
+    --mouse-off: none;
+    --mouse-on: '';
+    --theme--gradient : linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    --theme--text-gradient : -webkit-linear-gradient(43deg, #C850C0 40%, #FFCC70 60%);
+}
+/* tag */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+html, body {
+    height: 100%;
+}
+
+header {
+    border-bottom: 2px solid black;
+    height: 6rem;
+    line-height: 6rem;
+}
+
+body {
+    text-decoration: none;
+    display: inline;
+}
+
+h1 {    
+    display: block;
+    text-align: center;
+    font-size: 42px;
+    text-decoration: dashed;
+    word-spacing: 5px;
+    letter-spacing: -3px;
+    background: var(--theme--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 > a {
+    color: white;
+    font-size: 14px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+ul, li {
+    list-style: none;
+    margin: calc(var(--base-size)*2) calc(var(--base-size)*1);
+}
+
+footer {
+    margin-top: 1px;
+    background-color: black;
+}
+
+/* id */
+#_container {
+    padding: 10px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: var(--theme--gradient);
+}
+
+@media (max-width: 60rem) {
+    #_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background-image: var(--theme--gradient);
+    }
+}
+
+/* class */
+/*Form part*/
+.form__container {
+    padding: 20px;
+}
+
+form {
+    min-width: 30rem;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 7px 10px 2px 1px rgba(2, 2, 14, 0.541);
+    background-color: white;
+    border-radius: 10px;
+}
+
+.form__header {
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding-bottom: 10px;
+}
+
+.form__input--wrapper > div > label{
+    width: 20%;
+    font-size: small;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.form__input--wrapper > div > input{
+    width: 80%;
+    font-size: medium;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.form__input--wrapper > div > textarea{
+    width: 80%;
+    font-size: medium;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.form__submit {
+    margin-top: 1rem;
+    height: 2rem;
+}
+
+#submit__button {
+    width: 10rem;
+    height: 2rem;
+    margin: 0 auto;
+    background-image: var(--theme--gradient);
+    color: white;
+    font-weight: bold;
+    border: 0;
+    box-shadow: 3px 3px 0 0 rgba(2, 2, 14, 0.541);
+}
+/*Pagenation*/
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+.pagination a {
+    color: black;
+    font-size: larger;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+    border-left: 1px solid grey;
+    margin-left: 10px;
+    background-color: white;
+    opacity: 0.5;
+    border-radius: 20%;
+}
+#selected {
+    opacity: 1;
+    font-weight: bold;
+}
+/*Discussion List part*/
+.discussion__wrapper {
+    margin-top: 10px;
+}
+.discussion__container {
+    display: block;
+    min-width: 40rem;
+    max-width: 40rem;
+    padding: calc(var(--base-size)*3);
+    margin: calc(var(--base-size)*4);
+    box-shadow: 5px 5px 2px 1px rgba(2, 2, 14, 0.541);
+    background-color: black;
+    color: white;
+    opacity: 0.82;
+    border-radius: 10px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid grey;
+    padding-bottom : calc(var(--base-size)*2);
+}
+
+.discussion__information {
+    position: relative;
+    left : 1rem;
+    line-height: calc(var(--base-size)*10);
+    font-size: 12px;
+    background: var(--theme--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.discussion__avatar--image {
+    width: calc(var(--base-size)*10);
+    height: calc(var(--base-size)*10);
+    border-radius: 50%;
+}
+
+.discussion__title {
+    position: relative;
+    left: 1rem;
+    font-size: large;
+    margin: 10px;
+}
+
+.discussion__container :hover + .discussion__body {
+    display: block;
+}
+
+.discussion__body :hover {
+    display: block;
+}
+
+.discussion__body {
+    display: none;
+    font-size: small;
+    overflow: hidden;  
+    text-overflow: ellipsis;  	
+    white-space: nowrap; 		
+    word-break: break-all;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    padding: 5px;
+}

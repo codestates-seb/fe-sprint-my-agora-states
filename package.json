@@ -1,0 +1,23 @@
+{
+  "name": "fe-sprint-my-agora-states",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run" : "open -a \"Google Chrome\". index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sehannnnnnn/fe-sprint-my-agora-states.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sehannnnnnn/fe-sprint-my-agora-states/issues"
+  },
+  "homepage": "https://github.com/Sehannnnnnn/fe-sprint-my-agora-states#readme",
+  "dependencies": {
+    "sanitize-html": "^2.7.2"
+  }
+}
