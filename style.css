@@ -1,1 +1,159 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    /* border: 1px solid black; */
+    margin: 0;
+    padding: 0;
+    --main: #eff5f5;
+    --sub: #d6e4e5;
+    --point1: #497174;
+    --point2: #eb6440;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+    background-color: var(--main);
+}
+
+main {
+    width: 60%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 20px;
+    z-index: 1;
+    background-color: var(--sub);
+}
+
+h1 {
+    border: none;
+}
+
+.form__container {
+    width: 100%;
+    height: 20%;
+    border-radius: 20px;
+}
+
+.form {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 40%;
+    font-size: 1.2rem;
+}
+
+.form__input--wrapper {
+    width: 60%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form__input--name > input {
+    width: 55%;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.form__input--title > input {
+    width: 55%;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#story {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+
+.form__submit > input {
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+}
+
+.discussion__wrapper {
+    width: 100%;
+    height: 70%;
+    overflow-y: scroll;
+}
+
+.discussion__wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+ul .discussion__container {
+    width: 100%;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--main);
+    margin-bottom: 2vh;
+    padding: 5px 0;
+}
+
+.discussion__avatar--wrapper {
+    width: 10%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.discussion__avatar--image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.discussion__content {
+    width: 80%;
+}
+
+.discussion__title {
+    width: 100%;
+    font-size: 1.2rem;
+    overflow: auto;
+}
+
+.discussion__answer {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
