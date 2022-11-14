@@ -21,10 +21,11 @@ main {
 
 .discussion__container {
   display: flex;
-  background-color: rgb(255, 229, 178);
+  background-color: rgb(255, 255, 255);
   margin: 10px;
   padding: 10px 15px;
   width: 540px;
+  border-radius: 5px;
 }
 
 li {
@@ -60,4 +61,36 @@ li {
 .discussion__information {
   text-align: right;
   font-size: 12px;
+}
+
+h1 {
+  justify-content: center;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+
+.form__submit > input {
+  background-color: rgb(48, 109, 194);
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
 }
