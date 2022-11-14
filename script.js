@@ -1,6 +1,11 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
-const discussionItems = [];
+
+const ul = document.querySelector("ul.discussions__container");
+const $paginationNumbers = document.querySelector("#pagination-numbers");
+const $paginationContainer = document.querySelector("#pagination-container");
+const paginationLimit = 10;
+let pagenationCurrentNum = 1;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
@@ -47,17 +52,72 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
   return li;
 };
 
+$paginationNumbers.addEventListener("click", (event) => {
+  const $a = event.target.closest("a");
+
+  if (!$a) {
+    return;
+  }
+
+  pagenationCurrentNum = $a.id;
+  render(ul, $a.id);
+});
+
+$paginationContainer.addEventListener("click", (event) => {
+  const $a = event.target.closest("a");
+  const pageCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit);
+
+  if (!$a) {
+    return;
+  }
+
+  if ($a.id !== "prev-button" && $a.id !== "next-button") {
+    return;
+  }
+
+  const signal = event.id === "prev-button" ? -1 : 1;
+  const nextPage = pagenationCurrentNum + signal;
+
+  // 더이상 이동할 곳이 없는 경우
+  if (nextPage === 0 || nextPage > pageCount) {
+    return;
+  }
+
+  pagenationCurrentNum = nextPage;
+
+  render(ul, pagenationCurrentNum);
+});
+
+const renderPageNations = () => {
+  removeAllchild($paginationNumbers);
+  const pageCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit);
+
+  for (let i = 1; i <= pageCount; i++) {
+    const a = document.createElement("a");
+    a.href = "#";
+    a.textContent = i;
+    a.id = i;
+    $paginationNumbers.append(a);
+  }
+};
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  console.log(agoraStatesDiscussions);
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const render = (element, pageNum = 1) => {
+  renderPageNations();
+
+  removeAllchild(element);
+  const displayDiscussions = agoraStatesDiscussions.slice(
+    (pageNum - 1) * 10,
+    pageNum * 10
+  );
+
+  for (let i = 0; i < displayDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(displayDiscussions[i]));
   }
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 //디스커션 추가 기능
@@ -79,5 +139,12 @@ formSubmitButton.addEventListener("click", (event) => {
   };
 
   agoraStatesDiscussions = [discussionItem, ...agoraStatesDiscussions];
-  ul.prepend(convertToDiscussion(discussionItem));
+  render(ul);
 });
+
+//입력 받은 요소의 자식 노드를 모두 삭제하는 함수
+function removeAllchild(div) {
+  while (div.hasChildNodes()) {
+    div.removeChild(div.firstChild);
+  }
+}
