@@ -22,7 +22,7 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg);
 
-  const contentTitle = document.createElement('h2');
+  const contentTitle = document.createElement('h4');
   contentTitle.className = "discussion__title";
   const contentTitleUrl =document.createElement('a');
   contentTitleUrl.href =obj.url;
@@ -36,8 +36,6 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(contentTitle, contentInformation);
 
   // 답변
-  const answerCheckbox =  document.createElement('input');
-  answerCheckbox.type = 'checkbox';
   
   const answerWrapper = document.createElement("div"); 
   answerWrapper.className = "answer__container--wrapper"; 
@@ -47,9 +45,9 @@ const convertToDiscussion = (obj) => {
   answerAvatarWrapper.className = "answer__avatar--wrapper";
   const answerContent = document.createElement("div");
   answerContent.className = "answer__content";
-  const answeranswered = document.createElement("div");
-  answeranswered.className = "answer__answered";
-
+  
+  const answerCheckbox =  document.createElement('input');
+  answerCheckbox.type = 'checkbox';
   if(obj.answer){
     answerCheckbox.checked = true;
 
@@ -59,7 +57,7 @@ const convertToDiscussion = (obj) => {
     answerAvatarWrapper.append(answerAvatarImg);
 
 
-    const answercontentTitle = document.createElement('h2');
+    const answercontentTitle = document.createElement('h4');
     answercontentTitle.className = "answer__title";
     const answercontentTitleUrl =document.createElement('a');
     answercontentTitleUrl.href =obj.answer.url;
@@ -77,20 +75,65 @@ const convertToDiscussion = (obj) => {
 
   discussionAnswered.append(answerCheckbox);
   discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
-  answerWrapper.append(answerAvatarWrapper,answerContent, answeranswered);
+  answerWrapper.append(answerAvatarWrapper,answerContent);
   li.append(discussionWrapper,answerWrapper );
 
   return li;
 };
 
+const convertToNotice = (obj) => {
+  let li = document.createElement('li');
+  li.className = "notice__container";
+
+  let noticeWrapper = document.createElement('a');
+  noticeWrapper.className = "notice__container--wrapper";
+  noticeWrapper.href =obj.url;
+  noticeWrapper.target ='_blank';
+
+  let noticeAvatarImg = document.createElement('div');
+  noticeAvatarImg.className = "notice__avatar--wrapper";
+
+  let noticeContent = document.createElement('div');
+  noticeContent.className = "notice__content";
+
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  const author = document.createElement('span');
+  author.textContent = obj.author;
+  noticeAvatarImg.append(avatarImg, author);
+
+  const contentTitle = document.createElement('h3');
+  contentTitle.className = "discussion__title";
+  contentTitle.textContent = obj.title;
+  noticeContent.append(contentTitle);
+
+  noticeWrapper.append(noticeContent,noticeAvatarImg);
+  li.append(noticeWrapper);
+  return li;
+}
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    if(!agoraStatesDiscussions[i].title.includes('[notice]')){
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+      }
+  }
+  return;
+};
+
+const notice_render = (element) => {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    if(agoraStatesDiscussions[i].title.includes('[notice]')){
+    element.append(convertToNotice(agoraStatesDiscussions[i]));
+    }
   }
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
+const notice_ul = document.querySelector("ul.notice__container")
 render(ul);
+notice_render(notice_ul);

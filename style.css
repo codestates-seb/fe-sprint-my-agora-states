@@ -7,15 +7,108 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    border: 1px solid;
+}
+
+li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h3 {
+    color:aliceblue;
+}
+
+span {
+    color:aliceblue;
+    font-weight: 500;
+}
+ul.discussion__container{
+    display: flex;
+    flex-direction: column;
+}
+
+li.discussion__container{
+    display: flex;
+    width: 540px;
+    flex: 1 0 150px;
+}
+
+.discussion__wrapper{
     display: flex;
     justify-content: center;
 }
-li{
-    list-style: none;
+
+.notice__wrapper{
     display: flex;
-    width: 540px;
+    justify-content: center;
 }
+ul.notice__container{
+    display: flex;
+    flex-direction: row;
+    height: 180px;
+    width: 70vw;
+}
+
+li.notice__container{
+    display: flex;
+    justify-content: center;
+    flex : 1;
+}
+
+.notice__container--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 180px;
+    padding: 10px;
+    background-color: #FBDA61;
+    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+    border-radius: 4%;
+}
+
+li.notice__container:hover{
+    background-color: #FBDA61;
+    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+    border-radius: 4%;
+}
+
+
+.notice__container--wrapper :last-child{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.notice__container--wrapper > div{
+    display: flex;
+    justify-content: center;
+}
+
+.notice__avatar--wrapper img{
+    width: 25px;
+    height: 25px;
+}
+
+.notice__avatar--wrapper span{
+    padding: 0px 5px;
+}
+
+
 .discussion__container{
+    border: 1px solid;
     display: flex;
     flex-direction: column;
 }
@@ -54,10 +147,10 @@ li{
 }
 
 .answer__avatar--wrapper{
-    flex: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
-    align-items:  center;
+    align-items: center;
 }
 .answer__content {
     flex: 4;
@@ -71,13 +164,6 @@ li{
 .answer__information{
     display: flex;
     justify-content: flex-end;
-}
-
-.answer__answered{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items:  center;
 }
 
 
