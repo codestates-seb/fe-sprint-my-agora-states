@@ -102,9 +102,15 @@ form.addEventListener("submit", function(event){
 
   }
 
+  //기존 배열에 입력창으로 받은 정보를 객체로 생성하여 맨 앞에 추가
   agoraStatesDiscussions.unshift(addDiscussion);
-  console.log(agoraStatesDiscussions); 
+
+  const forNewDiscussion = convertToDiscussion(addDiscussion); //li로 return 
+  
+  //Prepend 메소드를 사용하여 ul의 앞에 li 형태의 받은 디스커션 추가
+  ul.prepend(forNewDiscussion);
   
   
 
+  
 });
