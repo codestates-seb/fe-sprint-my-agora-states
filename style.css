@@ -73,6 +73,11 @@ h2 {
     background-color: yellow;
 }
 
+ul.discussions__container > li:hover {
+    background-color: #FEFFB7;
+    border-radius: 30px;
+}
+
 li.discusstion__container {
     align-items: center; 
 }
@@ -94,6 +99,7 @@ li.discusstion__container {
 
 .discussion__container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 15px 0px;
     width: 540px;
@@ -104,7 +110,6 @@ li.discusstion__container {
 }
 
 .discussion__content p {
-    text-align: right;
     font-size: 28px;
 }
 
