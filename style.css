@@ -1,1 +1,161 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@300&display=swap');
+/* status-bar */
+@import "component/status-bar.css";
+
+body {
+    padding: 30px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main {
+    /* padding: 50px 40px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+    background-color: #fff2ea;
+    padding: 20px 0px;
+    border-radius: 20px;
+    font-family: 'Roboto Mono', monospace;
+    box-shadow: 30px 20px 50px rgba(0,0,0,0.1); 
+}
+
+h1 {
+    text-align: center;
+    padding-top: 20px;
+    color: #f69050;
+    text-shadow: 1px 1px 0 #232323, -1px -1px 0;
+}
+
+section.form__container { 
+    margin: 30px 0px;
+    width: 480px;
+    font-size: 15px;
+}
+
+label {
+    color: #f69050;
+}
+
+.input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#name, #title, #story {
+    width: 350px;
+    outline: none;
+    background-color: #fff2ea;
+    border-left-width:0;
+    border-right-width:0;
+    border-top-width:0;
+    border-bottom-width:1px;
+}
+
+#story {
+    height: 70px;
+}
+
+label {
+    width: 130px;
+}
+
+.form__submit {
+    text-align: center;
+    margin-top: 25px;
+}
+
+button {
+    font-size: 20px;
+    border: 1px solid #fff2ea;
+    padding: 10px 5px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: #ffdfc9;
+    color: #f69050;
+    box-shadow: 2px 2px 5px #999;
+    /* button 효과 주시 - shadow, fontsize 비행기 날아가는 효과 */
+}
+
+button:hover {
+    cursor: pointer;
+}
+button i {
+    color: #ef7327;
+    margin-left: 15px;
+}
+
+button i:hover {
+    animation: rotateOperator 0.6s linear infinite;
+}
+
+button:active {
+    font-size:19px;
+    box-shadow: 1px 1px 3px #999;
+}
+
+@keyframes rotateOperator {
+    from {
+      transform: none;
+    }
+    to {
+      transform: rotateZ(360deg);
+    }
+}
+
+li.discussion__container {
+    display: flex; 
+    justify-content: space-between;
+    width: 480px;
+    /* list 점 없애는 방법 */
+    list-style-type: none; 
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px 10px;
+    background-color: white;
+    border-radius: 20px;box-shadow: 20px 20px 40px rgba(0,0,0,0.1); 
+}
+
+img {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+}
+
+.discussion__avatar--wrapper {
+    width: 64px;
+    height: 64px;
+}
+
+.discussion__avatar--image {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+}
+
+.discussion__content {
+    width: 300px;
+}
+
+.discussion__content h2 {
+    margin: 5px 0px 18px 0px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.discussion__information {
+    text-align: right;
+    font-size: 14px;
+    color:rgb(131, 131, 133);
+}
+
+.discussion__answered p {
+    font-size: 30px;
+    padding: 15px;
+    text-align: center;
+    color: #f69050;
+}
