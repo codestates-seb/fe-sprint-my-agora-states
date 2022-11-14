@@ -8,18 +8,49 @@ const convertToDiscussion = (obj) => {
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-  const iconImg = document.createElement("img");
 
+  const iconImg = document.createElement("img");
+  iconImg.className = "discussion__avatar--image";
+
+  const discussionTitle = document.createElement("h2");
+  const discussionLink = document.createElement("a");
+
+  const discussionAnsweredCheck = document.createElement("i");
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
+  //discussionWrapper
   iconImg.setAttribute("src", `${obj.avatarUrl}`);
   avatarWrapper.append(iconImg);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  //discussionContent
+  discussionLink.setAttribute("href", `${obj.url}`);
+  discussionLink.textContent = `${obj.title}`;
+  discussionTitle.append(discussionLink);
+  discussionContent.append(discussionTitle);
+
+  //discussionInformation
+  discussionInformation.textContent = `${obj.author}/${obj.createdAt}`;
+
+  //discussionAnswered
+  discussionAnsweredCheck.className = obj.answer
+    ? "fa-solid fa-circle-check"
+    : "fa-solid fa-circle-xmark";
+  discussionAnswered.append(discussionAnsweredCheck);
+  li.append(
+    avatarWrapper,
+    discussionContent,
+    discussionInformation,
+    discussionAnswered
+  );
   return li;
 };
 
