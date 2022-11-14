@@ -1,1 +1,142 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+main {
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #222831;
+    font-family: 'Jua', sans-serif;
+}
+
+li.discussion__container {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 540px;
+    margin-top: 15px;
+    background-color: #a6e3e9;
+    border-radius: 20px;
+}
+
+div.discussion__avatar--wrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    margin: 5px;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__information {
+    text-align: right;
+    font-size: 13px;
+}
+
+.discussion__title,
+.discussion__information {
+    margin: 5px 5px;
+}
+
+p {
+    font-size: 2em;
+    color: green;
+}
+
+a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #f38181;
+}
+
+a:visited {
+    color: gray;
+}
+
+input[type='text'],
+textarea {
+    min-height: 30px;
+    padding: 5px;
+    font-family: 'Jua', sans-serif;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type='submit'] {
+    width: 100%;
+    height: 90%;
+    background-color: #cbf1f5;
+    border-radius: 10px;
+    font-family: 'Jua', sans-serif;
+}
+
+#name {
+    width: 100px;
+}
+
+#title {
+    width: 300px;
+}
+
+#story {
+    width: 430px;
+    height: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.form__container {
+    background-color: #e3fdfd;
+    border-radius: 20px;
+}
+
+.form,
+div {
+    margin: 7px;
+}
