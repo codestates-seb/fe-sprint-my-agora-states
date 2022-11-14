@@ -57,11 +57,11 @@ const convertToDiscussion = (obj) => {
  * @param element DOM 요소
  * @param startIdx 화면에 보여줄 배열 시작 인덱스
  * @param endIdx 화면에 보여줄 배열 마지막 인덱스 (포함 X )
- * @returns
+ * @param dataList 사용할 데이터 배열
  */
-const render = (element, startIdx, endIdx) => {
+const render = (element, startIdx, endIdx, dataList) => {
   element.textContent = ""; // 기존 화면 비우기
-  const paginationList = discussionList.slice(startIdx, endIdx);
+  const paginationList = dataList.slice(startIdx, endIdx);
   for (let i = 0; i < paginationList.length; i += 1) {
     element.append(convertToDiscussion(paginationList[i]));
   }
@@ -91,22 +91,26 @@ const renderPagination = (totalPage, maxShowPage) => {
   } else {
     // 총 페이지가 한 번에 보여줄 페이지 개수보다 많은 경우
     // 만약 현재 페이지(page)가 중간 이상 숫자인 경우 앞에 1번 페이지와 prevTrack 추가
-    if (page >= Math.ceil(maxShowPage / 2)) {
+    // if (page >= Math.ceil(maxShowPage / 2)) {
+    if (page >= 2) {
       const $firstPage = document.createElement("button");
       $firstPage.className = "pagination__btn";
       $firstPage.textContent = "1";
 
       const $pagePrevTrack = document.createElement("span");
       $pagePrevTrack.textContent = "...";
+      $pagePrevTrack.className = "pagination__prev-track";
       $pageFragment.appendChild($firstPage);
       $pageFragment.appendChild($pagePrevTrack);
     }
     // 나머지 페이지네이션 추가
     for (
-      let i = parseInt(page) === 1 ? 1 : parseInt(page) - 1;
-      i < parseInt(page) + maxShowPage - 1 && i <= totalPage;
+      let i = parseInt(page) === 1 ? 1 : parseInt(page) - 2;
+      i < parseInt(page) + maxShowPage - (parseInt(page) <= 2 ? page - 1 : 2) &&
+      i <= totalPage;
       i++
     ) {
+      if (i <= 0) continue;
       const $pageBtn = document.createElement("button");
       $pageBtn.className = `pagination__btn ${
         parseInt(page) === i ? "active" : ""
@@ -169,7 +173,7 @@ const PAGE_ITEM_NUMBERS = 10; // 한번에 보여줄 개수
 let totalPage = Math.ceil(discussionList.length / PAGE_ITEM_NUMBERS); // 총 페이지 숫자
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
+render(ul, 0, PAGE_ITEM_NUMBERS, discussionList); // 초기 화면 렌더링
 // 페이지네이션 렌더링 하기
 renderPagination(totalPage, 5);
 
@@ -199,7 +203,7 @@ $form.addEventListener("submit", (e) => {
   totalPage = Math.ceil(discussionList.length / PAGE_ITEM_NUMBERS); // 토탈 페이지 다시 계산
 
   // 맨 앞 페이지로 이동하고, 다시 렌더링
-  render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
+  render(ul, 0, PAGE_ITEM_NUMBERS, discussionList); // 초기 화면 렌더링
   // 페이지네이션 다시 렌더링
   renderPagination(totalPage, 5);
 
@@ -231,7 +235,8 @@ const changePage = (e) => {
   render(
     ul,
     parseInt(page - 1) * PAGE_ITEM_NUMBERS,
-    parseInt(page - 1) * PAGE_ITEM_NUMBERS + parseInt(PAGE_ITEM_NUMBERS)
+    parseInt(page - 1) * PAGE_ITEM_NUMBERS + parseInt(PAGE_ITEM_NUMBERS),
+    discussionList
   ); // 초기 화면 렌더링
 
   // 페이지네이션 다시 렌더링
