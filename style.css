@@ -5,40 +5,6 @@
   margin: 0;
 }
 
-li {
-  list-style-type: none;
-}
-
-.discussion__wrapper {
-  display: flex;
-  width: 540px;
-}
-
-ul [class~='discussion__container'] {
-  display: flex;
-  justify-content: space-between;
-  width: 540px;
-}
-
-.discussion__avatar--wrapper {
-  width: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.discussion__avatar--image {
-  width: 48px;
-  border-radius: 50%;
-}
-
-.discussion__content {
-  width: 85%;
-  justify-content: start;
-}
-
-.discussion__answered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.hide {
+  display: none;
 }

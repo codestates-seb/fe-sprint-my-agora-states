@@ -56,3 +56,73 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
+
+// ---- 페이지네이션 ----
+const paginationNumber = document.querySelector('#pagination');
+const discussionList = document.querySelectorAll('.discussion__container');
+
+const paginationLimit = 10; // 한 페이지에서 보일 디스커션 갯수
+let paginationCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit); // 총 페이지 갯수
+
+let currentPage; // 현재 페이지
+
+// 페이지 버튼 추가
+const makePageNumButtons = (index) => {
+  const pageNumButton = document.createElement('button');
+  pageNumButton.className = 'page-num';
+  pageNumButton.textContent = index;
+
+  paginationNumber.appendChild(pageNumButton);
+};
+
+// 페이지 버튼 그룹 생성
+const makePageGroup = () => {
+  let lastPageNum = paginationNumber.lastElementChild;
+  while (lastPageNum) {
+    paginationNumber.removeChild(lastPageNum);
+    lastPageNum = paginationNumber.lastElementChild;
+  }
+  for (let i = 1; i <= paginationCount; i++) {
+    makePageNumButtons(i);
+  }
+
+  // 페이지 버튼 누를 때마다 페이지 전환
+  document.querySelectorAll('.page-num').forEach((button) => {
+    const pageIndex = button.textContent;
+    if (pageIndex === '1') {
+      button.classList.add('active');
+    }
+
+    if (pageIndex) {
+      button.addEventListener('click', () => {
+        setCurrentPage(pageIndex);
+        let buttons = paginationNumber.children;
+        for (button of buttons) {
+          button.classList.remove('active');
+        }
+        buttons[pageIndex - 1].classList.add('active');
+      });
+    }
+  });
+};
+
+// window가 load 되면 페이지 그룹 생성, 1페이지부터 보이게 시작
+window.addEventListener('load', () => {
+  makePageGroup();
+  setCurrentPage(1);
+});
+
+// 한 페이지에서 디스커션이 10개만 보이도록 계산
+const setCurrentPage = (paginationNumber) => {
+  // 전체 디스커션 갯수, 전체 페이지 갯수, 페이지 그룹의 마지막 페이지를 다시 계산
+  currentPage = paginationNumber;
+  const prevRange = (paginationNumber - 1) * paginationLimit;
+  const currentRange = paginationNumber * paginationLimit;
+
+  discussionList.forEach((item, index) => {
+    item.classList.add('hide');
+    if (index >= prevRange && index < currentRange) {
+      item.classList.remove('hide');
+    }
+  });
+};
