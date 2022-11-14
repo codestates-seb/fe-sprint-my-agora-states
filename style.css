@@ -1,1 +1,29 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.discussions__container{
+  width: 540px;
+}
+.discussion__container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion__avatar--image{
+  border-radius: 50px;
+  width: 48px;
+}
+.discussion__content{
+  display: flex;
+  flex-direction: column;
+  width: 100%;      
+}
+/* 양쪽으로 붙게 만들어줌.플렉스를 위아래로 정렬,그리고 인포메이션 값을 주어 오른쪽으로 정렬. */
+.discussion__information{
+  margin-top: auto;
+  margin-left: auto;
+}
