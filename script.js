@@ -14,8 +14,32 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 프로필 사진
+  const faceimg = document.createElement('img')
+  faceimg.className = 'discussion__avatar--image'
+  faceimg.src = obj.avatarUrl
+  faceimg.alt = 'avatar of' + obj.autor
+  avatarWrapper.append(faceimg)
 
+  // 타이틀 제목 
+  const discussionTitle = document.createElement('h2')
+  discussionTitle.className = 'discussion__title'
+  discussionContent.append(discussionTitle)
+  // 타이틀 링크
+  const titlelink = document.createElement('a')
+  titlelink.href = obj.url
+  titlelink.textContent = obj.title
+  discussionTitle.append(titlelink)
 
+  // 사용자 정보
+  const information = document.createElement('div')
+  information.className = 'discussion__information'
+  information.textContent = `${obj.author} / ${obj.createdAt}` // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
+  discussionContent.append(information)
+  // answer p 
+  const checked = document.createElement('p')
+  discussionAnswered.append(checked)
+  
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
