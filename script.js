@@ -1,6 +1,8 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+const { localStorage } = window;
+
 const form = document.querySelector('.form');
 const inputName = document.querySelector('#name');
 const inputTitle = document.querySelector('#title');
@@ -78,17 +80,88 @@ const convertToDiscussion = obj => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = element => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const ul = document.querySelector('ul.discussions__container');
+
+const makeListItems = element => {
+  for (i = 0; i < agoraStatesDiscussions.length; i++) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
+makeListItems(ul);
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector('ul.discussions__container');
-render(ul);
+const paginationNumbers = document.querySelector('#pagination_numbers');
 
-// pagination
-const pagination = () => {};
+const nextButton = document.querySelector('#next_button');
+const prevButton = document.querySelector('#prev_button');
+
+const listItems = document.querySelectorAll('li');
+console.log(listItems);
+
+const paginationLimit = 10;
+const pageCount = Math.ceil(listItems.length / 10);
+let currentPage;
+
+// 페이지 버튼 생성 후 append
+const appendPageNumber = index => {
+  const pageNumber = document.createElement('button');
+  pageNumber.className = 'pagination_number';
+  pageNumber.textContent = index;
+  pageNumber.setAttribute('page-index', index); // 알아보기
+  pageNumber.setAttribute('aria-label', 'page ' + index); // 알아보기
+
+  paginationNumbers.append(pageNumber);
+};
+
+// 페이지 번호 생성 후 appendPageNumber 호출
+const getPaginationNumbers = () => {
+  for (i = 1; i <= pageCount; i++) {
+    appendPageNumber(i);
+  }
+};
+
+// 현재 페이지 설정
+const setCurrentPage = pageNum => {
+  currentPage = pageNum;
+
+  handleActivePageNumber();
+
+  const prevRange = (pageNum - 1) * paginationLimit;
+  const currRange = pageNum * paginationLimit;
+
+  listItems.forEach((item, index) => {
+    item.classList.add('hidden');
+    if (index >= prevRange && index < currRange) {
+      item.classList.remove('hidden');
+    }
+  });
+};
+
+// 클릭한 페이지에 active 클래스 추가
+const handleActivePageNumber = () => {
+  document.querySelectorAll('.pagination_number').forEach(button => {
+    button.classList.remove('active');
+
+    const pageIndex = Number(button.getAttribute('page-index'));
+
+    if (pageIndex === currentPage) {
+      button.classList.add('active');
+    }
+  });
+};
+
+// 페이지 로딩 시 페이지 번호 생성, 현재 페이지 첫 번째 페이지로 설정
+window.addEventListener('load', () => {
+  getPaginationNumbers();
+  setCurrentPage(1);
+
+  document.querySelectorAll('.pagination_number').forEach(button => {
+    const pageIndex = Number(button.getAttribute('page-index'));
+
+    if (pageIndex) {
+      button.addEventListener('click', () => {
+        setCurrentPage(pageIndex);
+      });
+    }
+  });
+});
