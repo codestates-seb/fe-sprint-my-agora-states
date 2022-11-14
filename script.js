@@ -1,7 +1,8 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
 
 const { localStorage } = window;
+
+console.log(JSON.parse(localStorage.getItem('data')));
 
 const form = document.querySelector('.form');
 const inputName = document.querySelector('#name');
@@ -10,6 +11,7 @@ const inputStory = document.querySelector('#story');
 
 const ul = document.querySelector('ul.discussions__container');
 
+// 새로운 디스커션 데이터 생성
 const makeDiscussionData = () => {
   return {
     author: inputName.value,
@@ -25,18 +27,17 @@ const convertDate = date => {
   return new Date(date).toLocaleString();
 };
 
-// form element submit
+// form element submit event handler
 form.addEventListener('submit', e => {
-  e.preventDefault();
+  // e.preventDefault();
 
   const newDiscussionData = makeDiscussionData();
 
-  agoraStatesDiscussions.unshift(newDiscussionData);
+  const database = JSON.parse(localStorage.getItem('data'));
 
-  const li = convertToDiscussion(newDiscussionData);
-  ul.prepend(li);
+  database.unshift(newDiscussionData);
 
-  console.log(agoraStatesDiscussions);
+  localStorage.setItem('data', JSON.stringify(database));
 });
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -84,9 +85,9 @@ const convertToDiscussion = obj => {
 };
 
 const makeListItems = element => {
-  agoraStatesDiscussions.forEach(data =>
-    element.append(convertToDiscussion(data)),
-  );
+  const database = JSON.parse(localStorage.getItem('data'));
+
+  database.forEach(data => element.append(convertToDiscussion(data)));
   return;
 };
 
@@ -105,7 +106,6 @@ const nextButton = document.querySelector('#next_button');
 const prevButton = document.querySelector('#prev_button');
 // 총 디스커션 목록
 const listItems = document.querySelectorAll('li');
-console.log(listItems);
 // 한 페이지당 디스커션 개수
 const paginationLimit = 10;
 // 총 페이지 수
