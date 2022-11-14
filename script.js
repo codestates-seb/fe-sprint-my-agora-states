@@ -8,6 +8,8 @@ const inputName = document.querySelector('#name');
 const inputTitle = document.querySelector('#title');
 const inputStory = document.querySelector('#story');
 
+const ul = document.querySelector('ul.discussions__container');
+
 const makeDiscussionData = () => {
   return {
     author: inputName.value,
@@ -18,10 +20,12 @@ const makeDiscussionData = () => {
   };
 };
 
-const convertDate = createdAt => {
-  return new Date(createdAt).toLocaleString();
+// createdAt를 local date로 변환
+const convertDate = date => {
+  return new Date(date).toLocaleString();
 };
 
+// form element submit
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -63,96 +67,101 @@ const convertToDiscussion = obj => {
   discussionUrl.textContent = title;
   discussionUrl.href = url;
   discussionTitle.append(discussionUrl);
-  discussionContent.append(discussionTitle);
 
   const discussionInfo = document.createElement('div');
   discussionInfo.className = 'discussion_information';
   discussionInfo.textContent = `${author} / ${convertDate(createdAt)}`;
-  discussionContent.append(discussionInfo);
+  discussionContent.append(discussionTitle, discussionInfo);
 
   const answerCheck = document.createElement('p');
   answerCheck.textContent = answer
-    ? String.fromCharCode(0x2713)
-    : String.fromCharCode(0x2716);
+    ? String.fromCharCode(0x2713) // 유니코드로 체크 표시
+    : String.fromCharCode(0x2716); // 유니코드로 엑스 표시
   discussionAnswered.append(answerCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
-const ul = document.querySelector('ul.discussions__container');
-
 const makeListItems = element => {
-  for (i = 0; i < agoraStatesDiscussions.length; i++) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
+  agoraStatesDiscussions.forEach(data =>
+    element.append(convertToDiscussion(data)),
+  );
   return;
 };
+
 makeListItems(ul);
 
-const paginationNumbers = document.querySelector('#pagination_numbers');
+// 페이지네이션
+// 한 페이지당 디스커션 10개
+// 다음 페이지 버튼, 이전 페이지 버튼 필요
+// 처음 페이지에서 이전 페이지 버튼 불가
+// 마지막 페이지에서 다음 페이지 버튼 불가
 
+// 페이지 넘버들이 들어갈 곳
+const paginationNumbers = document.querySelector('#pagination_numbers');
+// 이전 / 다음 버튼
 const nextButton = document.querySelector('#next_button');
 const prevButton = document.querySelector('#prev_button');
-
+// 총 디스커션 목록
 const listItems = document.querySelectorAll('li');
 console.log(listItems);
-
+// 한 페이지당 디스커션 개수
 const paginationLimit = 10;
+// 총 페이지 수
 const pageCount = Math.ceil(listItems.length / 10);
+// 현재 페이지
 let currentPage;
 
-// 페이지 버튼 생성 후 append
+// 페이지 넘버 버튼 생성 후 append
 const appendPageNumber = index => {
   const pageNumber = document.createElement('button');
   pageNumber.className = 'pagination_number';
   pageNumber.textContent = index;
-  pageNumber.setAttribute('page-index', index); // 알아보기
-  pageNumber.setAttribute('aria-label', 'page ' + index); // 알아보기
+  pageNumber.setAttribute('page-index', index);
+  pageNumber.setAttribute('aria-label', 'page ' + index);
 
   paginationNumbers.append(pageNumber);
 };
 
-// 페이지 번호 생성 후 appendPageNumber 호출
+// 페이지 넘버 생성 후 appendPageNumber 호출 -> 최종적으로 페이지 넘버 버튼이 생성된다.
 const getPaginationNumbers = () => {
   for (i = 1; i <= pageCount; i++) {
     appendPageNumber(i);
   }
 };
 
-// 현재 페이지 설정
+// 현재 페이지 설정 : 페이지 넘버를 전달받으면 해당 페이지를 렌더링해준다.
 const setCurrentPage = pageNum => {
   currentPage = pageNum;
 
-  handleActivePageNumber();
-  disableButton();
+  handleActiveClass();
+  handleDisableButton();
 
   const prevRange = (pageNum - 1) * paginationLimit;
   const currRange = pageNum * paginationLimit;
 
   listItems.forEach((item, index) => {
-    item.classList.add('hidden');
+    item.classList.add('hidden'); // 전체 디스커션을 숨긴다.
     if (index >= prevRange && index < currRange) {
-      item.classList.remove('hidden');
+      item.classList.remove('hidden'); // 범위에 해당하는 디스커션만 보여준다.
     }
   });
 };
 
-// 클릭한 페이지에 active 클래스 추가
-const handleActivePageNumber = () => {
-  document.querySelectorAll('.pagination_number').forEach(button => {
-    button.classList.remove('active');
+// 현재 페이지에 active 클래스 추가 그 외 페이지는 제거 : CSS
+const handleActiveClass = () => {
+  const allPageNum = document.querySelectorAll('.pagination_number');
 
-    const pageIndex = Number(button.getAttribute('page-index'));
-
-    if (pageIndex === currentPage) {
-      button.classList.add('active');
-    }
+  allPageNum.forEach(button => {
+    Number(button.textContent) === currentPage
+      ? button.classList.add('active')
+      : button.classList.remove('active');
   });
 };
 
-// 페이지 이동 버튼 활성화, 비활성화
-const disableButton = () => {
+// 이전 / 다음 페이지 버튼 활성화, 비활성화 처리
+const handleDisableButton = () => {
   currentPage === 1
     ? prevButton.setAttribute('disabled', true)
     : prevButton.removeAttribute('disabled');
@@ -161,20 +170,26 @@ const disableButton = () => {
     ? nextButton.setAttribute('disabled', true)
     : nextButton.removeAttribute('disabled');
 };
-// 페이지 로딩 시 페이지 번호 생성, 현재 페이지 첫 번째 페이지로 설정
-window.addEventListener('load', () => {
-  getPaginationNumbers();
-  setCurrentPage(1);
 
+// 페이지 로딩 시 실행되는 이벤트 핸들러
+window.addEventListener('load', () => {
+  getPaginationNumbers(); // 페이지 넘버 버튼 생성
+  setCurrentPage(1); // 현재 페이지 1페이지로 설정
+
+  // 클릭 시 setCurrentPage에 이전 페이지 넘버 전달
   prevButton.addEventListener('click', () => {
     setCurrentPage(currentPage - 1);
   });
 
+  // 클릭 시 setCurrentPage에 다음 페이지 넘버 전달
   nextButton.addEventListener('click', () => {
     setCurrentPage(currentPage + 1);
   });
 
-  document.querySelectorAll('.pagination_number').forEach(button => {
+  // 페이지 넘버 버튼 클릭 이벤트 생성
+  const allPageNum = document.querySelectorAll('.pagination_number');
+
+  allPageNum.forEach(button => {
     const pageIndex = Number(button.getAttribute('page-index'));
 
     if (pageIndex) {
