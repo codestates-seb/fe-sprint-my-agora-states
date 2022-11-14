@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+//console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 
@@ -58,17 +58,26 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+// // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
+
+const render = (element, startIdx, endIdx) => {
+  for (let i = startIdx; i < endIdx; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul,0,10);
 
 
 // TO DO :  아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
@@ -93,7 +102,7 @@ form.addEventListener("submit", function(event){
 
   const addDiscussion = {
     id: "new id",
-    createdAt: new Date().toLocaleTimeString(),
+    createdAt: new Date().toISOString(),
     title: formTitle,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: formAuthor,
@@ -102,15 +111,66 @@ form.addEventListener("submit", function(event){
 
   }
 
+  //removeChildes(ul);
+
   //기존 배열에 입력창으로 받은 정보를 객체로 생성하여 맨 앞에 추가
   agoraStatesDiscussions.unshift(addDiscussion);
 
-  const forNewDiscussion = convertToDiscussion(addDiscussion); //li로 return 
+
+  //이 부분에 추가되면 출력을 어떻게 할 것인지 적기
+  render(ul, startIdx, endIdx);
+
+  formReset();
+
+  //const forNewDiscussion = convertToDiscussion(addDiscussion); //li로 return 
   
   //Prepend 메소드를 사용하여 ul의 앞에 li 형태의 받은 디스커션 추가
-  ul.prepend(forNewDiscussion);
-  
-  
-
+  //페이지네이션 때문에 이 방법은 사용 안함
+  //ul.prepend(forNewDiscussion);
   
 });
+
+
+// TO DO : 이전 데이터 삭제
+
+const removeChildes = (el) => {
+  while(el.firstChild){
+    el.firstChild.remove();
+  }
+};
+
+
+
+// TO DO : 페이지네이션 기능
+// 한페이지에 10개씩 디스커션 보이기
+// 이전, 다음 페이지로 이동 가능
+// 이전, 다음 페이지가 없는 경우 페이지 유지
+
+const prevPageBtn = document.querySelector(".prev");
+const nextPageBtn = document.querySelector(".next");
+
+let startIdx = 0;
+let endIdx = 10;
+
+nextPageBtn.addEventListener("click", () => {
+  if (endIdx > agoraStatesDiscussions.length) return;
+
+  startIdx += 10;
+  endIdx += 10;
+  
+  removeChildes(ul);
+
+  render(ul, startIdx, endIdx);
+});
+
+prevPageBtn.addEventListener("click", () => {
+  if (startIdx <= 0) return;
+
+  startIdx -= 10;
+  endIdx -= 10;
+  
+  removeChildes(ul);
+
+  render(ul, startIdx, endIdx);
+});
+
