@@ -6,6 +6,7 @@
   --brown-color: #aa8b56;
   --light-color: #f0ebce;
   --text-color: #333;
+  --gray-color: #888;
   --header-font-color: #fff;
 }
 /* Reset CSS */
@@ -21,6 +22,10 @@ textarea {
 /* 
   ########### COMMON #############
 */
+
+.hide {
+  display: none;
+}
 
 h1 {
   text-align: center;
@@ -39,8 +44,12 @@ main::before {
 }
 
 /* 
-  #########   FORM   ###############
+  ########## FORM ##########
 */
+.form__container {
+  display: flex;
+  justify-content: center;
+}
 #form {
   padding: 1rem;
   background: rgba(255, 255, 255, 0.8);
@@ -179,9 +188,38 @@ textarea:focus {
 }
 
 /* 
-  ########## FORM ##########
+  ###########  PAGINATION   ###########
 */
-.form__container {
-  display: flex;
-  justify-content: center;
+.discussion__pagination {
+  height: 50px;
+}
+.pagination__btn,
+.pagination__prev,
+.pagination__next {
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.pagination__btn:hover {
+  background: var(--light-color);
+}
+.pagination__btn.active {
+  background: var(--sub-color);
+  color: #fff;
+}
+.pagination__last {
+  cursor: default;
+  color: var(--gray-color);
+}
+.pagination__prev,
+.pagination__next {
+  cursor: default;
+  width: 10px;
+}
+.pagination__prev:hover,
+.pagination__last:hover,
+.pagination__next:hover {
+  background: none;
 }
