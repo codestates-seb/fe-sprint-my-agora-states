@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+const discussionItems = [];
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
@@ -27,7 +28,6 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
 
   const contentTitleLink = document.createElement("a");
   contentTitleLink.href = url;
-  console.log(title);
   contentTitleLink.textContent = title;
   contentTitle.append(contentTitleLink);
   discussionContent.append(contentTitle);
@@ -38,9 +38,9 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
   discussionContent.append(contentInfo);
 
   // checkbox
-  const checkBox = document.createElement("p");
-  checkBox.textContent = "☑";
-  discussionAnswered.append(checkBox);
+  const removeButton = document.createElement("p");
+  removeButton.textContent = "☑";
+  discussionAnswered.append(removeButton);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -48,6 +48,7 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  console.log(agoraStatesDiscussions);
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -57,3 +58,25 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+//디스커션 추가 기능
+const formSubmitButton = document.querySelector(".form__submit > input");
+formSubmitButton.addEventListener("click", (event) => {
+  const { name, title, story } = event.target.form;
+  const createdAt = new Date();
+
+  if (!name.value || !title.value || !story.value) {
+    return;
+  }
+
+  const discussionItem = {
+    createdAt,
+    title: title.value,
+    author: name.value,
+    url: "",
+    avatarUrl: "",
+  };
+
+  agoraStatesDiscussions = [discussionItem, ...agoraStatesDiscussions];
+  ul.prepend(convertToDiscussion(discussionItem));
+});
