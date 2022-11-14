@@ -45,11 +45,13 @@ h2 {
   border: none;
   border-bottom: 2px solid #fff;
   background-color: rgba(0, 0, 0, 0);
+  color: #fff;
 }
 .form__input--title input {
   border: none;
   border-bottom: 2px solid #fff;
   background-color: rgba(0, 0, 0, 0);
+  color: #fff;
 }
 .form__textbox {
   width: 1000px;
