@@ -7,20 +7,46 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.form__container,
-h1 {
-  font-family: "Varela Round", sans-serif;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h1 {
-  margin: 20px;
+.all-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .form__container {
+  background-color: #ba94d1;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 20px;
+  width: 580px;
+  border-radius: 40px 40px 0px 0px;
+  height: 200px;
+}
+
+.form__submit > input {
+  width: 100px;
+  height: 80px;
+  background-color: antiquewhite;
+  border: 1px solid red;
+  border-radius: 10px;
+  /* margin: 20px; */
+}
+
+.form__submit > input:hover {
+  background-color: tomato;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+h1 {
+  margin: 20px;
 }
 
 .form__input--name {
@@ -32,19 +58,11 @@ h1 {
   justify-content: center;
 }
 
-.form__submit > input {
-  width: 250px;
-  height: 40px;
-  background-color: antiquewhite;
-  border: 1px solid red;
-  border-radius: 20px;
-  margin: 20px;
-}
-
 /* 카드요소 */
 
 .discussions__container {
-  background-color: antiquewhite;
+  background-color: #ba94d1;
+  border-radius: 0px 0px 40px 40px;
 }
 
 .discussion__wrapper {
@@ -54,7 +72,7 @@ h1 {
 }
 
 .discussion__container {
-  background-color: white;
+  background-color: #fbfacd;
   display: flex;
   align-items: center;
   width: 540px;
@@ -62,6 +80,12 @@ h1 {
   border: 2px solid red;
   padding: 13px;
   border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.discussion__container:hover {
+  background-color: whitesmoke;
+  transform: scale(1.1);
 }
 
 ul {
@@ -88,12 +112,21 @@ ul {
   font-size: 30px;
 }
 
-.discussion__title {
+.discussion__title,
+.discussion__title > a {
   margin-bottom: 6px;
+  font-size: 16px;
 }
 
 /* 오른쪽 정렬 */
 .discussion__information {
   margin-left: auto;
   font-size: 14px;
+}
+
+.form__input--wrapper {
+  font-size: 17px;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
 }
