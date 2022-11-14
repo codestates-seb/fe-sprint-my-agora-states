@@ -41,6 +41,7 @@ const convertToDiscussion = (obj) => {
   // discussionAnswered
   const $discussionAnswered = document.createElement("p");
   $discussionAnswered.textContent = "☑";
+  $discussionAnswered.className = "discussion__check";
   discussionAnswered.appendChild($discussionAnswered);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
