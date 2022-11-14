@@ -194,8 +194,8 @@ textarea:focus {
   height: 50px;
 }
 .pagination__btn,
-.pagination__prev,
-.pagination__next {
+.pagination__prev-track,
+.pagination__next-track {
   width: 25px;
   height: 25px;
   background: transparent;
@@ -213,13 +213,13 @@ textarea:focus {
   cursor: default;
   color: var(--gray-color);
 }
-.pagination__prev,
-.pagination__next {
+.pagination__prev-track,
+.pagination__next-track {
   cursor: default;
   width: 10px;
 }
-.pagination__prev:hover,
+.pagination__prev-track:hover,
 .pagination__last:hover,
-.pagination__next:hover {
+.pagination__next-track:hover {
   background: none;
 }
