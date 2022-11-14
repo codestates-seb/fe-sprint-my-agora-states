@@ -1,14 +1,94 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-
+/* ROOT */
+:root {
+  --main-color: #395144;
+  --sub-color: #4e6c50;
+  --brown-color: #aa8b56;
+  --light-color: #f0ebce;
+  --header-font-color: #fff;
+}
 /* Reset CSS */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+textarea {
+  resize: none;
+}
+
+/* 
+  ########### COMMON #############
+*/
 
 h1 {
   text-align: center;
+  margin: 2rem 0;
+  color: var(--header-font-color);
+  font-weight: normal;
+}
+main::before {
+  content: "";
+  background: linear-gradient(var(--main-color), var(--sub-color));
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  z-index: -10;
+  top: 0;
+}
+
+/* 
+  #########   FORM   ###############
+*/
+#form {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px, rgba(0, 0, 0, 0.2) 0px 0px 20px;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form__input--wrapper div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.form__input--wrapper label {
+  width: 130px;
+  color: var(--brown-color);
+}
+.form__input--wrapper input,
+.form__input--wrapper textarea {
+  flex-grow: 1;
+}
+input:not([type="submit"]),
+textarea {
+  border: 1px solid var(--brown-color);
+  border-radius: 4px;
+  padding: 5px;
+}
+input:not([type="submit"]):focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--main-color);
+}
+/* submit btn */
+.form__submit input {
+  width: 100%;
+  height: 35px;
+  background: var(--brown-color);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.form__submit input:hover,
+.form__submit input:active {
+  background: var(--sub-color);
 }
 
 /* 
@@ -19,6 +99,7 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
+
 .discussions__container {
   margin: 1rem;
   display: flex;
