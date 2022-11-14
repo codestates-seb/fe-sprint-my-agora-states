@@ -49,9 +49,12 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const render = (element, startIdx, endIdx) => {
+  // 기존 화면 비우기
+  element.textContent = "";
+  const paginationList = agoraStatesDiscussions.slice(startIdx, endIdx);
+  for (let i = 0; i < paginationList.length; i += 1) {
+    element.append(convertToDiscussion(paginationList[i]));
   }
   return;
 };
@@ -102,7 +105,7 @@ const renderPagination = (totalPage, maxShowPage) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, 0, PAGE_ITEM_NUMBERS); // 초기 화면 렌더링
 
 // 페이지네이션 렌더링 하기
 renderPagination(totalPage, PAGE_ITEM_NUMBERS);
@@ -161,4 +164,9 @@ $pagination.addEventListener("click", (e) => {
   page = e.target.textContent;
 
   // 화면 다시 렌더링하기
+  render(
+    ul,
+    parseInt(page) * PAGE_ITEM_NUMBERS,
+    parseInt(page) * PAGE_ITEM_NUMBERS + parseInt(PAGE_ITEM_NUMBERS)
+  ); // 초기 화면 렌더링
 });
