@@ -5,17 +5,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
+  <title>신나현 | My Agora States</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <!--header 영역 -->
+    <div class="header">
+      <div class="app_bar">
+        <i class="material-icons">wifi</i>
+        <i class="material-icons">signal_cellular_alt</i>
+        <i class="material-icons">battery_5_bar</i>
+      </div>
+      <h1>My Agora States</h1>
+    </div>
+    <!-- 질문 등록 영역 -->
     <section class="form__container">
+      <h2>New discussions</h2>
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
@@ -24,7 +36,7 @@
           </div>
           <div class="form__input--title">
             <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
@@ -32,12 +44,15 @@
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="SUBMIT">
         </div>
       </form>
     </section>
+    <!-- 질문 목록 영역 -->
     <section class="discussion__wrapper">
+      <h2>Discussions <span id="allItemNum"></span></h2>
       <ul class="discussions__container">
+        <!-- 개별 질문 목록 -->
         <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
             <img class="discussion__avatar--image"
@@ -45,13 +60,21 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <h3 class="discussion__title"><a
+                href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h3>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><i class="material-icons checked">check_box</i></div>
         </li>
+        <!-- //개별 질문 목록 END -->
       </ul>
+      <!-- 질문 목록 페이지네이션 버튼 영역 -->
+      <div class="pagination"></div>
     </section>
+    <!-- TOP 버튼 -->
+    <button class="top_button">
+      <i class="material-icons">arrow_upward</i>
+    </button>
   </main>
 </body>
 <script src="data.js"></script>
