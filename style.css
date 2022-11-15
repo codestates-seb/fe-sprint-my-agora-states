@@ -32,15 +32,38 @@ main {
   width: 90%;
 }
 
-.form__container {
+/* form__container */
+.collapsible__container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: 20px;
 }
-
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.active,
+.collapsible:hover {
+  background-color: #ccc;
+}
+.form__wrapper {
+  width: 100%;
+}
+.form__wrapper > form {
+  padding: 10px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
 .form__input {
   display: flex;
   justify-content: center;
@@ -51,14 +74,12 @@ main {
   height: 40px;
   width: 25rem;
 }
-
 .form__input > input {
   width: 90%;
   height: 2rem;
   padding: 0 10%;
   padding-top: 3%;
 }
-
 .form__textbox {
   display: flex;
   justify-content: center;
@@ -66,32 +87,47 @@ main {
   border: 2px solid black;
   border-radius: 5px;
   margin-top: 1rem;
-  height: 50px;
-}
-
-.form__textbox > textarea {
-  width: 90%;
-  height: 2rem;
-  padding: 0 10%;
-  padding-top: 2%;
-  border: none;
-}
-
-.discussion__wrapper {
+  height: 10rem;
   width: 100%;
 }
+.form__textbox > textarea {
+  height: 70%;
+  width: 100%;
+  padding-top: 6%;
+}
+.form__submit {
+  display: flex;
+  justify-content: end;
+  margin: 1rem;
+}
 
+/* discussions */
 .discussions__container {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-
+.discussion__wrapper {
+  width: 100%;
+}
 .discussion__container {
   display: flex;
-  height: 100px;
+  justify-content: flex-start;
+  align-items: center;
+  height: 7rem;
+  width: 50rem;
 }
-
+.discussion__avatar--wrapper {
+  width: 5rem;
+  margin-right: 2rem;
+}
 .discussion__avatar--wrapper > img {
-  height: 100%;
+  border-radius: 50%;
+  height: inherit;
+  width: inherit;
+}
+.discussion__content {
+  width: 100%;
 }
