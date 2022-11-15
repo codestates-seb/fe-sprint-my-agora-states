@@ -4,6 +4,8 @@ let newAgoraStatesDiscussions =
   JSON.parse(window.localStorage.getItem("agoraStatesDiscussions")) ||
   agoraStatesDiscussions;
 console.log(newAgoraStatesDiscussions);
+const total = document.querySelector(".discussions__total--count");
+total.textContent = newAgoraStatesDiscussions.length;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -123,6 +125,7 @@ form.addEventListener("submit", (event) => {
   newStory.createdAt = new Date().toISOString();
   ul.prepend(convertToDiscussion(newStory));
 
+  total.textContent = newAgoraStatesDiscussions.length + 1;
   const newDiscussion = [{ ...newStory }, ...newAgoraStatesDiscussions];
   window.localStorage.setItem(
     "agoraStatesDiscussions",
