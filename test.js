@@ -60,7 +60,6 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
     
   }
@@ -77,3 +76,17 @@ const li = document.createElement("li");
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+const Page = document.querySelector(".discussions__container")
+// if(wholePage.children.length > 10){
+//   //1부터 10까지 
+//   ul.append()
+// };
+//태그 총 수 
+const wholeItems = page.children.length;
+//게시판에 그릴 아이템 10개 
+const visibleItems = 10
+//총 페이지 개수
+const wholePages = wholeItems / visibleItems
+function Display(items,wrapper,rows_per_pages,page){
+  render()
+}

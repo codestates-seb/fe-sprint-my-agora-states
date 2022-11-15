@@ -10,21 +10,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/cacf598a5d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <main>
-    <h1>My Agora States</h1>
+  <main class="container">
+    <h1 class="title">My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" class="input__name" name="name" id="name" required>
           </div>
           <div class="form__input--title">
             <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" class="input__title" name="name" id="name" required>
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
@@ -32,7 +33,7 @@
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <div><button type="button" class="submitBtn"><span class="submitTxt">submit! </span><i class="fa-sharp fa-solid fa-paper-plane"></i></button></di>
         </div>
       </form>
     </section>
@@ -52,9 +53,10 @@
         </li>
       </ul>
     </section>
+    <footer class="page"><button class="pageBtn"></button></footer>
   </main>
 </body>
-<script src="data.js"></script>
-<script src="script.js"></script>
-
+<script defer type="module" src="data.js"></script>
+<script defer type="module" src="script.js"></script>
+<script defer type="module" src="question.js"></script>
 </html>
