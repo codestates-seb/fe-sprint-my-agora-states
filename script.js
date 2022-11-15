@@ -1,4 +1,4 @@
-window.localStorage.clear();
+
 const jsonLocalStorage = {
   setItem: (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
