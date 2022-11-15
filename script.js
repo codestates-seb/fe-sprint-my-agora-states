@@ -6,11 +6,6 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
-
-  
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
-
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -35,6 +30,18 @@ const convertToDiscussion = (obj) => {
   const discussionInformation = document.createElement("div");
   discussionInformation.textContent = obj.author+" "+obj.createdAt;
   discussionContent.append(discussionInformation);
+
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+  const discussionAnsweredcheckbox = document.createElement("p");
+  discussionAnsweredcheckbox.textContent = console.log(answeredOrNot);
+  let answeredOrNot = 
+  if(obj.answer === null){
+    return "o"
+  } else {
+    return "x"
+  };
+  discussionAnswered.append(discussionAnsweredcheckbox)
 
 
 
