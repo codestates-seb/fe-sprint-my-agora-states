@@ -111,7 +111,7 @@ form.addEventListener("submit", function(event){
 
   }
 
-  //removeChildes(ul);
+  removeChildes(ul);
 
   //기존 배열에 입력창으로 받은 정보를 객체로 생성하여 맨 앞에 추가
   agoraStatesDiscussions.unshift(addDiscussion);
@@ -120,7 +120,7 @@ form.addEventListener("submit", function(event){
   //이 부분에 추가되면 출력을 어떻게 할 것인지 적기
   render(ul, startIdx, endIdx);
 
-  formReset();
+ 
 
   //const forNewDiscussion = convertToDiscussion(addDiscussion); //li로 return 
   

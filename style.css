@@ -1,46 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 /*font-family: 'Gamja Flower', cursive;*/
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Raleway:wght@600&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Raleway:wght@700&display=swap');
 * {
   margin: 0;
   padding: 0;
   border: 0px;
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 body{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  
+  align-items: center;  
+}
+header{
+  /*background-color: #cbb9ff;*/
+  width: 100vw;
+  height: 7vh;
+  padding-top: 18px;
+}
+h1{
+  text-align: center;  
+  font-family: 'Raleway', sans-serif;
+  font-size: 25px;
+  letter-spacing: 4px;
+  font-weight: bold;
 }
 main{
   flex-direction: row;
-  background-color: rgba(255, 192, 203, 0.445);
-}
-h1{
-  padding-top: 50px;
-  text-align: center;
-  height: 150px;
-  
-  font-family: 'Nanum Gothic', sans-serif;
 }
 .form__container{
+  background-color: #b0bcffbb;
+  border-radius: 30px;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   width: 600px;
-  
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 20px 10px;
 }
 .form__input--name{ 
   display: flex;
   justify-content: space-between;
-  margin: 5px;
- 
+  margin: 8px;
 }
 .form__input--name > input{
   margin-right: 25px;
   width: 45%;
-  
+  border-radius: 5px;
 }
 .form__input--name > label{
   margin-left: 20px;
@@ -49,74 +57,86 @@ h1{
 .form__input--title{
   display: flex;
   justify-content: space-between;  
-  margin: 5px;
+  margin: 8px;
 }
 .form__input--title > input{
   width: 45%;
   margin-right: 25px;
+  border-radius: 5px;
 }
-
 .form__input--title > label{
-  margin-left: 20px;
-  
+  margin-left: 20px; 
 }
 .form__textbox{
   display: flex;
   justify-content: space-between;  
   flex-direction: column;
-  margin: 5px;
- 
+  margin: 15px 0; 
 }
 .form__textbox > label{
-  margin-left: 20px;
+  margin-left: 25px;
   margin-bottom: 5px;
-
 }
 .form__textbox > textarea{
   margin-top: 5px;
   width: 90%;
   height: 50px;
-  
   align-self: center;
+  border-radius: 10px;
 }
 .form__submit{
   display: flex;
-  justify-content: center;
+  justify-content: center;  
   
 }
 .form__submit > input{
-  font-weight: bold;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 20px;
   width: 300px;
   height: 50px;
   margin: 5px;
-  background-color: blue;
+  background-color: #8e72e191;
+  border-radius: 15px;
+  border: outset;
+}
+.form__submit > input:hover{
+  border: inset;
 }
 li {
   list-style-type: none;
 }
 .discussions__container li{
   /*width: 540px;*/
-  border: 1px solid black; 
-  padding: 7.5px;
+  background-color: #fff;
+  box-shadow: 1px 2px 5px 0px #0000006e;
+  border-radius: 10px;
+  margin: 4px;
+  padding: 2px;
   display: flex;
   align-content: center;
   align-items: center;
   justify-content: center;
 }
+.discussions__container li:hover{
+  background-color: #b0d5ff3b;;
+}
 .discussion__avatar--wrapper{
   flex-direction: row;
   display: inline-block;  
-  margin: 0 7.5px 0 0;
 }
 .discussion__content{
   flex-direction: row;
   display: inline-block;
   width: 430px;
+  margin: 5px 5px 5px 7.5px;
 }
 .discussion__title a{
+  color: rgb(22, 22, 22);
   text-decoration: none;
 }
 .discussion__information{
+  color : rgb(73, 73, 73);
   text-align: right;
 }
 .discussion__answered{
@@ -131,4 +151,23 @@ li {
 }
 .discussion__title{
   font-size: 1rem;
+}
+.discussion__page{
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+}
+.discussion__page > button{
+  letter-spacing: 2px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  width: 100px;
+  height: 35px;
+  background-color: #8e72e1be;
+  border: outset;
+  border-radius: 10px;
+}
+.discussion__page > button:hover{
+  border: inset;
 }
