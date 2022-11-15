@@ -73,9 +73,18 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const render = (element, from, to) => {
+  console.log(from, to);
+  if (!from && !to) {
+    from = 0;
+    to = data.length - 1;
+  }
+  // 다 지우고 배열에 있는 내용 다 보여주기
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
+    element.append(convertToDiscussion(data[i]));
   }
   return;
 };
@@ -100,8 +109,8 @@ form.addEventListener("submit", (event) => {
     avatarUrl: "https://avatars.githubusercontent.com/u/25774030?s=64&v=4",
   };
 
-  //기존 데이터 맨 앞에다 추가
-  agoraStatesDiscussions.unshift(obj);
+  //데이터 맨 앞에다 추가
+  data.unshift(obj);
   //하나의 돔으로 만든 다음에 전체 컨테이너인 ul에 맨 앞에다가 추가
   ul.prepend(convertToDiscussion(obj));
 
@@ -109,6 +118,9 @@ form.addEventListener("submit", (event) => {
   inputName.value = "";
   inputTitle.value = "";
   inputQuestion.value = "";
+  // 로컬스토리지에 저장
+  console.log(data);
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
 });
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
@@ -318,9 +330,3 @@ audioContainer.addEventListener("click", () => {
 audio.addEventListener("ended", () => {
   clearInterval(interval);
 });
-
-// 로컬스토리지에 저장
-localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
-
-// 렌더링
-render(ul, 0, limit);
