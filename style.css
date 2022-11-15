@@ -123,7 +123,7 @@ padding: 0.3rem;
     font-size: 1rem;
 }
 @font-face {
-    src:url(../font/나눔손글씨-수줍은-대학생.woff);
+    src:url(./font/나눔손글씨-수줍은-대학생.woff);
     font-family: 나눔손글씨;
 }
 
