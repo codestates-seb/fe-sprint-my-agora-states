@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-  background-color: #44265e;
+  background-color: #3f3b6c;
 }
 
 main {
@@ -110,7 +111,7 @@ main > h1 {
 }
 .discussion__wrapper .discussions__container > li .discussion__content h2 > a {
   text-decoration: none;
-  color: #44265e;
+  color: #3f3b6c;
 }
 .discussion__wrapper .discussions__container > li .discussion__content .discussion__contents {
   color: rgba(0, 0, 0, 0.6);
@@ -151,7 +152,14 @@ main > h1 {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  color: #44265e;
+  color: #3f3b6c;
+}
+.discussion__wrapper .discussions__pagination li > a.discussions__pagination--dir {
+  width: auto;
+  min-width: 3rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
 }
 .discussion__wrapper .discussions__pagination li > a.active {
   background-color: #9f73ab;

@@ -1,5 +1,9 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+let newAgoraStatesDiscussions =
+  JSON.parse(window.localStorage.getItem("agoraStatesDiscussions")) ||
+  agoraStatesDiscussions;
+console.log(newAgoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -93,8 +97,8 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < newAgoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(newAgoraStatesDiscussions[i]));
   }
   return;
 };
@@ -112,12 +116,31 @@ const inputContent = document.getElementById("story");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const newStory = {};
+  newStory.id = "D_kwDOHOApLM4AP" + makeId(3);
   newStory.title = inputTitle.value;
   newStory.author = inputName.value;
   newStory.bodyHTML = inputContent.value;
   newStory.createdAt = new Date().toISOString();
   ul.prepend(convertToDiscussion(newStory));
+
+  const newDiscussion = [{ ...newStory }, ...newAgoraStatesDiscussions];
+  window.localStorage.setItem(
+    "agoraStatesDiscussions",
+    JSON.stringify(newDiscussion)
+  );
 });
+
+// TODO : 아이디 생성
+function makeId(length) {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 // TODO : 현재 시간 표시
 function getDate(date) {

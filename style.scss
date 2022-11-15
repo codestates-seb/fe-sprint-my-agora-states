@@ -1,4 +1,6 @@
-$primary: #44265e;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+$primary: #3f3b6c;
 $secondary: #624f82;
 $textColor: #a3c7d6;
 $textColor2: #9f73ab;
@@ -159,6 +161,14 @@ main {
         align-items: center;
         justify-content: center;
         color: $primary;
+
+        &.discussions__pagination--dir {
+          width: auto;
+          min-width: 3rem;
+          border-radius: 1rem;
+          font-weight: bold;
+          font-family: "Poppins", sans-serif;
+        }
 
         &.active {
           background-color: $textColor2;
