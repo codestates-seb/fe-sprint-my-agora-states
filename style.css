@@ -13,6 +13,7 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: rgb(246,249,250);
 }
 .discussion__container{
     width: 540px;
@@ -23,7 +24,8 @@ body {
     padding: 9px;
     border-radius: 10px;
     align-items: center;
-    background-color: antiquewhite;
+    background-color: rgb(3,199,90);
+    
 }
 .discussion__avatar--wrapper{
     display: flex;
@@ -34,13 +36,16 @@ body {
     padding: 20px ;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content:space-around;
     padding: 0px 18px;
+    font-size: 10px;
+    
 
 }
 .discussion__avatar--image{
     border-radius: 100%;
-    width:48px
+    width:48px;
+    
 }
 
 .discussion__information{
@@ -50,4 +55,37 @@ body {
 }
 .a{
     text-decoration: none;
+    
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.form__container{
+    display: flex;
+    justify-content: center;
+    background-color:rgb(3,199,90);
+    height: 200px;
+    border-radius: 10px;
+    
+}
+
+.form__input--wrapper > div {
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    
+}
+
+input, textarea {
+    width: 330px
+    
+
 }

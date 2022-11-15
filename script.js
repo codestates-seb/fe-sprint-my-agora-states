@@ -45,9 +45,11 @@ const convertToDiscussion = (obj) => {
 
   titleAnchor.textContent = obj.title;
   discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
-  discussionAnsweredCheckbox.textContent = obj.answer ? "☑": "☒";
+  discussionAnsweredCheckbox.textContent = obj.answer ? "✅": "☐";
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
+  
   return li;
 };
 
@@ -63,7 +65,7 @@ form.addEventListener('submit',(event) => {
       id: "999",
       createdAt: new Date(),
       title: inputTitle.value,
-      url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+      url: "https://github.com",
       author: inputName.value,
       answer: null, 
       bodyHTML: inputQuestion.value,
