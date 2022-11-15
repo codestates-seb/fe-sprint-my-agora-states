@@ -32,8 +32,23 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(contentTitle, contentInfo)
 
   const checked = document.createElement('p')
-  checked.textContent = obj.answer ? '☑︎' : '☒'; 
-  discussionAnswered.append(checked)
+  const junimoRight = document.createElement('img')
+  junimoRight.setAttribute("src", "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FcFR94P%2FbtrRdarMIxR%2FO61IDuXAIXkKUeR19isF4k%2Fimg.png")
+  junimoRight.setAttribute("width", "20px")
+  junimoRight.setAttribute("height", "20px")
+  junimoRight.setAttribute("alt", "☑︎" )
+  const junimoWrong = document.createElement('img')
+  junimoWrong.setAttribute("src", "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FblCl8v%2FbtrRh8y2CAv%2FhGTHSVDhcxihvKLFFdTAj1%2Fimg.png")
+  junimoWrong.setAttribute("width", "20px")
+  junimoWrong.setAttribute("height", "20px")
+  junimoWrong.setAttribute("alt", "☒" )
+  if (obj.answer !== null){
+    checked.value = junimoRight;
+  } else {
+    checked.value = junimoWrong;
+  }
+
+  discussionAnswered.append(checked, junimoRight, junimoWrong)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
