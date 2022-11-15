@@ -1,1 +1,49 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {box-sizing: border-box; padding: 0; margin: 0;}
+body{background: rgb(238, 249, 247);}
+li {list-style: none;}
+a {color:rgb(33, 120, 105); text-decoration: none; font-size: 18px; font-weight: 600; }
+a:hover{color:rgb(18, 92, 80);}
+main{ display: flex;
+    flex-direction: column;
+        align-items: center;}
+body{font-size: 14px;}
+h1{margin: 50px 0;color:rgb(33, 120, 105); text-align: center; font-size: 30px;}
+.discussion__container{
+    width: 540px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    border-bottom: 1px solid rgb(238, 249, 247);
+}
+.discussion__container:last-child{border-bottom:none;}
+.discussion__container:hover{background: rgb(243, 249, 248);}
+.discussion__avatar--wrapper { display: flex; justify-content:left; align-items: center; flex-grow: 60px; padding-right: 20px;}
+.discussion__avatar--image {     
+    width: 60px; border-radius: 50%; }
+.discussion__content{ 
+    padding: 10px; 
+    flex-grow: 2; 
+    display: flex ; 
+    flex-direction: column; 
+    justify-content: space-between;}
+.discussion__title{margin: 0; padding-bottom: 5px;}
+.discussion__information{text-align: right; padding-top: 5px; }
+.discussion__answered{ text-align: center; padding-left: 20px;font-size: 30px;}
+
+.form__container{padding-bottom: 40px; margin: 20px 0; border: 1px solid rgb(224, 242, 239); border-radius: 8px; background: #fff;}
+.form__input--wrapper{ width: 540px; display: flex; padding:0 20px; margin: 20px 0; flex-direction: column;}
+.first--column{ display: flex; margin-bottom: 20px; justify-content: space-between;}
+.discussion__wrapper{ margin: 20px 0; border: 1px solid rgb(224, 242, 239);border-radius: 8px; background: #fff;}
+.form__input--name{ width: 49%; display: flex; flex-direction: column;}
+.form__input--title{width: 49%; display: flex; flex-direction: column;}
+.form__textbox{ display: flex; flex-direction: column;}
+.form__submit{ padding: 0 20px;}
+.form__submit > input{ width: 100%; padding: 20px 0; border: none; background: rgb(33, 120, 105); color: #fff; border-radius: 8px; transition: all 0.3s;font-size: 16px;}
+.form__submit > input:hover{ background: rgb(11, 73, 62);}
+#name , #title , #story { 
+    height: 48px; padding: 16px;
+    border: none;
+    background: rgb(224, 242, 239);
+    border-radius: 8px;}
+label {margin-bottom: 8px;}
