@@ -102,6 +102,7 @@ margin-left: 450px;
   width: 48px;
   height: 48px;
   border-radius: 50px;
+  margin: 9px;
 }
 
 .discussion__content {
@@ -124,6 +125,7 @@ margin-left: 450px;
   align-items: center;
   margin-left: -35px;
   margin-top: 20px;
+  padding: 2px;
 }
 
 .discussion__wrapper{

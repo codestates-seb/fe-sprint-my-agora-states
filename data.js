@@ -1,4 +1,8 @@
+
+const storeobj = JSON.parse(localStorage.getItem('obj'))
+
 const agoraStatesDiscussions = [
+    storeobj,
   {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",
