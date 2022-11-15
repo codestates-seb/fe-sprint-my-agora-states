@@ -68,9 +68,7 @@ form.addEventListener('submit',(event) => {
     avatarUrl:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51zpgflCyj4qpnHqAqnEf4bL-J8_2-7vyeYsBoUFgSKXtS2rp2-S81R-qeJToqVoldy0&usqp=CAU",
 }
-  window.localStorage.setItem('newobj',JSON.stringify(obj))
-
-
+  window.localStorage.setItem('obj',JSON.stringify(obj))
 
 agoraStatesDiscussions.unshift(obj);
 ul.prepend(convertToDiscussion(obj))
