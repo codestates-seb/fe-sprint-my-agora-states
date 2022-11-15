@@ -107,12 +107,13 @@ const renderPagination = (totalPage, maxShowPage) => {
     for (let i = 0; i < maxShowPage; i++) {
       // for문은 항상 maxShowPage 만큼 돌아야한다.
       let startIdx = page - Math.floor(maxShowPage / 2);
-      if (page <= Math.floor(maxShowPage / 2)) {
+      if (startIdx <= 0) {
         startIdx = 1;
       }
       // 시작 idx에서 maxShowPage칸 이동한 경우가 totalPage보다 크다면
       // 그 격차만큼 더 적은 idx부터 페이지네이션을 시작해야한다.
       if (startIdx + maxShowPage - 1 > totalPage) {
+        // startIdx -= (startIdx + maxShowPage - 1 - totalPage);
         startIdx -= startIdx + maxShowPage - 1 - totalPage;
       }
       const $pageBtn = document.createElement("a");
