@@ -8,11 +8,13 @@ import {
 // console.log(agoraStatesDiscussions);
 
 let agoraStatesDiscussions = getAgoraStatesDiscussions();
+const DEFAULT_AVATOR_IMAGE = "./avator_default.png";
 
 const $ul = document.querySelector("ul.discussions__container");
 const $paginationNumbers = document.querySelector("#pagination-numbers");
 const $paginationContainer = document.querySelector("#pagination-container");
-const paginationLimit = 10;
+const ITEM_SHOW_LIMIT = 10;
+const PAGENATION_SHOW_LIMIT = 5;
 let pagenationCurrentNum = 1;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -31,7 +33,7 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
   //image
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = avatarUrl;
+  avatarImg.src = avatarUrl ? avatarUrl : DEFAULT_AVATOR_IMAGE;
   avatarImg.alt = "avatar of " + author;
   avatarWrapper.append(avatarImg);
 
@@ -75,7 +77,7 @@ $paginationNumbers.addEventListener("click", (event) => {
 // next / prev button 클릭
 $paginationContainer.addEventListener("click", (event) => {
   const $a = event.target.closest("a");
-  const pageCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit);
+  const pageCount = Math.ceil(agoraStatesDiscussions.length / ITEM_SHOW_LIMIT);
 
   if (!$a) {
     return;
@@ -101,7 +103,7 @@ $paginationContainer.addEventListener("click", (event) => {
 // 하단 pagenation 리스트 출력
 const renderPageNations = () => {
   removeAllchild($paginationNumbers);
-  const pageCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit);
+  const pageCount = Math.ceil(agoraStatesDiscussions.length / ITEM_SHOW_LIMIT);
 
   for (let i = 1; i <= pageCount; i++) {
     const $a = document.createElement("a");
