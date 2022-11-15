@@ -38,7 +38,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInfo);
 
   const discussionCheck = document.createElement("p");
-  discussionCheck.textContent = "☑"; // answer(null인 경우, 아닌 경우) 값에 따라 체크 표시 차이
+  discussionCheck.textContent = obj.answer ? "✔️" : "❌"; // answer(null인 경우, 아닌 경우) 값에 따라 체크 표시 차이
   discussionAnswered.append(discussionCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -46,9 +46,10 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = (ul) => {
+  // render 함수에 ul 넣어줄 거니까 매개변수로 넣어도 상관 없음(어차피 변수명은 마음대로)
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
@@ -67,7 +68,7 @@ const textbox = form.querySelector("div.form__textbox > textarea");
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // sumbit 할 떄 새로고침 기본동작을 막아줌
   const newDiscussion = {
-    id: "new id",
+    id: "new id", // 임의로 설정
     createdAt: new Date().toISOString(),
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
@@ -78,6 +79,10 @@ form.addEventListener("submit", (event) => {
   };
   agoraStatesDiscussions.unshift(newDiscussion);
   const discussion = convertToDiscussion(newDiscussion);
-
   ul.prepend(discussion);
+
+  // 데이터 초기화
+  author.value = "";
+  title.value = "";
+  textbox.value = "";
 });
