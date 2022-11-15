@@ -34,7 +34,7 @@ const convertToDiscussion = (obj) => {
   
   const contentInformation = document.createElement('div');
   contentInformation.className = 'discussion__information';
-  contentInformation.textContent = `${obj.createdAt.slice(0,4)}년 ${obj.createdAt.slice(5,7)}월 ${obj.createdAt.slice(8,10)}일`;
+  contentInformation.textContent = `${new Date(obj.createdAt).toLocaleString()}`;
   discussionContent.append(contentTitle, contentInformation, answered);
   
   // 답변
@@ -79,7 +79,7 @@ const convertToDiscussion = (obj) => {
     answercontentTitle.appendChild(answercontentTitleUrl);
     answerContent.append(answercontentTitle);
 
-    answercontentInformation.textContent = `${obj.answer.createdAt.slice(0,4)}년 ${obj.answer.createdAt.slice(5,7)}월 ${obj.answer.createdAt.slice(8,10)}일`;
+    answercontentInformation.textContent = `${new Date(obj.createdAt).toLocaleString()}`;
 
   }
   else{answerCheckbox.checked  = false;}
@@ -128,6 +128,30 @@ const convertToNotice = (obj) => {
   return li;
 }
 
+const form = document.querySelector(".form");
+const inputName = document.querySelector(".form__input--name > input");
+const inputTitle = document.querySelector(".form__input--title > input");
+const inputTextbox = document.querySelector(".form__textbox > textarea");
+
+form.addEventListener('submit', (event)=>{
+    event.preventDefault();
+    let data = {
+      id: "anonymous",
+      createdAt: new Date(),
+      title: inputTitle.value,
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+      author: inputName.value,
+      answer: null,
+      bodyHTML:
+        inputTextbox.value,
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/79880249?s=64&v=4"
+    }
+    console.log(data)
+    agoraStatesDiscussions.unshift(data);
+    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]))
+})
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -149,6 +173,23 @@ const notice_render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-const notice_ul = document.querySelector("ul.notice__container")
+const notice_ul = document.querySelector("ul.notice__container");
+const hide_button_container = document.querySelector(".form__button_container");
+const hide_button = document.querySelector(".form__button");
+const hide_form = document.querySelector(".form");
+
 render(ul);
 notice_render(notice_ul);
+
+hide_button.onclick = ()=>{
+  if(hide_form.classList.contains('hide')){
+    hide_form.classList.remove('hide');
+    hide_button.textContent = '숨기기 ⇩';
+  }   
+  else{
+    hide_form.classList.add('hide');
+    hide_button.textContent = '열기 ⇧';
+  } 
+
+}
+
