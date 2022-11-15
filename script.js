@@ -4,7 +4,7 @@ const { localStorage } = window;
 
 // localStorage 리셋 방지
 if (!localStorage.getItem('data')) {
-  localStorage.setItem(JSON.stringify(agoraStatesDiscussions));
+  localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
 }
 
 const form = document.querySelector('.form');
