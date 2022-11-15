@@ -1,5 +1,8 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 
+let currentPage = 1;
+
+// 시간 조정 함수
 const transTime = (obj) =>{
   let time = '';
   const tmp = obj.createdAt.slice(11);
@@ -14,8 +17,70 @@ const transTime = (obj) =>{
   obj.createdAt = time;
 }
 
-for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+for (let i = 0; i < agoraStatesDiscussions.length; i++) {
   transTime(agoraStatesDiscussions[i]);
+}
+
+//localStorage에 배열 값 담기
+const myStorage = window.localStorage;
+if(JSON.parse(myStorage.getItem('data')) === null) // 최초 한 번만 수행
+  myStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
+
+function renderPage(){
+	let totalPage = Math.ceil(JSON.parse(myStorage.getItem('data')).length / 10); // 전체 Page 개수
+	let pageList = document.querySelector('#pageList'); // ul#pageList
+	pageList.innerHTML = ''; // 태그 전체를 초기화 해야하기 때문에 innerHTML 사용
+
+  // 이전 버튼
+  const prev = document.createElement('li');
+  prev.className = 'pageLi';
+  prev.textContent = '<prev';
+  prev.addEventListener('click', () => {
+    if(currentPage > 1) {
+      document.querySelector(`.num${currentPage}`).classList.remove('selected');
+      currentPage--;
+      document.querySelector(`.num${currentPage}`).classList.add('selected');
+      ul.innerHTML = '';
+      render(ul, currentPage);
+    }
+  })
+  pageList.appendChild(prev);
+  
+  // 전체 페이지 개수만큼 목록 구현
+	for(let i = 1; i <= totalPage; i++){
+		const li = document.createElement('li')	;
+		li.className = 'pageLi';
+    li.classList.add(`num${i}`);
+		li.textContent = `${i}`
+		li.addEventListener('click', (e) => {
+      if(currentPage !== e.target.textContent){
+        // 이전에 선택된 페이지 선택 토글
+        document.querySelector(`.num${currentPage}`).classList.remove('selected');
+        currentPage = e.target.textContent;
+        // 이번에 선택된 페이지 선택 토글
+        document.querySelector(`.num${currentPage}`).classList.add('selected');
+        ul.innerHTML = '';
+        render(ul, currentPage);
+      }
+		})
+		pageList.appendChild(li);
+	}
+
+  // 다음 버튼
+  const next = document.createElement('li');
+  next.className = 'pageLi';
+  next.textContent = 'next>';
+  next.addEventListener('click', () => {
+    let totalPage = Math.ceil(JSON.parse(myStorage.getItem('data')).length / 10);
+    if(currentPage < totalPage) {
+      document.querySelector(`.num${currentPage}`).classList.remove('selected');
+      currentPage++;
+      document.querySelector(`.num${currentPage}`).classList.add('selected');
+      ul.innerHTML = '';
+      render(ul, currentPage);
+    }
+  })
+  pageList.appendChild(next);
 }
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -38,7 +103,7 @@ const convertToDiscussion = (obj) => {
 
   avatarWrapper.append(avatarImg);
 
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   const title_a = document.createElement('a');
   title.className = 'discussion__title';
   title_a.href = obj.url;
@@ -50,12 +115,12 @@ const convertToDiscussion = (obj) => {
   info.textContent = `${obj.author} ${obj.createdAt}`;
 
  discussionContent.append(title, info);
- 
+  
   const answered = document.createElement('div');
   const answered_p = document.createElement('p');
   answered.className = 'discussion__answered';
 
-  !obj.answer ? answered_p.textContent = '☑' : answered_p.textContent = 'x';
+  !obj.answer ? answered_p.textContent = '☑' : answered_p.textContent = '☒';
 
   answered.append(answered_p);
   discussionAnswered.append(answered);
@@ -65,29 +130,40 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+function render(element, currentPage){
+	let first = (currentPage - 1) * 10;
+	let last = currentPage * 10;
+	if(last > JSON.parse(myStorage.getItem('data')).length) last = JSON.parse(myStorage.getItem('data')).length;
+	
+	element.innerHTML = ''; // 요소 초기화 필수
+	for (let i = first; i < last; i++) {
+    		element.append(convertToDiscussion(JSON.parse(myStorage.getItem('data'))[i]));
   }
+
   return;
-};
+} 
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, currentPage);
+renderPage();
+document.querySelector(`.num${currentPage}`).classList.add('selected');
 
 // add Question
 const summit = document.querySelector('.form__submit > input');
 
 summit.addEventListener('click', (e)=>{
-    e.preventDefault();
-  }
-)
+  e.preventDefault();
 
-summit.addEventListener('click', ()=>{
   const name = document.querySelector('#name');
   const title = document.querySelector('#title');
   const stroy = document.querySelector('#story');
+
+  // 빈칸 경고문
+  if(title.value === '' || name.value === '' || stroy.value === ''){
+    alert('빈칸을 채우세요');
+    return;
+  }
 
   let time = '';
   const date = new Date();
@@ -98,7 +174,7 @@ summit.addEventListener('click', ()=>{
   (date.getSeconds() < 10) ? time += `0${date.getSeconds()}` : time += `${date.getSeconds()}`;
 
   const newQuestion = {
-    id: null,
+    id: '999',
     createdAt: time,
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
@@ -117,10 +193,15 @@ summit.addEventListener('click', ()=>{
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
 
-  agoraStatesDiscussions.unshift(newQuestion);
-  console.log(agoraStatesDiscussions)
-  
+  const tmp = JSON.parse(myStorage.getItem('data'));
+  tmp.unshift(newQuestion);
+
+  myStorage.clear();
+  myStorage.setItem('data', JSON.stringify(tmp));
+
   ul.innerHTML= '';
-  render(ul)
-  console.log('a')
+  currentPage = 1; // 새로운 질문이 올라올 시 페이지 강제 초기화
+  renderPage();
+  render(ul, currentPage);
+  document.querySelector(`.num${currentPage}`).classList.add('selected');
 })
