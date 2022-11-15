@@ -1,1 +1,218 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://cdn.pixabay.com/photo/2018/08/31/08/35/toys-3644073_1280.png);
+  background-size: cover;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(202, 216, 7, 0.246);
+  width: 500px;
+  height: 600px;
+  margin-right: 200px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  border-radius: 20px ;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+  width: 350px;
+}
+
+.form__input--wrapper #name {
+  height: 50px;
+  background-color: rgba( 255, 255, 255, 0.5 );
+  border: none;
+}
+
+.form__input--wrapper #title {
+  height: 50px;
+  background-color: rgba( 255, 255, 255, 0.5 );
+  border: none;
+}
+
+.form__input--wrapper #story {
+  min-height: 100px;
+  min-width: 350px;
+  max-height: 150px;
+  max-width: 350px;
+  overflow-y: auto;
+  background-color: rgba( 255, 255, 255, 0.5 );
+  border: none;
+}
+
+input {
+  font-size: 20px;
+  padding: 8px;
+  background-color: rgba(48, 198, 19, 0.633);
+}
+
+textarea {
+  font-size: 20px;
+  padding: 8px;
+}
+
+.form__input--wrapper #story::placeholder {
+  font-size: 20px;
+  color: rgba(6, 68, 32, 0.5);
+  padding: 8px;
+}
+
+
+#submit {
+  width: 350px;
+  height: 50px;
+  background-color: rgba( 255, 255, 255, 0.5 );
+  color: rgb(6, 68, 32);
+  font-size: 30px;
+  border: none
+}
+
+#submit:hover {
+  background-color: rgba(6, 68, 32, 0.2);
+  cursor: pointer;
+}
+
+#submit:active {
+  background-color: rgb(6, 68, 32);;
+  color: rgb(228, 239, 231);
+}
+
+.form__input--name {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 20px 0;
+}
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 20px 0;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 20px 0;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(6, 68, 32);
+}
+
+h1 {
+  color: orange;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px orange,
+    0 0 82px orange, 0 0 92px orange, 0 0 102px orange, 0 0 151px orange;
+  font-size: 3em;
+}
+
+
+.discussion__wrapper{
+  background-color: rgba(230, 205, 18, 0.305);
+  border-radius: 40px;
+}
+
+
+
+
+/* 질문등록칸 */
+
+ul.discussions__container {
+  height: 800px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  justify-content: space-between;
+  border-top: 20px solid rgb(72, 56, 56);
+  border-radius: 12px;
+  background-color:rgba(255, 255, 255, 0.05);
+  padding: 20px 100px 20px 100px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 10%;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  border-bottom: 5px solid rgb(66, 133, 91);
+}
+
+.discussion__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 30%;
+  padding: 20px;
+}
+
+
+.discussion__title {
+  margin-right: auto;
+  padding-bottom: 6px;
+}
+
+.discussion__information {
+  margin-left: auto;
+  padding-top: 10px;
+  color: rgb(84, 18, 18);
+}
+
+.discussion__avatar--image {
+  border-radius: 70%;
+  width: 48px
+}
+
+
+.answer__complete {
+  width: 20px;
+}
+
+.answer__notcomplete {
+  width: 20px;
+}
+
+a {
+  text-decoration-line: none;
+  color: rgb(15, 14, 14);
+  font-size: 20px;
+}
+
+a:active {
+  color: rgb(150, 126, 118);
+}
