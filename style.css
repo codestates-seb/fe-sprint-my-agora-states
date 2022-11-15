@@ -156,8 +156,6 @@ input, textarea {
     align-content: space-between;
     margin-bottom: 10px;
 }
-.form__input--name{
-}
 .form__input--wrapper {
     display: flex;
     flex-direction: column;

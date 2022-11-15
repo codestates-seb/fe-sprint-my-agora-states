@@ -226,5 +226,6 @@ form.addEventListener('submit', (event) => {
   listItems = document.querySelectorAll("li.discussion__big--container");
   setCurrentPage(1);
   myAvatar = makeAvatar();
+  
   document.querySelector('.form__avatar--image').src = myAvatar;
 });
