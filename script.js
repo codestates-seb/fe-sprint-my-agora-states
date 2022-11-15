@@ -196,6 +196,12 @@ const rowsCount = newDiscussions.length;
 
 const pageCount = Math.ceil(rowsCount / rowsPerPage);
 const pageSection = document.querySelector(".pageItems");
+// 화살표 추가
+const prePageBtn = document.querySelector(".fa-arrow-left");
+const nextPageBtn = document.querySelector(".fa-arrow-right");
+let pageActiveIdx = 0; // 현재 페이지 그룹
+let currentPageNum = 0; // 현재 보고 있는 페이지네이션 번호
+let maxPageNum = 5; // 페이지 그룹 내 페이지 최대 개수
 
 for (let i = 1; i < rowsCount / rowsPerPage + 1; i++) {
   const pageList = document.createElement("li");
@@ -218,6 +224,7 @@ numberBtn.forEach((item, idx) => {
   });
 });
 
+// 페이지 버튼 구현
 function display(idx) {
   // idx 0 -> slice(0, 5);   0에서 5까지 요소
   // idx 1 -> slice(1, 10);   1에서 10까지 요소
@@ -236,3 +243,53 @@ function display(idx) {
   }
 }
 display(0);
+
+// 페이지 버튼 그룹 구현
+// 숫자를 받아서 그룹을 보여줌
+// num = 0 -> slice(0,5)
+// num = 1 -> slice(0,10)
+function displayPage(num) {
+  // 페이지 번보 안보이게 처리
+  for (nu of numberBtn) {
+    nu.style.display = "none";
+  }
+  let totalPageCount = Math.ceil(pageCount / maxPageNum);
+  let pageArr = [...numberBtn];
+  let start = num * maxPageNum;
+  console.log(num);
+  console.log(maxPageNum);
+
+  let end = start + maxPageNum;
+  let pageListArr = pageArr.slice(start, end);
+
+  for (let item of pageListArr) {
+    item.style.display = "block";
+  }
+  if (pageActiveIdx === 0) {
+    prePageBtn.style.display = "none";
+  } else {
+    prePageBtn.style.display = "block";
+  }
+
+  if (pageActiveIdx === totalPageCount - 1) {
+    nextPageBtn.style.display = "none";
+  } else {
+    nextPageBtn.style.display = "block";
+  }
+}
+
+displayPage(0);
+
+nextPageBtn.addEventListener("click", () => {
+  let nextPageNum = pageActiveIdx * maxPageNum + maxPageNum;
+  display(nextPageNum);
+  ++pageActiveIdx;
+  displayPage(pageActiveIdx);
+});
+
+prePageBtn.addEventListener("click", () => {
+  let prePageNum = pageActiveIdx * maxPageNum - maxPageNum;
+  display(prePageNum);
+  --pageActiveIdx;
+  displayPage(pageActiveIdx);
+});

@@ -318,28 +318,27 @@ section.form__container {
 
 /* 페이징 */
 
+.pagination {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .pageItems {
-  bottom: 0;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
 }
 
 .pageItems li {
-  width: 60px;
-  height: 20px;
-  text-decoration: none;
-  margin: 15px;
-  text-align: center;
-  display: flex;
+  font-size: 28px;
 }
 
 .pageItems li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-decoration: none;
-  font-size: 18px;
   text-align: center;
   width: 34px;
   height: 37px;
@@ -348,26 +347,39 @@ section.form__container {
   border: none;
   border-radius: 5px;
   font-weight: 600;
+  margin: 0 20px;
+  padding-top: 3px;
 }
 .pageItems li a:hover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 28px;
   text-align: center;
   width: 34px;
   height: 37px;
   background-color: #f39c12;
   transition: opacity 0.5s ease 0s;
   opacity: 0.7;
-  border: none;
+
   border-radius: 5px;
   font-weight: 600;
+  margin: 0 20px;
+  padding-top: 5px;
 }
 
 .pageItems li a.active {
   width: 38px;
   height: 40px;
   background-color: #636e72;
+}
+
+.pagination i {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 25px;
+}
+
+.pagination i {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 25px;
 }
