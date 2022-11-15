@@ -1,1 +1,280 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('httpsㅎㄱ://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+}
+
+body {
+    height: 100vh;
+    border: 5px solid black;
+    display: flex;
+    background-color: #74655A;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+    padding: 30px 30px 15px 30px;
+    width: 500px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: white;
+    box-shadow: black 5px 5px;
+}
+
+
+
+
+
+
+/* section form */
+
+h1 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    font-size: 1.5rem;
+
+}
+
+.bl {
+    margin: 20px 0px;
+    border: 1px solid black;
+    text-align: center;
+    width: 500px;
+}
+
+.form__input--name {
+    display: flex;
+    padding: 4px 30px;
+    height: 2.5rem;
+}
+
+.form__input--title {
+    display: flex;
+    padding: 4px 30px;
+    height: 2.5rem;
+}
+
+.form__textbox {
+    display: flex;
+    padding: 4px 30px;
+}
+
+label {
+    flex: 0 0 100px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#name {
+    flex-grow: 1;
+    padding: 10px 5px;
+}
+
+#story {
+    flex-grow: 1;
+    padding: 5px 5px;
+}
+
+.form__submit {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 30px;
+}
+
+.submit {
+    align-items: right;
+    width: 340px;
+    height: 25px;
+    border-radius: 2px;
+    background-color: lightgray;
+    border: 1px solid gray;
+    color: gray;
+    padding: 4px 30px;
+    margin: 4px 0px;
+    box-shadow: 0 0 0 18px transparent;
+}
+
+.submit:hover {
+    background-color: rgb(67, 61, 42);
+    color: rgb(218, 218, 218);
+    box-shadow: 0 0 0 18px transparent;
+    animation: pulse 1s;
+}
+
+.submit:active {
+    background-color: rgb(40, 38, 31);
+    color: rgb(218, 218, 218);
+    box-shadow: 0 0 0 18px transparent;
+    animation: pulse 1s;
+}
+
+
+
+
+
+
+
+
+/* section textbox */
+
+li {
+    list-style:none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+  }
+
+.discussion__wrapper {
+    width: auto;
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+    height: 500px ;
+    overflow: auto;
+}
+
+.discussions__container {
+    margin: 0;
+    padding: 0;
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+
+h2 {
+    margin: 0px 0px 4px 0px;
+    padding: 0;
+}
+
+.discussion__avatar--wrapper {
+    border-radius: 100%;
+    width: 48px;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    border-radius: 100%;
+    width: 48px;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.discussion__avatar--image {
+    border-radius: 100%;
+    width: 48px;    
+}
+
+.discussion__content {
+    flex-grow: 10;
+    margin: 12px;
+    padding: 10px 10px;
+    vertical-align: middle;
+    
+}
+
+.discussion__answered { 
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+textarea {
+    max-height: 450px;
+}
+
+
+
+
+
+
+/* 페이지 네이션 */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 9rem;
+}
+
+.pagination-number,
+.pagination-button {
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 0.2rem;
+}
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+    background: #fff;
+}
+
+.pagination-number.active{
+    color: #fff;
+    background: #0085b6;
+}
+
+
+#page-button-wrapper {
+    text-align: center;
+    bottom: 0px;
+}
+
+.page-button {
+    width: 15px;
+    height: 15px;
+    margin: 15px 5px 0px 5px;
+    background: #fff;
+    border: white;
+}
+
+.page-button:hover {
+    background-color: #74655A;
+    border-radius: 50%;
+    color:#fff
+}
