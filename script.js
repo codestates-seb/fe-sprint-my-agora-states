@@ -1,4 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+
+const localDiscuss=[];
+
+if(localStorage.getItem('discuss')) {
+  const tempArray=JSON.parse(localStorage.getItem('discuss'));
+  agoraStatesDiscussions.unshift(...tempArray);
+  localDiscuss.unshift(...tempArray);
+}
 console.log(agoraStatesDiscussions);
 
 const pagination = document.querySelector(".pagination");
@@ -133,6 +141,10 @@ form.addEventListener('submit', function () {
 
   newObj.avatarUrl = "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
   newObj.createdAt = tempTime.toISOString();
+  
+  
+  localDiscuss.unshift(newObj);
+  localStorage.setItem('discuss',JSON.stringify(localDiscuss));
 
   agoraStatesDiscussions.unshift(newObj);
 
@@ -174,4 +186,10 @@ openFormBtn.addEventListener('click', function () {
 //질문 닫기
 closeFormBtn.addEventListener('click', function () {
   formContainer.classList.add("hide");
+})
+
+const clearBtn=document.querySelector("#localClearBtn");
+clearBtn.addEventListener('click',function(){
+  localStorage.clear();
+  location.reload()
 })
