@@ -41,6 +41,7 @@ label{
     border: 2px solid rgb(215, 215, 215);
     padding: 4px 10px;
     margin-left: 14px;
+    font-size: 1rem;
 }
 
 .form__input--wrapper {
@@ -78,7 +79,7 @@ label{
     width: 540px;
     height: 43px;
     border-radius: 10px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
     color: white;
     text-shadow: 0px 0px 5px rgb(104, 124, 180, 0.5);
@@ -158,6 +159,7 @@ section.discussion__wrapper{
     text-align: right;
     margin-right: 33px;
     color: rgb(132, 153, 210);
+    font-size: 0.9rem;
 }
 
 a:link {
@@ -174,4 +176,34 @@ a:visited {
     font-size: 2rem;
     color: rgb(170, 170, 170);
     margin-right: 15px;
+}
+
+body .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 50px 20px;
+}
+
+.buttons > button:nth-child(2n){
+    width: 80px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 1.4rem;
+    color: white;
+    text-shadow: 0px 0px 5px rgb(104, 124, 180, 0.5);
+    background-color: rgb(149, 170, 228);
+    border: 2px solid rgb(205, 211, 228);
+    font-family: 'Nanum Gothic Coding', monospace;
+    padding: 0px 15px 0px 15px;
+}
+
+.buttons button{
+    font-size: 1.8rem;
+    background: none;
+    border-style: none;
+    color: rgb(149, 170, 228);
+    font-family: 'Dosis', sans-serif;
+    padding: 0px 15px 0px 15px;
 }
