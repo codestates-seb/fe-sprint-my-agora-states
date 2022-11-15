@@ -35,7 +35,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString("ko-KR")}`;
 
   discussionTitle.append(discussionLink);
   discussionContent.append(discussionTitle, discussionInfo);
@@ -93,4 +93,84 @@ submitBtn.addEventListener('click', (e) => {
   nameInput.value = '';
   titleInput.value = '';
   questionInput.value = '';
+  renderPage(1);
 });
+
+
+//페이지 네이션 구현
+const contents = document.querySelector(".contents");
+const pageBtn = document.createElement('div');
+// const pageBtn = document.querySelector(".pageBtn");
+
+const preBtn = document.createElement('button'); //이전버튼
+const nextBtn = document.createElement('button'); //다음버튼
+
+let numOfContents = agoraStatesDiscussions.length;
+const showContent = 10;
+const showButton = 5;
+const maxPage = Math.ceil(numOfContents / 10);
+let currentPage = 1;
+
+const makeBtn = (num) => {  //페이지버튼 생성 함수
+  let pageNumBtn = document.createElement('button');
+  pageNumBtn.className = 'pageBtn';
+  pageNumBtn.textContent = num;
+  return pageNumBtn;
+}
+
+for (i = 1; i <= maxPage; i++) {
+  pageBtn.append(makeBtn(i));
+}
+
+
+preBtn.textContent = '<'
+nextBtn.textContent = '>'
+
+const pageNation = document.createElement('div');
+pageNation.className = 'page';
+
+const secSection = document.querySelector('.discussion__wrapper');
+
+secSection.append(pageNation);
+pageNation.append(preBtn, pageBtn, nextBtn);
+
+// 한 페이지에 10개씩 출력하는 함수
+const renderPage = (currentPage) => {
+  while (ul.hasChildNodes()) {
+    ul.removeChild(ul.lastChild)
+  }
+  for (let num = (currentPage - 1) * showContent + 1; num <= currentPage * showContent && num <= numOfContents; num++) {
+    ul.append(convertToDiscussion(agoraStatesDiscussions[num - 1]));
+  }
+}
+
+
+
+renderPage(currentPage);
+
+
+//버튼 클릭 이벤트
+pageBtn.addEventListener('click', (e) => {
+  currentPage = Number(e.target.textContent);
+  renderPage(currentPage);
+})
+
+preBtn.addEventListener('click', () => {
+  if (currentPage === 1) {
+    alert('첫 페이지입니다.')
+  }
+  else {
+    currentPage = currentPage - 1
+    renderPage(currentPage);
+  }
+})
+
+nextBtn.addEventListener('click', () => {
+  if (currentPage === maxPage) {
+    alert('마지막 페이지입니다.')
+  }
+  else {
+    currentPage = currentPage + 1
+    renderPage(currentPage);
+  }
+})

@@ -1,9 +1,25 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Gowun Dodum', sans-serif;
+    font-family: 'NanumSquareNeo-Variable';
+}
+
+h1 {
+    margin: 10px;
+}
+
+p {
+    font-size: 20px;
 }
 
 ul {
@@ -12,7 +28,13 @@ ul {
 
 a {
     text-decoration: none;
+    color: #153462;
+}
 
+
+.discussion__title {
+    font-size: 15px;
+    padding-top: 5px;
 }
 
 img {
@@ -27,6 +49,9 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: #153462;
+    /* background-image: url('https://cdn.pixabay.com/photo/2015/12/01/15/43/black-1072366_960_720.jpg'); */
+    /* background-size: auto */
 }
 
 
@@ -44,21 +69,24 @@ li {
     flex-direction: row;
     justify-content: space-between;
     margin: 30px;
-    border: 1px solid;
-    border-radius: 10px;
+    border: 3px solid white;
+    border-radius: 13px;
+    
+    background-color: #F6F6C9;
 }
 
 .discussion__information {
     text-align: right;
+    padding-bottom: 5px;
 }
 
 .discussion__content {
     flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.discussion__information {
-    margin-top: 10px;
-}
 
 .discussion__answered {
     display: flex;
@@ -68,9 +96,78 @@ li {
 
 .discussions__container {
     width: 540px;
+    color: #153462;
 }
 
 .discussion__avatar--wrapper {
     display: flex;
     align-items: center;
+}
+
+input[type=text] {
+    outline: none;
+    border: none;
+    width: 480px;
+    height: 30px;
+    text-indent: 5px;
+}
+
+#name {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom: 1px solid lightgray;
+    
+    
+}
+
+textarea {
+    outline: none;
+    resize: none;
+    width: 480px;
+    height: 50px;
+    border: none;
+    border-top: 1px solid lightgray;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    text-indent: 5px;
+    padding-top: 10px;
+}
+
+.form__submit > input {
+    background-color: #BAD1C2;
+    width: 480px;
+    height: 40px;
+    border: none;
+    border-radius: 13px;
+}
+
+.form__submit > input:hover {
+    background-color: #4FA095;
+}
+
+.form__submit > input:active {
+    background-color: #32615b;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.page button {
+    font-size: 20px;
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: #BAD1C2;
+    border: none;
+    border-radius: 5px;
+}
+
+.page button:hover {
+    background-color: #4FA095;
+}
+
+.page button:active {
+    background-color: #32615b;
 }
