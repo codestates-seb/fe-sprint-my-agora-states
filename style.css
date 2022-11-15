@@ -122,7 +122,7 @@ li {
   justify-content: center;
 }
 .discussions__container li:hover{
-  background-color: #ccb0ff11;;
+  background-color: #86ddec28;;
 }
 .discussion__avatar--wrapper{
   flex-direction: row;
@@ -147,6 +147,9 @@ li {
   display: inline-block;
   width: 48px;
   text-align: center;
+}
+.discussion__answered > p {
+  font-weight: bold;
 }
 .discussion__avatar--image{
   border-radius: 50%;

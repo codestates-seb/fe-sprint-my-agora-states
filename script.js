@@ -52,6 +52,12 @@ const convertToDiscussion = (obj) => {
   
   const discussionAnsweredP =  document.createElement("p");
   discussionAnsweredP.textContent = obj.answer ? "☑︎" : "☒";
+  if(discussionAnsweredP.textContent ===  "☒"){
+    discussionAnsweredP.style.color = "red";
+  }else{
+    discussionAnsweredP.style.color = "darkgreen";
+  }
+
   discussionAnswered.append(discussionAnsweredP);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
