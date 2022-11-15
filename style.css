@@ -132,7 +132,7 @@ li {
   flex-direction: row;
   display: inline-block;
   width: 430px;
-  margin: 5px 5px 5px 10px;
+  margin: 10px 5px;
 }
 .discussion__title a{
   color: rgb(22, 22, 22);
