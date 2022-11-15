@@ -22,6 +22,21 @@ const convertToDiscussion = (obj) => {
 
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+  
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  discussionContent.append(discussionTitle);
+  
+  const discussionTitleURL = document.createElement("a");
+  discussionTitleURL.href = obj.url;
+  discussionTitleURL.textContent = obj.title;
+  discussionTitle.append(discussionTitleURL);
+
+  const discussionInformation = document.createElement("div");
+  discussionInformation.textContent = obj.author+" "+obj.createdAt;
+  discussionContent.append(discussionInformation);
+
+
 
 
 
