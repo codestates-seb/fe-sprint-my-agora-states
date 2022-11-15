@@ -154,6 +154,9 @@ li {
   justify-content: center;
   height: 50px;
   margin-top: 30px;
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
 }
 
 #pagination > button {
@@ -163,13 +166,17 @@ li {
   width: 20px;
   height: 20px;
   background-color: transparent;
-  color: #000066;
+  color: #c0c0c0;
   font-family: 'NEXON Lv1 Gothic OTF';
   font-size: 14px;
 }
 
 #pagination > button:hover {
-  text-decoration: underline;
+  color: #000;
+}
+
+#pagination > button.active {
+  color: #000;
 }
 
 .hide {
