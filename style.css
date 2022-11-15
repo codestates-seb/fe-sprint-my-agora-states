@@ -1,1 +1,119 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    font-family: 나눔손글씨;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: beige;
+    width: 30rem;
+    margin: auto;
+    border-radius: 3rem;
+}
+.title {
+    margin: 1.3rem;
+    font-size: 3rem;
+}
+.form {
+    display: flex;
+    align-items: center;
+}
+.form__input--wrapper,
+.form__input--title,
+.form__textbox {
+    border-radius: 3rem;
+    font-size: 1.4rem;
+    margin:0.3rem;
+}
+#name{
+    margin: 0.3rem;
+}
+.form__input--name,
+.form__input--title{
+height: 1.9rem;
+}
+.form__input--name input,
+.form__input--title input{
+height: 1.3rem;
+padding: 0.3rem;
+}
+.form__container{
+    margin: 0;
+}
+#story {
+    display: block;
+    width: 18rem;
+    border-radius: 2rem;
+    border: 1px solid rgb(243, 243, 134);
+    padding: 0.4rem;
+    margin-top: 0.3rem;
+}
+.form input{
+    border-radius: 2rem;
+    border: 1px solid rgb(243, 243, 134);
+}
+.form__submit .submitTxt {
+    font-family: 나눔손글씨;
+    font-size: 1.4rem;
+}
+.submitBtn {
+    border-radius: 1rem;
+    background: none;
+    margin-right: 1rem;
+    width: 5.5rem;
+    height: 7rem;
+    cursor: pointer;
+}
+.submitBtn:hover {
+    transform: scale(1.1);
+}
+
+.discussion__wrapper{
+    position: relative;
+    width: 27rem;
+}
+.discussion__wrapper .discussions__container{
+    padding: 0;
+    border-radius: 2rem;
+    background: white;
+}
+.discussion__avatar--image{
+    border-radius: 2rem;
+}
+.discussion__wrapper .discussions__container li{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    border-bottom:1px solid rgb(214, 214, 37);
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    padding-top: 0.6rem;
+}
+.discussion__avatar--wrapper{
+    flex: 1 1 auto;
+    width: 3rem;
+    margin-right: 1rem;
+}
+.discussion__avatar--image{
+    width: 4em;
+}
+.discussion__content{
+    flex: 4 1 auto;
+
+}
+.discussion__answered{
+    flex: 1 1 auto;
+}
+.discussion__avatar--image,
+.discussion__answered ,
+.discussion__title,
+.discussion__information{
+    margin: 0.5rem;
+}
+@font-face {
+    src:url(/나눔손글씨-수줍은-대학생.woff);
+    font-family: 나눔손글씨;
+}
+
