@@ -1,25 +1,3 @@
-// 랜덤 아바타
-const avatars = [
-  { avatarUrl: "./assets/img/avatar/1.png" },
-  { avatarUrl: "./assets/img/avatar/2.png" },
-  { avatarUrl: "./assets/img/avatar/3.png" },
-  { avatarUrl: "./assets/img/avatar/4.png" },
-  { avatarUrl: "./assets/img/avatar/5.png" },
-  { avatarUrl: "./assets/img/avatar/6.png" },
-  { avatarUrl: "./assets/img/avatar/7.png" },
-  { avatarUrl: "./assets/img/avatar/8.png" },
-  { avatarUrl: "./assets/img/avatar/9.png" },
-  { avatarUrl: "./assets/img/avatar/10.png" },
-  { avatarUrl: "./assets/img/avatar/11.png" },
-  { avatarUrl: "./assets/img/avatar/12.png" },
-  { avatarUrl: "./assets/img/avatar/13.png" },
-  { avatarUrl: "./assets/img/avatar/14.png" },
-  { avatarUrl: "./assets/img/avatar/15.png" },
-  { avatarUrl: "./assets/img/avatar/16.png" },
-];
-// 아바타 배열 중 하나를 랜덤으로 선택
-const randomAvatar = avatars[Number.parseInt(Math.random() * avatars.length)];
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const mainli = document.createElement("li");
@@ -45,11 +23,7 @@ const convertToDiscussion = (obj) => {
 
     const avatarImg = document.createElement("img");
     avatarImg.className = "discussion__avatar--image";
-    // form으로 새로 생성하는 요소면 랜덤 아바타 그려주기
-    // if (data.avatarUrl === "") {
-    //   avatarImg.style.backgroundImage = `url(${randomAvatar.avatarUrl})`;
-    //   avatarImg.style.backgroundRepeat = "no-repeat";
-    // } else avatarImg.src = data.avatarUrl;
+    avatarImg.src = data.avatarUrl;
     avatarImg.src = data.avatarUrl;
     avatarImg.alt = "avatar of " + data.author;
     avatarWrapper.append(avatarImg);
@@ -129,6 +103,28 @@ function handleDiscussionSubmit(event) {
   const title = document.querySelector("#title");
   const questionBody = document.querySelector("#story");
 
+  // 랜덤 아바타
+  const avatars = [
+    { avatarUrl: "./assets/img/avatar/1.png" },
+    { avatarUrl: "./assets/img/avatar/2.png" },
+    { avatarUrl: "./assets/img/avatar/3.png" },
+    { avatarUrl: "./assets/img/avatar/4.png" },
+    { avatarUrl: "./assets/img/avatar/5.png" },
+    { avatarUrl: "./assets/img/avatar/6.png" },
+    { avatarUrl: "./assets/img/avatar/7.png" },
+    { avatarUrl: "./assets/img/avatar/8.png" },
+    { avatarUrl: "./assets/img/avatar/9.png" },
+    { avatarUrl: "./assets/img/avatar/10.png" },
+    { avatarUrl: "./assets/img/avatar/11.png" },
+    { avatarUrl: "./assets/img/avatar/12.png" },
+    { avatarUrl: "./assets/img/avatar/13.png" },
+    { avatarUrl: "./assets/img/avatar/14.png" },
+    { avatarUrl: "./assets/img/avatar/15.png" },
+    { avatarUrl: "./assets/img/avatar/16.png" },
+  ];
+  // 아바타 배열 중 하나를 랜덤으로 선택
+  const randomAvatar = avatars[Number.parseInt(Math.random() * avatars.length)];
+
   let newObj = {
     id: "",
     createdAt: new Date().toISOString(),
@@ -137,8 +133,7 @@ function handleDiscussionSubmit(event) {
     author: author.value,
     answer: null,
     bodyHTML: `<p>${questionBody.value}</p>`,
-    // avatarUrl: "",
-    avatarUrl: "https://via.placeholder.com/48",
+    avatarUrl: randomAvatar.avatarUrl,
   };
 
   author.value = "";
@@ -155,7 +150,6 @@ $form.addEventListener("submit", handleDiscussionSubmit);
 
 const savedDiscussion = localStorage.getItem(LOCAL_STORAGE_KEY); // string value 값
 
-// 현재 작동 안하는 코드
 if (savedDiscussion !== null) {
   const parsedDiscussions = JSON.parse(savedDiscussion); // [{…}, {…}, {…}]
   newDiscussionArr = parsedDiscussions; // 새로 고침하면 배열이 빈 배열이 되기 때문에 local storage에 있는 값을 배열에 넣어주는 과정
