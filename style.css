@@ -1,1 +1,230 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --main-yellow: rgb(251, 211, 46);
+  --main-charcoal: rgb(43, 41, 74);
+  --main-navy: rgb(25, 24, 46);
+}
+
+.hide {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(57, 54, 97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-navy);
+  width: 450px;
+  border-radius: 20px;
+}
+
+header {
+  color: white;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+li {
+  list-style: none;
+}
+
+.form__container {
+  background-color: var(--main-yellow);
+  border-radius: 11px;
+  width: 420px;
+  height: 170px;
+  margin-top: 16px;
+}
+
+label {
+  font-size: 25px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.square {
+  background-color: var(--main-navy);
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 15px;
+  transform: rotate(45deg);
+  top: 153px;
+  left: 340px;
+}
+
+#name,
+#title,
+#story,
+#submit {
+  position: absolute;
+}
+
+.author-image {
+  width: 48px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+#name {
+  width: 150px;
+  height: 30px;
+  font-size: 15px;
+  top: 25px;
+  left: 80px;
+  border: none;
+  background-color: rgb(251, 211, 46);
+  outline: none;
+}
+
+#title {
+  width: 150px;
+  height: 30px;
+  font-size: 15px;
+  top: 100px;
+  left: 20px;
+  border: none;
+  background-color: rgb(251, 211, 46);
+  outline: none;
+}
+
+#story {
+  width: 200px;
+  height: 30px;
+  font-size: 15px;
+  top: 130px;
+  left: 20px;
+  border: none;
+  outline: none;
+  background-color: rgb(251, 211, 46);
+  resize: none;
+}
+
+textarea::placeholder {
+  color: var(--main-charcoal);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+textarea:focus::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+input::placeholder {
+  color: rgba(43, 41, 74, 0.7);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 550;
+}
+input:focus::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+#submit {
+  left: 350px;
+  top: 90px;
+  background-color: var(--main-charcoal);
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+}
+
+#submit:focus {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--main-charcoal);
+}
+
+.discussions__container {
+  margin-top: 40px;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.discussion__container {
+  display: flex;
+  align-items: center;
+  background-color: var(--main-charcoal);
+  margin-bottom: 50px;
+  border-radius: 11px;
+  height: 130px;
+  position: relative;
+  width: 390px;
+}
+
+.discussion__information {
+  position: absolute;
+  top: 35px;
+  font-size: 13px;
+  left: 15px;
+  color: rgb(86, 82, 139);
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+  align-items: center;
+  margin-right: 15px;
+  position: absolute;
+  top: 15px;
+  left: -20px;
+}
+
+.discussion__content {
+  width: 450px;
+  position: relative;
+}
+
+.discussion__title {
+  margin-bottom: 5px;
+  position: absolute;
+  top: -45px;
+  left: 40px;
+  width: 320px;
+  font-size: 10px;
+}
+
+.discussion__answered {
+  font-size: 25px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  color: rgba(255, 255, 255);
+}
+
+.hide {
+  display: none;
+}
