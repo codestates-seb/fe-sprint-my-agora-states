@@ -1,1 +1,324 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Secular+One&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.3em;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width:100vw;
+    height:100vh;
+    background-image:linear-gradient(to top,#457b9d 33vh, #a8dadc 33vh, #a8dadc 66vh, white 66vh);
+}
+
+main {
+    flex-basis:600px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 5px 10px -5px #1d3557;
+    padding:0px 10px;
+    height:95vh;
+    border-radius: 15px;
+    border:2px solid #1d3557;
+}
+
+header {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    width:95%;
+    padding:20px;
+    align-items: center;
+
+}
+
+header h1 {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color:#1d3557;
+    flex-grow: 1;
+    flex-basis: 45%;
+    line-height: 1.2em;
+    font-family: 'Secular One', sans-serif;
+}
+
+#open_form {
+    border-radius: 30px;
+    flex-basis: 45%;
+    flex-grow: 1;
+    display: block;
+    background-color: #e63946;
+    border:none;
+    padding:15px 10px;
+    color:white;
+    transition: 0.1s;
+}
+
+#open_form:hover {
+    cursor:pointer;
+    transition: 0.1s;
+    transform:scale(1.1);
+    background-color: #f3525f;
+}
+
+.form__container {
+    position: absolute;
+    overflow: hidden;
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(3px);
+}
+
+.form__inner__container {
+    display: flex;
+    flex-basis:800px;
+    flex-shrink: 100px;
+    padding:10px;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid #1d3557;
+    border-radius: 10px;
+}
+
+.form__header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+
+.form__header h2 {
+    color:#1d3557;
+    font-size: 24px;
+    font-weight: 700;
+    flex-grow: 1;
+    flex-basis: 50%;
+}
+
+#close_form {
+    text-align: right;
+    font-size: 28px;
+    border: none;
+    background-color: rgba(255,255,255,0);
+    color:#e63946;
+    transition: 0.1s;
+}
+
+#close_form:hover {
+    cursor: pointer;
+    transition: 0.1s;
+    transform: scale(1.3);
+    color: #f3525f;
+}
+
+.form__inner__container form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    padding:5px;
+    font-size: 12px;
+}
+
+#name,#title,#story{
+    padding:10px;
+    width: 100%;
+    border: none;
+    flex-grow: 1;
+    border-bottom: 1px solid #1d3557;
+}
+
+#story {
+    height: 50vh;
+}
+
+.form__submit input {
+    margin-top:5px;
+    padding:10px;
+    width: 100%;
+    border: none;
+    background-color:#e63946;
+    color:white;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+
+.form__submit input:hover {
+    cursor: pointer;
+    transition: 0.1s;
+    background-color: #f3525f;
+
+}
+
+.discussion__wrapper {
+    width:100%;
+    padding:5px;
+    overflow:auto;
+    flex-grow:11;
+    flex-basis: 500px;
+    border-top: 2px solid #1d3557;
+    border-bottom: 2px solid #1d3557;
+}
+.discussion__wrapper::-webkit-scrollbar {
+    width:8px;
+}
+.discussion__wrapper::-webkit-scrollbar-thumb {
+    background-color: #1d3557;
+    border:2px solid white;
+    border-radius: 5px;
+}
+.discussion__wrapper::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+.discussions__container {
+    flex-direction: column;
+    display: flex;
+    list-style-type: none;
+    /* width: 540px; */
+    align-items: right;
+    justify-content: center;
+}
+
+
+.discussion__container {
+    padding:0 10px 10px 10px;
+    margin:10px;
+    background-color: white;
+    border: 2px solid #1d3557;
+    border-radius: 10px;
+}
+
+.infoBox {
+    padding:10px;
+    display: flex;
+    align-items: center;
+}
+
+.discussion__information div:last-child {
+    font-size: 12px;
+    color:#457b9d;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__information {
+    padding-left: 10px;
+    flex-grow: 10;
+}
+
+.iconBlock {
+    text-align: center;
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.fa-circle-check {
+    color:green;
+    font-size: 20px;
+}
+.fa-spinner {
+    color:#457b9d;
+    font-size: 20px;
+}
+
+.discussion__content {
+    display: block;
+    border-radius: 5px;
+    background-color: #457b9d;
+    padding:10px;
+}
+
+a {
+    font-size: 14px;
+    text-decoration: none;
+    color:white;
+}
+
+.pagination {
+    display: flex;
+    flex-basis: 2vh;
+    flex-grow: 1;
+    justify-content: center;
+    align-items:  center;
+    margin:10px;
+}
+
+.pagination button {
+    padding:8px 15px;
+    border: 1px solid #1d3557;
+    color:#1d3557;
+    border-right: none;
+    font-size: 15px;
+    background-color: white;
+    transition: 0.1s;
+}
+
+.pagination button:first-child {
+    border-radius: 15px 0 0 15px;
+}
+
+.pagination button:last-child{
+    border-radius: 0 15px 15px 0;
+    border-right: 1px solid #1d3557;
+
+}
+
+.pagination button:hover {
+    transition: 0.1s;
+    color:white;
+    background-color: #457b9d;
+    cursor: pointer;
+}
+
+
+.hide {
+    
+    display: none;
+}
+
