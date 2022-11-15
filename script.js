@@ -108,6 +108,7 @@ const renderPageNations = () => {
     $a.href = "#";
     $a.textContent = i;
     $a.id = i;
+    $a.className = pagenationCurrentNum === i ? "active" : "";
     $paginationNumbers.append($a);
   }
 };
@@ -131,7 +132,7 @@ const render = (element, pageNum = 1) => {
 // $ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 render($ul);
 
-//디스커션 추가 기능
+//form submit 기능, Discussions 배열에 요소 추가 후 재출력
 const formSubmitButton = document.querySelector(".form__submit > input");
 formSubmitButton.addEventListener("click", (event) => {
   const { name, title, story } = event.target.form;
