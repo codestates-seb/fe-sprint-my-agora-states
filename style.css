@@ -1,1 +1,74 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   
+}
+
+main {
+    display: flex;
+    flex-direction: column; /*기준점 바꾸기 */
+    align-items: center;
+    justify-content: center;
+}
+
+li.discussion__container {
+    display: flex;
+    flex-direction: row;
+    width: 540px;
+    height: 80px;
+    justify-content: space-between;
+}
+
+.discyssion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.discussion__avatar--image{
+    border-radius: 50%;
+    width: 60px;
+}
+
+.discussion__content {
+    padding: 10px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.discussion__imformation {
+    text-align: right;
+}
+
+.discussion__answered {
+    display: flex; /* 직계자식들에게 영향줌*/
+    flex-grow: 1;
+    /*flex-direction에 따라 바뀜 */
+    justify-content: center; /*기준점 x축 */
+    align-items: center; /*기준점 y축 */
+    font-size: 24px;
+}
+
+a {
+    font-size: 10px;
+}
+
+body {
+    background-color: antiquewhite;
+
+}
+
+
+section.form__container {
+ background-image: url("christmas-gbc9a3aec0_1920.jpg");
+ height: 30vh;
+ width: 100vw;
+ justify-content: center; /*기준점 x축 */
+    align-items: center;
+
+}
