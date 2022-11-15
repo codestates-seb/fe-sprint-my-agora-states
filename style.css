@@ -33,7 +33,7 @@ a {
 }
 
 .discussion__container {
-  width: 650px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,7 +96,6 @@ a {
   align-items: center;
   width: 100px;
   height: 200px;
-  /* padding-bottom: 10px; */
 }
 
 .form__input--wrapper {
@@ -187,10 +186,4 @@ section.buttons > button {
 
 section.buttons > button:hover {
   background-color: seashell;
-}
-
-@media (max-width: 600px) {
-  .discussion__container {
-    width: 80%;
-  }
 }
