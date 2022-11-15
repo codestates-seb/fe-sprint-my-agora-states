@@ -23,11 +23,23 @@ main {
 ul {
     list-style: none;
 }
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .answer {
     display: flex;
     flex-direction: row;
+    padding: 0 0 0 60px;
 }
-.answer__avartar--image,.discussion__avatar--image {
+.answer__avartar--wrapper{
+    display: flex;
+    align-items: center;
+    padding: 0px 15px 0px 0px;
+}
+.answer__avartar--image,
+.discussion__avatar--image {
     width: 48px;
     border-radius: 70%;
     overflow: hidden;
@@ -36,13 +48,14 @@ ul {
     position: relative;
     top: 30%; left: 100%;
 }
-.discussion__avatar--wrapper {
+.discussion__avatar--wrapper{
     display: flex;
     align-items: center;
     padding: 0px 15px 0px 0px;
 }
-.answer__wrapper {
-    padding: 1% 1% 1% 50px;
+.answer__content {
+    position: relative;
+    left: 1%;
 }
 .hide {
     display: none;
@@ -56,3 +69,32 @@ ul {
 .page__button {
     margin: 0 1% 0 1%;
 }
+.pagination__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+  }
+   
+  .pagination__number,
+  .pagination__button{
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+  }
+   
+  .pagination__number:hover,
+  .pagination__button:not(.disabled):hover {
+    background: #fff;
+  }
+   
+  .pagination__number.active {
+    color: #fff;
+    background: #0085b6;
+  }

@@ -15,6 +15,7 @@ const convertToDiscussion = (obj) => {
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const avatarImage = document.createElement('img');
   avatarImage.className = 'discussion__avatar--image'
+  avatarImage.alt = `avatar of ${obj.author}`
   const title = document.createElement('h2');
   title.className = 'discussion__title'
   const information = document.createElement('div');
@@ -25,7 +26,7 @@ const convertToDiscussion = (obj) => {
 
   avatarImage.setAttribute('src', obj.avatarUrl);
   url.textContent = obj.title;
-  information.textContent = `${obj.author} / ${makeCreateTime(obj.createdAt)}`;
+  information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   url.setAttribute('href', obj.url);
   checkbox.textContent = '□';
 
@@ -44,6 +45,8 @@ const convertToDiscussion = (obj) => {
     const answer = document.createElement('li'); // 첫번째 답변 
     answer.className = 'answer';
 
+    const ansAvartarWrapper = document.createElement('div');
+    ansAvartarWrapper.className = 'answer__avatar--wrapper';
     const ansAvartarImg = document.createElement('img');
     ansAvartarImg.className = 'answer__avartar--image'
 
@@ -59,12 +62,13 @@ const convertToDiscussion = (obj) => {
     checkbox.textContent = '☑';
     url.href = obj.answer.url;
     ansAvartarImg.src = obj.answer.avatarUrl;
-    ansInformation.textContent = `${obj.answer.author} / ${makeCreateTime(obj.answer.createdAt)}`
+    ansInformation.textContent = `${obj.answer.author} / ${new Date(obj.answer.createdAt).toLocaleString()}`
     
 
     li.append(ansWrapper);
     ansWrapper.append(answer);
-    answer.append(ansAvartarImg, ansContent);
+    answer.append(ansAvartarWrapper, ansContent);
+    ansAvartarWrapper.append(ansAvartarImg);
     ansContent.append(ansTitle,ansInformation);
     ansTitle.append(url);
 
@@ -74,185 +78,119 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-let year, month, day, hour;
-function makeCreateTime(time) {
-  year = time.slice(0, 4);
-  month = time.slice(5, 7);
-  day = time.slice(8, 10);
-  hour = time.slice(11, 19);
-  return `${year}년 ${month}월 ${day}일 ${hour}` 
-}
 
 
-// 페이지네이션 구현
-const discussionsContainer = document.querySelector('.discussions__container');
-const pageButtons = document.querySelector('.page__buttons');
-let newCount;
-let numOfContent = agoraStatesDiscussions.length + 1 +  newCount;
-const maxContent = 10;
-const maxButton = 5;
-let maxPage = Math.ceil(numOfContent / maxContent);
-let page = 1;
 
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
 
-// (1-5)페이지 버튼 만들기
-const makeButton = (id) => {
-  const button = document.createElement("button");
-  button.classList.add("button");
-  button.dataset.num = id;
-  button.innerText = id;
-  button.addEventListener("click", (e) => {
-    Array.prototype.forEach.call(pageButtons.children, (button) => {
-      if (button.dataset.num) button.classList.remove("active");
-    });
-    e.target.classList.add("active");
-    renderContent(parseInt(e.target.dataset.num));
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector('ul.discussions__container');
+render(ul);
+
+//pagination
+const paginationNumbers = document.getElementById('pagination__numbers');
+const paginatedList = document.getElementById("paginated__list");
+let listItems = document.querySelectorAll("li.discussion__big--container");
+const nextButton = document.getElementById("next__button");
+const prevButton = document.getElementById("prev__button");
+
+const paginationLimit = 10;
+const pageCount = Math.ceil(listItems.length / paginationLimit);
+let currentPage;
+
+//pagenumber 버튼 생성
+const appendPageNumber = (index) => {
+  const pageNumber = document.createElement('button');
+  pageNumber.className = 'pagination__number';
+  pageNumber.textContent = index;
+  pageNumber.setAttribute('page-index', index);
+  pageNumber.setAttribute('aria-label','page' + index);
+
+  paginationNumbers.append(pageNumber);
+};
+
+const getPaginationNumbers = () => {
+  for(let i = 1; i <= pageCount; i ++) {
+    appendPageNumber(i);
+  }
+};
+
+//처음 로드될 때 실행시키기
+window.addEventListener('load', () => {
+  getPaginationNumbers();
+  setCurrentPage(1);
+
+  document.querySelectorAll('.pagination__number').forEach((button) => {
+    const pageIndex = Number(button.getAttribute('page-index'));
+    
+    if(pageIndex) {
+      button.addEventListener('click' , () => {
+        setCurrentPage(pageIndex);
+      })
+    }
   });
-  return button;
+})
+
+//버튼 활성화
+const handleActivePageNumber = () => {
+  document.querySelectorAll('.pagination__Number').forEach((button) => {
+    button.classList.remove('active');
+
+    const pageIndex = Number(button.getAttribute('page-index'));
+    if(pageIndex === currentPage) {
+      button.classList.add('active');
+    }
+  });
 };
 
-//렌더링 함수
-const renderContent = (page) => {
-  // 목록 리스트 초기화
-  while (discussionsContainer.hasChildNodes()) {
-    discussionsContainer.removeChild(discussionsContainer.lastChild);
-  }
-  // 글의 최대 개수를 넘지 않는 선에서, 화면에 최대 10개의 글 생성
-  for (let id = (page - 1) * maxContent; id < (page * maxContent) && id < numOfContent; id++) {
-    discussionsContainer.appendChild(convertToDiscussion(agoraStatesDiscussions[id]));
-    console.dir(agoraStatesDiscussions[id])
-  }
+//페이지 내용
+const setCurrentPage = (pageNum) => {
+  currentPage = pageNum;
+
+  handleActivePageNumber();
+
+  const prevRange = (pageNum - 1) * paginationLimit;
+  const currRange = pageNum * paginationLimit ;
+
+  listItems.forEach((item, index) => {
+    item.classList.add('hide');
+    if(index >= prevRange && index < currRange) {
+      item.classList.remove('hide');
+    }
+  })
 };
-
-const renderButton = (page) => {
-  // 버튼 리스트 초기화
-  while (pageButtons.hasChildNodes()) {
-    pageButtons.removeChild(pageButtons.lastChild);
-  }
-  // 화면에 최대 5개의 페이지 버튼 생성
-  for (let id = page; id < page + maxButton && id <= maxPage; id++) {
-    pageButtons.appendChild(makeButton(id));
-    console.dir(makeButton(id))
-  }
-  // 첫 버튼 활성화(class="active")
-  console.dir(pageButtons)
-  console.dir(pageButtons.children[0])
-  pageButtons.children[0].classList.add("active");
-
-  let prev = document.createElement('button');
-  prev.textContent = 'prev';
-  let next = document.createElement('button');
-  next.textContent = 'next';
-  pageButtons.prepend(prev);
-  pageButtons.append(next);
-
-  // 이전, 다음 페이지 버튼이 필요한지 체크
-  if (page - maxButton < 1) {
-    pageButtons.removeChild(prev);
-    
-  }
-  
-  if (page + maxButton > maxPage) {
-    pageButtons.removeChild(next);
-    
-  }
-  
-};
-
-const render = (page) => {
-  renderContent(page);
-  renderButton(page);
-};
-render(page);
-//페이지 이동 함수 구현
-const goPrevPage = () => {
-  page -= maxButton;
-  render(page);
-};
-
-const goNextPage = () => {
-  page += maxButton;
-  render(page);
-};
-
-
-const prev = document.createElement("button");
-prev.classList.add("button", "prev");
-prev.textContent = 'prev';
-prev.addEventListener("click", goPrevPage);
-
-const next = document.createElement("button");
-next.classList.add("button", "next");
-next.textContent = 'next';
-next.addEventListener("click", goNextPage);
-
-
-// // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-// const ul = document.querySelector('ul.discussions__container');
-// renderContent(ul);
-
-
 
 // 새로운 질문 추가 기능
+const newTitle = document.querySelector('#title');
+const newName = document.querySelector('#name');
+const newStory = document.querySelector('#story');
+const form = document.querySelector('form.form');
 
-const submit = document.querySelector('#submitbtn');
-let elTitle = document.querySelector('#title');
-let elName = document.querySelector('#name');
-let elStory = document.querySelector('#story');
-newCount = 0;
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const obj = {
+    id: "new id",
+    createdAt: new Date(),
+    title: newTitle.value,
+    url: undefined,
+    author: newName.value,
+    answer: null,
+    bodyHTML: newStory.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+  }
+  agoraStatesDiscussions.unshift(obj);
+  ul.prepend(convertToDiscussion(obj));
 
-let elNewTitle, elNewName, elNewStory, today;
-
-const makeNewdiscussion = (elNewTitle, elNewName, today) => {
-  const li = document.createElement('li'); // li 요소 생성
-  li.className = 'discussion__big--container'; // 클래스 이름 지정
-
-  const elContainer = document.createElement('div');
-  elContainer.className = 'discussion__container';
-  const avatarWrapper = document.createElement('div');
-  avatarWrapper.className = 'discussion__avatar--wrapper';
-  const discussionContent = document.createElement('div');
-  discussionContent.className = 'discussion__content';
-  const discussionAnswered = document.createElement('div');
-  discussionAnswered.className = 'discussion__answered';
-
-  const avatarImage = document.createElement('img');
-  avatarImage.className = 'discussion__avatar--image'
-  const title = document.createElement('h2');
-  title.className = 'discussion__title'
-  const information = document.createElement('div');
-  information.className = 'discussion__information'
-  const checkbox = document.createElement('p');
-
-  avatarImage.src = "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"
-  title.textContent = elNewTitle; 
-  information.textContent = `${elNewName} / ${today}`;
-
-  document.querySelector('.discussions__container').prepend(li);
-  li.append(elContainer)
-  elContainer.append(avatarWrapper, discussionContent, discussionAnswered);
-  avatarWrapper.append(avatarImage);
-  discussionContent.append(title, information);
-  discussionAnswered.append(checkbox);
-  checkbox.textContent = '□';
- 
-  newCount ++;
-  return li;
-}
-
-
-const getInformations = function() {
-  elNewTitle = elTitle.value;
-  elNewName = elName.value;
-  elNewStory = elStory.value;
-  today = `${new Date().getFullYear()}년 ${new Date().getMonth()}월 ${new Date().getDate()}일 ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
-  console.log(elNewTitle)
-  console.log(elNewName)
-  console.log(elNewStory)
-  makeNewdiscussion(elNewTitle, elNewName, today)
-}
-
-submit.addEventListener('click', getInformations);
-
-
-
+  newName.value = '';
+  newStory.value = '';
+  newTitle.value = '';
+  listItems = document.querySelectorAll("li.discussion__big--container");
+  setCurrentPage(1);
+});
