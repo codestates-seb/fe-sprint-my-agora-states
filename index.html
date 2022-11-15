@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+      @font-face {
+        font-family: 'NEXON Lv1 Gothic OTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -22,15 +31,15 @@
           <div class="form__input--wrapper">
             <div class="form__input--name">
               <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+              <input type="text" name="name" id="name" placeholder=" 이름을 작성해주세요." required />
             </div>
             <div class="form__input--title">
               <label for="name">Enter your title: </label>
-              <input type="text" name="name" id="name" required />
+              <input type="text" name="name" id="name" placeholder=" 제목을 작성해주세요." required />
             </div>
             <div class="form__textbox">
               <label for="story">Your question: </label>
-              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+              <textarea id="story" name="story" placeholder=" 질문을 남겨주세요." required></textarea>
             </div>
           </div>
           <div class="form__submit">
