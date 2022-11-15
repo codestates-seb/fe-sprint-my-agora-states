@@ -1,74 +1,158 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  main {
-    display : flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  
-  ul {
-    list-style: none;
-  }
-  
-  li.discussion__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 540px;
-    height: 80px;
-    font-size: 12px;
-    margin: 10px;
-    padding: 20px;
-  }
-  
-  .discussion__avatar--wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .discussion__avatar--wrapper > .discussion__avatar--image{
-    width: 48px;
-    border-radius: 50%;
-    vertical-align: middle;
-  }
-  
-  
-  .discussion__container > .discussion__content {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin: 0px 8px;
-    align-items: left;
-    justify-content: space-around;
-    flex-grow: 1;
-  }
-  
-  .discussion__content > .discussion__title {
-    display: block;
-    font-size: 1.5em;
-    margin: 0px;
-    /* height: 48px; */
-    display: flex;
-    font-weight: bold;
-    flex-direction: column;
-  }
-  
-  .discussion__content > .discussion__information {
-    text-align: right;
-    font-size: 12px;
-  }
-  
-  .discussion_content > .discussion__answered {
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: calc(2rem + 2vh);
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin: 0;
+  color: hsl(150 50% 50%);
+}
+
+.form__container {
+  background-color: white;
+  width: 350px;
+  height: 150px;
+  /* padding: 10px, 5px; */
+  /* margin: 10px, 5px; */
+  display: flex;
+  /* align-items: center; */
+  /* text-align: center; */
+  /* border: 2px solid hsl(150 50% 50%); */
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.form__input--name {
+  display: flex;
+  justify-content: right;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  justify-content: space-evenly;
+}
+
+.form__input--name > #name {
+  width: 200px;
+  height: 30px;
+}
+
+.form__input--title{
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  justify-content: left;
+}
+
+.form__input--title > #title {
+  width: 200px;;
+  height: 30px;
+}
+
+.form__textbox {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  justify-content: left;
+}
+
+.form__textbox > #story {
+  width: 200px;;
+  height: 60px;
+}
+
+.form__submit {
+  float: right;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit__button {
+  cursor: pointer;
+  width: 80px;
+  height: 30px;
+  align-items: center;
+}
+
+.submit__button:focus {
+  outline: none;
+}
+
+.submit__button:hover {
+  background-color: black;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+li.discussion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 540px;
+  height: 80px;
+  font-size: 12px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--wrapper > .discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.discussion__container > .discussion__content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0px 8px;
+  align-items: left;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.discussion__content > .discussion__title {
+  display: block;
+  font-size: 1.5em;
+  margin: 0px;
+  /* height: 48px; */
+  display: flex;
+  font-weight: bold;
+  flex-direction: column;
+}
+
+.discussion__content > .discussion__information {
+  text-align: right;
+  font-size: 12px;
+}
+
+.discussion_content > .discussion__answered {
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
