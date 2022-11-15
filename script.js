@@ -43,6 +43,8 @@ const convertToDiscussion = (obj) => {
   const answerWrapper = document.createElement("div"); 
   answerWrapper.className = "answer__container--wrapper"; 
 
+  const answerContainer = document.createElement("div"); 
+  answerContainer.className = "answer__container"; 
 
   const answerAvatarWrapper = document.createElement("div");
   answerAvatarWrapper.className = "answer__avatar--wrapper";
@@ -87,7 +89,8 @@ const convertToDiscussion = (obj) => {
 
   discussionAnswered.append(answerCheckbox);
   discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
-  answerWrapper.append(answerAvatarWrapper, answerContent, answercontentInformation);
+  answerContainer.append(answerAvatarWrapper, answerContent, answercontentInformation)
+  answerWrapper.append(answerContainer);
   li.append(discussionWrapper);
   return li;
 
@@ -150,10 +153,12 @@ form.addEventListener('submit', (event)=>{
     }
     console.log(data)
     agoraStatesDiscussions.unshift(data);
-    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]))
-})
+    console.log(inputTitle.value.includes('['))
+    inputTitle.value.includes('[') ? notice_ul.prepend(convertToNotice(agoraStatesDiscussions[0])) : ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]))
+  })
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     if(!agoraStatesDiscussions[i].title.includes('[notice]')){
@@ -178,9 +183,12 @@ const notice_ul = document.querySelector("ul.notice__container");
 const hide_button_container = document.querySelector(".form__button_container");
 const hide_button = document.querySelector(".form__button");
 const hide_form = document.querySelector(".form");
+const count = document.querySelector(".count") ;
 
 render(ul);
 notice_render(notice_ul);
+
+
 
 hide_button.onclick = ()=>{
   if(hide_form.classList.contains('hide')){
@@ -189,7 +197,7 @@ hide_button.onclick = ()=>{
   }   
   else{
     hide_form.classList.add('hide');
-    hide_button.textContent = '열기 ⇧';
+    hide_button.textContent = '질문하기 ⇧';
   } 
 
 }
