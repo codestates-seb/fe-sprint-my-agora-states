@@ -137,6 +137,14 @@ window.addEventListener('load', ()=>{
   getPageNum();
   setCurrentPage(1);
 
+  preB.addEventListener('click', () => {
+    setCurrentPage(currentPage - 1);
+  })
+
+  nextB.addEventListener('click', () => {
+    setCurrentPage(currentPage + 1);
+  })
+
   document.querySelectorAll('.pagenation__number').forEach((button) => {
     const pageIndex = Number(button.getAttribute('page__index'));
 
@@ -153,6 +161,7 @@ const setCurrentPage = (pageNum) => {
   currentPage = pageNum;
 
   handleActivePageNumber();
+  handlePageButtonsStatus();
 
   const preRange = (pageNum-1)*pageLimit;
   const currRange = pageNum*pageLimit;
@@ -175,3 +184,26 @@ const handleActivePageNumber = () => {
     }
   })
 }
+
+const disable = (button) => {
+  button.classList.add('disabled');
+  button.setAttribute('disabled', true);
+}
+const able = (button) => {
+  button.classList.remove('disabled');
+  button.removeAttribute('disabled');
+}
+
+const handlePageButtonsStatus = () => {
+  if (currentPage === 1) {
+    disable(preB);
+  } else {
+    able(preB);
+  }
+ 
+  if (pageCount === currentPage) {
+    disable(nextB);
+  } else {
+    able(nextB);
+  }
+};
