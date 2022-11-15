@@ -58,7 +58,7 @@ function app(){
 
     const formBox = new FormBox({$main, onSubmit:(obj)=>{
       console.log(obj);
-      this.state.agoraStatesDiscussions.unshift(obj);
+      agoraStatesDiscussions.unshift(obj);
       this.setState();
     }});
 
