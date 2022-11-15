@@ -128,6 +128,7 @@ form.addEventListener("submit", function(event){
   //페이지네이션 때문에 이 방법은 사용 안함
   //ul.prepend(forNewDiscussion);
   
+  formReset();
 });
 
 
@@ -137,6 +138,21 @@ const removeChildes = (el) => {
   while(el.firstChild){
     el.firstChild.remove();
   }
+};
+
+
+// TO DO : 이전 데이터 삭제
+// form에 내용을 제출하고 나면 form 내용이 비워지도록 리셋
+
+const formReset = () => {
+  const nameValue = document.querySelector("div.form__input--name > input");
+  const titleValue = document.querySelector("div.form__input--title > input");
+  const textareaValue = document.querySelector("div.form__textbox > textarea");
+  
+  nameValue.value = "";
+  titleValue.value = "";
+  textareaValue.value = "";
+
 };
 
 
