@@ -28,8 +28,12 @@ h1 {
   padding: 30px 0px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .discussion__container {
-  width: 100%;
+  width: 650px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -160,4 +164,27 @@ h1 {
 .form__textbox textarea:focus,
 .form__input--title input:focus {
   outline: 1px solid darksalmon;
+}
+
+button {
+  font-size: 110%;
+  justify-content: space-between;
+}
+section.buttons {
+  display: flex;
+}
+
+section.buttons > button {
+  background-color: bisque;
+  box-shadow: 0px 1px 5px rgba(18, 32, 61, 0.2);
+  border-radius: 15px;
+  flex: 1 0 0;
+  border: 0;
+  margin: 1rem 4rem 0 4rem;
+  padding: 4px 0 4px 0;
+  cursor: pointer;
+}
+
+section.buttons > button:hover {
+  background-color: seashell;
 }
