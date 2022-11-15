@@ -35,14 +35,7 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
   const discussionAnsweredcheckbox = document.createElement("p");
   discussionAnsweredcheckbox.textContent = obj.answer === null ? "o" : "x"
-
-
   discussionAnswered.append(discussionAnsweredcheckbox)
-
-
-
-
-
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
