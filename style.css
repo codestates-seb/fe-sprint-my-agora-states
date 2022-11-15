@@ -1,1 +1,219 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+  font-family: 'NanumSquareNeo-Variable';
+}
+
+/*초기화*/
+
+body {
+  background-color: #ecf0f3;
+  padding-top: 75px;
+}
+
+main {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {              /*고정형 상단바 만들고 싶었음*/
+  padding-top: 75px;
+  height: 75px;
+  padding: 1rem;
+  color: white;
+  background: #00000a;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+h1 {
+  color : white;
+}
+
+
+section.form__container{
+  display : flex;
+  justify-content: space-between;
+  height : 20vh;
+  width : 540px;
+}
+
+form {
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding : 10px;
+  margin : 30px;
+  width : 540px;
+  border-radius : 30px ;
+  color : white;
+  background-color: #ecf0f3;
+  box-shadow: -8px -8px 8px #feffff, 8px 8px 8px #161b1d2f;
+}
+
+
+.form__input--wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width : 90%;
+}
+
+
+.formstyle {
+  background-color: rgba(255,255,255,0.08);
+  height : 25px;
+  line-height: 25px;
+  border : none;
+  border-radius: 8px;
+  font-size: 13px;
+  color : black;
+  box-shadow: inset 5px 5px 5px #cbced1, inset -5px -5px 5px #ffffff;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+  margin-top: 15px;
+  outline:none;
+  text-shadow: 1px 1px 0 white;
+
+}
+
+.formstyle:focus{
+  outline : none;
+  background-color : rgba(255,255,255,0.12);
+  box-shadow:  inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+/*플레이스 홀더의 버티컬 중앙정렬이 잘안먹는다는 사실을 알았음*/
+
+/* input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder{
+  vertical-align:middle;   아 왜안돼 ㅠㅠ 
+} */
+
+/*클릭하면 플레이스홀더가 사라지게 하고싶었음,아래설정없이는 사용자가 뭘 입력해야 사라짐*/
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+  opacity : 0;
+}
+
+/*라벨 이랑 입력폼 위치조정하기 귀찮아서 아예 플레이스홀더로 대체한 건데 접근성측면에서 그러면 안된다고함ㅜㅜ*/
+/* label {
+  color : #8f8c8c;
+} */
+
+
+input[type=submit]{
+  width : 100px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+#name,#title{
+  width : 250px;
+}
+
+#story {
+  width : 300px;
+  height : 60px;
+}
+
+li.discussion__container{
+  display: flex;
+  justify-content: space-between;
+  width: 540px;
+  list-style-type:none;
+  margin : 20px;
+  padding : 10px;
+  border-radius: 30px;
+  background-color: #ecf0f3;
+  box-shadow: -8px -8px 8px #feffff, 8px 8px 8px #161b1d2f;
+}
+
+/*플렉스를 줌세션보고 따라하다가 이전에 플렉스 적용해둔게 꼬였음 ㅠㅠ 버전관리x ㅠㅠ그래서 엉망되길래
+그냥 플렉스 그로우 부분은 따라하지 않고 0주고 flex-basis의 고정값으로 박아버림 */ 
+.discussion__avatar--wrapper{   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0 50px;  /*<---*/
+  border-radius: 50%;
+}
+
+
+img {
+  width : 48px;
+  border-radius : 50%;
+}
+
+.discussion__content {    /*h2-a링크 좋은질문 하는법*/
+  display : flex; 
+  flex-grow: 1;   /*컨텐츠 내용만 플렉스 그로우1 줘서 남은영역을 다차지하게 만듬*/
+  flex-direction: column;
+  justify-content : space-around;
+  padding : 0 30px
+}
+
+
+
+.discussion__content >:nth-child(2){   /*작성자, 작성시간*/
+  height:30px;
+  text-align: right;
+  font-size: 13px;
+  color : darkgray;
+  margin-top:20px;
+ }
+
+ .discussion__answered {  /*체크박스*/
+  display: flex;
+  flex: 0 20px;
+  width: 30px;
+  justify-content: center;
+  align-items:center;
+}
+
+
+p{
+  font-size: 20px;
+}
+
+
+
+/* 추후 전반적인 사이즈조정 */
+
+
+a:link {
+  color: #263238;
+  font-size: 14px;
+  text-decoration: none;
+
+}
+
+a:visited {
+  color: #bdbdbd;
+  text-decoration: none;  
+}
