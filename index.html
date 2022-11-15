@@ -12,47 +12,51 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://kit.fontawesome.com/da9e24013d.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <main>
-      <h1>My Agora States</h1>
-      <section class="form__container">
-        <form action="" method="get" class="form">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+      <div class="container">
+        <h1>My Agora States</h1>
+        <section class="form__container">
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <label for="name">Enter your name: </label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__input--title">
+                <label for="title">Enter your title: </label>
+                <input type="text" name="title" id="title" required />
+              </div>
+              <div class="form__textbox">
+                <label for="story">Your question: </label>
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder="질문을 작성하세요"
+                  required
+                ></textarea>
+              </div>
             </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required />
+            <div class="form__submit">
+              <input type="button" value="등록하기" />
             </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
-            </div>
-          </div>
-          <div class="form__submit">
-            <input type="button" value="submit" />
-          </div>
-        </form>
-      </section>
-      <section class="discussion__wrapper">
-        <ul class="discussions__container"></ul>
-        <nav id="pagination-container">
-          <a href="#" class="pagination-button" id="prev-button"> &laquo; </a>
-          <div id="pagination-numbers"></div>
-          <a href="#" class="pagination-button" id="next-button"> &raquo; </a>
-        </nav>
-      </section>
-    </main>
+          </form>
+        </section>
+        <section class="discussion__wrapper">
+          <ul class="discussions__container"></ul>
+          <nav id="pagination-container">
+            <a href="#" class="pagination-button" id="prev-button"> &laquo; </a>
+            <div id="pagination-numbers"></div>
+            <a href="#" class="pagination-button" id="next-button"> &raquo; </a>
+          </nav>
+        </section>
+      </main>
+    </div>
   </body>
   <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="common.js"></script>
+  <script type="module" src="script.js"></script>
 </html>
