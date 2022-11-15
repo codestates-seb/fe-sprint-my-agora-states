@@ -1,1 +1,322 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  cursor: url(./img/pointer.cur), auto;
+  color: #5b2b2a;
+}
+a {
+  color: #000;
+  font-weight: bold;
+}
+a:hover {
+  color: #fff;
+  cursor: url(./img/select.cur), auto;
+  text-shadow: none;
+}
+::placeholder {
+  color: #d87e00;
+  padding: 5px;
+}
+input,
+textarea {
+  border: 1.4px solid #5b2b2a;
+}
+input[type="text"]:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: #5b2b2a;
+  box-shadow: 0 0 10px #5b2b2a;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: "Gowun Dodum", sans-serif;
+  background: url(./img/bg.jpg) repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+main h1 {
+  font-family: "Noto Serif KR", serif;
+  height: 90px;
+  line-height: 55px;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #5b2b2a;
+  color: #faf3e0;
+  z-index: 100;
+  border-bottom: 5px solid #fed789;
+  border-top: 5px solid #fed789;
+}
+.form__container {
+  background: url(./img/formbg.png) no-repeat center;
+  background-size: contain;
+  text-align: center;
+  margin-top: 150px;
+  width: 540px;
+  height: 310px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.form__input--wrapper {
+  height: 200px;
+  width: 540px;
+  margin-top: 0px;
+  padding-top: 30px;
+}
+.form__container label {
+  margin-right: 20px;
+}
+.form__container input,
+textarea {
+  font-family: "Gowun Dodum", sans-serif;
+  width: 250px;
+  height: 40px;
+  resize: none;
+}
+.form__input--name,
+.form__input--title {
+  margin-bottom: 20px;
+}
+#story {
+  height: 60px;
+}
+
+.form__textbox {
+  display: flex;
+}
+.form__textbox label {
+  margin-left: 40px;
+  margin-right: 27px;
+}
+
+.form__submit {
+  margin-top: 25px;
+}
+.form__submit input {
+  background: url(./img/button.png) no-repeat center;
+  background-size: contain;
+  width: 300px;
+  height: 45px;
+  border: none;
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+.form__submit input:hover {
+  cursor: pointer;
+  color: #fff;
+  width: 310px;
+  height: 50px;
+  font-size: 20px;
+  cursor: url(./img/select.cur), auto;
+}
+
+.discussion__wrapper {
+  width: 540px;
+}
+.discussions__container {
+  padding-bottom: 100px;
+}
+.discussion__container {
+  background: url(./img/question.png) no-repeat;
+  background-size: contain;
+  height: 190px;
+  padding: 20px;
+  display: flex;
+  margin-bottom: 3px;
+  position: relative;
+}
+.discussion__answer__wrap {
+  position: absolute;
+  bottom: 0px;
+  left: 30px;
+}
+.more {
+  background: url(./img/button.png) no-repeat center;
+  background-size: contain;
+  width: 250px;
+  height: 30px;
+  border: none;
+  font-size: 16px;
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  bottom: 28px;
+}
+.more:hover {
+  cursor: pointer;
+  color: #fff;
+  width: 260px;
+  height: 40px;
+  margin-bottom: -10px;
+  cursor: url(./img/select.cur), auto;
+}
+
+.discussion__avatar--wrapper {
+  width: 111px;
+  height: 111px;
+  margin-left: 53px;
+  margin-top: 4px;
+}
+.discussion__avatar--image {
+  width: 100%;
+  height: 100%;
+}
+.discussion__content {
+  width: 300px;
+  padding: 10px;
+}
+.discussion__title {
+  font-size: 16.4px;
+  text-shadow: 2px 1px 2px snow;
+}
+.discussion__information {
+  position: absolute;
+  bottom: 21px;
+  right: 5px;
+  text-align: center;
+  width: 155px;
+  margin-right: 30px;
+}
+.discussion__time {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.check {
+  height: 20px;
+  font-size: 20px;
+  position: absolute;
+  bottom: 57px;
+  right: 23px;
+}
+
+/* pagination */
+
+.pagination__container {
+  position: absolute;
+  left: 380px;
+  z-index: 10000;
+  margin-top: -70px;
+}
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+}
+.pagination li {
+  background-color: #fed789;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  text-align: center;
+  border: 2px solid transparent;
+}
+.pagination li:hover {
+  cursor: url(./img/select.cur), auto;
+}
+.pagination li.current__page {
+  border-color: #fed789;
+  background-color: #5b2b2a;
+  color: #fed789;
+}
+.hidden {
+  display: none;
+}
+
+/* scroll to top */
+aside {
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background: url(./img/top.png) no-repeat 20px 10px;
+  background-size: 30px;
+  background-color: #5b2b2a;
+  border-radius: 100%;
+}
+aside button {
+  border: none;
+  font-size: 16px;
+  background-color: transparent;
+  font-weight: bold;
+  background-color: #fff;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: 2px solid #fed789;
+  background-color: transparent;
+}
+aside button span {
+  position: relative;
+  bottom: -18px;
+  font-family: "Gowun Dodum", sans-serif;
+  color: #fed789;
+}
+
+aside button:hover,
+aside button span:hover {
+  cursor: url(./img/select.cur), auto;
+}
+
+/* audio section */
+.audioBox {
+  background-color: #fed789;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  bottom: 140px;
+  right: 50px;
+  border-radius: 50%;
+  border: 2px solid #5b2b2a;
+}
+.audio--container {
+  width: 40px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-left: 14px;
+}
+.bgmTitle {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  color: #5b2b2a;
+}
+
+.audio--container div {
+  width: 5px;
+  background: white;
+  transition: transform 250ms ease, background 200ms ease;
+}
+
+.audiobar {
+  /*transform:scaleY(0.5);*/
+  transform-origin: center;
+  border-radius: 100vw;
+}
+
+.audioBox:hover,
+.bgmTitle:hover,
+.audiobar:hover,
+.audio--container:hover {
+  cursor: url(./img/select.cur), auto;
+}
