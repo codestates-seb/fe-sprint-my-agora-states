@@ -93,7 +93,8 @@ main h1 {
   cursor: pointer;
 }
 
-.form__submit input:focus {
+.form__submit input:focus,
+.form__submit input:active {
   background: none;
 }
 
@@ -167,6 +168,12 @@ main h1 {
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
+}
+
+.paging__container li.active {
+  font-size: 16px;
+  font-weight: 800;
+  color: #3CB464;
 }
 
 .previous__button,

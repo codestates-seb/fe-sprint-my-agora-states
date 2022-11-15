@@ -124,10 +124,21 @@ const paging = (array) => {
     pagingList.className = "page";
     pagingContainer.append(pagingList);
     pagingList.textContent = i;
+
+    if (pagingList.textContent === currentNum.toString()) {
+      pagingList.classList.add("active");
+    }
+
     pagingList.addEventListener("click", function (e) {
       e.preventDefault();
+
       currentNum = e.target.textContent;
+
+      for (let i = 0; i < lastNum; i++) {
+        document.querySelectorAll(".page")[i].classList.remove("active");
+      }
       e.target.classList.add("active");
+
       ul.replaceChildren();
       render(ul, currentNum);
     });
@@ -149,6 +160,9 @@ const paging = (array) => {
     } else {
       currentNum--;
     }
+
+    console.log(currentNum);
+
     ul.replaceChildren();
     render(ul, currentNum);
   });
