@@ -1,1 +1,175 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #d8e6e7;
+  font-family: "Gowun Batang", serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #c6bba7;
+}
+
+main {
+  width: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 35px 5px;
+  margin: 75px auto;
+  background-color: #241f22;
+  border-radius: 30px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.7), 0 15px 12px rgba(0, 0, 0, 0.5);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+/* discussion */
+.discussion__wrapper {
+  padding: 15px 0;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: dashed 1px #c6bba7;
+  padding: 10px 0;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 60px;
+}
+
+.discussion__title {
+  font-size: 17px;
+}
+
+.discussion__information {
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.discussion__info {
+  font-size: 0.9em;
+  font-weight: 300px;
+  margin-top: 5px;
+  padding-left: 2px;
+  color: #9b9f9f;
+}
+
+.discussion__content {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  flex-grow: 2;
+  width: 400px;
+  padding: 8px 13px;
+}
+
+.discussion__checked {
+  display: flex;
+  flex-grow: 1;
+}
+
+.discussion__answered > img {
+  width: 20px;
+}
+
+/* form */
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+}
+
+.form__input--wrapper label {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #b4b9b9;
+  margin: 10px 0 5px 5px;
+}
+
+.form__input--name {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+#name {
+  background-color: #d8e6e7;
+  height: 45px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+#story {
+  background-color: #d8e6e7;
+  color: #000000;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  height: 80px;
+  border-radius: 10px;
+  resize: none;
+}
+
+.form__submit {
+  margin-bottom: 20px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__submit > input {
+  color: #292929;
+  font-size: 1.12em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: rgb(185, 182, 174);
+  box-shadow: 0 6px 12px rgba(75, 75, 75, 0.3), 0 6px 4px rgba(75, 75, 75, 0.2);
+  border: 0px;
+  width: 30%;
+  height: 90%;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+input.btnSubmit:hover {
+  background-color: #d1ccba;
+}
