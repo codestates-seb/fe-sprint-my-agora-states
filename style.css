@@ -18,7 +18,7 @@ body{
 }
 header{
   background-color: rgb(255, 255, 255);
-  width: 100vw;
+  width: 100vmax;
   height: 7vh;
   padding-top: 18px;
 }
