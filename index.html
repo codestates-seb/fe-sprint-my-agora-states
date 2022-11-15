@@ -13,6 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/d1bc1e3037.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -49,7 +50,9 @@
       <ul class="discussions__container">
       </ul>
     </section>
-    <nav class="pagination__container">
+    <div class="bottom__container">
+      <button id="reset"><i class="fa-solid fa-rotate-right fa-2x"></i></button>
+      <nav class="pagination__container">
         <button class="pagination__button" id="prev__button" aria-label="Previous page" title="Previous page">
           &lt;
         </button>
@@ -58,7 +61,8 @@
         <button class="pagination__button" id="next__button" aria-label="Next page" title="Next page">
           &gt;
         </button>
-    </nav>
+      </nav>
+    </div>
   </main>
 </body>
 <script src="data.js"></script>

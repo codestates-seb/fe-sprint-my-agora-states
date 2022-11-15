@@ -90,7 +90,14 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-agoraStatesDiscussions = JSON.parse(localStorage.getItem('json'));
+function getLocalStorage() {
+  if(localStorage.length === 0) {  
+  }
+  else {
+    agoraStatesDiscussions = JSON.parse(localStorage.getItem('json'));
+  }
+}
+getLocalStorage();
 
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
@@ -138,8 +145,6 @@ window.addEventListener('load', () => {
     }
   });
   document.querySelector('.form__avatar--image').src = myAvatar;
-  console.log(localStorage.getItem('json'));
-  console.dir(agoraStatesDiscussions)
 })
 
 //버튼 활성화
@@ -235,4 +240,13 @@ form.addEventListener('submit', (event) => {
 
   localStorage.setItem('json', JSON.stringify(agoraStatesDiscussions))
 });
-
+ // localStorage reset 버튼
+ const reserbtn = document.getElementById('reset');
+ reserbtn.addEventListener('click',() => {
+  for(let i = 0; i < localStorage.length; i++) {
+    agoraStatesDiscussions.splice(i,1);
+  }
+  localStorage.clear()
+  getLocalStorage();
+  location.reload();
+ })
