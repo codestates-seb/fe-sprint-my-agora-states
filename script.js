@@ -10,7 +10,7 @@ if (!localStorage.getItem("dataSet")) {
 }
 let dataSet = JSON.parse(
   localStorage.getItem("dataSet")
-); //newLocalStorage는 화면에서 보여줄 변수 저장소, newLocalStorage에는 agoraStatesDiscussions값을 json형식으로 받음
+); //dataSet 화면에서 보여줄 변수 저장소, dataSet agoraStatesDiscussions값을 json형식으로 받음
 console.log(dataSet);
 // localStorage.clear(); // Local Storage 초기화
 
