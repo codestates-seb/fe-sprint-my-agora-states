@@ -14,29 +14,30 @@ main {
 }
 
 .all-container {
-  /* display: flex; */
-  /* flex-direction: row; */
+  display: flex;
 }
 
 .form__container {
-  background-color: #ba94d1;
+  background-color: #ffb3b3;
   font-family: "Varela Round", sans-serif;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   font-size: 20px;
   width: 580px;
   border-radius: 40px 40px 0px 0px;
   height: 200px;
+  box-shadow: 3px 3px 5px rgb(15, 15, 16);
+  padding-top: 30px;
 }
 
 .form__submit > input {
-  width: 100px;
-  height: 80px;
-  background-color: antiquewhite;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(255, 255, 255);
   border: 1px solid red;
   border-radius: 10px;
   /* margin: 20px; */
+  margin-top: 10px;
 }
 
 .form__submit > input:hover {
@@ -48,6 +49,7 @@ main {
 h1 {
   margin: 20px;
   text-align: center;
+  color: rgb(69, 69, 73);
 }
 
 .form__submit {
@@ -58,8 +60,9 @@ h1 {
 /* 카드요소 */
 
 .discussions__container {
-  background-color: #ba94d1;
+  background-color: #ffb3b3;
   border-radius: 0px 0px 40px 40px;
+  box-shadow: 3px 3px 5px rgb(15, 15, 16);
 }
 
 .discussion__wrapper {
@@ -69,20 +72,22 @@ h1 {
 }
 
 .discussion__container {
-  background-color: #fbfacd;
+  background-color: hsl(0, 100%, 98%);
   display: flex;
   /* align-items: center; */
   width: 540px;
   margin: 20px;
-  border: 2px solid red;
+  border: 2px solid rgb(255, 71, 71);
   padding: 13px;
   border-radius: 15px;
   transition: all 0.2s ease-in-out;
+  box-shadow: 3px 3px 5px rgb(15, 15, 16);
 }
 
 .discussion__container:hover {
-  background-color: whitesmoke;
+  background-color: rgb(255, 255, 255);
   transform: scale(1.1);
+  color: white;
 }
 
 ul {
@@ -126,4 +131,54 @@ ul {
   /* background-color: aqua; */
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.pagenation {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 20px;
+}
+.pagenation div + div {
+  margin-left: 5px;
+}
+.pagenation_left:hover {
+  transform: scale(1.5);
+}
+
+.pagenation_rigth:hover {
+  transform: scale(1.5);
+}
+
+.pagenation__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#name,
+#title,
+#story {
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 1px solid red;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  color: rgb(56, 56, 56);
+}
+
+.form__textbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
