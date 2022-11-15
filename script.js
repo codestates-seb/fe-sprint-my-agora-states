@@ -90,6 +90,7 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+agoraStatesDiscussions = JSON.parse(localStorage.getItem('json'));
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
 
@@ -136,6 +137,8 @@ window.addEventListener('load', () => {
     }
   });
   document.querySelector('.form__avatar--image').src = myAvatar;
+  console.log(localStorage.getItem('json'));
+  console.dir(agoraStatesDiscussions)
 })
 
 //버튼 활성화
@@ -187,19 +190,20 @@ const newName = document.querySelector('#name');
 const newStory = document.querySelector('#story');
 const form = document.querySelector('form.form');
 
+
 const makeAvatar = () => {
   const index= Math.floor(Math.random() * 10 );
   const arr = [
-    'https://item.kakaocdn.net/do/fd0050f12764b403e7863c2c03cd4d2d7154249a3890514a43687a85e6b6cc82',,
+    'https://item.kakaocdn.net/do/fd0050f12764b403e7863c2c03cd4d2d7154249a3890514a43687a85e6b6cc82',
     'https://blog.kakaocdn.net/dn/bnD244/btqNjVKUwhT/M9Kdihjk4WeFXcld7lZQ0K/img.jpg',
     'https://blog.kakaocdn.net/dn/cggrTQ/btqNfrK1D8U/eIo8HSrVLAEOnyG3tCNZN0/img.jpg',
     'https://cdn.huffingtonpost.kr/news/photo/202201/116183_225004.png',
-    'http://fimg5.pann.com/new/download.jsp?FileID=55573320',
+    'https://mblogthumb-phinf.pstatic.net/MjAyMTAzMjFfMjE2/MDAxNjE2MzAyNTY1NDQ2.9W0Rfz3nbST4_2Iuc-x-MsV13QfpuMGFtnkXIb8NQ7og.eiRNw4_B69_S8ZrO4f6nUE3otNJ-bNH3TBAW6GgpmhYg.JPEG.gmlwjd5363/FB%EF%BC%BFIMG%EF%BC%BF1612167377216.jpg?type=w800',
     'https://blog.kakaocdn.net/dn/O8ZrD/btqNf6Nowp1/RD9dBIdp9sWO7qGgakQhrk/img.jpg',
     'https://blog.kakaocdn.net/dn/Lhqdm/btqNkPXHImi/3LWT74VgU008srSUDdnH3k/img.jpg',
     'https://blog.kakaocdn.net/dn/cw9feq/btqNf7r2BhI/fAwkqyi70FcKwxj6dnM9Bk/img.jpg',
-    'https://blog.kakaocdn.net/dn/cL8bwq/btqNkQWDL9A/2TszBrkZhIc3UwIgH9SCI1/img.jpg']
-
+    'https://blog.kakaocdn.net/dn/cL8bwq/btqNkQWDL9A/2TszBrkZhIc3UwIgH9SCI1/img.jpg',
+    'https://i.pinimg.com/236x/57/18/c6/5718c6bb9d9c20c1f37f14ef7b7b1965.jpg']
   return arr[index]
 }
 let myAvatar =  makeAvatar();
@@ -226,6 +230,8 @@ form.addEventListener('submit', (event) => {
   listItems = document.querySelectorAll("li.discussion__big--container");
   setCurrentPage(1);
   myAvatar = makeAvatar();
-  
   document.querySelector('.form__avatar--image').src = myAvatar;
+
+  localStorage.setItem('json', JSON.stringify(agoraStatesDiscussions))
 });
+
