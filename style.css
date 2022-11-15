@@ -1,1 +1,142 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito', sans-serif;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+/* body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+} */
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+section {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: left;
+
+}
+.form__container {
+    background-color: #ffefd6;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+form {
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+
+}
+.form__input--wrapper {
+    margin: 3px;
+    text-align: left;
+    width: 400px;
+}
+
+.form__submit{
+    margin: 3px;
+    flex: 1;
+}
+.form__submit input {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+
+.form__input--title{
+    margin-top: 5px
+}
+.form__textbox{
+    margin-top: 5px;
+}
+textarea {
+    margin-top: 5px;
+}
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 540px;
+    /* height: 150px; */
+    font-size: 10px;
+    border-radius: 19px;
+    margin: 10px;
+    padding: 20px;
+    flex-direction: row;
+    height: 80x;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.discussion__avatar--image {
+    width: 60px;
+    display: flex;
+    border-radius: 50%;
+    align-content: center;
+    margin: 5px;
+}
+.discussion__content{
+    padding: 10px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.discussion__title {
+    display: flex;
+    justify-content: left;
+    width: 450px;
+    margin-top: 0;
+    font-size: 20px;
+}
+.discussion__information {
+    text-align: right;
+    /* padding-top: 10px;
+    font-size: 13px;
+    height: 30px; */
+}
+li {
+    list-style: none;
+}
+
+.discussion__answered {
+    /* padding-top: 40px; */
+    font-size: 24px;
+    /* margin: 5px;
+    justify-content: center;
+    padding-top: 20px; */
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+ul {
+    padding: 0px;
+}
