@@ -30,9 +30,10 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionTitle);
 
   const discussionInfo = document.createElement("div");
-  discussionInfo.textContent = `${obj.author} / ${new Date( //현지시간 적용
-    obj.createAt
-  ).toLocaleTimeString()}`; // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
+  discussionInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
+  // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
   discussionContent.append(discussionTitle, discussionInfo);
 
   const checked = document.createElement("p");
@@ -43,7 +44,7 @@ const convertToDiscussion = (obj) => {
   return li; // il요소를 위의 함수를 통해 가공해서 append
 };
 
-// form 은 데이터를 깔끔하게 받기 위해서 받는것
+//
 //
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
