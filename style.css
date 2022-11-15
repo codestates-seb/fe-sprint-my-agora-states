@@ -7,14 +7,11 @@
   color: #000;
 }
 
-body {
-  /* height: 100vh; */
-  justify-content: center;
-  display: flex;
-}
-
 main {
   background-color: rgb(157, 199, 238);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -25,22 +22,19 @@ main {
   padding: 10px 15px;
   width: 540px;
   border-radius: 5px;
-}
-
-li {
   justify-content: space-between;
-  list-style: none;
 }
 
 .discussion__avatar--wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .discussion__avatar--image {
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   align-items: center;
 }
 
@@ -71,11 +65,17 @@ h1 {
   margin-bottom: 10px;
 }
 
+a {
+  text-decoration-line: none;
+}
+
 .form__container {
   display: flex;
   justify-content: center;
   /* background-color: #fdd798; */
-  padding: 10px 5px;
+  border: 2px solid rgb(80, 80, 80);
+  border-radius: 10px;
+  padding: 15px 10px;
 }
 
 .form__submit {
