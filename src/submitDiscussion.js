@@ -4,17 +4,23 @@ export const submitDiscussion = () => {
   const inputStory = document.querySelector("#story");
   const submit = document.querySelector("#form");
   let result = {};
+  let nameCount = 0;
 
-  const remove = (...input) => {
-    input.forEach((x, i) => {
-      result[`${i}`] = x.value;
+  const removeSubmit = (...input) => {
+    result.author = inputName.value;
+    result.title = inputTitle.value;
+    result.createAt = new Date().toDateString();
+    console.log(result);
+    localStorage.setItem("discussion" + nameCount, JSON.stringify(result));
+    input.forEach((x) => {
       x.value = "";
     });
+    result = {};
   };
 
+  const print = () => {};
   submit.addEventListener("submit", function (even) {
     even.preventDefault();
-    remove(inputName, inputTitle, inputStory);
+    removeSubmit(inputName, inputTitle, inputStory);
   });
-  return result;
 };
