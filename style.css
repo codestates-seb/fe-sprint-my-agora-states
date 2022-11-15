@@ -19,6 +19,8 @@ main {
   align-items: center;
   width: 60vw;
   background-color: #fdf6f0;
+  box-shadow: 10px 10px 10px black;
+  border-radius: 4%;
 }
 
 main > * {
@@ -196,7 +198,7 @@ button:hover {
 }
 
 .active {
-  background-color: #fff;
+  background-color: rgb(231, 218, 200);
 }
 
 .hidden {
