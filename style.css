@@ -19,6 +19,13 @@ h1 {
     font-size: 10vw;
     font-family: 'Rubik Bubbles', cursive;
     color: #fff;
+    animation-duration: 1s;
+    animation-name: big;
+}
+@keyframes big {
+    0% { font-size: 0vw; }
+    85% { font-size: 11vw; }
+    100% { font-size: 10vw; }
 }
 main {
     display: flex;
@@ -144,10 +151,16 @@ ul {
     width: 60px;
     height: 30px;  
     margin: 5px; 
+    transition: 0.3s;
+}
+#submit:hover {
+    background-color: #fb3898;
+    color: #fff;
 }
 input, textarea {
     border-radius: 15px;
     border: 1px solid #6d6d6d;
+    outline: none;
 }
 .form__top{
     display: flex;

@@ -71,8 +71,7 @@ const convertToDiscussion = (obj) => {
     ansAvartarWrapper.append(ansAvartarImg);
     ansContent.append(ansTitle,ansInformation);
     ansTitle.append(url);
-
-
+    
   }
     
   return li;
