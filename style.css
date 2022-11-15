@@ -1,12 +1,95 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
 @import url(common.css);
+@import url('https://fonts.googleapis.com/css?family=Hi+Melody:400');
+@import url('https://fonts.googleapis.com/css?family=Jua:400');
 
+
+/* background logo */
+
+/* .logo{
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width:300px;
+  height:100px;
+  background-image: url(/codestates-logo.png);
+  background-size: cover;
+} */
+
+body{
+  background-color: #404258;
+
+}
 main {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+input {
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  font-family: 'Jua';
+  font-size: 30px;
+  text-align: center;
+  color:#404258;
+}
+textarea {
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  width: 400px;
+  height: 200px;
+}
+label {
+  font-family: 'Hi Melody';
+  font-size: 20px;
+  color: #6B728E;
+}
+
+/* form */
+
+h1 {
+  font-size: 80px;
+  font-family: 'Jua';
+  color: rgb(216, 216, 216);
+  margin-bottom: 30px;
+}
+
+.form__container {
+  background-color: rgb(216, 216, 216);
+  width: 540px;
+  padding: 20px 0;
+  border-radius: 20px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__input--name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 /* discussion */
 
@@ -24,7 +107,10 @@ main {
   display: flex;
   justify-content: space-around;
   box-sizing: border-box;
-  background-color: beige;
+  background-color: #6B728E;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .discussion__avatar--wrapper {
@@ -32,12 +118,12 @@ main {
   justify-content: left;
   align-items: center;
   box-sizing: border-box;
-  width: 48px;
+  /* width: 48px; */
 }
 .discussion__avatar--image {
   box-sizing: border-box;
   border-radius: 50%;
-  width: 48px;
+  width: 60px;
 }
 .discussion__content{
   display: flex;
@@ -47,7 +133,10 @@ main {
 }
 .discussion__title {
   box-sizing: border-box;
-  
+  color: rgb(216, 216, 216);
+  font-size: 20px;
+  font-family: 'Hi Melody';
+  padding: 0 20px;
 }
 
 .discussion__information {
