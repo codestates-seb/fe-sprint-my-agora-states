@@ -16,6 +16,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(72, 78, 104, 0.4);
 }
 
 /* section {
@@ -39,10 +40,10 @@ h1 {
 
 .form__info {
     font-size: 1.1em;
-    /* color: white;
-    background-color: rgb(60, 60, 60); */
+    background-color: rgb(80, 87, 122);
     padding: 10px;
     margin: 0 0 0 5px;
+    color: white;
 }
 
 form.form {
@@ -52,8 +53,10 @@ form.form {
     justify-content: center;
     align-items: center;
     margin: 0 5px 5px 5px;
-    padding: 2px;
-    border: 2px solid rgba(60, 60, 60, 0.5);
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 3px solid rgba(64, 66, 88, 0.5);
+    /* color: white; */
 }
 
 label {
@@ -75,6 +78,7 @@ label {
     border-bottom: 2px solid rgba(60, 60, 60, 0.5);
     border-left: none;
     border-right: none;
+    background-color: transparent;
 }
 
 .form__input--title {
@@ -93,6 +97,7 @@ label {
     border-bottom: 2px solid rgba(60, 60, 60, 0.5);
     border-left: none;
     border-right: none;
+    background-color: transparent;
 
 }
 
@@ -103,6 +108,7 @@ label {
     padding: 5px;
     resize: none;
     border: 2px solid rgba(60, 60, 60, 0.5);
+    background-color: transparent;
 }
 
 .form__textbox {
@@ -117,9 +123,17 @@ label {
     height: 50px;
     margin: 5px;
     border-style: none;
-    background-color: rgb(60, 60, 60);
+    background-color: rgb(80, 87, 122);
     color: white;
     font-size: 1.1em;
+}
+
+#submit:hover {
+    background-color: #6B728E;
+}
+
+#submit:active {
+    background-color: #404258;
 }
 
 .discussion__wrapper {
@@ -161,6 +175,10 @@ li.discussion__container {
     text-decoration-line: none;
 }
 
+.discussion__title > a:hover {
+    text-decoration-line:underline ;
+}
+
 .discussion__content {
     width: 540px;
     flex-grow: 2;
@@ -174,6 +192,7 @@ h2 {
 .discussion__information {
     text-align: right;
     font-size: 0.9em;
+    color: rgb(40, 40, 40);
 }
 
 .discussion__answered {
