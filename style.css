@@ -5,6 +5,12 @@
     padding: 0;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .discussions__container{
     display: flex;
     flex-direction: column;
