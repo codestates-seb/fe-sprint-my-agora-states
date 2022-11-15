@@ -14,8 +14,31 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 아바타
+  const avatarsImg = document.createElement("img");
+  avatarsImg.src = obj.avatarUrl;
+  avatarsImg.alt = "avatar of " + obj.author;
+  avatarsImg.classList.add("discussion__avatar--image");
+  // avatarsImg.className = "discussion__avatar--image";
+  avatarWrapper.append(avatarsImg);
+  // 제목
+  const agoraStatesh2 = document.createElement("h2");
+  agoraStatesh2.className = "discussion__title";
+  discussionContent.append(agoraStatesh2);
+  const agoraStatesAtag = document.createElement("a");
+  agoraStatesh2.append(agoraStatesAtag);
+  agoraStatesAtag.href = obj.url;
+  agoraStatesAtag.textContent = obj.title;
+  // 작성 시간
+  const writeTime = document.createElement("div");
+  writeTime.className = "discussion__information";
+  discussionContent.append(writeTime);
+  writeTime.textContent = `${obj.author} / ${obj.createdAt}`;
 
-
+  // 체크박스
+  const checkBox = document.createElement("p");
+  discussionAnswered.append(checkBox);
+  checkBox.textContent = obj.answer ? "☑" : "☐";
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
