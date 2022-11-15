@@ -38,43 +38,9 @@ const convertToDiscussion = (obj) => {
 
   const checked = document.createElement('p')
   checked.textContent = obj.answer ? '☑︎' : '☒'; // 삼항 연산자
+  checked.style.color = obj.answer ? "#00927a" : "#e90f6a";
+
   discussionAnswered.append(checked);
-
-  // li.append(avatarWrapper, discussionContent, discussionAnswered);
-
-  // const ul = document.querySelector('ul.discussions__container');
-  // ul.append(li);
-
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
-  // 여기부터
-  // const face = document.createElement("img") // 프로필 사진
-  // face.src = obj.avatarUrl;
-  // face.alt = "avatar of" + obj.author;
-  // avatarWrapper.append(face);
-  
-
-  // const discussionTitle = document.createElement("h2");
-  // const titleAnchor = document.createElement("a");
-  // titleAnchor.href = obj.url;
-  // titleAnchor.textContent = obj.title;
-  // discussionTitle.append(titleAnchor);
-  // discussionContent.append(discussionTitle);
-  
-
-  // const discussionInfo = document.createElement("div");
-  // discussionInfo.textContent = `${obj.author} / ${new Date(obj.createAt).toLocaleTimeString()}` // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
-  // discussionContent.append(discussionTitle, discussionInfo);
-
-  // const checked = document.createElement("p");
-  // checked.textContent = obj.answer ? "☑︎" : "☒";
-  // discussionAnswered.append(checked);
-
-  // 여기까지 이해 확실히 하기
-
-
-
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);

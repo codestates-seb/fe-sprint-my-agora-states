@@ -9,7 +9,7 @@ h1 {
   font-size: calc(2rem + 2vh);
   font-weight: 900;
   letter-spacing: 3px;
-  margin: 0;
+  margin-top: 50px;
   color: hsl(150 50% 50%);
 }
 
@@ -351,7 +351,8 @@ li.discussion__container {
   font-size: 12px;
 }
 
-.discussion_content > .discussion__answered {
+.discussion__answered {
+  color: #00927a;
   justify-content: center;
   align-items: center;
   font-size: 24px;
