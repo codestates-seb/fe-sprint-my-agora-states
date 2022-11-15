@@ -4,15 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: 0px green solid;
+    border: 1px green solid;
     list-style: none;
     font-family: 'SUIT', sans-serif;
     color: #1A1D20;
 }
 
-*:hover {
-    transition: 0.4s;
-}
 /* 모든 링크에 밑줄/색상 지워주기 */
 a {
     text-decoration: none;
@@ -26,7 +23,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #D7E6FF;
-    background-image: url(https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
     background-attachment: fixed;
     background-size: cover;
 }
@@ -36,8 +32,8 @@ main {
     margin: 50px;
     padding: 30px;
     width: 580px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
     border-radius: 30px;
 }
 
@@ -70,7 +66,7 @@ main {
     padding: 25px;
     border-radius: 25px;
     background-color: #1A1D20;
-    box-shadow: rgba(0,0,0,0.5);
+    box-shadow: rgba(0,0,0,0.3);
     margin-bottom: 15px;
 }
 .form__container label {
@@ -99,7 +95,7 @@ main {
     width: 100%;
     height: 40px;
     margin-top: 10px;
-    background-color: #b189f5;
+    background-color: #89B2F5;
     font-size: 18px;
     font-weight: 800;
     color: #fff;
@@ -107,7 +103,7 @@ main {
 }
 
 .form__submit > input:hover {
-    background-color: #8058c5;
+    background-color: #b0c9f2;
 }
 
 
@@ -115,55 +111,23 @@ main {
 /*--------------- 질문 리스트 영역 설정하기 ---------------*/
 .discussions__container > li {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 15px;
     padding: 20px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(15px);
     box-shadow: rgba(0,0,0,0.5);
 }
 
-.discussions__container > li:hover {
-position: relative;
-bottom: 3px;
+.left > p {
+    color: #89B2F5;
+    font-size: 30px;
+    font-weight: 800;
+    margin-right: 20px;
 }
 
-.discussion__avatar--wrapper {
-    padding: 0px;
-    align-items: stretch;
-}
-
-/* 프로필사진 */ 
-.discussion__avatar--wrapper > img {
-    width: 50px;
-    border-radius: 50px;
-}
-
-/* 콘텐츠영역-전체 */ 
-.discussion__content {
-    margin-right: auto;
-    padding: 10px 20px;
-}
-
-/* 콘텐츠영역-제목 */ 
-.discussion__title {
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    margin-bottom: 5px;
-    color: rgb(0, 0, 0);
-}
-
-/* 콘텐츠영역-작성자, 날짜 */ 
-.discussion__information {
-    color: rgb(158, 158, 158);
-    font-size: 0.8rem;
-}
-
-/* 콘텐츠영역-답변여부 */ 
-.discussion__answered > p {
-    color: #FDAB6E;
-    font-size: 1.6rem;
-
+.rignt > .right__top {
+    display: inline;
+    flex-wrap: nowrap ;
 }
