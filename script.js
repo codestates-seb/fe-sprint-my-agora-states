@@ -104,20 +104,25 @@ const renderPagination = (totalPage, maxShowPage) => {
       $pageFragment.appendChild($pagePrevTrack);
     }
     // 나머지 페이지네이션 추가
-    for (
-      let i = parseInt(page) === 1 ? 1 : parseInt(page) - 2;
-      i < parseInt(page) + maxShowPage - (parseInt(page) <= 2 ? page - 1 : 2) &&
-      i <= totalPage;
-      i++
-    ) {
-      if (i <= 0) continue;
+    for (let i = 0; i < maxShowPage; i++) {
+      // for문은 항상 maxShowPage 만큼 돌아야한다.
+      let startIdx = page - Math.floor(maxShowPage / 2);
+      if (page <= Math.floor(maxShowPage / 2)) {
+        startIdx = 1;
+      }
+      // 시작 idx에서 maxShowPage칸 이동한 경우가 totalPage보다 크다면
+      // 그 격차만큼 더 적은 idx부터 페이지네이션을 시작해야한다.
+      if (startIdx + maxShowPage - 1 > totalPage) {
+        startIdx -= startIdx + maxShowPage - 1 - totalPage;
+      }
       const $pageBtn = document.createElement("a");
       $pageBtn.className = `pagination__btn ${
-        parseInt(page) === i ? "active" : ""
+        parseInt(page) === startIdx + i ? "active" : ""
       }`; // page이면 active 클래스 추가
-      $pageBtn.textContent = i;
+      $pageBtn.textContent = startIdx + i;
       $pageFragment.appendChild($pageBtn);
     }
+
     // nexdTrack(...)와 마지막 페이지 숫자 붙여주기
     const $pageNextTrack = document.createElement("span");
     $pageNextTrack.textContent = "...";
@@ -127,12 +132,10 @@ const renderPagination = (totalPage, maxShowPage) => {
     $lastPage.textContent = totalPage;
     $lastPage.className = "pagination__btn pagination__last";
     $pageFragment.append($pageNextTrack, $lastPage);
-  }
 
-  // 총 페이지 개수 totalPage가 최대 보여줘야하는 페이지네이션보다 큰 경우
-  // 만약 자식 중의 contenteText 중에 total이 있다면 마지막 제거
-  // = 화면에 마지막 페이지 번호가 나왔기 때문에 존재할 이유가 없음
-  if (totalPage > maxShowPage) {
+    // 총 페이지 개수 totalPage가 최대 보여줘야하는 페이지네이션보다 큰 경우
+    // 만약 자식 중의 contenteText 중에 total이 있다면 마지막 제거
+    // = 화면에 마지막 페이지 번호가 나왔기 때문에 존재할 이유가 없음
     for (const pageBtn of [...$pageFragment.children]) {
       if (
         parseInt(pageBtn.textContent) === totalPage &&
@@ -147,6 +150,7 @@ const renderPagination = (totalPage, maxShowPage) => {
       }
     }
   }
+
   // DOM에 붙이기
   $discussionPagination.appendChild($pageFragment);
 };
@@ -235,7 +239,7 @@ const changePage = (e) => {
   // 현재 클릭한 요소에 클래스 추가하기
   e.target.classList.add("active");
   // 해당 값으로 page값 변경하기
-  page = e.target.textContent;
+  page = parseInt(e.target.textContent);
 
   // 화면 다시 렌더링하기
   render(
