@@ -226,7 +226,7 @@ section.form__container {
 }
 
 .form__input--name input {
-  width: 360px;
+  width: 350px;
   max-width: 360px;
   height: 40%;
   font-size: 20px;
@@ -239,7 +239,7 @@ section.form__container {
 }
 
 .form__input--title input {
-  width: 360px;
+  width: 350px;
   max-width: 360px;
   height: 30%;
   font-size: 20px;
@@ -252,7 +252,7 @@ section.form__container {
 }
 
 .form__textbox textarea {
-  width: 360px;
+  width: 350px;
   max-width: 360px;
   height: 30%;
   font-size: 20px;
