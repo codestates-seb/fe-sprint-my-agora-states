@@ -58,9 +58,18 @@ section.discussion__wrapper {
   align-items: center;
 }
 
+/* input avatar */
 .avatar {
   width: 3rem;
   height: 3rem;
+}
+
+.avatar:hover {
+  filter: brightness(130%);
+}
+
+img.active {
+  border: 4px solid black;
 }
 
 /* ul */

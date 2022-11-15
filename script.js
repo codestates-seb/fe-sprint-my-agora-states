@@ -12,11 +12,23 @@ const inputAvatar = document.querySelectorAll('.avatar');
 
 let selectedImg;
 
+// 아바타 클릭
 inputAvatar.forEach(ele => {
   ele.addEventListener('click', () => {
     selectedImg = ele.getAttribute('src');
+
+    handleClickAvatar();
+
+    ele.classList.add('active');
   });
 });
+
+// 아바타에 active 클래스 제거
+const handleClickAvatar = () => {
+  inputAvatar.forEach(ele => {
+    ele.classList.remove('active');
+  });
+};
 
 const ul = document.querySelector('ul.discussions__container');
 
