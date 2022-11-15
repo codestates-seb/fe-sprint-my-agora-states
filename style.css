@@ -88,17 +88,28 @@ a:hover {
 
 .form__submit input {
     margin: 10px;
-    height: 35px;
+    height: 32px;
     width: 88px;
 }
 
-/* .form__submit input:hover {
-    background-image: url('./image/submit-btn.png'); 
-} */
+.form__submit input:focus {
+    outline: none;
+    border: none;
+}
 
-input.submit[type="submit"]:hover {
+.form__submit input:hover {
+    cursor: pointer;
+    background-color: #f8f8f8;
+}
+
+.form__submit input:active {
+    outline: none;
     background-image: url('./image/submit-btn.png'); 
 }
+
+/* input.submit[type="submit"]:hover {
+    background-image: url('./image/submit-btn.png'); 
+} */
 
 .form__container {
     margin-top: 10px;
@@ -125,12 +136,6 @@ input.submit[type="submit"]:hover {
     border-bottom-color: #00A057;
 }
 
-
-.form__submit input:active {
-    box-shadow: rgb(204, 232, 221) 3px 3px 6px 0px inset,
-     rgba(226, 242, 227, 0.5) -3px -3px 6px 1px inset;
-    
-}
 
 ul.discussions__container > li:hover {
     background-color: #FEFFB7;
