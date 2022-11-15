@@ -19,16 +19,16 @@
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <!-- <label for="name">Enter your name: </label> -->
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <!-- <label for="name">Enter your title: </label> -->
+            <input type="text" name="name" id="nameTitle" placeholder="Enter your title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <!-- <label for="story">Your question: </label> -->
+            <textarea id="story" name="story" placeholder="Your question" required></textarea>
           </div>
         </div>
         <div class="form__submit">
@@ -52,9 +52,15 @@
         </li>
       </ul>
     </section>
+    <section class="page__container">
+      <ol id="numbers"></ol>
+    </section>
+     
   </main>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="page.js"></script>
+
 
 </html>
