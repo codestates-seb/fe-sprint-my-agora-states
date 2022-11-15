@@ -12,14 +12,44 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
+  
+  const avatarImg = document.createElement('img');
+  avatarImg.className = 'discussion__avatar--image'
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;//누가썼는지
+  avatarWrapper.append(avatarImg);
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const discussionTitle = document.createElement('h2');
+  discussionTitle.className = 'discussion__title'
+  const discussionTitleLink = document.createElement('a');
+  const discussionTitleLinkText = document.createTextNode(obj.title);
+  discussionTitleLink.setAttribute('href', obj.url);
+  discussionTitleLink.appendChild(discussionTitleLinkText);
+  discussionTitle.appendChild(discussionTitleLink);
+  discussionContent.append(discussionTitle);
 
 
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = 'discussion__information'
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
+  discussionContent.append(discussionInformation);
+
+  const discussionCheckbox = document.createElement('img');
+  if (obj.answer === null) {
+    discussionCheckbox.className = 'answer__complete'
+    discussionCheckbox.src = 'https://cdn.icon-icons.com/icons2/3247/PNG/512/circle_xmark_icon_199362.png';
+    discussionCheckbox.alt = 'answer complete';
+  } else {
+    discussionCheckbox.className = 'answer__notcomplete'
+    discussionCheckbox.src = 'https://cdn.icon-icons.com/icons2/2248/PNG/512/checkbox_marked_icon_138772.png';
+    discussionCheckbox.alt = 'answer not complete';
+  }
+  discussionAnswered.append(discussionCheckbox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -32,3 +62,34 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+const elForm = document.querySelector(".form");
+const elAuthor = elForm.querySelector("div.form__input--name > input");
+const elTitle = elForm.querySelector("div.form__input--title > input");
+const elTextbox = elForm.querySelector("div.form__textbox > textarea");
+
+elForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let elAvatar = agoraStatesDiscussions[Math.floor(Math.random() * agoraStatesDiscussions.length)];
+
+  const obj = {
+      id: 'random id',
+      createdAt: new Date(),
+      title: elTitle.value,
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+      author: elAuthor.value,
+      answer: null,
+      bodyHTML: elTextbox.value,
+      avatarUrl: elAvatar.avatarUrl,
+    };
+
+  agoraStatesDiscussions.unshift(obj);
+  const newDiscussion = convertToDiscussion(obj);
+  ul.prepend(newDiscussion);
+
+  elAuthor.value = '';
+  elTitle.value = '';
+  elTextbox.value = '';
+  elAvatar.avatarUrl= '';
+})
