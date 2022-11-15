@@ -1,1 +1,118 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 제출 폼 꾸미기 */
+h1{
+    margin: 20px 0;
+}
+.form{
+    border-radius: 15%;
+    background-color: rgba(136, 136, 136, 0.075);
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.form__input--wrapper{
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.form__input--wrapper input{
+    width: 300px;
+    height: 50px;
+}
+
+.form__input--wrapper textarea{
+    
+    width: 300px;
+    height: 150px;
+}
+
+.form__submit input{
+    width: 80px;
+    font-size: 20px;
+}
+
+/* ///////// */
+
+li.discussion__container{
+    width: 540px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.discussion__avatar--image{
+    width: 60px;
+    border-radius: 50%;
+}
+
+.discussion__content{
+    padding: 10px;
+    width: 360px;
+    height: 100px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 15px;
+}
+
+.discussion__title{
+    overflow: hidden;
+}
+
+
+.discussion__answered{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 24;
+}
+
+
+.pagination__wrapper{
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+ul.paginations__number{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#range{
+    width: 200px;
+}
