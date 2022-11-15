@@ -8,7 +8,7 @@
   margin: 0px;
 }
 
-li {
+.discussions__container > li {
   list-style: none;
   background-color: seashell;
   border-radius: 10px;

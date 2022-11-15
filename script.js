@@ -55,28 +55,27 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // 디스커션 추가 구현
+const form = document.querySelector("form.form");
+const author = form.querySelector(".form__input--name > input");
+const title = form.querySelector(".form__input--title > input");
+const textbox = form.querySelector(".form__textbox > textarea");
 
-// 문서 내용 가져오기.
-const form = document.querySelector("form");
-const author = form.querySelector("div.form__input--name > input");
-const title = form.querySelector("div.form__input--title > input");
-const textbox = form.querySelector("div.form__textbox > textarea");
-
-// submit을 클릭하면 자료를 가져옴
 form.addEventListener("submit", (event) => {
-  event.preventDefault(); //서브밋 이벤트로 사용시 꼭 함께 사용해주어야함
+  event.preventDefault();
   const obj = {
     id: "new id",
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: author.value,
+    answer: null,
     bodyHTML: textbox.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
 
   agoraStatesDiscussions.unshift(obj);
-  const discussion = convertToDiscussion(obj);
-  ul.prepend(discussion);
-  event.target.reset();
+  ul.prepend(convertToDiscussion(obj));
+  author.value = "";
+  title.value = "";
+  textbox.value = "";
 });
