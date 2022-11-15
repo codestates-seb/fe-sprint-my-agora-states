@@ -1,1 +1,198 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+}
+h3{
+  padding: 0;
+  font-size: 15px;
+  margin-top: 10px;
+}
+a{
+  color: #333333;
+  text-decoration: none;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #D2DAFF;
+  margin-bottom: 60px;
+}
+/* form__container start */
+header{
+  background-color: #B1B2FF;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 0 black;
+  text-shadow:-2px -2px #5b6178;
+
+}
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__container{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.form{
+  display: flex;
+  background: #AAC4FF;
+  border-radius: 30px;
+  padding: 20px 40px;
+  width: 500px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;}
+.form__input--name input{
+  width: 100px;
+  height: 30px;
+  background: #EEF1FF;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+.form__input--title{
+  display: flex;
+  flex-direction: column;
+}
+.form__input--title input{
+  height: 30px;
+  border: 1px solid #000;
+  font-size: 1em;
+  background: #EEF1FF;
+  border-radius: 10px;
+}
+.form__textbox{
+  display: flex;
+  flex-direction: column;
+}
+.form__textbox textarea{
+  height: 100px;
+  resize: none;
+  background: #EEF1FF;
+  border-radius: 5px;
+}
+.form__submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__submit input{
+  margin-left: 40px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;	background-color:#AAC4FF;
+	border-radius: 50%;
+	border:2px solid #AAC4FF;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+  font-family: 'Kanit', sans-serif;	
+  font-size:30px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px -2px 0px #5b6178;
+  width: 130px;
+  height : 130px;
+}
+.form__submit input:hover {
+	background-color:#AAC4FF;
+}
+.form__submit input:active {
+	position:relative;
+  background-color: #a0bcff;
+	top:2px;
+}
+label{
+  color: #000;
+  font-size: 18px;
+}
+/* form__container end */
+
+
+
+
+
+/* discussion  start*/
+.discussion__wrapper{
+  background-color: #EEF1FF;
+  border-radius: 50px;
+  width: 800px;
+  padding: 30px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.discussions__container{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.discussion__container{
+  margin: 10px 0;
+  padding: 5px 0px;
+  border-radius: 10px;
+  background: #e4e8ff;
+  width: 540px;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.discussion__avatar--wrapper{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--image{
+  border-radius: 100%;
+  width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.discussion__content{
+  flex: 3.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.discussion__title a{
+  display: block;
+}
+.discussion__title a:hover{
+  color: #FF9F9F;
+}
+.discussion__title a:active{
+  color: #E97777;
+}
+.discussion__title a:visited{
+  text-decoration: line-through;
+}
+.discussion__information{
+  text-align: right;
+  color: #777;
+}
+.discussion__answered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.5;
+}
+.discussion__answered p{
+  font-size: 30px;
+  color: rgb(44, 145, 66);
+}
+
+
+
+
+/* discussion end*/
