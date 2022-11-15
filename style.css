@@ -13,6 +13,16 @@ body{
     background-size:cover;
 }
 
+#cat{
+    display: none;
+    background: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: 0.7s;
+    z-index: -1;
+    width : 150px;
+  }
+
 main {
     display: flex;
     flex-direction: column;

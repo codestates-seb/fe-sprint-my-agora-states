@@ -2,6 +2,17 @@
 
 let currentPage = 1;
 
+const cat = document.querySelector('#cat');
+const body = document.querySelector('body');
+
+body.addEventListener('click', e => {
+  cat.style.display = 'block';
+  cat.style.top = `${e.clientY}px`;
+  cat.style.left = `${e.clientX}px`;
+})
+
+
+
 // 시간 조정 함수
 const transTime = (obj) =>{
   let time = '';
