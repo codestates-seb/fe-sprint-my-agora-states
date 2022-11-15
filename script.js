@@ -72,7 +72,7 @@ submitBtn.addEventListener('click', (e) => {
   e.preventDefault()
   const obj = {
     id: "999",
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: document.getElementById('title').value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: document.getElementById('name').value,
