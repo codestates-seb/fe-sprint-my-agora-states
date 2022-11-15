@@ -47,7 +47,10 @@ form.addEventListener("submit", function (e) {
 });
 
 function makeStorage(array) {
-  if (JSON.stringify(agoraStatesDiscussions[0]) === JSON.stringify(array[0])) {
+  if (
+    JSON.stringify(agoraStatesDiscussions[array.length - 1]) ===
+    JSON.stringify(array[array.length - 1])
+  ) {
     return agoraStatesDiscussions;
   } else {
     return agoraStatesDiscussions.unshift(...array);
