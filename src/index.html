@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유효성 검사</title>
+    <link rel="stylesheet" href="global-style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="validator.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <a href="../index.html"><i class="fa-solid fa-arrow-left"></i></a>
+      <div class="topTitContainer">
+        <h1 class="topTit">Let's<br>Start!</h1>
+      </div>
+      
+      <div class="success-message hide">사용할 수 있는 아이디입니다</div>
+      <div class="failure-message hide">아이디는 네 글자 이상이어야 합니다</div>
+
+      <fieldset>
+        <input type="text" id="username" placeholder="아이디" />
+        <button type="button" class="cancelBtn hide">X</button>
+      </fieldset>
+
+      <fieldset>
+        <input type="password" id="password" placeholder="비밀번호" />
+        <button type="button" class="cancelBtn hide">X</button>
+      </fieldset>
+
+      <fieldset>
+        <input
+          type="password"
+          id="password-retype"
+          placeholder="비밀번호 확인"
+        />
+        <button type="button" class="cancelBtn hide">X</button>
+      </fieldset>
+
+      <div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div>
+
+      <fieldset>
+        <input type="text" id="user" placeholder="이름" />
+        <button type="button" class="cancelBtn hide">X</button>
+      </fieldset>
+
+      <fieldset>
+        <input type="date" id="birth" placeholder="생년월일" />
+      </fieldset>
+
+      <fieldset>
+        <label for="gender">
+          <span>남자</span>
+          <input type="radio" id="gender" name="gender"/>
+        </label>
+          
+        <label for="gender">
+          <span>여자</span>
+          <input type="radio" id="gender" name="gender"/>
+        </label>
+      </fieldset>
+
+      <fieldset class="signup">
+        <button>회원가입</button>
+      </fieldset>
+
+      <script src="script.js"></script>
+      <script src="https://kit.fontawesome.com/e8e852d4eb.js" crossorigin="anonymous"></script>
+    </main>
+  </body>
+</html>

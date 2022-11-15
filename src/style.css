@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  color: var(--gray-900);
+  background-color: var(--white);
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(69, 44, 221, 0.3),
+      rgba(255, 255, 255, 0)
+    ),
+    url('./images/codestates-motif.png');
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 43px;
+  box-shadow: var(--big-box);
+  border: 1px solid var(--gray-10);
+  border-radius: 20px;
+  background-color:#F7F8FB;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+}
+
+fieldset {
+  display: flex;
+  /* flex-direction: column; */
+  border-radius: 12px;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  position:relative;
+}
+
+main{
+  display:flex;
+}
+
+main a{
+  background-color: #F7F8FB;
+}
+
+.fa-arrow-left{
+  color:#7997ED;
+  background-color: transparent;
+  width: 200px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+main > div {
+  color: var(--peach-600);
+  font-size: 10px;
+  background-color: transparent;
+  width: 200px;
+}
+
+.success-message{
+  color: #295ce0;
+  padding-left: 5px;
+}
+
+.failure-message, .mismatch-message{
+  padding-left: 5px;
+}
+
+.topTitContainer{
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #F7F8FB;
+  margin: 20px 0;
+}
+
+.topTit{
+  text-align: left;
+  color: #7997ED;
+  font-size: 24px;
+  background-color: #F7F8FB;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: 12rem;
+  height: 2.25rem;
+  color: var(--white);
+  background-color: var(--coz-purple-600);
+  transition: all 0.3s;
+  margin-top: 35px;
+}
+
+button:hover {
+  background-color: var(--coz-purple-500);
+}
+
+input {
+  border: none;
+  width: 200px;
+  font-size: 10px;
+  padding: 12px 10px;
+  border-radius: 10px;
+}
+
+fieldset > label{
+  display:flex;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+fieldset > label > input{
+  width: 10px;
+  padding: 0;
+  margin-left: 10px;
+}
+
+fieldset > label > span{
+  font-size: 10px;
+}
+
+input:focus{
+  outline: none;
+}
+
+.hide {
+  display: none;
+}
+
+.signup {
+  border: none;
+  background-color: #F7F8FB;
+}
+
+.cancelBtn{
+  position:absolute;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: #F7F8FB;
+  border: none;
+  border-radius: 50%;
+  margin:0;
+  color: var(--coz-purple-600);
+  font-size:10px;
+}
+
+.cancelBtn:hover {
+  color:#fff;
+}
