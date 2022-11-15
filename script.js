@@ -8,6 +8,15 @@ const form = document.querySelector('.form');
 const inputName = document.querySelector('#name');
 const inputTitle = document.querySelector('#title');
 const inputStory = document.querySelector('#story');
+const inputAvatar = document.querySelectorAll('.avatar');
+
+let selectedImg;
+
+inputAvatar.forEach(ele => {
+  ele.addEventListener('click', () => {
+    selectedImg = ele.getAttribute('src');
+  });
+});
 
 const ul = document.querySelector('ul.discussions__container');
 
@@ -19,6 +28,7 @@ const makeDiscussionData = () => {
     url: inputStory.value,
     createdAt: new Date(),
     answer: null,
+    avatarUrl: selectedImg,
   };
 };
 
@@ -29,8 +39,9 @@ const convertDate = date => {
 
 // form element submit event handler
 form.addEventListener('submit', e => {
-  // e.preventDefault(); ------> 다시 렌더링하기 위해 주석 처리.
+  // 다시 렌더링하기 위해 주석 처리.
   // 주석 처리 안할시, submit은 작동하지만 다시 렌더링되지 않음. 아래 코드는 실행된다.
+  // e.preventDefault();
 
   const newDiscussionData = makeDiscussionData();
 

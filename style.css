@@ -58,6 +58,11 @@ section.discussion__wrapper {
   align-items: center;
 }
 
+.avatar {
+  width: 3rem;
+  height: 3rem;
+}
+
 /* ul */
 ul {
   width: 540px;
