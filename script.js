@@ -1,20 +1,21 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 //console.log(agoraStatesDiscussions);
 
+let data;
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions"); //데이터 추가
+if (dataFromLocalStorage){
+  data = JSON.parse(dataFromLocalStorage); //자바스크립트에서 활용할 수 있는 데이터로 변환시켜 주는 메소드
+} else {
+  data = agoraStatesDiscussions.slice();
+}
+
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
-  // const avatarWrapper = document.createElement("div");
-  // avatarWrapper.className = "discussion__avatar--wrapper"; //<div class="discussion__avatar--wrapper"></div>
-
-  // const discussionContent = document.createElement("div");
-  // discussionContent.className = "discussion__content"; //<div class="discussion__content"></div>
-  
-  // const discussionAnswered = document.createElement("div");
-  // discussionAnswered.className = "discussion__answered"; //<div class="discussion__answered"></div>
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
@@ -65,16 +66,10 @@ const convertToDiscussion = (obj) => {
 };
 
 // // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// const render = (element) => {
-//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-//   }
-//   return;
-// };
 
 const render = (element, startIdx, endIdx) => {
   for (let i = startIdx; i < endIdx; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(data[i]));
   }
   return;
 };
@@ -120,13 +115,16 @@ form.addEventListener("submit", function(event){
   removeChildes(ul);
 
   //기존 배열에 입력창으로 받은 정보를 객체로 생성하여 맨 앞에 추가
-  agoraStatesDiscussions.unshift(addDiscussion);
+  data.unshift(addDiscussion);
+
+  //로컬스토리지에 저장
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data)); //JSON.stringify(): 특정 데이터를 JSON 형태로 문자 데이터화 시켜주는 메소드
 
 
   //이 부분에 추가되면 출력을 어떻게 할 것인지 적기
   render(ul, startIdx, endIdx);
 
- 
+
 
   //const forNewDiscussion = convertToDiscussion(addDiscussion); //li로 return 
   
@@ -136,6 +134,7 @@ form.addEventListener("submit", function(event){
   
   formReset();
 });
+
 
 
 // TO DO : 이전 데이터 삭제
@@ -161,8 +160,6 @@ const formReset = () => {
 
 };
 
-
-
 // TO DO : 페이지네이션 기능
 // 한페이지에 10개씩 디스커션 보이기
 // 이전, 다음 페이지로 이동 가능
@@ -175,7 +172,7 @@ let startIdx = 0;
 let endIdx = 10;
 
 nextPageBtn.addEventListener("click", () => {
-  if (endIdx > agoraStatesDiscussions.length) return;
+  if (endIdx > data.length) return;
 
   startIdx += 10;
   endIdx += 10;
@@ -195,4 +192,3 @@ prevPageBtn.addEventListener("click", () => {
 
   render(ul, startIdx, endIdx);
 });
-
