@@ -1,4 +1,4 @@
-const agoraStatesDiscussions = [
+export default  [
   {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",

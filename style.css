@@ -1,1 +1,196 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+:root{
+    --search-color-background : #f8f8f8;
+    --search-color-border : #ccc;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    background-color: grey;
+}
+
+a{
+    color : black;
+    text-decoration: none;
+}
+
+h1{
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.discussion__wrapper{
+    position: relative;
+    width: 80%;
+    max-width: 100rem;
+    margin: 0 auto;
+    background-color: var(--search-color-background);
+}
+
+.discussion__search{
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    padding: 25px 100px;
+    background-color: var(--search-color-background);
+    gap: 10px;
+    border: 1px solid var(--search-color-border);
+}
+#search_option{
+    width : 120px;
+}
+
+.search_input{
+    width: 100%;
+    padding-left: 15px;
+}
+
+.search_button{
+    width : 80px;
+}
+
+.discussions__container{
+    width: 100%;
+}
+
+.discussions__container table{
+    width : 100%;
+}
+
+/* avatar */
+.discussions__container td:first-child{
+    width : 15%;
+}
+
+/* title */
+.discussions__container td:nth-child(2){
+    width : 50%;
+}
+
+.discussions__container td:nth-child(2) h2{
+    margin-left: 6px;
+}
+
+/* user */
+.discussions__container td:nth-child(3){
+    text-align: center;
+    width : 13%;
+}
+
+/* time */
+.discussions__container td:nth-child(4){
+    text-align: center;
+    width : 12%;
+}
+
+/* answerd */
+.discussions__container td:last-child{
+    text-align: center;
+}
+
+.discussions__container td:first-child span{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discussions__container td:first-child img{
+    width : 80%;
+    padding : 5px;
+    border-radius: 50%;
+}
+.discussions__container th, td {
+    border: 1px solid #444444;
+  }
+
+.discussions__container th {
+height: 60px;
+background-color: rgb(254, 254, 254);
+}
+
+.discussions__container tbody{
+    background-color: white;
+}
+
+.discussions__container tbody tr:nth-child(2n) {
+    background-color: grey;
+}
+
+
+.pagenation{
+    width: 100%;
+    bottom: 20px;
+    text-align: center;
+    padding : 30px 0;
+}
+
+.pagenation button{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: inset -2px -4px 21px 5px rgba(206,206,206,0.43);
+}
+
+.pagenation button.checked{
+    background-color: #9e9d9d;
+}
+
+
+.discussion__filter {
+    user-select: none;
+}
+
+.discussion__filter .filter{
+    cursor: pointer;
+}
+
+.form__container{
+    position : absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(206,206,206,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: grey;
+    width : 50%;
+    height: 50%;
+}
+
+.form__container h3 {
+    font-size: 3rem;
+    padding : 30px;
+} 
+
+.form__input--wrapper{
+    background-color: green;
+    width: 80%;
+    height: 50%;
+    font-size: 2rem;
+}
+
+.hide{
+    display: none;
+}
+
