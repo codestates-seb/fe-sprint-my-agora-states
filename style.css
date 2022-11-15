@@ -6,20 +6,16 @@
     box-sizing: border-box;
 }
 
-/* body{
-    width : 100%;
-    height : 100%;
-    margin : 0 auto;
-    padding : 10px;
-    border : none;	
-    align-items: center;
-    /* 스크롤바 표시 지정 */
-    /* overflow : auto; 
-} */
+@font-face {
+    font-family: 'font';
+    src: url('./font/Asia신디나루M.ttf') format('truetype');
+}
 
 body {
     background-image: url('./image/background1.png'); 
     background-position: 100% 100%;
+    font-family: 'font';
+    letter-spacing: -3px;
 }
 
 body {
@@ -44,8 +40,13 @@ h2 {
     padding: 10px;
 }
 
-a:active {
+a {
+    text-decoration: none;
     color: black;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .form {
@@ -82,17 +83,7 @@ ul.discussions__container > li:hover {
     border-radius: 30px;
 }
 
-.discussion__avatar--wrapper{
-    border-radius: 100%;
-}
-
-.discussion__avatar--image {
-    border-radius: 100%;
-}
-
 .discussions__container {
-    /* display: flex;
-    flex-direction: column; */
     list-style-type: none;
     background-color: white;
     overflow: auto;
@@ -109,15 +100,6 @@ ul.discussions__container > li:hover {
 
 .discussion__content div {
     text-align: right;
-}
-
-.discussion__content p {
-    font-size: 28px;
-}
-
-.discussion__information {
-    text-align: right;
-    
 }
 
 .discussion__avatar--wrapper img {
