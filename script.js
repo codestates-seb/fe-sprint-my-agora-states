@@ -18,9 +18,22 @@ const PAGENATION_SHOW_LIMIT = 5;
 let pagenationCurrentNum = 1;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
+const convertToDiscussion = ({
+  title,
+  author,
+  avatarUrl,
+  url,
+  createdAt,
+  answer,
+}) => {
   const $li = document.createElement("li"); // $li 요소 생성
   $li.className = "discussion__container"; // 클래스 이름 지정
+
+  const $iconX = document.createElement("i");
+  $iconX.className = "fa-regular fa-square-xmark";
+
+  const $iconCheckbox = document.createElement("i");
+  $iconCheckbox.className = "fa-regular fa-square-check";
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -54,9 +67,9 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
   discussionContent.append(contentInfo);
 
   // checkbox
-  const removeButton = document.createElement("p");
-  removeButton.textContent = "☑";
-  discussionAnswered.append(removeButton);
+  const checkbox = document.createElement("p");
+  answer ? checkbox.append($iconCheckbox) : checkbox.append($iconX);
+  discussionAnswered.append(checkbox);
 
   $li.append(avatarWrapper, discussionContent, discussionAnswered);
   return $li;
@@ -116,13 +129,13 @@ const renderPageNations = () => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, pageNum = 1) => {
+const render = (element) => {
   renderPageNations();
 
   removeAllchild(element);
   const displayDiscussions = agoraStatesDiscussions.slice(
-    (pageNum - 1) * 10,
-    pageNum * 10
+    (pagenationCurrentNum - 1) * 10,
+    pagenationCurrentNum * 10
   );
 
   for (let i = 0; i < displayDiscussions.length; i += 1) {
@@ -150,6 +163,7 @@ formSubmitButton.addEventListener("click", (event) => {
     author: name.value,
     url: "",
     avatarUrl: "",
+    answer: null,
   };
 
   agoraStatesDiscussions = [discussionItem, ...agoraStatesDiscussions];
