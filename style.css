@@ -1,1 +1,112 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0D4C92
+    ;
+}
+#title{
+    width: 490px;
+}
+
+#name {
+    width: 490px;
+}
+.form__submit{
+    width: 490px;
+}
+.form__input--name{
+    text-align: center;
+}
+textarea{
+    text-align: center;
+    display: block;
+    width: 495px;
+}
+.form__textbox{
+    text-align: center;
+}
+#submit{
+    width: 500px;
+}
+img {
+    width: 75px;
+}
+label{
+    display: block;
+}
+.form__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFF5E7;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+.form__input--title{
+    text-align: center;
+}
+
+.discussion__avatar--wrapper{
+    display: inline-block;
+
+}
+.discussion__content{
+    display: inline-block;
+
+}
+.discussion__avatar--image{
+    display: inline-block;
+}
+
+.discussion__title {
+    display: inline-block;
+}
+
+
+.discussion__answered{
+    display: inline-block;
+}
+
+
+.discussion__wrapper{
+    width: 500px;
+    background-color: #59C1BD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 3px;
+
+}
+
+li {
+    border-bottom: 1px solid salmon;
+    list-style-type: none;
+    width: 100%;
+    
+}
