@@ -10,7 +10,7 @@
 
 body {
     margin: 5% 0px;
-    background-image: url("https://www.urbanbrush.net/web/wp-content/uploads/edd/2022/01/urbanbrush-20220117090917642180.jpg") ;
+    background-image: url("https://cdn.pixabay.com/photo/2016/03/27/07/32/clouds-1282314_960_720.jpg") ;
     background-size: cover;
 }
 
@@ -27,7 +27,14 @@ h1{
     /* border: 1px solid red; */
     /* display: grid; */
     row-gap: 10px;
-    margin: 30px;
+    margin: 20px;
+    display:flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: 540px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.149);
 }
 
 .form__input--wrapper> div{
@@ -42,19 +49,22 @@ h1{
 input, textarea{
     border: 2px solid rgba(65, 65, 65, 0.164);
     font-size: 1rem;
+    border-radius: 10px;
+    padding: 5px;
+    /* width: 540px; */
 }
 
 #submit {
     padding: 5px;
     border: 2px solid rgba(65, 65, 65, 0.164);
     cursor: pointer;
-    box-shadow: 3px 5px 5px rgba(254, 254, 254, 0.558);
+    box-shadow: 3px 5px 5px gray;
     background-color: white;
     border-radius: 5px;
 }
 
 #submit:hover {
-    background-color: rgb(215, 240, 247);
+    background-color: rgb(210,225,231);
 
 }
 
@@ -78,8 +88,8 @@ ul {
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    background-color: rgb(175,235,254);
-    box-shadow: 3px 5px 5px rgba(254, 254, 254, 0.558);
+    background-color: rgb(210,225,231);
+    box-shadow: 3px 5px 5px gray;
 }
 
 .discussion__content {
