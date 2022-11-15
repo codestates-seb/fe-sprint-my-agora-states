@@ -1,1 +1,407 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+* {
+    /* 1. 모든 요소에 border-box를 적용합니다. */
+    box-sizing: border-box;
+    margin : 0;
+    padding : 0;
+}
+li{
+    list-style: none;
+}
+body {
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    background : url('background2.jpg') no-repeat center;
+    background-size : cover; 
+}
+main {
+    width: 800px;
+    padding: 50px 30px 30px 60px;
+    margin: 50px auto;
+    /* background-color: #c6ced41c; */
+    background-color: #c6ced432;
+    border-radius: 4px 12px 12px 4px;
+    position: relative;
+    box-shadow: 6px 4px 3px rgba(0,0,0,0.35);
+}
+h1{
+    margin-top:30px;
+    margin-bottom: 30px;
+    font-family: 'Carter One', cursive;
+    font-size: 60px;
+    color : #d0374e;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+}
+/* 입력창 form */
+.form__container{
+    margin-left: 40px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+}
+/* form keword */
+.form__input--name {
+    font-family: 'Carter One', cursive;
+    /* font-family: 'Fredoka One', cursive; */
+    font-size: 20px; color : #9ae798;
+}
+
+.form__input--title {
+    font-family: 'Carter One', cursive;
+    font-size: 20px; color : #5ad773;
+}
+.form__textbox {
+    font-family: 'Carter One', cursive;
+    font-size: 20px; color :  #44d441;
+    /* font-size: 20px; color : #07a704; */
+}
+
+/* form 입력창 */
+.form__input--wrapper {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form__input--wrapper > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width : 600px;
+}
+.form__input--wrapper > div label {
+margin-right: 20px;
+letter-spacing: 1px;
+}
+.form__input--wrapper > div input {
+    flex: 1 0 0;
+    border-radius: 4px;
+    border: 2px solid rgb(255, 255, 255);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 6px 5px 6px rgba(0,0,0,0.2);
+    width : 100px;
+    outline: 0;
+    height: 32px;
+    padding: 0 12px;
+}
+
+
+.form__input--wrapper > div textarea {
+    flex: 1 0 0;
+    width : 50%;
+    border-radius: 4px;
+    border: 2px solid rgb(255, 255, 255);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 6px 5px 6px rgba(0,0,0,0.2);
+    outline: 0;
+    height: 64px;
+    padding: 8px 12px;
+    margin-left: 20px;
+    overflow-y: auto;
+    resize: none;
+}
+/* submit 버튼 */
+.form__btn-area {
+    margin-top:30px;
+    margin-bottom: 50px;
+}
+.btn {
+    font-size: 20px;
+    padding : 15px 30px;
+    border : 1px solid rgb(255, 255, 255);
+    background-color : transparent;
+    color : rgb(230, 236, 37);
+    text-transform:uppercase;
+    letter-spacing: 5px;
+    /* font-weight: bold; */
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
+    cursor : pointer;
+    width : 600px; height :50px;
+    border-radius: 8px;
+    /* margin-left: 30px; */
+    font-family: 'Fredoka One', cursive;
+    /* font-family: 'Carter One', cursive;
+    margin-top: -2px; */
+}
+.btn:focus {
+    outline : none;
+}
+.btn::before {
+    content: ""; 
+    position : absolute;
+    width: 100%;
+    height : 100%;
+    background-color :rgba(136, 199, 244, 0.476);
+    /* background-color :rgba(249, 252, 88, 0.649); */
+    top :100%;
+    left : 0;
+    transition: all 0.4s;
+    z-index : -1;
+    /* 요소가 곂치는 경우 z-index가 높을 수록 앞쪽에 위치, 낮을수록 뒷쪽에 위치  */
+    /* z-index의 기본갑은 auto지만 0으로 입력된것처럼 작동한다 */
+}
+.btn:hover::before{
+    transform: translateY(-100%);
+}
+.btn:hover {
+    color : rgba(255, 255, 255, 0.984);
+
+}
+
+/* 댓글창 section : discussion */
+.discussion__wrapper{
+    margin-left: 30px; 
+}
+.discussion__avatar--image {
+    /* 4. 아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요. */
+    border-radius : 100%;
+    /* 5. 아바타 사진의 너비를 48px로 설정하세요. */
+    width : 48px;
+}
+.discussion__container {
+    width : 620px;  
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 0 10px;
+    padding: 10px;
+    border : 1px solid rgba(245, 255, 254, 0.262);
+    background-color : rgba(245, 255, 254, 0.262);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.discussion__content{
+    padding : 10px;
+    flex-grow : 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.discussion__title {
+    font-size: 17.5px;
+    line-height: 140%;
+    word-break: keep-all;
+    font-weight: 600;
+    letter-spacing: 0.6;
+}
+.discussion__information {
+    text-align: right;
+    font-size: 14px;
+    margin-top:10px;
+    color: rgb(59, 56, 56);
+}
+
+/* 체크박스 */
+.discussion__answered {
+    font-size : 30px;
+    padding-right :10px;
+    font-weight: bold;
+}
+/* pagination */
+.pagination_container {
+    position: fixed;
+    top: 90px;
+    right: calc(50% - (970px / 2) - 40px);
+}
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 11px;
+}
+.pagination li {
+    width: 60px;
+    height: 60px;
+    border-radius : 100px;
+    line-height: 60px;
+    text-align: right;
+    padding-right: 25px;
+    font-size: 1.1rem;
+    border-top: none;
+    color : rgb(255, 252, 252);
+    /* font-family: 'Fredoka One', cursive; */
+    font-family: 'Carter One', cursive;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 6px 5px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.pagination li:nth-child(5n+1) {
+    /* background-color: #f6afaf44; */
+    background-color: #cff3fa49;
+}
+.pagination li:nth-child(5n+2) {
+    /* background-color: #f6ff7c39; */
+    background-color: #7edef255;
+}
+.pagination li:nth-child(5n+3) {
+    /* background-color: #b4ff9f3c; */
+    background-color: #1b8ca255;
+}
+.pagination li:nth-child(5n+4) {
+    /* background-color: #95e1d344; */
+    background-color: #156a7b55;
+}
+.pagination li:nth-child(5n) {
+    /* background-color: #9adcff39; */
+    background-color: #104c7255;
+}
+.pagination li:nth-child(6) {
+    /* background-color: #9adcff39; */
+    background-color: #02184451;
+}
+.pagination li:nth-child(7) {
+    /* background-color: #9adcff39; */
+    background-color: #06023a61;
+}
+.pagination li.current__page {
+    font-weight: 600;
+    width: 80px;
+    border-right-width: 600;
+}
+.hidden {
+    display: none;
+}
+
+/* 버블 효과 애니메이션 */
+.wrapper {
+    height : 100vh;
+    width : 100vw;
+    position : absolute;
+}
+.wrapper div{
+    height : 60px;
+    width : 60px;
+    border : 1px  rgba(224, 247, 252, 0.099);
+    background: rgba(224, 247, 252, 0.099);
+    border-radius : 50px;
+    position : absolute;
+    top : 10%;
+    left : 10%;
+    animation : 4s linear infinite;
+}
+div .dot{
+    height : 10px;
+    width : 10px;
+    border-radius : 50px;
+    background: rgba(224, 247, 252, 0.5);
+    position: absolute;
+    top : 20%;
+    right : 20%;
+}
+.wrapper div:nth-child(1){
+    top: 20%;
+    left : 20%;
+    animation :animate 8s linear infinite;
+}
+.wrapper div:nth-child(2){
+    top: 60%;
+    left : 80%;
+    animation : animate 10s linear infinite;
+}
+.wrapper div:nth-child(3){
+    top: 40%;
+    left : 90%;
+    animation : animate 5s linear infinite;
+}
+.wrapper div:nth-child(4){
+    top: -10%;
+    left : 10%;
+    animation : animate 5s linear infinite;
+}
+.wrapper div:nth-child(5){
+    top: 90%;
+    left : 5%;
+    animation : animate 9s linear infinite;
+}
+.wrapper div:nth-child(6){
+    top: 30%;
+    left : 60%;
+    animation : animate 5s linear infinite;
+}
+.wrapper div:nth-child(7){
+    top: 70%;
+    left : 20%;
+    animation : animate 8s linear infinite;
+}
+.wrapper div:nth-child(8){
+    top: 50%;
+    left : 90%;
+    animation : animate 6s linear infinite;
+}
+.wrapper div:nth-child(9){
+    top: 75%;
+    left : 30%;
+    animation : animate 10s linear infinite;
+}
+.wrapper div:nth-child(10){
+    top: 45%;
+    left : 20%;
+    animation : animate 10s linear infinite;
+}  
+.wrapper div:nth-child(11){
+    top: 10%;
+    left : 90%;
+    animation : animate 9s linear infinite;
+}  
+.wrapper div:nth-child(12){
+    top: 70%;
+    left : 90%;
+    animation : animate 7s linear infinite;
+}  
+.wrapper div:nth-child(13){
+    top: 20%;
+    left : 75%;
+    animation : animate 9s linear infinite;
+}  
+.wrapper div:nth-child(14){
+    top: 42%;
+    left : 60%;
+    animation : animate 6s linear infinite;
+}  
+.wrapper div:nth-child(15){
+    top: 42%;
+    left : 7%;
+    animation : animate 8s linear infinite;
+}  
+.wrapper div:nth-child(16){
+    top: 22%;
+    left : 5%;
+    animation : animate 9s linear infinite;
+}  
+.wrapper div:nth-child(17){
+    top: 10%;
+    left : 30%;
+    animation : animate 5s linear infinite;
+}  
+@keyframes animate {
+    0% {
+        /* transform:scale() - X 또는 Y축으로 확대/ 축소
+        transform:translate() - 지정 요소 X 또는 Y축으로 이동
+        transform:rotate() - 지정 요소 회전 */
+        transform : scale(0) translateY(0) rotate(70deg);
+    }
+    30%{
+        transform : scale(-1) translateY(-10px) rotate(50deg);
+    }
+    50%{
+        transform : scale(0.3) translateY(20px) rotate(30deg);
+    }
+    /* 70%{
+        transform : scale(0.3) translateY(-20px) rotate(50deg);
+    } */
+    100%{
+        transform : scale(1.3) translateY(-100px) rotate(360deg);
+    }
+}
