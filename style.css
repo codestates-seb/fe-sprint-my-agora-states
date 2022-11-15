@@ -1,1 +1,145 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    box-sizing: border-box;
+    font-family: 'Righteous';
+    color: #000;
+}
+
+ body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #72b9af;
+ }
+
+ .form__input--name {
+    word-spacing: 0px;
+ }
+
+ .form__input--title{
+    word-spacing: 3.5px;
+ }
+
+  .discussion__content{
+    display: flex;
+    width:540px; 
+  }
+
+  .discussion__avatar--wrapper{
+    padding: 10px;
+  }
+  /* .discussion__information{
+    text-align: right;
+  } */
+  .discussion__content > div{
+    text-align: right;
+  }
+
+  .discussion__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 540px;
+    height: 100px;
+    font-size: 13px;
+    padding: 30px;
+    border-radius: 20px;
+    border: solid #153462;
+    margin: 10px;
+    background-color: #DEF5E5;
+  }
+  
+  .discussion__avatar--image{
+    width:48px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+  
+  
+}
+
+  .discussion__content{
+    display: block;
+  }
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #153462;
+    font-size: 44pt;
+}
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    display: flex;
+
+    width: 500px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    word-spacing: 15px;
+}
+#story {
+    font:bolder;
+    width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #DEF5E5;
+    border: 2px solid #153462;
+    word-spacing: 0px;
+}
+.form__input--wrapper {
+    margin: 5px;
+}
+.form__input--wrapper input {
+    width:300px;
+    height: 30px;
+    font-size:1.2rem;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #DEF5E5;
+    border: 2px solid #153462;
+}
+.form__submit {
+    flex:1;
+    margin:3px;
+}
+
+.form__submit input {
+    width: 448px;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: #DEF5E5;
+    margin-left: 25px;
+    margin-right: 0px;
+    border: 2px solid #153462;
+}
+textarea {
+    margin : 5px;
+}
+
+.discussion__information {
+    padding-top: 10px;
+    font-size: 14px;
+    color: black;
+}
+  
+  img {
+    width: 48px;
+    border-radius: 100%;
+}
