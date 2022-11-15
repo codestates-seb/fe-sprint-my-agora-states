@@ -14,12 +14,71 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImage = document.createElement("img");
+  avatarImage.className = "discussion__avatar--image";
+  avatarImage.alt = "avatar of " + obj.author;
+  avatarImage.src = obj.avatarUrl;
+  avatarWrapper.append(avatarImage);
 
+  const contentTitle = document.createElement('h2');
+  const titleAnchor = document.createElement('a');
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  contentTitle.append(titleAnchor);
 
+  const contentInfo = document.createElement('div')
+  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`
+  contentInfo.className = "discussion__information"
+  discussionContent.append(contentTitle, contentInfo)
+
+  const checked = document.createElement('p')
+  const junimoRight = document.createElement('img')
+  junimoRight.setAttribute("src", "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FcFR94P%2FbtrRdarMIxR%2FO61IDuXAIXkKUeR19isF4k%2Fimg.png")
+  junimoRight.setAttribute("width", "20px")
+  junimoRight.setAttribute("height", "20px")
+  junimoRight.setAttribute("alt", "☑︎" )
+  const junimoWrong = document.createElement('img')
+  junimoWrong.setAttribute("src", "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FblCl8v%2FbtrRh8y2CAv%2FhGTHSVDhcxihvKLFFdTAj1%2Fimg.png")
+  junimoWrong.setAttribute("width", "20px")
+  junimoWrong.setAttribute("height", "20px")
+  junimoWrong.setAttribute("alt", "☒" )
+  if (obj.answer !== null){
+    checked.value = junimoRight;
+  } else {
+    checked.value = junimoWrong;
+  }
+
+  discussionAnswered.append(checked, junimoRight, junimoWrong)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+const form = document.querySelector('form.form')
+const inputName = document.querySelector('.form__input--name > input')
+const inputTitle = document.querySelector('.form__input--title > input')
+const inputQuestion = document.querySelector('.form__textbox > textarea')
+
+form.addEventListener('submit',(event) => {
+  event.preventDefault();
+  const obj = {
+    id: "1111",
+    createdAt: new Date().toLocaleString(),
+    title: inputTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236",
+    author: inputName.value,
+    answer: null,
+    bodyHTML: inputQuestion.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
+
+  }
+  agoraStatesDiscussions.unshift(obj);
+  ul.prepend(convertToDiscussion(obj));
+
+  inputName.value = '';
+  inputTitle.value = '';
+  inputQuestion.value = '';
+})
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
