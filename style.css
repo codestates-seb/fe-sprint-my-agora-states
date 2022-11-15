@@ -124,7 +124,7 @@ li.discussion__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .discussion__avatar--image {
