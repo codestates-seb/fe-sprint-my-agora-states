@@ -54,12 +54,24 @@ const inputTitle = document.querySelector("input#title");
 const inputContent = document.querySelector("input#story");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  // animation -> main
+  const mainSpin = [
+    { transform: 'rotate(0) scale(1)' },
+    { transform: 'rotate(360deg) scale(0)' }
+  ];
+  const mainTiming = {
+    duration: 700,
+  }
+  const main = document.querySelector('main');
+  main.animate(mainSpin, mainTiming);
+
   let randomIdx = (max) => Math.floor(Math.random() * max);
   const newQuestion = {
     id: "",
     createdAt: new Date().toISOString(),
-    title: inputTitle.value,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    title: "Search on Google: " + inputTitle.value,
+    url: "https://www.google.com/search?q=" + inputContent.value,
     author: inputName.value,
     answer: null,
     bodyHTML: inputContent.value,

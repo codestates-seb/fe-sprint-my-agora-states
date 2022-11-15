@@ -65,7 +65,7 @@ main {
 #head > h1 {
   align-self: center;
   flex: 1 0 0;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 #head > h1:hover {
@@ -89,9 +89,9 @@ form > div.form__input--wrapper {
   align-items: flex-end;
 }
 input#story {
-  width: 450px;
+  width: 350px;
   height: 100px;
-  overflow-y: visible;
+  /* overflow-y: visible; */
 }
 
 form > div.form__submit {
@@ -157,7 +157,7 @@ li.discussion__container:hover {
 }
 
 .discussion__avatar--image {
-  width: 60%;
+  width: 80%;
   border-radius: 50%;
 }
 
@@ -213,6 +213,6 @@ input#title {
 /* new image */
 .newImg-circle {
   width: 100%;
-  clip-path: circle(48px);
-  transform: scale(68%);
+  clip-path: circle(41px);
+    transform: scale(88%);
 }
