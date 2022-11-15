@@ -7,32 +7,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Rubik+Bubbles&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-  <main>
+  <div class="agorastates__title scrollbox">
     <h1>My Agora States</h1>
+  </div>
+  <main class="scrollbox">
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required value="">
-          </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="title" required value="">
+          <div class="form__top">
+            <div class="form__input--name">
+              <input type="text" name="name" id="name" placeholder= "  Name" required value="">
+            </div>
+            <div class="form__input--title">
+              <input type="text" name="name" id="title" placeholder="  Title" required value="">
+            </div>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required value=""></textarea>
+            <textarea id="story" name="story" placeholder="  question" required value=""></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="submit" id="submit">
         </div>
       </form>
     </section>
@@ -47,7 +51,7 @@
             </div>
             <div class="discussion__content">
               <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-              <div class="discussion__information">kimploo / 2022년 04월 22일 오후 2:08:33</div>
+              <div class="discussion__information">kimploo / 2022.4.22. 오후 2:08:33</div>
             </div>
             <div class="discussion__answered"><p class="checkbox">□</p></div>
           </div>

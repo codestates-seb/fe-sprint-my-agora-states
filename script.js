@@ -172,6 +172,22 @@ const newName = document.querySelector('#name');
 const newStory = document.querySelector('#story');
 const form = document.querySelector('form.form');
 
+const makeAvatar = () => {
+  const index= Math.floor(Math.random() * 10 );
+  const arr = [
+    'https://item.kakaocdn.net/do/fd0050f12764b403e7863c2c03cd4d2d7154249a3890514a43687a85e6b6cc82',,
+    'https://blog.kakaocdn.net/dn/bnD244/btqNjVKUwhT/M9Kdihjk4WeFXcld7lZQ0K/img.jpg',
+    'https://blog.kakaocdn.net/dn/cggrTQ/btqNfrK1D8U/eIo8HSrVLAEOnyG3tCNZN0/img.jpg',
+    'https://cdn.huffingtonpost.kr/news/photo/202201/116183_225004.png',
+    'http://fimg5.pann.com/new/download.jsp?FileID=55573320',
+    'https://blog.kakaocdn.net/dn/O8ZrD/btqNf6Nowp1/RD9dBIdp9sWO7qGgakQhrk/img.jpg',
+    'https://blog.kakaocdn.net/dn/Lhqdm/btqNkPXHImi/3LWT74VgU008srSUDdnH3k/img.jpg',
+    'https://blog.kakaocdn.net/dn/cw9feq/btqNf7r2BhI/fAwkqyi70FcKwxj6dnM9Bk/img.jpg',
+    'https://blog.kakaocdn.net/dn/cL8bwq/btqNkQWDL9A/2TszBrkZhIc3UwIgH9SCI1/img.jpg']
+
+  return arr[index]
+}
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const obj = {
@@ -182,8 +198,7 @@ form.addEventListener('submit', (event) => {
     author: newName.value,
     answer: null,
     bodyHTML: newStory.value,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+    avatarUrl:makeAvatar(),
   }
   agoraStatesDiscussions.unshift(obj);
   ul.prepend(convertToDiscussion(obj));
