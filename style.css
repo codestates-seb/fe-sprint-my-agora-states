@@ -13,65 +13,24 @@ h1 {
   color: hsl(150 50% 50%);
 }
 
+.form {
+  height: 300px;
+}
+
 .form__container {
   background-color: white;
   width: 350px;
   height: 250px;
-  /* padding: 10px, 5px; */
-  /* margin: 10px, 5px; */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* text-align: center; */
-  /* border: 2px solid hsl(150 50% 50%); */
 }
 
-input {
-  font-family: "Noto Sans KR", "Noto Sans Korean", "Nanum Gothic", sans-serif !important;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-  border: 0;
-  outline: none;
-  font-size: 10px;
-}
 input::placeholder {
   color: #d9d9d9;
 }
-.dust-class {
-  /* width: 50%; 
-box-sizeing: border-box;
-margin: 20px auto;
-position: relative; */
-}
-/* .dust-class label{
-display: inline-block;
-position: absolute;
-top: -5px;
-left: 14px;
-padding: 10px;
-background: white;
-font-size: 14px;
-color: #888;
-font-weight: bold;
-} */
-.dust-class.ver2 label {
-  top: initial;
-  bottom: -20px;
-}
-/* .dust-class input{
-  width: 100%;
-  border: 1px solid #dddddd !important;
-  font-size: 1rem;
-  line-height: 1.45;
-  letter-spacing: -0.04rem;
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 12px;
-} */
 
 .form__input--wrapper {
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   width: 290px;
   height: 200px;
@@ -156,11 +115,8 @@ font-weight: bold;
 .form__textbox {
   display: flex;
   justify-content: left;
-  /* margin-left: 10px; */
   margin-top: -20px;
   margin-bottom: 5px;
-  /* width: 50%; */
-  /* margin: 20px auto; */
   position: relative;
 }
 
@@ -168,7 +124,6 @@ font-weight: bold;
   display: inline-block;
   position: absolute;
   top: initial;
-  /* left: 150px; */
   right: 280px;
   bottom: -15px;
   padding: 10px;
@@ -196,16 +151,8 @@ font-weight: bold;
 }
 
 .form__submit {
-  margin: 20px;
+  margin: 10px;
   float: right;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -213,15 +160,9 @@ main {
   cursor: pointer;
   width: 70px;
   height: 60px;
-  /* align-items: center; */
-  /* width: 100%; */
   border: 2px solid #dddddd !important;
   font-size: 1rem;
-  /* line-height: 1.45; */
-  /* letter-spacing: -0.04rem; */
   border-radius: 8px;
-  /* padding: 16px; */
-  /* margin-top: 12px; */
 }
 
 .submit__button:focus {
@@ -232,6 +173,131 @@ main {
   background-color: black;
   color: white;
 }
+
+.button {
+	--font-size: 0.8rem;
+	--perspective: calc(var(--font-size) * 8);
+	--bg: hsl(210, 100%, 56%);
+	--bg-accent: hsl(210, 100%, 46%);
+	--duration: 800ms;
+	--ease: cubic-bezier(0.3, 1.4, 0.65, 1);
+
+	cursor: pointer;
+	position: relative;
+	perspective: var(--perspective);
+	font-family: inherit;
+	font-size: var(--font-size);
+	font-weight: bold;
+	color: white;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.button:focus {
+	z-index: 1;
+}
+
+.button:focus-visible {
+	--size: 3px;
+	outline: var(--size) dashed var(--bg);
+	outline-offset: calc(var(--size) * 2);
+}
+
+.button .wrapper {
+	position: relative;
+	display: grid;
+	transform: translateZ(calc(var(--font-size) * -1)) scale(1.001) rotateX(0)
+		rotateY(0) rotateZ(0);
+	transform-style: preserve-3d;
+	pointer-events: none;
+}
+
+.button .wrapper {
+	transition: transform var(--duration) var(--ease);
+}
+
+.button .wrapper > * {
+	grid-area: 1 / 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color var(--duration) var(--ease);
+}
+
+.button .front,
+.button .back {
+	padding: 1rem 2rem;
+	background-color: var(--bg);
+}
+
+.button .wrapper :not(.front):not(.back) {
+	background-color: var(--bg-accent);
+}
+
+.button .top,
+.button .bottom {
+	width: 100%;
+	height: var(--font-size);
+}
+
+.button .left,
+.button .right {
+	width: var(--font-size);
+	height: 100%;
+}
+
+.button .front {
+	transform: translateZ(var(--font-size));
+}
+
+.button .back {
+	transform: scaleX(-1);
+}
+
+.button .top {
+	transform-origin: top center;
+	transform: rotateX(90deg);
+}
+
+.button .bottom {
+	align-self: end;
+	transform-origin: bottom center;
+	transform: rotateX(-90deg);
+}
+
+.button .right {
+	justify-self: end;
+	transform-origin: center right;
+	transform: rotateY(90deg);
+}
+
+.button .left {
+	justify-self: start;
+	transform-origin: center left;
+	transform: rotateY(-90deg);
+}
+
+.button.clicked {
+	--bg: hsl(147, 50%, 47%);
+	--bg-accent: hsl(147, 50%, 37%);
+}
+
+.button .back {
+	transform: scaleX(-1) rotate(0.5turn);
+}
+
+.clicked .wrapper {
+	transform: translateZ(0) scale(1.001) rotateX(1.5turn) rotateY(0) rotateZ(0);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 ul {
   list-style: none;
@@ -275,7 +341,6 @@ li.discussion__container {
   display: block;
   font-size: 1.5em;
   margin: 0px;
-  /* height: 48px; */
   display: flex;
   font-weight: bold;
   flex-direction: column;

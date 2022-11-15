@@ -22,12 +22,10 @@
           <div class="form__input--name">
             <label for="name">이름</label>
             <input type="text" name="name" id="name" required>
-            <!-- <textarea id="name" name="name" placeholder="이름을 작성하세요" required></textarea> -->
           </div>
           <div class="form__input--title">
             <label for="title">제목</label>
             <input type="text" name="title" id="title" required>
-            <!-- <textarea id="title" name="title" placeholder="제목을 작성하세요" required></textarea> -->
           </div>
           <div class="form__textbox">
             <label for="story">질문</label>
@@ -36,7 +34,18 @@
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="제출" class="submit__button">
+          <!-- <input type="submit" value="submit" class="submit__button"> -->
+          <button class="button" type="submit">
+            <div class="wrapper">
+              <div class="front">제출</div>
+              <div class="top"></div>
+              <div class="right"></div>
+              <div class="bottom"></div>
+              <div class="left"></div>
+              <div class="back">제출 완료!</div>
+            </div>
+          </button>
+        
         </div>
       </form>
     </section>

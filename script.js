@@ -81,10 +81,17 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+
+[...document.querySelectorAll(".button")].forEach((button) => {
+	button.addEventListener("click", () => button.classList.toggle("clicked"));
+});
+
+
+
 const form = document.querySelector('form.form') // form 요소이면서 class가 form 인거
 const inputName = document.querySelector('.form__input--name > input');
 const inputTitle = document.querySelector('.form__input--title > input');
-const inputQuestion = document.querySelector('.form__textbox > textarea');
+const inputQuestion = document.querySelector('.form__textbox > input');
 
 form.addEventListener('submit', (event) => {  // submit은 기본적으로 새로고침하는데 이걸 event.preventDefault()로 막아줌
   event.preventDefault();
