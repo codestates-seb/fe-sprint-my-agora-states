@@ -196,8 +196,7 @@ textarea:focus {
 .pagination__btn,
 .pagination__prev-track,
 .pagination__next-track {
-  width: 25px;
-  height: 25px;
+  padding: 8px 16px;
   background: transparent;
   border: none;
   cursor: pointer;

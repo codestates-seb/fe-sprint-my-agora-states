@@ -81,7 +81,7 @@ const renderPagination = (totalPage, maxShowPage) => {
   // 총 페이지가 한 번에 보여줄 페이지 개수보다 작거나 같은 경우
   if (totalPage <= maxShowPage) {
     for (let i = 1; i <= totalPage; i++) {
-      const $pageBtn = document.createElement("button");
+      const $pageBtn = document.createElement("a");
       $pageBtn.className = `pagination__btn ${
         parseInt(page) === i ? "active" : ""
       }`; // i===1이면 active 클래스 추가
@@ -93,7 +93,7 @@ const renderPagination = (totalPage, maxShowPage) => {
     // 만약 현재 페이지(page)가 중간 이상 숫자인 경우 앞에 1번 페이지와 prevTrack 추가
     // if (page >= Math.ceil(maxShowPage / 2)) {
     if (page >= 2) {
-      const $firstPage = document.createElement("button");
+      const $firstPage = document.createElement("a");
       $firstPage.className = "pagination__btn";
       $firstPage.textContent = "1";
 
@@ -111,7 +111,7 @@ const renderPagination = (totalPage, maxShowPage) => {
       i++
     ) {
       if (i <= 0) continue;
-      const $pageBtn = document.createElement("button");
+      const $pageBtn = document.createElement("a");
       $pageBtn.className = `pagination__btn ${
         parseInt(page) === i ? "active" : ""
       }`; // page이면 active 클래스 추가
@@ -123,7 +123,7 @@ const renderPagination = (totalPage, maxShowPage) => {
     $pageNextTrack.textContent = "...";
     $pageNextTrack.className = "pagination__next-track";
 
-    const $lastPage = document.createElement("button");
+    const $lastPage = document.createElement("a");
     $lastPage.textContent = totalPage;
     $lastPage.className = "pagination__btn pagination__last";
     $pageFragment.append($pageNextTrack, $lastPage);
@@ -220,9 +220,9 @@ $form.addEventListener("submit", (e) => {
 // 페이지네이션 이벤트 핸들러 - 이벤트 위임
 const changePage = (e) => {
   const $paginationBtns = document.querySelector(".pagination__btns");
-  // button 태그인 경우에만 이벤트 처리하기
+  // A 태그인 경우에만 이벤트 처리하기
   if (
-    e.target.tagName !== "BUTTON" ||
+    e.target.tagName !== "A" ||
     e.target.classList.contains("pagination__last") ||
     e.target.classList.contains("pagination__prev") ||
     e.target.classList.contains("pagination__next")
