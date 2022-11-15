@@ -5,6 +5,11 @@ const userSubmit = document.querySelector(".submit");
 const userInputName = document.querySelector("#name");
 const userInputTitle = document.querySelector("#title");
 const userInputStory = document.querySelector("#story");
+let localStory = [];
+
+function saveDiscussions() {
+  localStorage.setItem("discussions", JSON.stringify(localStory));
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -41,18 +46,15 @@ const convertToDiscussion = (obj) => {
   questionDate.className = "discussion__information";
   questionDate.textContent = `${obj.author} / ${new Date(
     obj.createdAt
-  ).toLocaleTimeString()}`;
+  ).toLocaleString()}`;
   discussionContent.append(mainTitle, questionDate);
 
   //덥변 여부
   const isChecked = document.createElement("p");
   isChecked.textContent = "☑";
   isChecked.className = "discussion__answered";
-  if (obj.answer !== null) {
-    isChecked.textContent = "☑︎";
-  } else {
-    isChecked.textContent = "☒";
-  }
+  isChecked.textContent = obj.answer ? "☑︎" : "☒";
+
   discussionAnswered.append(isChecked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -61,22 +63,28 @@ const convertToDiscussion = (obj) => {
 
 userSubmit.addEventListener("click", (e) => {
   if (userInputTitle.value !== "") {
-    let obj = {};
     e.preventDefault();
-    obj["id"] = "jangjiwoo";
-    obj["createdAt"] = new Date().toLocaleString();
-    obj["author"] = userInputName.value;
-    obj["title"] = userInputTitle.value;
-    obj["avatarUrl"] =
-      "https://avatars.githubusercontent.com/u/94212747?s=64&u=145778e6dfbd813a6689a634ed3bb47f1bfa7b17&v=4";
-    obj["url"] =
-      "https://github.com/codestates-seb/agora-states-fe/discussions";
-    obj["answer"] = null;
+    let obj = {
+      id: "jangjiwoo",
+      createdAt: new Date(),
+      author: userInputName.value,
+      title: userInputTitle.value,
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/94212747?s:64&u:145778e6dfbd813a6689a634ed3bb47f1bfa7b17&v=4",
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+      answer: null,
+    };
+
     console.log(obj);
+
+    alert("질문이 등록되었습니다.");
+    agoraStatesDiscussions.unshift(obj);
+    ul.prepend(convertToDiscussion(obj));
+    localStory.push(obj);
+    saveDiscussions();
     userInputName.value = "";
     userInputTitle.value = "";
     userInputStory.value = "";
-    convertToDiscussion(obj);
   }
 });
 
@@ -92,3 +100,11 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+localStorage.getItem("discussions");
+if (localStorage.getItem("discussions")) {
+  localStory = JSON.parse(localStorage.getItem("discussions"));
+  for (let i = 0; i < localStory.length; i++) {
+    convertToDiscussion(localStory[i]);
+  }
+}
