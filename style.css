@@ -40,7 +40,7 @@ header a {
   align-items: center;
   height: 65px;
   width: 93vw;
-
+  text-decoration: none;
   background-color: black;
   border-bottom: 1px solid;
   border-color: #ccc;
@@ -52,8 +52,8 @@ header a {
   height: 50px;
   width: 50px;
 }
+
 #title {
-  display: inline-block;
   font-size: 25px;
   margin-left: 10px;
   text-align: center;
@@ -80,7 +80,7 @@ header a {
 .main__sction {
   min-width: 1000px;
   width: 100vw;
-  height: 50vh;
+  height: 70vh;
   background-color: #dfe4ea;
   position: relative;
 }
@@ -88,7 +88,7 @@ header a {
 .bgvideo {
   min-width: 1000px;
   width: 100vw;
-  height: 50vh;
+  height: 70vh;
   opacity: 0.8;
 }
 
