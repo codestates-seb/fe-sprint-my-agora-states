@@ -5,56 +5,63 @@
   padding: 0;
 }
 
-body {
-  line-height: 1;
+main{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
+
+
 ol,
 li {
   list-style: none;
 }
 
 /* 전체 디스커젼 */
-.discussion__container {
+li.discussion__container {
   display: flex;
+  flex-direction: row;
   width: 540px;
+  height: 80px;
   justify-content: space-between;
-  align-items: center;
   background-color: whitesmoke;
 }
 
 /* 프로필 사진 */
 .discussion__avatar--wrapper {
-  margin: 1px;
-  border-radius: 70%;
-  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.discussion__avatar--image {
+  border-radius: 50%;
   width: 48px;
   overflow: hidden;
   margin-left: 5%;
-}
-.discussion__avatar--wrapper .discussion__avatar--image {
   object-fit: cover;
-  width: 50px;
-  height: 50px;
 }
 
-.discussion__container > .discussion__content {
+.discussion__content {
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 480px;
-  display: block;
+  flex-grow: 2;
+  justify-content: space-around;
 }
-.discussion__container > .discussion__content > .discussion__information {
+.discussion__information {
   text-align: right;
   font-size: 0.7rem;
 }
-.discussion__container > .discussion__content > .discussion__title {
+.discussion__title {
   margin: 10px 0 20px 20px;
   font-size: 1.1rem;
 }
 /* 체크박스 */
-.discussion__container > .discussion__answered {
-  width: 30px;
-  text-align: center;
+.discussion__answered {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 }
