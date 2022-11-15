@@ -138,7 +138,20 @@ textarea {
     font-size: 14px;
     color: black;
 }
-  
+@media ( max-width: 480px ) {
+  #jb-container {
+    width: auto;
+  }
+  #jb-content {
+    float: none;
+    width: auto;
+  }
+  #jb-sidebar {
+    float: none;
+    width: auto;
+  }
+} 
+
   img {
     width: 48px;
     border-radius: 100%;
