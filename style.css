@@ -1,1 +1,129 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    justify-items: center;
+    font-family: 'Hahmlet', serif;    
+}
+
+body {
+    margin: 5% 0px;
+    background-image: url("https://cdn.pixabay.com/photo/2016/03/27/07/32/clouds-1282314_960_720.jpg") ;
+    background-size: cover;
+}
+
+script, title {
+    display: none;
+}
+
+h1{
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 500%;
+}
+
+.form {
+    /* border: 1px solid red; */
+    /* display: grid; */
+    row-gap: 10px;
+    margin: 20px;
+    display:flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: 540px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.149);
+}
+
+.form__input--wrapper> div{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    font-weight: bold;
+    align-items: start;
+    /* row-gap: 3px; */
+}
+
+input, textarea{
+    border: 2px solid rgba(65, 65, 65, 0.164);
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 5px;
+    /* width: 540px; */
+}
+
+#submit {
+    padding: 5px;
+    border: 2px solid rgba(65, 65, 65, 0.164);
+    cursor: pointer;
+    box-shadow: 3px 5px 5px gray;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#submit:hover {
+    background-color: rgb(210,225,231);
+
+}
+
+section{
+    padding: 10px;
+    /* margin: 10px; */
+}
+
+ul {
+    list-style: none;
+}
+
+.discussion__container {
+    display: grid;
+    grid-template-columns: 48px 13fr 1fr;
+    align-items: center;
+    justify-items: start;
+    column-gap: 10px;
+    width: 540px;
+    border: 2px solid rgba(65, 65, 65, 0.164);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(210,225,231);
+    box-shadow: 3px 5px 5px gray;
+}
+
+.discussion__content {
+    display: grid;
+    justify-items: start;
+}
+
+.discussion__content a {
+    color: rgb(33, 33, 33);
+    font-size: 20px;
+}
+.discussion__content a:visited {
+    color: rgb(80, 1, 104);
+    font-size: 20px;
+}
+
+.discussion__avatar--image {
+    border-radius: 50px;
+    width: 48px;
+}
+
+.discussion__information {
+    justify-self: end;
+}
+
+.discussion__pages {
+    display:flex;
+    align-items: end;
+    height: 50px;
+}
+
+span:active, span:hover, .discussion__page {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 150%
+}
