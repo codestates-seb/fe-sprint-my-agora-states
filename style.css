@@ -22,6 +22,7 @@
     --dateColor: #777;
     --shadowColor: #555;
     --boxshadow: #666;
+    --submitColor: rgb(100, 143, 223);
     --visibleColor: rgb(90, 90, 189);
     --headImg: url('https://cdn.pixabay.com/photo/2019/04/19/01/37/manhattan-4138442_1280.jpg');
 }
@@ -35,6 +36,7 @@
     --dateColor: #999;
     --shadowColor: #eee;
     --boxshadow: #567;
+    --submitColor: rgb(41, 64, 107);
     --visibleColor: rgb(179, 179, 254);
     --headImg: url('https://cdn.pixabay.com/photo/2018/11/12/01/57/manhattan-3810051_1280.jpg');
 }
@@ -244,9 +246,16 @@ textarea {
     justify-content: center;
     align-items: center;
     padding: 0;
+    border: none;
     margin: 10px 30px;
     font-size: 17px;
+    background-color: var(--submitColor);
     cursor: pointer;
+}
+
+.form__submit > input:hover {
+    filter: brightness(130%);
+    box-shadow: 0px 0px 7px var(--shadowColor);
 }
 
 
