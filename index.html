@@ -13,22 +13,25 @@
 </head>
 
 <body>
+  <header><h1>My Agora States</h1></header>
   <main>
-    <h1>My Agora States</h1>
+    <section class="form__btn"></section>
+    <div class="modal"></div>
     <section class="form__container">
+      <div class="modal_close">X</div>
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Enter your name </label>
+            <input type="text" name="name" placeholder="작성자는 누구신가요" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Enter your title </label>
+            <input type="text" name="name" placeholder="제목은 무엇인가요" id="name" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story">Your question </label>
+            <textarea id="story" name="story" placeholder="질문이 무엇인가요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
@@ -52,6 +55,9 @@
         </li>
       </ul>
     </section>
+    <nav>
+      <ul class="pagination"></ul>
+    </nav>
   </main>
 </body>
 <script src="data.js"></script>
