@@ -24,12 +24,14 @@ const convertToDiscussion = (obj) => {
 
   // 2. 제목 
   // 2-1. 제목 <- 링크 붙이기
-  const discussTitle = document.createElement('h2');
-  discussTitle.className = "discussion__title";
-  
+  // 링크
   const discussionTitlelink = document.createElement('a');
   discussionTitlelink.textContent = obj.title;
   discussionTitlelink.href = obj.url;
+  // 제목
+  const discussTitle = document.createElement('h2');
+  discussTitle.className = "discussion__title";
+
   discussionContent.append(discussTitle);
   discussTitle.append(discussionTitlelink);
 
@@ -73,9 +75,11 @@ writeForm.addEventListener ('submit', function(event) {
       "./image/agora-userimg.png",
   }
 
+  // 오브젝트 추가
   agoraStatesDiscussions.unshift(obj);
   ul.prepend(convertToDiscussion(obj));
 
+  // 폼 입력창 초기화
   writeName = '';
   writeTitle = '';
   writeArea = '';
