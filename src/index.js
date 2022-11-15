@@ -1,9 +1,8 @@
 import { render } from "./render.js";
+import { submitDiscussion } from "./submitDiscussion.js";
+const coll = document.getElementsByClassName("collapsible");
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
-console.log(coll.length);
-for (i = 0; i < coll.length; i++) {
+for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function () {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
@@ -14,6 +13,6 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-
+console.log(submitDiscussion());
 const ul = document.querySelector("ul.discussions__container");
 render(ul);

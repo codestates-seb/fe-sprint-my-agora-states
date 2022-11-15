@@ -1,11 +1,20 @@
 export const submitDiscussion = () => {
-  const coll = document.querySelector(".collapsible");
+  const inputName = document.querySelector("#name");
+  const inputTitle = document.querySelector("#title");
+  const inputStory = document.querySelector("#story");
+  const submit = document.querySelector("#form");
+  let result = {};
 
-  coll.addEventListener("click", () => {
-    this.classList.toggle("active");
-    const content = this.nextElementSibling;
-    content.style.display === "flex"
-      ? (content.style.display = "none")
-      : (content.style.display = "flex");
+  const remove = (...input) => {
+    input.forEach((x, i) => {
+      result[`${i}`] = x.value;
+      x.value = "";
+    });
+  };
+
+  submit.addEventListener("submit", function (even) {
+    even.preventDefault();
+    remove(inputName, inputTitle, inputStory);
   });
+  return result;
 };
