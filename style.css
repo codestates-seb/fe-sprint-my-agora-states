@@ -1,1 +1,418 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root{ 
+  --background: #BDD2B6; 
+  --title:#A2B29F; 
+  --left:#F8EDE3;  
+  --right:#798777; 
+  --right_text: #5e6a5c; 
+}
+/* :root{
+  --background: #395144; 
+  --title:#aa8b56; 
+  --left:#F0EBCE;  
+  --right:#4E6C50; 
+  --right_text: #4E6C50; 
+} */
+/* :root{
+  --background: #D7C0AE;
+  --title:#967E76; 
+  --left:#EEE3CB;  
+  --right:#81909d;
+  --right_text: #81909d; 
+} */
+/* :root{
+  --background: #e5b299d4; 
+  --title:#B4846C; 
+  --left:#F0EBCE;  
+  --right:#7D5A50; 
+  --right_text: #7D5A50; 
+} */
+/* :root{
+  --background: #5c7e67; 
+  --title:#b8cfabdb; 
+  --left:#e5e3c9;  
+  --right:#789395; 
+  --right_text: #789395; 
+} */
+/* :root{
+  --background: #395144; 
+  --title:#9c7a3b; 
+  --left:#dad6b8;  
+  --right:#6d221b; 
+  --right_text: #6d221b; 
+} */
+
+@font-face {
+  font-family: 'LeferiPoint-BlackObliqueA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackObliqueA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  background: var(--background); 
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h1{
+  font-size: 230px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: -5px;
+  top: -100px;
+  left: -40px;
+  color: var(--title);
+  z-index: -1;
+  font-family: 'ghanachoco';
+  font-style: italic;
+  font-weight: bolder;
+  transform: translateY(300%);
+  animation: myAgora 1s ease-out 0s 1 forwards;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+@keyframes myAgora {
+  100%{
+    transform: translateY(0%);
+  }
+}
+.main_container{
+  width: 0vw;
+  height: 75vh;
+  display: flex;
+  flex-direction: row; 
+  overflow: hidden;
+  border-radius: 10px;
+  animation: main 2s ease 1.2s 1 forwards;
+}
+@keyframes main {
+  100%{
+    width: 62vw;
+  }
+}
+.left{
+  width: 50%;
+  height: 100%;
+  background: var(--left);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 2rem 2.3rem;
+}
+.left h2{
+  color: var(--right);
+  font-size: 2rem;
+  font-family: "";
+  font-family: "LeferiPoint-BlackObliqueA";
+  margin-bottom: 0.5rem;
+}
+.accordion .radioBtn{
+  opacity: 0;
+  position: absolute;
+}
+.accordion .radioBtn:checked ~ label .icon{
+  transform: rotate(45deg);
+  color: var(--left);
+}
+.accordion .radioBtn:checked ~ label{
+  color: var(--left);
+  border-color: var(--right_text);
+  background-color: var(--right_text);
+}
+.accordion .radioBtn:checked ~ .question_contents{
+  max-height: 200px;
+  margin: 10px 0;
+}
+.accordion label{
+  display: block;
+  width: 100%;
+  border: 2px solid var(--right_text);
+  padding: 1rem 2.8rem 1rem 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--right_text);
+  transition: 0.5s;
+  margin: 5px 0;
+  cursor: pointer;
+}
+.accordion label .icon{
+  position: absolute;
+  top: 10%;
+  right: 0;
+  font-size: 2rem;
+  color: var(--right_text);
+  font-weight: bold;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.question_contents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.7s;
+}
+.question_contents .imgCon{
+  margin: 10px 0;
+  text-align: center;
+}
+.question_contents .imgCon img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid var(--right_text);
+}
+.question_contents .imgCon p{
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--right);
+}
+.contentsCon{
+  padding: 1.2rem;
+  border: 2px solid var(--right_text);
+  margin-left: 20px;
+  border-radius: 20px;
+  position: relative;
+  min-width: 280px;
+}
+.contentsCon::before{
+  content: "";
+  width: 12px;
+  height: 12px;
+  display: block;
+  background-color: var(--right_text);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20px;
+  left: -8px;
+}
+.contentsCon p{
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin-bottom: 5px;
+  color: var(--right_text);
+  word-break: keep-all;
+}
+
+.contentsCon a{
+  text-decoration: none;
+  color: var(--right_text);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.contentsCon a:hover::after{
+  width: 135px;
+}
+.contentsCon a::after{
+  content: "";
+  width: 0;
+  margin-top: 1px;
+  display: block;
+  border-top: 2px dotted var(--right_text);
+  transition: 0.3s;
+}
+.contentsCon .date{
+  position: absolute;
+  bottom: 0;
+  right: 0.8rem;
+  font-size: 0.8rem;
+}
+
+.right{
+  width: 50%;
+  height: 100%;
+  background: var(--right);
+  padding: 2rem 2.3rem;
+}
+.right::before{
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: var(--right);
+  display: block;
+  transform: translate(-45px, 60px) rotate(45deg);
+}
+
+form{
+  overflow: hidden;
+  position: relative;
+}
+.right h2{
+  color: var(--left);
+  font-size: 2rem;
+  font-family: "";
+  font-family: "LeferiPoint-BlackObliqueA";
+  margin-bottom: 0.5rem;
+}
+
+.input_container{
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.input{
+  width: 100%;
+  outline: none;
+  border: 2px solid var(--left);
+  background: none;
+  padding: 1rem;
+  border-radius: 10px;
+  color: var(--left);
+  font-size: 1.1rem;
+}
+.contents{
+  resize: none;
+  line-height: 22px;
+  overflow-y: auto;
+  height: 250px;
+  font-family: inherit;
+}
+
+.right label{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: var(--left);
+  font-family: 'Courier New';
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0 0.4rem;
+  pointer-events: none;
+  transition: 0.6s;
+}
+
+.textarea label{
+ top: 1rem;
+ left: 10px;
+ transform: translateY(0);
+}
+.input_container span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-60%);
+  font-size: 1.2rem;
+  font-family: 'Courier New';
+  font-weight: 600;
+  padding: 0 0.8rem;
+  color: var(--left);
+  background: var(--right);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.input:valid ~ label,
+.input:focus ~ label{
+  transform: translate(5px,-80%);
+  color: transparent; 
+}
+.input:valid ~ span,
+.input:focus ~ span{
+  left: 15px;
+  opacity: 1;
+}
+
+
+.sendBtn{
+  padding: 0.5rem 2.4rem;
+  background: var(--left);
+  color: var(--right);
+  font-size: 1.4rem;
+  font-family: "Courier New";
+  outline: none;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.4s;
+  border: 2px solid var(--left);
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+.sendBtn:hover{
+  background: var(--right);
+  color: var(--left);
+}
+.page_container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.pagenation{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.page{
+  list-style: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--right_text);
+}
+.active{
+  background: var(--right_text);
+  color: var(--left);
+}
+.invalid{
+  color: rgba(0, 0, 0, 0.214);
+  cursor:not-allowed;
+}
+.page:hover:not(.active):not(.invalid){
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.storageClear{
+  position: fixed;
+  bottom: 2vh;
+  right: 2vw;
+  padding: 0.5rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 1s linear 2.5s 1 forwards;
+}
+.storageClear:hover{
+  background-color: rgba(255, 255, 255, 0.3);
+}
+@keyframes fadeIn {
+  100%{opacity: 1;}
+}
