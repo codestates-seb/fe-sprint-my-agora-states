@@ -38,6 +38,7 @@ h1 {
     width: 100%;
     height: 20%;
     border-radius: 20px;
+    background-color: var(--main);
 }
 
 .form {
@@ -100,6 +101,9 @@ label {
     width: 90%;
     height: 90%;
     border-radius: 20px;
+    background-color: var(--point1);
+    font-size: 2rem;
+    color: var(--main);
 }
 
 .discussion__wrapper {
@@ -138,11 +142,11 @@ li {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 50%;
 }
 
 .discussion__content {
-    width: 80%;
+    width: 75%;
 }
 
 .discussion__title {
@@ -151,9 +155,17 @@ li {
     overflow: auto;
 }
 
+.discussion__information {
+    text-align: right;
+}
+
 .discussion__answer {
-    width: 10%;
+    width: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+p {
+    font-size: 2rem;
 }
