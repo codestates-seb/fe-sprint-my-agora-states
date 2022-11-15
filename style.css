@@ -1,9 +1,12 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 body {
-  background-color: #3f3b6c;
+  background-color: #44265e;
 }
 
 main {
@@ -15,9 +18,10 @@ main > h1 {
 }
 
 .form__container {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: white;
   padding: 1rem;
   border-radius: 1rem;
+  margin: 1rem 0;
 }
 .form__container .form__input--wrapper > div {
   margin: 1rem 0;
@@ -38,6 +42,7 @@ main > h1 {
   box-shadow: none;
   border: 0;
   padding: 0.5rem;
+  background-color: #e3e3e3;
 }
 .form__container .form__input--wrapper textarea {
   height: 5rem;
@@ -60,6 +65,7 @@ main > h1 {
 }
 
 .discussion__wrapper .discussions__total {
+  margin: 1rem 0;
   text-align: right;
   color: #9f73ab;
   font-size: 1rem;
@@ -76,12 +82,11 @@ main > h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: white;
   border-radius: 1rem;
   margin: 1rem 0;
   padding: 1rem;
   transition: transform 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  cursor: pointer;
 }
 .discussion__wrapper .discussions__container > li:hover {
   transform: scale(1.05);
@@ -97,7 +102,7 @@ main > h1 {
   max-height: 100%;
 }
 .discussion__wrapper .discussions__container > li .discussion__content {
-  width: calc(100% - 8rem);
+  width: calc(100% - 7rem);
   padding: 0 1rem;
 }
 .discussion__wrapper .discussions__container > li .discussion__content h2 {
@@ -105,16 +110,33 @@ main > h1 {
 }
 .discussion__wrapper .discussions__container > li .discussion__content h2 > a {
   text-decoration: none;
-  color: inherit;
+  color: #44265e;
+}
+.discussion__wrapper .discussions__container > li .discussion__content .discussion__contents {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+}
+.discussion__wrapper .discussions__container > li .discussion__content .discussion__information {
+  color: rgba(0, 0, 0, 0.6);
+}
+.discussion__wrapper .discussions__container > li .discussion__content .discussion__information .discussion__information--answered {
+  color: #a3c7d6;
 }
 .discussion__wrapper .discussions__container > li .discussion__answered {
-  width: 4rem;
+  width: 3rem;
+}
+.discussion__wrapper .discussions__container > li .discussion__answered .discussion__answered--status svg {
+  fill: #a3c7d6;
+}
+.discussion__wrapper .discussions__container > li .discussion__answered .discussion__answered--status svg .st1 {
+  fill: #624f82;
 }
 .discussion__wrapper .discussions__pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
 }
 .discussion__wrapper .discussions__pagination li {
@@ -125,11 +147,11 @@ main > h1 {
   display: flex;
   width: 2rem;
   height: 2rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: white;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #44265e;
 }
 .discussion__wrapper .discussions__pagination li > a.active {
   background-color: #9f73ab;

@@ -1,10 +1,13 @@
-$primary: #3f3b6c;
+$primary: #44265e;
 $secondary: #624f82;
 $textColor: #a3c7d6;
 $textColor2: #9f73ab;
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 body {
   background-color: $primary;
@@ -18,9 +21,10 @@ main {
 }
 
 .form__container {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: white;
   padding: 1rem;
   border-radius: 1rem;
+  margin: 1rem 0;
   .form__input--wrapper {
     > div {
       margin: 1rem 0;
@@ -41,6 +45,7 @@ main {
       box-shadow: none;
       border: 0;
       padding: 0.5rem;
+      background-color: #e3e3e3;
     }
     textarea {
       height: 5rem;
@@ -66,6 +71,7 @@ main {
 
 .discussion__wrapper {
   .discussions__total {
+    margin: 1rem 0;
     text-align: right;
     color: $textColor2;
     font-size: 1rem;
@@ -81,12 +87,12 @@ main {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: white;
       border-radius: 1rem;
       margin: 1rem 0;
       padding: 1rem;
       transition: transform 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-      cursor: pointer;
+
       &:hover {
         transform: scale(1.05);
       }
@@ -101,18 +107,37 @@ main {
         }
       }
       .discussion__content {
-        width: calc(100% - 8rem);
+        width: calc(100% - 7rem);
         padding: 0 1rem;
         h2 {
           font-size: 1rem;
           > a {
             text-decoration: none;
-            color: inherit;
+            color: $primary;
+          }
+        }
+        .discussion__contents {
+          color: rgba(0, 0, 0, 0.6);
+          font-size: 0.875rem;
+          margin: 0.5rem 0;
+        }
+        .discussion__information {
+          color: rgba(0, 0, 0, 0.6);
+          .discussion__information--answered {
+            color: $textColor;
           }
         }
       }
       .discussion__answered {
-        width: 4rem;
+        width: 3rem;
+        .discussion__answered--status {
+          svg {
+            fill: $textColor;
+            .st1 {
+              fill: $secondary;
+            }
+          }
+        }
       }
     }
   }
@@ -120,7 +145,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
+    margin: 1rem 0;
     padding: 0;
     li {
       list-style: none;
@@ -129,11 +154,11 @@ main {
         display: flex;
         width: 2rem;
         height: 2rem;
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: white;
         border-radius: 50%;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: $primary;
 
         &.active {
           background-color: $textColor2;
