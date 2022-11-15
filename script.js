@@ -5,6 +5,7 @@
   const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
+
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -66,7 +67,6 @@ form.addEventListener('submit',(event) => {
     avatarUrl:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51zpgflCyj4qpnHqAqnEf4bL-J8_2-7vyeYsBoUFgSKXtS2rp2-S81R-qeJToqVoldy0&usqp=CAU",
 }
-  window.localStorage.setItem('obj',JSON.stringify(obj))
 
 agoraStatesDiscussions.unshift(obj);
 ul.prepend(convertToDiscussion(obj))
@@ -75,8 +75,6 @@ inputName.value=""
 inputQuestion.value=""
 })
 
-let itemsArray =[];localStorage.setItem('items',JSON.stringify(itemsArray));
-const data= JSON.parse(localStorage.getItem('items'));
 
 
 
