@@ -14,9 +14,10 @@ body{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;  
+  background-color: rgba(255, 192, 203, 0.288);
 }
 header{
-  /*background-color: #cbb9ff;*/
+  background-color: rgb(255, 255, 255);
   width: 100vw;
   height: 7vh;
   padding-top: 18px;
@@ -32,7 +33,7 @@ main{
   flex-direction: row;
 }
 .form__container{
-  background-color: #b0bcffbb;
+  background-color: #b0bcff4f;
   border-radius: 30px;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
@@ -52,7 +53,7 @@ main{
 }
 .form__input--name > label{
   margin-left: 20px;
- 
+  color: #191919;
 }
 .form__input--title{
   display: flex;
@@ -66,6 +67,7 @@ main{
 }
 .form__input--title > label{
   margin-left: 20px; 
+  color: #191919;
 }
 .form__textbox{
   display: flex;
@@ -76,6 +78,7 @@ main{
 .form__textbox > label{
   margin-left: 25px;
   margin-bottom: 5px;
+  color: #191919;
 }
 .form__textbox > textarea{
   margin-top: 5px;
@@ -87,16 +90,16 @@ main{
 .form__submit{
   display: flex;
   justify-content: center;  
-  
 }
 .form__submit > input{
   letter-spacing: 2px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 17px;
+  color: #2e2e2e;
   width: 300px;
   height: 50px;
   margin: 5px;
-  background-color: #8e72e191;
+  background-color: #a086ec91;
   border-radius: 15px;
   border: outset;
 }
@@ -119,7 +122,7 @@ li {
   justify-content: center;
 }
 .discussions__container li:hover{
-  background-color: #b0d5ff3b;;
+  background-color: #ccb0ff11;;
 }
 .discussion__avatar--wrapper{
   flex-direction: row;
@@ -129,7 +132,7 @@ li {
   flex-direction: row;
   display: inline-block;
   width: 430px;
-  margin: 5px 5px 5px 7.5px;
+  margin: 5px 5px 5px 10px;
 }
 .discussion__title a{
   color: rgb(22, 22, 22);
@@ -161,10 +164,11 @@ li {
   letter-spacing: 2px;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 12.5px;
+  color: #2e2e2e;;
   width: 100px;
-  height: 35px;
-  background-color: #8e72e1be;
+  height: 37px;
+  background-color: #b399ffbe;
   border: outset;
   border-radius: 10px;
 }
