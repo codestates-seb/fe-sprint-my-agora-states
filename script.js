@@ -46,7 +46,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionP = document.createElement('p');
   const discussionValue = document.querySelector('p');
-  discussionP.textContent = discussionValue.textContent;
+  discussionP.textContent = obj.answer ? '☑' : '☐';
   discussionAnswered.append(discussionP);
 
 
@@ -90,5 +90,88 @@ formSubmit.addEventListener('submit', (ev)=>{
   submit.bodyHTML = textarea.value;
   submit.avatarUrl =
   "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
-  ul.prepend(convertToDiscussion(submit))
+  agoraStatesDiscussions.unshift(submit);
+  ul.prepend(convertToDiscussion(submit));
+
+  input[0].value = '';
+  input[1].value = '';
+  textarea.value = '';
+  
 })
+
+// 페이지네이션 
+// 1. html로 목업부터 만들기
+// 2. 몇 개를 표시할건지 페이지는 어떻게 나눌건지
+// 3. 위의 내용 토대로 버튼을 만든다
+// 4. 버튼에 누르면 페이지 바뀌게....되나?
+
+const pageNum = document.querySelector('#pagenation__numbers');
+const listItem = document.querySelectorAll('li');
+const nextB = document.querySelector('#next__button');
+const preB = document.querySelector("#pre__button");
+
+const pageLimit = 10; //페이지에 나타낼 디스커션의 갯수
+const pageCount = Math.ceil(listItem.length/pageLimit) //페이지 갯수
+let currentPage; //page 값 저장
+
+// 페이지 버튼 생성 
+const appendPagrNumber = (index) => {
+  const pageNumber = document.createElement('button');
+  pageNumber.className = 'pagenation__number';
+  pageNumber.textContent = index;
+  pageNumber.setAttribute('page__index', index);
+  pageNumber.setAttribute('aria-label', 'page'+index);
+
+  pageNum.append(pageNumber);
+}
+
+// 페이지 버튼 index
+const getPageNum = () => {
+  for(let i = 1; i<=pageCount; i++) {
+    appendPagrNumber(i);
+  }
+}
+
+//웹페이지가 로드될 때 함수 호출
+window.addEventListener('load', ()=>{
+  getPageNum();
+  setCurrentPage(1);
+
+  document.querySelectorAll('.pagenation__number').forEach((button) => {
+    const pageIndex = Number(button.getAttribute('page__index'));
+
+    if(pageIndex) {
+      button.addEventListener('click', () => {
+        setCurrentPage(pageIndex);
+      })
+    }
+  })
+})
+
+// 페이지에 디스커션 표시 
+const setCurrentPage = (pageNum) => {
+  currentPage = pageNum;
+
+  handleActivePageNumber();
+
+  const preRange = (pageNum-1)*pageLimit;
+  const currRange = pageNum*pageLimit;
+
+  listItem.forEach((item, index) => {
+    item.classList.add('hide');
+    if(index>=preRange && index<currRange) {
+      item.classList.remove('hide');
+    }
+  })
+}
+
+const handleActivePageNumber = () => {
+  document.querySelectorAll('.pagenation__number').forEach((button) => {
+    button.classList.remove('active');
+
+    const pageIndex = Number(button.getAttribute('page__index'));
+    if(pageIndex == currentPage) {
+      button.classList.add('active');
+    }
+  })
+}
