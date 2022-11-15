@@ -158,6 +158,7 @@ main {
 
 .form > div > div > textarea {
   flex-basis: 60%;
+  resize: none;
 }
 
 .form__container {
