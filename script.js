@@ -153,6 +153,8 @@ const paging = (array) => {
       currentNum--;
     }
 
+    activeMove(currentNum, lastNum);
+
     ul.replaceChildren();
     render(ul, currentNum);
   });
@@ -164,12 +166,22 @@ const paging = (array) => {
     } else {
       currentNum++;
     }
+    activeMove(currentNum, lastNum);
     ul.replaceChildren();
     render(ul, currentNum);
   });
 
   return pagingWrapper;
 };
+
+function activeMove(num, lastNum) {
+  let activeNum = num - 1;
+
+  for (let i = 0; i < lastNum; i++) {
+    document.querySelectorAll(".page")[i].classList.remove("active");
+  }
+  document.querySelectorAll(".page")[activeNum].classList.add("active");
+}
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element, num) => {
