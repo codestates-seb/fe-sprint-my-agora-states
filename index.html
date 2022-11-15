@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Stylish&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>  
 </head>
 
 <body>
   <main>
+    <div class="agora">
     <h1>My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
@@ -24,18 +33,19 @@
           </div>
           <div class="form__input--title">
             <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="title" required style="width: 272px;">
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <textarea id="story" name="story" placeholder="질문을 작성하세요" required style="width: 272px; height: 64px;"></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
+          <input class="btn-3d cyan" type="submit" value="submit">
+        </div> 
       </form>
     </section>
+    </div>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">

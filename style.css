@@ -1,1 +1,160 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Stylish', sans-serif;
+}
+
+h1 {
+  font-size: 77px;
+  font-family: 'Rubik Bubbles', cursive;
+  color: #7fccde;
+  font-style: italic;
+  text-shadow: -2px 0px black, 0px 3px black, 3px 0px black, 5px -1px black;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: fixed;
+}
+
+main {
+  height: 100vh;
+  background: radial-gradient(#3095de, #ffffff);
+  display: flex;
+  flex-direction: low;
+  align-items: center;
+  position: relative;
+  justify-content: space-around;
+  align-items:flex-start
+}
+.agora{
+ 
+margin-left: 450px;
+}
+
+.form__container {
+  background-image: url(https://cdn.pixabay.com/photo/2017/10/05/21/28/clouds-2821064_960_720.png);
+  border-radius: 10%;
+  font-size: 40px;
+  border: 10px rgb(2, 2, 2) solid;
+  width: 550px;
+  height: 500px;
+  display: flex;
+  
+}
+.form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 10px 5px 10px;
+  color: rgb(220, 242, 248);
+  text-shadow: 4px -1px black, 3px 2px black, 3px 2px black, 3px 1px black;
+  font-family: 'Rubik Bubbles', cursive;
+}
+
+
+
+.discussions__container {
+  width: 600px;
+}
+.btn-3d.cyan {
+  background-color: #7fccde;
+  box-shadow: 0 0 0 1px #7fccde inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 8px 0 0 rgba(102, 164, 178, .6),
+        0 8px 0 1px rgba(0,0,0,.4),
+        0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.cyan:active {
+  box-shadow: 0 0 0 1px #7fccde inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 0 0 1px rgba(0,0,0,0.4);
+}
+.btn-3d.cyan:hover   {background-color: #82D1E3;}
+.btn-3d:active {
+  top: 9px;
+}
+.btn-3d {
+
+  font-size: 42px;
+  padding: 10px 40px;
+  color: white;
+  margin: 10px 10px 10px;
+  border-radius: 46px;
+  text-align: center;
+  transition: top .01s linear;
+  text-shadow: 3px 2px black, 0px 1px black, 1px 0px black, 3px 1px black;
+  /* text-shadow: 0 1px 0 rgba(3, 3, 3, 0.15); */
+  border: 0;
+}
+
+.discussion__avatar--image {
+  border-radius: 50px;
+  width: 48px;
+}
+
+.discussion__avatar--wrapper img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  margin: 9px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 양쪽으로 붙게 만들어줌.플렉스를 위아래로 정렬,그리고 인포메이션 값을 주어 오른쪽으로 정렬. */
+.discussion__information {
+  margin-top: auto;
+  margin-left: auto;
+}
+.discussion__container{
+  background-color:rgb(255, 255, 255);
+  border: 3.5px outset rgb(143, 193, 210);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -35px;
+  margin-top: 20px;
+  padding: 2px;
+}
+
+.discussion__wrapper{
+ position: relative;
+ margin-top: 50px;
+ height: 900px;
+ overflow:scroll;
+ overflow-y: hidden;
+ overflow-x: hidden;
+ border-radius: 20px;
+ background-color: #7fccde;
+ border: black solid 10px;
+}
+.discussion__wrapper:hover{
+  overflow-y:scroll
+}
+/* 스크롤바이벤트 */
+.discussion__wrapper::-webkit-scrollbar-thumb{
+    background-color: #232a2c;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+ .discussion__wrapper::-webkit-scrollbar-track {
+  background-color: rgb(228, 249, 255);
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+
+.discussion__wrapper::-webkit-scrollbar {
+  width: 15px;
+}
