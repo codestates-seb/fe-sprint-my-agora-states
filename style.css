@@ -42,7 +42,7 @@ h2 {
 
 input, textarea {
     border: 1px solid #C4DFAA;
-    background-color: #fffbde;
+    background-color: #fcfaea;
 }
 
 .form__container {
@@ -95,6 +95,7 @@ input, textarea {
     height: 100%;
     width: 100%;
     font-size: 20px;
+    text-shadow: none;
 }
 
 .form__submit {
@@ -104,6 +105,7 @@ input, textarea {
 
 #story, #name {
     width: 60%;
+    text-shadow: none;
 }
 
 .discussion__avatar--image {
@@ -148,6 +150,15 @@ input, textarea {
     height: 2.5rem;
     width: 2.5rem;
     border-radius: .2rem;
+  }
+
+  .form__submit>input:hover {
+    background: #73A9AD;
+    color: #fff;
+  }
+
+  a:hover {
+    color: black;
   }
   
   .pagenation__number:hover,
