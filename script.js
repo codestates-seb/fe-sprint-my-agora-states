@@ -78,7 +78,6 @@ const render = (element, page) => {
   let renderEnd = page * 10;
   const renderStart = renderEnd - 10;
   if (renderEnd > agoraStatesDiscussions.length) renderEnd = agoraStatesDiscussions.length;
-  console.log(renderEnd);
   for (let i = renderStart; i < renderEnd; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -126,11 +125,6 @@ form.addEventListener('submit', function () {
   document.querySelector("#name").value = "";
   document.querySelector("#title").value = "";
   document.querySelector("#story").value = "";
-
-
-  console.log(newObj.title);
-  console.log(newObj.author);
-  console.log(newObj.bodyHTML);
 
   newObj.url = "";
   newObj.answer=null;
