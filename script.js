@@ -14,12 +14,54 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+const avatarImg = document.createElement('img');
+avatarImg.className = "discussion__avatar--image";
+avatarImg.src = obj.avatarUrl;
+avatarImg.alt=`avatar of ${obj.author}`;
+avatarWrapper.append(avatarImg);
 
+const title = document.createElement('h2');
+title.className ="discussion__title";
+const anchor = document.createElement('a');
+anchor.href=obj.url;
+anchor.textContent=obj.title;
+title.append(anchor);
 
+const contentInfo = document.createElement('div');
+contentInfo.textContent =`${obj.author} / ${new Date(obj.createdAt)}`
+discussionContent.append(title, contentInfo);
+
+const checked =document.createElement('p');
+checked.textContent = obj.answer ? '✅' :'❎';
+discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+const form = document.querySelector('form.form');
+const inputName = document.querySelector('.form__input--name > input');
+const inputTitle = document.querySelector('.form__input--title > input');
+const inputQuestion = document.querySelector('.form__textbox > textarea');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const obj = {
+    id: "4564",
+    createdAt: new Date(),
+    title: inputTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
+    author: inputName.value,
+    answer: null,
+    bodyHTML: inputQuestion.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
+  }
+  ul.prepend(convertToDiscussion(obj));
+  inputName.value='';
+  inputQuestion.value='';
+  inputTitle.value='';
+})
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
