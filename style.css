@@ -1,6 +1,6 @@
 :root {
     /* body color */
-    --body_bg: #f0f2f6;
+    --body_bg: #dcdcdc;
 
     /* header color */
     --header_text: #1676f2;
@@ -81,8 +81,8 @@ header {
     border-radius: 15px;
     margin: 10px 0px 10px 0px;
     align-items: center;
-    position: sticky;
-    top: 0px;
+    /* position: sticky;
+    top: 0px; */
     color: var(--header_text);
     padding-right: 20px;
 }
@@ -95,22 +95,29 @@ body {
 }
 
 main {
-    width: 580px;
+    width: 80%;
     flex-direction: column;
     align-items: center;
+}
+
+.section2 {
+    display: flex;
+
 }
 
 h1 {
     padding-left: 20px;
     position: sticky;
     top: 10px;
-    flex: 10;
+    flex: 25;
 }
 
 .form__container {
+    flex: 4;
+    height: 100%;
     background-color: var(--container_bg);
     border-radius: 15px;
-    margin-bottom: 15px;
+    margin-right: 10px;
 }
 
 .form {
@@ -191,7 +198,7 @@ h1 {
 }
 
 #story {
-    height: 70px;
+    height: 250px;
     width: 100%;
     resize: vertical;
     border-radius: 8px;
@@ -213,6 +220,7 @@ h1 {
 }
 
 .discussion__wrapper {
+    flex: 6;
     overflow: overlay;
     height: 90.6vh;
     color: var(--discussion_text);
@@ -233,7 +241,7 @@ h1 {
     background-color: var(--discussion_bg);
     border-radius: 15px;
     padding: 10px;
-    height: 100px;
+    height: 80px;
     margin-bottom: 10px;
 }
 
@@ -325,7 +333,7 @@ i {
     height:26px;
     border-radius:50%;
     display:inline-block;
-    transform:translate3d(22px,0,0) rotate(0);
+    transform:translate3d(24px,0,0) rotate(0);
     border:.188em solid lightgray;
     background: white;
     transition:transform .2s ease-in-out,border-color .3s
