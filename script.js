@@ -34,13 +34,9 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
   const discussionAnsweredcheckbox = document.createElement("p");
-  discussionAnsweredcheckbox.textContent = console.log(answeredOrNot);
-  let answeredOrNot = 
-  if(obj.answer === null){
-    return "o"
-  } else {
-    return "x"
-  };
+  discussionAnsweredcheckbox.textContent = obj.answer === null ? "o" : "x"
+
+
   discussionAnswered.append(discussionAnsweredcheckbox)
 
 
