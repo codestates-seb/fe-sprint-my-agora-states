@@ -1,1 +1,132 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  font-family: Apple Monochrome Emoji Ind, SF Pro KR, SF Pro Text, SF Pro Icons,
+    AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 10rem;
+  width: 100%;
+  padding-top: 5rem;
+  padding-left: 5rem;
+}
+header > h1 {
+  font-size: 2.7rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+/* form__container */
+.collapsible__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.active,
+.collapsible:hover {
+  background-color: #ccc;
+}
+.form__wrapper {
+  width: 100%;
+}
+.form__wrapper > form {
+  padding: 10px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.form__input {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  height: 40px;
+  width: 25rem;
+}
+.form__input > input {
+  width: 95%;
+  height: 2rem;
+  padding-top: 3%;
+}
+.form__textbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 1rem;
+  height: 10rem;
+  width: 100%;
+}
+.form__textbox > textarea {
+  height: 90%;
+  width: 100%;
+  resize: none;
+}
+.form__submit {
+  display: flex;
+  justify-content: end;
+  margin: 1rem;
+}
+
+/* discussions */
+.discussions__container {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.discussion__wrapper {
+  width: 100%;
+}
+.discussion__container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 7rem;
+  width: 100%;
+}
+.discussion__avatar--wrapper {
+  width: 5rem;
+  margin-right: 2rem;
+}
+.discussion__avatar--wrapper > img {
+  border-radius: 50%;
+  height: inherit;
+  width: inherit;
+}
+.discussion__content {
+  width: 100%;
+}
