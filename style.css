@@ -220,14 +220,14 @@ section.form__container {
   margin: auto;
   display: flex;
   background-color: white;
-  padding: 1%;
+  padding-left: 1.5%;
   border-radius: 10px;
   position: absolute;
 }
 
 .form__input--name input {
-  width: 350px;
-  max-width: 360px;
+  width: 140%;
+  max-width: 370px;
   height: 40%;
   font-size: 20px;
   margin: 10px 0;
@@ -239,8 +239,8 @@ section.form__container {
 }
 
 .form__input--title input {
-  width: 350px;
-  max-width: 360px;
+  width: 140%;
+  max-width: 370px;
   height: 30%;
   font-size: 20px;
   margin: 10px 0;
@@ -252,8 +252,8 @@ section.form__container {
 }
 
 .form__textbox textarea {
-  width: 350px;
-  max-width: 360px;
+  width: 140%;
+  max-width: 370px;
   height: 30%;
   font-size: 20px;
   margin: 10px 0;
