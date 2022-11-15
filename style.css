@@ -8,7 +8,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(37, 25, 25);
+  background-color: black;
 }
 
 main {
@@ -27,12 +27,12 @@ header {
   align-items: center;
   height: 65px;
   width: 100vw;
-  background-color: black;
   border-bottom: 1px solid;
   border-color: #ccc;
   position: fixed;
   z-index: 2;
   margin: auto;
+  background-color: black;
 }
 header a {
   min-width: 1000px;
@@ -41,7 +41,6 @@ header a {
   height: 65px;
   width: 93vw;
   text-decoration: none;
-  background-color: black;
   border-bottom: 1px solid;
   border-color: #ccc;
   margin: auto;
@@ -106,6 +105,7 @@ header a {
   right: 0;
   text-align: center;
   display: block;
+  background-color: none;
   line-height: 1.6;
 }
 
@@ -324,6 +324,7 @@ section.form__container {
   padding: 1rem;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .pageItems {
