@@ -1,4 +1,6 @@
-type Discussions = Discussion[];
+type Discussions = Discussion[
+  
+];
 interface Discussion {
   id: string;
   createdAt: string;
@@ -16,3 +18,4 @@ interface Answer {
   author: string;
   bodyHTML: string;
 }
+
