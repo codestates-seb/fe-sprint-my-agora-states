@@ -62,6 +62,8 @@ form.addEventListener('submit', e => {
   database.unshift(newDiscussionData);
 
   localStorage.setItem('data', JSON.stringify(database));
+
+  alert('질문이 등록되었습니다.');
 });
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
