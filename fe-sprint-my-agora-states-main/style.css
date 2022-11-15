@@ -1,0 +1,174 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 메인 디스플레이에 플렉스 적용하고 가운데 정렬 시키자  */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ul요소와 class명이 비슷하기 때문에 태그 이름인 li도 붙여주자 */
+li.discussion__container {
+  display: flex;
+  flex-direction: row;
+  width: 540px;
+  height: 80px;
+  justify-content: space-between;
+}
+.discussion__avatar--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+  
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.form__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 540px;
+  margin-top:20px;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 2px ;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:10em;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 40px;
+}
+
+textarea {
+  width: 300px;
+  height: 40px;
+}
+
+
+
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+}
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+}
+.form__textbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__submit {
+  
+  display: flex;
+  justify-content: center;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 95px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+  background-color:white;
+  color: black;
+  font-weight: bold;
+}
+
+body {
+  background-color:cadetblue
+}
+
+ul {
+  margin-top: 20px;
+  padding: 0;
+  
+}
+
+li {
+  list-style: none;
+  display: flex;
+  margin-top: 5px;
+  height: 110px;
+  background-color: white;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.discussion__avatar--wrapper {
+  flex-grow: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 60px;
+}
+
+.discussion__answered {
+  display: flex;
+  flex-grow: 1;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  font-size: 16px;
+}
+
+input[type="text"] {
+  width: 220px;
+  height: 40px;
+}
+
+textarea {
+  width: 220px;
+  height: 40px;
+}
+
