@@ -175,6 +175,9 @@ h2 {
     border-radius: 100%;
     width: 48px;
     line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
