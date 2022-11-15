@@ -186,5 +186,8 @@ sendBtn.onclick = function () {
     window.localStorage.setItem("data", JSON.stringify([newObj]));
   }
   agoraStatesDiscussions.unshift(newObj);
+  title.value = "";
+  name.value = "";
+  contents.value = "";
   pagenation(1);
 };
