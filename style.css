@@ -19,7 +19,7 @@ main > h1 {
 }
 
 body {
-    width: 100vw;
+    width: 99vw;
     height: 100vh;
     background-color:rgba(0, 0, 0, 90%);
 }
