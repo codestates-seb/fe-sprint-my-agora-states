@@ -1,1 +1,158 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', serif;
+    color: #333;
+    list-style: none;
+    outline: none;
+}
+
+body {
+    background: linear-gradient(to bottom, #ebe9f9 0%,#d8d0ef 50%,#cec7ec 51%,#c1bfea 100%);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*==================질문 영역*/
+
+h1 {
+    font-family: 'Montserrat', serif;
+    font-size: 32px;
+    text-align: center;
+    width: 540px;
+    margin: 60px 0 30px;
+    text-shadow: 2px 2px #fff;
+}
+
+.form__container {
+    width: 540px;
+    height: 200px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 30px 0;    
+}
+
+.form__container .form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form__input--wrapper > div {
+    position: relative;
+}
+
+.form__input--wrapper > div > label {
+    display: flex;
+    font-size: 16px;
+    position: absolute;
+    top: 15px;
+    left: 6px;
+}
+
+.form__input--wrapper .input {
+    margin-top: 2px;
+    width: 330px;
+    height: 38px;
+    border: none;
+    border-bottom: 1px solid #c1bfea;
+}
+
+.form__input--wrapper .input.on + label,
+.form__input--wrapper .input:focus + label {
+    top : 0;
+    left: 0;
+    font-size: 12px;
+    color: #333;
+}
+
+.form__input--wrapper .input:focus {
+    border-bottom: 1px solid #000;
+}
+
+.form__textbox #story {
+    width: 330px;
+    height: 50px;
+    padding: 10px;
+    resize: none;
+    border: 1px solid #c1bfea;
+    border-radius: 3px;
+}
+
+.form__textbox #story:focus {
+    border:1px solid #000;
+    border-radius: 3px;
+}
+
+.form__submit > input {
+    width: 160px;
+    height: 160px;
+    border: none;
+    background: #c1bfea;
+    border-radius: 10px;
+}
+
+
+/*==================리스트 영역*/
+
+li.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 540px;
+    height: 110px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 3px 3px 5px #999;
+    background: #fff;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 60px;
+}
+
+.discussion__content {
+    padding: 10px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.discussion__title a {
+    font-family: 'Nanum Gothic', serif;
+    font-size: 18px;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__answered {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
