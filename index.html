@@ -10,21 +10,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/6d316a5996.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <main>
     <h1>My Agora States</h1>
+    <!-- 디스커션 생성 폼 -->
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" required placeholder="이름">
           </div>
           <div class="form__input--title">
             <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="title" id="title" required placeholder="제목">
           </div>
           <div class="form__textbox">
             <label for="story">Your question: </label>
@@ -32,12 +34,13 @@
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="질문하기">
         </div>
       </form>
     </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
+    <!-- 디스커션 예시 -->
+    <section class="discussion__wrapper" style="border-color: blue;">
+      <ul class="discussions__container" id="paginated-list">
         <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
             <img class="discussion__avatar--image"
@@ -45,16 +48,39 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <h2 class="discussion__title">
+              <a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">
+                [notice] 좋은 질문하는 법
+              </a>
+            </h2>
+            <div class="discussion__information">
+              kimploo / 2022-04-22T14:08:33Z
+            </div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered">
+            <i class="fa-solid fa-circle-check fa-xl"></i>
+          </div>
         </li>
       </ul>
     </section>
+    <nav class="pagination-container">
+      <button class="pagination-button" id="prev-button" title="Previous page" aria-label="Previous page">
+        &lt;
+      </button>
+       
+      <div id="pagination-numbers">
+     
+      </div>
+       
+      <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
+        &gt;
+      </button>
+    </nav>
   </main>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="input.js"></script>
+<script src="pagination.js"></script>
 
 </html>
