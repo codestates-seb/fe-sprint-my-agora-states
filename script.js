@@ -32,6 +32,7 @@ const convertToDiscussion = (obj) => {
   titleAncor.textContent =obj.title;
 
   const contentInfo = document.createElement('div')
+  contentInfo.className='discussion__information'
   contentInfo.textContent=`${obj.author}/${new Date(obj.createdAt).toLocaleString()}`
 
 
