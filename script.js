@@ -53,14 +53,22 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// 이벤트가 발생하면 아래 실행
+let submit = docuemt.querySelector("#submit")
 let inputName = document.querySelector("#name")
 let inputTitle = document.querySelector("#title")
 let inputStory = document.querySelector("#story")
+submit.addEventListener("click", function({
 // 객체 생성 후 새로 입력된 내용 배열에 추가하기
-let newPost = {}
-newPost.id = inputName.value
-newPost.title = inputTitle.value
+  let newPost = {}
+  newPost.id = inputName.value
+  newPost.title = inputTitle.value
   // bodyHTML : 이건 나중에 구현해보자
+  agoraStatesDiscussions.unshift('newPost')
+}))
 
-agoraStatesDiscussions.unshift('newPost')
+
+
+
+
 
