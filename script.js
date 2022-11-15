@@ -49,19 +49,13 @@ const convertToDiscussion = (obj) => {
   const answerContent = document.createElement("div");
   answerContent.className = "answer__content";
   const answercontentInformation = document.createElement('div');
-    answercontentInformation.className = 'answer__information';
+  answercontentInformation.className = 'answer__information';
 
-  const answerCheckbox =  document.createElement('input');
-  answerCheckbox.type = 'checkbox';
-  answerCheckbox.id = 'answeredCheckbox';
-
-  const answerCheckboxName =  document.createElement('label');
-  answerCheckboxName.htmlFor = 'answeredCheckbox';
-  answerCheckboxName.textContent = 'Answered';
-
+  const answerCheckbox =  document.createElement('div');
 
   if(obj.answer){
-    answerCheckbox.checked = true;
+    answerCheckbox.textContent = '답변 완료 💗';
+    answerCheckbox.classList.add('ok');
     answered.textContent = '답변 보기'
 
     const answerAvatarImg = document.createElement('img');
@@ -82,13 +76,16 @@ const convertToDiscussion = (obj) => {
     answercontentInformation.textContent = `${new Date(obj.createdAt).toLocaleString()}`;
 
   }
-  else{answerCheckbox.checked  = false;}
+  else{
+    answerCheckbox.textContent  = '답변 대기중';
+    answerCheckbox.classList.add('notOk');
+  }
 
   answered.onclick = () => {
     li.append(discussionWrapper, answerWrapper); 
   }
 
-  discussionAnswered.append(answerCheckboxName, answerCheckbox);
+  discussionAnswered.append(answerCheckbox);
   discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
   answerWrapper.append(answerAvatarWrapper, answerContent, answercontentInformation);
   li.append(discussionWrapper);
@@ -118,10 +115,14 @@ const convertToNotice = (obj) => {
   author.textContent = obj.author;
   noticeAvatarImg.append(avatarImg, author);
 
-  const contentTitle = document.createElement('h3');
-  contentTitle.className = "discussion__title";
-  contentTitle.textContent = obj.title;
-  noticeContent.append(contentTitle);
+  const contentTitleNotice = document.createElement('div');
+  contentTitleNotice.className = "notice__title";
+  contentTitleNotice.textContent = obj.title.slice(0,obj.title.indexOf(']')+1)
+
+  const contentTitle = document.createElement('div');
+  contentTitle.className = "notice__title";
+  contentTitle.textContent = obj.title.slice(obj.title.indexOf(']')+1);
+  noticeContent.append(contentTitleNotice,contentTitle);
 
   noticeWrapper.append(noticeContent,noticeAvatarImg);
   li.append(noticeWrapper);

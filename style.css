@@ -8,7 +8,7 @@
 
 main > h1 {
     color: white;
-    padding: 15px 0px 30px 15px;
+    padding: 15px 0px 30px 30px;
 }
 
 .discussion__wrapper h1{ 
@@ -53,11 +53,6 @@ span {
     background-color:rgba(0, 0, 0, 90%);
 }
 
-.form__button_container{
-    display: flex;
-    justify-content: flex-end;
-}
-
 .form__button{
    width: 100%;
    height: 30px;
@@ -66,12 +61,17 @@ span {
    color: white;
 }
 
-.form {
-    padding: 0px 0px 30px 0px;
-}
 .form__container--wrapper {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 43%;
+    padding: 0px 0px 30px 0px;
 }
 
 .form__container h2{
@@ -85,22 +85,39 @@ span {
 
 .form__input--wrapper div:first-child div{
     display: flex;
-    padding: 0px 10px 3px 0px;
+}
+
+.form__input--wrapper > div:first-child{
+    flex: 1.2;
 }
 
 .form__textbox {
+    flex: 1.2;
     display: flex;
-    padding: 0px 10px 0px 0px;
 }
 
 .form__submit{
+    flex: 0.5;
     display: flex;
     align-items: center;
-    padding: 0px 0px 0px 30px;
+    justify-content: center;
 }
 
 .form__submit input{
     cursor: pointer;
+    height: 50px;
+    background-color: #FF5ACD;
+    color: white;
+    font-weight: 600;
+}
+
+.form__submit input:hover{
+box-shadow:0 0 2px #fff, 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #FF5ACD,
+0 0 5px #FF5ACD, 0 0 5px #FF5ACD, 0 0 5px #FF5ACD, 0 0 5px #FF5ACD;
+}
+
+.form__submit input:active{
+    box-shadow: inset 5px 5px 10px 5px #FF5ACD;
 }
 
 input {
@@ -121,12 +138,14 @@ input {
     justify-content: center;
     margin: 4px;
     padding: 8px 12px;
+    width: 250px;
     height: 100px;
     background-color: white;
   }
   
-  label {
+  .form__container label {
     display: inline-block;
+    width: 30px;
     color: white;
   }
 
@@ -184,15 +203,33 @@ li.notice__container:hover{
 }
 
 
-.notice__container--wrapper :last-child{
+.notice__container--wrapper {
     display: flex;
-    justify-content: flex-end;
 
 }
 
-.notice__container--wrapper > div{
+.notice__content{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.notice__title:first-child{
+    display: flex;
+    font-size: medium;
+    font-weight: 700;
+    color: white;
+}
+
+.notice__title:last-child{
+    display: flex;
+    font-size:large;
+    font-weight: 700;
+    color: white;
+}
+
+.notice__avatar--wrapper{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .notice__avatar--wrapper img{
@@ -238,11 +275,13 @@ li.notice__container:hover{
 
 .discussion__title{
     display: flex;
+    font-size: small;
+    padding: 0px 0px 8px 0px;
 }
 .discussion__information{
     display: flex;
     justify-content: flex-end;
-    font-size: x-small;
+    font-size: xx-small;
 }
 
 .discussion__answered{
@@ -255,38 +294,45 @@ li.notice__container:hover{
 .discussion__content div:last-child{
     cursor: pointer;;
     color: rgb(59,114,255);
-    font-weight: 600;
+    font-size: x-small;
+
 }
 
 
-.discussion__answered label{
-    color: rgb(59,114,255);
+.discussion__answered div{
     font-size: xx-small;
     font-weight: 600;
 }
 
+.ok {
+    color: rgb(59,114,255);
+}
+
+.notOk{
+    color: white;
+}
+
 .answer__container--wrapper{
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background-color: #FBDA61;
+    background-color:rgba(255, 255, 255, 5%);  
 }
 
 .answer__avatar--wrapper{
-    flex: 2;
+    flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 .answer__content {
-    flex: 4;
+    flex: 1;
     display: flex;
     justify-content:center;
     text-decoration-line: underline;
-    font-weight: 500;
+    font-size: small;
 }
 .answer__content:hover {
-    flex: 4;
     display: flex;
     justify-content: center;
     text-decoration-line: underline;
@@ -298,7 +344,7 @@ li.notice__container:hover{
     color: rgba(255, 255, 255, 99%);
 }
 .answer__information{
-    flex: 2;
+    flex: 1;
     display: flex;
     font-size: xx-small;
     color: rgba(255, 255, 255, 99%);
