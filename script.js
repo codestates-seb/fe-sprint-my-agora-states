@@ -103,7 +103,7 @@ function handleDiscussionSubmit(event) {
   const title = document.querySelector("#title");
   const questionBody = document.querySelector("#story");
 
-  // 랜덤 아바타
+  // 랜덤 아바타 이미지 저장
   const avatars = [
     { avatarUrl: "./assets/img/avatar/1.png" },
     { avatarUrl: "./assets/img/avatar/2.png" },
