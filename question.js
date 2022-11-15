@@ -40,6 +40,9 @@ function startWork(e){
         avatarUrl:"https://avatars.githubusercontent.com/u/96907839?s=64&v=4",
       }
     localStorageArray.push(obj)
+    nameInput.value = ""
+    questionTitle.value = ""
+    question.value = ""
     const putQuestion = convertToDiscussion(obj) 
     ul.prepend(putQuestion);
     putQuestion.scrollIntoView({behavior:'smooth',block:'center'})
@@ -56,8 +59,6 @@ const wholeItems = page.children;
 let newArr = [...wholeItems];
 console.log(newArr[0]);
 const wholeItemscount =page.children.length
-console.log(page.children);
-
 //게시판에 그릴 아이템 10개 
 const visibleItems = 10
 let currentPage = 1
@@ -66,6 +67,7 @@ const wholePages = Math.ceil(wholeItems.length / visibleItems);
 console.log(wholePages);
 
 function Display(items,perpages,page){
+ //현재 페이지 그룹을 구하기  현재페이지 / 최대버튼개수 올림해서 2면 다음 1이면 1~5까지
 
   let start = perpages * (currentPage - 1); // 시작 줄은  현재 페이지 *보여줄아이템하면됨 어차피 20번대줄이면 20번부터 시작할거기 때문 
   let row_end = perpages*page;
@@ -76,4 +78,5 @@ function Display(items,perpages,page){
     console.log(paginatedItems[i]);
   }
 }
-Display(newArr,visibleItems,wholePages)
+// Display(newArr,visibleItems,wholePages)
+// localStorage.clear()

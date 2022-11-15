@@ -78,6 +78,7 @@ padding: 0.3rem;
     padding: 0;
     border-radius: 2rem;
     background: white;
+    max-width: 40rem;
 }
 .discussion__avatar--image{
     border-radius: 2rem;
@@ -101,10 +102,12 @@ padding: 0.3rem;
 }
 .discussion__content{
     flex: 4 1 auto;
+    position: relative;
 
 }
 .discussion__answered{
     flex: 1 1 auto;
+    max-width: 1.5rem;
 }
 .discussion__avatar--image,
 .discussion__answered ,
@@ -112,8 +115,15 @@ padding: 0.3rem;
 .discussion__information{
     margin: 0.5rem;
 }
+.discussion__title,
+.discussion__information{
+  padding: 0.3rem;
+}
+.discussion__information{
+    font-size: 1rem;
+}
 @font-face {
-    src:url(/나눔손글씨-수줍은-대학생.woff);
+    src:url(../font/나눔손글씨-수줍은-대학생.woff);
     font-family: 나눔손글씨;
 }
 
