@@ -199,6 +199,11 @@ body .buttons{
     padding: 0px 15px 0px 15px;
 }
 
+.buttons > button:nth-child(2n):hover{
+    font-size: 1.3rem;
+    background-color: rgb(131, 154, 216);
+}
+
 .buttons button{
     font-size: 1.8rem;
     background: none;
