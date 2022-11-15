@@ -156,10 +156,11 @@ font-weight: bold;
 .form__textbox {
   display: flex;
   justify-content: left;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  margin-top: -20px;
   margin-bottom: 5px;
-  width: 50%;
-  margin: 20px auto;
+  /* width: 50%; */
+  /* margin: 20px auto; */
   position: relative;
 }
 
@@ -168,7 +169,7 @@ font-weight: bold;
   position: absolute;
   top: initial;
   /* left: 150px; */
-  right: -45px;
+  right: 280px;
   bottom: -15px;
   padding: 10px;
   background: white;
@@ -178,7 +179,7 @@ font-weight: bold;
 }
 
 .form__textbox > #story {
-  width: 290px;
+  width: 345px;
   height: 112px;
 }
 
@@ -191,9 +192,11 @@ font-weight: bold;
   border-radius: 8px;
   padding: 16px;
   margin-top: 12px;
+  text-align: center;
 }
 
 .form__submit {
+  margin: 20px;
   float: right;
   align-items: center;
   justify-content: center;
@@ -208,9 +211,17 @@ main {
 
 .submit__button {
   cursor: pointer;
-  width: 80px;
-  height: 30px;
-  align-items: center;
+  width: 70px;
+  height: 60px;
+  /* align-items: center; */
+  /* width: 100%; */
+  border: 2px solid #dddddd !important;
+  font-size: 1rem;
+  /* line-height: 1.45; */
+  /* letter-spacing: -0.04rem; */
+  border-radius: 8px;
+  /* padding: 16px; */
+  /* margin-top: 12px; */
 }
 
 .submit__button:focus {
