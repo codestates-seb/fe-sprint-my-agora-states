@@ -65,3 +65,13 @@ li.discussion__container {
   align-items: center;
   font-size: 24px;
 }
+
+/* 제목이 두줄 이상일 때 한줄로 표기 */
+section .discussion__title a {
+  font-size: 18px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
