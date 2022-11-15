@@ -82,11 +82,12 @@ label {
     flex-direction: column;
 }
 
-#story {
-    width: 100%;
+textarea {
+    width: 95%;
     height: 100%;
     border-radius: 5px;
     font-size: 1.2rem;
+    padding: 0 5px;
 }
 
 .form__submit {
@@ -104,6 +105,11 @@ label {
     background-color: var(--point1);
     font-size: 2rem;
     color: var(--main);
+    transition: ease-in-out 0.3s;
+}
+
+.form__submit > input:hover {
+    background-color: var(--point2);
 }
 
 .discussion__wrapper {
