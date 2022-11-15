@@ -93,8 +93,8 @@ main h1 {
   cursor: pointer;
 }
 
-.form__submit input:focus,
-.form__submit input:active {
+.form__input--wrapper>div input:focus,
+.form__input--wrapper>div input:active {
   background: none;
 }
 

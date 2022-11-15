@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 //입력폼
 const inputUserName = document.querySelector("#user-name");
@@ -47,19 +47,11 @@ form.addEventListener("submit", function (e) {
 });
 
 function makeStorage(array) {
-  console.log(array.length, agoraStatesDiscussions.length);
-
-  let result = [];
-  // console.log(agoraStatesDiscussions[0]);
-  // console.log(array[0]);
   if (JSON.stringify(agoraStatesDiscussions[0]) === JSON.stringify(array[0])) {
-    result = agoraStatesDiscussions;
+    return agoraStatesDiscussions;
   } else {
-    result = agoraStatesDiscussions.unshift(...array);
+    return agoraStatesDiscussions.unshift(...array);
   }
-
-  console.log(result);
-  return result;
 }
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -161,8 +153,6 @@ const paging = (array) => {
       currentNum--;
     }
 
-    console.log(currentNum);
-
     ul.replaceChildren();
     render(ul, currentNum);
   });
@@ -187,7 +177,7 @@ const render = (element, num) => {
     makeStorage(JSON.parse(localStorage.newArray));
   }
 
-  console.log(agoraStatesDiscussions);
+  // console.log(agoraStatesDiscussions);
 
   let pagingArray = agoraStatesDiscussions.slice((num - 1) * 10, num * 10);
 
