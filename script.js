@@ -160,6 +160,7 @@ const ul = document.querySelector("ul.discussions__container");
 const $form = document.getElementById("form");
 const $formName = document.getElementById("name");
 const $formTitle = document.getElementById("title");
+const $formStory = document.getElementById("story");
 // 페이지네이션 DOM
 const $pagination = document.getElementById("pagination");
 const $paginationPrevBtn = document.querySelector(".pagination__prev");
@@ -209,6 +210,11 @@ $form.addEventListener("submit", (e) => {
 
   // 제출한 배열을 로컬 스토리지에 저장한다.
   localStorage.setItem("discussionList", JSON.stringify(discussionList));
+
+  // 제출 후, input창 내용 지우기
+  $formName.value = "";
+  $formTitle.value = "";
+  $formStory.value = "";
 });
 
 // 페이지네이션 이벤트 핸들러 - 이벤트 위임
