@@ -72,7 +72,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+}
 
 header {
     display: flex;
@@ -96,6 +96,8 @@ body {
 
 main {
     width: 580px;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -211,9 +213,19 @@ h1 {
 }
 
 .discussion__wrapper {
-    overflow: auto;
+    overflow: overlay;
     height: 90.6vh;
     color: var(--discussion_text);
+}
+
+/* 스크롤바 전체 설정 */
+.discussion__wrapper::-webkit-scrollbar {
+    width: 7px;
+}
+/* 스크롤바 막대(핸들) 설정 */
+.discussion__wrapper::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 42%, 0.29);
+    border-radius: 100px;
 }
 
 .discussion__container {
@@ -254,7 +266,7 @@ img {
     flex: 3;
 }
 
-a {
+a{
     text-decoration-line: none;
     color: var(--discussion_a);
     font-weight: 600;
@@ -308,12 +320,13 @@ i {
     border: 0.188em solid lightgray;
 }
 
-#dn:checked+.toggle2 .toggle__handler{
-  width:26px;
-  height:26px;
-  border-radius:50%;
-  display:inline-block;
-  transform:translate3d(22px,0,0) rotate(0);
-  border:.188em solid lightgray;
-  background: white;
-  transition:transform .2s ease-in-out,border-color .3s}
+#dn:checked+.toggle2 .toggle__handler {
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    display:inline-block;
+    transform:translate3d(22px,0,0) rotate(0);
+    border:.188em solid lightgray;
+    background: white;
+    transition:transform .2s ease-in-out,border-color .3s
+}

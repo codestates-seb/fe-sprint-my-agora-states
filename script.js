@@ -1,5 +1,5 @@
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
+const convertToDiscussion = (obj) => { 
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -14,6 +14,8 @@ const convertToDiscussion = (obj) => {
 
 // <img> 태그 생성 후 avatarImg 변수에 할당
   const avatarImg = document.createElement("img");
+// <img class = "discussion__avatar--image">로 클래스명 변경
+  avatarImg.className = "discussion__avatar--image";
 // 이미지 주소 설정
   avatarImg.src = obj.avatarUrl;
 // 대체 이미지 설정
@@ -41,7 +43,7 @@ const convertToDiscussion = (obj) => {
 // <div class = "discussion__information">로 클래스명 변경
   discussionInfo.className = "discussion__information";
 // div에 author, createdAt value값 텍스트로 추가
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
 // <div class = discussion__content> 태그 마지막 자식 요소에 <div class = "discussion__information"> 태그 추가
   discussionContent.append(discussionInfo);
 
@@ -57,14 +59,17 @@ const discussionAnsweredCheck = document.createElement("p");
   discussionAnswered.append(discussionAnsweredCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
   return li;
 };
 
-// submit 클릭 시 새로운 discussion 등록 기능 구현
+
+// submit 클릭 시 새로운 discussion 추가 기능 구현
 const form = document.querySelector('.form');
 const formName = document.querySelector('#name');
 const formTitle = document.querySelector('#title');
 const formStory = document.querySelector('#story');
+
 
 const addDiscussion = function(event) {
   event.preventDefault();
@@ -76,13 +81,15 @@ const addDiscussion = function(event) {
     author: formName.value,
     answer: null,
     bodyHtml: formStory.value,
-    avatarUrl: null,
+    avatarUrl: 'https://source.boringavatars.com/beam',
   };
-
+// 기존 데이터 가장 앞에 새로운 discussion 추가
   agoraStatesDiscussions.unshift(newObj);
 
   const newDiscussion = convertToDiscussion(newObj);
   ul.prepend(newDiscussion);
+
+  render(ul);
 
   formName.value = '';
   formTitle.value = '';
@@ -92,11 +99,11 @@ const addDiscussion = function(event) {
 form.addEventListener('submit',addDiscussion);
 
 
-
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = (ul) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    // convertToDiscussion(agoraStatesDiscussions[i]) === li
+    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
