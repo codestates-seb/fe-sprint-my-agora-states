@@ -7,14 +7,18 @@
     box-sizing: border-box;
     /* font-family: 'Righteous', cursive; */
     color: #000;
-    max-width: 540px;
     list-style: none
+}
+
+body {
+    display: flex;
+    justify-content: center;
 }
 .discussion__container{
     width: 540px;
     display: flex;
     justify-content: space-between;
-    /* flex-direction: row; */
+    flex-direction: row;
     margin: 18px 0px;
     padding: 9px;
     border-radius: 10px;
