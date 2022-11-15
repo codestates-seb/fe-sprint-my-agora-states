@@ -44,6 +44,10 @@ h2 {
     padding: 10px;
 }
 
+a:active {
+    color: black;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -78,10 +82,6 @@ ul.discussions__container > li:hover {
     border-radius: 30px;
 }
 
-li.discusstion__container {
-    align-items: center; 
-}
-
 .discussion__avatar--wrapper{
     border-radius: 100%;
 }
@@ -91,6 +91,8 @@ li.discusstion__container {
 }
 
 .discussions__container {
+    /* display: flex;
+    flex-direction: column; */
     list-style-type: none;
     background-color: white;
     overflow: auto;
@@ -100,7 +102,7 @@ li.discusstion__container {
 .discussion__container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 15px 0px;
     width: 540px;
 }
