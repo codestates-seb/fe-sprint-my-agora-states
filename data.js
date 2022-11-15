@@ -315,7 +315,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfWM",
-    createdAt: "2022-05-09T05:08:49Z",
+    createdAt: "오전 09:17",
     title: "계산기 과제 제출에서 start와 test가 비정상적으로 작동합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/27",
     author: "RyuJiChang",
@@ -451,8 +451,7 @@ const agoraStatesDiscussions = [
     },
     bodyHTML:
       '<p dir="auto">natilus . 명령어 실행시<br>\n<code class="notranslate">Gtk-WARNING **: 11:41:18.369: cannot open display:</code><br>\n오류 발생함</p>\n<p dir="auto">참고 레퍼런스<br>\n<a href="https://docs.microsoft.com/ko-kr/windows/wsl/tutorials/gui-apps" rel="nofollow">https://docs.microsoft.com/ko-kr/windows/wsl/tutorials/gui-apps</a></p>\n<p dir="auto">현재까지 시도한 것</p>\n<ol dir="auto">\n<li>우분투 삭제 및 재설치</li>\n<li>Linux GUI 앱 설치(Gedit 설치, 노틸러스 설치, vlc설치, x11 앱 설치)</li>\n<li>앱 설치 중에서도 Gedit 설치 후 파일 열려고 할때, 같은 에러 발생<br>\n<code class="notranslate">Gtk-WARNING **: 11:41:18.369: cannot open display:</code><br>\n<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/94218285/167332006-d4945dce-1eb4-4937-80da-f81d15932887.png"><img src="https://user-images.githubusercontent.com/94218285/167332006-d4945dce-1eb4-4937-80da-f81d15932887.png" alt="image" style="max-width: 100%;"></a></li>\n</ol>\n<p dir="auto">예상되는 이유<br>\n현재 사용버전이 윈도우 10이기 때문에 안되는 것일까요?</p>',
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/94218285?s=64&u=96e12a65d2e9387f8a949da5103ec2751b6c1f1f&v=4",
+    avatarUrl: "./img/img11.png",
   },
   {
     id: "D_kwDOHOApLM4APewe",
@@ -472,8 +471,7 @@ const agoraStatesDiscussions = [
     },
     bodyHTML:
       '<p dir="auto">문제는 객관식으로 틀린 답을 고르라고 제시되어 있으나 보기는 주관식으로 올바른 Bracket notation 접근법 입력을 요하고 있습니다.</p>',
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/78180055?s=64&u=e9042943147b7659cf195acf50b6e02777e64761&v=4",
+    avatarUrl: "./img/img5.png",
   },
   {
     id: "D_kwDOHOApLM4APdBX",
@@ -493,8 +491,7 @@ const agoraStatesDiscussions = [
     },
     bodyHTML:
       '<p dir="auto">운영 체제: macOS</p>\n<p dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에 부딪혔나요?<br>\nSection1 / Unit6 / Chapter2-2 flexbox 따라하기 - 2 / 도전하기 - 레이아웃 만들기에서 빨간색 영역 div태그의 부모태그에 justify-content: space-between을 넣었는데 빨간색 영역 사이에 공간이 생기지 않음</p>\n<p dir="auto">어떠한 부분에서 이해가 안 되었나요?<br>\n부모 태그에 space-between 속성값을 넣으면 자식태그의 좌, 우에는 빈 공간이 없고 자식태그 사이에는 공간이 생겨야 할 것 같은데 생기지 않는 점이 이해가 안됨</p>\n<p dir="auto">에러 코드를 붙여넣기 해 주세요.<br>\n<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/94212747/166632021-dcc5abf8-1550-4426-b74d-8ffd00b91008.jpg"><img src="https://user-images.githubusercontent.com/94212747/166632021-dcc5abf8-1550-4426-b74d-8ffd00b91008.jpg" alt="111112" style="max-width: 100%;"></a></p>\n<p dir="auto">에러가 출력된 곳에서, 이유라고 생각하는 부분을 열 줄 이내로 붙여넣기 해 주세요. (잘 모르겠으면 에러라고 생각하는 곳을 넣어주세요)</p>\n<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="//여기에 작성해 주세요"><pre><span class="pl-c">//여기에 작성해 주세요</span></pre></div>\n<p dir="auto">검색했던 링크가 있다면 첨부해 주세요.</p>',
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/94212747?s=64&u=145778e6dfbd813a6689a634ed3bb47f1bfa7b17&v=4",
+    avatarUrl: "./img/img12.png",
   },
   {
     id: "D_kwDOHOApLM4APcip",
@@ -515,7 +512,7 @@ const agoraStatesDiscussions = [
     },
     bodyHTML:
       '<p dir="auto">오늘 아침에 아고라 세션도 해서 한번 적어봅니다!<br>\n(zoom으로 들을때만 해도 네~ 안써요~ 이렇게만 생각햇는데.... 역시 사람 앞일은 한치 앞도 모르네요)</p>\n<p><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/25774030/166427699-1624341d-0409-42be-b60c-cbcf0affc5b2.png"><img width="1680" alt="html" src="https://user-images.githubusercontent.com/25774030/166427699-1624341d-0409-42be-b60c-cbcf0affc5b2.png" style="max-width: 100%;"></a></p>\nhtml 마크업 상황\n<p><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/25774030/166427740-935fd4aa-f066-4b57-81ab-42261d4881ad.png"><img width="1680" alt="css" src="https://user-images.githubusercontent.com/25774030/166427740-935fd4aa-f066-4b57-81ab-42261d4881ad.png" style="max-width: 100%;"></a></p>\n<p dir="auto">css를 보시면</p>\n<ol dir="auto">\n<li>5개의 div(.row)를 1줄로 정렬을 하기위해 부모 div인 .buttons에 display:flex &amp; flex-direction:column을 설정하였습니다.</li>\n<li>.row안의 button의 너비를 1:1:1:1의 비율로 하기 위해 .row .button에 flex-grow:1을 설정하였습니다</li>\n<li>마지막줄 row는 button이 3개이기 때문에 숫자 0에 class명 zero를 추가하고 0에 flex-grow:2를 설정하여 2:1:1의 비율을 설정하였습니다.</li>\n</ol>\n<p dir="auto">그렇게되면 깔끔하게 정렬될줄 알았으나.....<br>\n<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/25774030/166428640-ed7607df-1181-40aa-af56-9a3f3568f187.png"><img width="1455" alt="calculator" src="https://user-images.githubusercontent.com/25774030/166428640-ed7607df-1181-40aa-af56-9a3f3568f187.png" style="max-width: 100%;"></a><br>\n보시는바와 같이 첫번째줄, 다섯번째줄에 정렬이 정확히 안되는 모습입니다.</p>\n<p dir="auto">첫번째줄은 button 태그 안에 컨텐츠 내용이 \'AC\' , \'+/-\'등으로 다른 button들보다 내용이 많아서 그럴꺼라는 추측만 하고있으며,<br>\n마지막(다섯번째)줄 button은 다른 button들과 마찬가지로 컨텐츠내용이 \'0\' 으로 숫자 1개일뿐인데 정렬이 틀어져서 추측도 못하고있습니다.</p>\n<p dir="auto">정렬 틀어진건에 대해선 다른방법으로 button에 width를 설정해서 해결을 해보긴 하였지만,<br>\nflex만 써서 깔끔하게 해결해보고 싶어서 질문올립니다~</p>',
-    avatarUrl: "https://avatars.githubusercontent.com/u/25774030?s=64&v=4",
+    avatarUrl: "./img/img10.png",
   },
   {
     id: "D_kwDOHOApLM4APcDj",
@@ -576,7 +573,7 @@ const agoraStatesDiscussions = [
     },
     bodyHTML:
       '<p dir="auto">코플릿 반복문 18번. 2 이상의 자연수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 하는 이중반복문 문제입니다.</p>\n<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="output = listPrimes(6);\nconsole.log(output); // --&gt; \'2-3-5\'"><pre><span class="pl-s1">output</span> = <span class="pl-en">listPrimes</span>(<span class="pl-c1">6</span>);\n<span class="pl-s1">console</span>.<span class="pl-en">log</span>(<span class="pl-s1">output</span>); <span class="pl-c">// --&gt; \'2-3-5\'</span></pre></div>\n<p dir="auto">이건 문제 하단에 나와있는 입출력 예시 이구요,</p>\n<p dir="auto">제가 무엇을 놓치고 있길래 코드가 잘 실행되지 않는지,<br>\n어느 부분을 수정해야 할지 모르겠어서 질문드립니다!!</p>\n<p dir="auto">아래는 제가 푼 방법입니다</p>\n<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="function listPrimes(num) {\n\n  let result = `2`\n  let shouldBeZero = 0\n\n  for(let i =3; i &lt;=num; i++){\n    \n    for(let j=2; j&lt;i; j++){     // i가 소수인걸 검사하기 위한 반복문\n      if(i%j !== 0){         // i를 j(2부터 i-1까지)로 나눈 나머지가 0이 아닌 경우 (나누어 떨어지지 않는 경우)\n        shouldBeZero = shouldBeZero + 0     // shouldBeZero 가 0씩 더해짐 --&gt; i가 소수라면\n                                            // 반복문이 다돌아갔을 때도 shouldBeZero는 0을 유지.\n      } else{\n        shouldBeZero = shouldBeZero + 1    // i가 대입한 j들 중 하나에라도 나누어 떨어지면 \n                                          // shouldBeZero 는 0 을 유지하지 못함\n      }\n    }  // 이 반복문이 i 차례 때 한차례 돌아갔을 때 shouldBeZero === 0 이면 i 는 소수 인 것\n\n    if(shouldBeZero === 0){           // i가 소수라면\n      result = result + `-${i}`            // 전에 있던 result 에 &quot;-i&quot; 가 붙음 ex)&quot;2-3&quot; \n    } else {\n      result = result + ``\n    }\n\n  }\n  return result\n}"><pre><span class="pl-smi">function</span> <span class="pl-s1">listPrimes</span>(<span class="pl-s1">num</span>) {\n\n  <span class="pl-smi">let</span> <span class="pl-s1">result</span> = `<span class="pl-c1">2</span>`\n  <span class="pl-smi">let</span> <span class="pl-s1">shouldBeZero</span> = <span class="pl-c1">0</span>\n\n  <span class="pl-k">for</span>(<span class="pl-smi">let</span> <span class="pl-s1">i</span> =<span class="pl-c1">3</span>; <span class="pl-s1">i</span> &lt;=<span class="pl-s1">num</span>; <span class="pl-s1">i</span>++){\n    \n    <span class="pl-k">for</span>(<span class="pl-smi">let</span> <span class="pl-s1">j</span>=<span class="pl-c1">2</span>; <span class="pl-s1">j</span>&lt;<span class="pl-s1">i</span>; <span class="pl-s1">j</span>++){     <span class="pl-c">// i가 소수인걸 검사하기 위한 반복문</span>\n      <span class="pl-k">if</span>(<span class="pl-s1">i</span>%<span class="pl-s1">j</span> !== <span class="pl-c1">0</span>){         <span class="pl-c">// i를 j(2부터 i-1까지)로 나눈 나머지가 0이 아닌 경우 (나누어 떨어지지 않는 경우)</span>\n        <span class="pl-s1">shouldBeZero</span> = <span class="pl-s1">shouldBeZero</span> + <span class="pl-c1">0</span>     <span class="pl-c">// shouldBeZero 가 0씩 더해짐 --&gt; i가 소수라면</span>\n                                            <span class="pl-c">// 반복문이 다돌아갔을 때도 shouldBeZero는 0을 유지.</span>\n      } <span class="pl-k">else</span>{\n        <span class="pl-s1">shouldBeZero</span> = <span class="pl-s1">shouldBeZero</span> + <span class="pl-c1">1</span>    <span class="pl-c">// i가 대입한 j들 중 하나에라도 나누어 떨어지면 </span>\n                                          <span class="pl-c">// shouldBeZero 는 0 을 유지하지 못함</span>\n      }\n    }  <span class="pl-c">// 이 반복문이 i 차례 때 한차례 돌아갔을 때 shouldBeZero === 0 이면 i 는 소수 인 것</span>\n\n    <span class="pl-k">if</span>(<span class="pl-s1">shouldBeZero</span> === <span class="pl-c1">0</span>){           <span class="pl-c">// i가 소수라면</span>\n      <span class="pl-s1">result</span> = <span class="pl-s1">result</span> + `-<span class="pl-s1">$</span>{<span class="pl-s1">i</span>}`            <span class="pl-c">// 전에 있던 result 에 "-i" 가 붙음 ex)"2-3" </span>\n    } <span class="pl-k">else</span> {\n      <span class="pl-s1">result</span> = <span class="pl-s1">result</span> + ``\n    }\n\n  }\n  <span class="pl-k">return</span> <span class="pl-s1">result</span>\n}</pre></div>\n<p dir="auto">아래는 콘솔에 제 코드를 돌려보았을 때의 결과입니다.</p>\n<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="listPrimes(2)\n\'2\'\nlistPrimes(3)\n\'2-3\'\nlistPrimes(4)\n\'2-3\'\nlistPrimes(5)\n\'2-3\'\nlistPrimes(10)\n\'2-3\'\nlistPrimes(10000)\n\'2-3\'"><pre><span class="pl-en">listPrimes</span>(<span class="pl-c1">2</span>)\n<span class="pl-s">\'2\'</span>\n<span class="pl-en">listPrimes</span>(<span class="pl-c1">3</span>)\n<span class="pl-s">\'2-3\'</span>\n<span class="pl-en">listPrimes</span>(<span class="pl-c1">4</span>)\n<span class="pl-s">\'2-3\'</span>\n<span class="pl-en">listPrimes</span>(<span class="pl-c1">5</span>)\n<span class="pl-s">\'2-3\'</span>\n<span class="pl-en">listPrimes</span>(<span class="pl-c1">10</span>)\n<span class="pl-s">\'2-3\'</span>\n<span class="pl-en">listPrimes</span>(<span class="pl-c1">10000</span>)\n<span class="pl-s">\'2-3\'</span></pre></div>\n<p dir="auto">보시다시피 5부터 안 붙습니다 ㅠㅠ</p>\n<p dir="auto">노트에 숫자를 직접 대입해가며 계산해 봐도 왜 오류가 난지 모르겠습니다.<br>\n제가 뭔가 모르고 있는 것 같은데 그게 뭔지 모르겠습니다, 도와주세요!!</p>',
-    avatarUrl: "https://avatars.githubusercontent.com/u/101170012?s=64&v=4",
+    avatarUrl: "./img/img11.png",
   },
   {
     id: "D_kwDOHOApLM4APaPd",
@@ -678,7 +675,7 @@ const agoraStatesDiscussions = [
     },
     bodyHTML:
       '<p dir="auto">운영 체제 : Ubuntu</p>\n<p dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에 부딪혔나요?<br>\n\'JavaScript 기초 - 문자열\' 챕터에서 강의를 똑같이 따라해보는 중에 제 컴퓨터에서만 다르게 인식해서 질문을 올리게 되었습니다.</p>\n<p dir="auto">[강의 영상]<br>\n<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/73211553/165443516-f8c6a846-648c-4c12-aadd-6111927b6b1c.png"><img src="https://user-images.githubusercontent.com/73211553/165443516-f8c6a846-648c-4c12-aadd-6111927b6b1c.png" alt="스크린샷, 2022-04-27 13-54-08" style="max-width: 100%;"></a></p>\n<p dir="auto">[직접 해본 콘솔 창]<br>\n<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/73211553/165443544-d0c3c8fb-fef3-498d-b805-0d97de77e387.png"><img src="https://user-images.githubusercontent.com/73211553/165443544-d0c3c8fb-fef3-498d-b805-0d97de77e387.png" alt="스크린샷, 2022-04-27 13-54-28" style="max-width: 100%;"></a></p>\n<p dir="auto">강의에서 나온 같은 사이트에 들어가서 복사/붙여넣기를 했는데도 보시는 것처럼 줄바꿈 인식이 안됩니다.<br>\n기본 설정이 잘못되어 있는건가요?</p>',
-    avatarUrl: "https://avatars.githubusercontent.com/u/73211553?s=64&v=4",
+    avatarUrl: "./img/img12.png",
   },
   {
     id: "D_kwDOHOApLM4APY9u",
@@ -723,7 +720,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APXZy",
-    createdAt: "2022-04-22T17:47:35Z",
+    createdAt: "오전 08:36",
     title: "[notice] 좋은 답변하는 법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
     author: "kimploo",
@@ -745,7 +742,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APXTS",
-    createdAt: "2022-04-22T14:08:33Z",
+    createdAt: "오전 08:36",
     title: "[notice] 좋은 질문하는 법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/4",
     author: "kimploo",

@@ -1,6 +1,16 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// 로컬 저장소에 저장된 데이터를 가져옴
+console.log("agror :" + agoraStatesDiscussions);
+let savedDisscussions = localStorage.getItem("info");
+// 문자열 형태를 객체형태로 변환
 
+let newDiscussions = JSON.parse(savedDisscussions);
+if (savedDisscussions === null) {
+  localStorage.setItem("info", JSON.stringify(agoraStatesDiscussions));
+  location.reload();
+}
+
+console.log("new :" + newDiscussions);
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -41,17 +51,13 @@ const convertToDiscussion = (obj) => {
 
   const checkbox = document.createElement("p");
   checkbox.className = "check";
-  checkbox.textContent = "☑";
+  checkbox.textContent = "⨯";
   discussionAnswered.append(checkbox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
 
   return li;
 };
-// 로컬 저장소에 저장된 데이터를 가져옴
-let savedDisscussions = localStorage.getItem("info");
-// 문자열 형태를 객체형태로 변환
-let newDiscussions = JSON.parse(savedDisscussions);
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수
 const render = (element) => {
@@ -112,7 +118,8 @@ const title = document.querySelector("#name2");
 const text = document.querySelector("#story");
 const btn = document.querySelector(".form__submit");
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", (event) => {
+  event.preventDefault();
   console.log(id.value);
   console.log(title.value);
   console.log(text.value);
@@ -128,17 +135,15 @@ btn.addEventListener("click", () => {
   addObj["createdAt"] = currentTime;
   addObj["title"] = title.value;
   addObj["text"] = text.value;
-
-if(agoraStatesDiscussions.length === newDiscussions.length) {
-  agoraStatesDiscussions.unshift(addObj);
-  localStorage.setItem("info", JSON.stringify(agoraStatesDiscussions));
-} else {
-  newDiscussions.unshift(addObj);
-  localStorage.setItem("info", JSON.stringify(newDiscussions));
-
-}
-
- 
+  if (newDiscussions) {
+    if (agoraStatesDiscussions.length === newDiscussions.length) {
+      agoraStatesDiscussions.unshift(addObj);
+      localStorage.setItem("info", JSON.stringify(agoraStatesDiscussions));
+    } else {
+      newDiscussions.unshift(addObj);
+      localStorage.setItem("info", JSON.stringify(newDiscussions));
+    }
+  }
 
   // 로컬 저장소에 수정된 데이터 추가(배열은 입력이 되지 않으므로 문자열로 변환 후 추가)
   console.log(agoraStatesDiscussions);
@@ -180,9 +185,54 @@ for (let i in check) {
 
       render(ul);
       location.reload();
-
     }
   });
 }
 
-// 페이징
+// 페이지네이션
+const rowsPerPage = 10; // 한 페이지에 들어가는 요소 수
+const rows = document.querySelectorAll("ul li");
+const rowsCount = newDiscussions.length;
+
+const pageCount = Math.ceil(rowsCount / rowsPerPage);
+const pageSection = document.querySelector(".pageItems");
+
+for (let i = 1; i < rowsCount / rowsPerPage + 1; i++) {
+  const pageList = document.createElement("li");
+  const pageLisElem = document.createElement("a");
+  pageLisElem.setAttribute("href", "#");
+  pageLisElem.textContent = `${i}`;
+  pageList.append(pageLisElem);
+  pageSection.appendChild(pageList);
+}
+
+const numberBtn = pageSection.querySelectorAll("a");
+numberBtn.forEach((item, idx) => {
+  item.addEventListener("click", (event) => {
+    event.preventDefault();
+    for (num of numberBtn) {
+      num.classList.remove("active");
+    }
+    event.target.classList.add("active");
+    display(idx);
+  });
+});
+
+function display(idx) {
+  // idx 0 -> slice(0, 5);   0에서 5까지 요소
+  // idx 1 -> slice(1, 10);   1에서 10까지 요소
+
+  let start = idx * rowsPerPage; // 시작 페이지
+  let end = start + rowsPerPage; // 마지막 페이지
+  let rowsArray = [...rows]; // 유사 배열이므로 배열로 변환
+  console.log(rowsArray);
+  for (row of rowsArray) {
+    row.style.display = "none"; // 처음에 화면에 요소를 모두 안보이게 처리
+  }
+
+  let newRows = rowsArray.slice(start, end);
+  for (num of newRows) {
+    num.style.display = ""; // 새로 만들어준 배열을 보이게 처리
+  }
+}
+display(0);
