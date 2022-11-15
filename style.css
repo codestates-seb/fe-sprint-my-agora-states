@@ -1,1 +1,194 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&family=Fasthand&family=Nothing+You+Could+Do&family=Noto+Sans+KR:wght@700&family=Trispace&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #000;
+  font-family: "Noto Sans KR", sans-serif;
+  /* font-family: "Dongle", sans-serif; */
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-container {
+  display: flex;
+}
+
+.form__container {
+  /* background-image: url("https://www.freecodecamp.org/news/content/images/2021/06/w-qjCHPZbeXCQ-unsplash.jpg"); */
+  background-image: url("https://img.freepik.com/free-vector/pastel-ombre-background-pink-purple_53876-120750.jpg?w=2000");
+  /* background-color: #ffb3b3; */
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  width: 580px;
+  border-radius: 40px 40px 0px 0px;
+  height: 200px;
+  box-shadow: 3px 3px 5px rgb(15, 15, 16);
+  padding-top: 30px;
+}
+
+.form__submit > input {
+  width: 200px;
+  height: 30px;
+  background-color: rgb(233, 212, 235);
+  border: 1px solid rgb(145, 16, 119);
+  border-radius: 10px;
+  /* margin: 20px; */
+  margin-top: 10px;
+  color: black;
+}
+
+.form__submit > input:hover {
+  background-color: tomato;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+  color: rgb(69, 69, 73);
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 40px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+
+/* 카드요소 */
+
+.discussions__container {
+  /* background-color: #ffb3b3; */
+  /* background-image: url("https://www.freecodecamp.org/news/content/images/2021/06/w-qjCHPZbeXCQ-unsplash.jpg"); */
+  background-image: url("https://img.freepik.com/free-vector/pastel-ombre-background-pink-purple_53876-120750.jpg?w=2000");
+
+  border-radius: 0px 0px 40px 40px;
+  box-shadow: 3px 3px 5px rgb(15, 15, 16);
+}
+
+.discussion__wrapper {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.discussion__container {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  /* align-items: center; */
+  width: 540px;
+  margin: 20px;
+  border: 2px solid rgb(202, 57, 185);
+  padding: 13px;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 3px 3px 5px rgb(15, 15, 16);
+}
+
+.discussion__container:hover {
+  background-color: rgb(226, 216, 255);
+  transform: scale(1.1);
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+.discussion__avatar--image {
+  border-radius: 50px;
+  width: 48px;
+}
+
+.discussion__content {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.discussion__avatar--image {
+  margin-right: 30px;
+}
+
+.discussion__answered {
+  font-size: 30px;
+}
+
+.discussion__title,
+.discussion__title > a {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* 오른쪽 정렬 */
+.discussion__information {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.form__input--wrapper {
+  font-size: 17px;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pagenation {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 20px;
+}
+.pagenation div + div {
+  margin-left: 5px;
+}
+.pagenation_left:hover {
+  transform: scale(1.5);
+}
+
+.pagenation_rigth:hover {
+  transform: scale(1.5);
+}
+
+.pagenation__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#name,
+#title,
+#story {
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(200, 30, 191);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  /* color: rgb(56, 56, 56); */
+  color: rgb(8, 1, 1);
+}
+
+.form__textbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
