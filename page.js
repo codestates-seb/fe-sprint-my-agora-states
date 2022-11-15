@@ -1,4 +1,4 @@
-const rowPerPage = 5;
+const rowPerPage = 10;
 const rows = document.querySelectorAll('.discussions__container > li');
 const rowCount = rows.length;;
 const pageCount = Math.ceil(rowCount/rowPerPage);
