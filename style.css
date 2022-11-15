@@ -107,6 +107,7 @@ header h1 {
     align-items: center;
     background-color: rgba(255,255,255,0.5);
     backdrop-filter: blur(3px);
+    z-index: 999;
 }
 
 .form__inner__container {
@@ -303,7 +304,6 @@ label {
     transition:0.1s;
     transform:translateY(-1.3em);
     opacity: 0;
-    z-index: 0;
 }
 
 .discussion__container:hover .detail{
