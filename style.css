@@ -6,6 +6,11 @@
     padding: 0;
     list-style: none;
     box-sizing: border-box;
+    background-color: #eeeeee;
+}
+
+a {
+    color: black;
 }
 
 /* Agora states styles */
@@ -20,31 +25,39 @@ section.discussion__wrapper {
     width: 540px;
 }
 
+img.discussion__avatar--image {
+    width: 48px;
+    border-radius: 100%;
+}
+
 ul.discussions__container {
     display: flex;
     flex-direction: column;
 }
 
-li.discussions__container {
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.discussion__avatar--wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-div.discussion__avatar--wrapper {
-    flex-grow: 1;
-}
-
 div.discussion__content {
-    flex-grow: 2;
+    flex-grow: 1; 
+    margin: 5px;
     align-items:  space-around;
 }
 
 div.discussion__answered {
-    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-img.discussion__avatar--image {
-    width: 48px;
-    border-radius: 100%;
+div.discussion__information {
+    float: right;
 }
