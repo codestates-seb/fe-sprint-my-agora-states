@@ -19,24 +19,29 @@
   <div class="agorastates__title scrollbox">
     <h1>My Agora States</h1>
   </div>
-  <main class="scrollbox">
+  <main>
     <section class="form__container">
       <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__top">
-            <div class="form__input--name">
-              <input type="text" name="name" id="name" placeholder= "  Name" required value="">
-            </div>
-            <div class="form__input--title">
-              <input type="text" name="name" id="title" placeholder="  Title" required value="">
+        <div class="form__flexcontainer">
+          <div class="form__avatar--wrapper">
+            <img class="form__avatar--image" />
+            <div class="form__submit">
+              <input type="submit" value="submit" id="submit">
             </div>
           </div>
-          <div class="form__textbox">
-            <textarea id="story" name="story" placeholder="  question" required value=""></textarea>
+          <div class="form__input--wrapper">
+            <div class="form__top">
+              <div class="form__input--name">
+                <input type="text" name="name" id="name" placeholder= "  Name" required value="">
+              </div>
+              <div class="form__input--title">
+                <input type="text" name="name" id="title" placeholder="  Title" required value="">
+              </div>
+            </div>
+            <div class="form__textbox">
+              <textarea id="story" name="story" placeholder="  question" required value=""></textarea>
+            </div>
           </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit" id="submit">
         </div>
       </form>
     </section>

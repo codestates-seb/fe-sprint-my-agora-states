@@ -187,6 +187,8 @@ const makeAvatar = () => {
 
   return arr[index]
 }
+let myAvatar =  makeAvatar();
+document.querySelector('.form__avatar--image').src = myAvatar;
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -198,7 +200,7 @@ form.addEventListener('submit', (event) => {
     author: newName.value,
     answer: null,
     bodyHTML: newStory.value,
-    avatarUrl:makeAvatar(),
+    avatarUrl:myAvatar,
   }
   agoraStatesDiscussions.unshift(obj);
   ul.prepend(convertToDiscussion(obj));
@@ -208,4 +210,6 @@ form.addEventListener('submit', (event) => {
   newTitle.value = '';
   listItems = document.querySelectorAll("li.discussion__big--container");
   setCurrentPage(1);
+  myAvatar = makeAvatar();
+  document.querySelector('.form__avatar--image').src = myAvatar;
 });
