@@ -75,15 +75,14 @@ main {
   width: 25rem;
 }
 .form__input > input {
-  width: 90%;
+  width: 95%;
   height: 2rem;
-  padding: 0 10%;
   padding-top: 3%;
 }
 .form__textbox {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid black;
   border-radius: 5px;
   margin-top: 1rem;
@@ -91,9 +90,9 @@ main {
   width: 100%;
 }
 .form__textbox > textarea {
-  height: 70%;
+  height: 90%;
   width: 100%;
-  padding-top: 6%;
+  resize: none;
 }
 .form__submit {
   display: flex;

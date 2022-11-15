@@ -130,3 +130,8 @@ table {
 input {
   all: unset;
 }
+textarea {
+  border: none;
+  outline: none;
+  background-color: inherit;
+}
