@@ -14,25 +14,38 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <h1>My Agora States
+    </h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">이름</label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="title">제목</label>
+            <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story">질문</label>
+            <!-- <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea> -->
+            <input type="story" name="story" id="story" placeholder="질문을 작성하세요" required>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <!-- <input type="submit" value="submit" class="submit__button"> -->
+          <button class="button" type="submit">
+            <div class="wrapper">
+              <div class="front">제출</div>
+              <div class="top"></div>
+              <div class="right"></div>
+              <div class="bottom"></div>
+              <div class="left"></div>
+              <div class="back">제출 완료!</div>
+            </div>
+          </button>
+        
         </div>
       </form>
     </section>
@@ -46,7 +59,7 @@
           </div>
           <div class="discussion__content">
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <div class="discussion__information">kimploo / 2022. 4. 22. 오후 2:08:33</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
         </li>
