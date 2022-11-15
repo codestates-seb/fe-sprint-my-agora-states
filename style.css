@@ -132,6 +132,9 @@ input {
     border: none;
     border-color: black;
 }
+input::placeholder {
+    text-align: center;
+}
 textarea {
     font-size: 20px;
     border-radius: 5px;
@@ -139,6 +142,9 @@ textarea {
     resize: none;
     width: 200px !important;
     /* height: 50px !important; */
+}
+textarea::placeholder {
+    text-align: center;
 }
 .form__submit {
     display: flex;
