@@ -1,5 +1,10 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+if(window.localStorage.length) {
+  const discussionString = window.localStorage.getItem('discussion');
+  const discussionObj = JSON.parse(discussionString);
+  agoraStatesDiscussions.unshift(discussionObj);
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -97,6 +102,9 @@ formSubmit.addEventListener('submit', (ev)=>{
   input[1].value = '';
   textarea.value = '';
   
+  //submit 하면 객체 submit을 localstorage에 저장
+  const objString = JSON.stringify(submit);
+  window.localStorage.setItem('discussion', objString); 
 })
 
 // 페이지네이션 
@@ -134,6 +142,7 @@ const getPageNum = () => {
 
 //웹페이지가 로드될 때 함수 호출
 window.addEventListener('load', ()=>{
+
   getPageNum();
   setCurrentPage(1);
 
