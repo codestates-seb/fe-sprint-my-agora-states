@@ -101,6 +101,7 @@ ul {
 }
 .pagination__container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     position: relative;
     bottom: 0;
@@ -109,8 +110,8 @@ ul {
     background-color: #fff;
     border-radius: 20px;
     width: 400px;
-  }
-   
+    margin-right: 15rem;
+  } 
   .pagination__number,
   .pagination__button{
     font-size: 1.1rem;
@@ -121,15 +122,13 @@ ul {
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 70%;
-  }
-   
+  }  
   .pagination__number:hover,
   .pagination__button:not(.disabled):hover {
     background: black;
     color: #fff;
-  }
-   
-  .pagination__number.active {
+  } 
+.pagination__number.active {
     color: #fff;
     background: #000000;
   }
@@ -180,4 +179,18 @@ input, textarea {
     flex-direction: column;
     justify-content: space-between;
     margin-right: 15px;
+}
+#reset{
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    margin-right: 15rem;
+}
+#reset:hover {
+    color: #fb3898;
+}
+.bottom__container{
+    display: flex;
+    flex-direction: row;
 }
