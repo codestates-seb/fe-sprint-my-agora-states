@@ -188,3 +188,9 @@ section.buttons > button {
 section.buttons > button:hover {
   background-color: seashell;
 }
+
+@media (max-width: 600px) {
+  .discussion__container {
+    width: 80%;
+  }
+}
