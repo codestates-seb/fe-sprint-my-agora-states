@@ -1,5 +1,6 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -9,7 +10,7 @@
     list-style: none;
     /* max-width: 540px; */
     text-decoration: none;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* ul > li:last-child { } */
@@ -20,20 +21,24 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: bisque;
+    background-color: rgb(255, 246, 196);
 }
 
 h1{
     padding: 15px;
+    font-weight: bold;
+    color: white;
 }
 .form__container{
-    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background-color:blueviolet;
     width : 540px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
 }
 
@@ -44,17 +49,48 @@ h1{
 }
 
 textarea{
+    border:1px solid rgb(228, 228, 228);
+
     width: 330px;
-    height: 100px;
-}
-.form__input--wrapper > div{
-    margin: 10px;
-    align-content: center;
+    height: 60px;
+    padding: 1px 5px 5px 3px;
+    border-radius: 10px;
 }
 
-input,textarea{
-    border:1px solid rgb(228, 228, 228);
+h1{
+    margin: 20px 0 10px 0;
+    color: white;
+    font-size: 2em;
 }
+
+.form__input--wrapper > div{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 0.9em;
+    padding: 3px;
+    color: white;
+}
+input{
+    width: 330px;
+    padding: 5px;
+    border:1px solid rgb(228, 228, 228);
+    border-radius: 20px;
+
+}
+
+::placeholder{
+    color:rgb(146, 146, 146);
+    padding: 5px;
+    
+}
+
+/* .form__input--title #title {
+    w
+} */
 
 .discussion__container{
     display : flex;
@@ -68,7 +104,9 @@ input,textarea{
     border-radius: 15px;
 }
 
-
+.discussion__wrapper{
+    margin-bottom: 50px;
+}
 .discussion__avatar--wrapper{
     display: flex;
     align-items: center;
@@ -100,12 +138,112 @@ input,textarea{
     width: 100%;
     font-size: 0.8em;
 
+
 }
 
+
+a{
+    color: blueviolet;
+}
 .discussion__information {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
     font-size: 0.7em;
+    color: rgb(177, 177, 177);
 
 }
+
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.form__submit > input{
+    padding: 5px;
+    border: 1px solid white;
+    background-color:blueviolet;
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 30px;
+}
+
+.form__submit > input:hover{
+    transition: 0.9s;
+    background: transparent;
+    box-shadow: inset 0 0 0 36px var(--btn-bg);
+    background-color: white;
+    color: blueviolet;
+
+}
+
+/* 페이지네이션 */
+
+/* .article {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    padding: 0.3em 0;
+    list-style: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  
+  .content__id,
+  .content__author,
+  .content__date {
+    flex-basis: 15%;
+  }
+  
+  .content__title {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .buttons {
+    position: relative;
+    padding: 1rem 0;
+    display: inline-flex;
+    justify-content: center;
+  }
+  
+  .button {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+  
+  .button.active,
+  .button:hover {
+    color: #1f975d;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  .prev {
+    position: absolute;
+    left: -2.5rem;
+  }
+  
+  .next {
+    position: absolute;
+    right: -2.5rem;
+  }
+  
+  ion-icon {
+    padding-top: 0.05rem;
+  } */

@@ -35,7 +35,7 @@ const convertToDiscussion = (obj) => {
   const titleLink = document.createElement('a');
   titleLink.textContent = obj.title;
   titleLink.href = obj.url;
-  discussionContent.append(titleLink);
+  titleText.append(titleLink);
 //information
   const informationDiv = document.createElement('div');
   const date = ` ${obj.author} / ${obj.createdAt}`
@@ -43,12 +43,12 @@ const convertToDiscussion = (obj) => {
   informationDiv.textContent = date;
   discussionContent.append(informationDiv);
 //checkbox
-  const checkBox = document.createElement('div');
-  checkBox.className = "discussion__answered"
-  discussionAnswered.append(checkBox);
+  // const checkBox = document.createElement('div');
+  // checkBox.className = "discussion__answered"
+  // discussionAnswered.append(checkBox);
 
   const checkBoxP = document.createElement('p')
-  checkBoxP.textContent = obj.answer ? "☑": "☒"; //?=if 앞은 true ,  뒤는 fales
+  checkBoxP.textContent = obj.answer ? "💜": "🆘"; //?=if 앞은 true ,  뒤는 fales
   discussionAnswered.append(checkBoxP);
 
 // TODO}
@@ -92,17 +92,110 @@ const formObject =  {
   author: formName,
   answer: null,
   bodyHTML:
-    '<p dir="auto">아아아</p>\n<p dir="auto">운영 체제: 예) macOS</p>\n<p dir="auto">현재 어떤 챕터/연습문제/과제를 진행 중이고, 어떤 문제에 부딪혔나요?<br>\nPair 과제 / JavaScript Koans</p>\n<p dir="auto">npm install 명령어 입력 시 env: node: No such file or directory 라고 뜹니다</p>\n<p dir="auto">에러 발생하여 아래 명령어 실행 했는데도 불구하고 똑같은 에러가 발생했습니다<br>\nnpm cache clean --force</p>\n<p dir="auto">rm package-lock.json</p>\n<p dir="auto">rm -rf ./node_modules/</p>\n<p dir="auto">npm --verbose install</p>\n<p dir="auto">폴더 자체가 문제가 있다고 생각하여 github에서 다시 fork 후 진행했는데도 같은 에러가 발생했습니다<br>\n리눅스 기초 챕터 때 npm 설치해서 마지막 submit까지는 잘 됐는데 현재 짝수 생성기 폴더도 똑같이 npm install 시 no such file or directory가 발생합니다</p>\n<p dir="auto">에러가 출력된 곳에서, 이유라고 생각하는 부분을 열 줄 이내로 붙여넣기 해 주세요. (잘 모르겠으면 에러라고 생각하는 곳을 넣어주세요)</p>\n<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="minjun@dubi fe-sprint-javascript-koans-main % pwd \n/Users/minjun/Documents/fe_frontand_39/fe-sprint-javascript-koans-main\nminjun@dubi fe-sprint-javascript-koans-main % npm install \nenv: node: No such file or directory"><pre><span class="pl-s1">minjun</span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">pwd</span> \n<span class="pl-c1">/</span><span class="pl-v">Users</span><span class="pl-c1">/</span><span class="pl-s1">minjun</span><span class="pl-c1">/</span><span class="pl-v">Documents</span><span class="pl-c1">/</span><span class="pl-s1">fe_frontand_39</span><span class="pl-c1">/</span><span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span>\n<span class="pl-s1">minjun</span><span class="pl-kos"></span>@<span class="pl-s1">dubi</span> <span class="pl-s1">fe</span><span class="pl-c1">-</span><span class="pl-s1">sprint</span><span class="pl-c1">-</span><span class="pl-s1">javascript</span><span class="pl-c1">-</span><span class="pl-s1">koans</span><span class="pl-c1">-</span><span class="pl-s1">main</span> <span class="pl-c1">%</span> <span class="pl-s1">npm</span> <span class="pl-s1">install</span> \nenv: node: <span class="pl-v">No</span> <span class="pl-s1">such</span> <span class="pl-s1">file</span> <span class="pl-s1">or</span> <span class="pl-s1">directory</span></pre></div>\n<p dir="auto">검색했던 링크가 있다면 첨부해 주세요.<br>\n<a href="https://mia-dahae.tistory.com/89" rel="nofollow">https://mia-dahae.tistory.com/89</a></p>\n<p dir="auto"><a href="https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory" rel="nofollow">https://stackoverflow.com/questions/38143558/npm-install-resulting-in-enoent-no-such-file-or-directory</a></p>\n<p dir="auto"><a href="https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0" rel="nofollow">https://velog.io/@hn04147/npm-install-%ED%95%A0-%EB%95%8C-tar-ENOENT-no-such-file-or-directory-lstat-%EC%97%90%EB%9F%AC%EB%82%A0-%EA%B2%BD%EC%9A%B0</a></p>\n<p dir="auto"><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346" rel="nofollow">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=chandong83&amp;logNo=221064506346</a></p>\n<p dir="auto"><a href="https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80" rel="nofollow">https://webisfree.com/2021-07-15/npm-install-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-rename-no-such-file-or-directory-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B0%80</a></p>\n<p dir="auto"><a href="https://hellowworlds.tistory.com/57" rel="nofollow">https://hellowworlds.tistory.com/57</a></p>',
+  formQuestion,
   avatarUrl:
   "https://avatars.githubusercontent.com/u/86960007?s=64&u=4863a873d78f406d658e8a50d9b91f3045006920&v=4"
   }
 
-ul.append(convertToDiscussion(formObject))
-agoraStatesDiscussions.push(formObject)
+ul.prepend(convertToDiscussion(formObject))
+agoraStatesDiscussions.unshift(formObject)
 
 console.log(event)
-
-
 }
-
 )
+// // 페이지네이션
+// const contents = document.querySelector(".contents");
+// const buttons = document.querySelector(".buttons");
+// const Id = agoraStatesDiscussions.id
+
+// const numOfContent = 41;
+// const maxContent = 10;
+// const maxButton = 5;
+// const maxPage = Math.ceil(numOfContent / maxContent);
+// let page = 1;
+
+// const makeContent = (Id) => {
+//   const content = document.createElement("li");
+//   content.classList.add("content");
+//   content.innerHTML = `
+//     <span class="content__id">${Id}</span>
+//     <span class="content__title">게시물 제목</span>
+//     <span class="content__author">작성자</span>
+//     <span class="content__date">2022.01.01</span>
+//   `;
+//   return content;
+// };
+
+
+// const makeButton = (Id) => {
+//   const button = document.createElement("button");
+//   button.classList.add("button");
+//   button.dataset.num = Id;
+//   button.innerText = Id;
+//   button.addEventListener("click", (e) => {
+//     Array.prototype.forEach.call(buttons.children, (button) => {
+//       if (button.dataset.num) button.classList.remove("active");
+//     });
+//     e.target.classList.add("active");
+//     renDerContent(parseInt(e.target.dataset.num));
+//   });
+//   return button;
+// };
+
+// const renDerContent = (page) => {
+//   // 목록 리스트 초기화
+//   while (contents.hasChildNodes()) {
+//     contents.removeChild(contents.lastChild);
+//   }
+//   // 글의 최대 개수를 넘지 않는 선에서, 화면에 최대 10개의 글 생성
+//   for (let Id = (page - 1) * maxContent + 1; Id <= page * maxContent && Id <= numOfContent; Id++) {
+//   contents.appendChild(makeContent(Id));
+//   }
+// };
+
+// const renDerButton = (page) => {
+//   // 버튼 리스트 초기화
+//   while (buttons.hasChildNodes()) {
+//     buttons.removeChild(buttons.lastChild);
+//   }
+//   // 화면에 최대 5개의 페이지 버튼 생성
+//   for (let Id = page; Id < page + maxButton && Id <= maxPage; Id++) {
+//     buttons.appendChild(makeButton(Id));
+//   }
+//   // 첫 버튼 활성화(class="active")
+//   buttons.children[0].classList.add("active");
+
+//   buttons.prepend(prev);
+//   buttons.append(next);
+
+//   // 이전, 다음 페이지 버튼이 필요한지 체크
+//   if (page - maxButton < 1) buttons.removeChild(prev);
+//   if (page + maxButton > maxPage) buttons.removeChild(next);
+// };
+
+// //페이지이동 함수구현
+// const renDer = (page) => {
+//   renDerContent(page);
+//   renDerButton(page);
+// };
+// renDer(page);
+
+// const goPrevPage = () => {
+//   page -= maxButton;
+//   renDer(page);
+// };
+
+// const goNextPage = () => {
+//   page += maxButton;
+//   renDer(page);
+// };
+
+// const prev = document.createElement("button");
+// prev.classList.add("button", "prev");
+// prev.innerHTML = '<ion-icon name="chevron-back-outline"></ion-icon>';
+// prev.addEventListener("click", goPrevPage);
+
+// const next = document.createElement("button");
+// next.classList.add("button", "next");
+// next.innerHTML = '<ion-icon name="chevron-forward-outline"></ion-icon>';
+// next.addEventListener("click", goNextPage);
