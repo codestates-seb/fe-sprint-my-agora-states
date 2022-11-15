@@ -38,7 +38,10 @@ const convertToDiscussion = (obj) => {
   bodyHTML.innerHTML = obj.bodyHTML;
   bodyContent.textContent = `${bodyHTML.textContent
     .replace(/\n/g, "")
-    .substring(0, 50)} ...`;
+    .substring(0, 50)}`;
+  let extra = "";
+  if (bodyContent.textContent.length >= 50) extra = "...";
+  bodyContent.textContent += extra;
   const info = document.createElement("div");
   info.className = "discussion__information";
   const answered = document.createElement("span");
@@ -111,7 +114,7 @@ form.addEventListener("submit", (event) => {
   const newStory = {};
   newStory.title = inputTitle.value;
   newStory.author = inputName.value;
-  newStory.content = inputContent.value;
+  newStory.bodyHTML = inputContent.value;
   newStory.createdAt = new Date().toISOString();
   ul.prepend(convertToDiscussion(newStory));
 });
