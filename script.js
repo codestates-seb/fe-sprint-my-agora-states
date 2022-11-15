@@ -63,7 +63,13 @@ function addDiscussion(event) {
   event.preventDefault();
 
   // 입력란이 비어 있으면 제출되지 않게 함
-  if (!inputName.value || !inputTitle.value || !inputStory.value) {
+  // 피드백-이렇게 작성하면 띄어쓰기로만 내용을 구성해도 제출됨->정규표현식 활용하기
+  // /^\s$/
+  // 함수로 설정 -> 테스트
+  function onlySpace(str) {
+    return /^[\s]*$/.test(str);
+  }
+  if (onlySpace(inputName.value) || onlySpace(inputTitle.value) || onlySpace(inputStory.value)) {
     return false;
   };
 
