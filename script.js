@@ -73,7 +73,7 @@ const onSubmit = function (event) {
         author: inputName.value,
         answer: null,
         bodyHTML: story.value,
-        avatarUrl: "https://picsum.photos/60​",
+        avatarUrl: "https://picsum.photos/150/150/?random​",
     };
 
     const newLi = convertToDiscussion(newObj);
