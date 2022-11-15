@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
+  <link rel="stylesheet" href="global-style.css" />
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -14,28 +15,31 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+    <div class="top">
+      <img class="logo" src="./codestates-logo.png"/>
+    </div>
+      <h1>My Agora States</h1>
+      <section class="form__container">
+        <form action="" method="get" class="form">
+          <div class="form__input--wrapper">
+            <div class="form__input--name">
+              <label for="name">Enter your name: </label>
+              <input type="text" name="name" id="name" required autocomplete="off">
+            </div>
+            <div class="form__input--title">
+              <label for="name">Enter your title: </label>
+              <input type="text" name="name" id="title" required autocomplete="off">
+            </div>
+            <div class="form__textbox">
+              <label for="story">Your question: </label>
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required autocomplete="off"></textarea>
+            </div>
           </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+          <div class="form__submit">
+            <input type="submit" value="submit">
           </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
+        </form>
+      </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -45,10 +49,13 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <h2 class="discussion__title"><a
+                href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <div class="discussion__information">kimploo / 2022. 4. 22. 오후 2:08:33</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered">
+            <p>☑</p>
+          </div>
         </li>
       </ul>
     </section>
