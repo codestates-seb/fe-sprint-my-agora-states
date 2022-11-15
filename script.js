@@ -14,7 +14,7 @@ const convertToDiscussion = (obj) => {
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
+  const discussionContent = document.createElement("a");
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -48,12 +48,14 @@ const convertToDiscussion = (obj) => {
   iconBlock.appendChild(icon);
 
   // title
-  const disTitle = document.createElement("h1");
+  discussionContent.href = obj.url;
+  const disTitle = document.createElement("h2");
+  disTitle.textContent = obj.title;
   disTitle.className = "discussion__title";
-  const disTitleA = document.createElement("a");
-  disTitleA.href = obj.url;
-  disTitleA.textContent = obj.title;
-  disTitle.appendChild(disTitleA);
+  const detail = document.createElement("span");
+  detail.classList="detail";
+  detail.textContent = "> 자세히 보기";
+  disTitle.appendChild(detail);
   discussionContent.appendChild(disTitle);
 
   //infoBox
@@ -173,6 +175,3 @@ openFormBtn.addEventListener('click', function () {
 closeFormBtn.addEventListener('click', function () {
   formContainer.classList.add("hide");
 })
-
-//질문 제출 가능 판정
-

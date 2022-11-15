@@ -229,6 +229,8 @@ label {
     background-color: white;
     border: 2px solid #1d3557;
     border-radius: 10px;
+    transition:0.1s;
+    
 }
 
 .infoBox {
@@ -268,16 +270,46 @@ label {
 }
 
 .discussion__content {
-    display: block;
+    display: flex;
     border-radius: 5px;
     background-color: #457b9d;
     padding:10px;
-}
-
-a {
+    transition:0.1s;
     font-size: 14px;
     text-decoration: none;
     color:white;
+    position: relative;
+}
+
+.discussion__container:hover {
+    transition: 0.1s;
+    border: 2px solid #5498c2;
+    
+}
+
+.discussion__container:hover .discussion__content {
+    background-color: #5498c2;
+    transition:0.1s;
+    padding-bottom: 30px;
+}
+
+
+.detail {
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    text-decoration: none;
+    color:#a8dadc;
+    transition:0.1s;
+    transform:translateY(-1.3em);
+    opacity: 0;
+    z-index: 0;
+}
+
+.discussion__container:hover .detail{
+    opacity: 1;
+    transition:0.1s;
+    transform: translateY(0);
 }
 
 .pagination {
@@ -318,7 +350,6 @@ a {
 
 
 .hide {
-    
     display: none;
 }
 
