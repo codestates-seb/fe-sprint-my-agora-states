@@ -2,9 +2,10 @@
 
 const { localStorage } = window;
 
-// localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
-
-console.log(JSON.parse(localStorage.getItem('data')));
+// localStorage 리셋 방지
+if (!localStorage.getItem('data')) {
+  localStorage.setItem(JSON.stringify(agoraStatesDiscussions));
+}
 
 const form = document.querySelector('.form');
 const inputName = document.querySelector('#name');
