@@ -16,10 +16,13 @@
 
 h1 {
     margin: 10px;
+    color: white;
 }
 
 p {
     font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 ul {
@@ -92,6 +95,7 @@ li {
     display: flex;
     align-items: center;
     margin-left: 5px;
+
 }
 
 .discussions__container {
