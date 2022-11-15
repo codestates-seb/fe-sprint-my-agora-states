@@ -122,6 +122,44 @@ main {
   justify-content: space-around;
 }
 
+.form__input--wrapper {
+  flex-basis: 80%;
+}
+
+.form__input--wrapper {
+  flex-basis: 80%;
+}
+
+.form > div > div {
+  display: flex;
+  margin: 5px;
+  text-align: left;
+}
+
+.form__submit {
+  display: flex;
+  flex-basis: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__submit > input {
+  height: 80%;
+  width: 80%;
+}
+
+.form > div > div > label {
+  flex-basis: 40%;
+}
+
+.form > div > div > input {
+  flex-basis: 60%;
+}
+
+.form > div > div > textarea {
+  flex-basis: 60%;
+}
+
 .form__container {
   background-color: #eff5f5;
   border-radius: 5%;
