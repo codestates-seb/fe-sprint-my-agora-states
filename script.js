@@ -36,7 +36,7 @@ const convertToDiscussion = (obj) => {
   //information
   const discussionInfo = document.createElement('div');
   discussionInfo.className = 'discussion__information';
-  discussionInfo.textContent = obj.createdAt;
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   discussionContent.append(discussionInfo);
 
   //answer
@@ -44,10 +44,10 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = 'discussion__answered';
   if(obj.answer === null){
     //answer 값이 nell이면 x표시
-    answerBox.textContent = '☒';
+    answerBox.textContent = '답변 대기☒';
   }else{
     //아니라면 check표시
-    answerBox.textContent = '☑';
+    answerBox.textContent = '답변 완료☑';
   }
   discussionAnswered.append(answerBox);
 
@@ -55,6 +55,29 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+  const form = document.querySelector('form.form');
+  const inputName = document.querySelector('.form__input--name input');
+  const inputTitle = document.querySelector('.form__input--title input');
+  const inputQustion = document.querySelector('.form__textbox textarea');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const obj = {
+      id: "999",
+      createdAt: new Date(),
+      title: inputTitle.value,
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+      author: inputName.value,
+      answer: null,
+      avatarUrl: 'https://avatars.githubusercontent.com/u/79903256?s=64&v=4',
+      bodyHTML: inputQustion.value,
+    }
+
+    //기존 데이터 가장 앞에 추가
+    agoraStatesDiscussions.unshift(obj);
+    ul.prepend(convertToDiscussion(obj));
+  });
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
