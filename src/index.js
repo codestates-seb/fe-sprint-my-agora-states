@@ -1,10 +1,17 @@
 import { render } from "./render.js";
 import { submitDiscussion } from "./submitDiscussion.js";
 const coll = document.getElementsByClassName("collapsible");
-if (window.localStorage.length > 3) {
-  agoraStatesDiscussions.push();
+
+if (localStorage.length > 3) {
+  for (const key in window.localStorage) {
+    if (key.includes("discussion")) {
+      // value 찾기
+      const value = window.localStorage.getItem(key);
+      agoraStatesDiscussions.unshift(JSON.parse(value));
+    }
+  }
 }
-console.log(localStorage.getItem("discussion0"));
+console.log(agoraStatesDiscussions);
 
 for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function () {
