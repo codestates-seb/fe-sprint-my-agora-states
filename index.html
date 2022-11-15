@@ -13,27 +13,47 @@
 </head>
 
 <body>
+  <div class="wrapper">
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div> 
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div> 
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+    <div><span clas="dot"></span></div>
+  </div>
   <main>
     <h1>My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">ENTER YOUR NAME : </label>
+            <input type="text" name="name" id="inputName" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">ENTER  YOUR  TITLE : </label>
+            <input type="text" name="name" id="inputTitle" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">YOUR QUESTION : </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
+        <div class="form__btn-area">
+          <button type="sunmit" class="btn">Submit</button>
         </div>
+      </div>
       </form>
     </section>
     <section class="discussion__wrapper">
@@ -51,6 +71,12 @@
           <div class="discussion__answered"><p>☑</p></div>
         </li>
       </ul>
+    </section>
+    <section class="pagination_container">
+      <ui class="pagination">
+        <li id="button__pagination--prev">⇠</li>
+        <li id="button__pagination--next">⇢</li>
+      </ui>
     </section>
   </main>
 </body>
