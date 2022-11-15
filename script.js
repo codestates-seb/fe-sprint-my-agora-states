@@ -32,7 +32,9 @@ const convertToDiscussion = (obj) => {
   // 타이틀 인포 생성 후 내용 넣기
   const discussionInform = document.createElement('div');
   discussionInform.className = 'discussion__information';
-  discussionInform.innerText = `${obj.author} / ${obj.createdAt}`;
+  discussionInform.innerText = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString()}`;
   // a태그 h2에 넣기
   discussionTitle.append(discussionTitleLink);
   //엔서에들어갈 p 태그 생성
@@ -53,11 +55,12 @@ const inputName = document.querySelector('.form__input--name > input');
 const inputTitle = document.querySelector('.form__input--title > input');
 const inputQuestion = document.querySelector('.form__textbox > textarea');
 
+//form 객체에 eventListener 만들어주기
 submitForm.addEventListener('submit', submitMyQeustion);
 
+// eventListener에 사용할 함수 만들기
 function submitMyQeustion(event) {
   event.preventDefault();
-  console.log(event);
 
   let inputObj = {
     id: '123456789',
@@ -74,7 +77,20 @@ function submitMyQeustion(event) {
   agoraStatesDiscussions.unshift(inputObj);
 
   ul.prepend(convertToDiscussion(inputObj));
+
+  inputName.value = '';
+  inputTitle.value = '';
+  inputQuestion.value = '';
+
+  makedObj.push(inputObj);
 }
+
+// 페이지네이션 구현하기
+//총 페이지 갯수 계산하기
+let totalPages = Math.ceil(agoraStatesDiscussions.lenght / 10);
+
+// 디스커션 유지 기능
+let makedObj = [];
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -83,8 +99,6 @@ const render = (element) => {
   }
   return;
 };
-
-//submit 버튼을 눌렀을때 이벤트 넣기
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
