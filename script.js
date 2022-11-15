@@ -37,15 +37,15 @@ const convertToDiscussion = (obj) => {
 
   // 3. 작성자 및 날짜
   const discussionCreateAt = document.createElement('div');
-  discussionCreateAt.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionCreateAt.textContent = `${obj.author} / ${new Date().toLocaleString()}`;
   discussionContent.append(discussionCreateAt);
 
   // 4. 답변 여부
   const discussionAnswer = document.createElement('p');
   if (obj.answer === null) {
-    discussionAnswer.textContent = obj.answer = '☒';
+    discussionAnswer.textContent = obj.answer = '❎';
   } else {
-    discussionAnswer.textContent = obj.answer = '☑'
+    discussionAnswer.textContent = obj.answer = '✅'
   }
   discussionAnswered.append(discussionAnswer);
 
@@ -64,10 +64,10 @@ const writeArea = document.querySelector('.form__textbox > textarea');
 writeForm.addEventListener ('submit', function(event) {
   event.preventDefault();
   const obj = {
-    id: "D_kwDOHOApLM4APjJi",
+    id: "1016",
     createdAt: new Date().toLocaleString(),
     title: writeTitle.value,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: writeName.value,
     answer: null,
     bodyHTML: writeArea.value,
