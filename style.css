@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fasthand&family=Gaegu:wght@700&family=Noto+Sans+KR:wght@700&family=Trispace&family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dongle&family=Fasthand&family=Nothing+You+Could+Do&family=Noto+Sans+KR:wght@700&family=Trispace&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: #000;
   font-family: "Noto Sans KR", sans-serif;
+  /* font-family: "Dongle", sans-serif; */
 }
 
 main {
@@ -18,7 +19,9 @@ main {
 }
 
 .form__container {
-  background-color: #ffb3b3;
+  /* background-image: url("https://www.freecodecamp.org/news/content/images/2021/06/w-qjCHPZbeXCQ-unsplash.jpg"); */
+  background-image: url("https://img.freepik.com/free-vector/pastel-ombre-background-pink-purple_53876-120750.jpg?w=2000");
+  /* background-color: #ffb3b3; */
   font-family: "Varela Round", sans-serif;
   display: flex;
   justify-content: center;
@@ -33,11 +36,12 @@ main {
 .form__submit > input {
   width: 200px;
   height: 30px;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid red;
+  background-color: rgb(233, 212, 235);
+  border: 1px solid rgb(145, 16, 119);
   border-radius: 10px;
   /* margin: 20px; */
   margin-top: 10px;
+  color: black;
 }
 
 .form__submit > input:hover {
@@ -50,6 +54,8 @@ h1 {
   margin: 20px;
   text-align: center;
   color: rgb(69, 69, 73);
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 40px;
 }
 
 .form__submit {
@@ -60,7 +66,10 @@ h1 {
 /* 카드요소 */
 
 .discussions__container {
-  background-color: #ffb3b3;
+  /* background-color: #ffb3b3; */
+  /* background-image: url("https://www.freecodecamp.org/news/content/images/2021/06/w-qjCHPZbeXCQ-unsplash.jpg"); */
+  background-image: url("https://img.freepik.com/free-vector/pastel-ombre-background-pink-purple_53876-120750.jpg?w=2000");
+
   border-radius: 0px 0px 40px 40px;
   box-shadow: 3px 3px 5px rgb(15, 15, 16);
 }
@@ -72,12 +81,12 @@ h1 {
 }
 
 .discussion__container {
-  background-color: hsl(0, 100%, 98%);
+  background-color: hsl(0, 0%, 100%);
   display: flex;
   /* align-items: center; */
   width: 540px;
   margin: 20px;
-  border: 2px solid rgb(255, 71, 71);
+  border: 2px solid rgb(202, 57, 185);
   padding: 13px;
   border-radius: 15px;
   transition: all 0.2s ease-in-out;
@@ -85,7 +94,7 @@ h1 {
 }
 
 .discussion__container:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(226, 216, 255);
   transform: scale(1.1);
   color: white;
 }
@@ -117,13 +126,13 @@ ul {
 .discussion__title,
 .discussion__title > a {
   margin-bottom: 6px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* 오른쪽 정렬 */
 .discussion__information {
   margin-left: auto;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .form__input--wrapper {
@@ -167,14 +176,15 @@ ul {
   height: 40px;
   margin-left: 30px;
   border-radius: 5px;
-  border: 1px solid red;
+  border: 1px solid rgb(200, 30, 191);
   text-align: center;
   align-items: center;
   justify-content: center;
 }
 
 label {
-  color: rgb(56, 56, 56);
+  /* color: rgb(56, 56, 56); */
+  color: rgb(8, 1, 1);
 }
 
 .form__textbox {

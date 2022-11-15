@@ -47,7 +47,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(title, discussionInformation);
 
   const checked = document.createElement("p");
-  checked.textContent = "☑";
+  checked.textContent = checked ? "☑" : "☒";
   discussionAnswered.append(checked);
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   ul.prepend(li);
