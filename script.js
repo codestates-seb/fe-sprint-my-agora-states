@@ -80,9 +80,9 @@ writeForm.addEventListener ('submit', function(event) {
   ul.prepend(convertToDiscussion(obj));
 
   // 폼 입력창 초기화
-  writeName = '';
-  writeTitle = '';
-  writeArea = '';
+  writeName.value = '';
+  writeTitle.value = '';
+  writeArea.value = '';
 
 });
 
