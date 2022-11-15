@@ -1,1 +1,161 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discussions__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  width: 540px;
+  background-color: white;
+  box-shadow: 1px 1px 10px midnightblue;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+}
+
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.discussion__information {
+  text-align: right;
+  font-size: 15px;
+}
+
+.discussion__answered {
+  font-size: 20px;
+  margin: 20px;
+}
+
+section {
+  margin: 5px;
+}
+
+h1 {
+  margin: 50px;
+  color: darkblue;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 10px;
+}
+
+a:hover {
+  color: #3f0071;
+}
+
+a:visited {
+  color: mediumblue;
+}
+
+label {
+  font-size: 15px;
+}
+
+.form {
+  display: flex;
+  width: 540px;
+  flex-direction: row;
+}
+
+.form__input--wrapper {
+  flex-grow: 1;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10%;
+}
+
+.form__input--wrapper > div:not(input) {
+  padding-bottom: 3%;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#name {
+  width: 150px;
+  border: transparent;
+  border-radius: 50px;
+  font-size: 13px;
+  box-shadow: 1px 1px 10px royalblue;
+  padding: 5px;
+}
+
+#title {
+  width: 250px;
+  border: transparent;
+  border-radius: 50px;
+  font-size: 13px;
+  box-shadow: 1px 1px 10px royalblue;
+  padding: 3px;
+}
+
+#story {
+  height: 100px;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 13px;
+  box-shadow: 1px 1px 10px royalblue;
+  padding: 10px;
+}
+
+.form__submit > input {
+  width: 100px;
+  height: 100%;
+  border: transparent;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px royalblue;
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.form__submit > input:hover {
+  color: white;
+  background-color: darkblue;
+}
+
+.deleteBtn {
+  background-color: mediumblue;
+  color: white;
+  font-size: 12px;
+  border-radius: 5px;
+}
