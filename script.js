@@ -60,6 +60,7 @@ const convertToDiscussion = ({ title, author, avatarUrl, url, createdAt }) => {
   return $li;
 };
 
+// page 버튼 클릭 이벤트
 $paginationNumbers.addEventListener("click", (event) => {
   const $a = event.target.closest("a");
 
@@ -67,10 +68,11 @@ $paginationNumbers.addEventListener("click", (event) => {
     return;
   }
 
-  pagenationCurrentNum = $a.id;
+  pagenationCurrentNum = parseInt($a.id, 10);
   render($ul, $a.id);
 });
 
+// next / prev button 클릭
 $paginationContainer.addEventListener("click", (event) => {
   const $a = event.target.closest("a");
   const pageCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit);
@@ -91,13 +93,12 @@ $paginationContainer.addEventListener("click", (event) => {
     return;
   }
 
-  console.log(nextPage);
-
   pagenationCurrentNum = nextPage;
 
   render($ul, pagenationCurrentNum);
 });
 
+// 하단 pagenation 리스트 출력
 const renderPageNations = () => {
   removeAllchild($paginationNumbers);
   const pageCount = Math.ceil(agoraStatesDiscussions.length / paginationLimit);
