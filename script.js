@@ -37,7 +37,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.append(discussionTitleLink);
   //엔서에들어갈 p 태그 생성
   let discussionAnsweredIcon = document.createElement('p');
-  discussionAnsweredIcon.innerText = '☑';
+  discussionAnsweredIcon.innerText = obj.answer ? '🤓' : '😵';
   // 앤서에 체크 or 엑스 넣기
   discussionAnswered.append(discussionAnsweredIcon);
   //콘텐츠에 모든 내용 넣기
@@ -47,6 +47,35 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// input 받는값을 submit했을때 새로운 li 생성
+const submitForm = document.querySelector('.form__container > form');
+const inputName = document.querySelector('.form__input--name > input');
+const inputTitle = document.querySelector('.form__input--title > input');
+const inputQuestion = document.querySelector('.form__textbox > textarea');
+
+submitForm.addEventListener('submit', submitMyQeustion);
+
+function submitMyQeustion(event) {
+  event.preventDefault();
+  console.log(event);
+
+  let inputObj = {
+    id: '123456789',
+    createdAt: new Date(),
+    title: inputTitle.value,
+    url: null,
+    author: inputName.value,
+    answer: null,
+    bodyHTML: inputQuestion.value,
+    avatarUrl:
+      'https://cdn.pixabay.com/photo/2018/07/22/20/02/horse-3555391_960_720.jpg',
+  };
+
+  agoraStatesDiscussions.unshift(inputObj);
+
+  ul.prepend(convertToDiscussion(inputObj));
+}
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -54,6 +83,8 @@ const render = (element) => {
   }
   return;
 };
+
+//submit 버튼을 눌렀을때 이벤트 넣기
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
