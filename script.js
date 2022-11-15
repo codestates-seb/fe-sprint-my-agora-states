@@ -90,3 +90,147 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+//page nation------------------------------------------------
+
+/* let currentPage = 1; // 현재 페이지. 초기값은 1
+
+const prevButton = document.querySelector("#button__pagination--prev");
+const nextButton = document.querySelector("#button__pagination--next");
+
+const discussions = ul.children; // 공지사항을 포함한 디스커션
+let totalCount = discussions.length; // 총 디스커션의 갯수
+const pageCount = 5; // 한 번에 보여줄 페이지 버튼의 최대 갯수
+const limit = 10; // 한 페이지에 보여줄 디스커션의 갯수
+
+// 1.총 페이지의 갯수 구하기
+let totalPage = Math.ceil(totalCount / limit);
+
+// 2-1.현재 페이지의 그룹 계산하기
+let pageGroup = Math.ceil(currentPage / pageCount);
+// 2-2.페이지 그룹의 첫번째 숫자와 마지막 숫자 구하기
+let lastPageNumber = pageGroup * pageCount;
+if (lastPageNumber > totalPage) {
+  lastPageNumber = totalPage;
+};
+let firstPageNumber = (pageGroup - 1) * pageCount + 1;
+let numberButtons = document.querySelectorAll(".pagination--number");
+// 2-3.페이지 그룹 버튼 생성
+const makeNumberButtons = () => {
+    for (let i = firstPageNumber; i <= lastPageNumber; i++) {
+      const pageNumberButton = document.createElement('li');
+      pageNumberButton.classList.add("pagination--number");
+      pageNumberButton.setAttribute("id", `button__pagination--num${i}`);
+      pageNumberButton.textContent = i;
+      nextButton.before(pageNumberButton);
+      numberButtons = document.querySelectorAll(".pagination--number");
+    };
+};
+makeNumberButtons();
+
+
+// 3.현재 페이지 인덱스 표시하기
+const currPageIndex = () => {
+    numberButtons.forEach( el => {
+        el.classList.remove("current__page");
+    });
+    let currentPageButton = document.querySelector(`#button__pagination--num${currentPage}`);
+    currentPageButton.classList.add("current__page");
+};
+currPageIndex();
+
+// 4.한 페이지에서 디스커션 10개만 보여준다
+const pageChange = () => {
+    // 전체 디스커션 갯수, 전체 페이지 수, 페이지그룹의 마지막 페이지 다시 계산
+    totalCount = discussions.length;
+    totalPage = Math.ceil(totalCount / limit);
+    lastPageNumber = pageGroup * pageCount; 
+
+    if (lastPageNumber > totalPage) {
+      lastPageNumber = totalPage;
+    };
+    let firstIndexNum = (currentPage - 1) * limit; //0
+    let lastIndexNum = (currentPage * limit) - 1; //9
+    for (let i = 0; i < totalCount; i++) {
+    if (i < firstIndexNum || i > lastIndexNum) {
+        discussions[i].style = "display : none";
+    } else {
+        discussions[i].style = "display : flex";
+    }
+    }
+};
+pageChange();
+// 5.페이지 번호를 클릭하면 해당 페이지 화면으로 전환한다
+const handlePageChange = () => {
+  currPageIndex();
+  pageChange();
+}
+
+numberButtons.forEach( el => {
+  el.addEventListener("click", (event) => {
+      let selectedNum = Number(event.target.textContent);
+      currentPage = selectedNum;
+      handlePageChange();
+  })
+});
+
+// 6.이전페이지 버튼을 작동시킨다
+prevButton.addEventListener("click", () => {
+  if (currentPage === firstPageNumber) {
+      if (currentPage === 1) {
+          alert("처음 페이지 입니다.");
+          return;
+      } else {
+          numberButtons.forEach(function(button){
+              button.remove();
+          });
+          pageGroup -= 1;
+          lastPageNumber = pageGroup * pageCount;
+          if (lastPageNumber > totalPage) {
+              lastPageNumber = totalPage;
+          };
+          firstPageNumber = (pageGroup - 1) * pageCount + 1;
+          makeNumberButtons();
+          numberButtons.forEach( el => {
+              el.addEventListener("click", (event) => {
+                  let selectedNum = Number(event.target.textContent);
+                  currentPage = selectedNum;
+                  handlePageChange();
+              })
+          });
+      }
+  }
+  currentPage -= 1;
+  handlePageChange();
+});
+
+// 7.다음페이지 버튼을 작동시킨다
+nextButton.addEventListener("click", () => {
+  if (currentPage === lastPageNumber) {
+      if (lastPageNumber === totalPage) {
+          alert("마지막 페이지 입니다.");
+          return;
+      } else {
+          numberButtons.forEach(function(button){
+              button.remove();
+          });
+          pageGroup += 1;
+          lastPageNumber = pageGroup * pageCount;
+          if (lastPageNumber > totalPage) {
+              lastPageNumber = totalPage;
+          };
+          firstPageNumber = (pageGroup - 1) * pageCount + 1;
+          makeNumberButtons();
+          numberButtons.forEach( el => {
+              el.addEventListener("click", (event) => {
+                  let selectedNum = Number(event.target.textContent);
+                  currentPage = selectedNum;
+                  handlePageChange();
+              })
+          });
+      }
+  }
+  currentPage += 1;
+  handlePageChange();
+}); */
