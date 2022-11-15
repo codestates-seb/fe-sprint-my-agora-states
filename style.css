@@ -1,1 +1,157 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.logoWrapper {
+    display: flex;
+    background-color: white;
+}
+
+.logo {
+    padding: 50px 50px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    border-radius: 10px;
+    margin: 25px 0px;
+}
+
+.form__container {
+    border: 2px solid rgb(74, 167, 243);
+    border-radius: 15px;
+    display: flex;
+}
+
+.form__input--wrapper {
+
+    margin-left: 20px;
+    display: flex;
+    height: 300px;
+    width: 500px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.formName {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+label {
+    font-weight: 500;
+}
+
+#name {
+    border: 1px solid rgb(74, 167, 243);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+#title {
+    width: 450px;
+    padding: 8px;
+    border: 1px solid rgb(74, 167, 243);
+    border-radius: 10px;
+}
+
+#story {
+    resize: none;
+    width: 500px;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid rgb(74, 167, 243);
+    padding: 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgb(74, 167, 243);
+}
+
+.form__submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submitBtn {
+    border-radius: 10px;
+    border: 1px solid rgb(74, 167, 243);
+    width: 75px;
+    margin-right: 20px;
+    padding: 2px;
+    font-size: 15px;
+    color: black;
+}
+
+.submitBtn:focus {
+    box-shadow: 0 0 5px rgb(74, 167, 243);
+}
+
+main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.discussions__container {
+    /* border: 1px solid orange; */
+    width: 540px;
+}
+
+.discussion__container {
+    /* border: 1px solid orange; */
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 0px;
+    padding: 9px;
+    border-radius: 10px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    border-radius: 100%;
+    width: 48px;
+}
+
+.discussion__information {
+    text-align: right;
+    font-size: 13px;
+}
+
+.discussion__content {
+    flex-grow: 0.85;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0px 18px;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
