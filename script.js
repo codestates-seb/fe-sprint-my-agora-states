@@ -2,6 +2,8 @@
 
 const { localStorage } = window;
 
+// localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
+
 console.log(JSON.parse(localStorage.getItem('data')));
 
 const form = document.querySelector('.form');
