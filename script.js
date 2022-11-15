@@ -66,9 +66,11 @@ const render = (element) => {
 
 // local storage에 값이 있으면 아래 실행
 if(window.localStorage.length) {
-  const discussionString = window.localStorage.getItem('discussion');
-  const discussionObj = JSON.parse(discussionString);
-  ul.prepend(convertToDiscussion(discussionObj));
+  for(let i = 0; i<window.localStorage.length; i++) {
+    const discussionString = window.localStorage.getItem(`discussion${i}`);
+    const discussionObj = JSON.parse(discussionString);
+    ul.prepend(convertToDiscussion(discussionObj));
+  }
 }
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
@@ -78,7 +80,7 @@ render(ul);
 const formSubmit = document.querySelector('form');
 const input = document.querySelectorAll('#name');
 const textarea = document.querySelector('#story');
-
+let count = 0;
 //submit을 누르면 질문에 등록이 되고 새로고침해도 내용이 없어지면 안됨
 
 formSubmit.addEventListener('submit', (ev)=>{
@@ -107,7 +109,8 @@ formSubmit.addEventListener('submit', (ev)=>{
   
   //submit 하면 객체 submit을 localstorage에 저장
   const objString = JSON.stringify(submit);
-  window.localStorage.setItem('discussion', objString); 
+  window.localStorage.setItem(`discussion${count}`, objString); 
+  count++
 })
 
 // 페이지네이션 
