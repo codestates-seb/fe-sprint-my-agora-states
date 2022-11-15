@@ -151,4 +151,8 @@ formSubmitButton.addEventListener("click", (event) => {
   agoraStatesDiscussions = [discussionItem, ...agoraStatesDiscussions];
   setLocalStorage("agoraStatesDiscussions", agoraStatesDiscussions);
   render($ul);
+
+  name.value = "";
+  title.value = "";
+  story.value = "";
 });
