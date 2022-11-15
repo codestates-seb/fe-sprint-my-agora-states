@@ -91,7 +91,8 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 100px;
-  height: 150px;
+  height: 200px;
+  /* padding-bottom: 10px; */
 }
 
 .form__input--wrapper {
@@ -130,12 +131,33 @@ h1 {
 .form__textbox textarea {
   width: 95%;
   height: 70px;
+  border-radius: 8px;
+  margin: 3px;
+  padding: 10px 13px;
+  border: 0.5px solid #b6bace;
+  font-size: 16px;
 }
 
 .form__input--name input {
   width: 30%;
+  height: 25px;
+  border: 0.5px solid #b6bace;
+  border-radius: 5px;
+  margin: 10px;
+  padding-left: 10px;
 }
 
 .form__input--title input {
-  width: 75%;
+  width: 70%;
+  height: 25px;
+  border: 0.5px solid #b6bace;
+  border-radius: 5px;
+  margin: 10px;
+  padding-left: 10px;
+}
+
+.form__input--name input:focus,
+.form__textbox textarea:focus,
+.form__input--title input:focus {
+  outline: 1px solid darksalmon;
 }
