@@ -1,1 +1,248 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://i.pinimg.com/564x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg)
+ 
+}  
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 580px;
+    height: 130px;
+    font-size : 12px;
+    border-radius: 20px;
+    margin : 10px;
+    padding: 20px;
+}
+
+/* li.discussion__container { */ 
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* width: 540px; */
+    /* height: 120px; */
+    /* justify-content: space-between; */
+/* } */
+
+.discussion__avatar--wrapper {
+    display: flex;
+    width: 580px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 60px;
+}
+
+.discussion__content {
+    padding: 20px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 580px;
+    height: 130px;
+    font-size : 12px;
+    border-radius: 20px;
+    margin : 10px;
+}
+
+.discussion__content{
+    display: block;
+}
+.discussion__content >:nth-child(1){
+ width: 440px;
+ text-align: left;
+ margin-top: 0;
+}
+.discussion__content >:nth-child(2){
+    height:30px;
+    text-align: right;
+}
+
+
+.discussion__information {
+    text-align: right;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #000000;
+}
+
+
+.discussion__answered {
+    font-size: 24px;
+    padding-top: 39px;
+    margin: 5px;
+    color: #000000;
+}
+
+
+.form__input--title > label {
+    font-size: 20px;
+    word-spacing : 7px
+    
+}
+
+.form__textbox {
+    font-size: 20px;
+    word-spacing: 7px;
+}
+
+.form__input--name > label {
+    font-size: 20px;
+    word-spacing : 7px
+}
+
+h2 {
+    font-family: sans-serif;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+section.form__container {
+    background-color: rgba(83, 83, 83, 0.5);
+    border-radius: 10px;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0px;
+}
+li.discussion__container {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+a:link {
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    font-size: 20px;
+}
+a:visited {
+    color: rgb(139, 85, 209);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 40pt;
+}
+
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+form.form {
+    display: flex;
+    width: 580px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#story {
+    width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form__input--wrapper {
+    margin: 10px;
+
+}
+
+.form__input--wrapper input {
+    width:300px;
+    height: 30px;
+    font-size:1.2rem;
+    margin: 5px;
+    border-radius: 10px;
+    border: 4px solid #020000;
+    border-color: #3d3d3d;
+}
+.form__submit {
+    flex:1;
+    margin:3px;
+
+}
+.form__submit input {
+    width: 528px;
+    height: 60px;
+    border-radius: 7px;
+    font-size: 35px;
+    margin-left: 25px;
+    margin-right: 0px;
+    border: 5px solid rgb(0, 0, 0);
+    border-color: #3d3d3d;
+}
+textarea {
+    margin : 15px;
+    font-size: 20px;
+}
+
+nav.page-button-container {
+    border: none;
+    padding: 5px 10px;
+  
+    background: #ffffff;
+    border-radius: 10px;
+
+}
+
+button { 
+    padding: 4px 6px;
+    background-color: #e2e2e2;
+    color: #000000;
+    margin-right: 4px;
+    margin-left: 3px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px;
+    border-color: #ffffff;
+}
+
+button:hover {
+ color: #ffffff;
+ background-color: #000000;
+}
+

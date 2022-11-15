@@ -15,24 +15,25 @@
 <body>
   <main>
     <h1>My Agora States</h1>
+    <h2>질문 받아요</h2>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">이름을 입력하세요: </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
+            <label for="name">제목을 입력하세요: </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story">질문을 입력하세요: </label>
+            <textarea id="story" name="story" placeholder="여기에 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="제출">
         </div>
       </form>
     </section>
@@ -52,6 +53,16 @@
         </li>
       </ul>
     </section>
+    <nav class="page-button-container">
+      <button onclick="history.back()">처음</button>
+      <button onclick="history.go(-1)">이전</button>
+      <button onclick="location.herf=index.html-1">1</button>
+      <button onclick="location.herf=index.html-2">2</button>
+      <button onclick="location.herf=index.html-3">3</button>
+      <button onclick="location.herf=index.html-4">4</button>
+      <button onclick="location.herf=index.html-5">5</button>
+      <button onclick="history.go(+1)"">다음</button>
+    </nav>
   </main>
 </body>
 <script src="data.js"></script>
