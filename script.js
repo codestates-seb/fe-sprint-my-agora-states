@@ -113,7 +113,104 @@ submitBtn.addEventListener("click", () => {
     tempArr.unshift(obj);
     localStorage.setItem('data', JSON.stringify(tempArr));
   }
+
+
+  //window.location.reload()를 사용하지 않을 때 페이지 초기화
+  if(page !== 1){
+    page = 1;
+  }
+
+  console.log(JSON.parse(localStorage.data).length);
+  renderPaginaton(page);
+  // renderPaginaton(1);
+  window.location.reload();
 })
+
+// const contents = document.querySelector(".discussion__container");
+const buttons = document.querySelector(".buttons");
+
+const numOfContent = JSON.parse(localStorage.data).length;
+const showContent = 10;
+const showButton = 5;
+const maxPage = Math.ceil(numOfContent / showContent);
+let page = 1;
+
+
+const makeButton = (id) => {
+  const button = document.createElement("button");
+  button.classList.add("button__pagination");
+  button.dataset.num = id;
+  button.innerText = id;
+  button.addEventListener("click", (e) => {
+    Array.prototype.forEach.call(buttons.children, (button) => {
+      if (button.dataset.num) button.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    renderContent(parseInt(e.target.dataset.num));
+  });
+  return button;
+};
+
+const renderContent = (page) => {
+  // 목록 리스트 초기화
+  while (ul.hasChildNodes()) {
+    ul.removeChild(ul.lastChild);
+  }
+
+  for (let id = (page - 1) * showContent; id < page * showContent && id < numOfContent; id++) {
+    ul.appendChild(convertToDiscussion(JSON.parse(localStorage.data)[id]));
+  }
+};
+
+
+const renderButton = (page) => {
+  // 버튼 리스트 초기화
+  while (buttons.hasChildNodes()) {
+    buttons.removeChild(buttons.lastChild);
+  }
+  // 화면에 최대 5개의 페이지 버튼 생성
+  for (let id = page; id < page + showButton && id <= maxPage; id++) {
+    buttons.appendChild(makeButton(id));
+  }
+  // 첫 버튼 활성화(class="active")
+  buttons.children[0].classList.add("active");
+
+  const prev = document.createElement("button");
+  prev.classList.add("button__pagination", "prev");
+  prev.innerHTML = '<';
+  prev.addEventListener("click", goPrevPage);
+
+  const next = document.createElement("button");
+  next.classList.add("button__pagination", "next");
+  next.innerHTML = '>';
+  next.addEventListener("click", goNextPage);
+
+  buttons.prepend(prev);
+  buttons.append(next);
+
+  // 이전, 다음 페이지 버튼이 필요한지 체크
+  if (page - showButton < 1) buttons.removeChild(prev);
+  if (page + showButton > maxPage) buttons.removeChild(next);
+};
+
+const goPrevPage = () => {
+  page -= showButton;
+  renderPaginaton(page);
+};
+
+const goNextPage = () => {
+  page += showButton;
+  renderPaginaton(page);
+};
+
+const renderPaginaton = (page) => {
+  renderContent(page);
+  renderButton(page);
+};
+
+renderPaginaton(page);
+
+
 
 
 

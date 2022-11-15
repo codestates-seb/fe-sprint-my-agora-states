@@ -124,6 +124,32 @@ li {
     resize: none;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.button__pagination {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    font-size: 10pt;
+    margin: 0 5pt 0 5pt;
+}
+
+.button__pagination.prev {
+    width: 30px;
+    height: 30px;
+    
+}
+
+.button__pagination.next {
+    width: 30px;
+    height: 30px;
+}
 @font-face {
     font-family: 'LINESeedKR-Bd';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
