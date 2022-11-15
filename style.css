@@ -1,1 +1,50 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing: border-box;font-family: 'Open Sans', sans-serif;}
+li{list-style:none;}
+.w-base{width:550px;margin:0 auto}
+
+body{background:hsl(218, 22%, 7%);color:#cad0d8;font-size:16px;font-family: 'Open Sans', sans-serif;}
+h2 a{color:#cad0d8;text-decoration:none;font-size:16px}
+h2 a:hover{color:#6ba4f8 !important}
+h2 a:visited{color:#707680}
+.sr-only{position: absolute;overflow: hidden;width: 1px;height: 1px;padding: 0;margin: -1px;border: 0;clip: rect(0,0,0,0);}
+
+h1{display:flex;justify-content:space-between;align-items: center; padding:17px 40px 15px;background:#171c21;font-size:18px}
+h2{line-height: 0.65em}
+h3{font-weight: bold;font-size:15px}
+
+.user-area img{width:20px;margin-right:5px;border-radius: 50%;}
+.user-area i{position: absolute;display: inline-block;margin-top: 6px;font-size: 10px}
+.discussion__wrapper{padding-top:20px}
+.discussion__wrapper h3{padding-bottom:5px}
+.discussion__container{display: flex;width:100%;align-items: center;}
+.discussion__content, .discussions__new_container .discussion__content{width: 100%;padding-left:10px}
+.discussion__content>div, .discussions__new_container>div{width: 100%;}
+.discussion__avatar--image{width:43px;border-radius: 30px}
+.discussion__information{margin-top:5px;font-size:12px;color:#8b949e}
+.form__container{padding-top:30px}
+.discussions__notice li{cursor: pointer;}
+.discussions__container li, .discussions__notice li, .discussions__new_container li{position: relative; padding:16px 0}
+.discussions__container li+li{border-top:1px solid #21262c}
+.discussions__new_container li{border-bottom:1px solid #21262c}
+.discussions__notice li:first-child{padding:15px;background-image:linear-gradient(to right, #9866F0, hsl(359, 80%, 61%));border-radius: 10px;}
+.discussions__notice li:first-child a, .discussions__notice li:first-child .discussion__information{color:#fff}
+.discussions__notice li:first-child:hover{box-shadow:0 5px 10px rgba(87, 98, 220, .15);}
+.discussions__notice li:nth-child(2){padding-top:24px}
+.discussions__notice li span{position:absolute;display:inline-block;top:0;right:0;bottom:0;left:0;background-image:url("https://github.githubassets.com/static/images/icons/spotlight/plus-pattern.svg");mix-blend-mode: soft-light;background-position:0 0;background-size: 35px;opacity: .5;}
+
+.discussions__new_container .discussion__container{width:100%}
+
+.form__submit{padding-top:3px;text-align: right;}
+.btn-submit{width:85px;text-align:center;padding:7px 10px;background:#428440;border:1px solid #559053;color:#fffefe;font-weight:bold;border-radius: 6px;cursor: pointer;}
+.btn-submit:hover{background-color:#529e4e}
+.discussion__answered{padding-left:20px}
+.discussion__answered i{padding:2px 3px;border:2px solid #8d949d;border-radius: 50%;font-size:10px;color:#8d949d}
+.discussion__answered i.on{color:#0e1116;background:#64b85d;border-color:#64b85d}
+
+/* form */
+.form__input--wrapper{padding:13px;border-radius:8px;border:1px solid #32363c;background:#181b21}
+.form__input--wrapper>*+*{padding-top:6px}
+.form__input--wrapper h3{padding-left:5px;font-size:15px}
+.form-ipt{width:100% !important;padding:8px 10px;background:#020409;border:1px solid #31363c;border-radius:7px;color:#fff;font-size:15px;outline:2px solid transparent;}
+.form-ipt:focus{outline-color:#386ce3;}
