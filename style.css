@@ -2,50 +2,65 @@
 * {
   list-style: none;
   box-sizing: border-box;
-  padding: 2px;
   font-family: 'Stylish', sans-serif;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 77px;
   font-family: 'Rubik Bubbles', cursive;
   color: #7fccde;
   font-style: italic;
-  text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 3px -1px black;
+  text-shadow: -2px 0px black, 0px 3px black, 3px 0px black, 5px -1px black;
+  margin-top: 100px;
+  margin-bottom: 30px;
 }
 
 body {
-  width: 100%;
   padding: 0;
   margin: 0;
+  width: 100%;
+  position: fixed;
 }
 
 main {
+  height: 100vh;
+  background: radial-gradient(#3095de, #ffffff);
   display: flex;
-  flex-direction: column;
+  flex-direction: low;
   align-items: center;
-  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-around;
+  align-items:flex-start
+}
+.agora{
+ 
+margin-left: 450px;
 }
 
 .form__container {
-  background-color: antiquewhite;
-  font-size: 30px;
-  width: 500px;
+  background-image: url(https://cdn.pixabay.com/photo/2017/10/05/21/28/clouds-2821064_960_720.png);
+  border-radius: 10%;
+  font-size: 40px;
+  border: 10px rgb(2, 2, 2) solid;
+  width: 550px;
+  height: 500px;
   display: flex;
-  justify-content: center;
+  
 }
 .form{
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px 10px 5px 10px;
+  color: rgb(220, 242, 248);
+  text-shadow: 4px -1px black, 3px 2px black, 3px 2px black, 3px 1px black;
   font-family: 'Rubik Bubbles', cursive;
 }
 
 
 
 .discussions__container {
-  width: 540px;
+  width: 600px;
 }
 .btn-3d.cyan {
   background-color: #7fccde;
@@ -66,21 +81,16 @@ main {
 }
 .btn-3d {
 
-  font-size: 32px;
+  font-size: 42px;
   padding: 10px 40px;
   color: white;
   margin: 10px 10px 10px;
-  border-radius: 6px;
+  border-radius: 46px;
   text-align: center;
   transition: top .01s linear;
-  text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 2px -1px black;
+  text-shadow: 3px 2px black, 0px 1px black, 1px 0px black, 3px 1px black;
   /* text-shadow: 0 1px 0 rgba(3, 3, 3, 0.15); */
   border: 0;
-}
-.discussion__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .discussion__avatar--image {
@@ -90,6 +100,7 @@ main {
 
 .discussion__avatar--wrapper img {
   width: 48px;
+  height: 48px;
   border-radius: 50px;
 }
 
@@ -103,4 +114,45 @@ main {
 .discussion__information {
   margin-top: auto;
   margin-left: auto;
+}
+.discussion__container{
+  background-color:rgb(255, 255, 255);
+  border: 3.5px outset rgb(143, 193, 210);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -35px;
+  margin-top: 20px;
+}
+
+.discussion__wrapper{
+ position: relative;
+ margin-top: 50px;
+ height: 900px;
+ overflow:scroll;
+ overflow-y: hidden;
+ overflow-x: hidden;
+ border-radius: 20px;
+ background-color: #7fccde;
+ border: black solid 10px;
+}
+.discussion__wrapper:hover{
+  overflow-y:scroll
+}
+/* 스크롤바이벤트 */
+.discussion__wrapper::-webkit-scrollbar-thumb{
+    background-color: #232a2c;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+ .discussion__wrapper::-webkit-scrollbar-track {
+  background-color: rgb(228, 249, 255);
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+
+.discussion__wrapper::-webkit-scrollbar {
+  width: 15px;
 }
