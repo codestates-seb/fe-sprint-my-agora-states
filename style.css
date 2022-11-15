@@ -2,15 +2,60 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: helvetica, sans-serif;
+    font-family: 'Ycomputer-Regular';
     box-sizing: border-box;
   }
+  
+  @font-face {
+    font-family: 'Ycomputer-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ycomputer-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
   main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FvmhVK%2FbtrRdw2tmhM%2FeYDsCuZwrIjm42OnXmjUFk%2Fimg.png);
+    background-repeat: repeat-y;
   }
+
+  div.stardew_frame{
+    background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2F3x9E7%2FbtrRh7fzc9S%2F3pBS8QuzOshmL3iLhePZ11%2Fimg.png);
+    background-size: 100% 100%;
+    padding: 20px;
+    margin: 40px;
+    }
+
+    div.form__submit {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+   
+    }
+
+    div.form__submit > input {
+        background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FdOw1EV%2FbtrRhkNt5Jn%2F8opPJrK6H4T0SSqqxLKSHK%2Fimg.png);
+        background-size: 110% 110%;
+        padding: 5px;
+        font-family: 'Ycomputer-Regular';
+        font-weight: bolder;
+        background: transparent;
+    }
+
+div.form__input--wrapper > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+input, textarea {   
+    text-align: center;
+    font-family: 'Ycomputer-Regular';
+
+}
 
   .discussions__container {
     display: flex;
@@ -18,11 +63,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
     list-style-type: none;
+    
   }
 
 .discussion__wrapper {
     width: 540px;    
-    border: 1px solid red;
     flex: 0 1 auto ;
     list-style-type: none;
     padding: 10px;
@@ -36,20 +81,19 @@
     justify-content: space-between;
     padding: 10px;
     margin: 10px;
-  }
-
-  div.discussion__container {
+    background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FdOw1EV%2FbtrRhkNt5Jn%2F8opPJrK6H4T0SSqqxLKSHK%2Fimg.png);
+    background-size: 100% 100%;
     
-    border: 0px solid blue;
-  }
+}
 
 div.discussion__content {
     padding: 10px;
-    border: 0px dotted purple;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     flex: 3 1 auto;
+    min-width: 410px;
+    font-size: 20px;
  }
   
 .discussion__avatar--image {
@@ -60,7 +104,6 @@ div.discussion__content {
 }
 
 div.discussion__avatar--wrapper {
-   border: 0px dotted green;
    width: 48px;
    display: flex;
    justify-content: center;
@@ -69,17 +112,31 @@ div.discussion__avatar--wrapper {
 }
 
 div.discussion__answered {
-    border: 0px dotted skyblue;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 25px;
 }
 
+
 .discussion__information{
     text-align: right;
+    font-size: 10px;
+    font-family: 'Ycomputer-Regular';
+
 }
 
 h2 {
-    font-size: smaller
+    font-size: 16px;
 }
+
+h1 {
+    margin: 30px;
+    font-family: 'Ycomputer-Regular';
+    text-align: center;
+}
+
+.form__container{
+    margin: 20px
+}
+
