@@ -1,1 +1,184 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 500;
+  padding: 20px;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+/* form */
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+}
+
+label {
+  flex-basis: 50%;
+  margin: 15px 10px 10px 10px;
+  text-align: center;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 13px;
+}
+
+input[type~='text'] {
+  min-width: 250px;
+  height: 25px;
+  margin: 10px;
+  border: 1px solid #c0c0c0;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 13px;
+}
+
+textarea {
+  min-width: 250px;
+  margin: 10px;
+  border: 1px solid #c0c0c0;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 13px;
+  padding-top: 13px;
+}
+
+.form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+input[type~='submit'] {
+  width: 200px;
+  height: 30px;
+  font-size: 15px;
+  border: none;
+  background-color: #404040;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type~='submit']:hover {
+  background-color: #000099;
+  cursor: pointer;
+}
+
+/* discussion */
+
+li {
+  list-style: none;
+}
+
+.discussion__container {
+  display: flex;
+  flex-direction: row;
+  width: 540px;
+  height: 80px;
+  justify-content: space-between;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px;
+  flex-grow: 2;
+}
+
+.discussion__content a {
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  color: #000;
+}
+
+.discussion__content a:hover {
+  cursor: pointer;
+  color: #000099;
+  text-decoration: underline;
+}
+
+.discussion__information {
+  text-align: right;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 12px;
+  color: #606060;
+}
+
+.discussion__answered {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+}
+
+.discussion__answered > p {
+  font-size: 20px;
+}
+
+/* pagenation */
+
+.pagination__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-top: 30px;
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+}
+
+#pagination > button {
+  border: none;
+  cursor: pointer;
+  margin: 15px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  color: #c0c0c0;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 14px;
+}
+
+#pagination > button:hover {
+  color: #000;
+}
+
+#pagination > button.active {
+  color: #000;
+}
+
+.hide {
+  display: none;
+}
