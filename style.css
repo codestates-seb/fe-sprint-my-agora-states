@@ -7,6 +7,7 @@
 
 h1 {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .form__container {
@@ -16,16 +17,35 @@ h1 {
 
 form {
     width: 540px;
+    height: 150px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
-form > div {
-    font-size: 1.2em;
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    margin-right: 10px;
+}
+
+#name, #title, #story {
+    flex-grow: 1;
 }
 
 li {
     list-style: none;
+    margin-bottom: 5px;
 }
 
 .discussion__wrapper {
