@@ -1,1 +1,200 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+body{
+    background: url(./tree-736877.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+#cat{
+    display: none;
+    background: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: 0.7s;
+    z-index: -1;
+    width : 150px;
+  }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main > h1{
+    color: blueviolet;
+}
+
+.form__container{
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width : 540px;
+    display: flex;
+    justify-content: center;
+    background-color:none;
+    padding: 1rem;
+}
+
+.form__input--wrapper{
+    flex-grow: 9;
+}
+
+.form__input--name{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--name > label{
+    padding-left: 10px;
+    color:blueviolet;
+    font-weight: bold;
+}
+
+.form__input--name > input{
+    width: 15rem;
+    height: 1.5rem;
+}
+
+.form__input--title{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2px;
+}
+
+.form__input--title > label{
+    padding-left: 10px;
+    color:blueviolet;
+    font-weight: bold;
+}
+
+.form__input--title > input{
+    width: 15rem;
+    height: 1.5rem;
+}
+
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__textbox > label{
+    padding-left: 10px;
+    margin-bottom: 5px;
+    color:blueviolet;
+    font-weight: bold;
+}
+
+.form__textbox > textarea{
+    padding-left: 5px;
+    height: 2.5rem;
+}
+
+.form__submit{
+    display: flex;
+    justify-content: right;
+}
+
+.form__submit > input{
+    width: 6rem;
+    margin-left: 10px;
+    background-color: blueviolet;
+}
+
+.discussion__wrapper{
+    display: flex;
+    flex-direction: column;
+    background-color:none;
+}
+
+.discussions__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background-color: none;
+    padding: 0;
+}
+
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    width: 540px; 
+    margin: 10px 0;
+}
+.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 48px;
+    margin: 0 10px;
+    
+}
+
+.discussion__avatar--image{
+    border-radius: 100%;
+}
+
+.discussion__content{
+    width: 474px;
+    background-color:rgb(241, 215, 253);
+    padding-left: 10px;
+    border-radius: 15px;
+}
+.discussion__title > a{
+    text-decoration: none;
+}
+.discussion__information{
+    text-align: right;
+    padding-right: 6px;
+}
+
+.discussion__answered{
+    width: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    color: rgb(91, 235, 91);
+}
+
+.discussion__answered > p{
+    font-size: 25px;
+}
+
+#pageList{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 3rem;
+    background-color: darkgrey;
+}
+.pageLi{
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    transition: .5s;
+}
+
+.pageLi.selected{
+    color:red;
+    background-color: rgb(247, 175, 81);
+}
+
+.pageLi:hover{
+    background-color: rgb(247, 175, 81);
+    color:red;
+}
