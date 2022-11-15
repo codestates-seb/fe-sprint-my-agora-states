@@ -1,1 +1,133 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration:none
+}
+
+body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+    
+    
+}
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 800px;
+    padding: 20px 20px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius:20px;
+    box-shadow: 3px 3px 3px 3px gray;
+
+}
+h1{
+text-align: center;
+
+}
+.form__container {
+ 
+    margin: 20px 0;
+    padding: 10px 10px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px 3px gray;
+}
+label{
+    justify-content: center;
+    align-items: center;
+}
+.form__input--name{
+    display: flex;
+   
+    
+}
+.form__input--title{
+    display: flex;
+}
+.form__textbox{
+    display: flex;
+     justify-content: space-between;
+}
+
+#name{
+    width: 200px;
+    height: 25px;
+    font-size: inherit;
+    margin: 5px 5px;
+    border-radius: 3px;
+    border: 1px solid rgb(66, 65, 65);
+    }
+#title{
+    width: 200px;
+    height: 25px;
+    font-size: inherit;
+    margin: 5px 5px;
+    border-radius: 3px;
+    border: 1px solid rgb(66, 65, 65);
+}
+#story{
+    width: 300px;
+    height: 50px;
+    font-size: inherit;
+    margin: 5px 5px;
+    border-radius: 3px;
+    border: 1px solid rgb(66, 65, 65);
+}
+.discussions__container{
+    overflow-y: auto;
+    height:500px;
+}
+
+
+.discussion__wrapper{
+margin: 10px 10px;
+padding: 10px;
+border: 3px solid rgb(0, 0, 0);
+border-radius: 15px;
+box-shadow: 3px 3px 3px 3px gray;
+
+}
+.discussion__container{
+    padding: 10px 0;
+    margin: 20px 10px;
+    background-color: rgb(85, 84, 84,0.15);
+    border-radius: 9px;
+
+}
+.discussion__information{
+    font-size: small;
+    opacity: 0.5;
+}
+
+img{
+border-radius: 50%;
+width: 60px;
+
+}
+a{
+    font-size: 20px;
+}
+
+input{
+    float: right;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 3px 3px;
+}
+input#search{
+    background: url(https://cdn-icons-png.flaticon.com/512/138/138454.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px ;
+    background-size: 15px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    text-align: center;
+
+}
