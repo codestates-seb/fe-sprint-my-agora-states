@@ -135,6 +135,7 @@ window.addEventListener('load', () => {
       })
     }
   });
+  document.querySelector('.form__avatar--image').src = myAvatar;
 })
 
 //버튼 활성화
@@ -148,6 +149,20 @@ const handleActivePageNumber = () => {
     }
   });
 };
+
+prevButton.addEventListener("click", () => {
+  if(currentPage === 1) {
+  }
+  else{
+    setCurrentPage(currentPage - 1);
+  }
+});
+
+nextButton.addEventListener("click", () => {
+  if(currentPage === 5) {
+  }
+  setCurrentPage(currentPage + 1);
+});
 
 //페이지 내용
 const setCurrentPage = (pageNum) => {
