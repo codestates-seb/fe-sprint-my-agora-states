@@ -1,1 +1,175 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Georgia;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+/* 헤더 스타일링 */
+header img {
+    height: 50px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    box-shadow: 0px 0px 5px rgb(125, 125, 125);
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 30px;
+}
+
+header li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+header li a:hover {
+    color: var(--coz-purple-600);
+}
+
+/* 주의사항 블럭 스타일링 */
+.notices {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+.notices > div {
+    margin-top: 3%;
+    padding: 5% 7%;
+    border-radius: 10px;
+    color: #ffffff;
+    font: bold;
+} 
+
+.notice1 {
+    background-color: #ef9a9a;
+
+}
+.notice2 {
+    background-color: #8469E3;
+}
+
+.notice3 {
+    background-color: #50c6e1;
+}
+
+.notice4 {
+    background-color: #7da453;
+}
+
+/* '코드스테이츠 개발자들에게 질문하세요' 스타일링 */
+h1 {
+    line-height: 2;
+    font-size: 3em;
+    text-align: center;
+}
+
+/* 'display1''display2'와 디스커션 보드 정렬 맞추기 */
+main {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+input, textarea {
+    border: 2px solid rgb(115, 115, 115);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 2px;
+    margin-bottom: 10px;
+    width: 30rem;
+    height: 2.5rem;
+    font-size: 17px;
+  }
+
+textarea {
+    height: 6rem;
+}
+
+/* 버튼 스타일링 */
+#askQuestionButton,#submitButton {
+    background-color: rgb(211, 211, 244);
+    width: 250px;
+    height: 35px;
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    border: 1px black solid;
+    padding-left: 0px;
+}
+
+/* display또는 폼과 그 아래 해당 버튼 정렬 맞추기 */
+.display1,.form.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+}
+
+/* flex속성 뒤에 hide가 와야 작동한다.*/
+.hide {
+    display: none;
+}
+
+/* 디스커션보드 스타일링 */
+.discussion__container {
+    display: flex; 
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 1150px;
+}
+
+.discussion__avatar--image {
+    border-radius: 50px;
+    width: 48px;
+    flex-grow: 1;
+}
+
+.discussion__content {
+    padding: 10px;
+    flex-grow:2; 
+}
+
+.discussion__information {
+    font-size: 70%;
+    flex-grow: 1;
+    margin-top: 1px;
+}
+
+h2 > a {
+    color:rgb(55, 55, 55);
+    text-decoration: none;
+}
+
+/* 페이지네이션 스타일링 */
+
+#pageList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pageList > li {
+    list-style-type: none;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+}
