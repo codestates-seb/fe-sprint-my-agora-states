@@ -1,1 +1,170 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: whitesmoke;
+    width: 100vw;
+}
+
+.discussion__wrapper{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1300px;
+    height: 80px;
+    border: 1px solid powderblue;
+    padding: 60px 0px 60px 0px;
+    border-radius: 15px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 60px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    justify-content: space-around;
+    font-size: 13px;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__answered {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    border: none;
+    padding: 15px 30px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: aliceblue;
+    color: #1e6b7b;
+    width: 100vw;
+}
+
+.form__input--name {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    flex-grow: 1;
+    width: 100vw;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    color: #1e6b7b;
+    font-size: 70px;
+    margin: 20px;
+}
+
+.form__container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.discussions__wrapper {
+    display: flex;
+    flex-grow: 2;
+}
+
+.form__submit{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 50px;
+  font-size: xx-large;
+}
+
+.content_submit {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: aliceblue;
+    color: #1e6b7b;
+}
+
+.discussions__container {
+    position: relative;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: aliceblue;
+    color: #1e6b7b;
+    border-radius: 15px;
+}
