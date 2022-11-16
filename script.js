@@ -1,6 +1,12 @@
 // agoraStatesDiscussions의 내용이 discussion에 보이게 함
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-//localStorage 설정
+//localStorage에 저장된 값을 가져옴
+let data;
+if (JSON.parse(localStorage.getItem('localStorageData'))) {
+  data = JSON.parse(localStorage.getItem('localStorageData'));
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 
 // <data를 DOM으로 바꿔주는 함수>
 const convertToDiscussion = (obj) => {
@@ -57,9 +63,6 @@ const formInputTitle = document.querySelector('#title');
 const formInputStory = document.querySelector('#story');
 
 form.addEventListener('submit', (event) => {
-  //새로고침 방지
-  event.preventDefault();
-
   const newDiscussion = {
     id: 'D_kwDOHOApLM4APjJi',
     createdAt: new Date(),
@@ -76,16 +79,22 @@ form.addEventListener('submit', (event) => {
   //ul 첫번째 자식으로 넣어줌
   ul.prepend(convertToDiscussion(newDiscussion));
   //데이터 배열에 추가
-  agoraStatesDiscussions.unshift(newDiscussion);
+  data.unshift(newDiscussion);
+
+  //새로운 배열 localStorage에 저장
+  localStorage.setItem('localStorageData', JSON.stringify(data));
+
   //배열 추가 후 리렌더링
   render();
-  localStorage.setItem('data', JSON.stringify(agoraStatesDiscussions));
+
+  //새로고침 방지
+  event.preventDefault();
 });
 
 //<페이지네이션 기능>
 //변수 선언
 const elPagenation = document.querySelector('#pagenation');
-const totalData = agoraStatesDiscussions.length;
+const totalData = data.length;
 const dataPerPage = 10;
 const totalPage = Math.ceil(totalData / dataPerPage);
 let firstData = 0;
@@ -121,7 +130,7 @@ function render() {
   }
   //새로운 ul 자식 추가
   for (let i = firstData; i <= lastData; i += 1) {
-    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    ul.append(convertToDiscussion(data[i]));
   }
 }
 
