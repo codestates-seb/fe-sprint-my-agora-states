@@ -151,7 +151,7 @@ li.discussion__container {
 
 .discussion__answered {
     display: flex;
-    flex-grow: 1;
+    flex-shrink: 1;
     justify-content: center;
     align-items: center;
     font-size: 20px;

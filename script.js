@@ -55,14 +55,6 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 //인풋 라벨
-// let onInput = (e) => {
-//   if (e.value) {
-//     e.classList.add("on");
-//   } else {
-//     e.classList.remove("on");
-//   }
-// };
-
 function addOn1() {
   if(document.getElementById("name").value){
     document.getElementById("name").classList.add("on")
