@@ -1,1 +1,219 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    min-width: 320px;
+    line-height: normal;
+    font-size: 15px;
+    line-height: 20px;
+    --main-color: rgb(15, 20, 25)
+}
+
+body,
+input,
+textarea,
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--main-color)
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+input,
+textarea,
+button {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+}
+/* !!!focus 스타일링 초기화시켜줘야 함 */
+
+/* Page Styling */
+main {
+    margin: 0 auto;
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .home {
+    position: sticky;
+    top: 0px;
+    padding: 16px 0;
+    flex-basis: 48px;
+    font-size: 24px;
+    background-color: #fff;
+    z-index: 5;
+}
+
+/* form styling */
+section.form__container {
+    border-bottom: 1px solid rgb(239, 243, 244);
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 260px;
+}
+.form__input--wrapper #story {
+    height: 112px;
+}
+
+.form__input--wrapper div {
+    flex: 1;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+input,
+textarea {
+    margin-top: 5px;
+    padding: 4px 8px;
+    width: 100%;
+}
+
+#submit-btn {
+    margin: 5px 0;
+    padding: 0 16px;
+    width: 74px;
+    height: 28px;
+    background-color: rgb(29, 155, 240);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 24px;
+}
+
+
+/* li component styling */
+li.discussions__item {
+    border-top: 1px solid rgb(239, 243, 244);
+}
+
+li.discussion__question,
+li.discussion__answer {
+    position: relative;
+    display: flex;
+}
+
+.discussion__avatar--wrapper {
+    flex-basis: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.discussion__content {
+    padding: 5px 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__information {
+    flex-basis: 22px;
+}
+.discussion__title {
+    flex: 1;
+    font-size: initial;
+    font-weight: 400;
+}
+.discussion__answered {
+    margin-top: 4px;
+    flex-basis: 32px;
+    display: flex;
+    align-items: center;
+    color : rgb(83, 100, 113);
+    font-size: 13px;
+}
+.discussion__answered--chat-icon {
+    margin-right: 8px;
+}
+
+.discussion__author {
+    font-weight: 700;
+}
+.discussion__createdAt {
+    color : rgb(83, 100, 113);
+}
+.discussion__createdAt::before {
+    content: '·';
+    margin: 0 5px;
+}
+
+/* question - answer 이어주는 thread styling */
+li.discussion__answer::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: -28px;
+    left: 24px;
+    width: 2px;
+    height: 60px;
+    background-color: rgb(207, 217, 221);    
+}
+
+/* pagenation styling */
+.pagination__wrapper {
+    margin: 15px auto;
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination__wrapper .button {
+    cursor: pointer;
+    padding: 0 8px;
+    width: 26px;
+    height: 26px;
+    color: rgb(83, 100, 113);
+}
+.pagination__wrapper .button:hover {
+    background-color: rgba(29, 155, 240, 0.15);
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+.pagination__wrapper .button.active {
+    background-color: rgb(29, 155, 240);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+
+.pagination__wrapper .button.prev {
+    background: url("./assets/img/chevron-left.svg") no-repeat;
+    transform: translateY(22.5%);
+}
+.pagination__wrapper .button.next {
+    background: url("./assets/img/chevron-right.svg") no-repeat;
+    transform: translateY(22.5%);
+}
