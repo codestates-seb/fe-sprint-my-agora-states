@@ -19,7 +19,7 @@ main>h1 {
 
 /* ------------------------------- */
 .form__container {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .form__input--wrapper {
@@ -28,13 +28,13 @@ main>h1 {
 
 .form__input--wrapper>div {
     display: flex;
-    margin: 20px 0;
+    margin: 10px 0;
     align-items: center;
 }
 
 .form {
     width: 800px;
-    height: 200px;
+    height: 170px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,7 +67,7 @@ main>h1 {
 
 .submit {
     width: 100%;
-    height: 180px;
+    height: 150px;
     color: #fff;
     font-size: 16px;
     border: none;
@@ -87,12 +87,11 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .discussions__container {
     width: 800px;
-    margin: 30px auto;
 }
 
 .discussion__container {
@@ -100,7 +99,7 @@ main {
     justify-content: space-evenly;
     align-items: center;
     padding: 30px 0;
-    margin: 20px 0;
+    margin: 10px 0;
     border-radius: 10px;
     background: #444;
     color: #fff;
@@ -121,6 +120,7 @@ main {
 
 .discussion__title {
     font-size: 16px;
+    height: 40px;
 }
 
 .discussion__title a {
@@ -136,7 +136,6 @@ main {
 .discussion__information {
     font-size: 14px;
     color: #888;
-    margin: 10px 0;
 }
 
 .discussion__answered {
@@ -166,3 +165,39 @@ main {
 .anwser_content>* {
     line-height: 25px
 }
+
+div.discussion__answered {
+    flex: 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: var(--primary);
+    
+  }
+  
+  section.buttons {
+    display: flex;
+    margin-top: 10px;
+    width: 800px;
+    border: 1px solid #616161;
+    padding: 10px;
+    justify-content: center;
+    border-radius: 10px;
+    
+  }
+  
+  section.buttons > button {
+    padding: 10px 10px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #777;
+    margin: 0 5px;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+  section.buttons > button:hover{
+    background: #616161;
+    color: #fff;
+  }
