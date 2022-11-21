@@ -48,19 +48,22 @@ const convertToDiscussion = (obj) => {
 
 
   // 답변 클릭이벤트
-  const open = document.querySelectorAll(".discussion__answered p");
+  const open = document.querySelectorAll(".discussion_box");
   open.forEach((open, index) => {
-    const answer = document.querySelector(".anwser")
-    open.onclick = () => {
-      if (answer.style.display !== 'block') {
-        answer.style.display = 'block';
-        console.log('true');
+    const button = open.querySelector('p')
+    const answer = open.querySelector('.anwser')
+    button.onclick = () => {
+      if (button.textContent === "☑︎") {
+        if (answer.style.display !== 'block') {
+          answer.style.display = 'block';
+          console.log('true');
+        }
+        else {
+          answer.style.display = 'none';
+          console.log('false')
+        }
+        console.log(index);
       }
-      else {
-        answer.style.display = 'none';
-        console.log('false')
-      }
-      console.log(index);
     }
   });
 
@@ -75,12 +78,12 @@ const convertToDiscussion = (obj) => {
   anwser_url.className = "anwser_url";
   const anwser_content = document.createElement('div')
   anwser_content.className = "anwser_content";
-  anwser.append(anwser_name,anwser_url,anwser_content)
-  
+  anwser.append(anwser_name, anwser_url, anwser_content)
+
   anwser_name.textContent = obj.author;
   anwser_url.textContent = obj.url;
   anwser_content.textContent = obj.bodyHTML;
-  
+
   discussionbox.append(li)
   discussionbox.append(anwser)
   return discussionbox;
@@ -103,13 +106,13 @@ const convertToDiscussion = (obj) => {
 //     bodyHTML: textbox,
 //     avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
 //   }
-  
+
 //   agoraStatesDiscussions.unshift(newObj);
-  
+
 //   const discussion = convertToDiscussion(newObj);
-  
+
 //   ul.prepend(discussion);
-  
+
 //   formform.querySelector("#name").value = "";
 //   formform.querySelector("#title").value = "";
 //   formform.querySelector("#textbox").value = "";
@@ -206,7 +209,7 @@ form.addEventListener("submit", (event) => {
   // 렌더링
   render(ul, 0, limit);
 
-    form.querySelector("#name").value = "";
+  form.querySelector("#name").value = "";
   form.querySelector("#title").value = "";
   form.querySelector("#textbox").value = "";
 });
