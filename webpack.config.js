@@ -1,11 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-module.exports = {
+const config = {
   entry : './src/App.js',
+  devtool : 'inline-source-map',
+  devServer : {
+    static: './docs',
+  },
+  optimization : {
+    runtimeChunk : 'single'
+  },
   output : {
     path : path.resolve(__dirname, 'docs'),
-    filename : 'appbundle.js'
+    filename : '[name].bundle.js',
+    clean : true
   },
   module : {
     rules : [
@@ -27,4 +35,15 @@ module.exports = {
   plugins : [new HtmlWebpackPlugin({
     template : path.resolve(__dirname, 'src', 'index.html')
   })]
+}
+
+module.exports = (env, arg) => {
+  if (arg.mode === 'development') {
+    config.devtool = 'source-map';  
+  }
+
+  if (arg.mode === 'production') {
+  }
+
+  return config;
 }
