@@ -803,3 +803,5 @@ let agoraStatesDiscussions = [
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
   };
 });
+
+module.exports = agoraStatesDiscussions;

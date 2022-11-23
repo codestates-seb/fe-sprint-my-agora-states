@@ -1,3 +1,6 @@
+const agoraStatesDiscussions = require("./data.js");
+
+require("./style.css");
 let currentPage = 0;
 let lastPage = agoraStatesDiscussions.length;
 
@@ -164,11 +167,6 @@ function observeLastChild(intersectionObserver) {
   });
 }
 
-const observerOption = {
-  root: null,
-  rootMargin: "0px 0px 0px 0px",
-  threshold: 0.5,
-};
 const discussionArr = localStorage.getItem("arr");
 if (discussionArr) {
   const arr = JSON.parse(discussionArr);
@@ -179,6 +177,11 @@ if (discussionArr) {
 }
 
 render(ul, currentPage);
+const observerOption = {
+  root: null,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0.5,
+};
 
 const io = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
