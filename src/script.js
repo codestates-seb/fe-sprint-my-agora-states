@@ -1,5 +1,7 @@
 const agoraStatesDiscussions = require('./data.js');
 require('./style.css');
+require('./reply-solid.svg');
+require('./codestates-ci.png');
 console.log(agoraStatesDiscussions);
 
 if (!localStorage.length) {
