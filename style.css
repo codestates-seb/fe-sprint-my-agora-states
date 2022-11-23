@@ -1,245 +1,233 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 :root {
-    --blue: rgb(17, 107, 255);
-    --white: rgb(255, 255, 255);
-    --gray: rgb(228, 227, 230);
+  --blue: rgb(17, 107, 255);
+  --white: rgb(255, 255, 255);
+  --gray: rgb(228, 227, 230);
 }
 
 * {
-    box-sizing: border-box;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
-main { /* 중앙 정렬 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main {
+  /* 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-    width: 100%;
-    margin: 70px 0 40px 0;
-    text-align: center;
-    font-size: 50px;
+  width: 100%;
+  margin: 70px 0 40px 0;
+  text-align: center;
+  font-size: 50px;
 }
 
 h1 > i {
-    color: var(--blue);
+  color: var(--blue);
 }
 
 /* FORM */
 
 section.form__container {
-    background-color: var(--blue);
-    width: 560px;
-    height: 170px;
-    border-radius: 20px;
-    padding: 20px;
+  background-color: var(--blue);
+  width: 560px;
+  height: 170px;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 section.form__container::after {
-    position: relative;
-    left: 91%;
-    top: 50%;
-    content: '';
-    border-top: 40px solid var(--blue);
-    border-left: 40px solid transparent;
-    
+  position: relative;
+  left: 91%;
+  top: 50%;
+  content: '';
+  border-top: 40px solid var(--blue);
+  border-left: 40px solid transparent;
 }
 
 form.form {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 div.form__input--wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 110px;
 }
 
 .form__input--name,
 .form__input--title,
-.form__textbox{
-    margin-bottom: 7px;
+.form__textbox {
+  margin-bottom: 7px;
 }
 
 .form__textbox > label {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 label {
-    color: white;
-    display: inline-block;
-    width: 80px;
-    padding-left: 4px;
+  color: white;
+  display: inline-block;
+  width: 80px;
+  padding-left: 4px;
 }
 
 label.symbol {
-    display: inline-block;
-    width: 10px;
-    /* font-weight: bold; */
-    font-size: 18px;
+  display: inline-block;
+  width: 10px;
+  /* font-weight: bold; */
+  font-size: 18px;
 }
 
 input {
-    /* border-radius: 30px; */
-    width: 150px;
-    height: 22px;
-    border: none;
-    padding-left: 8px;
-    background: none;
-    font-size: 16px;
-    color: var(--white);
+  /* border-radius: 30px; */
+  width: 150px;
+  height: 22px;
+  border: none;
+  padding-left: 8px;
+  background: none;
+  font-size: 16px;
+  color: var(--white);
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 .textbox_and_button {
-    display: flex;
+  display: flex;
 }
 
 .form__textbox {
-    width: 460px;
+  width: 460px;
 }
 
 textarea {
-    width: 450px;
-    height: 50px;
-    border-radius: 10px;
-    padding: 5px 0 0 8px;
-    resize: none;
-    font-size: 14px;
+  width: 450px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 5px 0 0 8px;
+  resize: none;
+  font-size: 14px;
 }
 
 div.form__submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .submit_btn {
-    margin-top: 10px;
-    padding: 10px;
-    margin-left: 8px;
-    font-size: 33px;
-    background: none;
-    border: none;
-    color: var(--white);
+  margin-top: 10px;
+  padding: 10px;
+  margin-left: 8px;
+  font-size: 33px;
+  background: none;
+  border: none;
+  color: var(--white);
 }
 
 .submit_btn:hover {
-    transform: scale(1.2);
-    transition: all 0.4s;
+  transform: scale(1.2);
+  transition: all 0.4s;
 }
 
 /* 페이지네이션 */
 .pagenation__container {
-    display: flex;
+  display: flex;
 }
 
 .pagenation__container > button {
-    padding: 10px;
-    margin: 7px;
-    width: 40px;
-    font-size: 14px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    border: 3px solid white;
+  padding: 10px;
+  margin: 7px;
+  width: 40px;
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border: 3px solid white;
 }
 
 .pagenation__container > button:hover {
-    border: 3px solid var(--blue);
-    border-radius: 10px;
-}
-
-.selected {
-    color: var(--blue);
+  border: 3px solid var(--blue);
+  border-radius: 10px;
 }
 
 /* DISCUSSION */
 
-li.discussion__container{
-    display: flex;
-    justify-content: space-between;
-    width: 560px;
-    margin-bottom: 17px;
-    border-radius: 20px;
-    padding: 20px;
-    background: var(--gray);
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  width: 560px;
+  margin-bottom: 17px;
+  border-radius: 20px;
+  padding: 20px;
+  background: var(--gray);
 }
 
 li.discussion__container:hover {
-    transform: scale(1.05);
-    transition: all 0.4s;
-}
-
-li.discussion__container:last-child::before {
-    position: relative;
-    bottom: -95px;
-    content: '';
-    border-top: 40px solid var(--gray);
-    border-right: 40px solid transparent;
+  transform: scale(1.05);
+  transition: all 0.4s;
 }
 
 /* 아바타 */
 div.discussion__avatar--wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img.discussion__avatar--image {
-    border-radius: 50%;
-    width: 48px;
-    margin: 20px 10px;
+  border-radius: 50%;
+  width: 48px;
+  margin: 20px 10px;
 }
 
 /* 내용 */
 div.discussion__content {
-    width: 413px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 413px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h2.discussion__title {
-    text-align: left;
-    margin: 15px 10px;
-    font-size: 16px;
+  text-align: left;
+  margin: 15px 10px;
+  font-size: 16px;
 }
 
 a,
 a:visited {
-    color: black;
+  color: black;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 div.discussion__information {
-    text-align: right;
-    margin: 5px;
+  text-align: right;
+  margin: 5px;
 }
 
 /* 체크 박스 */
 div.discussion__answered {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0px 10px;
-    font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0px 10px;
+  font-size: 30px;
 }
 
 .discussion__answered > p {
-    font-size: 23px;
-    color: var(--blue)
+  font-size: 23px;
+  color: var(--blue);
 }

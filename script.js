@@ -41,8 +41,14 @@ nav.append(one, two, three, four, five);
 let page = 0; 
 
 const appendToUl = () => {
-  ul.innerHTML = ''; // ul을 빈 값으로 초기화시켜준 후,
-  for(let i = page; i < page + 10; i++) { // i는 page부터 page에서 10개까지, ul에 10개의 요소를 추가한다.
+  // ul을 빈 값으로 초기화시켜준 후,
+  ul.innerHTML = ''; 
+  // i는 page부터 page + 10까지, ul에 총 10개의 요소를 추가한다.
+  for(let i = page; i < page + 10; i++) {
+    // 만약, 불러오는 값이 undefined라면, 반복문을 종료한다.
+    if(agoraStatesDiscussions[i] === undefined) {
+      break;
+    }
     ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
 }
@@ -55,127 +61,58 @@ function moveToFirst() {
   appendToUl();
 }}
 
-// 1을 클릭하면, 배열의 0 ~ 9번째 요소만 보여준다. (10개)
+// 숫자 1을 클릭하면, 배열의 0 ~ 9번째 요소만 보여준다. (10개)
 one.addEventListener('click', () => {
   moveToFirst();
-  one.className = 'selected'; // 강조 효과 주는 class 추가
 
-  two.classList.remove('selected'); // 나머지는 class 삭제
-  three.classList.remove('selected');
-  four.classList.remove('selected');
-  five.classList.remove('selected');
+  allToBlack(); // 모든 숫자 검은색으로 초기화
+  one.style.color = 'rgb(17, 107, 255)'; // 클릭한 숫자는 파란색으로 표시
 })
 
-// 1을 클릭하면, 배열의 10 ~ 19번째 요소만 보여준다. (10개)
+// 숫자 2을 클릭하면, 배열의 10 ~ 19번째 요소만 보여준다. (10개)
 two.addEventListener('click', () => {
   page = 10;
   appendToUl();
-  two.className = 'selected';
 
-  one.classList.remove('selected');
-  three.classList.remove('selected');
-  four.classList.remove('selected');
-  five.classList.remove('selected');
+  allToBlack();
+  two.style.color = 'rgb(17, 107, 255)';
 })
 
+// 숫자 3을 클릭하면, 배열의 20 ~ 29번째 요소만 보여준다. (10개)
 three.addEventListener('click', () => {
   page = 20; 
   appendToUl();
-  three.className = 'selected';
 
-  one.classList.remove('selected');
-  two.classList.remove('selected');
-  four.classList.remove('selected');
-  five.classList.remove('selected');
+  allToBlack();
+  three.style.color = 'rgb(17, 107, 255)';
 });
 
+// 숫자 4을 클릭하면, 배열의 30 ~ 39번째 요소만 보여준다. (10개)
 four.addEventListener('click', () => {
   page = 30; 
   appendToUl();
-  four.className = 'selected';
 
-  one.classList.remove('selected');
-  two.classList.remove('selected');
-  three.classList.remove('selected');
-  five.classList.remove('selected');
+  allToBlack();
+  four.style.color = 'rgb(17, 107, 255)';
 });
 
+// 숫자 5을 클릭하면, 배열의 40 ~ 49번째 요소만 보여준다. (10개)
 five.addEventListener('click', () => {
   page = 40; 
   appendToUl();
-  five.className = 'selected';
 
-  one.classList.remove('selected');
-  two.classList.remove('selected');
-  three.classList.remove('selected');
-  four.classList.remove('selected');
+  allToBlack();
+  five.style.color = 'rgb(17, 107, 255)';
 });
 
-
-// form 섹션 DOM으로 바꾸기
-// const printForm = () => {
-// // 1. form 안에 formWrapper, formSubmit
-// const form = document.querySelector('.form');
-
-// const formWrapper = document.createElement('div');
-// formWrapper.className = 'form__input--wrapper';
-
-// const formSubmit = document.createElement('div');
-// formSubmit.className = 'form__submit';
-
-// // 2-1.formWrapper 안에 formName, formTitle, formTextbox
-// const formName = document.createElement('div');
-// formName.className = 'form__input--name'; 
-//   // 3-1.formName 안에 namelabel, nameInput
-//   const nameLabel = document.createElement('label');
-//   nameLabel.for = 'name';
-//   nameLabel.textContent = 'Enter your name: '
-
-//   const nameInput = document.createElement('input');
-//   nameInput.type = 'text';
-//   nameInput.name = 'name';
-//   nameInput.id = 'name';
-//   nameInput.required = '';
-
-// const formTitle = document.createElement('div');
-// formTitle.className = 'form__input--title';
-//   // 3-2. formTitle 안에 titlelabel, titleInput
-//   const titleLabel = document.createElement('label');
-//   titleLabel.for = 'title';
-//   titleLabel.textContent = 'Enter your title: '
-
-//   const titleInput = document.createElement('input');
-//   titleInput.name = 'title';
-//   titleInput.id = 'title';
-//   titleInput.required = '';
-
-// const formTextbox = document.createElement('div');
-// formTextbox.class = 'form__textbox';
-//   // 3-3. formTextbox 안에 textboxLabel, textboxTextarea
-//   const textboxLabel = document.createElement('label');
-//   textboxLabel.for = 'story';
-//   textboxLabel.textContent = 'Your question: ';
-
-//   const textboxTextarea = document.createElement('textarea');
-//   textboxTextarea.id = 'story';
-//   textboxTextarea.name = 'story';
-//   textboxTextarea.placeholder = '질문을 작성하세요'
-//   textboxTextarea.required = '';
-
-// // 2-2. formSubmit 안에 submit
-//   const submit = document.createElement('input');
-//   submit.type = 'submit';
-//   submit.value = 'submit';
-
-// formName.append(nameLabel, nameInput);
-// formTitle.append(titleLabel, titleInput);
-// formTextbox.append(textboxLabel, textboxTextarea);
-// //
-// formWrapper.append(formName, formTitle, formTextbox);
-// formSubmit.append(submit);
-// //
-// form.append(formWrapper, formSubmit);
-// }
+// 페이지네이션 숫자 색을 검은색으로 초기화시켜주는 함수
+const allToBlack = () => {
+  one.style.color = 'black';
+  two.style.color = 'black';
+  three.style.color = 'black';
+  four.style.color = 'black';
+  five.style.color = 'black';
+};
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => { // 여기서 매개변수 obj는 agoraStatesDiscussions[i] 이다.
@@ -252,10 +189,10 @@ form.addEventListener('submit', function(event) {
 
   agoraStatesDiscussions.unshift(newObj); // 배열 agoraStatesDicussions에 newObj객체를 추가한다.
 
-  // 1 페이지로 이동 시킨 후,
-  // newObj를 convertToDiscussion에 넣어서 DOM으로 변환하고 그 객체를 ul의 맨 앞에 넣어준다.
-  moveToFirst();
+  // 첫 페이지로 이동 시킨다.
+    moveToFirst();
 
+  // input창에 입력된 값을 초기화시켜준다.
   nameInput.value = '';
   titleInput.value = '';
   storyInput.value = '';
