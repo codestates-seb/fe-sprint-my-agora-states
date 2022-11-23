@@ -5,6 +5,8 @@ import convertToDiscussion from './converToDiscussion.js';
 import { makingPageButtons, pageRender, calculateMaxPage } from './pagination.js';
 import { renderNextPage, renderPreviousPage } from './movingPageButtons.js';
 import addNewDiscussion from './addNewDiscussion.js';
+import './style.css';
+import '../public/logo.png'
 
 // 페이지 새로고침 확인
 console.log(agoraStatesDiscussions);

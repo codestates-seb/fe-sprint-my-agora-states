@@ -179,7 +179,7 @@ form {
 }
 
 .button__container {
-  width: 350px;
+  width: 600px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

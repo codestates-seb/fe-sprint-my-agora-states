@@ -12,7 +12,7 @@ function calculateMaxPage(total, pageInfo) {
   // 데이터 개수에 따라 페이지들로 이동할 수 있는 a태그들을 만들어 주는 함수
   function makingPageButtons (el, pageInfo, data) {
     let pagemax = pageInfo.pagemax;
-    console.log(pageInfo);
+    console.log(pageInfo, 'creating');
     for(let i = 1; i <= pagemax; i++) {
       const pageElement = document.createElement('button'); //빈 a태그 생성 후 반복문으로 숫자 자동 할당
       pageElement.textContent = i;
