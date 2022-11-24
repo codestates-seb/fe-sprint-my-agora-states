@@ -21,4 +21,10 @@ module.exports = {
       },
     ],
   },
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: path.resolve(__dirname, "src", "index.html"),
+  //     // template: "/index.html", // index.html을 기본 템플릿으로 반영할 수 있도록 설정
+  //   }),
+  // ],
 };

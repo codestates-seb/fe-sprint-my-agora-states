@@ -1,5 +1,5 @@
-require("../style.css");
-// import "../style.css";
+require("./style.css");
+// import "./style.css";
 
 // let agoraStatesDiscussions;
 // fetch("http://localhost:4000/discussions")
@@ -86,6 +86,7 @@ form.addEventListener("submit", (event) => {
     bodyHTML: textbox.value,
     avatarUrl: "https://i.pravatar.cc/300",
   };
+  // 서버 데이터에 어떻게 넣지..
   data.unshift(obj);
 
   // 로컬스토리지에 저장, getItem으로 불러와야함

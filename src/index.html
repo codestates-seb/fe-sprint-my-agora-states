@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
     <!-- 구글 머터리얼 아이콘 -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
     <!-- GSAPS, ScrollToPlugin 스크립트 코드! -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
@@ -43,6 +43,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- fetch로 서버 데이터 불러와서 주석처리함 -->
+    <!-- <script src="data.js"></script> -->
+    <!-- <script defer="defer" src="./script.js"></script> -->
+    <!-- 번들링한 코드로 바꾸기 위해 경로도 바꿈 -->
+    <script defer="defer" src="../dist/app.bundle.js"></script>
   </head>
 
   <body>
@@ -102,9 +107,4 @@
       <div class="material-icons">arrow_upward</div>
     </div>
   </body>
-  <!-- fetch로 서버 데이터 불러와서 주석처리함 -->
-  <!-- <script src="data.js"></script> -->
-  <!-- <script src="./src/script.js"></script> -->
-  <!-- 번들링한 코드로 바꾸기 위해 경로도 바꿈 -->
-  <script src="./dist/app.bundle.js"></script>
 </html>
