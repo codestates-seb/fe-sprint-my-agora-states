@@ -19,16 +19,16 @@
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">Name </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Title </label>
+            <input rows="3" cols=" 50" type="text" name="name" id="name" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story">Your question </label>
+            <textarea rows="3" cols=" 50" id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
@@ -52,6 +52,20 @@
         </li>
       </ul>
     </section>
+    <div calss="page">
+      <ul class="pagination modal">
+        <li><a href="#" class="first">처음페이지</a></li>
+        <li><a href="#" class="arrow left"><<<</a></li>
+        <li><a href="#" class="arrow num">1</a></li>
+        <li><a href="#" class="num">2</a></li>
+        <li><a href="#" class="num">3</a></li>
+        <li><a href="#" class="num">4</a></li>
+        <li><a href="#" class="num">5</a></li>
+        <li><a href="#" class="arrow right">>>></a></li>
+        <li><a href="#" class="last">끝페이지</a></li>
+      </ul>
+    
+    </div>
   </main>
 </body>
 <script src="data.js"></script>
