@@ -1,3 +1,6 @@
+require("../style.css");
+// import "../style.css";
+
 // let agoraStatesDiscussions;
 // fetch("http://localhost:4000/discussions")
 //   .then((response) => response.json())
