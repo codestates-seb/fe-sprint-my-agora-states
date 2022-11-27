@@ -27,6 +27,7 @@ li.discussion__container{
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    margin-right: 25px;
 }
 .discussion__avatar--image{
     border-radius: 50%;
