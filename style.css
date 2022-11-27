@@ -201,7 +201,7 @@ h2 {
     flex-grow: 1;
 }
 
-ul.pagination {
+.buttons {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
@@ -211,23 +211,13 @@ ul.pagination {
     height: 50px;
 }
 
-a.page-link {
-    font-size: 1.5em;;
+.button {
+    font-size: 1.3rem;
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer
 }
 
-a.page-link:link {
-    color : rgb(64, 66, 88);
-    text-decoration: none;
-}
-a.page-link:visited {
-    color : rgb(64, 66, 88);
-    text-decoration: none;
-}
-a.page-link:hover {
-    color : rgb(80, 87, 122);
-    text-decoration: none;
-}
-a.page-link:active {
-    color : white;
-    text-decoration: none;
+.button.active {
+    text-decoration: underline;
 }

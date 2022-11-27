@@ -25,7 +25,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg);
 
   // 2. discussion content 추가
-  //  1) title(a-링크, title-div, textContent)
+  //  1) title(a-링크, title-textContent)
   const contentTitle = document.createElement('h2');
   contentTitle.className = "discussion__title";
   const titleLink = document.createElement('a');
@@ -113,13 +113,95 @@ function addDiscussion(event) {
 submitBtn.addEventListener('click', addDiscussion);
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// const ul = document.querySelector("ul.discussions__container");
+// render(ul);
+
+// 페이지네이션
+// 필요한 변수 설정
+const contents = document.querySelector(".discussions__container");
+const buttons = document.querySelector(".buttons");
+
+const numOfContent = agoraStatesDiscussions.length;
+const maxContent = 10;
+const maxButton = 5;
+const maxPage = Math.ceil(numOfContent/maxContent);
+let page = 1;
+
+const makeButton = (id) => {
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.dataset.num = id;
+  button.innerText = id;
+  button.addEventListener("click", (e) => {
+    Array.prototype.forEach.call(buttons.children, (button) => {
+      if(button.dataset.num) button.classList.remove("active");
+    })
+    e.target.classList.add("active");
+    renderContent(parseInt(e.target.dataset.num))
+  });
+  return button;
+}
+
+const renderContent = (page) => {
+  while(contents.hasChildNodes()) {
+    contents.removeChild(contents.lastChild);
+  }
+  for(let id = (page - 1) * maxContent + 1; id <= page * maxContent && id <= numOfContent; id++) {
+    contents.appendChild(convertToDiscussion(agoraStatesDiscussions[id]));
+  }
+};
+
+const goPrevPage = () => {
+  if(page > 1) {
+  page -= 1;
+  render(page);
+  }
+  // 이전페이지, 다음페이지 버튼으로 페이지를 이동했을 때, active 클래스를 옮겨주는 작업 필요
+};
+
+const goNextPage = () => {
+  if(page < maxPage) {
+  page += 1;
+  render(page);
+  }
+};
+
+const prev = document.createElement("button");
+prev.classList.add("button", "prev");
+prev.innerHTML = '<i class="fa-solid fa-angle-left"></i>';
+prev.addEventListener("click", goPrevPage);
+
+const next = document.createElement("button");
+next.classList.add("button", "next");
+next.innerHTML = '<i class="fa-solid fa-angle-right"></i>';
+next.addEventListener("click", goNextPage);
+
+const renderButton = (page) => {
+  while(buttons.hasChildNodes()) {
+    buttons.removeChild(buttons.lastChild);
+  }
+  for(let id=1; id<page+maxButton && id<=maxPage; id++) {
+    buttons.appendChild(makeButton(id));
+  }
+  buttons.children[0].classList.add("active");
+  
+  buttons.prepend(prev);
+  buttons.append(next);
+
+  // if(page === 1) buttons.removeChild(prev);
+  // if(page === maxPage) buttons.removeChild(next);
+};
+
+const render = (page) => {
+  renderContent(page);
+  renderButton(page);
+};
+render(page);
