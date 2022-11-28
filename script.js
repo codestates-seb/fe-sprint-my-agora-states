@@ -79,7 +79,7 @@ inputForm.addEventListener("submit" , (event) => {
   ul.prepend(convertObj);
 
   DisplayList(agoraStatesDiscussions, ul, rows, current_page);
-setupPagination(agoraStatesDiscussions, pagination_element, rows);
+  setupPagination(agoraStatesDiscussions, pagination_element, rows);
 
   // 제출 완료 후 다시 input 비우기
   inputForm.value = '';
