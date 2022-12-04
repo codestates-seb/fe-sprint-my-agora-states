@@ -138,14 +138,18 @@ let page = 1;
 const makeButton = (id) => {
   const button = document.createElement("button");
   button.classList.add("button");
+  //* html에서 data-num이라는 속성을 사용하게 됨 -> 의미론적 표준 HTML 요소에 추가 정보를 저장
+  //*  DOM에서 dataset 객체를 사용해 data-의 뒷부분을 가져옴
   button.dataset.num = id;
   button.innerText = id;
   button.addEventListener("click", (e) => {
+    //* 모든 버튼의 active를 지우고 누른 페이지의 active만 활성화
     Array.prototype.forEach.call(buttons.children, (button) => {
       if(button.dataset.num) button.classList.remove("active");
     })
     e.target.classList.add("active");
-    renderContent(parseInt(e.target.dataset.num))
+    page = e.target.dataset.num;
+    renderContent(parseInt(page))
   });
   return button;
 }
@@ -161,15 +165,16 @@ const renderContent = (page) => {
 
 const goPrevPage = () => {
   if(page > 1) {
-  page -= 1;
+  page = page - 1;
   render(page);
   }
   // 이전페이지, 다음페이지 버튼으로 페이지를 이동했을 때, active 클래스를 옮겨주는 작업 필요
+  // 숫자 버튼 누른 이후 페이지 버튼 누를 때 작동 안 됨
 };
 
 const goNextPage = () => {
   if(page < maxPage) {
-  page += 1;
+  page = page + 1;
   render(page);
   }
 };
@@ -200,6 +205,7 @@ const renderButton = (page) => {
   // if(page === maxPage) buttons.removeChild(next);
 };
 
+//* 맨 첫 화면 페이지 띄우기
 const render = (page) => {
   renderContent(page);
   renderButton(page);
