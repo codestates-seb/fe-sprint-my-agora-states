@@ -59,7 +59,7 @@ h1 span {position: relative; display: inline-block; font-size: 50px; text-transf
 
 
 .discussion__wrapper {margin-top: 15px; width: 540px; margin: 15px auto 0;}
-.discussion__container {position: relative; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 20px 15px 5px; background: #eee; box-shadow: rgba(100, 100, 111, 0) 0px 7px 29px 0px; margin-bottom: 5px; transition: .4s; border-radius: 8px;}
+.discussion__container {position: relative; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 10px 15px; background: #eee; box-shadow: rgba(100, 100, 111, 0) 0px 7px 29px 0px; margin-bottom: 5px; transition: .4s; border-radius: 8px;}
 .discussion__container:hover {box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;}
 
 .discussion__avatar--wrapper {position: relative; margin-right: 12px; width: 48px; height: 48px; border-radius: 50%; overflow: hidden;}

@@ -105,6 +105,27 @@ form.addEventListener('submit', (event) => {
   textarea.value = '';
 });
 
+
+// pagination 생성
+const pagination = document.querySelector('.pagination');
+let liLength = Math.ceil(agoraStatesDiscussions.length / 10);
+for(let i=0; i<liLength; i++){
+  const pager = document.createElement('span');
+  pager.textContent = i+1;
+  pagination.append(pager);
+}
+
+// pager 클릭 이벤트
+// const pageButton = document.querySelectorAll('.pagination span');
+// const cardList = document.querySelectorAll('.discussion__container');
+// for(let i=0; i<pageButton.length; i++){
+//   pageButton[i].addEventListener('click', () => {
+//     console.log(i+1)
+//     cardList.index()
+//   });
+// }
+
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -117,44 +138,4 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-// pagination
-const rowsPerPage = 10;
-const rows = document.querySelectorAll('.discussion__container');
-const rowsCount = rows.length;
-const pageCount = Math.ceil(rowsCount/rowsPerPage);
-const pagerWrap = document.querySelector('.pagination');
 
-// create pagers
-for(let i=1; i<=pageCount; i++){
-  const page = document.createElement('span');
-  page.className = 'page-btn';
-  page.textContent = i;
-  pagerWrap.append(page);
-}
-
-const pagerBtn = document.querySelectorAll('.page-btn');
-pagerBtn.forEach((item, index)=>{
-  item.addEventListener('click',(e)=>{
-    e.preventDefault();
-    displayRows(index);
-  })
-})
-
-const displayRows = (index)=>{
-  let rowsArray = [...rows]; // nodelist 였기 때문에 어레이로 변경해줘야 한다.
-  for(i of rowsArray){
-    i.style.display = 'none';
-  }
-
-  let start = index*rowsPerPage;
-  let end = start + rowsPerPage;
-  let newRows = rowsArray.slice(start, end);
-
-  for(i of newRows){
-    i.style.display = 'flex';
-  }
-
-
-}
-
-displayRows(0)
