@@ -1,1 +1,379 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+/* 다크모드 구현을 위한 색상 root 설정 */
+
+:root {
+    --bodybgColor: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    --txtColor: #000;
+    --h1Color: #fff;
+    --contentbgColor: #fff;
+    --headerbgColor: #fff;
+    --h2wrapperColor: #ddd;
+    --dateColor: #777;
+    --shadowColor: #555;
+    --boxshadow: #666;
+    --submitColor: rgb(100, 143, 223);
+    --visibleColor: rgb(90, 90, 189);
+    --headImg: url('https://cdn.pixabay.com/photo/2019/04/19/01/37/manhattan-4138442_1280.jpg');
+}
+.darkmode {
+    --bodybgColor: linear-gradient(to right, #485563, #29323c);;
+    --txtColor: #fff;
+    --h1Color: #eef;
+    --contentbgColor: #555;
+    --headerbgColor: #333;
+    --h2wrapperColor: #444;
+    --dateColor: #999;
+    --shadowColor: #eee;
+    --boxshadow: #567;
+    --submitColor: rgb(41, 64, 107);
+    --visibleColor: rgb(179, 179, 254);
+    --headImg: url('https://cdn.pixabay.com/photo/2018/11/12/01/57/manhattan-3810051_1280.jpg');
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--txtColor);
+    background: var(--bodybgColor);
+}
+
+
+/* 다크모드를 위한 토글 버튼 디자인 */
+
+.toggle__box {
+    display: flex;
+    align-items: center;
+    z-index: -1;
+}
+
+#dn {
+    display: none;
+}
+
+#dn + label.toggle2 {
+    position: relative;
+    width: 12rem;
+    height: 3rem;
+}
+
+#dn + label.toggle2 > span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40px;
+    background-color: var(--dateColor);
+
+    transition: all .4s;
+}
+
+#dn + label.toggle2 > span::before {
+    display: flex;
+    position: absolute;
+    height: 2.5rem;
+    width: fit-content;
+    padding: 0 1rem;
+    left: 0.25rem;
+    bottom: 0.25rem;
+    border-radius: 20px;
+    background-color: var(--headerbgColor);
+    
+    content: "Light";
+    align-items: center;
+    font-weight: bold;
+    color: var(--txtColor);
+
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+
+#dn:checked + label.toggle2 > span {
+    background-color: var(--txtColor);
+}
+
+#dn:checked + label.toggle2 > span::before {
+    -webkit-transform: translateX(calc(11.5rem - 100%));
+    -ms-transform: translateX(calc(11.5rem - 100%));
+    transform: translateX(calc(11.5rem - 100%));
+    right: 0.25rem;
+    bottom: 0.25rem;
+    content: "Dark";
+}
+
+#dn:disabled + label.toggle2 {
+    display: none;
+}
+
+
+/* 상단바, 상단 사진부분 */
+
+.toggle__wrapper {
+    width: 100%;
+    height: 60px;
+    background: var(--bodybgColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    filter: brightness(120%);
+}
+
+.toggle__wrapper > input {
+    width: auto;
+}
+
+.h1wrapper {
+    width: 100%;
+    height: 65vh;
+    display: grid;
+    place-items: center;
+    background-image: var(--headImg);
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    width: 13ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 5em;
+    color: var(--h1Color);
+    text-shadow: 0px 0px 10px var(--shadowColor);
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+    
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+/* What's Your Question? CSS */
+
+.form__container {
+    width: 40%;
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.form__input--wrapper {
+    display: none;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 30px;
+    background-color: var(--contentbgColor);
+    border-radius: 10px 10px 0px 0px;
+}
+
+label {
+    padding-left: 20px;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    height: 35px;
+    margin: 5px 0px;
+    padding: 15px;
+    border-radius: 35px;
+    border: 1px solid #ccc;
+}
+
+input:focus-visible, textarea:focus-visible {
+    outline: 0;
+    box-shadow: 0px 0px 7px var(--shadowColor);
+    border-color: var(--visibleColor);
+}
+
+textarea {
+    height: 200px;
+    resize: none;
+}
+
+.form__input--name, .form__input--title, .form__textbox {
+    margin: 10px 30px;
+}
+
+.form__submit {
+    display: none;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 30px 30px 20px;
+    background-color: var(--contentbgColor);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.form__submit > input {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    margin: 10px 30px;
+    font-size: 17px;
+    background-color: var(--submitColor);
+    cursor: pointer;
+}
+
+.form__submit > input:hover {
+    filter: brightness(130%);
+    box-shadow: 0px 0px 7px var(--shadowColor);
+}
+
+
+/* Qustion List CSS */
+
+.discussion__wrapper {
+    width: 40%;
+    /* border: 2px solid white; */
+}
+
+.discussion__h2__wrapper {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--h2wrapperColor);
+    border-radius: 10px;
+    border: none;
+    color: var(--txtColor);
+    box-shadow: 0px 0px 10px var(--boxshadow);
+}
+
+ul.discussions__container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+}
+
+li.discussion__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--h2wrapperColor);
+    list-style: none;
+    background-color: var(--contentbgColor);
+}
+
+li.discussion__container:hover {
+    filter: brightness(80%);
+}
+
+li.discussion__container:first-of-type{
+    border-radius: 10px 10px 0px 0px;
+}
+li.discussion__container:last-of-type {
+    border-radius: 0px 0px 10px 10px;
+}
+
+.discussion__avatar--image {
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 7px #333;
+}
+
+.discussion__content {
+    flex-grow: 1;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.discussion__title {
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.discussion__title > a {
+    text-decoration: none;
+    color: var(--txtColor);
+    font-weight: 900;
+}
+
+.discussion__information {
+    font-size: 15px;
+    text-align: right;
+    font-style: italic;
+    color: var(--dateColor);
+}
+
+.discussion__answered > img {
+    width: 30px;
+}
+
+
+/* 페이지 버튼 */
+
+.btn__container {
+    display: none;
+    justify-content: center;
+    background-color: var(--contentbgColor);
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination > button {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0)
+}
+
+.pagination > button:hover, .pagination > button:active {
+    font-weight: 900;
+}
