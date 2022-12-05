@@ -52,6 +52,101 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// const ul = document.querySelector("ul.discussions__container");
+// render(ul);
+
+// 페이지네이션
+// 필요한 변수 설정
+const contents = document.querySelector(".discussions__container");
+const buttons = document.querySelector(".buttons");
+
+const numOfContent = agoraStatesDiscussions.length;
+const maxContent = 10;
+const maxButton = 5;
+const maxPage = Math.ceil(numOfContent/maxContent);
+let page = 1;
+
+const makeButton = (id) => {
+  const button = document.createElement("button");
+  button.classList.add("button");
+  //* html에서 data-num이라는 속성을 사용하게 됨 -> 의미론적 표준 HTML 요소에 추가 정보를 저장
+  //*  DOM에서 dataset 객체를 사용해 data-의 뒷부분을 가져옴
+  button.dataset.num = id;
+  button.innerText = id;
+  button.addEventListener("click", (e) => {
+    //* 모든 버튼의 active를 지우고 누른 페이지의 active만 활성화
+    Array.prototype.forEach.call(buttons.children, (button) => {
+      if(button.dataset.num) button.classList.remove("active");
+    })
+    e.target.classList.add("active");
+    page = Number(e.target.dataset.num);
+    renderContent(parseInt(page))
+  });
+  return button;
+}
+
+const renderContent = (page) => {
+  while(contents.hasChildNodes()) {
+    contents.removeChild(contents.lastChild);
+  }
+  //* 0-9/ 10-19/ 20-29 /30-39 /40-41
+  for(let id = (page - 1) * maxContent; id < page * maxContent && id <= numOfContent; id++) {
+    contents.appendChild(convertToDiscussion(agoraStatesDiscussions[id]));
+  }
+};
+
+const goPrevPage = () => {
+  if(page > 1) {
+  page = page - 1;
+  render(page);
+  }
+  // 이전페이지, 다음페이지 버튼으로 페이지를 이동했을 때, active 클래스를 옮겨주는 작업 필요
+  // 숫자 버튼 누른 이후 페이지 버튼 누를 때 작동 안 됨
+};
+
+const goNextPage = () => {
+  if(page < maxPage) {
+  page = page + 1;
+  render(page);
+  //* 현재 여기에서 오류 발생 -> renderContent에서 오류 발생 -> Number로 해결
+  }
+};
+
+const prev = document.createElement("button");
+prev.classList.add("button", "prev");
+prev.innerHTML = '<i class="fa-solid fa-angle-left"></i>';
+prev.addEventListener("click", goPrevPage);
+
+const next = document.createElement("button");
+next.classList.add("button", "next");
+next.innerHTML = '<i class="fa-solid fa-angle-right"></i>';
+next.addEventListener("click", goNextPage);
+
+const renderButton = (page) => {
+  while(buttons.hasChildNodes()) {
+    buttons.removeChild(buttons.lastChild);
+  }
+  for(let id=1; id<page+maxButton && id<=maxPage; id++) {
+    buttons.appendChild(makeButton(id));
+  }
+  buttons.children[page-1].classList.add("active");
+  
+  buttons.prepend(prev);
+  buttons.append(next);
+
+  // if(page === 1) buttons.removeChild(prev);
+  // if(page === maxPage) buttons.removeChild(next);
+};
+
 // 디스커션 추가 기능: section.form__container에 새로운 질문 추가할 수 있는 입력 폼 제작
 // form에 입력되는 정보들을 새 변수에 할당 / submit 버튼도 할당
 const submitBtn = document.querySelector('#submit');
@@ -99,10 +194,12 @@ function addDiscussion(event) {
   }
   // 배열에 추가하기 -> agorastatesDiscussions 배열에 데이터가 추가되어야 함->맨앞
   agoraStatesDiscussions.unshift(newDiscussion);
-  // convertToDiscussion의 매개변수에 newDiscussion을 넣어 화면에 나오는 모양으로 DOM으로 바꿔줌
-  const newObj = convertToDiscussion(newDiscussion);
-  // ul 맨 앞에 자식요소로 추가되어야 함 -> 맨 위에 새 질문이 뜨게 하기 위해서
-  ul.prepend(newObj);
+  // 페이지 렌더링
+  render(page);
+  // // convertToDiscussion의 매개변수에 newDiscussion을 넣어 화면에 나오는 모양으로 DOM으로 바꿔줌
+  // const newObj = convertToDiscussion(newDiscussion);
+  // // ul 맨 앞에 자식요소로 추가되어야 함 -> 맨 위에 새 질문이 뜨게 하기 위해서
+  // ul.prepend(newObj);
 
   // 비우는 건 직접 ''를 설정해서 비움
   inputName.value = '';
@@ -111,99 +208,6 @@ function addDiscussion(event) {
 }
 // 버튼을 누르면 등록된 내용이 ul요소의 맨 앞에 추가되게 함\
 submitBtn.addEventListener('click', addDiscussion);
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// const render = (element) => {
-//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-//   }
-//   return;
-// };
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-// const ul = document.querySelector("ul.discussions__container");
-// render(ul);
-
-// 페이지네이션
-// 필요한 변수 설정
-const contents = document.querySelector(".discussions__container");
-const buttons = document.querySelector(".buttons");
-
-const numOfContent = agoraStatesDiscussions.length;
-const maxContent = 10;
-const maxButton = 5;
-const maxPage = Math.ceil(numOfContent/maxContent);
-let page = 1;
-
-const makeButton = (id) => {
-  const button = document.createElement("button");
-  button.classList.add("button");
-  //* html에서 data-num이라는 속성을 사용하게 됨 -> 의미론적 표준 HTML 요소에 추가 정보를 저장
-  //*  DOM에서 dataset 객체를 사용해 data-의 뒷부분을 가져옴
-  button.dataset.num = id;
-  button.innerText = id;
-  button.addEventListener("click", (e) => {
-    //* 모든 버튼의 active를 지우고 누른 페이지의 active만 활성화
-    Array.prototype.forEach.call(buttons.children, (button) => {
-      if(button.dataset.num) button.classList.remove("active");
-    })
-    e.target.classList.add("active");
-    page = e.target.dataset.num;
-    renderContent(parseInt(page))
-  });
-  return button;
-}
-
-const renderContent = (page) => {
-  while(contents.hasChildNodes()) {
-    contents.removeChild(contents.lastChild);
-  }
-  for(let id = (page - 1) * maxContent + 1; id <= page * maxContent && id <= numOfContent; id++) {
-    contents.appendChild(convertToDiscussion(agoraStatesDiscussions[id]));
-  }
-};
-
-const goPrevPage = () => {
-  if(page > 1) {
-  page = page - 1;
-  render(page);
-  }
-  // 이전페이지, 다음페이지 버튼으로 페이지를 이동했을 때, active 클래스를 옮겨주는 작업 필요
-  // 숫자 버튼 누른 이후 페이지 버튼 누를 때 작동 안 됨
-};
-
-const goNextPage = () => {
-  if(page < maxPage) {
-  page = page + 1;
-  render(page);
-  }
-};
-
-const prev = document.createElement("button");
-prev.classList.add("button", "prev");
-prev.innerHTML = '<i class="fa-solid fa-angle-left"></i>';
-prev.addEventListener("click", goPrevPage);
-
-const next = document.createElement("button");
-next.classList.add("button", "next");
-next.innerHTML = '<i class="fa-solid fa-angle-right"></i>';
-next.addEventListener("click", goNextPage);
-
-const renderButton = (page) => {
-  while(buttons.hasChildNodes()) {
-    buttons.removeChild(buttons.lastChild);
-  }
-  for(let id=1; id<page+maxButton && id<=maxPage; id++) {
-    buttons.appendChild(makeButton(id));
-  }
-  buttons.children[0].classList.add("active");
-  
-  buttons.prepend(prev);
-  buttons.append(next);
-
-  // if(page === 1) buttons.removeChild(prev);
-  // if(page === maxPage) buttons.removeChild(next);
-};
 
 //* 맨 첫 화면 페이지 띄우기
 const render = (page) => {
