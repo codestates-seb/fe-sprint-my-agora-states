@@ -69,7 +69,7 @@ const convertToDiscussion = (obj) => {
 const contents = document.querySelector(".discussions__container");
 const buttons = document.querySelector(".buttons");
 
-const numOfContent = agoraStatesDiscussions.length;
+let numOfContent = agoraStatesDiscussions.length;
 const maxContent = 10;
 const maxButton = 5;
 const maxPage = Math.ceil(numOfContent/maxContent);
@@ -98,8 +98,8 @@ const renderContent = (page) => {
   while(contents.hasChildNodes()) {
     contents.removeChild(contents.lastChild);
   }
-  //* 0-9/ 10-19/ 20-29 /30-39 /40-41
-  for(let id = (page - 1) * maxContent; id < page * maxContent && id <= numOfContent; id++) {
+  //* 0-9/ 10-19/ 20-29 /30-39 /40, 41
+  for(let id = (page - 1) * maxContent; id < page * maxContent && id < numOfContent; id++) {
     contents.appendChild(convertToDiscussion(agoraStatesDiscussions[id]));
   }
 };
@@ -135,7 +135,7 @@ const renderButton = (page) => {
   while(buttons.hasChildNodes()) {
     buttons.removeChild(buttons.lastChild);
   }
-  for(let id=1; id<page+maxButton && id<=maxPage; id++) {
+  for(let id=1; id<=maxPage; id++) {
     buttons.appendChild(makeButton(id));
   }
   buttons.children[page-1].classList.add("active");
@@ -194,6 +194,7 @@ function addDiscussion(event) {
   }
   // 배열에 추가하기 -> agorastatesDiscussions 배열에 데이터가 추가되어야 함->맨앞
   agoraStatesDiscussions.unshift(newDiscussion);
+  numOfContent = agoraStatesDiscussions.length;
   // 페이지 렌더링
   render(page);
   // // convertToDiscussion의 매개변수에 newDiscussion을 넣어 화면에 나오는 모양으로 DOM으로 바꿔줌
@@ -206,8 +207,10 @@ function addDiscussion(event) {
   inputTitle.value = '';
   inputStory.value = '';
 }
+
 // 버튼을 누르면 등록된 내용이 ul요소의 맨 앞에 추가되게 함\
 submitBtn.addEventListener('click', addDiscussion);
+
 
 //* 맨 첫 화면 페이지 띄우기
 const render = (page) => {

@@ -140,6 +140,7 @@ label {
     display: flex;
     justify-content: center;
     margin: 10px;
+    min-height: 1000px;
 }
 
 .discussions__container {
