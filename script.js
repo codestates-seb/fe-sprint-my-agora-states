@@ -1,10 +1,14 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+// 한 페이지당 노출될 게시글 갯수 설정
+// 첫 페이지에 노출될 게시글로 초기화
 const pageSize = 5;
 let pageList = agoraStatesDiscussions.slice(0, pageSize);
 
 const ul = document.querySelector("ul.discussions__container");
 const discussionSection = document.querySelector('section.discussion__wrapper');
 
+//페이지네이션 이벤트 생성
+//본 객체의 시작 인덱스 ~~ 종료 인덱스까지를 변수로 설정
 const buttonClick = (event, target) => {
   const startIndex = (event.target.textContent - 1) * pageSize;
   const lastIndex = startIndex + pageSize;
@@ -120,6 +124,7 @@ lastPage.className = 'pagination';
 lastPage.textContent = '>>';
 
 // 이전, 다음 버튼 사이에 숫자 칸 생성
+// 페이지당 노출될 게시글의 갯수만큼 렌더링을 반복함
 for (let i = 1; i < Math.ceil(agoraStatesDiscussions.length/5); i++){
   let pageNumber = document.createElement('a');
   pageNumber.textContent = `  ${i}  `;
@@ -133,11 +138,6 @@ for (let i = 1; i < Math.ceil(agoraStatesDiscussions.length/5); i++){
 paginationList.append(lastPage);
 discussionSection.append(paginationList);
 
-// 페이지 네이션 구현하기
-//페이지 위치를 나타내는 배열이 필요
-//페이지 당 게시글 5개씩 표시
-//총 게시글 나누기 5 하면 총 페이지 수가 나옴
-//
 }
 
 // start
