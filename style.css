@@ -1,1 +1,224 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'S-CoreDream-3Light';
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(72, 78, 104, 0.4);
+}
+
+/* section {
+    width: 700px;
+} */
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px 30px 30px 30px;
+    width: 620px;
+}
+
+h1 {
+    margin: 30px 30px 10px 30px;
+    font-size: 2.5em;
+    letter-spacing: 1.5px;
+}
+
+.form__info {
+    font-size: 1.1em;
+    background-color: rgb(80, 87, 122);
+    padding: 10px;
+    margin: 0 0 0 5px;
+    color: white;
+}
+
+form.form {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 3px solid rgba(64, 66, 88, 0.5);
+    /* color: white; */
+}
+
+label {
+    font-size: 1.3em;
+}
+
+.form__input--name {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 520px;
+}
+
+#name {
+    width: 350px;
+    height: 30px;
+    margin: 7px;
+    border-top: none;
+    border-bottom: 2px solid rgba(60, 60, 60, 0.5);
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+}
+
+.form__input--title {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 520px;
+}
+
+
+#title {
+    width: 350px;
+    height: 30px;
+    margin: 7px;
+    border-top: none;
+    border-bottom: 2px solid rgba(60, 60, 60, 0.5);
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+
+}
+
+#story {
+    width: 350px;
+    height: 50px;
+    margin: 7px;
+    padding: 5px;
+    resize: none;
+    border: 2px solid rgba(60, 60, 60, 0.5);
+    background-color: transparent;
+}
+
+.form__textbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 520px;
+}
+
+#submit {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+    border-style: none;
+    background-color: rgb(80, 87, 122);
+    color: white;
+    font-size: 1.1em;
+}
+
+#submit:hover {
+    background-color: #6B728E;
+}
+
+#submit:active {
+    background-color: #404258;
+}
+
+.discussion__wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    min-height: 1000px;
+}
+
+.discussions__container {
+    list-style: none;
+    width: 620px;
+}
+
+li.discussion__container {
+    /* width: 540px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(60, 60, 60, 0.7)
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__title {
+    margin: 0.83em 0;
+}
+
+.discussion__title > a {
+    color: rgb(40, 40, 40);
+    text-decoration-line: none;
+}
+
+.discussion__title > a:hover {
+    text-decoration-line:underline ;
+}
+
+.discussion__content {
+    width: 540px;
+    flex-grow: 2;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 1.25em;
+}
+
+.discussion__information {
+    text-align: right;
+    font-size: 0.9em;
+    color: rgb(40, 40, 40);
+}
+
+.discussion__answered {
+    font-size: 25px;
+    flex-grow: 1;
+}
+
+.buttons {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color:rgb(40, 40, 40);
+    width: 200px;
+    height: 50px;
+}
+
+.button {
+    font-size: 1.3rem;
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer
+}
+
+.button.active {
+    text-decoration: underline;
+}
