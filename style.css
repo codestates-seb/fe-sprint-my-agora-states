@@ -103,9 +103,6 @@ li.discussion__container {
   font-size: 40px;
   margin-left: 4rem;
 }
-.discussion__answered p {
-  color: green;
-}
 .discussion__information {
   font-size: 12px;
 }

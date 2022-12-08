@@ -38,6 +38,11 @@ const convertToDiscussion = (obj) => {
 
   const checked = document.createElement("p");
   checked.textContent = obj.answer ? "☑︎" : "☒";
+  if (!obj.answer) {
+    checked.style.color = "red"
+  } else {
+    checked.style.color = "green"
+  }
   discussionAnswered.append(checked);
 
   // DOM append 메서드를 이용하여, 위에서 생성한 <div>요소들을 li.discussion__container의 자식 요소로 추가할 수 있습니다.
@@ -100,3 +105,4 @@ form.addEventListener("submit", (event) => {
   inputContent.value = '';
   
 });
+
