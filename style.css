@@ -14,8 +14,9 @@ textarea {
   color: #ffffff;
 }
 img {
-  width: 48px;
+  width: 60px;
   border-radius: 50%;
+  margin-top: -5px;
 }
 h2 {
   font-size: 20px;
@@ -28,7 +29,7 @@ body {
 }
 .form__container {
   height: 300px;
-  background: url(./bg.jpg);
+  background: url(./imges/bg.jpg);
   background-size: cover;
   padding: 40px;
 }
@@ -68,7 +69,7 @@ body {
 
 /* discussion*/
 .discussion__wrapper {
-  height: 440px;
+  height: 100vh;
   background-color: #404258;
   color: #fff;
   padding: 40px;
@@ -102,7 +103,9 @@ li.discussion__container {
   font-size: 40px;
   margin-left: 4rem;
 }
-
+.discussion__answered p {
+  color: green;
+}
 .discussion__information {
   font-size: 12px;
 }

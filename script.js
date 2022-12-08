@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -17,20 +17,23 @@ const convertToDiscussion = (obj) => {
   // 아바타 프로필 사진이 들어갈 <img> 요소도 추가하겠습니다. 
   // src, alt 속성을 agoraStatesDiscussions의 첫 번째 요소에 있는 데이터로 넣어줍니다.
   const avatarImg = document.createElement('img');
-  avatarImg.src = agoraStatesDiscussions[0].avatarUrl;
-  avatarImg.alt = 'avatar of ' + agoraStatesDiscussions[0].author;
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+
   avatarWrapper.append(avatarImg);
 
   const discussionTitle = document.createElement("h2");
+  discussionTitle.className = 'discussion__title';
   const titleLink = document.createElement("a");
-  titleLink.href = obj.url;
   titleLink.textContent = obj.title;
+  titleLink.href = obj.url;
   discussionTitle.append(titleLink);
-  discussionContent.append(discussionTitle);
 
   const discussionInfo = document.createElement("div");
+  discussionInfo.textContent = `${obj.author} / ${new Date().toLocaleString()}`
   discussionInfo.className = "discussion__information";
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt)}`
+
   discussionContent.append(discussionTitle, discussionInfo);
 
   const checked = document.createElement("p");
@@ -54,3 +57,46 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// 저장
+let newDiscussion = [];
+
+const storageItems = JSON.parse(localStorage.getItem('agoraDiscussions'));
+console.log(storageItems)
+
+  function getLocalStorage() {
+    if(storageItems) {  
+      storageItems.forEach((e) => {
+        // console.log(e);
+        newDiscussion.push(e);
+        ul.prepend(convertToDiscussion(e));
+      })
+    }
+  }
+  getLocalStorage();
+
+
+// 디스커션 추가
+const form = document.querySelector(".form");
+const inputTitle = document.querySelector("#title");
+const inputName = document.querySelector("#name");
+const inputContent = document.querySelector("#story");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const newContent = {};
+  newContent.title = inputTitle.value;
+  newContent.author = inputName.value;
+  newContent.bodyHTML = inputContent.value;
+  newContent.createdAt = new Date().toLocaleString();
+  newContent.avatarUrl = "https://item.kakaocdn.net/do/34626f9c91ec39542767f4f798c29b908f324a0b9c48f77dbce3a43bd11ce785";
+  ul.prepend(convertToDiscussion(newContent));
+  // console.log(ul);
+  
+  newDiscussion.push(newContent);
+  localStorage.setItem("agoraDiscussions",JSON.stringify(newDiscussion));
+  
+  inputName.value = '';
+  inputTitle.value = '';
+  inputContent.value = '';
+  
+});
