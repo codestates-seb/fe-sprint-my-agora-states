@@ -1,1 +1,204 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+    color : #3e3e3e;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.header_container{
+    width : 900px;
+    margin: auto;
+}
+
+
+main {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 30px 0;
+}
+
+.form__container{
+    margin: 50px 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+
+.form div label {
+    padding: 10px;
+}
+
+section.discussion__wrapper {
+    width: 780px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.discussions__container{
+    list-style:none;
+}
+.discussion__container{
+    display: flex;
+    padding: 5px 0;
+}
+
+.discussion__avatar--image{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.discussion__content{
+    flex-grow: 1;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.discussion__title{
+    font-size: 15px;
+}
+.discussion__information{
+    text-align: right;
+    font-size: 10px;
+}
+
+
+/*form */
+
+.form {
+    padding: 15px 25px;
+}
+
+.form_input_contianer{
+    display:  flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#label {
+    width: 85px;
+}
+.form__textbox {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+}
+.form__input--name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form__input--title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type="text"] {
+  height: 35px;
+  width: 260px;
+  line-height: normal;  /* line-height 초기화 */
+  padding: .8em .5em;  /* 여백 설정 */
+  border : 1px solid #dfdede;
+  border-radius: 5px;
+
+}
+textarea {
+    
+    resize: none;
+    height: 100px;
+    width: 100%;
+    border : 1px solid #dfdede;
+    border-radius: 5px;
+    padding: .8em .5em;  /* 여백 설정 */
+}
+.form__submit{
+    padding: 20px;
+    text-align: right;
+}
+input[type="submit"] {
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-size: 400;
+    background-color : #f0f0f035;
+    color : #3e3e3e;
+    border : 1px solid #dfdede;
+
+}
+input[type="submit"]:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+
+}
+
+.nav_pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header {
+    width: 100%;
+}
+
+  
+h1{ 
+    text-align: center;
+    padding: 30px 0;
+    height: 100px;
+}
+  
+  h1 span {
+    margin: 0 10px;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    animation: bounce .5s ease infinite alternate;
+    font-family: 'Titan One', cursive;
+    font-size: 70px;
+    color:#B1B2FF; 
+    text-shadow: 0 1px 0 rgb(7, 7, 7),
+                 0 10px 10px rgba(0, 0, 0, .4);
+  }
+  .page-item {
+    cursor: pointer;
+  }
+  .page-link.active{
+    color : red;
+  }
+
+  h1 span:nth-child(1) {  color : #B1B2FF;  animation-delay: .2s; }
+  h1 span:nth-child(2) {  color : #AAC4FF;  animation-delay: .4s; }
+  h1 span:nth-child(3) {  color : #D2DAFF;animation-delay: .6s; }
+
+  @keyframes bounce {
+    100% {
+      top: -20px;
+      text-shadow: 0 1px 0 rgb(0, 0, 0),     
+                   0 50px 25px rgba(0, 0, 0, .2);
+    }
+  }
