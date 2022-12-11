@@ -4,18 +4,47 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1 {
+    font-size: 7vw;
+    color: white;
+    font-family: 'Rubik Vinyl', cursive;
+    animation-duration: 1.5s;
+    animation-name: effect;
+}
+@keyframes effect {
+    0% { font-size: 0vw; }
+    85% { font-size: 8vw; }
+    100% { font-size: 7vw; }
+}
 
 body {
     height: 100%;
     display: flex;
     justify-content: center;
+    background-color: black;
 }
 
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 40px;
+    
+}
+.form__flexcontainer{
+    display: flex;
+    flex-direction: row;
+}
+input, textarea {
+    border: 1px solid #6d6d6d;
+    outline: none;
+    bottom: 0;
+    width: 100%;
+    border-radius: 20px;
+    resize: none;
+    text-align: center;
+}
+.form__input--title{
+    margin-left: 25px;
 }
 
 .form__textbox {
@@ -23,20 +52,39 @@ main{
     display: flex;
     justify-content: space-between;
 }
-
-.form__submit{
-    text-align: center;
+.form__submit {
+    padding-top:20px;
+    display:flex;
+    justify-content: center;
 }
 
-.form__submit input {
-    border: none;
-    background-color:rgb(82, 82, 82);
-    color: white;
+.form__submit > input {
+    padding:12px;
+    width:100%;
+    background-color:rgb(250, 250, 250);
+    border:1px solid #7d7d7d;
+    border-radius:5px;
+    font-weight:bold;
+    font-size:16px;
+}
+.form__submit > input:hover {
+    background-color:rgb(240, 240, 240);
+}
 
+
+.form__top{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    margin-bottom: 10px;
+}
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
 }
 
 main, .discussion__container {
-    background-color: rgb(82, 82, 82);
+    background-color: black;
 }
 section {
     padding: 25px;
@@ -46,6 +94,7 @@ section {
 section.form__container {
     border-radius: 20px;
     background-color: white;
+    margin-top: 50px;
 
 }
 
@@ -116,4 +165,35 @@ section.form__container {
 
 .discussion__answered p {
    font-size: 20px;
+}
+
+.discussions__pagination {
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    bottom: 0;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+}
+
+.move__btn {
+    font-size:xx-large;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+#pages__btn {
+    height:40px;
+    font-size:24px;
+    display:flex;
+    align-items: center;
+}
+
+#pages__btn > div {
+    height:40px;
+    line-height:45px;
+    padding:0 7px;
 }

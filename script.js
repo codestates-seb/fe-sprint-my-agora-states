@@ -1,6 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
+console.log(agoraStatesDiscussions)
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -13,7 +12,7 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  
   
   // 아바타 
    const avatarImg = document.createElement("img");
@@ -55,9 +54,9 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (ul) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const render = (element) => {  
+  for (let i = 0; i < currentPageContNumb; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i + currentPage*10]));
   }
   return;
 };
@@ -95,6 +94,17 @@ form.addEventListener('submit', (event) => {
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
+
+  if (typeof(Storage) !== "undefined") {
+    agoraStatesDiscussions.unshift(obj);
+    localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
+  } else {
+    agoraStatesDiscussions.unshift(obj);
+    localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
+  }
+
+
+
   agoraStatesDiscussions.unshift(obj);
   // 그 객체를 convertToDiscussion에 넣어서 DOM으로 변환
   // 그걸 또 render함수에 넣어서 브라우저에 렌더링
@@ -104,6 +114,101 @@ form.addEventListener('submit', (event) => {
   textArea.value = "";
 
 
+})
+
+
+
+
+// 페이지네이션 구현
+
+const moveBtn = document.querySelectorAll(".move__btn");
+
+const pagesBtn = document.querySelector("#pages__btn");
+
+
+// agoraStatesDiscussions의 길이 
+let totalContLength = agoraStatesDiscussions.length;
+
+// 10으로 나누고 Math.ceil을 사용하여 전체 페이지수를 나타냄
+let totalPageLength = Math.ceil(totalContLength / 10);
+
+// 현재 페이지
+let currentPage = 0;
+
+let currentPageContNumb = 10;
+
+let totalPaginationLength = Math.ceil(totalContLength / 50 )
+let currentPagination = 0;
+let currentPaginationLength = 5;
+
+// 페이지네이션 렌더 함수
+(function PaginationRender() {
+  for (let j = 0; j < currentPaginationLength; j++) {
+    const pageBtn = document.createElement('div');
+    pageBtn.className = "page__btn";
+    pageBtn.textContent = `${j + currentPagination + 1}`;
+    pagesBtn.append(pageBtn);
+  }
+})();
+
+// 페이지 수 조정 함수
+function pagecontrol() {
+  if (currentPagination === totalPaginationLength-1) {
+    currentPaginationLength = totalPaginationLength % 5;
+  } else {
+    currentPaginationLength = 5;
+  }
+
+  if (currentPagination < 0) {
+    currentPagination = 0;
+  } else if (currentPagination > totalPaginationLength-1) {
+    currentPagination = totalPaginationLength-1;
+  }
+  while (pagesBtn.firstChild) {
+    pagesBtn.removeChild(pagesBtn.firstChild);
+  }
+  (function PaginationRender() {
+    for (let j = 0; j < currentPaginationLength; j++) {
+      const pageBtn = document.createElement('div');
+      pageBtn.className = "page__btn";
+      pageBtn.textContent = `${j + currentPagination + 1}`;
+      pagesBtn.append(pageBtn);
+    }
+  })();
+}
+
+moveBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // 각 버튼에 대한 기본적인 작동내용
+    if (e.target.id === "prev__btn") {
+      currentPagination--;
+      pagecontrol();
+    } else if (e.target.id === "next__btn") {
+      currentPagination++;
+      pagecontrol();
+    } else {
+      currentPage = e.target.textContent - 1;
+    }
+
+    // 데이터셋의 길이를 벗어나는 것에 대한 예외처리
+    if (currentPage < 0) {
+      currentPage = 0;
+    } else if (currentPage > totalPageLength-1) {
+      currentPage = totalPageLength-1
+    }
+    // 마지막 페이지에서의 콘텐츠 수에 대한 예외처리
+    if (currentPage === totalPageLength-1) {
+      currentPageContNumb = agoraStatesDiscussions.length % 10;
+    } else {
+      currentPageContNumb = 10;
+    }
+    // 이전 discussions 삭제
+    while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    }
+    // 해당 페이지에 위치한 discussions 렌더링
+    render(ul);
+  })
 })
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
