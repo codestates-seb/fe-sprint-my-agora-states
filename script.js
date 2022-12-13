@@ -86,6 +86,7 @@ writeForm.addEventListener ('submit', function(event) {
 
 });
 
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -93,6 +94,33 @@ const render = (element) => {
   }
   return;
 };
+
+// 페이지네이션
+// 현재페이지, 총 데이터 수, 화면에 나타낼 페이지 수, 한 페이지당 나타낼 수
+// 1, 100, 5, 10
+// 데이터를 10개씩 잘라서 보여줘야 함
+// 페이지를 누르면 그 다음 목록이 보이도록
+// 이벤트리스너로 숫자 버튼 누르면 목록들이 나뉘어서 보이도록 하기
+
+// 70 
+// 1 2 3 4 5 >
+// 6 7 
+
+
+const currentPage = 1; // 현재 페이지
+const limit = 10; // 한 페이지당 나타낼 개수인 변수 선언
+const totalCount = 100; // 총 데이터 수
+const maxPage = Math.ceil(totalCount / limit); // 총 몇 페이지가 필요한지 계산
+
+// 글 목록 보여주기 & 버튼 함수 
+const buttons = document.querySelectorAll(".buttons"); 
+// 반복해서 하나씩
+// for (let button of buttons) { button.addEventListener() }
+// buttons.addEventListener('click', () => {
+  
+// });
+
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
