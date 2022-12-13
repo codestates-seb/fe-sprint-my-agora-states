@@ -132,7 +132,7 @@ a {
     display: flex;
     justify-content: center;
 }
-.pagination {
+.pagination__number {
     padding: 10px;
     color: var(--purple--20);
     font-size: 30px;
