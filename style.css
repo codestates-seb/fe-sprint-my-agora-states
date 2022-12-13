@@ -63,8 +63,13 @@ body {
   flex-direction: column;
   margin-bottom: 10px;
 }
-.form__submit {
+.form__submit input {
   float: right;
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background: none;
+  color: #fff;
 }
 
 /* discussion*/
