@@ -1,1 +1,190 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'font';
+    src: url('./font/Asia신디나루M.ttf') format('truetype');
+}
+
+body {
+    background-image: url('./image/background1.png'); 
+    background-position: 100% 100%;
+    font-family: 'font';
+    letter-spacing: -3px;
+    display: flex;
+    position: relative;
+    background-size: cover;
+}
+
+main {
+    margin: 0 auto;
+    /* width: 540px; */   
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    padding: 10px;
+    background-color: white;
+}
+
+h2 {
+    font-size: 1.3em;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9em;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #00A057;
+}
+
+#story {
+    resize: none;
+    height: 70px;
+    border-radius: 10px;
+    border: 2px solid #00A057;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    height: 150px;
+    width: 500px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form__input--wrapper div {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.form__input--wrapper input {
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+}
+
+.form__input--wrapper textarea {
+    padding: 5px;
+}
+
+.form__submit input {
+    margin: 10px;
+    height: 32px;
+    width: 88px;
+}
+
+.form__submit input:focus {
+    outline: none;
+    border: none;
+}
+
+.form__submit input:hover {
+    cursor: pointer;
+    background-color: #f8f8f8;
+}
+
+.form__submit input:active {
+    outline: none;
+    background-image: url('./image/submit-btn.png'); 
+}
+
+/* input.submit[type="submit"]:hover {
+    background-image: url('./image/submit-btn.png'); 
+} */
+
+.form__container {
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.form__input--name input {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 1;
+    border-bottom-color: #00A057;
+}
+
+.form__input--title input {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 1;
+    border-bottom-color: #00A057;
+}
+
+
+ul.discussions__container > li:hover {
+    background-color: #FEFFB7;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.discussions__container {
+    list-style-type: none;
+    background-color: white;
+    overflow: auto;
+    height: 540px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.discussion__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 0px;
+    width: 540px;
+    padding: 10px;
+}
+
+.discussions__container::-webkit-scrollbar {
+    display: none;
+}
+
+.discussion__content div {
+    text-align: right;
+}
+
+.discussion__avatar--wrapper img {
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 100%;
+    width: 64px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    justify-content: space-between;
+}
+
+.discussion__wrapper p {
+    font-size: 20px;
+}

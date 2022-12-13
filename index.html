@@ -14,25 +14,26 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <!-- <h1>My Agora States</h1> -->
     <section class="form__container">
+      <img src = "./image/agora-logo.png">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <!-- <label for="name">이름: </label> -->
+            <input type="text" name="name" id="name" placeholder="  이름을 작성해줘 구리!" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <!-- <label for="name">제목: </label> -->
+            <input type="text" name="name" id="title" placeholder="  제목을 작성해줘 구리!" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <!-- <label for="story">질문: </label> -->
+            <textarea id="story" name="story" placeholder="질문을 작성해줘 구리!" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" class="submit" value=" 제출구리! ">
         </div>
       </form>
     </section>
@@ -48,7 +49,7 @@
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>✅</p></div>
         </li>
       </ul>
     </section>
@@ -56,5 +57,7 @@
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </html>
