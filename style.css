@@ -70,6 +70,12 @@ body {
   border-radius: 10px;
   background: none;
   color: #fff;
+  cursor: pointer;
+}
+.form__submit:active input{
+  transform: translateY(1px);
+  background: #fff;
+  color: rgba(8, 0, 113, 0.7);
 }
 
 /* discussion*/
