@@ -11,8 +11,6 @@ async function getData() {
   const res = await fetch('http://localhost:4000/discussions')
   let agoraStatesDiscussions = await res.json()
 
-  console.log(agoraStatesDiscussions)
-
   // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
