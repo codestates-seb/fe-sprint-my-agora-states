@@ -68,6 +68,7 @@ form {
 
 img.active {
   border: 3px solid black;
+  border-radius: 50%;
 }
 
 #name {
