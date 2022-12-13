@@ -59,8 +59,16 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// 서버 연결
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+
+fetch('http://localhost:4000/discussions/')
+.then(res => res.json())
+.then(data => {
+  agoraStatesDiscussions = data;
+  console.log(agoraStatesDiscussions);
+  render(ul);
+})
 
 // 저장
 let newDiscussion = [];
