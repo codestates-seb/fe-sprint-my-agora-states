@@ -1,7 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+async function fetched() {
+  const res = await fetch('http://localhost:4000/discussions');
+  const agoraStatesDiscussions = await res.json();
+  console.log(agoraStatesDiscussions);
+
+  // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -218,3 +223,6 @@ const render = (page) => {
   renderButton(page);
 };
 render(page);
+}
+
+fetched();
