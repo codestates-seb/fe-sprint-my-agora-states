@@ -8,113 +8,116 @@ import SearchBox from "./src/SearchBox.js";
 const $discussionWrapper = document.querySelector('.discussion__wrapper');
 const $main = document.querySelector('main');
 
-
-
-
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
 
-function app(){
-    this.state ={
-      pageNum : 1,
-      dropNum : 5,
-      isTrue : null,
-      searchClassification : '제목',
-      searchContext : '',
-      agoraStatesDiscussions,
-      filteredArr : [],
+function app() {
+  this.state = {
+    pageNum: 1,
+    dropNum: 5,
+    isTrue: null,
+    searchClassification: '제목',
+    searchContext: '',
+    agoraStatesDiscussions,
+    filteredArr: [],
+  }
+
+
+  const searchSection = new SearchBox({
+    $discussionWrapper, onClick: (value) => {
+      this.setState({ searchClassification: value.searchClassification, searchContext: value.searchContext, pageNum: 1 });
     }
+  });
 
+  const filterBox = new FilterBox({
+    $discussionWrapper,
+    initialState: this.state.isTrue,
+    onClick: (value) => {
+      this.setState({ isTrue: value, pageNum: 1 });
+    }
+  });
 
-    const searchSection = new SearchBox({$discussionWrapper, onClick:(value)=>{
-      this.setState({searchClassification : value.searchClassification, searchContext : value.searchContext, pageNum: 1});
-    }});
+  const discussBox = new Discussbox({ $discussionWrapper, initialState: this.state });
 
-    const filterBox = new FilterBox({$discussionWrapper,
-       initialState : this.state.isTrue,
-       onClick : (value)=>{
-        this.setState({isTrue : value, pageNum : 1});
-       }
-      });
-    
-    const discussBox = new Discussbox({$discussionWrapper, initialState : this.state});
-    
-    const pagenation = new Pagenationbox({$discussionWrapper, initialState : this.state,
-      onClick : (value, pagenationEndNum)=>{
-          console.log("value", value);
-          if(value === '<<'){
-            this.setState({pageNum : 1});
-            return;
-          }
-
-          if(value === '>>'){
-            this.setState({pageNum : pagenationEndNum});
-            return;
-          }
-          this.setState({pageNum : Number(value)});
+  const pagenation = new Pagenationbox({
+    $discussionWrapper, initialState: this.state,
+    onClick: (value, pagenationEndNum) => {
+      console.log("value", value);
+      if (value === '<<') {
+        this.setState({ pageNum: 1 });
+        return;
       }
-    })
 
-    const formBox = new FormBox({$main, onSubmit:(obj)=>{
+      if (value === '>>') {
+        this.setState({ pageNum: pagenationEndNum });
+        return;
+      }
+      this.setState({ pageNum: Number(value) });
+    }
+  })
+
+  const formBox = new FormBox({
+    $main, onSubmit: (obj) => {
       console.log(obj);
       agoraStatesDiscussions.unshift(obj);
       this.setState();
-    }});
-
-    this.setState = (nextState) =>{
-      this.state = {...this.state,...nextState};
-      this.state = {...this.state, filteredArr : getFilterArr()};
-      filterBox.setState({isTrue : this.state.isTrue})
-      discussBox.setState(this.state);
-      pagenation.setState(this.state);
-      console.log(this.state);
     }
+  });
 
-    const answered = (object) => {
-      switch(this.state.isTrue){
-          case null :
-              return true;
-              break;
-          case true :
-              if(object.answer) return true
-              else return false;
-              break;
-          case false :
-              if(!object.answer) return true
-              else return false;
-              break;
-      }
+  this.setState = (nextState) => {
+    this.state = { ...this.state, ...nextState };
+    this.state = { ...this.state, filteredArr: getFilterArr() };
+    filterBox.setState({ isTrue: this.state.isTrue })
+    discussBox.setState(this.state);
+    pagenation.setState(this.state);
+    console.log(this.state);
+  }
+
+  const answered = (object) => {
+    switch (this.state.isTrue) {
+      case null:
+        return true;
+        break;
+      case true:
+        if (object.answer) return true
+        else return false;
+        break;
+      case false:
+        if (!object.answer) return true
+        else return false;
+        break;
+    }
   }
 
   const search = (object) => {
-      if(this.state.searchContext === null){
-          return true;
-      }
-      switch(this.state.searchClassification){
-          case '제목' :
-              return object.title.includes(this.state.searchContext);
-              break;
-          case '작성자' :
-              return object.author.includes(this.state.searchContext);
-              break;
-          }
+    if (this.state.searchContext === null) {
+      return true;
+    }
+    switch (this.state.searchClassification) {
+      case '제목':
+        return object.title.includes(this.state.searchContext);
+        break;
+      case '작성자':
+        return object.author.includes(this.state.searchContext);
+        break;
+    }
   }
 
-  
 
-  const getFilterArr = () =>{
-    const filteredArr = this.state.agoraStatesDiscussions.filter((object)=>{
+
+  const getFilterArr = () => {
+    const filteredArr = this.state.agoraStatesDiscussions.filter((object) => {
       return answered(object) && search(object);
-  })
-  return filteredArr;
+    })
+    return filteredArr;
   }
 
-  const init = () =>{
+  const init = () => {
     this.setState();
   }
   init();
-    
+
 
 }
 

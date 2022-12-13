@@ -14,11 +14,15 @@ export default function FilterBox({$discussionWrapper, initialState, onClick}){
         $discussionFilter.innerHTML = '';
         const $filterWrapper = document.createElement('div');
         const innerText = this.state.isTrue === null ? 'none' : String(this.state.isTrue);
-        $filterWrapper.innerHTML = `필터: <span class="filter">answerd: ${innerText}</span>`
+        $filterWrapper.innerHTML = `<div>필터: <span class="filter">answerd: ${innerText}</span><div>
+        <select>
+            <option value="5">5개</option>
+            <option value='15'>15개</option>
+        </select>
+        `
         $discussionFilter.append($filterWrapper);
     }
 
-    console.log($discussionFilter.children);
     $discussionFilter.addEventListener('click',(e)=>{
         const $target = e.target.closest('.filter');
         if(!$target){
