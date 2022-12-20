@@ -16,30 +16,34 @@
 </head>
 
 <body>
-  <main class="box-col">
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form box-row">
-        <div class="form__input--wrapper box-col">
-          <div class="form__input--name box-row">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+  <header class="box-row">
+    <h1 class="title">My Agora States</h1>
+    <div></div>
+  </header>
+  <main>
+    <section class="form__section box-col toggle__target">
+      <h2>질문을 입력하세요~</h2>
+      <div class="form__wrapper box-col">
+        <form action="" method="get" class="form box-col">
+          <div class="form__input--wrapper box-col">
+            <div class="form__input--name">
+              <input type="text" name="name" id="name" placeholder="이름" required>
+            </div>
+            <div class="form__input--title box-col">
+              <input type="text" name="title" id="title" placeholder="제목" required>
+            </div>
+            <div class="form__textbox box-col">
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            </div>
           </div>
-          <div class="form__input--title box-row">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
+          <div class="form__submit box-col">
+            <input type="submit" value="submit">
           </div>
-          <div class="form__textbox box-col">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit box-col">
-          <input type="submit" value="submit">
-        </div>
-      </form>
+        </form>
+      </div>
     </section>
-    <section class="discussion__wrapper">
+    <section class="discussion__wrapper box-col">
+      <h2>Disscussion List</h2>
       <ul class="discussions__container box-col">
         <li class="discussion__container box-row">
           <div class="discussion__avatar--wrapper box-col">
@@ -55,6 +59,7 @@
         </li>
       </ul>
     </section>
+    <i class="toggle__btn fa-solid fa-circle-plus"></i>
   </main>
 </body>
 <script src="data.js"></script>

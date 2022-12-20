@@ -70,7 +70,7 @@ const convertToDiscussion = (obj) => {
   // <div class="discussion__answered"><i class="fa-solid fa-square-check"></i></div>
   const discussionAnswerCheck = document.createElement("i")
   if(obj.answer == null) { // 질문이 비어있다면
-    discussionAnswerCheck.className = "fa-solid fa-square-xmark"
+    discussionAnswerCheck.className = "fa-regular fa-square-check"
   }else{
     discussionAnswerCheck.className = "fa-solid fa-square-check";
   }
@@ -82,21 +82,56 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    console.log(agoraStatesDiscussions[i])
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const agoraStatesDiscussions = [];
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
 
-// 이벤트 리스터
+fetch("http://localhost:4000/discussions")
+  .then((response) => response.json())
+  .then((data) => {
+      return data.map(discussion => {
+        if (discussion.answer) {
+          return {
+            ...discussion,
+            bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
+            answer: {
+              ...discussion.answer,
+              bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
+            }
+          }
+        }
+      
+        return {
+          ...discussion,
+          bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
+        }
+      })
+    }
+  )
+  .then((agoraStatesDiscussions) =>{
+      const render = (element) => {
+        for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+          element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+        }
+        return;
+      };
+      // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+      render(ul);
+    }
+  )
 
+/* 토글 버튼 만들기 */
+const toggleBtn = document.querySelector('.toggle__btn')
+const toggleTarget = document.querySelector('.toggle__target')
+let toggleOn = true;
+
+const toggleEvent = () => {
+  toggleTarget.style.display = toggleOn ? 'flex' : 'none';
+  toggleOn = !toggleOn;
+}
+
+toggleBtn.addEventListener('click', toggleEvent)
+
+// 이벤트 리스너
 const form = document.querySelector('.form')
 
 form.addEventListener('submit', (event) => {
@@ -115,6 +150,23 @@ form.addEventListener('submit', (event) => {
 
   agoraStatesDiscussions.unshift(newObj);
   ul.prepend(convertToDiscussion(newObj));
+  toggleTarget.style.display = 'none';
 })
 
 
+/* 화면 크기에 따른 변화 */
+const titleAndForm = document.querySelector('.title-form');
+const discussionWrapper = document.querySelector('.discussion__wrapper')
+// 윈도우 크기 조절 이벤트 리스너
+window.onresize = function(event){
+  var innerWidth = window.innerWidth;
+  if(innerWidth <= 910){
+    titleAndForm.style.width = '100vw';
+    titleAndForm.style.height = '40vh';
+    discussionWrapper.style.padding = '0';
+  }else{
+    titleAndForm.style.width = '40vw';
+    titleAndForm.style.height = '100vh';
+    discussionWrapper.style.paddingLeft = '40vw';
+  }
+}

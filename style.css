@@ -16,26 +16,142 @@
     flex-direction: row;
 }
 
-main {
+header{
     align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: lightblue;
 }
 
-h1{
+
+.title{
+    /* 혼자 가운데 정렬하는 방법 */
+    /* 부모 요소를 기준으로 배치 */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+
+    font-size: 30px;
+    color: white;
+}
+
+main{
+    background-color: #0F162E;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle__target{
+    display: none;
+}
+
+.toggle__btn{
+    position: fixed;
+    right: 5%;
+    bottom : 10%;
     font-size: 50px;
-    color: #3D3C42;
-    margin-top: 15px;
+    color: pink;
 }
 
-section{
-    margin-top: 10px;
+.form__section{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 50px;
+
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    color: white;
+}
+
+
+.form__wrapper{
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    width: 70%;
+    height: 90%;
+}
+
+.form{
+    width: 85%;
+    height: 90%;
+}
+
+.form__input--wrapper{
+    flex: 3;
+    justify-content: space-between;
+}
+
+.form__input--name, .form__input--title{
+    flex: 1;
+}
+
+.form__textbox{
+    flex: 3;
+}
+
+.form__input--wrapper > div > input{
+    flex: 1;
+    background-color: white;
+    border: solid 0.5px #AF9FDF;
+    color: #AF9FDF;
+}
+
+.form__input--wrapper > div > textarea{
+    flex: 1;
+    background-color: white;
+    border: solid 0.5px #AF9FDF;
+    color: #AF9FDF;
+}
+
+.form__submit{
+    flex: 1;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.form__submit > input{
+    flex-basis: 100%;
+    text-align: center;
+    background-color: white;
+    border: solid 2px #AF9FDF;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #AF9FDF;
+    cursor: pointer;
+}
+
+.form__submit > input:hover{
+    background-color: #3F2877;
+    color: white;
+}
+
+.form__submit > input:active{
+    background-color: #303e59;
+    border: solid 2px #303e59;
+}
+
+
+.discussion__wrapper{
+    width: 100%;
+    padding-top: 50px;
+    align-items: center;
+    background-color: white;
+}
+
+.discussions__container{
+    width: 60%;
 }
 
 .discussion__container{
-    flex: 1;
-    width: 540px;
-    height: 110px;
     justify-content: space-between;
     border-bottom: solid 1px gray;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 3px;
 }
 
 .discussion__content {
@@ -51,8 +167,8 @@ section{
 }
 
 .discussion__avatar--image{
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
 }
 
@@ -84,62 +200,6 @@ section{
 
 
 .discussion__answered > i{
-    color: #495C83;
+    color: #533483;
 }
 
-.form{
-    width: 500px;
-    margin: 10px 0px 10px 0px;
-}
-
-.form__input--wrapper{
-    flex: 3;
-}
-
-.form__input--wrapper > div{
-    justify-content: space-between;
-}
-
-.form__submit{
-    flex: 1;
-    justify-content: center;
-    margin-left: 10px;
-}
-
-.form__submit > input{
-    flex-basis: 100%;
-    text-align: center;
-    background-color: white;
-    border: solid 2px #495C83;
-    border-radius: 5px;
-    font-size: 20px;
-    color: #495C83;
-    cursor: pointer;
-}
-
-.form__submit > input:hover{
-    background-color: #495C83;
-    color: white;
-}
-
-.form__submit > input:active{
-    background-color: #303e59;
-    border: solid 2px #303e59;
-}
-
-.form__input--name, .form__input--title{
-    margin-bottom: 3px;
-}
-
-.form__input--wrapper > div > input, textarea{
-    border: solid 1px lightgray;
-    color: #3D3C42;
-}
-
-.form__input--wrapper > div > label{    
-    flex: 2;
-}
-
-.form__input--wrapper > div > input{
-    flex: 3;
-}
