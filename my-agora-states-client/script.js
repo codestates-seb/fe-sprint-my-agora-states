@@ -67,6 +67,7 @@ fetch('http://localhost:4000/discussions/')
 .then(data => {
   agoraStatesDiscussions = data;
   console.log(agoraStatesDiscussions);
+  console.log(data);
   render(ul);
 })
 
@@ -84,6 +85,7 @@ console.log(storageItems)
         ul.prepend(convertToDiscussion(e));
       })
     }
+    return;
   }
   getLocalStorage();
 

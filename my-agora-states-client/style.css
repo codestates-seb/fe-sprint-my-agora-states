@@ -5,6 +5,10 @@
 }
 li {list-style: none;}
 a {text-decoration: none; color: #ffffff;}
+
+body {
+  overflow: hidden;
+}
 textarea {
   height: 70px;
   background-color: rgba(0, 0, 0, 0);
@@ -23,9 +27,6 @@ h2 {
   margin-bottom: 10px;
   color: #000;
   font-weight: 400;
-}
-body {
-  overflow: hidden;
 }
 .form__container {
   height: 300px;
@@ -91,6 +92,9 @@ body {
 .discussion__wrapper::-webkit-scrollbar { 
   display: none;
   width: 0 !important;
+}
+ul.discussions__container {
+  margin-bottom: 350px;
 }
 li.discussion__container {
   width: 1000px;
