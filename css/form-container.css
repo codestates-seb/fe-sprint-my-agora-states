@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: antiquewhite;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.form__input--name {
+  display: flex;
+  font-size: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.form__input--title {
+  display: flex;
+  font-size: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+.form__submit input {
+  background-color: #205295;
+  height: 100px;
+  width: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10%;
+  margin-left: 10px;
+}
+.form__textbox label {
+  margin-bottom: 2px;
+}
+textarea,
+input {
+  background-color: blanchedalmond;
+  color: black;
+}
