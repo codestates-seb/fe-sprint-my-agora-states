@@ -1,1 +1,87 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sora', sans-serif;
+    background-color: #F8F4EA;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 540px;
+}
+
+.discussion__wrapper {
+    margin-top: 10px;
+    border-bottom: 1px solid rgb(181, 181, 181);
+}
+
+li {
+    list-style: none;
+}
+
+.discussion__container {
+    border-top: 1px solid rgb(181, 181, 181);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 10%;
+    width: 48px;
+    height: 48px;
+    border-radius: 100px; /* 프로필 사진을 원 모양으로 만들기 위해 */
+    overflow: hidden;
+    margin: 0 5px;
+}
+
+.discussion__content {
+    display: flex;
+    max-width: 80%;
+    flex-grow: 5;   /* 프로필 사진과 answered의 크기는 고정시키고 남는 부분을 content가 다 가져갈 수 있도록 */
+    flex-direction: column;
+    border-left: 1px solid rgb(181, 181, 181);
+    border-right: 1px solid rgb(181, 181, 181);
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 250;
+}
+
+.discussion__title {
+    margin: 5px;
+    font-size: 1.2rem;
+}
+
+.discussion__information {
+    margin: 5px;
+    text-align: end;
+    font-size: 0.8rem;
+    color: rgb(181, 181, 181);
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 10%;   
+    font-size: 1.5rem;
+    margin: 0 5px;
+}
