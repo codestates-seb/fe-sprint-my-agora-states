@@ -1,1 +1,45 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;  /* 레이아웃 초기화 */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.discussion__container{
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;  /* list 기본 스타일(·) 없애기 */
+}
+
+.discussion__avatar--wrapper{
+    width: 100px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.discussion__avatar--image{
+    width: 48px;
+    border-radius: 70%;  /* 사진의 border를 둥글게 만들기 */
+    overflow: hidden;  /* border 밖 부분을 안보이게 하기 */
+}
+
+.discussion__content{
+    width: 350px;
+}
+
+
+
+.discussion__information{
+    margin-bottom: 20px;
+}
+
+.discussion__answered{
+    width: 50px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
