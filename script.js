@@ -30,13 +30,12 @@ const convertToDiscussion = (obj) => {
   discussionALink.href = obj.url;
   discussionALink.textContent = obj.title;
   discussionTitle.append(discussionALink);
-  discussionContent.append(discussionTitle);
 
   // 작성자 및 날짜
   const discussionAuthor = document.createElement('div')
   discussionAuthor.className = 'discussion__information';
   discussionAuthor.textContent = obj.author + ' / ' + obj.createdAt;
-  discussionContent.append(discussionAuthor);
+  discussionContent.append(discussionTitle, discussionAuthor);
 
   // 답변 여부
   const discussionAnsweredBox = document.createElement('p')
@@ -44,9 +43,41 @@ const convertToDiscussion = (obj) => {
     discussionAnsweredBox.textContent = '☒';
   } else {
     discussionAnsweredBox.textContent = '☑';
-    
+      // 답변 내용
+    const answerContainer = document.createElement('div');
+    answerContainer.className = 'answer__container';
+    const answerWrapper = document.createElement("div");
+    answerWrapper.className = "discussion__avatar--wrapper";
+    const answerContent = document.createElement("div");
+    answerContent.className = "discussion__content";
+
+
+    const answerAvatarImg = document.createElement('img');
+    answerAvatarImg.className = 'discussion__avatar--image';
+    answerAvatarImg.src = obj.answer['avatarUrl'];
+    answerAvatarImg.alt = 'avatar of ' + obj.answer['author'];
+    answerWrapper.append(answerAvatarImg);
+
+    const answerComment = document.createElement('p');
+    answerComment.className = 'discussion__title';
+    const answerALink = document.createElement('a');
+    answerALink.href = obj.answer['url'];
+    answerALink.innerHTML = obj.answer['bodyHTML'];
+    answerComment.append(answerALink);
+
+    const answerAuthor = document.createElement('div')
+    answerAuthor.className = 'discussion__information';
+    answerAuthor.textContent = obj.answer['author'] + ' / ' + obj.answer['createdAt'];
+    answerContent.append(answerComment, answerAuthor);
+
+    discussionAnsweredBox.addEventListener('click', function() {
+      answerContainer.classList.toggle('show');
+    })
+
+    answerContainer.append(answerWrapper, answerContent);
+    discussionAnswered.appendChild(answerContainer);
   }
-  discussionAnswered.append(discussionAnsweredBox);
+  discussionAnswered.prepend(discussionAnsweredBox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;

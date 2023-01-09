@@ -82,3 +82,10 @@ main {
 .discussion__answered p{
   font-size: 2rem;
 }
+
+.answer__container {
+  display: none;
+}
+.answer__container.show {
+  display: block;
+}
