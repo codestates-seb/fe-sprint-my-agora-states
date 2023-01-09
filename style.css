@@ -14,7 +14,7 @@ body {
 }
 
 main {
-  margin-top: 50px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   width: 540px;
@@ -39,4 +39,8 @@ li {
   width: 64px;
   height: 640x;
   border-radius: 50%;
+}
+
+.button {
+  width: 20px;
 }
