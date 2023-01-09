@@ -35,7 +35,7 @@ h1 {
     font-size: 3rem;
     font-family: 'Black Han Sans', sans-serif;
     background-color: transparent;
-    margin: 50px 0;
+    margin: 20px 0;
     max-width: 100%;
     text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255)
 }
@@ -82,7 +82,7 @@ h1 {
     max-height: 10000px;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .form__get {
@@ -203,8 +203,10 @@ textarea:focus {
     top: 2px;
 }
 
+
+/* discussion */
 .discussion__wrapper {
-    margin-top: 10px;
+    margin-top: 0px;
     border-bottom: 1px solid rgb(181, 181, 181);
     width: 90%
 }
@@ -280,4 +282,46 @@ a {
     max-height: 0;
     overflow: hidden;
     border: none;
+  }
+
+
+  /* 페이지네이션 */
+
+.buttons {
+    margin-top: 10px;
+    position: relative;
+    padding: 1rem 0;
+    display: inline-flex;
+    justify-content: center;
+  }
+  
+  .button {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+  
+  .button.active,
+  .button:hover {
+    color: #579BB1;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  .prev {
+    position: absolute;
+    left: -2.5rem;
+  }
+  
+  .next {
+    position: absolute;
+    right: -2.5rem;
+  }
+  
+  ion-icon {
+    padding-top: 0.05rem;
   }
