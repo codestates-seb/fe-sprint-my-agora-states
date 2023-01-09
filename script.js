@@ -66,21 +66,20 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
-const submitButton = document.querySelector("submit-button")
+const submitButton = document.querySelector(".form")
 
 submitButton.addEventListener("submit", (event) => {
+
   event.preventDefault(); //submit 이벤트에서 써줘야한다고 함. 작동정지 방지
 
-  const newAuthor = document.querySelector("form__input--name > input")
-  console.log('author', newAuthor);
-  const newTitle = document.querySelector("form__input--title > input")
-  console.log('title', newTitle);
-  const newTextBox = document.querySelector("form__textbox > textarea")
-  console.log('textBox', newTextBox);
+  const newAuthor = document.querySelector("#userName")
+  const newTitle = document.querySelector("#titleName")
+  const newTextBox = document.querySelector("#story")
+
 
   const newObj = {
     id: "new id",
-    createdAt: new Date().toLocaleTimeString(),
+    createdAt: new Date(),
     title: newTitle.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: newAuthor.value,
@@ -97,9 +96,9 @@ submitButton.addEventListener("submit", (event) => {
   ul.prepend(discussion);
 
   // submit 후 빈칸 리셋
-  author.value = ""
-  title.value = ""
-  textBox.value = ""
+  newAuthor.value = ""
+  newTitle.value = ""
+  newTextBox.value = ""
 
 })
 
