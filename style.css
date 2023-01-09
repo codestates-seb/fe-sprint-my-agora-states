@@ -216,7 +216,8 @@ li.discussion__container > div {
 }
 
 .discussion__avatar--wrapper > img {
-    width: 36px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
 }
 
