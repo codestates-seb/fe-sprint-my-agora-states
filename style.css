@@ -1,1 +1,149 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: 'PyeongChangPeace-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RIDIBatang';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  font-family: 'RIDIBatang';
+}
+
+.form-area {
+  width: 16rem;
+  height: 100vh;
+  text-align: center;
+  overflow: auto;
+  position: fixed;
+  background-image: url( "data/codestates-motif.png" );
+}
+
+h1 {
+  color: #452cdd;
+  font-family: 'PyeongChangPeace-Bold';
+  line-height: 1.5;
+  margin-top: 30px;
+  text-shadow: 4px 2px 2px rgb(170, 170, 170);
+}
+
+.form-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.form-content label {
+  font-size: 15px;
+}
+
+.form-box {
+  margin-top: 5px;
+}
+
+#story {
+  height: 100px;
+}
+
+#story::placeholder {
+  padding: 3px;
+  font-family: 'RIDIBatang';
+  font-size: 12px;
+}
+
+.form__submit input {
+  width: 60px;
+  height: 25px;
+  border: none;
+  border-radius: 30px;
+  background-color: #452cdd;
+  color: white;
+  font-family: 'RIDIBatang';
+  cursor: pointer;
+}
+
+.logo {
+  position: fixed;
+  width: 7rem;
+  bottom: 20px;
+  left: 70px;
+}
+
+.discussion__wrapper {
+  display: block;
+  margin-left: 230px;
+}
+
+li {
+  list-style-type : none;
+}
+
+.discussions__container>li {
+  border-bottom: 0.5px solid lightgray;
+  margin: 10px;
+  padding: 5px;
+}
+
+li.discussion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discussion__avatar--image {
+  width: 64px;
+  height: 64px;
+  margin-right: 20px;
+  border-radius: 50px;
+}
+
+.discussion__content {
+  vertical-align: center;
+  width: 680px;
+  margin-right: 20px;
+}
+
+.discussion__title {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #452cdd;
+  font-size: 20px;
+}
+
+a:hover {
+  color: #AB23EB;
+}
+
+.discussion__information {
+  margin-top: 3px;
+  font-size: 15px;
+}
+
+.bottom-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  font-size: 30px;
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: white;
+  cursor: pointer;
+}
