@@ -74,24 +74,26 @@ agoraStatesDiscussions 배열에 추가한 데이터가 실제 쌓여야 합니�
 // 서브밋 변수 선언 후 클릭시 함수실행
 // 서브밋했을때 시간 기록
 
-// form dom 변수선언
 const formConatiner = document.querySelector(".form");
-let formName = document.querySelector('#name').value;
-let formTitle = document.querySelector("#title").value;
-let formTextbox = document.querySelector("#story").value;
-const submitButton = document.querySelector('.form_submit');
-
 // 서브밋 이벤트시 실행
 formConatiner.addEventListener('submit', (logSubmit) =>{
+  // form dom 변수선언
+  //// **함수 밖에서 선언한것 오류! addEventListener 안으로 이동해야함**
+  let formName = document.querySelector('#name').value;
+  let formTitle = document.querySelector("#title").value;
+  let formTextbox = document.querySelector("#story").value;
+  const submitButton = document.querySelector('.form_submit');
   logSubmit.preventDefault() //브라우저의 기본 동작을 막기 위해 사용된다.
   let newAgora = { 
-  id: '',
-  title: formTitle,
-  author: formName,
-  answer: null,
-  bodyHTML:  formTextbox,
-  avatarUrl : null,
+    id: 'newId',
+    title: formTitle,
+    author: formName,
+    answer: null,
+    bodyHTML: formTextbox,
+    avatarUrl : "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   }
-  console.log(newAgora); 
-  agoraStatesDiscussions.unshift(newAgora) // 배열에 추가는 되는데 해당값들을 못 가져오는중...
+  agoraStatesDiscussions.unshift(newAgora)
+  // ul 리스트 위에 삽입
+  ul.prepend(convertToDiscussion(newAgora))
+
 });
