@@ -1,1 +1,51 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 아고라 스테이츠 질문 리스트 중앙으로 위치 */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 디스커션 */
+.discussion__avatar--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+li.discussion__container {
+  display: flex;
+  flex-direction: row;
+  width: 540px;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+.discussion__title {
+  padding: 5px;
+
+}
+.discussion__information {
+  padding: 5px;
+  text-align: right;
+}
+.discussion__answered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+}
