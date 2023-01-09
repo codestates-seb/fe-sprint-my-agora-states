@@ -1,1 +1,162 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+ul, li {
+    list-style-type: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* flex-basis: auto; */
+    /* flex-grow: auto; */
+    align-items: center;
+    /* width: 500px; */
+    border: 1px solid red;
+    margin: 10px;
+    width: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    border: 1px solid red;
+    padding: 0 30px;
+    /* flex-basis: 70%; */
+    /* width: 50%; */
+}
+
+.form > div{
+    width: 100%;
+    /* flex-basis: 50%; */
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* flex-basis: auto; */
+    /* padding: 20px; */
+    /* flex-basis: 50%; */
+}
+
+.form__input--wrapper > div{
+    display: flex;
+    /* justify-content: ; */
+    /* flex-basis: 20% */
+    padding: 10px 0;
+    /* flex-basis: 500px; */
+}
+
+.form__input--wrapper div label{
+    display: flex;
+    flex-basis: 1em;
+    flex-grow: 1;
+}
+
+.form__input--wrapper div input,
+.form__input--wrapper div textarea{
+    display: flex;
+    flex-basis: 2em;
+    /* flex-basis: 30%; */
+    flex-grow: 3;
+    /* flex-basis: ; */
+}
+
+.form__submit{
+    display: flex;
+    justify-content: flex-end;
+    /* padding-right: 30px; */
+}
+
+
+.discussion__wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* flex-direction: row; */
+}
+
+ul.discussions__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-content: center; */
+    width: 50em;
+    /* height: 150px; */
+    border: 1px solid red;
+}
+
+li.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px dotted red;
+    height: 100%;
+    padding: 10px;
+}
+
+
+li.discussion__container > div {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    /* border: 1px dotted red; */
+
+}
+
+.discussion__avatar--wrapper {
+    flex-basis: 4em;
+    flex-grow: 1;
+    align-items: center;
+}
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__content{
+    flex-basis: 20em;
+    flex-grow: 5;
+    align-items: flex-start;
+    /* padding: 0 20px; */
+}
+
+.discussion__title {
+    padding: 5px 0;
+}
+
+.discussion__information {
+    align-self: flex-end;
+}
+
+
+.discussion__answered {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.discussion__answered > p {
+    display: flex;
+}
