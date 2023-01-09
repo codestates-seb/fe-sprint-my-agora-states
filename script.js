@@ -53,14 +53,23 @@ const render = (element) => {
   return;
 };
 
+const renderLocalStorage = (element) => {
+  for(let i = 0; i < localStorage.length; i++) {
+    element.prepend(convertToDiscussion(JSON.parse(localStorage.getItem(i+1))));
+  }
+  return;
+};
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+renderLocalStorage(ul);
 
 const submit = document.querySelector("input[type=submit]");
 let author = document.querySelector("#name");
 let title = document.querySelector("#title");
 let story = document.querySelector("#story");
+
 submit.onclick = (event) => {
   event.preventDefault();
 
@@ -75,4 +84,13 @@ submit.onclick = (event) => {
 
   console.log(agoraStatesDiscussion);
   ul.prepend(convertToDiscussion(agoraStatesDiscussion));
+
+  // 로컬 스토리지에 저장
+  let index = localStorage.length;
+  localStorage.setItem(++index, JSON.stringify(agoraStatesDiscussion));
+
+  // 입력창 초기화
+  author.value = "";
+  title.value = "";
+  story.value = "";
 }
