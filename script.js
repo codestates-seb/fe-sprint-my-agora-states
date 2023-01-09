@@ -23,6 +23,12 @@ shuffle(AvatDefaultUrls);
 const filteredDiscussions = agoraStatesDiscussions.filter(d => d.author !== 'kimploo');
 const noticeDiscussions = agoraStatesDiscussions.filter(d => d.author === 'kimploo');
 
+//change all the date formats
+filteredDiscussions.forEach(el => {
+  el.createdAt = `${el.createdAt.substring(0, 10)} ${el.createdAt.substring(11, 19)}`
+  el.date
+})
+
 
 console.log(filteredDiscussions);
 // const updatedDiscussions = Array.from(agoraStatesDiscussions);
@@ -159,12 +165,23 @@ function saveThread(e){
   // console.log('did this work?');
   //create an object to store the retrieved text info
   const newThread = Object.create(discussionThreadObj);
+
+  //timezone offset
+  const timezoneOffset = new Date().getTimezoneOffset() * 60000;
+  const timezoneDate = new Date(Date.now() - timezoneOffset);
+
+  let isoDate = timezoneDate.toISOString();
+  // isoDate = isoDate.slice(0, -1);
+
+  //date parsing
+  newThread.createdAt = `${isoDate.substring(0, 10)} ${isoDate.substring(11, 19)}`;
   // newThread.bodyHTML = '<p dir="auto">' + newContent + '</p>';
 
     newThread.author = window.localStorage.getItem('newName');
     newThread.title = window.localStorage.getItem('newTitle');
     newThread.bodyHTML = window.localStorage.getItem('newContent');
     newThread.avatarUrl = '../src/' + (AvatDefaultUrls[imgIdx] || '1.png');
+    // newThread.createdAt = new Date(isoDate.slice(0, -1));
     filteredDiscussions.unshift(newThread);
     ul.prepend(convertToDiscussion(newThread));
 
