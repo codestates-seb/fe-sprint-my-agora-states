@@ -4,7 +4,7 @@ const agoraStatesDiscussions = [
     createdAt: "2022-05-16T01:02:17Z",
     title: "[notice] 좋은 질문하는 법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
-    author: "dubipy",
+    author: "kimploo",
     answer: {
       id: "DC_kwDOHOApLM4AKg6M",
       createdAt: "2022-05-16T02:09:52Z",
