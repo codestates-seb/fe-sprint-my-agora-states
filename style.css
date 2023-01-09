@@ -1,3 +1,5 @@
+/* CSS로 새창을 만들어서 추가하게끔 설정할 예정. */
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
     box-sizing: border-box;
@@ -6,9 +8,38 @@
     border: 0px;
 }
 
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#13B294,#078D8E);
+}
+
 ul, li {
     list-style: none;
     width: 540px;
+}
+
+.hide {
+    display: none;
+}
+
+.agora-title {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+main {
+    height: 70%;
+    min-height: 600px;
+    padding: 30px;
+    overflow: hidden;
+    /* 9개만 보이고 페이지네이션 해야함. */
 }
 
 h2 {
@@ -22,19 +53,8 @@ h2 a {
     text-decoration: none;    
 }
 
-body {
-    height: 100vh;
+.writing {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-main {
-    height: 70%;
-    min-height: 600px;
-    background-color: lightblue;
-    padding: 30px;
-    overflow: scroll;
 }
 
 .discussions__container {
