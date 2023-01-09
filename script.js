@@ -15,7 +15,7 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg);
 
-  const discussionTitle = document.createElement('h2');
+  const discussionTitle = document.createElement('h3');
   discussionContent.append(discussionTitle);
   const titleAnchor = document.createElement('a');
   titleAnchor.href = obj.url;

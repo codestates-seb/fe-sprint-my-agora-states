@@ -4,11 +4,68 @@
     padding: 0;
 }
 
+.neonText {
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FB2576,
+    0 0 82px #FB2576, 0 0 92px #FB2576, 0 0 102px #FB2576, 0 0 151px #FB2576;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #FB2576,
+        0 0 80px #FB2576, 0 0 90px #FB2576, 0 0 100px #FB2576, 0 0 150px #FB2576;
+    }
+    20%, 24%, 55% {
+    text-shadow: none;
+    }
+}
+
+body{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    background-image: url(https://cdn.pixabay.com/photo/2020/01/29/15/27/night-view-4802799_960_720.jpg);
+}
+
+.main{
+    display: flex;
+    align-items: center;
+}
+
+h1 { 
+    animation: flicker 1.5s infinite alternate; 
+    font-family: 'Moon Dance', cursive;
+    font-size: 50pt;
+    text-align: center;
+    padding: 50pt 0 20pt 0;
+}
+
+.form__container{
+    width: 540px;
+    height: 180px;
+    border: 5px solid #fff;
+    border-radius: 10pt;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    color: #fff;
+    font-size: 16pt;
+}
+
+.discussion__wrapper{
+    border: 5px solid #fff;
+    border-radius: 10pt;
+}
+
 .discussion__container{
     width: 540px;
+    height: 150px;
     display: flex;
     justify-content: space-between;
     list-style: none;  /* list 기본 스타일(·) 없애기 */
+    background-color: #fff;
+    border-bottom: 4px dotted #2E0249;
 }
 
 .discussion__avatar{
@@ -19,13 +76,14 @@
 }
 
 .discussion__avatar>img{
-    width: 48px;
+    width: 55px;
     border-radius: 70%;  /* 사진의 border를 둥글게 만들기 */
     overflow: hidden;  /* border 밖 부분을 안보이게 하기 */
 }
 
 .discussion__content{
-    width: 350px;
+    width: 350px;   
+    padding-top: 45px;
 }
 
 .discussion__information{
@@ -37,4 +95,5 @@
     display: flex;
     justify-content:center;
     align-items:center;
+    font-size: 20pt;
 }
