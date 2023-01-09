@@ -301,25 +301,39 @@ function ball(x, y, r) {
 let exitBtn = document.querySelector('.exitBtn');
 let downBtn = document.querySelector('.downBtn');
 let smallBtn = document.querySelector('.smallBtn');
-let agorastatesTab = document.querySelector('.downTab');
-let mainSize = main.width;
+let agorastatesTab = document.querySelector('.agorastatesTab');
+
 
 exitBtn.addEventListener('click', function() {
   main.classList.add('exit');
 });
 
 downBtn.addEventListener('click', function() {
-  main.classList.add('');
+  agorastatesTab.classList.remove('change__opacity__zero');
+  agorastatesTab.classList.add('change__opacity__one');
+  main.classList.add('down');
+  main.classList.remove('up');
 });
 
 
 agorastatesTab.addEventListener('click', function() {
-
+  agorastatesTab.classList.remove('change__opacity__one');
+  agorastatesTab.classList.add('change__opacity__zero');
+  main.classList.add('up');
+  main.classList.remove('down');
 });
 
-// smallBtn.addEventListener('click', function() {
-//   // if()
-// });
+
+smallBtn.addEventListener('click', function() {
+  if(main.classList.contains('sizeBig')){
+    main.classList.remove('sizeBig');
+    main.classList.add('sizeSmall');
+  }
+  else {
+    main.classList.add('sizeBig');
+    main.classList.remove('sizeSmall');
+  }
+});
 
   // 경우의 수 두개 나누지 않으면 discussions이 계속 초기화 되서 추가한 데이터가 날아감.
 if(localStorage.length === 0){  // 저장된 데이터가 없으면 (내가 추가한 거 없을 때)
