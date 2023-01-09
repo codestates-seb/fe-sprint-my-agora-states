@@ -32,8 +32,18 @@ const convertToDiscussion = (obj) => {
 
   // 디스커션 작성자 + 작성날짜
   const discussionInformation = document.createElement("div");
+  const createdAt = new Date(obj.createdAt);
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${
+    obj.author
+  } / ${createdAt.toLocaleString("ko-KR")}`;
+  // advanced - 샘플시간 변형해서 현지시간에 맞게 표현
+  // 샘플 : yyyy-mm-ddT00:00:00Z <- .toISOString() 으로 변환하면 왼쪽같은 형식으로 날짜가 반환됨.
+  // .toISOString() : 주어진 날짜를 국제표준시 기준 ISO 8601 형식으로 표현해 문자열로 리턴한다.
+
+  //Date.prototype.toLocaleString()
+  // 지정된 지역에서 표현하는 방식의 날짜를 문자열로 리턴한다.
+  // Date.toLocaleString('ko-KR') : 날짜를 한국식으로 표현한다
 
   // 디스커션 답변 여부
   const discussionAnsweredCheck = document.createElement("p");
@@ -81,10 +91,11 @@ const addDiscussion = () => {
   const author = document.querySelector("#name");
   const title = document.querySelector("#title");
   const story = document.querySelector("#story");
-  const date = new Date();
+  const date = Date(); // new Date() : date객체 반환, Date() : 현재 날짜와 시간 나타내는 문자열 반환
+  // Invalid Date ?? : 크로스 브라우징 이슈때문에 나타나는 에러
   const newObj = {
     // id: 1,
-    createdAt: date.toLocaleDateString() + " " + date.toLocaleTimeString(),
+    createdAt: date,
     title: title.value,
     // url: 1,
     author: author.value,
