@@ -94,7 +94,7 @@ const formSubmit = document.querySelector('.form');
 
 //Validity Tests
 let nameValid = titleValid = contentValid = false;
-
+let submitValid = false;
 
 //Advanced: function that creates addEventListeners with multiple functions
 //on focus out, retrieve the textContent of the input
@@ -106,17 +106,18 @@ inputName.addEventListener('keyup', e => saveText(e, 'newName'));
 inputTitle.addEventListener('keyup', e =>saveText(e, 'newTitle'));
 inputContent.addEventListener('keyup', e =>saveText(e, 'newContent'));
 
-inputName.addEventListener('keyup', e => validityTest(e));
-inputTitle.addEventListener('keyup', e => validityTest(e));
-inputContent.addEventListener('keyup', e => validityTest(e));
+inputName.addEventListener('keyup', e => formValidityTest(e));
+inputTitle.addEventListener('keyup', e => formValidityTest(e));
+inputContent.addEventListener('keyup', e => formValidityTest(e));
 
 inputSubmit.addEventListener('click', saveThread); //when clicked, save texts to object, then add obj to threadlist + DOM
 inputSubmit.addEventListener('click', clearInputText);
+inputSubmit.addEventListener('click', () => toggleOnOffElem(false, inputSubmit, 'disabled'));
 // formSubmit.addEventListener('submit', saveThread);
 
 // const newThread = Object.create(discussionThreadObj);
 
-function validityTest(e){
+function formValidityTest(e){
   if(e.target.id === 'name'){
     nameValid = e.target.value !== '' ? true : false;
   }else if(e.target.id === 'title'){
@@ -126,8 +127,10 @@ function validityTest(e){
   }else{
     return;
   }
-  if (nameValid && titleValid && contentValid) toggleSubmit();
-  printFormValidity();
+  if (nameValid && titleValid && contentValid) toggleOnOffElem(true, inputSubmit, 'disabled');
+  else toggleOnOffElem(false, inputSubmit, 'disabled');
+
+  // printFormValidity();
 }
 
 function printFormValidity(){
@@ -135,9 +138,20 @@ function printFormValidity(){
 
 }
 
-function toggleSubmit(){
-
+let toggleOnOffElem = function(show, elem, attr){
+  let disabled = elem.hasAttribute(attr);
+  // console.log('disabled: ' + disabled);
+ if (disabled === show){
+     if (show) elem.removeAttribute(attr);
+     else elem.setAttribute(attr, attr);
+ }
 }
+
+// function toggleSubmit(on, ){
+//   if (inputSubmit.hasAttribute('disabled')) inputSubmit.removeAttribute('disabled');
+//   else inputSubmit.setAttribute('disabled', 'disabled');
+//   console.log('submit toggle');
+// }
 
 //is there a way I could create an instance of this particular type of object?
 function saveThread(e){
