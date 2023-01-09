@@ -1,5 +1,5 @@
 type Discussions = Discussion[];
-interface Discussion {
+export interface Discussion {
   id: string;
   createdAt: string;
   title: string;
@@ -7,12 +7,14 @@ interface Discussion {
   author: string;
   answer?: Answer | null;
   bodyHTML: string;
+  avatarUrl: string;
 }
 
-interface Answer {
+export interface Answer {
   id: string;
   createdAt: string;
   url: string;
+  avatarUrl: string;
   author: string;
   bodyHTML: string;
 }
