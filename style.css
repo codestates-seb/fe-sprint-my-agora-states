@@ -238,7 +238,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 520px;
+  width: 510px;
   background-color: white;
   padding: 6px;
   border-bottom: 1px groove black;
@@ -279,10 +279,12 @@ main {
 
 .discussion__answered {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
   font-size: 20px;
   flex-basis: 10%;
+
 }
 /*
 .discussion__answered i {
@@ -386,3 +388,17 @@ main {
   color: rgb(47, 255, 175);
 }
 */
+
+.answered__active {
+  border: #ddd;
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(45deg, Violet, Skyblue);
+  border-radius: 10%;
+  color:white;
+  margin-top:20px;
+}
+
+.answered__active:hover {
+  background: linear-gradient(45deg, Red, Orange);
+}

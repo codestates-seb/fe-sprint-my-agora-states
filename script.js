@@ -69,6 +69,12 @@ const convertToDiscussion = (obj) => {
     discussionCommandBox.textContent = `☑`;
     discussionCommand.appendChild(discussionCommandBox);
     discussionAnswered.appendChild(discussionCommand);
+    const commandBtn = document.createElement('button');
+    commandBtn.className = 'answered__active';
+    commandBtn.onclick = '';
+    commandBtn.type = 'button';
+    commandBtn.textContent = '답변';
+    discussionAnswered.appendChild(commandBtn);
   }
 
   const discussionInformation = document.createElement('div');
