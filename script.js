@@ -30,6 +30,10 @@ const convertToDiscussion = (obj) => {
   information.innerText = `${obj.author} / ${obj.createdAt}`;
   discussionContent.append(information);
 
+  const answer = document.createElement('p');
+  answer.innerText = `${obj.answer !== null ? '☑' : '❎'}`;
+  discussionAnswered.append(answer);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
