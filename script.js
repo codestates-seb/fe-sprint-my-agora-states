@@ -20,6 +20,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(discussionFace);
 
   const discussionTitle = document.createElement("h2");
+  // discussionTitle.className = "discussion__title";
   const discussionLink = document.createElement("a");
   discussionTitle.textContent = obj.title;
   discussionLink.href = obj.url;
@@ -27,7 +28,8 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionTitle);
 
   const discussionPeople = document.createElement("div");
-  discussionPeople.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionPeople.className = "discussion__information"
+  discussionPeople.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
   discussionContent.append(discussionPeople);
 
   const checked = document.createElement("p");
