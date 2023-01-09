@@ -24,7 +24,7 @@ main {
 }
 
 .form-area {
-  width: 230px;
+  width: 250px;
   height: 100vh;
   text-align: center;
   overflow: auto;
@@ -37,6 +37,7 @@ h1 {
   font-family: 'PyeongChangPeace-Bold';
   line-height: 1.5;
   margin-top: 30px;
+  text-shadow: 4px 2px 2px rgb(170, 170, 170);
 }
 
 .form-content {
@@ -76,18 +77,21 @@ h1 {
 
 .logo {
   position: fixed;
-  width: 8%;
+  width: 10%;
   bottom: 20px;
   left: 70px;
 }
 
 .discussion__wrapper {
   display: block;
-  margin-left: 200px;
+  margin-left: 230px;
 }
 
 li {
   list-style-type : none;
+}
+
+.discussions__container>li {
   border-bottom: 0.5px solid lightgray;
   margin: 10px;
   padding: 5px;
@@ -130,4 +134,16 @@ a:hover {
 .discussion__information {
   margin-top: 3px;
   font-size: 15px;
+}
+
+.bottom-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  font-size: 30px;
+  border: 1px solid lightgray;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: white;
+  cursor: pointer;
 }
