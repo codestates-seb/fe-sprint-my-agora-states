@@ -14,8 +14,11 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
+  //create avatar image, and connect it to the data
+  const avatImg = document.createElement('img');
+  avatImg.src = obj.avatarUrl;
+  avatImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatImg);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -25,6 +28,7 @@ const convertToDiscussion = (obj) => {
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    // console.log(agoraStatesDiscussions[i].avatarUrl);
   }
   return;
 };
