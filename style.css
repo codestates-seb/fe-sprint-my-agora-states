@@ -1,1 +1,63 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* global */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    background-color: #eeeeee;
+}
+
+a {
+    color: black;
+}
+
+/* Agora states styles */
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.discussion__wrapper {
+    width: 540px;
+}
+
+img.discussion__avatar--image {
+    width: 48px;
+    border-radius: 100%;
+}
+
+ul.discussions__container {
+    display: flex;
+    flex-direction: column;
+}
+
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.discussion__content {
+    flex-grow: 1; 
+    margin: 5px;
+    align-items:  space-around;
+}
+
+div.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.discussion__information {
+    float: right;
+}
