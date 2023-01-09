@@ -1,55 +1,58 @@
 * {
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        margin: 0;
+        padding: 0;
 }
 
-main {                               
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
 
-li {
+ul {
     list-style: none;
-    padding-left: 0px;
 }
 
-.discussions__container {
-    height: 540px;
+header .h1_title {
+    text-align: center;
+}
+
+.form__container {
+    display:flex;
+    justify-content: center;
+}
+
+.discussion__wrapper {
+    width: 540px;
+    display: block;
+    margin: auto;
 }
 
 .discussion__container > div {
     margin: 10px 5px 10px 10px;
 }
 
+.discussions__container {
+    
+}
+
 .discussion__container {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
 }
 
+.discussion__content {
+    display: block;
+}
 
 .discussion__avatar--image {  
-    border-radius: 50%;
+    border-radius: 70%;
     width: 48px;
-    
-    
 }
 
-.discussion__answered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .discussion__information {
-    float: right;
+    text-align: end;
 }

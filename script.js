@@ -2,6 +2,7 @@
 console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -13,9 +14,32 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 객체에 담긴 정보 넣기
 
+  const avatarImg = document.createElement("img"); //첫번째 div의 img태그
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = `avatar of ${obj.author}`;
+  avatarImg.className = "discussion__avatar--image";
+  avatarWrapper.append(avatarImg); // 1. avatarWrapper 연걸
 
+  const titleAnchor = document.createElement("h2"); // 두번째 div의 h2태그
+  const aTag = document.createElement("a");
+  titleAnchor.className = "discussion__title";
+  aTag.href = obj.url;
+  aTag.textContent = obj.title;
+  titleAnchor.append(aTag);
+  discussionContent.append(titleAnchor); // 두번째 div의 자손인 h2태그 연걸
+
+  const information = document.createElement("div");
+  information.className = "discussion__information";
+  information.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
+  discussionContent.append(information); // 두번째 div의 자손인 div(class가 discussion_information) 연결
+
+  const checkBox = document.createElement("p");
+  checkBox.textContent = obj.answer !== null ? "☑" : "☒";
+  discussionAnswered.append(checkBox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
