@@ -31,6 +31,12 @@ header {
   padding: 0px;
 }
 
+.notice__container{
+  width: 520px;
+  height: 348px;
+  background-color: black;
+}
+
 #writeBtn {
   position: absolute;
   width: 68px;
@@ -113,6 +119,7 @@ h1 {
   background-color: white;
   border-radius: 0%;
   border-top: 1px solid rgb(166, 166, 166);
+  z-index: 4;
 }
 
 @keyframes slideIn {
@@ -220,7 +227,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
   width: 520px;
-  background-color: blue;
+  background-color: white;
   padding: 6px;
   border-bottom: 1px groove black;
 }
@@ -297,4 +304,61 @@ main {
 
 .pagination-button {
   background-color: transparent;
+}
+
+.notice-btn {
+  position: relative;
+  top:200px;
+  z-index: 3;
+  width:38px;
+  height:38px;
+}
+
+.fa-circle-chevron-right, .fa-circle-chevron-left {
+  position: relative;
+  margin: auto;
+}
+
+#noticePrevBtn {
+  float: left;
+  top:50%;
+  margin-left: 20px;
+}
+
+#noticeNextBtn {
+  position: absolute;
+  top:24.5%;
+  margin-left: 200px;
+}
+
+
+.noticeBox {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, Violet, Orange);
+  
+}
+
+.notice-btn {
+  border: none;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.notice-btn:hover {
+  color: orange;
+}
+
+.notice__content {
+  width: 250px;
+  position: relative;
+  margin: auto;
+  top:38%;
+  line-height: 30px;
+}
+
+.notice__answered {
+  font-size: 30px;
 }
