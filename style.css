@@ -1,11 +1,71 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-* {
+/* Global setup */
+:root {
+    /* 컨테이너 사이즈 */
+    /* --discussion-size: 540px; */
+    --mobile-size: 650px;
+
+    /* 폰트 정보 */
+    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
+
+
+    /* 폰트 사이즈 */
+    --font-large: 50px;
+    --font-middle: 30px;
+    --font-small: 15px;
+
+    /* 프로필 사이즈 */
+    --profile-radius: 50%;
+    --profile-width: 48px;
+
+    /* border 사이즈 */
+    --mobile-border-radius: 50px;
+    --discussion-border: 15px;
+
+    /* 색상 */
+    --color-white: #FFFFFF;
+    --color-navy: #0A1D37;
+    --color-blue: #1F4690;
+
+    --color-black: #000000;
+    --color-beige: #F2E7D5;
+}
+
+*{
     box-sizing: border-box;
 }
+
+body {
+    /* main 정렬 */
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-navy);
+}
+
 main {
+    background-color: var(--color-black);
+    width: var(--mobile-size);
+    margin: 50px;
+    border-radius: var(--mobile-border-radius);
+    padding: 30px;
+
+    /* 전체 컨텐츠 flex-box */
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* 상단부 form */
+.form__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-white);
+}
+.form__header > h1 {
+    font-size: var(--font-large);
+    font-weight: bold;
 }
 
 li {
@@ -15,29 +75,44 @@ li {
 .discussion__wrapper {
     display: flex;
     justify-content: center;
-    width: 540px;
+    width: var(--discussion-size);
 }
 
 .discussion__container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-size: 15px;
+    font-size: var(--font-small);
+
+    background-color: var(--color-white);
+    border-radius: var(--discussion-border);
+
+    height: 70px;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 0.1px 0.1px 0 #2A3990;
+}
+
+.discussion__align-left, .discussion__align-right  {
+    display: flex;
 }
 
 .discussion__avatar--image {
-    border-radius: 50%;
-    width: 48px;
+    border-radius: var(--profile-radius);
+    width: var(--profile-width);
+    margin: 0 20px 0 0;
 }
 
 .discussion__content {
     display: flex;
-    width: 477px;
-    height: 48px;
+    height: var(--profile-width);
     flex-direction: column;
     justify-content: space-around;
+    word-break: keep-all;
+    /* padding: 5px; */
 }
 
 .discussion__answered {
     /* display: flex; */
-    align-self: flex-end;
+    /* align-self: flex-end; */
 }
