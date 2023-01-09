@@ -21,6 +21,18 @@ const convertToDiscussion = (obj) => {
   avatarImg.className = "discussion__avatar--image";
   avatarWrapper.append(avatarImg);
 
+  // 타이틀, 정보 추가
+  const discussionTitle = document.createElement("H2")
+  discussionTitle.className = "discussion__title";
+  const discussionTitleLink = document.createElement("a")
+  const discussionInfomation = document.createElement("div")
+  discussionInfomation.className = "discussion__information";
+  discussionInfomation.textContent = `${obj.author} / ${obj.createdAt}`
+  discussionTitleLink.href = obj.url
+  discussionTitleLink.textContent = obj.title;
+  discussionTitle.append(discussionTitleLink)
+  discussionContent.append(discussionTitle, discussionInfomation);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
