@@ -1,3 +1,12 @@
+// formContainer 나왔다 사라졌다 하게. 시작
+const formContainer = document.querySelector('.form__container');
+const toggleFormButton = document.querySelector('#toggle-form');
+
+toggleFormButton.addEventListener('click', () => {
+  formContainer.classList.toggle('hidden');
+});
+// formContainer 나왔다 사라졌다 하게. 끝
+
 const convertToDiscussion = (obj) => {
   
 

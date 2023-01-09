@@ -20,6 +20,189 @@ main {
     width: 540px;
 }
 
+.header {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    
+}
+
+h1 {
+    z-index: 1;
+    /* position: absolute; */
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Black Han Sans', sans-serif;
+    background-color: transparent;
+    margin: 50px 0;
+    max-width: 100%;
+    text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255)
+}
+
+.questionBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin-bottom: 25px;
+}
+
+
+
+#toggle-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #E1D7C6;
+}
+
+#toggle-form:hover {
+    cursor: pointer;
+    background-color: #E1D7C6;
+    box-shadow: 1px 1px 1px black;
+    background-color: #ECE8DD;
+}
+
+#toggle-form:active {
+    position: relative;
+    top: 2px;
+}
+
+.form__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 334.3px;
+    
+    
+    max-height: 10000px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    margin-bottom: 30px;
+}
+
+.form__get {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px;
+    
+}
+
+
+/* 여기부터 입력창 */
+
+/*
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    
+}
+
+*/
+
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    margin-top: 0px;
+    padding: 5px;
+    font-family: 'Sora', sans-serif;
+}
+
+input:hover {
+    border-bottom: 2px solid black;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+textarea {
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Sora', sans-serif;
+    
+}
+
+textarea:hover {
+    border: 2px solid black;
+    
+}
+
+textarea:focus {
+    outline: none;
+    border: 2px solid black;
+}
+
+
+
+.form__input--name, .form__input--title, .form__textbox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+ 
+    
+}
+
+#name, #title {
+
+    height: 25px;
+    width: 200px;
+}
+
+#story {
+    height: 200px;
+    width: 330px;
+}
+
+.form__submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 330px;
+    
+    
+    height:30px;
+    
+}
+
+#submitBtn {
+    width: 100%;
+    
+    font-size: 1.03rem;
+    border: 1px solid black;
+    background-color: #E1D7C6;
+    border-radius: 5px;
+    
+    
+}
+
+#submitBtn:hover {
+    cursor: pointer;
+    background-color: #ECE8DD;
+    box-shadow: 1px 1px 1px black;
+}
+
+#submitBtn:active {
+    position: relative;
+    top: 2px;
+}
+
 .discussion__wrapper {
     margin-top: 10px;
     border-bottom: 1px solid rgb(181, 181, 181);
@@ -87,3 +270,14 @@ a {
     font-size: 1.5rem;
     margin: 0 5px;
 }
+
+
+
+
+
+
+.hidden {
+    max-height: 0;
+    overflow: hidden;
+    border: none;
+  }
