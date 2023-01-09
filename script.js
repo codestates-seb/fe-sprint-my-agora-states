@@ -23,14 +23,14 @@ const convertToDiscussion = (obj) => {
   
   const discussionTitleA = document.createElement('a');
   discussionTitleA.setAttribute('href',obj.url)
-  discussionTitleA.textContent = obj.author + '/' + obj.createdAt;
+  discussionTitleA.textContent = obj.title;
   
   const discussionInform = document.createElement('div');
   discussionInform.className = "discussion__information";
-  discussionInform.textContent = obj.title;
+  discussionInform.textContent = obj.author + '/' + obj.createdAt;
   
   const discussionCheck = document.createElement('p');
-  discussionCheck.textContent = '☑';
+  discussionCheck.textContent = '☑'; // 조건문으로 answer이 null인지 아닌지 확인해야함.
 
   discussionContent.appendChild(discussionTitle);
   discussionTitle.appendChild(discussionTitleA);
