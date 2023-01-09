@@ -38,6 +38,11 @@ ul {
 
 header .h1__title {
     text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 5em;
+    color: #F1C164;
+    text-shadow: 5px 5px #2D63A7;
+    
 }
 
 form {
@@ -97,16 +102,11 @@ form {
 }
 
 .discussion__container > div {
-    margin: 10px 5px 10px 10px;
-}
-
-.discussions__container {
-    
+    margin: 0px 5px;
 }
 
 .discussion__container {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     border: 3px solid black;
     margin-bottom: 4px;
@@ -116,6 +116,15 @@ form {
 
 .discussion__content {
     display: block;
+    flex: 8;
+}
+
+.discussion__avatar--wrapper {
+    flex: 1;
+}
+
+.discussion__answered {
+    flex: 1;
 }
 
 .discussion__avatar--image {  
@@ -126,4 +135,10 @@ form {
 
 .discussion__information {
     text-align: end;
+}
+
+a {
+    text-decoration: none;
+    font-size: 0.7em;
+    color: black;
 }
