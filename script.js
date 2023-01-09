@@ -6,14 +6,12 @@ const inputForm = document.querySelector(".form");
 inputForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // const name = document.querySelector('input[name="name"]').value;
   const name = document.getElementById('name').value;
   const title = document.getElementById('title').value;
   const story = document.getElementById('story').value;
   let today = new Date();
   let inputAgoraDatas = [];
   const inputAgoraData = {
-    //avatarUrl: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbrt2HI%2FbtrVOTwYrFA%2FvHfv2s96mvFtrVXVgn2vuk%2Fimg.jpg",
     avatarUrl: "https://images.unsplash.com/photo-1639628735078-ed2f038a193e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     title: title,
     url: "",

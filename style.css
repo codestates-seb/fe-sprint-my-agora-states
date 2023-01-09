@@ -24,7 +24,7 @@ main {
 }
 
 .form-area {
-  width: 250px;
+  width: 16rem;
   height: 100vh;
   text-align: center;
   overflow: auto;
@@ -77,7 +77,7 @@ h1 {
 
 .logo {
   position: fixed;
-  width: 10%;
+  width: 7rem;
   bottom: 20px;
   left: 70px;
 }
