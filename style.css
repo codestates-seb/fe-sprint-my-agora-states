@@ -1,1 +1,82 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/*CSS reset */
+@import "reset.css";
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+main {
+    width: 540px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*----------h1(My Agora States)-----------*/
+h1 {
+    font-size: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid gray;
+}
+
+/*----------질문 입력 란 (form__container)-----------*/
+.form__container {
+    flex-grow: 1;
+    margin: 2rem 0;
+}
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:stretch;
+}
+.form__input--wrapper > * {
+    margin-bottom: 1rem;
+}
+/* input 태그들을 오른쪽 끝으로 붙여놓고 submit 버튼을 가운데로 가져오고 싶은데...
+
+.form__input--wrapper > * input {
+    align-self: flex-end;
+}
+.form__submit {
+    margin: 0 auto;
+} */
+
+
+
+/*----------질문 리스트 (discussions__container)-----------*/
+
+.discussion__wrapper {
+    flex-grow: 5;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+}
+
+.discussion__content {
+  flex-grow: 1;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+.discussion__title{
+  font-size: 1.2rem;
+}
+.discussion__information{
+    align-self: flex-end;
+}
