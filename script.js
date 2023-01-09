@@ -75,23 +75,23 @@ agoraStatesDiscussions 배열에 추가한 데이터가 실제 쌓여야 합니�
 // 서브밋했을때 시간 기록
 
 // form dom 변수선언
-const formConatiner = document.querySelector(".form")
-let formName = document.querySelector('#name');
-let formTitle = document.querySelector("#title");
-let formTextbox = document.querySelector("story");
+const formConatiner = document.querySelector(".form");
+let formName = document.querySelector('#name').value;
+let formTitle = document.querySelector("#title").value;
+let formTextbox = document.querySelector("#story").value;
 const submitButton = document.querySelector('.form_submit');
 
 // 서브밋 이벤트시 실행
-
 formConatiner.addEventListener('submit', (logSubmit) =>{
   logSubmit.preventDefault() //브라우저의 기본 동작을 막기 위해 사용된다.
-  agoraStatesDiscussions.unshift({
+  let newAgora = { 
   id: '',
-  title: formTitle.value,
-  author: formName.value,
+  title: formTitle,
+  author: formName,
   answer: null,
-  bodyHTML:  formTextbox.value,
+  bodyHTML:  formTextbox,
   avatarUrl : null,
-})
-alert(41241)
+  }
+  console.log(newAgora); 
+  agoraStatesDiscussions.unshift(newAgora) // 배열에 추가는 되는데 해당값들을 못 가져오는중
 });
