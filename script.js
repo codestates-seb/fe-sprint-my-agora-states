@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 const inputForm = document.querySelector(".form");
 
@@ -11,14 +11,34 @@ inputForm.addEventListener("submit", (e) => {
   const title = document.getElementById('title').value;
   const story = document.getElementById('story').value;
   let today = new Date();
+  let inputAgoraDatas = [];
   const inputAgoraData = {
-    avatarUrl: "./data/profile.jpg",
+    //avatarUrl: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbrt2HI%2FbtrVOTwYrFA%2FvHfv2s96mvFtrVXVgn2vuk%2Fimg.jpg",
+    avatarUrl: "https://images.unsplash.com/photo-1639628735078-ed2f038a193e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     title: title,
     url: "",
     author: name,
     createdAt: today.toLocaleTimeString(),
     answer: null
   }
+
+  // localStorage
+  if (window.localStorage.length > 0) {
+    const getInputAgoraDatas = window.localStorage.getItem('inputAgoraDatas');
+    const inputAgoraDatasArr = JSON.parse(getInputAgoraDatas);
+    for(let i = 0; i < inputAgoraDatasArr.length; i++) {
+      inputAgoraDatas.push(inputAgoraDatasArr[i]);
+    }
+    inputAgoraDatas.push(inputAgoraData);
+    const inputAgoraDataString = JSON.stringify(inputAgoraDatas);
+    window.localStorage.setItem('inputAgoraDatas',inputAgoraDataString);
+  } else {
+    inputAgoraDatas.push(inputAgoraData);
+    const inputAgoraDataString = JSON.stringify(inputAgoraDatas);
+    window.localStorage.setItem('inputAgoraDatas',inputAgoraDataString);
+  }
+  
+
   agoraStatesDiscussions.unshift(inputAgoraData);
   inputForm.reset();
 
@@ -29,7 +49,6 @@ inputForm.addEventListener("submit", (e) => {
     return;
   };
   
-  const ul = document.querySelector("ul.discussions__container");
   render(ul);
 });
 
@@ -84,6 +103,21 @@ const render = (element) => {
   return;
 };
 
+// localStorage에 저장된 데이터 렌더링
+const renderLocalStorage = (element) => {
+  const agoraDatas = window.localStorage.getItem('inputAgoraDatas');
+  const agoraDataObj = JSON.parse(agoraDatas);
+
+  if (agoraDataObj) {
+    for (let i = 0; i < agoraDataObj.length; i++) {
+      element.prepend(convertToDiscussion(agoraDataObj[i]));
+    }
+  }
+  return;
+}
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+//window.localStorage.clear();
+renderLocalStorage(ul);
