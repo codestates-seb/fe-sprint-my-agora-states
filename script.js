@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+//console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -16,23 +16,33 @@ const convertToDiscussion = (obj) => {
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
   //사용자 아바타
+
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = "avatar of " + obj.author;
-  avatarWrapper.append(avatarImg);
-
-  //사용자
+  if (obj.avatarUrl) {
+    avatarImg.src = obj.avatarUrl;
+    avatarImg.alt = "avatar of " + obj.author;
+    avatarWrapper.append(avatarImg);
+  }
+  //글 정보
   const discussionTitle = document.createElement("h2");
   discussionTitle.className = "discussion__title";
-  discussionTitle.textContent = obj.title;
+  //제목 40글자로 요약
+  discussionTitle.textContent =
+    obj.title.length > 40 ? `${obj.title.slice(0, 40)}...` : obj.title;
+
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
   discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
   discussionContent.append(discussionTitle, discussionInfo);
 
+  //답변 여부
   const discussionCheck = document.createElement("p");
-  discussionCheck.textContent = "☑";
+  if (obj.answer) {
+    discussionCheck.textContent = "☑";
+  } else {
+    discussionCheck.textContent = "☐";
+  }
   discussionAnswered.append(discussionCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
