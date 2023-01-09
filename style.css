@@ -1,1 +1,151 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+/* 초기화 */
+
+body{
+background: linear-gradient(rgb(2, 8, 51), rgb(46, 4, 65));
+font-family: 'Indie Flower', cursive;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 가운데로 배치 시키기 위해 */
+
+li.discussion__container {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 540px;
+height: 80px;
+font-size: 11px;
+color: rgb(123, 123, 126);
+border: 1px solid rgba(167, 167, 167, 0.543);
+border-radius: 5px;
+background-color: var(--coz-purple-600);
+margin-bottom: 5px;
+}
+
+.discussion__avatar--wrapper {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 5px;
+}
+/* 이미지 붕떠있는 것을 정리 */
+
+
+.discussion__avatar--image {
+width: 48px;
+border-radius: 50%;
+}
+
+
+
+.discussion__content {
+flex-grow: 2;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+padding: 10px;
+}
+
+
+.discussion__information{
+text-align: right;
+}
+/* flex로 안해도 되고, text니까 text-align으로 준다. */
+
+
+
+form {
+font-size: 20px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+
+
+
+h1 {
+text-align: center;
+font-size: 45px;
+margin-bottom: 20px;
+color: white;
+}
+
+p{
+font-size: 24px;
+margin-top: 20px;
+}
+
+
+
+
+.form__input--wrapper{
+margin-bottom: 30px;
+}
+
+
+
+
+.discussion__title{
+font-size: 15px;
+
+}
+
+a{
+color:white;
+text-decoration-line: none;
+}
+
+
+label{
+color: white;
+margin-right: 10px;
+}
+
+textarea{
+margin-top: 6px;
+}
+
+
+
+#name, textarea{
+background-color: var(--coz-purple-600);
+border: 1px solid white;
+border-radius: 2px;
+color: white;
+
+}
+
+input[type=submit]{
+width: 60px;
+height: 30px;
+border-radius: 50px;
+border: 1px solid rgb(198, 192, 192);
+color: rgb(13, 9, 63);
+margin-left: 10px
+}
+
+input[type=submit]:active{
+cursor: pointer;
+color:white;
+background-color:rgb(197, 49, 187);
+
+}
+
+.discussion__container:hover{
+background-color: rgb(146, 149, 127);
+}
+
+.discussion__container:active{
+cursor: pointer;
+border: 5px solid white;
+}
