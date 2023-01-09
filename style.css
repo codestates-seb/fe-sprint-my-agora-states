@@ -1,1 +1,15 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+*{box-sizing: border-box; margin: 0; padding: 0; font-family: 'roboto';}
+li {list-style: none;}
+
+body{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+
+a{text-decoration: none; color:#000;}
+/*--------------기본값------------------*/
