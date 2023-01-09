@@ -126,11 +126,16 @@ function validityTest(e){
   }else{
     return;
   }
+  if (nameValid && titleValid && contentValid) toggleSubmit();
   printFormValidity();
 }
 
 function printFormValidity(){
   console.log('name: ' + nameValid + ' ; title: ' + titleValid + ' ; content: ' + contentValid);
+
+}
+
+function toggleSubmit(){
 
 }
 
