@@ -1,1 +1,156 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  box-sizing: border-box;
+  color: #000;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration-line: none;
+}
+
+main {
+  margin: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* section form__container */
+.form__container {
+  margin: 10px 0 10px 0;
+  width: 450px;
+  height: 300px;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  background-color: black;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form__input--wrapper {
+  background-color: red;
+  width: 90%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.form__submit {
+  background-color: blue;
+  width: 40%;
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  width: 90%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.form__input--name,
+.form__input--title {
+  margin-bottom: 10px;
+  justify-content: center;
+  height: 35px;
+}
+.form__input--name label,
+.form__input--title label {
+  width: 60px;
+  margin-right: 5px;
+  text-align: center;
+}
+.form__input--name input,
+.form__input--title input {
+  flex-grow: 1;
+  height: 30px;
+}
+.form__textbox {
+  justify-content: center;
+}
+
+.form__textbox label {
+  width: 60px;
+  margin-right: 5px;
+  text-align: center;
+}
+.form__textbox textarea {
+  flex-grow: 1;
+  resize: none;
+}
+
+/* section discussion__wrapper*/
+.discussion__wrapper {
+  width: 540px;
+  background-color: antiquewhite;
+}
+
+.discussions__container {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+}
+/* li태그 하나하나 */
+li.discussion__container {
+  background-color: goldenrod;
+  margin-bottom: 10px;
+  min-height: 110px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* flex-wrap: wrap; */
+}
+.discussion__avatar--wrapper {
+  width: 55px;
+  margin: 0 5px 0 5px;
+}
+.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 50%;
+}
+.discussion__content {
+  width: 455px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+}
+.discussion__title {
+  margin-right: 5px;
+}
+
+.discussion__information {
+  text-align: end;
+}
+
+.discussion__answered {
+  margin: 0 5px 0 5px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
