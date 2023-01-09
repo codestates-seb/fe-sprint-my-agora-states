@@ -1,18 +1,27 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
-  border: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
 body {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  
+}
+
+main{
+  background-color: #EAF4F9; 
+  padding: 20px;
+  border-radius: 50px;
+  width:100vw
 }
 
 li {
   list-style : none;
   display: flex;
   flex-direction: row;
+
 } 
 
 .discussion__wrapper{
@@ -33,21 +42,79 @@ li {
   margin-right: 20px;
 }
 
-.discussion__content{
-  display : flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: auto;
-}
+
+/* 박스가 꽉차게 안된다.?? */
+
 .discussion__information{
   /* 저자,생성일 오른쪽 정렬 */
   display: flex;
   flex-direction : row-reverse; /*역가로정렬*/
+
 }
 .discussion__answered{
   /* 체크박스 중앙으로 */
   display : flex;
   flex-direction: column;
   justify-content: center;
+}
+
+
+/* 제목 꾸미기 */
+h1 {
+  color: #3498DB;
+  font-size: 10vw;
+}
+
+
+/* submit 꾸미기  */ 
+.form__input--wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+form.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+/* name title question 입력 큰 박스 flex 넣어주고 비율맞추기  */
+/* flex로 비율 맞추기가 안된다. */
+.form__input--name, .form__input--title, .form__textbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /*중앙 정렬*/
+  
+  margin: 10px 0px;
+  border-radius: 8px;
+  background-color: white;
+  
+}
+
+.questionGuide{
+  flex: 1 1 0;
+  padding : 10px;
+}
+
+.write{
+  flex: 3 1 0;
+  border: none;
+  padding: 10px;
+}
+
+
+.form__submit{
+  display: flex;
+  flex-direction: row;
+}
+
+.form__submit input{
+  width: 100%;
+  background-color: #3498DB;
+  border-style: none;
+  border-radius: 5px;
+  color : white;
 
 }
