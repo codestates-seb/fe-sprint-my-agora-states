@@ -13,11 +13,27 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // 아바타 이미지 el 생성 및 속성 설정, append
-  const avatarImg = document.createElement("img");
-  avatarImg.className = "discussion__avatar--image";
-  avatarImg.setAttribute("src", obj.avatarUrl);
-  avatarWrapper.append(avatarImg);
+  // avatar img
+  const avatarImg = document.createElement("img"); // 요소 생성
+  avatarImg.className = "discussion__avatar--image"; // 클래스 이름 지정
+  avatarImg.setAttribute("src", obj.avatarUrl); // src 속성 설정
+  avatarWrapper.append(avatarImg); // append
+
+  // discussion title
+  const discussionTitle = document.createElement('h2')
+  discussionTitle.className = "discussion__title"
+    // title url
+    const titleUrl = document.createElement('a')
+    titleUrl.setAttribute('href', obj.url)
+    titleUrl.textContent = obj.title
+    discussionTitle.append(titleUrl)
+  // discussion information(id, createdAt)
+  const discussionInformation = document.createElement('div')
+  discussionInformation.className = ('discussion__information')
+  discussionInformation.textContent = `${obj.id} / ${obj.createdAt}`
+
+  // discusstion content에 새로 생성한 두 요소 append
+  discussionContent.append(discussionTitle, discussionInformation)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
