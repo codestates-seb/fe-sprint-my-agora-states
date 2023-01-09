@@ -1,1 +1,113 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 전역변수 초기화 */
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 기본 바디 설정하기(배경이미지)
+   가운데로 정렬시킨 다음에 배경을 입력(반복x) 꽉차게 배경설정
+ */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/winter.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    width: 600px;
+    text-align: center;
+    justify-content: center;
+}
+
+h1 {
+    color: rgb(108, 61, 174);
+}
+
+.form__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: beige;
+    border: 1px solid black;
+}
+
+.form__container .form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--name label {
+    width: 30%;
+}
+.form__input--name #name {
+    float: right;
+    width: 50%;
+}
+
+.form__input--title label{
+    width: 50%;
+}
+
+.form__input--title #name {
+    float: right;
+    width: 50%;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit {
+    text-align: center;
+}
+
+.form__submit input {
+    margin: 5px;
+    padding: 1px;
+    width: 50%;
+}
+
+.discussion__wrapper {
+    justify-content: center;
+    text-align: center;
+}
+
+.discussions__container {
+    margin: 10px 0px 5px 38px;
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    width: 500px;
+    height: 200px;
+    border-radius: 19px;
+}
+
+.discussion__container {
+
+    display: flex;
+    margin: 20px;
+}
+
+.discussion__container .discussion__avatar--image {
+    padding: 5px;
+    border-radius: 100%;
+}
+
+.discussion__container .discussion__content {
+    padding: 5px;
+    display: inline-block;
+}
+
+.discussion__container .discussion__content .discussion__title {
+    float: left;
+}
+
+.discussion__container .discussion__content .discussion__information {
+    top: 3px;
+    float: right;
+}
