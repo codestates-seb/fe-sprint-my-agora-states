@@ -13,21 +13,20 @@ const createEle = (tag, className, options = {}) => {
 const convertToDiscussion = (obj) => {
     const li = createEle("li", "discussion__container"); // li 요소 생성
 
-    const avatarWrapper = createEle("div", "discussion__avatar__wrapper");
-    avatarWrapper.style.backgroundImage = `url(${obj.avatarUrl})`;
+    const avatarWrapper = createEle("div");
+    const discussionAvatarImage = createEle("div", "discussion__avatar__image");
 
-    const discussionAuthor = createEle("h3", "discussion__title", {
-        textContent: obj.author,
-    });
-    const discussionCreateAt = createEle("div", "discussion__create__At", {
-        textContent: obj.createdAt,
-    });
+    discussionAvatarImage.style.backgroundImage = `url(${obj.avatarUrl})`;
+    avatarWrapper.append(discussionAvatarImage);
 
-    const discussionWrittenInfo = createEle("div", "discussion__Written__Info");
-    discussionWrittenInfo.append(discussionCreateAt, discussionAuthor);
+    const discussionWrittenInfo = createEle(
+        "div",
+        "discussion__Written__Info",
+        { textContent: `${obj.author} / ${obj.createdAt}` }
+    );
 
     const discussionContent = createEle("div", "discussion__content");
-    const title = createEle("h3", "title", { textContent: obj.title });
+    const title = createEle("h2", "title", { textContent: obj.title });
 
     discussionContent.append(title, discussionWrittenInfo);
 
@@ -47,3 +46,21 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const discussionForm = document.querySelector(".form");
+discussionForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const DEFAULT_AVATAR_UTL =
+        "https://avatars.githubusercontent.com/u/120073917?v=4";
+
+    const { author, title } = event.target;
+    const obj = {
+        author: author.value,
+        title: title.value,
+        createdAt: new Date().toJSON(),
+        avatarUrl: DEFAULT_AVATAR_UTL,
+    };
+
+    ul.prepend(convertToDiscussion(obj));
+});
