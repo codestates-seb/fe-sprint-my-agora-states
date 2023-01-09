@@ -25,9 +25,9 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement("h2");
   const link = document.createElement("a");
   discussionTitle.className = "discussion__title"
-  link.href = obj.url
+  link.href = obj.url;
   link.textContent = obj.title;
-  discussionTitle.append(link)
+  discussionTitle.append(link);
   // *** content-title
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
@@ -58,6 +58,29 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul); // return ul.append(li)
 
+// form 입력시 discussion이 추가되는 함수.
+const actionForm = (event) => {
+  event.preventDefault();
+  const formNameValue = document.querySelector("#name").value;
+  const formTitleValue = document.querySelector("#title").value;
+  const formTextValue = document.querySelector("#story").value;
+
+  let discussion = {
+    id : Date.now(),
+    createdAt: new Date(),
+    title: formTitleValue,
+    url: "#",
+    author: formNameValue,
+    answer: null,
+    bodyHTML: formTextValue,
+    avatarUrl: formNameValue ? `https://avatars.githubusercontent.com/${formNameValue}` : 'https://github.githubassets.com/images/mona-loading-default.gif'
+  }
+  ul.prepend(convertToDiscussion(discussion));
+}
+const submit = document.querySelector("input[type='submit']");
+submit.onclick = actionForm
+
+
 
 /*
 1. render 함수에 ul정보 전달
@@ -68,4 +91,5 @@ render(ul); // return ul.append(li)
    그리고 그 li 안에 세 개의 div가 있다,
    이 div에는 obj의 프로퍼티 값을 넣음
 */
+
 
