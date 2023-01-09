@@ -44,7 +44,7 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
 
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+
   return li;
 };
 
