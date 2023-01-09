@@ -37,6 +37,11 @@ const convertToDiscussion = (obj) => {
   idAndDate.textContent = `${obj.author} / ${obj.createdAt}`;
   discussionContent.appendChild(idAndDate);
 
+  //체크박스 넣기
+  const checkBox = document.createElement("p");
+  checkBox.textContent = obj.answer ? "☑︎" : "☒";
+  discussionAnswered.appendChild(checkBox);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
