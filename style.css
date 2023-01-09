@@ -149,6 +149,14 @@ label {
   line-height: 50px;
 }
 
+.abataImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding-left: 0px;
+  margin-left: 25px;
+}
+
 input {
   font-size: 18px;
 }

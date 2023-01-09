@@ -58,11 +58,18 @@ const convertToDiscussion = (obj) => {
   const discussionCommand = document.createElement('div');
   discussionCommand.className = 'discussion__answered';
   const discussionCommandBox = document.createElement('p');
-  discussionCommandBox.textContent = `☑`;
-  //discussionCommandBox.textContent = `☐`;
-  discussionCommand.appendChild(discussionCommandBox);
-  discussionAnswered.appendChild(discussionCommand);
-
+  const discussionChecker = obj.answer;
+  if(String(discussionChecker) === 'null') {
+    discussionCommandBox.textContent = `☐`;
+    discussionCommand.appendChild(discussionCommandBox);
+    discussionAnswered.appendChild(discussionCommand);
+    discussionCommand.style.fontSize = '12px';
+  }
+  else {
+    discussionCommandBox.textContent = `☑`;
+    discussionCommand.appendChild(discussionCommandBox);
+    discussionAnswered.appendChild(discussionCommand);
+  }
 
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
