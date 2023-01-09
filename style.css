@@ -93,6 +93,9 @@ form{
     margin-bottom: 5px;
 }
 /* 입력폼 > 질문 */
+#story{
+    margin-top: 5px;
+}
 
 /* 댓글창 */
 .discussion__wrapper{
