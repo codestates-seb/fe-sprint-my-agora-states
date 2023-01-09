@@ -1,1 +1,49 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+/* 세팅 초기화 시키기 */
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('ㅁ');
+    background-repeat:no-repeat;
+    background-size: cover;
+}  
+
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 578px;
+    height: 150px;
+    font-size : 12px;
+    margin : 10px;
+    padding: 15px;
+}
+
+section.form__container {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+img {
+    width: 48px;
+    border-radius: 100%;
+}
