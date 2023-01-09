@@ -1,3 +1,9 @@
+// 선언
+const btnSubmit = document.querySelector(".form__submit input");
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -69,8 +75,6 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // 디스커션 추가기능
@@ -105,10 +109,8 @@ const addDiscussion = () => {
   };
 
   agoraStatesDiscussions.unshift(newObj);
-  console.log(agoraStatesDiscussions[0]);
-  console.log(agoraStatesDiscussions);
   ul.prepend(convertToDiscussion(newObj));
 };
-const btnSubmit = document.querySelector(".form__submit input");
+
 btnSubmit.onclick = addDiscussion;
 /* ??? 버튼 클릭 이벤트시 GET http://127.0.0.1:5500/false 404 (Not Found) 에러가 발생하는 것 같다. 값이 무엇이든지 관계없이 404 에러가 발생함 */
