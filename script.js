@@ -14,8 +14,39 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 객체를 파라미터로 받아 속성 채워주기 (여기서 파라미터는 obj)
 
+  // 아바타 이미지
+  const avatarImg = document.createElement('img');
+  avatarImg.className = 'discussion__avatar--image';
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  // 글제목
+  const discussionTitle = document.createElement('h2');
+  discussionTitle.className = 'discussion__title';
+  const discussionALink = document.createElement('a');
+  discussionALink.href = obj.url;
+  discussionALink.textContent = obj.title;
+  discussionTitle.append(discussionALink);
+  discussionContent.append(discussionTitle);
+
+  // 작성자 및 날짜
+  const discussionAuthor = document.createElement('div')
+  discussionAuthor.className = 'discussion__information';
+  discussionAuthor.textContent = obj.author + ' / ' + obj.createdAt;
+  discussionContent.append(discussionAuthor);
+
+  // 답변 여부
+  const discussionAnsweredBox = document.createElement('p')
+  if (obj.answer === null) {
+    discussionAnsweredBox.textContent = '☒';
+  } else {
+    discussionAnsweredBox.textContent = '☑';
+    
+  }
+  discussionAnswered.append(discussionAnsweredBox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
