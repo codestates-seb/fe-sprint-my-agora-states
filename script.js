@@ -27,17 +27,22 @@ const convertToDiscussion = (obj) => {
   title.textContent = obj.title;
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = obj.author + " / " + new Date(obj.createdAt).toLocaleString();
+  discussionInformation.textContent = obj.author + " | " + new Date(obj.createdAt).toLocaleString();
   discussionTitle.append(title);
   discussionContent.append(discussionTitle);
   discussionContent.append(discussionInformation);
 
   const answer = document.createElement("p");
+  const checked = document.createElement("img");
+  checked.className = "check__icon";
   if(obj.answer !== null) {
-    answer.textContent = "☑";
+    checked.src = "./img/check.png";
+    // answer.textContent = "☑";
   }else {
-    answer.textContent = "◻️";
+    checked.src = "./img/uncheck.png";
+    // answer.textContent = "◻️";
   }
+  answer.append(checked);
   discussionAnswered.append(answer);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -47,7 +52,8 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  // for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = 0; i < 5; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -75,7 +81,7 @@ submit.onclick = (event) => {
 
   let agoraStatesDiscussion = {};
   agoraStatesDiscussion.id = self.crypto.randomUUID().substring(0, 8);
-  agoraStatesDiscussion.author = author.value;
+  agoraStatesDiscussion.author = author.textContent;
   agoraStatesDiscussion.title = title.value;
   agoraStatesDiscussion.bodyHTML = story.value;
   agoraStatesDiscussion.createdAt = new Date().toString();
