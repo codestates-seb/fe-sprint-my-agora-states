@@ -69,7 +69,7 @@ ul, li {
     width: 240px;
     height: 30px;
     border-radius: 100px;
-    padding-left: 30px;
+    padding-left: 35px;
 }
 
 .agora-search button {
@@ -103,10 +103,6 @@ h2 a {
 
 .writing {
     display: flex;
-}
-
-.discussions__container {
-    overflow: hidden;
 }
 
 .discussion__container {
@@ -160,8 +156,13 @@ h2 a {
 
 /**/
 
+.write_form {
+    position: absolute;    
+    width: 100%;
+    height: 100%;
+}
+
 .form__container {
-    position: absolute;
     width: 100%;
     height: 100%;
     justify-content: center;
