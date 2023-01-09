@@ -19,6 +19,17 @@ const convertToDiscussion = (obj) => {
   avatar.src = obj.avatarUrl;
   avatarWrapper.append(avatar);
 
+  const content = document.createElement('h2');
+  const title = document.createElement('a');
+  title.href = obj.url;
+  title.innerText = obj.title;
+  content.append(title); // <h2>안에 <a>가 있음.
+  discussionContent.append(content);
+
+  const information = document.createElement('div');
+  information.innerText = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(information);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
