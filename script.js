@@ -14,10 +14,34 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  const title = document.createElement("a");
+  title.href = obj.url;
+  title.textContent = obj.title;
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = obj.author + " / " + new Date(obj.createdAt).toLocaleString();
+  discussionTitle.append(title);
+  discussionContent.append(discussionTitle);
+  discussionContent.append(discussionInformation);
 
+  const answer = document.createElement("p");
+  if(obj.answer !== null) {
+    answer.textContent = "☑";
+  }else {
+    answer.textContent = "◻️";
+  }
+  discussionAnswered.append(answer);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
   return li;
 };
 
@@ -32,3 +56,23 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const submit = document.querySelector("input[type=submit]");
+let author = document.querySelector("#name");
+let title = document.querySelector("#title");
+let story = document.querySelector("#story");
+submit.onclick = (event) => {
+  event.preventDefault();
+
+  let agoraStatesDiscussion = {};
+  agoraStatesDiscussion.id = self.crypto.randomUUID().substring(0, 8);
+  agoraStatesDiscussion.author = author.value;
+  agoraStatesDiscussion.title = title.value;
+  agoraStatesDiscussion.bodyHTML = story.value;
+  agoraStatesDiscussion.createdAt = new Date().toString();
+  agoraStatesDiscussion.avatarUrl = "https://avatars.githubusercontent.com/u/99889721?v=4";
+  agoraStatesDiscussion.answer = null;
+
+  console.log(agoraStatesDiscussion);
+  ul.prepend(convertToDiscussion(agoraStatesDiscussion));
+}
