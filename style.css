@@ -4,14 +4,20 @@
 }
 
 body{
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 main{
-    width: 600px;
-        border: 5px solid black;
+    width: 540px;
+    border: 5px solid black;
+    
+}
+
+
+
+h1{
+    text-align: center;
 }
 
 .form__container{
@@ -19,6 +25,71 @@ main{
 }
 
 
+
+
+.form{
+    display: grid;
+    grid-auto-flow: column;
+    
+}
+.form__input--name{
+    border: 5px solid green
+}
+.form__input--title{
+    border: 5px solid pink
+}
+.form__textbox{
+    border: 5px solid black
+}
+
+
+
+
+
+
 .discussion__wrapper {
     border: 5px solid blue
+   
+}
+
+
+
+
+div.form__submit{
+  
+   
+    
+}
+input[type="submit"] {
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+    
+}
+
+li.discussion__container{
+    display: flex;
+    flex-direction: row;
+}
+div.discussion__avatar--wrapper{
+    display: flex;
+    flex-grow: 0.5;
+}
+
+div.discussion__content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+   }
+div.discussion__answered{
+    display: flex;
+    flex-grow: 1;
+    
+}
+
+h2.discussion__title{
+    border: 5px solid orange
+}
+div.discussion__information{
+    border: 5px solid orange
 }
