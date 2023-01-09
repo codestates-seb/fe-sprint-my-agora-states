@@ -1,1 +1,278 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+main {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: stretch;
+
+}
+
+.discussion__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+li {
+    list-style: none;
+    min-height: 100px;
+    max-height: 100px;
+    min-width: 530px;
+    max-width: 530px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.discussion__content {
+    flex: 1;
+}
+
+
+
+ul {
+    width: 600px;
+    height: 500px;
+    overflow-y: hidden; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 70%;
+}
+
+.discussion__container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.discussion__content{
+    margin-left: 30px;
+    font-size: 10px;
+}
+
+.discussion__answered {
+    margin-left: 50px;
+}
+
+.imgBtn{
+    height: 30px;
+}
+
+form {
+    font-size: 20px;
+}
+
+form div {
+    padding: 10px
+}
+
+.form__input--wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form__submit {
+    text-align: center;
+}
+
+button {
+    background-color: white;
+    border: 0px;
+}
+
+#downBtn:active {
+    position: relative;
+    top: 0.3vh;
+}
+
+#upBtn:active,#powerUp:active {
+    position: relative;
+    bottom: 0.3vh;
+}
+
+.likeBtnImg {
+    height: 20px;
+}
+
+.likeBtn {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+textarea {
+    border-radius: 5px;
+}
+
+.form__textbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__input--title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__input--name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    padding-right: 3px;
+}
+
+.form__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bestBox {
+    
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    text-align : center;
+    flex-direction: column;    
+}
+
+.bestBox {
+    /* background-image: url(file:///C:/Users/shdom/Desktop/fe-sprint-my-agora-states/colorful-g1888392b5_1280.png);
+    background-repeat : no-repeat;
+    background-size : auto;
+    background-size : cover; */
+    background-color: rgb(87, 88, 88);
+    color: white;
+    opacity: 0.6;
+}
+
+.bestImg {
+    flex: 1;
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.bestTime{
+    flex: 1;
+    font-size: 10px;
+}
+
+.bestTitle{
+    flex: 1;
+    font-size: 15px;
+    margin-top: -45px;
+    padding: 0 10px;
+}
+
+.bestauthor{
+    flex: 1;
+    display: flex;
+    text-align : left;
+    margin-left: 20px;
+    padding-top: 15px;
+}
+
+.fireImg{
+    height: 25px;
+}
+
+.authorImg{
+    height: 20px;
+    border-radius: 70%;
+    padding-right: 5px;
+}
+
+/* input:focus {
+    border: 0;
+} */
+
+input{
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(230, 224, 224);
+} 
+
+input:focus {outline: none;}
+
+textarea {
+    width: 300px;
+    height: 60px;
+    resize: none;
+    text-indent: 1%;
+    padding-top: 3px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(230, 224, 224);
+  }
+
+#submitBtn{
+    background-color: white;
+    font-size: 20px;
+    padding: 4px;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(230, 224, 224);
+}
+#submitBtn:active{
+    position: relative;
+    top: 0.3vh;
+}
+
+
+body {
+    background-image: url(file:///C:/Users/shdom/Desktop/fe-sprint-my-agora-states/clouds-g42afd195c_1920.jpg);
+    background-repeat : no-repeat;
+    background-size : auto;
+    background-size : cover;
+    color: black;
+}
+
+a {
+    text-decoration-line: none;
+    color: black;
+}
+
+
+button {
+    background-color:transparent;
+    color:white;
+}
+
+h1{
+    font-size: 50px;
+}
