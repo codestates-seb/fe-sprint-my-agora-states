@@ -1,6 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
-console.log(agoraStatesDiscussions.id)
+// console.log(agoraStatesDiscussions.id)
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -12,26 +12,36 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+
   const avatarImg = document.createElement('img');
+  const discussionTitle = document.createElement("h2")
+  const a = document.createElement("a")
+  const discussionInfo = document.createElement("div");
+  const p = document.createElement("p")
+  
   avatarImg.className = "discussion__avatar--image";
   avatarImg.src = obj.avatarUrl
   avatarImg.alt = 'avatar of' + obj.author;
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-avatarWrapper.append(avatarImg);
-  const discussionTitle = document.createElement("h2")
+  avatarWrapper.append(avatarImg);
+  
   discussionTitle.classList = "discussion__title"
-  const a = document.createElement("a")
+  
   a.href = obj.url
   discussionTitle.append(a)
   discussionTitle.textContent=obj.title
-  const discussionInfo = document.createElement("div");
+  
   discussionInfo.classList = "discussion__information"
   discussionInfo.textContent = obj.author + "/" + obj.createdAt
   discussionContent.append(discussionTitle,discussionInfo)
-  const p = document.createElement("p")
+  
   p.textContent="☑"
   discussionAnswered.append(p)
 
+  // const answerTitle = document.querySelector(".discussion__answered")
+  // const answerList = document.createElement("div")
+  // answerList.className = answerer
+  // answerList.textContent = obj.answer
+  // answerTitle.append(answerList)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -48,3 +58,41 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+const submit = document.querySelector('#submit')
+const nameInput = document.querySelector('#name')
+const titleInput = document.querySelector('#title')
+const storyInput = document.querySelector('#story')
+
+const makeForm =(event) => {
+event.preventDefault();
+  let obj = {title:"",
+    author: "",
+    bodyHTML:"",
+    avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+    createdAt: ""
+  }
+
+  obj.author = nameInput.value
+  obj.title = titleInput.value
+  obj.bodyHTML = storyInput.value
+  obj.createdAt = new Date().toLocaleDateString()
+
+  localStorage.setItem('obj', JSON.stringify(obj));
+
+  agoraStatesDiscussions.unshift(obj)
+const convertForm = convertToDiscussion(obj)
+ul.prepend(convertForm)
+
+let keys = Object.keys(localStorage);
+
+for(let key of keys) {
+  console.log(`${key}: ${localStorage.getItem(key)}`);
+}
+
+}
+
+
+
+submit.addEventListener('click', makeForm)
