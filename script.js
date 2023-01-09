@@ -1,36 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-// input form
-const form = document.querySelector(".form");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const inputName = document.querySelector(".form__input--name input");
-  const inputTitle = document.querySelector(".form__input--title input");
-  const inputTextbox = document.querySelector(".form__textbox textarea");
-
-  const name = inputName.value;
-  const title = inputTitle.value;
-
-  inputName.value = "";
-  inputTitle.value = "";
-  inputTextbox.value = "";
-
-  const data = {};
-  data.createdAt = "2022-04-22T14:08:33Z";
-  data.title = title;
-  data.url = "";
-  data.author = name;
-  data.answer = null;
-  data.avatarUrl =
-    "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4";
-
-  agoraStatesDiscussions.push(data);
-
-  render(ul);
-});
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -83,3 +53,32 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// input form
+const form = document.querySelector(".form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const inputName = document.querySelector(".form__input--name input");
+  const inputTitle = document.querySelector(".form__input--title input");
+  const inputTextbox = document.querySelector(".form__textbox textarea");
+
+  const name = inputName.value;
+  const title = inputTitle.value;
+
+  inputName.value = "";
+  inputTitle.value = "";
+  inputTextbox.value = "";
+
+  const data = {};
+  data.createdAt = "2022-04-22T14:08:33Z";
+  data.title = title;
+  data.url = "";
+  data.author = name;
+  data.answer = null;
+  data.avatarUrl =
+    "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4";
+
+  agoraStatesDiscussions.unshift(data);
+  ul.prepend(convertToDiscussion(data));
+});
