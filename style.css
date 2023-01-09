@@ -28,13 +28,16 @@ h1{
     width: 100%;
     font-family: 'Luckiest Guy', cursive;
     font-size: 2.5rem;
+    padding: 0 10px;
     color: var(--strawberry);
     text-shadow: -1px 0 var(--dark-blue), 0 1px 2px var(--dark-blue), 1px 0 4px var(--dark-blue), 0 -1px var(--dark-blue);
 }
 #wrap {
     display: flex;
     flex-flow: row nowrap;
-    margin-top: 15px;
+    margin-top: 10px;
+    width: 100%;
+    min-width: 980px;
 }
 /* 입력폼 */
 .form__container {
@@ -44,14 +47,56 @@ h1{
     background-color: var(--pale-pink-100);
     border: 3px solid var(--dark-blue);
     border-radius: 15px 0 0 15px;
+    width:50%;
 }
 form{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    margin: 15px 0;
 }
+.form__input--wrapper{
+    display: flex;
+    flex-flow: column wrap;
+}
+.form__input--wrapper div {
+    margin: 10px 0;
+}
+.form__input--wrapper label, input, textarea {
+    width: 100%;
+}
+.form__input--wrapper label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+.form__input--wrapper input {
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+}
+/* 입력폼 > 이름 */
+.form__input--name {
+    display: flex;
+    flex-flow: column;
+}
+.form__input--name > label {
+    margin-bottom: 5px;
+}
+/* 입력폼 > 제목 */
+.form__input--title {
+    display: flex;
+    flex-flow: column;
+}
+.form__input--title > label {
+    margin-bottom: 5px;
+}
+/* 입력폼 > 질문 */
+
 /* 댓글창 */
 .discussion__wrapper{
+    width: 50%;
     display: flex;
     flex-flow: column wrap;
     padding: 15px;
