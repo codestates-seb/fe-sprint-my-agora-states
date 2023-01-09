@@ -1,1 +1,264 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@font-face {
+  font-family: 'HSGooltokki';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/HSGooltokki.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Humanbumsuk';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MonoplexKR-Italic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KyoboHandwriting2021sjy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  border: 3px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+h1 {
+  font-family: 'HSGooltokki';
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+  /* padding-top: 50px; */
+  animation: blink-effect 2s step-end infinite;
+}
+
+@keyframes blink-effect { 70% { opacity: 0; } }
+
+section.form__container {
+  flex:2;
+  margin:10px;
+}
+section.discussion__wrapper{
+  display: flex;
+  flex:4;
+  width: 670px;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+form > div:first-of-type {
+  flex-basis: 30px;
+  padding-top: 28px;
+  padding-left:80px;
+  font-size: 20px;   
+}
+
+form > div:nth-of-type(4) {
+  /* margin-top: 20px; */
+  padding-top: 28px;
+  padding-left: 10px;
+  flex-basis: 30px;
+  font-size: 20px;
+}
+
+.form__input--wrapper {
+  flex-basis: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: 3s;
+  margin-left: 15px;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  flex:1;
+  width:400px;
+  margin: 3px;
+  box-shadow: 3px 3px 3px rgb(0, 0, 0);
+  transition-duration: 0.2s;
+  
+}
+.form__input--wrapper input {
+  width:400px;
+  height: 30px;
+  font-size:1.2rem;
+  font-family: 'Humanbumsuk';
+  border:0px; 
+  outline-style: none;
+  border-radius: 10px;
+
+}
+.form__input--wrapper input:hover {
+  background-color: #cac8ca;
+  transition: 0.5s;
+}
+.form__input--wrapper textarea {
+  width:400px;
+  height: 100px;
+  font-size:1.2rem;
+  font-family: 'Humanbumsuk';
+  border:0px;
+  outline-style: none;
+}
+.form__input--wrapper textarea:hover {
+  background-color: #cac8ca;
+  transition: 0.5s;
+}
+
+.form__submit {
+  flex-basis:50px;
+  margin:3px;
+}
+.form__submit input {
+  margin-top: 3px;
+  cursor: pointer;
+  width:100px;
+  height: 175px;
+  font-family: 'Humanbumsuk';
+  font-weight:bolder;
+  font-size: 1.1rem;
+  background-color: #e3b2df;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0, .5);
+  transition-duration: 0.3s;
+  color:white;
+  margin-right: 15px;
+  border-radius: 4px;
+}
+.form__submit input:active {
+  margin-left: 5px;
+  margin-top: 5px;
+  box-shadow: none;
+}
+.form__submit input:hover {
+  font-size: 20px;
+  background-color: hsl(152, 71%, 80%);
+  color:rgb(249, 248, 248);
+}
+
+ul.discussions__container {
+  display: flex;
+  flex-direction: column;
+  flex-basis:640px;
+  justify-content: center;
+  align-items:center;
+  margin:10px 0;
+}
+
+li.discussion__container {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  border: 0.5px solid rgb(176, 175, 175);
+  width:630px;
+  flex:1;
+  margin:10px;
+  box-shadow: 3px 3px 3px rgb(0, 0, 0, .5);
+  border-radius: 10px;
+}
+
+div.discussion__avatar--wrapper {
+  flex-basis: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 15px;
+  height: 90px;
+}
+
+img {
+  border-radius: 50%;
+  width: 48px;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, .5);
+  transition: 2s;
+}
+
+div.discussion__content {
+  flex-basis: 470px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+.discussion__title {
+  flex:1.5;
+  padding-bottom: 5px;
+  font-family: 'KyoboHandwriting2021sjy';
+  padding-top: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.discussion__title > a {
+  text-decoration: none; 
+  color:rgb(153, 54, 203);
+}
+.discussion__title > a:hover {
+  cursor: pointer;
+  background-color: #d7adea;
+  font-weight: bold;
+}
+
+
+.discussion__information {
+  flex:1;
+  text-align: right;
+  color:#505fe2;
+  font-size: 1rem;
+  font-family: 'MonoplexKR-Italic';
+}
+
+div.discussion__answered {
+  flex-basis: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.discussion__answered > p {
+  font-size: 35px;
+  color:#43c27e;
+}
+
+.discussion__answered > p:hover {
+  cursor: pointer;
+}
