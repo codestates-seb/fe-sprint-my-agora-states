@@ -35,7 +35,27 @@ const convertToDiscussion = (obj) => {
   // content infomation
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+
+  //현지 시각 반영
+  const hour = Number(obj.createdAt[11] + obj.createdAt[12]);
+  const minute = obj.createdAt[14] + obj.createdAt[15];
+  const second = obj.createdAt[17] + obj.createdAt[18];
+  let localHour = 0;
+  let noon = "오후";
+
+  if (hour + 9 >= 24) {
+    localHour = hour - 15;
+  } else {
+    localHour = hour + 9;
+  }
+  if (localHour < 12) {
+    noon = "오전";
+  } else if (localHour > 12) {
+    localHour -= 12;
+  }
+
+  // info 붙이기
+  discussionInfo.textContent = `${obj.author} /${noon} ${localHour} : ${minute} : ${second}`;
   discussionContent.append(discussionInfo);
 
   // answered?
@@ -44,6 +64,51 @@ const convertToDiscussion = (obj) => {
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
+};
+
+//discussion 추가
+const submitBtn = document.querySelector("#add-discussion");
+const enterName = document.querySelector("#name");
+const enterTitle = document.querySelector("#title");
+const enterStory = document.querySelector("#story");
+
+submitBtn.onclick = (e) => {
+  e.preventDefault();
+  // 현재 시각 계산
+  let currentTime = new Date();
+  let hour = currentTime.getUTCHours();
+  let month = currentTime.getUTCMonth();
+  let date = currentTime.getUTCDate();
+  let minutes = currentTime.getUTCMinutes();
+  let seconds = currentTime.getUTCSeconds();
+  if (hour < 10) {
+    hour = "0" + String(hour);
+  }
+  if (month < 10) {
+    month = String(month);
+  }
+  if (date < 10) {
+    date = "0" + String(date);
+  }
+  if (minutes < 10) {
+    minutes = "0" + String(minutes);
+  }
+  if (seconds < 10) {
+    seconds = "0" + String(seconds);
+  }
+
+  // data.js에 추가
+  const newDiscussion = {
+    avatarUrl: "defaultImg.png",
+    createdAt: `${currentTime.getFullYear()}-${
+      month + 1
+    }-${date}T${hour}:${minutes}:${seconds}`,
+    author: enterName.value,
+    title: enterTitle.value,
+    bodyHTML: enterStory.value,
+  };
+  agoraStatesDiscussions.unshift(newDiscussion);
+  render1(page);
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -63,7 +128,6 @@ const buttons = document.querySelector(".buttons");
 const showContent = 6; //한페이지 최대 글 개수
 const showButton = 5; // 한페이지 페이지버튼 개수
 let page = 1; // 첫페이지
-const maxPage = Math.ceil(agoraStatesDiscussions.length / showContent); //최대 페이지 수
 
 // 페이지 버튼 생성
 const makeButton = (id) => {
@@ -119,6 +183,7 @@ next.innerHTML = "->";
 next.addEventListener("click", goNextPage);
 
 const renderButton = (page) => {
+  const maxPage = Math.ceil(agoraStatesDiscussions.length / showContent); //최대 페이지 수
   // 버튼 리스트 초기화
   while (buttons.hasChildNodes()) {
     buttons.removeChild(buttons.lastChild);

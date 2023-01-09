@@ -23,6 +23,10 @@ main {
   background-color: skyblue;
 }
 
+#answer-box {
+  background-color: aqua;
+}
+
 section {
   width: 100%;
   padding: 30px;
@@ -43,4 +47,11 @@ li {
 
 .button {
   width: 20px;
+}
+
+.hide {
+  display: none;
+}
+.active {
+  background-color: red;
 }
