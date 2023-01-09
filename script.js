@@ -15,7 +15,32 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
+  // avatarWrapper
+  const avatarImg = document.createElement('img');
+  avatarImg.className = 'discussion__avatar--image';
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of' + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  // discussionContent
+  const contentTitle = document.createElement('h2');
+  contentTitle.className = 'discussion__title';
+  const contentTitleLink = document.createElement('a');
+  contentTitleLink.href = obj.url;
+  contentTitleLink.textContent = obj.title;
+  contentTitle.append(contentTitleLink);
+
+  const contentInfo = document.createElement('div');
+  contentInfo.className = 'discussion__information';
+  contentInfo.textContent = obj.createdAt;
+  discussionContent.append(contentTitle, contentInfo);
+
+  // discussionAnswered
+  const answered = document.createElement('p');
+  answered.textContent = '☑';
+  if (obj.answer !== null){
+    discussionAnswered.append(answered)
+  }
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -23,8 +48,15 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  const notices = [];
+
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    // notice 데이터는 따로 관리하기 위해, title에 '[notice]' 문자열이 있으면 빈 배열에 저장
+    if (agoraStatesDiscussions[i].title.includes('[notice]')) {
+      notices.push(agoraStatesDiscussions[i]);
+    } else {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    } 
   }
   return;
 };
