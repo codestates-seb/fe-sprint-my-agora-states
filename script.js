@@ -7,15 +7,36 @@ const convertToDiscussion = (obj) => {
   li.className = "discussion__container"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
+  avatarWrapper.className = "discussion__avatar--wrapper"; // image - avatarUrl
   const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
+  discussionContent.className = "discussion__content"; // title, info(author, createdAt)
   const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
+  discussionAnswered.className = "discussion__answered"; // answered
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // Avatar
+  const avatar = document.createElement("img");
+  avatar.className = "discussion__avatar--image";
+  avatar.setAttribute("src", obj.avatarUrl);
+  avatarWrapper.append(avatar);
 
+  // Content
+  const contentTitle = document.createElement("h2");
+  const contentLink = document.createElement("a");
+  const contentInfo = document.createElement("div");
+  contentTitle.append(contentLink);
+  discussionContent.append(contentTitle, contentInfo);
+  contentLink.textContent = obj.title;
+  contentLink.setAttribute("href", obj.url);
+  contentLink.setAttribute("target", "_blank");
+  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
 
+  // Answered
+  const answered = document.createElement("p");
+  discussionAnswered.append(answered);
+  if (!(obj.answer === null)) {
+    answered.textContent = "☑";
+  }
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
