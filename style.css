@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gurajada&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gurajada&family=Noto+Sans+KR:wght@300&display=swap');
+
 /* CSS로 새창을 만들어서 추가하게끔 설정할 예정. */
 
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
@@ -10,6 +14,7 @@
 
 body {
     height: 100vh;
+    overflow: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,6 +24,7 @@ body {
 ul, li {
     list-style: none;
     width: 540px;
+    font-family: 'Noto Sans KR', sans-serif;    
 }
 
 .hide {
@@ -26,12 +32,48 @@ ul, li {
 }
 
 .agora-title {
+    margin-top: 20px;
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    font-family: 'Gurajada', serif;
+    letter-spacing: 5px;
+    font-size: 26px
+}
+
+.agora-search {
+    color: lightgray;
+    font-family: 'Gurajada', serif;
+    letter-spacing: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 100;
+}
+
+.agora-writing {
+    color: white;
+    font-family: 'Gurajada', serif;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.agora-writing div {
+    padding-left   : 10px;
+}
+
+.agora-writing div:hover {
+    color: lightgray;
+}
+
+.agora-search input {
+    width: 240px;
+    height: 30px;
+    border-radius: 100px;
 }
 
 main {
@@ -39,18 +81,21 @@ main {
     min-height: 600px;
     padding: 30px;
     overflow: hidden;
-    /* 9개만 보이고 페이지네이션 해야함. */
+    /* 5개만 보이고 페이지네이션 해야함. */
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #1F1F29;
+    font-weight: 700;
 }
 
 h2 a {
-    text-decoration: none;    
+    text-decoration: none;
+    color: #1F1F29;
 }
 
 .writing {
@@ -65,7 +110,9 @@ h2 a {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    background-color: gray;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .discussion__avatar--wrapper {
@@ -76,12 +123,15 @@ h2 a {
 }
 
 .discussion__information {
-    text-align: right;
+    /* text-align: right; 과제는 오른쪽 정렬인데 난 오른쪽 정렬이 실따...*/
     padding-top: 5px;
+    font-size: 12px;
+    color: darkgray;
 }
 
 .discussion__content {
-    width: 450px;
+    padding-left: 10px;
+    width: 400px;
 }
 
 .discussion__avatar--image {
@@ -94,4 +144,31 @@ h2 a {
     align-items: center;
     justify-content: center;
     flex-basis: 40px;
+    font-size: 30px;
+}
+
+.discussion__answered div {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #13B294;
+    border-radius: 20px;
+}
+
+참고
+
+.arrow {
+    position: relative;
+}
+
+.arrow::after {
+    position: absolute;
+    left: 0; 
+    top: 0; 
+    content: '';
+    width: 50px; /* 사이즈 */
+    height: 50px; /* 사이즈 */
+    border-top: 5px solid #000; /* 선 두께 */
+    border-right: 5px solid #000; /* 선 두께 */
+    transform: rotate(225deg); /* 각도 */
 }

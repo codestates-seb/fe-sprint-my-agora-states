@@ -34,9 +34,8 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionTitle, discussionInfomation);
 
   // 체크표시 추가(이후 답변 여부에 따라 수정해야 함)
-  const discussionAnsweredCheck = document.createElement("p")
+  const discussionAnsweredCheck = document.createElement("div")
   discussionAnswered.append(discussionAnsweredCheck)
-  discussionAnsweredCheck.textContent = "☑";
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
