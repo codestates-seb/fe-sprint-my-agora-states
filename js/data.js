@@ -1,4 +1,5 @@
-const agoraStatesDiscussions = [
+/** @type { import("../@types/discussion").Discussion[] } */
+export const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",
@@ -786,20 +787,22 @@ const agoraStatesDiscussions = [
     avatarUrl:
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   },
-].map(discussion => {
+].map((discussion) => {
+  // 응답이 있다면
   if (discussion.answer) {
     return {
       ...discussion,
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
         ...discussion.answer,
-        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
-      }
-    }
+        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML),
+      },
+    };
   }
 
+  // 응답이 없다면
   return {
     ...discussion,
-    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
-  }
-})
+    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
+  };
+});

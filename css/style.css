@@ -1,0 +1,291 @@
+body {
+  background-color: var(--gray-200);
+}
+main {
+  min-width: 400px;
+  max-width: 1024px;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+/* ==============================  ==============================  */
+body .hide {
+  display: none;
+}
+body .answer-show {
+  max-height: 800px;
+
+  padding: 0.6em 1em;
+}
+
+/* ============================== page-title ==============================  */
+.page-title {
+  margin: 1em 0 2em;
+
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ============================== form ==============================  */
+.form__container {
+  padding: 0.6em 1em;
+  margin-bottom: 4em;
+
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px var(--gray-500);
+}
+
+/* input/textarea들을 감싸는 태그 */
+.form__input--wrapper > * {
+  margin-bottom: 1em;
+}
+.form__input--wrapper > *:last-child {
+  margin-bottom: 0;
+}
+
+/* input/textarea를 감싸는 태그 */
+.form__input--name, .form__input--title, .form__textbox {
+  display: flex;
+  flex-flow: column;
+}
+
+/* input/textarea의 label */
+.form__input--name > label, .form__input--title > label, .form__textbox > label {
+  font-weight: bold;
+  margin-bottom: 0.2em;
+
+  cursor: pointer;
+}
+/* input/textarea */
+.form__input--name > input[type="text"], .form__input--title > input[type="text"], .form__textbox > textarea {
+  flex: 1;
+
+  font-size: 1rem;
+
+  padding: 0.4em 1em;
+
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+.form__input--name > input[type="text"]:focus, .form__input--title > input[type="text"]:focus, .form__textbox > textarea:focus {
+  border-color: var(--teal-500);
+}
+
+/* submit button */
+.form__submit {
+  display: flex;
+  justify-content: flex-end;
+}
+.form__submit button[type="submit"] {
+  padding: 0.6em 1em;
+  margin-top: 2em;
+
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+
+  background-color: var(--teal-400);
+  border: 0;
+  border-radius: 2px;
+
+  transition: all 0.4s;
+
+  cursor: pointer;
+}
+.form__submit button[type="submit"]:hover {
+  background-color: var(--teal-500);
+}
+.form__submit button[type="submit"]:disabled {
+  background-color: var(--gray-300);
+  
+  cursor: not-allowed;
+}
+
+/* ============================== discussion ==============================  */
+
+/* 질문 컨테이너 ( 아바타, 질문 컨테이너 등의 전체를 가짐 ) */
+.discussion__container {
+  position: relative;
+
+  margin-bottom: 0.6em;
+  box-shadow: 0 4px 10px var(--gray-400);
+}
+.discussion__wrapper {
+  min-height: 100px;
+  
+  display: flex;
+  
+  padding: 0.6em 1em;
+  
+  background-color: #fff;
+  border-radius: 0.2em 0.2em 0 0;
+}
+body .discussion__wrapper > * {
+  padding-right: 0.6em;
+}
+body .discussion__wrapper > *:last-child {
+  padding-right: 0em;
+}
+
+/* 질문, 작성자, 작성 시간을 갖는 컨테이너 */
+.discussion__content {
+  flex: 1;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  padding: 0.6em 0;
+}
+
+/* 질문 응답 컨테이너 */
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.discussion__avatar--wrapper {
+  padding: 0.6em 0;
+}
+
+/* 아바타 */
+.avatar {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+
+  border-radius: 100%;
+}
+
+/* 작성자, 작성 시간을 갖는 컨테이너 */
+.discussion__author__createdAt--wrapper {
+  margin-left: auto;
+}
+/* >> 확장 가능성 << */
+.discussion__author__createdAt--wrapper > * {
+  margin-right: 0.6em;
+}
+.discussion__author__createdAt--wrapper > *:last-child {
+  margin-right: 0;
+}
+
+/* 답변 */
+.discussion__answer--wrapper {
+  max-height: 0px;
+  overflow: hidden;
+
+  padding: 0 1em;
+
+  background-color: var(--teal-200);
+
+  border-radius: 0 0 0.2em 0.2em;
+
+  line-height: 1.2;
+
+  transition: max-height 1s;
+}
+.discussion__answer--wrapper > * {
+  margin-bottom: 0.6em;
+}
+.discussion__answer--wrapper > *:last-child {
+  margin-bottom: 0;
+}
+.answer-avatar-author-createdAt {
+  display: flex;
+}
+.answer-avatar-author-createdAt .discussion__author__createdAt--wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+
+  margin: 0;
+  margin-left: 1em;
+}
+.answer-toggle-button {
+  position: absolute;
+  left: 10px;
+  top: 84px;
+
+  border: 0;
+  border-radius: 0.2em;
+  background-color: var(--teal-400);
+  color: white;
+  padding: 0.4em 0.6em;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* 제목 */
+.title-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+/* 작성자 */
+.author {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+/* 작성 시간 */
+.createdAt {
+  font-size: 0.7em;
+  font-weight: 500;
+}
+/* 질문 응답 여부 */
+.answered {
+  font-size: 2em;
+}
+
+/* ============================== pagination-button ==============================  */
+
+.pagination_button_wrapper {
+  display: flex;
+  justify-content: center;
+
+  margin: 2em 0;
+}
+.pagination_button_wrapper > * {
+  margin-right: 0.6em;
+}
+.pagination_button_wrapper > *:last-child {
+  margin-right: 0em;
+}
+.pagination_button_wrapper > button {
+  padding: 0.6em 1.2em;
+
+  background-color: var(--teal-100);
+  border: 0;
+  border-radius: 0.4em;
+
+  font-weight: bold;
+  font-size: small;
+
+  cursor: pointer;
+
+  transition: all 0.4s;
+}
+.pagination_button_wrapper > button:hover {
+  color: #fff;
+  background-color: var(--teal-400);
+}
+body .pagination_button_wrapper > button:disabled {
+  color: #fff;
+  background-color: var(--gray-400);
+
+  cursor: not-allowed;
+}
+body .active-page {
+  color: #fff;
+  background-color: var(--teal-500);
+}
