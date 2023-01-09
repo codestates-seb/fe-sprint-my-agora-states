@@ -70,7 +70,7 @@ form.addEventListener("submit", (event) => {
   inputTitle.value = "";
   inputTextbox.value = "";
 
-  const data = {};
+  const newDiscussion = {}; // newDiscussion
 
   const date = new Date();
   const year = date.getFullYear();
@@ -80,16 +80,18 @@ form.addEventListener("submit", (event) => {
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
 
-  data.createdAt = `
+  newDiscussion.createdAt = `
   ${year}-${month}-${day} 
   ${hours}:${minutes}:${seconds}`;
-  data.title = title;
-  data.url = "";
-  data.author = name;
-  data.answer = null;
-  data.avatarUrl =
+  newDiscussion.title = title;
+  newDiscussion.url = "";
+  newDiscussion.author = name;
+  newDiscussion.answer = null;
+  newDiscussion.avatarUrl =
     "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4";
 
-  agoraStatesDiscussions.unshift(data);
-  ul.prepend(convertToDiscussion(data));
+  agoraStatesDiscussions.unshift(newDiscussion);
+  ul.prepend(convertToDiscussion(newDiscussion));
 });
+
+localStorage.setItem("key", "value");
