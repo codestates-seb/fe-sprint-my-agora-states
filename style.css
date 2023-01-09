@@ -1,1 +1,195 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+
+}
+
+h1{
+    font-size: 60px;
+    text-align: left;
+}
+
+main {
+    background-image: url(./clouds.jpg);
+    background-attachment: fixed;
+}
+
+.form__container{
+    /* display: flex;
+    flex-direction: column; */
+    width: 100vw;
+    /* background-color: #FFD4B2; */
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__input--wrapper{
+    display: flex;
+    padding: 8px;
+    border-radius: 20px;
+   width: 100%;
+}
+
+.form__input--name,.form__input--title,.form__textbox{
+    margin:2px;
+}
+
+.form__input--name {
+    width: 50%;
+    font-size: 15px;
+}
+
+.form__input--title {
+    width: 50%;
+    font-size: 15px;
+}
+
+.form__textbox {
+    margin-left: 10px;
+    width: 96%;
+    font-size: 15px;
+}
+
+.form__submit{
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}
+
+.form__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.discussions__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.discussion__container {
+    display: flex;
+    border-radius: 20px;
+    background-color:#ddebea;
+    align-items: center;
+    justify-content: space-between;
+    width: 540px;
+    height: 100px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    
+}
+
+.discussion__avatar--wrapper{
+    border-radius: 10px;
+}
+
+.discussion__avatar--image{
+    border-radius: 50px;
+    width: 48px;
+    margin-top: 5px;
+}
+
+.discussion__content{
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 500px;
+  background-color: #b5d0db;
+  opacity: 0.8;
+}
+
+.discussion__title {
+    margin-left: 10px;
+    font-size: 18px;
+    height: 10vh;
+}
+
+.discussion__information{
+    font-size: 10px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.discussion__answered{
+    font-size: 30px;
+}
+
+input[type=text]{
+	width:100%;
+	border:2px solid #aaa;
+	border-radius:4px;
+	margin: 8px 0;
+	outline: none;
+	padding:4px;
+	transition:.3s;
+}
+
+input[type=text]:focus{
+	border-color:dodgerBlue;
+	box-shadow:0 0 8px 0 dodgetBlue;
+}
+
+textarea{
+    width:100%;
+	border:2px solid #aaa;
+	border-radius:4px;
+	margin: 8px 0;
+	outline: none;
+	padding:8px;
+	box-sizing: border-box;
+	transition:.3s;
+}
+
+input[type=submit]{
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+input[type=submit]:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+   }
+   
+   input[type=submit]:hover {
+    transform: translateY(-1px);
+   }
+   
+   input[type=submit]:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+   }
