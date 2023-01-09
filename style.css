@@ -11,6 +11,7 @@ body {
     justify-content: center;
 }
 
+
 main {
     display: flex;
     flex-direction: column;
@@ -22,6 +23,7 @@ main {
 .discussion__wrapper {
     margin-top: 10px;
     border-bottom: 1px solid rgb(181, 181, 181);
+    width: 90%
 }
 
 li {
