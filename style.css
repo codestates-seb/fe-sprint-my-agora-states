@@ -1,1 +1,71 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Nanum Myeongjo', serif;
+ }
+  
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--image{
+    border-radius: 100%;
+    overflow: hidden;
+    width: 48px;
+}
+.discussion__container{
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.discussion__title{
+    margin: 0;
+    text-align: left;
+}
+.discussion__information{
+    text-align: right;
+    font-size: 12px;
+}
+
+
+/* 제목 */
+h1{
+    text-align: center;
+}
+/* 폼 */
+.form__input--wrapper{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+}
+.form__input--name{
+    padding-bottom: 13px;
+}
+.form__input--title{
+    padding-bottom: 13px;
+}
+.form__textbox{
+    display: flex;
+    padding-bottom: 13px;
+}
+.form__submit{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+}
+
+.form__submit input{
+    border: 1px solid black;
+    color: black;
+    padding: 5px;
+}
+
+
+/* 아래쪽 */
