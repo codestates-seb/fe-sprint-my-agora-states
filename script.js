@@ -32,7 +32,13 @@ const convertToDiscussion = (obj) => {
 
   const info = document.createElement("div");
   info.className = 'discussion__information';
-  info.textContent = `${obj.author} / ${obj.createdAt} `;
+
+  const infoCreated = document.createElement('span');
+  infoCreated.className = 'createdAt';
+  infoCreated.textContent = obj.createdAt;
+
+  info.append(infoCreated);
+  info.textContent = `${obj.author} / ${infoCreated.textContent} `;
   discussionContent.append(info);
 
   // 답변 확인
@@ -60,3 +66,43 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// 시간 변경
+/* const changeTime = document.querySelector('.createdAt');
+changeTime = new Date();
+changeTime.textContent = changeTime.toLocaleString(); */
+
+// 디스커션 추가
+const form = document.querySelector("form.form");
+const formAuthor = document.querySelector(".form__input--name input");
+const formTitle = document.querySelector(".form__input--title input");
+const formStory = document.querySelector(".form__textbox textarea");
+const formSubmit = document.querySelector(".form__submit input[type='submit']");
+
+const date = new Date();
+console.log(date.toLocaleDateString('ko-kr'))
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const obj = {
+    id: "105564451",
+    createdAt: date.toLocaleDateString('ko-kr'),
+    title: formTitle.value,
+    url: "",
+    author: formAuthor.value,
+    answer: null,
+    bodyHTML: formStory.value,
+    avatarUrl:'https://avatars.githubusercontent.com/u/105564451?v=4'
+  };
+
+  agoraStatesDiscussions.unshift(obj);
+  // prepend : obj를 ul의 맨 앞에 추가
+  ul.prepend(convertToDiscussion(obj)); 
+
+  formAuthor.value = '';
+  formStory.value = '';
+  formTitle.value = '';
+
+
+  
+})
