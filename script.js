@@ -93,5 +93,5 @@ formConatiner.addEventListener('submit', (logSubmit) =>{
   avatarUrl : null,
   }
   console.log(newAgora); 
-  agoraStatesDiscussions.unshift(newAgora) // 배열에 추가는 되는데 해당값들을 못 가져오는중
+  agoraStatesDiscussions.unshift(newAgora) // 배열에 추가는 되는데 해당값들을 못 가져오는중...
 });
