@@ -20,34 +20,37 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg); // append
 
   // discussion title
-  const discussionTitle = document.createElement('h2')
-  discussionTitle.className = "discussion__title"
-    // title url
-    const titleUrl = document.createElement('a')
-    titleUrl.setAttribute('href', obj.url)
-    titleUrl.textContent = obj.title
-    discussionTitle.append(titleUrl)
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  // title url
+  const titleUrl = document.createElement("a");
+  titleUrl.setAttribute("href", obj.url);
+  titleUrl.textContent = obj.title;
+  discussionTitle.append(titleUrl);
   // discussion information(author, createdAt)
-  const discussionInformation = document.createElement('div')
-  discussionInformation.className = ('discussion__information')
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  // 날짜 포맷 변경해서 넣어주기
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
 
   // discusstion content에 새로 생성한 두 요소 append
-  discussionContent.append(discussionTitle, discussionInformation)
+  discussionContent.append(discussionTitle, discussionInformation);
 
   // discussion answered 내 Check 아이콘
-  const answeredCheck = document.createElement('a')
-  if (obj.answer !== null) {
-    answeredCheck.textContent = '✅'
+  const answeredCheck = document.createElement("a");
+  if (obj.answer !== null && "answer" in obj) {
     // 답변이 있는 경우, 답변 화면 렌더링(Advanced)
-    answeredCheck.setAttribute('href', obj.answer.url)
+    answeredCheck.textContent = "✅";
+    answeredCheck.setAttribute("href", obj.answer.url);
+  } else {
+    answeredCheck.textContent = "❌";
+
   }
-  discussionAnswered.append(answeredCheck)
+  discussionAnswered.append(answeredCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -59,3 +62,33 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// Discussion 추가 기능
+const form = document.querySelector(".form");
+const yourName = document.querySelector("#name");
+const yourTitle = document.querySelector("#title");
+const yourQuestion = document.querySelector("#story");
+// submit 이벤트 발생 시 기존 배열에 데이터 추가시키는 이벤트리스너
+form.addEventListener("submit", addDiscussion);
+
+function addDiscussion(e) {
+  e.preventDefault(); // submit 이벤트 발생 시 reload 안하게 막아주기
+  console.log('test')
+  const obj = {
+    createdAt: new Date(),
+    title: yourTitle.value,
+    author: yourName.value,
+    answer: null,
+    bodyHTML: yourQuestion.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/119473025?v=4",
+  };
+  console.log(obj.createdAt)
+  // 맨 위에 추가 해주기
+  agoraStatesDiscussions.unshift(obj);
+  ul.prepend(convertToDiscussion(obj))
+
+  // 폼 제출하면 초기화
+  yourName.value = '';
+  yourTitle.value = '';
+  yourQuestion.value = '';
+}
