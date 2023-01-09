@@ -7,6 +7,7 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 /* 브라우저 초기화 */
 
 
@@ -21,7 +22,7 @@ body {
 
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(to bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    /* background-image: linear-gradient(to bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
 
 }
 
