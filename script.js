@@ -7,11 +7,11 @@ const convertToDiscussion = (obj) => {
   li.className = "discussion__container"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper"; // image - avatarUrl
+  avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content"; // title, info(author, createdAt)
+  discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered"; // answered
+  discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   // Avatar
@@ -50,13 +50,13 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// saveDiscussion 로컬 스토리지에 디스커션 저장하는 함수
+const saveDiscussion = () => {
+  localStorage.setItem("Discussions", JSON.stringify(agoraStatesDiscussions));
+};
 
 // input form
 const form = document.querySelector(".form");
-
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const inputName = document.querySelector(".form__input--name input");
@@ -70,7 +70,7 @@ form.addEventListener("submit", (event) => {
   inputTitle.value = "";
   inputTextbox.value = "";
 
-  const newDiscussion = {}; // newDiscussion
+  const newDiscussion = {};
 
   const date = new Date();
   const year = date.getFullYear();
@@ -80,8 +80,7 @@ form.addEventListener("submit", (event) => {
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
 
-  newDiscussion.createdAt = `
-  ${year}-${month}-${day} 
+  newDiscussion.createdAt = `${year}-${month}-${day} 
   ${hours}:${minutes}:${seconds}`;
   newDiscussion.title = title;
   newDiscussion.url = "";
@@ -92,6 +91,16 @@ form.addEventListener("submit", (event) => {
 
   agoraStatesDiscussions.unshift(newDiscussion);
   ul.prepend(convertToDiscussion(newDiscussion));
+  saveDiscussion();
 });
 
-localStorage.setItem("key", "value");
+const discussions = localStorage.getItem("Discussions");
+if (discussions) {
+  const parsedDiscussions = JSON.parse(discussions);
+  agoraStatesDiscussions = parsedDiscussions;
+} else {
+  localStorage.setItem("Discussions", JSON.stringify(agoraStatesDiscussions));
+}
+
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
