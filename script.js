@@ -13,9 +13,11 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
+  // 아바타 이미지 el 생성 및 속성 설정, append
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.setAttribute("src", obj.avatarUrl);
+  avatarWrapper.append(avatarImg);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
