@@ -22,7 +22,7 @@ ul {
 }
 li.discussion__container{
     display: flex;
-    align-items: centerg;
+    align-items: center;
 }
 .discussion__avatar--image {
     border-radius: 50%;
