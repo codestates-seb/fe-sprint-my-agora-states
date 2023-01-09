@@ -37,7 +37,7 @@ li.discussion__container {
 }
 .discussion__title {
   padding: 5px;
-
+  font-size: 20px;
 }
 .discussion__information {
   padding: 5px;
