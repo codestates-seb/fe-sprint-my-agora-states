@@ -20,14 +20,18 @@ main {
 
 /*----------h1(My Agora States)-----------*/
 h1 {
+    width: 100%;
     font-size: 2rem;
     padding: 2rem 0;
     border-bottom: 1px solid gray;
 }
+section{
+    width: 100%;
+}
 
 /*----------질문 입력 란 (form__container)-----------*/
 .form__container {
-    flex-grow: 1;
+    height: max-content;
     margin: 2rem 0;
 }
 .form__input--wrapper {
@@ -52,14 +56,17 @@ h1 {
 
 /*----------질문 리스트 (discussions__container)-----------*/
 
-.discussion__wrapper {
-    flex-grow: 5;
-}
+/* .discussion__wrapper {
+
+} */
 
 .discussion__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.7rem;
+    border-bottom: 1px solid gray;
+    height: 4rem;
 }
 
 .discussion__avatar--image {
@@ -69,14 +76,19 @@ h1 {
 
 .discussion__content {
   flex-grow: 1;
+  height: 100%;
   margin: 0 1rem;
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  justify-content: space-around;
 }
 .discussion__title{
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .discussion__information{
     align-self: flex-end;
+    font-size: 0.8rem;
+}
+.discussion__answered {
+    display: block;
 }
