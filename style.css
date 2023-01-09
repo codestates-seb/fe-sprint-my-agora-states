@@ -45,7 +45,7 @@ ul, li {
 }
 
 .agora-search {
-    color: lightgray;
+    color: rgba( 255, 255, 255, 0.6 );
     font-family: 'Gurajada', serif;
     letter-spacing: 5px;
     display: flex;
@@ -76,7 +76,8 @@ ul, li {
     position: absolute;
     margin-top: 30px;
     margin-left: -200px;
-
+    background-color: rgba( 255, 255, 255, 0 );
+    padding-top: 4px;
 }
 
 main {
@@ -112,6 +113,7 @@ h2 a {
     background-color: white;
     padding: 15px;
     border-radius: 10px;
+    box-shadow: 3px 3px 21px -5px rgba( 0, 0, 0, 0.3 )
 }
 
 .discussion__avatar--wrapper {
@@ -199,6 +201,7 @@ h2 a {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    box-shadow: 4px 4px 21px -5px rgba( 0, 0, 0, 0.3 )
 }
 
 .form__input--wrapper div {
