@@ -20,6 +20,10 @@ a {
   color: inherit;
 }
 
+body {
+  background-color: #f3f5f7;
+}
+
 header {
   z-index: 5;
   display: flex;
@@ -191,7 +195,7 @@ main {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background-color: green;
+  background-color: #222222;
 }
 
 .container {
@@ -242,7 +246,8 @@ main {
 
 .discussion__avatar--image {
   border-radius: 50%;
-  width: 48px;
+  padding-left: 0;
+  width: 50px;
 }
 
 .discussion__content {
@@ -337,8 +342,12 @@ main {
   margin: auto;
   width: 100%;
   height: 100%;
+
   background: linear-gradient(45deg, Violet, Orange);
-  
+}
+
+#noticeLink:hover {
+  color: #fff;
 }
 
 .notice-btn {
@@ -355,10 +364,17 @@ main {
   width: 250px;
   position: relative;
   margin: auto;
-  top:38%;
+  top:35%;
   line-height: 30px;
 }
 
 .notice__answered {
   font-size: 30px;
+  /*color: rgb(47, 255, 175);*/
 }
+
+/*
+.notice__title {
+  color: rgb(47, 255, 175);
+}
+*/
