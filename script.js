@@ -37,7 +37,11 @@ const convertToDiscussion = (obj) => {
 
   // discussion answered 내 Check 아이콘
   const answeredCheck = document.createElement('p')
-  answeredCheck.textContent = '✅'
+  if (obj.answer === null) {
+    answeredCheck.textContent = '❎'
+  } else {
+    answeredCheck.textContent = '✅'
+  }
   discussionAnswered.append(answeredCheck)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
