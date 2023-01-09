@@ -8,6 +8,18 @@
 
 ul, li {
     list-style: none;
+    width: 540px;
+}
+
+h2 {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 a {
+    text-decoration: none;    
 }
 
 body {
@@ -18,8 +30,6 @@ body {
 }
 
 main {
-    width: 40%;
-    min-width: 540px;
     height: 70%;
     min-height: 600px;
     background-color: lightblue;
@@ -28,29 +38,18 @@ main {
 }
 
 .discussions__container {
-    background-color: gray;
-    width: 540px;
+    overflow: hidden;
 }
 
 .discussion__container {
     display: flex;
     justify-content: space-between;
-}
-
-.discussion__container div:first-child {
-    flex-grow: 1;
-}
-
-.discussion__container div:nth-child(2) {
-    flex-grow: 7;
-    flex-basis: 350px;
-}
-
-.discussion__container div:last-child {
-    flex-grow: 2;
+    margin-top: 20px;
+    background-color: gray;
 }
 
 .discussion__avatar--wrapper {
+    flex-basis: 50px;
     display: flex;
     align-items: center;  
     justify-content: center;
@@ -59,6 +58,10 @@ main {
 .discussion__information {
     text-align: right;
     padding-top: 5px;
+}
+
+.discussion__content {
+    width: 450px;
 }
 
 .discussion__avatar--image {
@@ -70,4 +73,5 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-basis: 40px;
 }
