@@ -208,8 +208,23 @@ textarea:focus {
 .discussion__wrapper {
     margin-top: 0px;
     border-bottom: 1px solid rgb(181, 181, 181);
-    width: 90%
+    width: 90%;
+    height: 500px;
+    overflow: auto;
 }
+
+.discussion__wrapper::-webkit-scrollbar {
+  
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+  
+  .discussion__wrapper::-webkit-scrollbar-thumb {
+    background-color: #E1D7C6;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
 
 li {
     list-style: none;
@@ -254,13 +269,13 @@ a {
 
 .discussion__title {
     margin: 5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .discussion__information {
     margin: 5px;
     text-align: end;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: rgb(181, 181, 181);
 }
 
