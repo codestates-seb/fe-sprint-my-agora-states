@@ -1,1 +1,92 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  background-color: #def5e5;
+  font-family: "Do Hyeon", sans-serif;
+  /* border: 1px solid gray; */
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3em;
+  color: green;
+}
+.form__container {
+  border: 3px double #8ec3b0;
+  height: 200px;
+  width: 400px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 20px;
+  -webkit-box-shadow: 3px -3px 23px -7px rgba(16, 82, 6, 1);
+  -moz-box-shadow: 3px -3px 23px -7px rgba(16, 82, 6, 1);
+  box-shadow: 3px -3px 23px -7px rgba(16, 82, 6, 1);
+}
+
+.form__input--wrapper {
+  padding-top: 0 auto;
+}
+
+.form__input--name {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.form__input--title {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.form__textbox {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.form__submit {
+  padding-top: 20px;
+}
+
+.form__submit > input {
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  background-color: #9ed5c5;
+}
+
+.discussions__container {
+  border: 1px solid red;
+  width: 540px;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.discussion__content {
+  border: 3px dotted #8ec3b0;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: large;
+  display: flexbox;
+}
