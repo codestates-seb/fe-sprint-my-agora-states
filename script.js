@@ -19,6 +19,20 @@ const convertToDiscussion = (obj) => {
   discussionFace.alt = "avatar of" + obj.author;
   avatarWrapper.append(discussionFace);
 
+  const discussionTitle = document.createElement("h2");
+  const discussionLink = document.createElement("a");
+  discussionTitle.textContent = obj.title;
+  discussionLink.href = obj.url;
+  discussionTitle.append(discussionLink);
+  discussionContent.append(discussionTitle);
+
+  const discussionPeople = document.createElement("div");
+  discussionPeople.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(discussionPeople);
+
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑︎" : "☒";
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
