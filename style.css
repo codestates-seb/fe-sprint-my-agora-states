@@ -1,1 +1,61 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Noto+Sans+KR:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 16px;
+}
+a {
+    color: #090909;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(img/bg.jpg);
+    background-size: cover;
+}
+main{
+    display: flex;
+    flex-flow: column wrap;
+}
+h1{
+    width: 100%;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.5rem;
+    color: var(--strawberry);
+    text-shadow: -1px 0 var(--dark-blue), 0 1px 2px var(--dark-blue), 1px 0 4px var(--dark-blue), 0 -1px var(--dark-blue);
+}
+#wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 15px;
+}
+/* 입력폼 */
+.form__container {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 15px;
+    background-color: var(--pale-pink-100);
+    border: 3px solid var(--dark-blue);
+    border-radius: 15px 0 0 15px;
+}
+form{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+/* 댓글창 */
+.discussion__wrapper{
+    display: flex;
+    flex-flow: column wrap;
+    padding: 15px;
+    background-color: var(--dark-blue);
+    border: 3px solid var(--dark-blue);
+    border-radius: 0 15px 15px 0;
+}
