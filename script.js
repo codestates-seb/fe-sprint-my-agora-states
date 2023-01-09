@@ -27,10 +27,10 @@ const convertToDiscussion = (obj) => {
     titleUrl.setAttribute('href', obj.url)
     titleUrl.textContent = obj.title
     discussionTitle.append(titleUrl)
-  // discussion information(id, createdAt)
+  // discussion information(author, createdAt)
   const discussionInformation = document.createElement('div')
   discussionInformation.className = ('discussion__information')
-  discussionInformation.textContent = `${obj.id} / ${obj.createdAt}`
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
 
   // discusstion content에 새로 생성한 두 요소 append
   discussionContent.append(discussionTitle, discussionInformation)
