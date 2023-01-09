@@ -1,6 +1,6 @@
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+/* convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다. -> 리스트 덩어리 만들기! */
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
+  const li = document.createElement("li"); // 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar";
@@ -8,6 +8,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  li.append(avatarWrapper, discussionContent, discussionAnswered);  // li -(avatar, content, answered) 구조 만들기
 
   const avatarImg = document.createElement('img');
   avatarImg.src = obj.avatarUrl;
@@ -21,14 +22,13 @@ const convertToDiscussion = (obj) => {
   titleAnchor.textContent = obj.title;
   discussionTitle.append(titleAnchor);
   const discussionInfo = document.createElement('div');
-  discussionInfo.textContent = `${obj.author} / ${obj.createAt}`;
+  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
   discussionContent.append(discussionInfo);
 
   const answerCheck = document.createElement('p');
   answerCheck.textContent = obj.answer ? "☑" : "☐";
   discussionAnswered.append(answerCheck);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
