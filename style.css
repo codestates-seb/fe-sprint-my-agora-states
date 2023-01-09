@@ -49,7 +49,7 @@ li {
 ul {
     width: 600px;
     height: 500px;
-    overflow-y: hidden; 
+    overflow-y: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -67,7 +67,7 @@ ul {
     justify-content: center;
 }
 
-.discussion__content{
+.discussion__content {
     margin-left: 30px;
     font-size: 10px;
 }
@@ -76,7 +76,7 @@ ul {
     margin-left: 50px;
 }
 
-.imgBtn{
+.imgBtn {
     height: 30px;
 }
 
@@ -88,7 +88,7 @@ form div {
     padding: 10px
 }
 
-.form__input--wrapper{
+.form__input--wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -108,7 +108,8 @@ button {
     top: 0.3vh;
 }
 
-#upBtn:active,#powerUp:active {
+#upBtn:active,
+#powerUp:active {
     position: relative;
     bottom: 0.3vh;
 }
@@ -132,7 +133,7 @@ textarea {
     justify-content: center;
 }
 
-.form__input--title{
+.form__input--title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,20 +156,16 @@ label {
 }
 
 .bestBox {
-    
+
     width: 300px;
     height: 200px;
     border-radius: 10px;
     display: flex;
-    text-align : center;
-    flex-direction: column;    
+    text-align: center;
+    flex-direction: column;
 }
 
 .bestBox {
-    /* background-image: url(file:///C:/Users/shdom/Desktop/fe-sprint-my-agora-states/colorful-g1888392b5_1280.png);
-    background-repeat : no-repeat;
-    background-size : auto;
-    background-size : cover; */
     background-color: rgb(87, 88, 88);
     color: white;
     opacity: 0.6;
@@ -181,50 +178,48 @@ label {
     margin-right: 5px;
 }
 
-.bestTime{
+.bestTime {
     flex: 1;
     font-size: 10px;
 }
 
-.bestTitle{
+.bestTitle {
     flex: 1;
     font-size: 15px;
     margin-top: -45px;
     padding: 0 10px;
 }
 
-.bestauthor{
+.bestauthor {
     flex: 1;
     display: flex;
-    text-align : left;
+    text-align: left;
     margin-left: 20px;
     padding-top: 15px;
 }
 
-.fireImg{
+.fireImg {
     height: 25px;
 }
 
-.authorImg{
+.authorImg {
     height: 20px;
     border-radius: 70%;
     padding-right: 5px;
 }
 
-/* input:focus {
-    border: 0;
-} */
-
-input{
+input {
     font-size: 15px;
     border: 0;
     border-radius: 15px;
     outline: none;
     padding-left: 10px;
     background-color: rgb(230, 224, 224);
-} 
+}
 
-input:focus {outline: none;}
+input:focus {
+    outline: none;
+}
 
 textarea {
     width: 300px;
@@ -238,9 +233,9 @@ textarea {
     outline: none;
     padding-left: 10px;
     background-color: rgb(230, 224, 224);
-  }
+}
 
-#submitBtn{
+#submitBtn {
     background-color: white;
     font-size: 20px;
     padding: 4px;
@@ -248,17 +243,18 @@ textarea {
     border-radius: 10px;
     background-color: rgb(230, 224, 224);
 }
-#submitBtn:active{
+
+#submitBtn:active {
     position: relative;
     top: 0.3vh;
 }
 
 
 body {
-    background-image: url(file:///C:/Users/shdom/Desktop/fe-sprint-my-agora-states/clouds-g42afd195c_1920.jpg);
-    background-repeat : no-repeat;
-    background-size : auto;
-    background-size : cover;
+    background-image: url(./img/clouds-g42afd195c_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: cover;
     color: black;
 }
 
@@ -269,10 +265,10 @@ a {
 
 
 button {
-    background-color:transparent;
-    color:white;
+    background-color: transparent;
+    color: white;
 }
 
-h1{
+h1 {
     font-size: 50px;
 }

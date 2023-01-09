@@ -43,7 +43,7 @@ const convertToDiscussion = (obj) => {
   likeBtn.className = 'likeBtn'
   likeBtnImg.className = 'likeBtnImg'
   likeBtn.append(likeBtnImg)
-  likeBtnImg.src = 'file:///C:/Users/shdom/Desktop/fe-sprint-my-agora-states/like.png'
+  likeBtnImg.src = './img/like.png'
   discussionAnswered.append(likeBtn)
   obj.like = Math.floor(Math.random() * 5);
   let like = 0;
@@ -51,11 +51,11 @@ const convertToDiscussion = (obj) => {
     if (like < 1) {
       like++;
       span.innerText = `${obj.like + like}`;
-      likeBtnImg.src = 'file:///C:/Users/shdom/Desktop/fe-sprint-my-agora-states/like%20(1).png'
+      likeBtnImg.src = './img/like%20(1).png'
     } else if (like === 1) {
       like--;
       span.innerText = `${obj.like - like}`;
-      likeBtnImg.src = 'file:///C:/Users/shdom/Desktop/fe-sprint-my-agora-states/like.png'
+      likeBtnImg.src = './img/like.png'
     }
   })
   span.innerText = `${obj.like}`
@@ -98,7 +98,7 @@ form.onsubmit = function () {
     title: titleName.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: authorName.value,
-    avatarUrl: "C:/Users/shdom/Desktop/fe-sprint-my-agora-states/guitar.png"
+    avatarUrl: "./img/guitar.png"
   }
   submitArr.unshift(obj)
   testArr.push(obj)
