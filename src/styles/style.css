@@ -1,0 +1,15 @@
+@import "./reset.css";
+
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+.form__container {
+  background-color: azure;
+}
+
+.discussions__container {
+  background-color: salmon;
+}
+
+.discussions__container .discussion__container {
+  display: flex;
+  background-color: beige;
+}
