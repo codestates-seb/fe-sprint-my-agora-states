@@ -26,7 +26,7 @@ const convertToDiscussion = (obj) => {
   disInfo.className = "discussion__information";
   const disTitleLink = document.createElement('a');
   disTitleLink.href = obj.url;
-  console.log(disTitleLink);
+  // console.log(disTitleLink);
   disTitle.append(disTitleLink);
   disTitleLink.textContent = obj.title;
   disInfo.textContent = obj.author  + " / " + obj.createdAt;
@@ -56,3 +56,19 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+//Event Listeners for form input
+const inputName = document.querySelector('#name');
+const inputTitle = document.querySelector('#title');
+const inputContent = document.querySelector('#story');
+
+//on focus out, retrieve the textContent of the input
+inputName.addEventListener('focusout', saveText);
+inputTitle.addEventListener('focusout', saveText);
+inputContent.addEventListener('focusout', saveText);
+
+function saveText(e){
+  console.log(e.target.value);
+  // console.log(evt.target.textContent);
+}
