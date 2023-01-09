@@ -1,5 +1,4 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
 @font-face {
   font-family: 'HSGooltokki';
@@ -35,13 +34,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(247, 247, 239);
 }
 main {
   border: 3px solid;
@@ -230,11 +229,11 @@ div.discussion__content {
 }
 .discussion__title > a {
   text-decoration: none; 
-  color:rgb(153, 54, 203);
+  color:rgb(184, 93, 211);
 }
 .discussion__title > a:hover {
   cursor: pointer;
-  background-color: #d7adea;
+  background-color: #e7d6ef;
   font-weight: bold;
 }
 
