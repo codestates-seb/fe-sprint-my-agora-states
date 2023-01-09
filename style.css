@@ -6,11 +6,20 @@
     font-size: 16px;
 }
 
+.contents{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 section{
     border: 1px solid red;
 }
 h1{
     width: 100px;
+    border: 1px solid red;
+    display: block;
 }
 .form__container{
     width:240px;
@@ -57,6 +66,4 @@ li.discussion__container{
 
 .discussion__answered{
     border: 1px solid orange;
-    width: 10%;
-    text-align: center;
 }
