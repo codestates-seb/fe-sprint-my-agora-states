@@ -82,7 +82,7 @@ form{
     flex-flow: column;
 }
 .form__input--name > label {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 /* 입력폼 > 제목 */
 .form__input--title {
@@ -90,11 +90,14 @@ form{
     flex-flow: column;
 }
 .form__input--title > label {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 /* 입력폼 > 질문 */
 #story{
-    margin-top: 5px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    height: 170px;
 }
 
 /* 댓글창 */
@@ -106,4 +109,14 @@ form{
     background-color: var(--dark-blue);
     border: 3px solid var(--dark-blue);
     border-radius: 0 15px 15px 0;
+}
+.discussions__container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+.discussions__container > li {
+    display: flex;
+    background-color: var(--strawberry);
+    border-radius: 25px;
 }
