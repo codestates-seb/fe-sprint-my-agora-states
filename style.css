@@ -21,11 +21,13 @@ a {
 }
 
 header {
+  z-index: 5;
   display: flex;
   position: fixed;
   width: 520px;
   top:0;
   background-color: white;
+  border-bottom: 1px solid gainsboro;
   padding: 0px;
 }
 
@@ -38,11 +40,8 @@ header {
   border: 0;
 }
 
-
 #close {
   display: none;
-  margin: 20px;
-  position: absolute;
   font-size: 35px;
   background-color: black;
   color:antiquewhite;
@@ -50,8 +49,6 @@ header {
 
 #write {
   display: block;
-  margin: 20px;
-  position: absolute;
   font-size: 30px;
   background-color: black;
   color:antiquewhite;
@@ -109,11 +106,22 @@ h1 {
   display: none;
   position: fixed;
   top:60px;
+  animation-duration: 500ms;
+  animation-name: slideIn;
   width:520px;
   height:280px;
   background-color: white;
   border-radius: 0%;
   border-top: 1px solid rgb(166, 166, 166);
+}
+
+@keyframes slideIn {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 5%;
+  }
 }
 
 img {
