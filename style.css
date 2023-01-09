@@ -1,1 +1,119 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+}
+
+.discussion__wrapper{
+      border: 2px double black;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+}
+
+.discussions__container{
+      border: 2px solid gainsboro;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: baseline;
+
+      width: auto;
+      height: auto;
+}
+.discussion__container{
+      border: 3px double black;
+      border-radius: 10px;
+      
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: stretch;
+
+      width: 650px;
+      height: auto;
+      margin: 3px 0px 3px 0px;
+      padding: 2px
+}
+
+.discussion__avatar--wrapper{
+      border: 2px solid gainsboro;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+
+      flex: 2 0 0;
+
+}
+
+
+.discussion__avatar--image{
+      border: 2px solid gainsboro;
+      width: 48px;
+      height: auto;
+      border-radius: 100%;
+}
+
+.discussion__content{
+      border: 2px solid gainsboro;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: stretch;
+
+      flex: 10 0 0;
+}
+.discussion__title{
+      border: 2px solid gainsboro;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: baseline;
+      align-items: center;
+}
+.discussion__information{
+      border: 2px solid gainsboro;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+      justify-content: baseline;
+      align-items: center;
+}
+.discussion__answered{
+      border: 2px solid gainsboro;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      
+      flex: 2 0 0;
+}
+
+.hide{
+      display: none;
+}
+
+.discussion__avatar--image--mini{
+      border-radius: 100%;
+      width: 25px;
+      height: auto;
+}
+
+a {
+   text-decoration: none;  
+   color: black;
+}
+
+h2 :hover {
+      color: orange
+}
