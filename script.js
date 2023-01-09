@@ -36,11 +36,11 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionTitle, discussionInformation)
 
   // discussion answered 내 Check 아이콘
-  const answeredCheck = document.createElement('p')
-  if (obj.answer === null) {
-    answeredCheck.textContent = '❎'
-  } else {
+  const answeredCheck = document.createElement('a')
+  if (obj.answer !== null) {
     answeredCheck.textContent = '✅'
+    // 답변이 있는 경우, 답변 화면 렌더링(Advanced)
+    answeredCheck.setAttribute('href', obj.answer.url)
   }
   discussionAnswered.append(answeredCheck)
 
