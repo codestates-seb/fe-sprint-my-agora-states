@@ -1,1 +1,292 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 520px;
+  top:0;
+  background-color: white;
+  padding: 0px;
+}
+
+#writeBtn {
+  position: absolute;
+  width: 68px;
+  height:65px;
+  background-color: white;
+  background-image: linear-gradient(-135deg, transparent 20px, black 0);
+  border: 0;
+}
+
+
+#close {
+  display: none;
+  margin: 20px;
+  position: absolute;
+  font-size: 35px;
+  background-color: black;
+  color:antiquewhite;
+}
+
+#write {
+  display: block;
+  margin: 20px;
+  position: absolute;
+  font-size: 30px;
+  background-color: black;
+  color:antiquewhite;
+}
+
+h1 {
+  margin: auto;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form__input--wrapper {
+  flex-basis: 80%;
+}
+
+.form > div > div {
+  display: flex;
+  margin: 5px;
+  text-align: left;
+}
+
+.form__submit {
+  display: flex;
+  flex-basis: 20%;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-right: 5px;
+}
+
+.form__submit > input {
+  height: 80%;
+  width: 80%;
+}
+
+.form > div > div > label {
+  flex-basis: 30%;
+}
+
+.form > div > div > input {
+  flex-basis: 70%;
+}
+
+.form > div > div > textarea {
+  flex-basis: 70%;
+  resize: none;
+}
+
+.form__container {
+  display: none;
+  position: fixed;
+  top:60px;
+  width:520px;
+  height:280px;
+  background-color: white;
+  border-radius: 0%;
+  border-top: 1px solid rgb(166, 166, 166);
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+  padding-left: 10px;
+}
+
+label {
+  display: flex;
+  text-align: center;
+  line-height: 50px;
+}
+
+input {
+  font-size: 18px;
+}
+
+.form__submit {
+  position: relative;
+  top:60px;
+}
+
+i {
+  font-size: 32px;
+  margin: 5px 20px;
+}
+
+.submitBox {
+  background-color: white;
+  color: white;
+  border: none;
+  background-image: linear-gradient(135deg, transparent 15px, black 0);
+}
+
+.submitBox:hover {
+  background-image: linear-gradient(135deg, transparent 15px, orange 0);
+}
+
+.fa-circle-user {
+  color: rgb(255, 171, 52);
+  margin-right: 10px;
+}
+
+.fa-book-bookmark {
+  color: rgb(241, 60, 60);
+  font-size: 30px;
+}
+
+.fa-comment-dots {
+  color: rgb(27, 83, 180);
+  margin-right: 15px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: green;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 520px;
+  height: 800px;
+  border: 10px;
+  /*margin: 10px;*/
+  padding: 5px;
+  /*border-radius: 5%;*/
+}
+
+.discussion__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 520px;
+}
+
+.discussions__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 520px;
+  overflow: auto;
+}
+
+.discussion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 520px;
+  background-color: blue;
+  padding: 6px;
+  border-bottom: 1px groove black;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  margin: 6px;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 10%;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-basis: 80%;
+  width: 100%;
+  margin-left: 10px;
+  font-size: 10px;
+}
+
+.discussion__title {
+  text-align: left;
+  padding-bottom: 3px;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  flex-basis: 10%;
+}
+/*
+.discussion__answered i {
+  width: 100%;
+  height: 100%;
+  color: blueviolet;
+}
+*/
+
+#pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#pagination-container a, .pagination-button {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+#pagination-container a.active {
+  background-color: blueviolet;
+  color: white;
+}
+
+#pagination-container a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination-button {
+  background-color: transparent;
+}

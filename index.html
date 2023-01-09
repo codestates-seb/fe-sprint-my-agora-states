@@ -10,29 +10,47 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/2a54a142c9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <div class="container">
+    <header>
+      <div class="memu">
+        <button type="button" class="memu-btn" id="writeBtn"></button>
+        <i class="fa-solid fa-pen-to-square" id="write"></i>
+        <i class="fa-solid fa-xmark" id="close"></i>
+      </div>
+      <h1>My Agora States</h1>
+    </header>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
+          <div class="form__input--abata">
+            <label for="abata" class="abata">
+              <img src="./image/abata1.png">
+              <img src="./image/abata2.png">
+              <img src="./image/abata3.png">
+              <img src="./image/abata4.png">
+              <img src="./image/abata5.png">
+            </label>
+          </div>
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name"><i class="fa-solid fa-circle-user"></i>닉네임 </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="title"><i class="fa-solid fa-book-bookmark"></i>제목 </label>
+            <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story"><i class="fa-solid fa-comment-dots"></i>내용 </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="질문하기" class="submitBox">
         </div>
       </form>
     </section>
@@ -51,7 +69,13 @@
           <div class="discussion__answered"><p>☑</p></div>
         </li>
       </ul>
+      <nav id="pagination-container">
+        <a href="#" id="prev-button" class="pagination-button"> &laquo; </a>
+        <div id="pagination-numbers"></div>
+        <a href="#" id="next-button" class="pagination-button"> &raquo; </a>
+      </nav>
     </section>
+    </div>
   </main>
 </body>
 <script src="data.js"></script>
