@@ -35,6 +35,11 @@ const convertToDiscussion = (obj) => {
   // discusstion content에 새로 생성한 두 요소 append
   discussionContent.append(discussionTitle, discussionInformation)
 
+  // discussion answered 내 Check 아이콘
+  const answeredCheck = document.createElement('p')
+  answeredCheck.textContent = '✅'
+  discussionAnswered.append(answeredCheck)
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
