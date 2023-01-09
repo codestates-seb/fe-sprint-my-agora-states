@@ -31,6 +31,12 @@ const convertToDiscussion = (obj) => {
   title.appendChild(anchor);
   discussionContent.appendChild(title);
 
+  //아이디 및 시간 넣기
+  const idAndDate = document.createElement("div");
+  idAndDate.className = "discussion__information";
+  idAndDate.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.appendChild(idAndDate);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
