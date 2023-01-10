@@ -66,5 +66,27 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // discussion 추가 
-const form = document.querySelector('.form__container')
+const form = document.querySelector(".form__container");
+//const submitBtn = document.querySelector('button');
+let elInputUsername =document.querySelector('#name');
+let elInputTitle =document.querySelector("#title");
+let elInputContent =document.querySelector('#story');
 
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const newDiscussion = {
+    createdAt: new Date().toLocaleString(),
+    title: elInputTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: elInputUsername.value,
+    answer: null,
+    bodyHTML: elInputContent.value,
+    avatarUrl:
+    'https://velog.velcdn.com/images/hyobbeee/profile/d09d6d28-2428-47ea-b512-71600defa975/image.png',
+  };
+
+agoraStatesDiscussions.unshift(newDiscussion);
+
+const newArr = convertToDiscussion(newDiscussion);
+ul.prepend(newArr);
+})
