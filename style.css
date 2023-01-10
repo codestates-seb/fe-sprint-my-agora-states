@@ -217,8 +217,6 @@ form > div:nth-of-type(4) {
 }
 .form__submit input:hover {
   font-size: 20px;
-  /* background-color: hsl(152, 71%, 80%);
-  color:rgb(249, 248, 248); */
   background: #93f09d;
   color: #fff;
   border-radius: 5px;
