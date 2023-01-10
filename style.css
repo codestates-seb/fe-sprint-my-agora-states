@@ -21,6 +21,10 @@ body {
     background: linear-gradient(#13B294,#078D8E);
 }
 
+a {
+ text-decoration: none;
+}
+
 ul, li {
     list-style: none;
     width: 540px;
@@ -84,8 +88,6 @@ main {
     height: 70%;
     min-height: 600px;
     padding: 20px 30px 30px 30px;
-    overflow: hidden;
-    /* 5개만 보이고 페이지네이션 해야함. */
 }
 
 h2 {
@@ -98,13 +100,30 @@ h2 {
 }
 
 h2 a {
-    text-decoration: none;
     color: #1F1F29;
 }
 
 .writing {
     display: flex;
 }
+
+.discussion__wrapper {
+    overflow-x: hidden;
+    height: 600px;
+    padding-right: 10px
+}
+
+.discussion__wrapper::-webkit-scrollbar {
+    width: 12px;
+  }
+.discussion__wrapper::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+  }
+.discussion__wrapper::-webkit-scrollbar-track {
+    background: linear-gradient(#078D8E,#13B294);
+    border-radius: 10px;
+  }
 
 .discussion__container {
     display: flex;
@@ -156,6 +175,14 @@ h2 a {
     border-radius: 15px;
 }
 
+.discussion__answered .wait-anser {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
 /**/
 
 .write_form {
@@ -182,19 +209,20 @@ h2 a {
     color: white;
     font-family: 'Gurajada', serif;
     height: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .form-exit::after {
     display: inline-block;content: "\00d7"; font-size:35pt;
     height: 30px;
     margin-top: -80px;
+    margin-right: 10px;
 }
 
 .form__container form {
     background: linear-gradient(#13B294,#078D8E);
     width: 540px;
-    height: 300px;
+    height: 310px;
     border-radius: 20px;
     justify-content: center;
     align-items: center;
@@ -252,10 +280,60 @@ h2 a {
 .agora-writing label {
     display: inline-block;
     padding: 2px 10px;
-    color: #fff;
-    font-size: 18px;
+    color: rgba( 255, 255, 255, 0.7 );
+    font-size: 20px;
+}
+
+.agora-writing label:hover {
+    color: white;
 }
 
 /* 이제 해야하는 거
 1. 글쓰면 화면에 보이는 거(클릭 이벤트 구현)
 2. 페이지네이션 */
+
+.pagination {
+    width: 540px;    
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination div {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pagination ol, .pagination li {
+    list-style: none;
+    font-family: 'Gurajada', serif;
+    color: white;
+}
+
+.pagination ol {
+    width: 165px;
+    display: flex;
+}
+
+.pagination a {
+    color: white;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+a.active {
+    background-color: white;
+    border-radius: 100px;
+    color: #078D8E;
+    }
