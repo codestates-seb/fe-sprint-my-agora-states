@@ -55,7 +55,6 @@ function createdAt(str) {
   const getMinute = str.split("T")[1].split(":")[1];
   const getSecond = str.split("T")[1].split(":")[2].slice(0, 2);
   let createdAtStr = "";
-
   if (getHour <= 11 && getHour >= 0) {
     createdAtStr = `오전 ${getHour}:${getMinute}:${getSecond}`;
   } else {
@@ -96,17 +95,21 @@ function handleSubmit(e) {
   let chosenImg = images[Math.floor(Math.random() * images.length)];
   let getImg = `img/${chosenImg}`;
 
-  let date = new Date();
+  let date = new Date().toISOString();
+  let koreaTime = parseInt(date.split("T")[1].slice(0, 2), 10) + 9;
+  let timeStr = koreaTime.toString().length < 2 ? `0${koreaTime}` : koreaTime;
+  let getDate = date.split("T")[0] + "T" + timeStr + date.split("T")[1].slice(2);
+  console.log(getDate);
+
+  // toISOString : 2022-05-16T01:02:17Z
   // console.log(date.toLocaleString()); //2023. 1. 9. 오후 5:52:37
-  date = "오" + date.toLocaleString().split("오")[1];
 
   agoraStatesDiscussions.unshift({
     avatarUrl: getImg,
     title: getTitle.value,
     author: getName.value,
-    createdAt: date,
+    createdAt: getDate,
   });
-  console.log(agoraStatesDiscussions[0]);
   console.log(agoraStatesDiscussions.length);
 
   ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
