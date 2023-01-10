@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
-@import url('https://www.hyundaicard.com/css/common_web.css?t=050000');
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
     box-sizing: border-box;
@@ -30,10 +29,19 @@
 
   }
 
-  #hyundai_font{
-    font-family : 'hyundai';
-   }
+#hyundai_font{
+font-family : 'hyundai';
+}
 
+@font-face {
+	font-family: 'YouandiModernTR';
+	font-style: normal;
+	font-weight: normal;
+	src: url(https://hyundaicard.com/font/YouandiModernTR.eot);
+	src: url(https://hyundaicard.com/font/YouandiModernTR.eot?#iefix) format('embedded-opentype'),
+         url(https://hyundaicard.com/font/YouandiModernTR.woff) format('woff'),
+         url(https://hyundaicard.com/font/YouandiModernTR.ttf) format('opentype');
+}
 h1 {
     font-size: 3em;
 }
