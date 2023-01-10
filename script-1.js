@@ -53,17 +53,21 @@ const convertToDiscussion = (obj) => {
   // 변수에 담아서 내용을 할당했더니 에러남. 왜지?)
 
 
-  //1-3. +) 타이틀에 마우스 올렸을 때 내용 + 답변 보이기 기능-----------------> 에러: 적용이 안됨!!! 왜냐!!! 이벤트 리스너 문제냐? bodyHTML_box가 돔에 안들어가나? 처ㅏㅅ번째것 이후로 안들어가고 있음!
-  const titleBox = document.querySelector('.discussion__title');
+  // 1-3. +) 타이틀에 마우스 올렸을 때 내용 + 답변 보이기 기능-----------------> 에러: 적용이 안됨!!! 왜냐!!!  bodyHTML_box가 돔에 안들어가나? 첫번째것 이후로 안들어가고 있음!
+  const titleBox = document.querySelector('.discussion__content');
   const showBodyHTML = document.createElement("div");
   showBodyHTML.className = "bodyHTML_box";
-  titleBox.appendChild(showBodyHTML);
+  titleBox.append(showBodyHTML);
+  const bodyHTMLBox = document.querySelector('.bodyHTML_box');
 
-  titleBox.addEventListener('mouseover', function() {
-    if(titleBox.answer === null){
-      titleBox.textContent = bodyHTML;
+  titleBox.addEventListener('mouseover', function() { // 이벤트 리스너 작동 확인 완료
+    console.log(obj.author);
+        
+    if(obj.answer === null){ // 에러 : Uncaught TypeError: Cannot read properties of null (reading 'bodyHTML')
+      bodyHTMLBox.textContent = obj.bodyHTML;
     } else {
-      titleBox.textContent = answer.bodyHTML;
+      console.log(bodyHTMLBox);
+      bodyHTMLBox.textContent = obj.answer.bodyHTML;
     }
   })
   
@@ -75,13 +79,17 @@ const convertToDiscussion = (obj) => {
   discussionInfo.className = "discussion__information";
   discussionContent.appendChild(discussionInfo);
   const writtenDate = obj.createdAt;
- 
-  // 2-2. text 변경
-  discussionInfo.textContent = `${obj.author} / ${writtenDate}`
+     
+  // 2-2. Advanced Challenge - 현지 시간 적용
+  // writtenDate.date.toLocaleString('ko-kr') ----> 왜 안먹히지?! .toLocalTimeString() 함수로 만들어놓기?
+  // createdAt: "2022-05-15T23:57:43Z" // 날짜 형식 변환은 어려워 보이는데, 슬라이스로 잘라서 변환할까? 
+  // ============> Date 안에 writtenDate를 그냥 넣으면 되는데 삽질했네...
+  
+  let date = new Date(writtenDate);
 
-  // 2-3. Advanced Challenge - 현지 시간 적용
-  // writtenDate.date.toLocaleString('ko-kr') -------------> 왜 안먹히지?! .toLocalTimeString() 함수로 만들어놓기?
-
+  // 2-3. text 변경
+  discussionInfo.textContent = `${obj.author} / ${date.toLocaleString('ko-kr')}`
+  
 
   // [3]. 답변 완료 여부(answer, .discussion__answered) 넣기
 

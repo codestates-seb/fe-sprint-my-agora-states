@@ -1,8 +1,18 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
-/*CSS reset */
+/*---------------기본 설정----------------*/
+
+
+/*CSS reset 파일 import */
 @import "reset.css";
 
+/*폰트
+(Gelasio) - font-family: 'Gelasio', serif;
+(Noto Sans Korean) - font-family: 'Noto Sans KR', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+
+/*색상 지정*/
 :root {
     --white: #F8F1F1;
     --yellow: #FFA62B;
@@ -10,6 +20,8 @@
     --green: #16697A;
   }
 
+
+/*----------------------------------------*/
 
 body {
     display: flex;
@@ -22,18 +34,35 @@ main {
     width: 540px;
     height: max-content;
     padding: 1rem;
+    margin: 0.5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--white);
+    font-family: 'Gelasio', serif;
+    box-shadow: 1px 1px 50px 5px rgba(0,0,0,0.2);
 }
 
 /*----------h1(My Agora States)-----------*/
 h1 {
+    position: relative;
     width: 100%;
     font-size: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid gray;
+    padding: 1.8rem 1rem;
+    border-bottom: 5px double var(--green);
+
+}
+h1:after {
+    content: '';
+    position: absolute;
+    bottom: 1.8rem;
+    left: 46px;
+    width: 47%;
+    height: 18%;
+    background-color: var(--yellow);
+    opacity: .2;
+    z-index: 0;
+    transform: skewY(-1deg);
 }
 section{
     width: 100%;
@@ -75,23 +104,53 @@ label {
 
 input, 
 textarea {
-    border: none;
-    border-radius: 10px;
+    border-top: none;
+    border-left:none;
+    border-right: none;
+    border-bottom: 2px var(--green) double;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
 }
+
+input:focus, 
+textarea:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+
+}
+
+.form__input--title > input:focus {
+    outline: red;
+}
+
 textarea {
     width: 32rem;
     height: 6rem;
  }
+ textarea::placeholder{
+    color: var(--green);
+    opacity: 0.7;
+ }
+ .form__textbox textarea:focus::placeholder {
+    color : transparent;
+ }
 
 .form__submit {
     align-self: center;
-
 }
-.form__submit > input{
+.submitted--form{
     width: 100px;
     height: 50px;
+    font-size: 1rem;
+    color: #16697A;
     border: none;
-    background-color: bisque;
+    background-color: var(--white);
+    font-family: 'Gelasio', serif; /*왜 main 에 넣었는데 여기엔 폰트 적용이 안되었지?*/
+    box-shadow: 1px 3px 1px  var(--green);
+}
+.submitted--form:hover {
+    background-color: var(--green);
+    color: var(--white);
 }
 
 
@@ -99,9 +158,9 @@ textarea {
 
 /*----------질문 리스트 (discussions__container)-----------*/
 
-/* .discussion__wrapper {
-
-} */
+.discussion__wrapper {
+  font-family: 'Noto Sans KR', sans-serif;
+}
 
 .discussion__container {
     display: flex;
@@ -127,7 +186,9 @@ textarea {
   justify-content: space-around;
 }
 .discussion__title{
+  color: var(--green);
   font-size: 1rem;
+  line-height: normal;
 }
 .discussion__information{
     align-self: flex-end;
@@ -145,16 +206,23 @@ textarea {
 .bodyHTML_box { /*html#52 에 태그 추가*/
     display: none;
     position: relative;
-    width: 100%;
+    height: 50px;
+    width: 300px;
     padding: 8px;
     left: 0;
     border-radius: 8px;
-    background: transparent;
+    background: beige;
     color: #fff;
     font-size: 14px;
     overflow: ellipsis;
 }
 
- .discussion__title:hover + div.bodyHTML_box {
+ .discussion__title:hover ~ div.bodyHTML_box {
     display: block;
   }
+
+  .discussion__title:hover {
+    font-weight: 600;
+    font-size: 16px;
+  }
+

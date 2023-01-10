@@ -55,20 +55,19 @@ const agoraStatesDiscussions = [
 
 const submittedQuestion = document.querySelector('.submitted--form');
 submittedQuestion.addEventListener("submit", (event) => {
-  console.log('힝입니다');
-  event.preventDefault(); // -----> 새로고침 방지!! 꼭 써주기!!!
+  event.preventDefault(); // -----> submit 시 새로고침 방지!!
 
-  let randomStr = Math.random().toString(36).substring(2, 12); // 랜덤넘버, 36진수 사용
+  let randomId = Math.random().toString(36).substring(2, 12); // 랜덤넘버, 36진수 사용
   const date = new Date();// Date 함수 사용
-  const inputName = document.querySelector('[name="name"]');
-  const inputTitle = document.querySelector('[name="title"]');
-  const inputStory = document.querySelector('[name="story"]');
+  const inputName = document.querySelector('#name');
+  const inputTitle = document.querySelector('#title');
+  const inputStory = document.querySelector('#story');
   console.log(inputName);
   console.log(inputTitle);
   console.log(inputStory);
 
   const newQuestion = {
-    id : randomStr,
+    id : randomId,
     createdAt: date.toLocaleString('ko-kr'),
     title: inputTitle,
     url: "/",
@@ -86,6 +85,7 @@ submittedQuestion.addEventListener("submit", (event) => {
     agoraStatesDiscussions.unshift(newQuestion); // 다른 파일에 이렇게 넣을 수 있나? export, import???
   }
 
+ console.log(agoraStatesDiscussions[0]);
   return agoraStatesDiscussions;
 
 });
