@@ -10,44 +10,66 @@ export default function ($app, initialState) {
   this.$target.setAttribute("id", "discussion__wrapper");
 
   this.state = initialState;
+
   discussion.subscribe(this);
   this.setState = (newState) => {
     this.state = { ...this.state, ...newState };
     this.render();
   };
-
   const onPageClick = (e) => {
+    console.log(e.currentTarget.children[0].children);
     if (e.target.tagName === "LI") {
-      console.log(e.currentTarget.children[0].children);
-
-      map(
-        (e) => e.classList.remove("now"),
-        e.currentTarget.children[0].children
-      );
-      console.log(e.target);
-      e.target.classList.add("now");
-      this.setState({ page: e.target.textContent - 1 });
+      if (e.target.textContent === "<") {
+        if (this.state.start !== 0) {
+          this.setState({
+            start: this.state.start - 1 * 10,
+            page: this.state.page - 1,
+          });
+        }
+      } else if (e.target.textContent === ">") {
+        if (this.state.last !== this.state.page) {
+          this.setState({
+            start: this.state.start + 1 * 10,
+            page: this.state.page + 1,
+          });
+        }
+      } else {
+        this.setState({
+          start: (+e.target.textContent - 1) * 10,
+          page: +e.target.textContent - 1,
+        });
+      }
     }
   };
 
   // console.log(this.state.discussions);
   this.render = () => {
-    console.log(this.state.discussions);
     const $ul = $c("ul");
     $ul.classList.add("discussions__container");
     const sortedDiscussion = Object.values(this.state.discussions).sort(
       (a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
     );
+    console.log(
+      sortedDiscussion.slice(this.state.start, this.state.start + 10)
+    );
     const items = map((e) => {
       return new DiscussionItem(this.$target, e);
-    }, sortedDiscussion);
+    }, sortedDiscussion.slice(this.state.start, this.state.start + 10));
 
     map((e) => {
       $ul.append(e);
     }, items);
     this.$target.innerHTML = "";
     this.$target.append($ul);
-    new Pagination(this.$target, this.state.page, onPageClick);
+    console.log(this.state.discussions.length);
+    new Pagination(
+      this.$target,
+      {
+        page: this.state.page,
+        last: this.state.last,
+      },
+      onPageClick
+    );
   };
   $app.append(this.$target);
 

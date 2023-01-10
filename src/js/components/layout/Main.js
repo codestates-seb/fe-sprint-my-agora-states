@@ -70,9 +70,19 @@ export default function Main($app, initialState) {
                   : filter((e) => e.tag === filterName),
                 map((e) => (filteredDiscussion[e.id] = e))
               );
-              discussionSection.setState({ discussions: filteredDiscussion });
+              discussionSection.setState({
+                start: 0,
+                page: 0,
+                last: Math.ceil(Object.values(filteredDiscussion).length / 10),
+                discussions: filteredDiscussion,
+              });
             } else {
               discussionSection.setState({
+                start: 0,
+                page: 0,
+                last: Math.ceil(
+                  Object.values(this.state.discussions).length / 10
+                ),
                 discussions: this.state.discussions,
               });
             }
@@ -86,7 +96,7 @@ export default function Main($app, initialState) {
       asidem.setState(newState);
     } else if (e.target.tagName === "BUTTON") {
       console.log("t");
-      const newDiscussion = new NewDiscussionModal(
+      new NewDiscussionModal(
         this.$target,
         {
           hide: false,
@@ -111,7 +121,9 @@ export default function Main($app, initialState) {
     onTagClick
   );
   const discussionSection = new DiscussionSection(this.$target, {
+    start: 0,
     page: 0,
+    last: Math.ceil(Object.values(this.state.discussions).length / 10),
     discussions: this.state.discussions,
   });
 
