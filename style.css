@@ -159,15 +159,7 @@ button {
     transform: scale(0.9);
    }
 
-   input {
-    width : 200px;
-    height: 30px;
-   }
-
-   input#contact_question {
-    width: 200px;
-    height: 100px;
-   }
+   
 
    .contact_form {text-align: center; margin: 0 auto; width: 100%; padding: 0.5em 0.8em;}
     .contact_form > div {position: relative; width: 100%;}
