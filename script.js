@@ -1,4 +1,3 @@
-debugger;
 // create element function
 function createEl(tagname, classname, textcontent){
   const el = document.createElement(tagname);
