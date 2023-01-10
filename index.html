@@ -15,7 +15,10 @@
 <body>
   <main>
       <section class="discussion__wrapper">
-        <h1>My Agora States</h1> 
+        <div>
+          <h1>My Agora States</h1> 
+          <input type="button" value="질문하기" class="discussion__question">
+        </div>  
         <ul class="discussions__container">
           <!-- <li class="discussion__container">
             <div class="discussion__avatar--wrapper">
@@ -30,6 +33,7 @@
             <div class="discussion__answered"><p>☑</p></div>
           </li> -->
         </ul>
+        <ul class="pagination"></ul>
       </section>
 
       <article>
@@ -37,25 +41,41 @@
           <div class="user--information">
             <!-- <label for="name">Enter your name: </label>
             <input type="text" name="name" id="name" required> -->
-            <img src="https://avatars.githubusercontent.com/u/99889721?v=4" alt="myAvatar" class="user__avatar--image">
+            <img src="https://avatars.githubusercontent.com/u/99889721?v=4" alt="myAvatar" class="my__avatar--image">
             <div id="name">heylj</div>
+            <input type="text" class="change__name--input hide" placeholder="이름을 변경하세요">
+            <img src="./img/pencil.png" alt="수정하기" class="name__change--image">
           </div>
         </section>
 
-        <section class="form__container">
+        <section class="write__container">
+          <div class="user__write--title">
+            title
+          </div>
+          <div class="user__write--information">
+            <img src="https://avatars.githubusercontent.com/u/99889721?v=4" alt="myAvatar" class="user__avatar--image">
+            <div class="user__write--iddate">id | date</div>
+          </div>
+          <div class="user__write--content">
+            content
+          </div>
+        </section>
+
+        <section class="form__container hide">
           <div class="form__input--title">
             <input type="text" name="title" id="title" placeholder="TITLE" required>
           </div>
           <div class="form__textbox">
-            <textarea id="story" name="story" placeholder="Write Question!" rows="25" required></textarea>
+            <textarea id="story" name="story" placeholder="Write Question!" rows="22" required></textarea>
           </div>
           <div class="form__submit">
-            <input type="submit" value="submit">
+            <input type="submit" value="작성하기">
           </div>
         </section>
       </article>
-
+      
     </main>
+    <div class="toast"></div>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>

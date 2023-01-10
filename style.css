@@ -24,9 +24,10 @@ body {
   align-items: center;
 }
 
-input, textarea {
+input, textarea, li{
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 a {
@@ -37,15 +38,13 @@ a {
 
 main {
   display: flex;
-  /* flex-direction: column; */
   gap: 1rem;
-  width: 1500px;
+  height: 680px;
 }
 
 article {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   gap: 1rem;
 }
 
@@ -55,12 +54,79 @@ section {
 }
 
 .discussion__wrapper {
-  width: 540px;
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem;
 }
 
-.discussion__wrapper > h1 {
-  padding: 1rem;
+.discussion__wrapper > div {
+  display: flex;
+  align-items: center;
+}
+
+.discussion__wrapper > div > h1 {
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+.discussion__wrapper > div > input {
+  color: var(--li-bg-color);
+  margin: 0 1em;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: var(--point-color);
+  width: 100px;
+  height: 45px;
+}
+
+.discussion__title {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pagination li {
+  color: var(--author-date-color);
+}
+
+.pagination li.active {
+  color: var(--point-color);
+}
+
+.discussions__container {
+  flex-grow: 1;
+}
+
+.discussions__container li.post_active {
+  position: relative;
+  left: 35px;
+  /* width: 500px; */
+  background-color: #FFC7C7;
+  box-shadow: -10px 0px 10px 0px rgba(81, 81, 81, 0.7);
+  animation: slidein 0.5s;
+}
+
+@keyframes slidein {
+  from {
+    left: 0;
+    box-shadow: none;
+  }
+  to {
+    left: 35px;
+    box-shadow: -10px 0px 10px 0px rgba(81, 81, 81, 0.7);
+  }
+}
+
+@keyframes slideout {
+  from {left: 35px;}
+  to {left: 0;}
 }
 
 .discussion__avatar--image {
@@ -73,7 +139,7 @@ section {
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  padding: 1rem;
+  padding: 1.2rem;
   border-radius: 1rem;;
   background-color: var(--li-bg-color);
   gap: 1rem;
@@ -106,9 +172,10 @@ section {
 
 .user--information {
   display: flex;
+  align-items: center;
 }
 
-.user__avatar--image {
+.my__avatar--image {
   width: 56px;
   border-radius: 50%;
 }
@@ -119,24 +186,26 @@ section {
   margin: 1rem;
 }
 
-.form__container {
+.form__container, .write__container {
   padding: 1.5rem;
+  height: 430px;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .form__input--title > input {
-  width: 100%;
+  /* width: 100%; */
   font-size: 50px;
   background-color: var(--section-bg-color)
 }
 
 .form__textbox > textarea {
-  width: 100%;
+  width: 900px;
   margin: 1rem 0;
   resize: none;
   border-radius: 1rem;
   padding: 1rem;
-  /* background-color: var(--section-bg-color); */
 }
 
 .form__submit {
@@ -144,11 +213,81 @@ section {
 }
 
 .form__submit > input {
-  /* border: 2px solid var(--point-color); */
   color: var(--li-bg-color);
   padding: 0.5rem;
   font-size: 15px;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: var(--point-color);
+  width: 130px;
+  height: 48px;
+}
+
+.user__write--content {
+  width: 900px;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.user__write--title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user__write--information {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.user__avatar--image {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.hide {
+  display: none;
+}
+
+.name__change--image {
+  width: 17px;
   cursor: pointer;
+}
+
+.change__name--input {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 1rem;
+  background-color: var(--section-bg-color);
+}
+
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  width: 700px;
+  /* margin-left: -125px; */
+  background-color: rgb(204, 74, 74, 0.7);
+  color: var(--li-bg-color);
+  text-align: center;
+  border-radius: 2px; 
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: calc(50% - (width/2)); 
+  top: 15px;
+}
+
+.toast.show {
+  visibility: visible; 
+  animation: fadein 0.5s, fadeout 1s 2.5s;
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 15px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {top: 15px; opacity: 1;}
+  to {top: 0; opacity: 0;}
 }
