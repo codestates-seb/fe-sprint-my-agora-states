@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     /* font-family: godoM; */
-    font-family: 'hyundai', 'Noto Sans KR', "Lucida Grande", Tahoma, Sans-Serif;
+    font-family: 'hyundai', 'Spoqa Han Sans Neo', 'Lucida Grande', 'Noto Sans KR', Tahoma, Sans-Serif;
     word-break: keep-all;
     /* font-size: 1em; */
     /* font-family: 'Noto Sans KR', sans-serif; */
@@ -19,6 +20,7 @@
 @font-face {
     /* font-family: 'fontYouandiModernTR'; */
     src:url('../fonts/YouandiModernTR.woff') format('woff'),
+        url('../fonts/YouandiModernTR.woff2') format('woff2'),
           url('../fonts/YouandiModernTR.eot'),
           url('../fonts/YouandiModernTR.eot?#iefix') format('embedded-opentype'),
           url('../fonts/YouandiModernTR.ttf') format('truetype');
@@ -30,7 +32,7 @@
   }
 
   #hyundai_font{
-    font-family : "hyundai";
+    font-family : 'hyundai';
    }
 /* @font-face{
     src:url("../fonts/fontYouandiModernTR.ttf");
@@ -68,6 +70,10 @@ a, a:focus, a:active {
 
 a:hover {
     color: darkblue;
+}
+
+.discussion__container2 a:hover {
+    color: cyan;
 }
 
 body {
