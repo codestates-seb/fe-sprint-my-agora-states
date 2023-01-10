@@ -16,7 +16,7 @@ const convertToDiscussion = (obj) => {
   const avatarImg = document.createElement('img');
   const tt = document.createElement('h2')
   const info = document.createElement('div');
-  const answered = document.createElement('div');
+  const answered = document.createElement('p');
 
   avatarImg.className = 'discussion__avatar--image';
   tt.className = 'discussion__title';
@@ -29,13 +29,12 @@ const convertToDiscussion = (obj) => {
 
   tt.textContent = obj.title;
   info.textContent = `${obj.author} / ${obj.createdAt}`;
-
-  answered.textContent = obj.answer !== null ? '☑' : 'ㅁ';
+  answered.textContent = obj.answer !== null ? '☑' : 'x';
 
   discussionContent.append(tt);
   discussionContent.append(info);
-  
   discussionAnswered.append(answered);
+  
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
