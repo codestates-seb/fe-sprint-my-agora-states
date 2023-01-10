@@ -1,1 +1,141 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #FFFA78;
+    font-size: 40pt;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+video {
+    position: fixed; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; min-height: 100%; /* 꽉 채우게 */
+    width: auto; height: auto; z-index: -100; /* 우선 순위 맨 뒤로*/
+    /* background: url(polina.jpg) no-repeat; */
+    background-size: cover;
+}
+
+img {
+    width: 48px;
+    border-radius: 150%;
+    background-color: white;
+  }
+
+.discussion__container { /* 전체 틀 */
+    /* background-color: yellow; */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 540px;
+    padding: 20px;
+    font-size: 14px;
+    /* background-color: #FFFA78; */
+    border: 2px dashed #FFFA78;
+}
+
+.discussion__content { /* 콘텐츠 */
+    display: flex;
+    width: 460px;
+    padding: 0 20px 0 20px;
+    flex-direction: column;
+    
+    /* background-color: red; */
+}
+
+.discussion__content > div {
+    margin-top: 20px;
+    font-weight: bold;
+    /* color: #FFFA78; */
+    color: whitesmoke
+}
+  
+.discussion__answered { /* 체크박스 */
+    font-size: 40px;
+}
+
+
+.form__container { /* 폼 전체 틀 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #324856; */
+    border: 2px dashed #FFFA78;
+    border-radius: 20px 20px 0 0;
+}
+
+.form__input--name > label , .form__input--title > label , .form__textbox > label{
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    color: #FFFA78;
+}
+
+.form__input--title > label {
+    word-spacing: 6px;
+}
+
+.form__input--wrapper input {
+    width: 250px;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #FFFA78;
+}
+.form__input--name {
+    /* border: 2px dashed #FFFA78;
+    border-top: none; */
+
+}
+.form__textbox {
+    text-align: center;
+    padding: 15px 0 15px 0;
+}
+
+.form__textbox > label {
+    padding-bottom: 15px;
+}
+
+#story {
+    display: block;
+    width: 415px;
+    border-radius: 10px;
+    padding: 15px;
+    border: 2px solid #FFFA78;
+}
+
+.form__submit {
+    padding-bottom: 15px;
+}
+
+.form__submit input {
+    width: 415px;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px solid #FFFA78;
+}
+
+a:link {
+    color: white;
+}
+a:hover {
+    color: #FFFA78;
+}
