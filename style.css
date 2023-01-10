@@ -14,11 +14,23 @@
 4. 오른쪽 체크 표시
     체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.
 */
+
+:root {
+  --main-color : #C780FA;
+  --sub-color : #E3ACF9;
+  --third-color : #FADA9D;
+  --bright-color : #FBF1D3;
+  --inputLine : 3px #FBF1D3 solid;
+  --title-color : rgba(0, 0, 0, 0.8);
+  --font-color : rgba(0, 0, 0, 0.6);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 1rem;
+  color: var(--font-color);
 }
 
 ol, ul {
@@ -28,35 +40,129 @@ ol, ul {
 a {
   text-decoration: none;
 }
+pre {
+  display: flex;
+  flex-wrap: wrap;
+}
+p, code, a, pre, span{
+  line-height: 20px;
+  font-size: 0.8rem;
+}
+
+input[type='text'], textarea {
+width: 60%;
+border: none;
+padding: 8px;
+border-radius: 20px;
+background-color:var(--bright-color); 
+text-align: left;
+color: var(--main-color);
+}
+input[type='text']:focus, textarea:focus {
+  outline: none;   /* 아웃라인 지우기 */
+  color: var(--title-color); 
+}
+input[type='text']::placeholder, textarea::placeholder {
+  color:var(--title-color);
+  font-size: 15px;
+  text-align: left;
+}
+input[type='text']::-webkit-input-placeholder {color:rgb(255, 255, 255);}
+
+textarea {
+  height: 150px;
+}
+
 body {
-  background-color: beige;
+  background-color: var(--main-color);
 }
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+
+h1 {
+  margin-top : 20%;
+  font-size: 2rem;
+}
+
+.form__container {
+  width: 700px;
+  margin-top: 20px;
+  background-color: var(--sub-color);
+  padding: 60px;
+  border-radius: 10px;
+}
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+label {
+  color: var(--title-color);
+  font-size: 1.2rem;
+}
+
+.form__input--wrapper {
+  width: 100%;
+  
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input[type='submit'] {
+  width: 100px;
+  height: 50px;
+  border: none;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  color: #fff;
+}
+input[type='submit']:hover {
+  background-color: #fff;
+  color: var(--font-color);
+}
+
+
+
+
+
+
+
+
+/* 리스트내용 */
+
 .discussion__wrapper {
+  margin-top: 100px;
   width: 540px;
-  background-color: azure;
+  border-radius: 10px;
+  background-color: var(--sub-color);
 }
 .discussions__container {
   display: flex;
   flex-direction: column;
-  border: 1px solid grey;
   padding: 10px;
 }
 .discussion__container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 65px 1fr 50px;
   align-items: center;
   padding: 15px;
   margin-bottom: 10px;
-  border: 1px solid grey;
   background-color: white;
-}
-.discussion__avatar--wrapper {
-  margin-right: 15px;
+  border-radius: 10px;
 }
 .discussion__avatar--image {
   width: 48px;
@@ -66,26 +172,41 @@ main {
 .discussion__content {
   flex-grow: 1;
 }
+.discussion__title,
 .discussion__title a{
-  font-size: 1.2rem;
-  color: black;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  color: var(--title-color);
 }
+
+.discussion__story {
+  display: none;
+  grid-column: 1 / 4;;
+}
+
 .discussion__information {
   display: flex;
   justify-content: flex-end;
   font-size: 0.8rem;
-  margin-top:15px;
 }
 .discussion__answered {
   margin-left: 15px;
 }
-.discussion__answered p{
+.discussion__answered p {
   font-size: 2rem;
 }
 
 .answer__container {
   display: none;
+  grid-column: 1 / 4;
+  margin-top: 15px;
+
 }
-.answer__container.show {
-  display: block;
+.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer__container .discussion__content {
+  margin-top: 15px;
 }
