@@ -26,7 +26,7 @@ const noticeDiscussions = agoraStatesDiscussions.filter(d => d.author === 'kimpl
 //change all the date formats
 filteredDiscussions.forEach(el => {
   el.createdAt = `${el.createdAt.substring(0, 10)} ${el.createdAt.substring(11, 19)}`
-  el.date
+  // el.date
 })
 
 
@@ -95,7 +95,7 @@ const render2 = (el) => {
 //convertNoticeDiscussions on the side
 const convertToNotice = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  li.className = "discussion__container2"; // 클래스 이름 지정
 
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
@@ -121,8 +121,8 @@ const convertToNotice = (obj) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-// const ul2 = document.querySelector("ul.notice__container");
-// render(ul2);
+const ul2 = document.querySelector("ul.notice__container");
+render2(ul2);
 
 
 
@@ -215,8 +215,8 @@ function saveThread(e){
 
   //date parsing
   newThread.createdAt = `${isoDate.substring(0, 10)} ${isoDate.substring(11, 19)}`;
-  // newThread.bodyHTML = '<p dir="auto">' + newContent + '</p>';
 
+  // newThread.bodyHTML = '<p dir="auto">' + newContent + '</p>';
     newThread.author = window.localStorage.getItem('newName');
     newThread.title = window.localStorage.getItem('newTitle');
     newThread.bodyHTML = window.localStorage.getItem('newContent');

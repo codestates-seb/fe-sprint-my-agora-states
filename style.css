@@ -442,18 +442,17 @@ input:focus::-webkit-input-placeholder {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex-basis: 20%;
+    flex-basis: 25%;
     flex-grow: 1;
     /* padding: 10px 20px; */
     /* align-self: center; */
 }
 
 ul.notice__container {
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
     width: 90%;
 }
-
-
 
 ul.notice__container > .discussion__container2 {
 
@@ -468,7 +467,7 @@ ul.notice__container > .discussion__container2 {
     /* align-items: flex-start; */
     border: 1px solid lightgray;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 5px 0 0 0;
     background-color: #FFDEAD;
     color: white;
     background: #000000;  /* fallback for old browsers */
@@ -490,7 +489,7 @@ ul.discussions__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-basis: 60%;
+    flex-basis: 70%;
     flex-grow: 1;
     /* align-content: center; */
     /* width: 30em; */
