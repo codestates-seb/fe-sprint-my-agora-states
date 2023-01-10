@@ -1,7 +1,19 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+
+// window.localStorage.clear(); 로컬스토리지 초기화
+
+//dataSet agoraStatesDiscussions값을 json형식으로 받는다.
+if (!localStorage.getItem("dataSet")) {
+  // 만약 localStorage에 agoraStatesDiscussions가 없다면
+  localStorage.setItem("dataSet", JSON.stringify(agoraStatesDiscussions));
+}
+let dataSet = JSON.parse(localStorage.getItem("dataSet"));
+
+
 const convertToDiscussion = (obj) => {
+
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -51,16 +63,27 @@ const convertToDiscussion = (obj) => {
 };
 
 
-// // // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+
+
+// // // // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+
+
+//   return;
+// };
+
+
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < dataSet.length; i += 1) {
+    element.append(convertToDiscussion(dataSet[i]));
   }
+
+
   return;
 };
-
-
-
 
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
@@ -91,11 +114,19 @@ submitButton.addEventListener("submit", (event) => {
 
 
 
-  agoraStatesDiscussions.unshift(newObj);
+  // agoraStatesDiscussions.unshift(newObj);
+  // const discussion = convertToDiscussion(newObj);
+  // console.log('newObj', newObj);
 
-  const discussion = convertToDiscussion(newObj);
 
-  ul.prepend(discussion);
+  const newDis = convertToDiscussion(newObj);
+  dataSet.unshift(newObj);
+  localStorage.setItem("dataSet", JSON.stringify(dataSet));
+  ul.prepend(newDis);
+
+
+
+  // ul.prepend(discussion);
 
   // submit 후 빈칸 리셋
   newAuthor.value = ""
