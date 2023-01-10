@@ -138,19 +138,25 @@ textarea {
 .form__submit {
     align-self: center;
 }
-.submitted--form{
+#submitted--form{
     width: 100px;
     height: 50px;
     font-size: 1rem;
+    text-transform: capitalize;
     color: #16697A;
     border: none;
     background-color: var(--white);
     font-family: 'Gelasio', serif; /*왜 main 에 넣었는데 여기엔 폰트 적용이 안되었지?*/
-    box-shadow: 1px 3px 1px  var(--green);
+    box-shadow: inset -5px -5px 5px 0px rgba(0, 0, 0, 0.1);
 }
-.submitted--form:hover {
+#submitted--form:hover {
     background-color: var(--green);
     color: var(--white);
+    cursor: pointer;
+    box-shadow: inset 0px 10px 10px -10px gray;
+}
+#submitted--form:active {
+    box-shadow: inset 0px 30px 60px -12px rgba(0, 0, 0, 0.3), inset 0px 18px 36px -18px rgba(0, 0, 0, 0.3) ;
 }
 
 
@@ -185,11 +191,17 @@ textarea {
   flex-direction: column;
   justify-content: space-around;
 }
+
 .discussion__title{
   color: var(--green);
   font-size: 1rem;
   line-height: normal;
 }
+.discussion__title:hover {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
 .discussion__information{
     align-self: flex-end;
     font-size: 0.8rem;
@@ -202,27 +214,40 @@ textarea {
     color: black;
 }
 
+
 /* 타이틀에 호버 시 질문/답변 말풍선 띄우기*/
-.bodyHTML_box { /*html#52 에 태그 추가*/
+.popup_box { /*html#52 에 태그 추가*/
     display: none;
-    position: relative;
-    height: 50px;
+    position: absolute;
     width: 300px;
+    height: 100px;
     padding: 8px;
-    left: 0;
+    left: 50px;
     border-radius: 8px;
     background: beige;
-    color: #fff;
+    color: gray;
     font-size: 14px;
-    overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
- .discussion__title:hover ~ div.bodyHTML_box {
+/* .popup_box:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -10px;
+    border: solid transparent;
+    border-color: rgba(51, 51, 51, 0);
+    border-bottom-color: #333;
+    border-width: 10px;
+    pointer-events: none;
+    content: ' ';
+} */
+
+ .discussion__title:hover ~ div.popup_box {
     display: block;
   }
 
-  .discussion__title:hover {
-    font-weight: 600;
-    font-size: 16px;
-  }
 
