@@ -1,6 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 
 const convertToDiscussion = (obj) => {
@@ -106,6 +105,7 @@ const totalDate = agoraStatesDiscussions.length; //41 (초기값)
 const pageCount = 5;
 const limit = 10;
 
+const buttonContainer = document.querySelector(".pagination");
 const contents = document.querySelector("ul");
 
 let totalPage = Math.ceil(totalDate / limit); //총 페이지의 갯수 = 총 데이터 / 화면에 나타낼 데이터 갯수 를 올림해줌
@@ -122,9 +122,25 @@ for (let i = firstNum; i <= lastNum; i++) {
   navButton.className = "pageNum";
   navButton.id = `page__${i}`;
   navButton.textContent = `${i}`;
-  nav.append(navButton);
+  buttonContainer.append(navButton);
 
   navButton.addEventListener("click", function () {
     console.log(navButton.textContent);
   });
 }
+
+// 시계 구현하기
+
+const clock = document.querySelector(".clock");
+
+function getClock() {
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+
+  clock.innerText = `${hours} : ${minutes} : ${seconds}`;
+}
+
+getClock();
+setInterval(getClock, 1000);
