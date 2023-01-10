@@ -33,7 +33,7 @@ body{
 }
 
 h1 { 
-    /* animation: flicker 1.5s infinite alternate; */
+    animation: flicker 1.5s infinite alternate;
     font-family: 'Moon Dance', cursive;
     font-size: 50pt;
     text-align: center;
@@ -98,6 +98,22 @@ h1 {
     display: flex;
     justify-content:center;
     align-items:center;
+}
+
+.form__submit>input{
+    width: 100pt;
+    height: 25pt;
+    margin-top: 5pt;
+    font-size: 16pt;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10pt;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.form__submit>input:hover{
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #B3FFAE,
+    0 0 82px #B3FFAE, 0 0 92px #B3FFAE, 0 0 102px #B3FFAE, 0 0 151px #B3FFAE;
 }
 
 .discussion__wrapper{

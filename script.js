@@ -65,6 +65,7 @@ form.addEventListener('submit', (event) => {
   const newDiscussion = convertToDiscussion(agoraStatesDiscussions[0]);
   ul.prepend(newDiscussion);
   event.target.reset();  //input value 초기화
-  
-  localStorage.getItem()
+
+  localStorage.setItem('obj', JSON.stringify(obj)); //로컬 저장소에 저장
+  const localObj = JSON.parse(localStorage.getItem('obj')); //다시 배열로 가져오기
 });
