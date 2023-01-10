@@ -138,7 +138,7 @@ form{
     width: 50%;
     height: 650px;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     padding: 15px;
     background-color: var(--dark-blue);
     border: 3px solid var(--dark-blue);
@@ -197,3 +197,19 @@ form{
 }
 
 /* 페이지 버튼*/
+.buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.buttons button{
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--strawberry);
+    font-weight: bold;
+}
