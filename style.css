@@ -15,30 +15,33 @@
 }
 
 /*new font*/
-@font-face{
+
+@font-face {
+    font-family: 'fontYouandiModernTR';
+    src:url('../fonts/fontYouandiModernTR.woff') format('woff'),
+          url('../fonts/fontYouandiModernTR.woff2') format('woff2'),
+          url('../fonts/fontYouandiModernTR.svg#fontYouandiModernTR') format('svg'),
+          url('../fonts/fontYouandiModernTR.eot'),
+          url('../fonts/fontYouandiModernTR.eot?#iefix') format('embedded-opentype'),
+          url('../fonts/fontYouandiModernTR.ttf') format('truetype');
+    font-family : "hyundai";
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+
+  }
+
+  #hyundai_font{
+    font-family : "hyundai";
+   }
+/* @font-face{
     src:url("../fonts/fontYouandiModernTR.ttf");
     font-family : "hyundai";
    }
    #hyundai_font{
     font-family : "hyundai";
-   }
+   } */
 
-@font-face{
-    src:url("../fonts/GodoB.otf");
-    font-family : "godoB";
-   }
-   #godoB{
-    font-family : "godoB";
-   }
-
-
-@font-face{
-    src:url("../fonts/GodoM.otf");
-    font-family : "godoM";
-   }
-   #godoM{
-    font-family : "godoM";
-   }
 
 h1 {
     font-size: 3em;
