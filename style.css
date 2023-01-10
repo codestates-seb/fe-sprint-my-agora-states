@@ -8,10 +8,31 @@
     text-align: center;
 }
 
+.choonsikHouseTop{
+    height: 100px;
+}
+
+.choonsik{
+    position: relative;
+    left: 200px;
+    z-index: 1;
+}
+
+
+
+.choonsikMagic{
+    position: relative;
+    left: -240px;
+    top: -100px;
+    z-index: 1;
+}
+
 h1{
     margin: 20px;
     font-size: 30px;
+    font-weight: bold;
     color: #C58940;
+    z-index: 2;
 }
 
 body{
@@ -32,13 +53,14 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #1a120b;
 }
 
 input{
     width: 400px;
     border-radius: 10px;
     border: 1px solid black;
-
+    box-shadow: 2px 2px 3px 2px #dadce0;
 }
 
 textarea{
@@ -46,6 +68,7 @@ textarea{
     vertical-align: middle;
     border-radius: 10px;
     border: 1px solid black;
+    box-shadow: 2px 2px 3px 2px #dadce0;
 }
 
 div.form__submit{
@@ -56,10 +79,22 @@ div.form__submit > input{
     width: 70px;
     height: 50px;
     background-color: rgba(229,186,115, 0.5);
+    color: #1a120b;
+    box-shadow: 2px 2px 3px 2px #dadce0;
+    transition: background 0.2s ease-in-out
 }
+
+div.form__submit > input:hover{
+    background-color: #3C2A21;
+    color: white;
+}
+
 
 ul.discussions__container{
     margin-top: 50px;
+    position: relative;
+    top: -250px;
+    z-index: 2;
 }
 
 li.discussion__container{	
@@ -68,13 +103,22 @@ li.discussion__container{
 	justify-content: space-between;
     align-items: center;
 	width: 540px;
-	margin-bottom: 0.5rem;
+	margin-bottom: 10px;
 	border-radius: 20px;
 	list-style-type: none;
-    background-color: rgba(250, 234, 177, 0.5)
+    background-color: rgba(250, 234, 177, 0.5);
+    box-shadow: 2px 2px 3px 2px #dadce0;
+}
+
+a{
+    color: #1a120b;
 }
 
 .discussion__avatar--image{
     width: 48px;
     border-radius: 50%;
+}
+
+.discussion__information{
+    color: rgba(0,0,0,0.5);
 }

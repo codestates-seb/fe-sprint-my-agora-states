@@ -80,12 +80,12 @@ form.addEventListener("submit", (event)=> {
     id: "unknownUser",
     createdAt: new Date().toISOString(),
     title: title.value,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    url: "https://codestates.com/",
     author: author.value,
     bodyHTML:
       textbox.value,
     avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+    "https://avatars.githubusercontent.com/u/119163273?v=4",
   }
   //data.js에 집어넣고
   agoraStatesDiscussions.unshift(addObj)
@@ -100,3 +100,6 @@ form.addEventListener("submit", (event)=> {
   title.value = ''
   textbox.value = ''
 })
+
+  // //페이지네이션
+  // const pageGroup = 
