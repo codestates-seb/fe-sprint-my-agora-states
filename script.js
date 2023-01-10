@@ -164,6 +164,29 @@ if(!loadLocalStorageDate()) {
   saveLocalStorageDate(agoraStatesDiscussions);
 }
 
+
+const inputAvatar = document.querySelectorAll('.avatar');
+let selecteimage = null;
+
+if(selecteimage === null) selecteimage = inputAvatar[0].getAttribute('src');
+
+inputAvatar.forEach(ele => { 
+  ele.addEventListener('click', () => {
+
+    selecteimage = ele.getAttribute('src');
+
+    handleClickAvator();
+
+    ele.classList.add('active');
+})
+})
+
+const handleClickAvator = () => {
+  inputAvatar.forEach(ele => {
+    ele.classList.remove('active');
+  })
+}
+
 document.getElementById('agora-form').onsubmit = () => {
   const name = document.getElementById('input-name').value;
   const title = document.getElementById('input-title').value;
@@ -178,16 +201,16 @@ document.getElementById('agora-form').onsubmit = () => {
     author: name,
     answer: null,
     bodyHTML:null,
-    avatarUrl:
-      getAbata(),
+    avatarUrl: selecteimage,
   });
   saveLocalStorageDate(currList);
 }
 
+/*
 const getAbata = () => {
   return './image/abata2.png'
 }
-
+*/
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 createNavi(ul);
