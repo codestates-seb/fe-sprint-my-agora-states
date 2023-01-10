@@ -44,8 +44,7 @@ const author = form.querySelector ("div.form__input--name > input");
 const title = form.querySelector("div.form__input--title > input");
 const textbox = form.querySelector ("div.form__textbox > textarea");
 form. addEventListener ("submit", (event) => {
-  event.preventDefault () ;
-
+  event.preventDefault() ;
   const submitObj = {
   id: "unique id" + Math.round (Math.random () * 100000), 
   createdAt: new Date().toISOString(), 
