@@ -1,19 +1,75 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-:root{
-
+:root {
+    --back: #343c4b;
+    --sandbase: #eda632;
+    --sandlight: #f7e6c7;
+    --bluebase: #20b7d4;
+    --bluedark: #25788b;
+    font-family: 'Prosto One', cursive;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-*{
-    box-sizing : border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-body{
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--sandlight);
+}
 
+.form__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--sandlight);
+
+    margin:10px;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--sandlight);
+}
+
+.form__input--title {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--sandlight);
+}
+
+.form__textbox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--sandlight);
+}
+
+.form__submit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--sandlight);
+}
+
+/*절대크기조절...*/
+#story{
+    width: 165px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--back);
 }
 
 
@@ -44,11 +100,34 @@ body{
 }
 .discussion__avatar--image {
     border-radius: 50%;
-    /*width: 48px;*/
+    width: 48px;
 }
 
-.discussion__content{
-    display:flex;
-    flex-direction:column;
-    align-content:flex-start;
+.discussion__container{
+    border-radius:10px;
+    border-style:solid;
+    border-color:var(--bluedark);
 }
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    color: var(--sandbase);
+
+    margin:10px;
+}
+
+    /*hyperlink color*/
+    .discussion__content a {
+        text-decoration: none; /* 링크의 밑줄 제거 */
+        color: inherit; /* 링크의 색상 제거 */
+    }
+
+
+/*hyperlink color*/
+/*#login-form a {
+    text-align: center;
+    text-decoration: none;*/ /* 링크의 밑줄 제거 */
+    /*color: inherit;*/ /* 링크의 색상 제거 */
+/*}*/

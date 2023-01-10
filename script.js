@@ -17,14 +17,19 @@ const convertToDiscussion = (obj) => {
     const avatarImg = document.createElement("img");
     avatarImg.src = obj.avatarUrl;
     avatarImg.alt = 'avatar of' + obj.author;
+
+    avatarImg.classList.add('discussion__avatar--image')
+
     avatarWrapper.append(avatarImg);
 
     /*discussionContent*/
     const distitle = document.createElement("h2");
+    distitle.classList.add('discussion__title')
     const titleAnchor = document.createElement("a");
     
+    
     titleAnchor.textContent = obj.title;
-        titleAnchor.href = obj.url;
+    titleAnchor.href = obj.url;
     
     distitle.append(titleAnchor);
     discussionContent.append(distitle);
@@ -32,16 +37,19 @@ const convertToDiscussion = (obj) => {
     //<div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>//
     const disinfo = document.createElement("div");
     disinfo.textContent = obj.author + '/' + obj.createdAt;
+    disinfo.classList.add('discussion__information')
 
     discussionContent.append(disinfo);
 
-    const answered = document.createElement("div");
+    
     const answeredP = document.createElement("p");
+
+
 
     answeredP.textContent = '☑';
 
-    discussionContent.append(answered);
-    answered.append(answeredP);
+    
+    discussionAnswered.append(answeredP);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
