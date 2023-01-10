@@ -6,6 +6,7 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+
   const avatarWrapper = document.createElement("div"); // 프로필 사진
   avatarWrapper.className = "discussion__avatar--wrapper";
   const img = document.createElement("img"); // 이미지 태그 만들기
@@ -15,7 +16,7 @@ const convertToDiscussion = (obj) => {
   const discussionContent = document.createElement("div"); // 질문 내용
   discussionContent.className = "discussion__content";
 
-  const discussionContentDiv = document.createElement("div"); // 질문 내용 컨텐츠
+  const discussionInfo = document.createElement("div"); // 질문 내용 컨텐츠
 
   const author = document.createElement("span");
   author.textContent = obj.author;
@@ -28,20 +29,32 @@ const convertToDiscussion = (obj) => {
   title.append(a);
   title.classList.add("discussion__title");
 
+  discussionInfo.classList.add("discussion__information");
+  discussionContent.append(discussionInfo);
+
+  const alert = document.createElement("div");
+  alert.classList.add("discussion__alert");
+
+
+  const discussionAnswered = document.createElement("span"); // 답변 유무 체크박스
+  discussionAnswered.classList.add("discussion__answered");
+  if(obj.answer) {
+    discussionAnswered.textContent = "1";
+  } else {
+    discussionAnswered.textContent = "0";
+  }
+
   const date = document.createElement("span");
-  date.textContent = obj.createdAt;
+  date.textContent = new Date(obj.createdAt).toLocaleDateString().toString();
   date.classList.add("discussion__date");
 
-  discussionContentDiv.append(author, title, date);
-  discussionContentDiv.classList.add("discussion__information");
-  discussionContent.append(discussionContentDiv);
+  alert.append(discussionAnswered, date);
 
-  const discussionAnswered = document.createElement("div"); // 답변 유무 체크박스
-  discussionAnswered.className = "discussion__answered";
 
+  discussionInfo.append(author, title, alert);
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent);
   return li;
 };
 
@@ -62,5 +75,24 @@ render(ul);
 const submitBtn = document.querySelector(".submit-icon");
 
 submitBtn.addEventListener("click", function () {
-  console.log("hi");
+  const form = document.querySelector("form");
+  const author = form.querySelector(".form__input--name > input").value;
+  const title = form.querySelector(".form__input--title > input").value;
+  const avatarUrl = "https://www.freeiconspng.com/thumbs/profile-icon-png/account-profile-user-icon--icon-search-engine-10.png";
+
+  const newObj = {
+    title,
+    author,
+    createdAt: new Date().toLocaleDateString(),
+    avatarUrl
+
+  }
+  agoraStatesDiscussions.unshift(newObj);
+  const newDiscussion = convertToDiscussion(newObj);
+  ul.prepend(newDiscussion);
 });
+
+const h1 = document.querySelector("h1");
+const length = document.createElement("span");
+length.textContent = agoraStatesDiscussions.length;
+h1.append(length);

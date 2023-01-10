@@ -54,6 +54,10 @@ header > nav > div:not(:first-child) > span {
   margin-left: 20px;
 }
 
+h1 > span {
+  color: #565656;
+}
+
 .discussion__wrapper {
   margin: 13vh 0;
 }
@@ -73,10 +77,10 @@ header > nav > div:not(:first-child) > span {
 
 .discussion__content {
   height: auto;
-  margin-top: 35px;
-  background-color: white;
   width: auto;
   max-width: 40%;
+  margin-top: 35px;
+  background-color: white;
   border-radius: 20px;
   position: relative;
   padding: 0px 15px;
@@ -112,14 +116,23 @@ header > nav > div:not(:first-child) > span {
 }
 
 .discussion__title > a:hover {
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
-.discussion__date {
+
+
+
+.discussion__alert {
   position: absolute;
-  right: 0%;
-  bottom: -10%;
+  right: -30%;
+  bottom: 0%;
   color: #878785;
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion__answered {
+  color: #feec31;
 }
 
 .form__container {
@@ -131,6 +144,7 @@ header > nav > div:not(:first-child) > span {
   display: flex;
   align-items: center;
 }
+
 .form__container > .form__plus-icon {
   margin: 0px 10px;
   font-size: 40px;
@@ -169,4 +183,8 @@ header > nav > div:not(:first-child) > span {
 .form__submit .submit-icon {
   font-size: 40px;
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
