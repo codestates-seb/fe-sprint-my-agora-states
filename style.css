@@ -1,1 +1,132 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input[type="text"],
+textarea {
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: gray;
+}
+
+textarea {
+    padding: 10px 0;
+    height: 70px;
+    resize: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 1 auto;
+}
+
+.form__input__container > input {
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.form__submit > input {
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+}
+
+.form__container {
+    width: 100%;
+    max-width: 540px;
+    margin: 50px 0;
+}
+
+.form__container > form {
+    display: flex;
+}
+
+.discussion__wrapper {
+    width: 100%;
+    max-width: 540px;
+}
+
+.discussions__container {
+    list-style: none;
+}
+
+.discussions__container > li {
+    margin: 0 0 10px 0;
+    padding: 10px 0;
+}
+
+.discussions__container > :last-child {
+    margin: 0;
+}
+
+.discussion__container {
+    display: flex;
+    border-radius: 3px;
+    border: 1px solid rgba(239, 239, 240, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 4px;
+}
+
+.discussion__container > div {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.discussion__content {
+    flex-direction: column;
+    align-items: flex-start !important;
+    flex: 1 1 auto;
+    min-width: 0px;
+}
+
+.discussion__title {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.discussion__title > a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.discussion__Written__Info {
+    width: 100%;
+    text-align: end;
+}
+
+.discussion__answered {
+    padding: 0 20px !important;
+    font-size: 2rem;
+}
+
+.discussion__avatar__image {
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+}
