@@ -135,6 +135,10 @@ h2 a {
     box-shadow: 3px 3px 21px -5px rgba( 0, 0, 0, 0.3 )
 }
 
+#search {
+    box-shadow: 3px 3px 21px -5px rgba( 0, 0, 0, 0.3 )
+}
+
 .discussion__avatar--wrapper {
     flex-basis: 50px;
     display: flex;

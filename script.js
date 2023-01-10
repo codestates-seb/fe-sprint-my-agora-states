@@ -25,6 +25,7 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement("H2")
   discussionTitle.className = "discussion__title";
   const discussionTitleLink = document.createElement("a")
+  discussionTitleLink.className = "search__title";
   const discussionInfomation = document.createElement("div")
   discussionInfomation.className = "discussion__information";
   discussionInfomation.textContent = `${obj.author} / ${obj.createdAt}`
@@ -185,6 +186,23 @@ displayRow(0);
 
 /////////////////////////////////////////////////////////
 
+
+const paginationHide = document.querySelector(".pagination")
+
+function filter() {
+  let search = document.getElementById("search").value.toLowerCase();
+//let rows = document.querySelectorAll('.discussion__container')
+ 
+  paginationHide.style.display = "none";
+  for (let i = 0; i < rows.length; i++) {
+      titleDate = rows[i].getElementsByClassName("search__title");
+      if (titleDate[0].innerHTML.toLowerCase().indexOf(search) != -1) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
+      }
+  }
+}
 
 
 // 하단은 내가 한 방법인데, 이러면 새로운 li를 제일 위에 생성하게 되므로 페이지가 넘어가도 생성한 li가 계속 상단에 있게 되는 문제가 발생..
