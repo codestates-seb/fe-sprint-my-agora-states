@@ -33,7 +33,7 @@ const convertToDiscussion = (obj) => {
   // answered
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-  discussionAnswered.innerHTML = `<p>${obj.answer ? "☑" : "☐"}</p>`;
+  discussionAnswered.innerHTML = `<p>${obj.answer ? "☑" : "◻"}</p>`;
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
