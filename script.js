@@ -118,7 +118,9 @@ const convertToDiscussion = (obj) => {
   discussionInformation.classList.add("discussion__information");
 
   // 7. information의 textContent 추가
-  discussionInformation.textContent = `${obj.id} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.id} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
 
   // 8. discussion content에 title을 append
   discussionContent.append(discussionTitle);
