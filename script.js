@@ -34,18 +34,41 @@ const convertToDiscussion = (obj) => {
   // discussionInformation div태그 (author, createdAt)
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${createdAt(obj.createdAt)}`;
   discussionContent.append(discussionInformation);
 
   //3번 : discussionAnswered에 p태그 넣어야함
   const discussionCheck = document.createElement("p");
-  discussionCheck.textContent = obj.answer ? "✅" : "❎";
+  discussionCheck.textContent = obj.answer ? "✔" : "✖";
   discussionAnswered.append(discussionCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
+// 오전 오후 바꾸는 함수
+// 2022-05-16T01:02:17Z
+// 00~11 오전    오후 5:52:37
+// 12~23 오후
+function createdAt(str) {
+  const getHour = parseInt(str.split("T")[1].split(":")[0], 10);
+  const getMinute = str.split("T")[1].split(":")[1];
+  const getSecond = str.split("T")[1].split(":")[2].slice(0, 2);
+  let createdAtStr = "";
+
+  if (getHour <= 11 && getHour >= 0) {
+    createdAtStr = `오전 ${getHour}:${getMinute}:${getSecond}`;
+  } else {
+    if (getHour >= 13 && getHour < 24) {
+      createdAtStr = `오후 ${getHour - 12}:${getMinute}:${getSecond}`;
+    } else if (getHour === 24) {
+      createdAtStr = `오전 00:${getMinute}:${getSecond}`;
+    } else {
+      createdAtStr = `오후 ${getHour}:${getMinute}:${getSecond}`;
+    }
+  }
+  return createdAtStr;
+}
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
