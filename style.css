@@ -171,7 +171,7 @@ textarea:focus {
 
 #story {
     font-size: 0.8rem;
-    height: 100px;
+    height: 80px;
     width: 330px;
 }
 
@@ -215,7 +215,7 @@ textarea:focus {
     margin-top: 0px;
     border-bottom: 1px solid rgb(181, 181, 181);
     width: 90%;
-    height: 400px;
+    max-height: 300px;
     overflow: auto;
 }
 
