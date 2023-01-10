@@ -6,6 +6,24 @@ import $ from "./utils/selector.js";
 import getDiscussionComponent from "./components/discussion.js";
 import getCurrentDateTime from "./utils/currentTime.js";
 
+const DISCUSSIONS_KEYNAME = "agoraStatesDiscussions";
+const saveDiscussionsToLocalStorage = () => {
+  if (!localStorage.getItem(DISCUSSIONS_KEYNAME)) {
+    localStorage.setItem(
+      DISCUSSIONS_KEYNAME,
+      JSON.stringify(agoraStatesDiscussions)
+    );
+  }
+};
+
+const getDiscussionsFromLocalStorage = (DISCUSSIONS_KEYNAME) => {
+  console.log(localStorage.getItem(DISCUSSIONS_KEYNAME));
+  // console.log(JSON.parse(localStorage.getItem(DISCUSSIONS_KEYNAME)));
+};
+
+saveDiscussionsToLocalStorage();
+getDiscussionsFromLocalStorage();
+
 const updateData = (discussion) => {
   // discussion이 너무 많아지면 시간이 오래 걸릴 수 있는 잠재적 문제가 존재할 것 같다.
   agoraStatesDiscussions.unshift(discussion);
