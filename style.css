@@ -1,9 +1,11 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 :root {
     --gray : rgb(232, 233, 235);
-    --white : #FFF;
-    --bluewhite : rgb(250, 251, 252);
-    --lineColor : rgb(237,237,243)
+    --white : rgba(255, 255, 255, 0.8);
+    --bluewhite : rgba(250, 251, 252, 0.7);
+    --lineColor : rgba(214, 214, 250, 0.7);
+    --purpleBack : rgb(226,225,244);
+    --purpleText : rgb(120,101,200);
 }
 
 * {
@@ -16,7 +18,33 @@ li {
 }
 
 body {
-    background-color: var(--gray);
+    background-image: url(./bg5.jpg);
+    background-size: cover;
+}
+
+#my_modal {
+    display: none;
+    width: 300px;
+    padding: 20px 60px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 3px;
+}
+
+#my_modal .modal_close_btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__input--name .form__input--title .form__textbox {
 }
 
 .form__container {
@@ -24,32 +52,36 @@ body {
     margin : 40px;
     margin-bottom: 20px;
     border-radius: 25px;
+    height: 15vh;
+    padding: 10px ;
 }
 
-.myQ_discussion_wrapper {
+.discussion_wrapper1 {
     display: flex;
 }
 
-.myQ__container {
-    background-color: var(--white);
-    margin-left: 40px;
-    margin-right: 0px;
-    border-radius: 25px;
+.discussion__wrapper__answered {
     flex-grow: 1;
-    height: 70vh;
-}
-
-.discussion__wrapper {
     background-color: var(--bluewhite);
-    margin-left : 30px;
+    margin-left : 40px;
     margin-right: 0;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-    flex-grow: 0.5;
     height: 70vh;
     overflow-y: scroll;
     border-right: 1px solid var(--lineColor);
 }
+
+.discussion__wrapper_notAnswered {
+    flex-grow: 1;
+    background-color: var(--bluewhite);
+    margin-left : 40px;
+    margin-right: 0;
+    height: 70vh;
+    overflow-y: scroll;
+    border-right: 1px solid var(--lineColor);
+}
+
 
 .discussion_answered_head {
     display: flex;
@@ -57,10 +89,6 @@ body {
     border: 1px solid white;
     border-top-left-radius: 25px;
     background-color: var(--white);
-    
-    /* 위치 고정 */
-    position: fixed;
-    width: 38.1%;
 }
 
 .count_answered {
@@ -94,31 +122,31 @@ body {
 }
 
 .discussion__wrapper_notAnswered {
+    flex-grow: 1;
     border-left: 1px solid var(--gray);
     background-color: var(--bluewhite);
     margin-right : 40px;
     margin-left: 0;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    flex-grow: 0.5;
 }
 
-.discussions__container {
-    padding-top: 90px;
+.discussions__answered__container, .discussions__container__notAnswered{
     width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.discussion__container {
+.discussion__container, .discussion__container__notAnswered {
+    width: 600px;
     border: 2px solid var(--lineColor);
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
-    height: 25vh;
+    height: 17vh;
     margin-bottom: 20px;
-    padding: 10px;
+    padding : 0px 10px
     /* border-bottom: 1px solid black; */
 }
 
@@ -140,12 +168,33 @@ body {
     justify-content: space-between;
     flex-direction: column;
     width:100%;
-    padding: 0px 10px;
+    padding: 0px 20px;
 }
 
 .discussion__information {
     margin-bottom: 20px;
-    border: 1px solid red;
+
+}
+
+.createdAt {
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--purpleBack);
+    color: var(--purpleText);
+    font-weight: 600;
+    font-size: small;
+}
+
+.author {
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--purpleBack);
+    color: var(--purpleText);
+    font-weight: 600;
+    font-size: small;
+    margin-right: 10px;
 }
 
 a {
