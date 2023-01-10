@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&family=Nunito+Sans:ital,wght@0,200;1,200;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Poppins:wght@300;500;600;700;900&family=Rubik+Bubbles&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --gold-color: #ab844b;
+  --gray-color-900: #272727;
+  --gray-color-700: #585858;
+  --gray-color-500: #757575;
+  --gray-color-400: #9d9d9d;
+  --gray-color-300: #b1b1b1;
+  --black-color: #0e0e0e;
+  --white-color: #ffffff;
+}

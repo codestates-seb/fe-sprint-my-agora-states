@@ -1,5 +1,11 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
+
+//dataSet agoraStatesDiscussions값을 json형식으로 받는다.
+let dataSet = JSON.parse(localStorage.getItem("dataSet"));
+if (!localStorage.getItem("dataSet")) {
+  // 만약 localStorage에 agoraStatesDiscussions가 없다면
+  localStorage.setItem("dataSet", JSON.stringify(agoraStatesDiscussions));
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -14,17 +20,68 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement("img");
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = obj.author;
+  avatarImg.className = "discussion__avatar--image";
+  avatarWrapper.appendChild(avatarImg);
 
+  const disTitle = document.createElement("h2");
+  const disTitleLink = document.createElement("a");
+  disTitleLink.href = obj.url;
+  disTitleLink.textContent = obj.title;
+  disTitle.appendChild(disTitleLink);
+  discussionContent.append(disTitle);
 
+  const disInfo = document.createElement("div");
+  disInfo.className = "discussion__information";
+  disInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString("en-US")}`; //toLocaleTimeString() 메서드는 날짜의 시간 부분을 언어별로 표현한 문자열을 반환합니다.
+  discussionContent.appendChild(disInfo);
+
+  const disAnswer = document.createElement("p");
+  disAnswer.textContent = obj.answer ? "☑︎" : "☒";
+  discussionAnswered.appendChild(disAnswer);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
+// form 시작! submit하면 정보를 가져온다.
+const form = document.querySelector("form.form");
+
+const bringData = (event) => {
+  const userName = document.querySelector(".form__input--name > input");
+  const userTitle = document.querySelector(".form__input--title > input");
+  const userStory = document.querySelector(".form__textbox > textarea");
+
+  event.preventDefault();
+
+  const newObj = {
+    id: "new Id",
+    createdAt: new Date().toISOString(), // toISOString()는 단순화한 확장 ISO의 문자열을 반환합니다.
+    title: userTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: userName.value,
+    bodyHTML: userStory.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
+  };
+
+  dataSet.unshift(newObj);
+  const newDis = convertToDiscussion(newObj);
+  ul.prepend(newDis); // prepend는 첫번째 자식 앞 새로운 노드를 추가해준다.
+  localStorage.setItem("dataSet", JSON.stringify(dataSet));
+
+  userName.value = "";
+  userTitle.value = "";
+  userStory.value = "";
+};
+
+form.addEventListener("submit", bringData);
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < dataSet.length; i += 1) {
+    element.append(convertToDiscussion(dataSet[i]));
   }
   return;
 };
