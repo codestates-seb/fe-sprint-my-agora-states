@@ -17,7 +17,7 @@ main { display: flex; flex-direction: column; align-items: center; width: 100%;}
 .discussion__container .discussion__avatar--image { height: 100%; }
 .discussion__content h2 {  width: 400px; height: 30px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 .discussion__titleLink{ font-size :14px; }
-.discussions__container > li { display: flex; flex-direction: row; width: 100%; padding: 10px; border-bottom: 1px solid var(--mainColor); } 
+.discussions__container > li { display: flex; flex-direction: row; width: 100%; padding: 10px 20px; border-bottom: 1px solid var(--mainColor); } 
 .discussions__container .discussion__answered { display: flex; align-items: center; margin-left:20px; }
 .discussion__wrapper { margin-top: 30px; }
 
@@ -28,7 +28,8 @@ main { display: flex; flex-direction: column; align-items: center; width: 100%;}
 .form__container .form_area input::placeholder{ color: var(--mainColor); }
 .form__container .form_area textarea::placeholder {color:var(--mainColor); }
 .form__container .form_area textarea { padding-top: 10px; height: 100px; }
-.form__container .form_area #submitBtn { padding: 0; border: 2px solid #fff; background: var(--mainColor); color: #fff; }
+.form__container .form_area #submitBtn { padding: 0; border: 2px solid #fff; background: var(--mainColor); color: #fff; transition: var(--motion);}
+.form__container .form_area #submitBtn:hover { background :#fff; color: var(--mainColor)}
 .form__container .form_area #submitBtn::placeholder { color: #fff; }
 .form__container .input_line { display: flex; }
 .form__container .input_line .form__input--name { flex-basis : 47.5%;}
