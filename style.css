@@ -2,20 +2,38 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Do Hyeon', sans-serif;
 }
 
+main{
+    background-color: #BFEAF5;
+}
 body{
     display: flex;
     justify-content: center;
     align-items: center; 
 } 
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+.form__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 li.discussion__container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 540px;
     list-style: none;
+    border: 3px solid #91D8E4;
+    background-color: #EAFDFC;
+    margin-top: 3px;
+    height: 100px;
 }
 
 .discussion__avatar--wrapper{
@@ -35,6 +53,8 @@ width: 48px;
     flex-direction: column;
     margin-top: 20px;
     margin-left: -15px;
+    justify-content: space-between;
+    align-items: stretch;
     
 }
 
@@ -45,5 +65,30 @@ width: 48px;
 .discussion__information{
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     margin-top: 5px;
 }
+
+/* 페이지네이션 버튼 */
+.pageNum li{
+    float: left;
+    border: 1px solid #82AAE3;
+    border-radius: 3px;
+    list-style: none;
+    margin: 10px,5px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pageNum li:active {
+    background-color: #91D8E4;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0px;
+}
+  
