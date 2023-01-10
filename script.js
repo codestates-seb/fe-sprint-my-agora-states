@@ -3,7 +3,7 @@ console.log(agoraStatesDiscussions);
 // 디스커션 유지 기능: 새로고침해도 새로 추가한 디스커션이 유지되도록
 let discussions; // 로컬 스토리지에 있는 데이터를 넣을 변수 선언
 const newDiscussions = localStorage.getItem('Discussions');
-if (newDiscussions) { // 새로운 디스커션 데이터가 로컬 스토리지에 있는 경우, 그 값을 discussions에 넣기
+if (newDiscussions) { // 디스커션 데이터가 로컬 스토리지에 있는 경우, 그 값을 discussions에 넣기
   discussions = JSON.parse(newDiscussions); 
 } else { // 없는 경우, 원래 배열(agoraStatesDiscussions) 복사해서 넣기
   discussions = agoraStatesDiscussions.slice(); 
@@ -117,22 +117,22 @@ const checkbox = document.querySelector(".check");
 const themeMode = document.querySelector(".theme-mode");
 
 const isUserColorTheme = localStorage.getItem("color-theme");
-const isOsColorTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-  ? "dark"
-  : "light";
+// const isOsColorTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+//   ? "dark"
+//   : "light";
 
-const getUserTheme = () =>
-  isUserColorTheme ? isUserColorTheme : isOsColorTheme;
+// const getUserTheme = () =>
+//   isUserColorTheme ? isUserColorTheme : isOsColorTheme;
 
 // 최초 접속 시 테마 적용 시켜두기
 window.onload = function () {
-  if (getUserTheme === "dark") {
-    localStorage.setItem("color-theme", "dark");
+  if (isUserColorTheme === "dark") {
+    // localStorage.setItem("color-theme", "dark");
     document.documentElement.setAttribute("color-theme", "dark");
     checkbox.setAttribute("checked", true);
     themeMode.textContent = "🌙";
   } else {
-    localStorage.setItem("color-theme", "light");
+    // localStorage.setItem("color-theme", "light");
     document.documentElement.setAttribute("color-theme", "light");
     themeMode.textContent = "☀️";
   }
@@ -141,9 +141,11 @@ window.onload = function () {
 checkbox.addEventListener("click", (e) => {
   if (e.target.checked) {
     document.documentElement.setAttribute("color-theme", "dark");
+    localStorage.setItem("color-theme", "dark");
     themeMode.textContent = "🌙";
   } else {
     document.documentElement.setAttribute("color-theme", "light");
+    localStorage.setItem("color-theme", "light");
     themeMode.textContent = "☀️";
   }
 });
