@@ -21,6 +21,7 @@
 }
 
 body{
+    height: 2000px;
     display: flex;
     justify-content:center;
     align-items:center;
@@ -114,6 +115,7 @@ h1 {
 .form__submit>input:hover{
     text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #B3FFAE,
     0 0 82px #B3FFAE, 0 0 92px #B3FFAE, 0 0 102px #B3FFAE, 0 0 151px #B3FFAE;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .discussion__wrapper{
@@ -161,4 +163,31 @@ h1 {
     justify-content:center;
     align-items:center;
     font-size: 20pt;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    font-size: 11pt;
+    font-weight: 600;
+    margin-top: 10pt;
+    padding: 10pt;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10pt;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.clear:hover{
+    color: red;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.pageController:hover{
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #B3FFAE,
+    0 0 82px #B3FFAE, 0 0 92px #B3FFAE, 0 0 102px #B3FFAE, 0 0 151px #B3FFAE;
+    background-color: rgba(0, 0, 0, 0.7);
 }

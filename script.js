@@ -1,3 +1,11 @@
+let data;  //로컬 스토리지
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
+
 /* convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다. -> 리스트 덩어리 만들기! */
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // 요소 생성
@@ -33,18 +41,68 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+const render = (element, from, to) => {
+  console.log(from, to);
+  if (!from && !to) {
+    from = 0;
+    to = data.length - 1;
+  }
+  // 다 지우고 배열에 있는 내용 다 보여주기
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
+    element.append(convertToDiscussion(data[i]));
   }
   return;
 };
 
+let limit = 10,  //페이지네이션
+  page = 1;
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, 0, limit);
 
 /* 디스커션 추가 기능 */
+const getPageStartEnd = (limit, page) => {
+  const len = data.length - 1;
+  let pageStart = Number(page - 1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if (page <= 0) {
+    pageStart = 0;
+  }
+  if (pageEnd >= len) {
+    pageEnd = len;
+  }
+  return { pageStart, pageEnd };
+};
+
+const buttons = document.querySelector(".buttons");
+buttons.children[0].addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[1].addEventListener("click", () => {
+  localStorage.removeItem("agoraStatesDiscussions");
+  data = agoraStatesDiscussions.slice();
+  limit = 10;
+  page = 1;
+  render(ul, 0, limit);
+});
+
+buttons.children[2].addEventListener("click", () => {
+  if (limit * page < data.length - 1) {
+    page = page + 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
 const form = document.querySelector("form.form");
 const author = form.querySelector("div.form__input--name > input");
 const title = form.querySelector("div.form__input--title > input");
@@ -61,11 +119,9 @@ form.addEventListener('submit', (event) => {
     bodyHTML: textbox.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/117844745?v=4"
   };
-  agoraStatesDiscussions.unshift(obj);
-  const newDiscussion = convertToDiscussion(agoraStatesDiscussions[0]);
-  ul.prepend(newDiscussion);
-  event.target.reset();  //input value 초기화
+  data.unshift(obj);
 
-  localStorage.setItem('obj', JSON.stringify(obj)); //로컬 저장소에 저장
-  const localObj = JSON.parse(localStorage.getItem('obj')); //다시 배열로 가져오기
+  localStorage.setItem('agoraStatesDiscussions', JSON.stringify(data)); //로컬 저장소에 저장
+  
+  render(ul, 0, limit);
 });
