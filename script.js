@@ -40,7 +40,7 @@ const convertToDiscussion = (obj) => {
     // console.log("뉴데이트() : " + new Date());
     // console.log("뉴데이트(오브젝) : " + new Date(obj.createdAt));
     // obj.author 이름
-    info.append(`${obj.author} / ${obj.createdAt}`);  // <div>kimploo / 2022-04-22T14:08:33Z</div>
+    info.append(`${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`);  // <div>kimploo / 2022-04-22T14:08:33Z</div>
     discussionContent.append(info);
   // const check = document.createElement('div'); div태그 중복
 
@@ -67,9 +67,10 @@ form.addEventListener('submit', (event) => {
   const formTitle = document.querySelector('.form__input--title #title')  // .value;  매번 변수만들기 귀찮음
   const formBox = document.querySelector('.form__textbox #story') // .value;
   // console.log(formName);
+  const formTime = new Date();
   const obj = {
     id: "id 불명",
-    createdAt: new Date(),
+    createdAt: formTime,
     title: formTitle.value,
     url: "",
     author: formName.value,
