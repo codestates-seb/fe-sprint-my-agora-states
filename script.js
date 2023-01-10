@@ -44,12 +44,13 @@ const convertToDiscussion = (obj) => {
   }
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+  
   return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다. 가장 하단에서 실행중임.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -57,10 +58,10 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
 
 
 const popup = document.querySelector('#layer_popup')
+const resetKEY = document.querySelector('.writing-delet')
 const popupExit = document.querySelector('.form-exit')
 const writeForm = document.querySelector('.write_form');
 
@@ -75,7 +76,12 @@ popupExit.onclick = function() {
 const form = document.querySelector('form.form');
 const author = form.querySelector("div.form__input--name > input");
 const title = form.querySelector("div.form__input--title > input");
-const textbox = form.querySelector("div.form__textbox > textarea")
+const textbox = form.querySelector("div.form__textbox > textarea");
+let dataSave = [];
+
+function savedDate() {
+    localStorage.setItem('savedata', JSON.stringify(dataSave));
+}
 
 form.addEventListener("submit", (event) => {
   //submit 하면..
@@ -92,8 +98,10 @@ form.addEventListener("submit", (event) => {
     "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
   }
 
+  dataSave.push(newData)
   //새로 쓴 글 위로 오게 하려고
   agoraStatesDiscussions.unshift(newData);
+  savedDate()
   
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild)
@@ -106,6 +114,46 @@ form.addEventListener("submit", (event) => {
   textbox.value = '';
 })
 
+const savedDateArray = localStorage.getItem('savedata')
+
+if(savedDateArray){
+  const parseData = JSON.parse(savedDateArray)
+  // parseData.forEach(() => {
+  //   console.log(dataSave)
+  // });
+  for(let index in parseData) {
+    let p = parseData[index]
+    // p의 index가 8개라서 8번 반복됨. 내가 가져온 블로그에선 왜 하단의 for in문을 썼는지 궁금해서 남겨둔다.
+    // for(let key in p){
+    //   console.log(`${p.author} + ${p.title} + ${p.createdAt}`)
+    // }
+
+    agoraStatesDiscussions.unshift(p);
+    /* 배열을 가장 상단 파일에 넣을 수 있다면 그보다 좋은 게 없지않을까... */
+  }
+  render(ul);
+}
+
+if(savedDateArray !== null){
+  const parseData = JSON.parse(savedDateArray);
+  dataSave = parseData;
+} else {
+  render(ul)
+}
+
+resetKEY.onclick = function() {
+    // 새로고침 안 하고 바로 반영되게 하고싶은데 안 되네^^ .. ...
+    // const parseData = JSON.parse(savedDateArray)
+    // for(let index in parseData) {
+    //   let p = parseData[index]
+
+    //   agoraStatesDiscussions.shift(p)
+    //   window.localStorage.clear();
+    //   render(ul)
+    // }
+    window.localStorage.clear();
+    window.location.reload()
+}
 
 
 /////////////////////////////////////////////////////////
@@ -216,8 +264,10 @@ function filter() {
   }
 }
 
+///////////////////////
 
-// 하단은 내가 한 방법인데, 이러면 새로운 li를 제일 위에 생성하게 되므로 페이지가 넘어가도 생성한 li가 계속 상단에 있게 되는 문제가 발생..
+
+// 하단은 내가 처음 한 방법인데, 이러면 새로운 li를 제일 위에 생성하게 되므로 페이지가 넘어가도 생성한 li가 계속 상단에 있게 되는 문제가 발생..
 // 또한 내용이 너무 길어져서 위의 방식으로 하는 게 맞는듯. 나중에 공부용으로 남겨둔다. submit 부분이 삭제되서 이전 파일 참고해야함.
 
 // function handleSubmit(event) {
