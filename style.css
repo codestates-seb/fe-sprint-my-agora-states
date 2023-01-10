@@ -1,1 +1,159 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+	background-color: #000 !important;
+}
+
+
+body {
+     /* 0110 실시간 세션 */
+	background-color: #000
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    color: #0f0;
+    border: 3px dotted green;
+}
+
+
+#console {
+	font-family: courier, monospace;
+	color: #fff;
+	width:750px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:100px;
+	font-size:14px;
+}
+
+a {
+	color: #0bc;
+	text-decoration: none;
+}
+
+#a {
+	color: #0f0;
+}
+
+#c {
+	color: #0bc;
+}
+
+#b {
+	color: #ff0096;
+}
+
+#k {
+    	animation: change 1s;
+}
+
+#op{
+    	color: #888888
+}
+
+@keyframes change {
+    	0%  { color:  #0f0; }
+    	50% { color:  #0f0; }
+    	99% { color: black; }
+}
+
+li.discussions__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    background-color:  var(--surface);
+    border-radius: 5px;
+    list-style-type: none;
+}
+
+.discussions__container{
+    border: 3px line red;
+}
+
+.discussion__avatar--wrapper{
+    border: 5px double #0f0;
+    vertical-align: middle;
+    display:inline-flex;
+    height: inherit;
+    box-sizing: border-box;
+}
+
+.discussion__content{
+    border: 3px dotted gray;
+    display: flex;
+    width: 85vh;
+    
+}
+
+.discussion__title{
+    border: 3px dotted orchid;
+    width: 60%;
+    vertical-align: middle;
+}
+
+.discussion__information{
+    border: 3px dotted blue;
+    width: 40%;
+    vertical-align: middle;
+}
+
+.discussion__answered{
+    border: 2px double brown;
+    vertical-align: middle;
+}
+
+section{
+    border: 2px double black;
+}
+
+li{
+    border: 2px double red;
+    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    vertical-align: middle;
+    align-items: flex-start;
+}
+
+.form__container{
+    border: 3px dotted red;
+}
+.form__input--wrapper{
+    border: 3px dotted orchid;
+}
+
+.form__input--name{
+    border: 3px dotted yellow;
+}
+
+.form__input--title{
+    border: 3px dotted blue;
+}
+
+.form__textbox{
+    border: 3px dotted green;
+}
+
+.form__submit{
+    border: 3px dotted wheat;
+}
+
+
+
+/*
+CSS 도움 페이지
+css-tricks.com
+랜딩 -- 착륙 landing page 
+colorhunt.co
+DOM purify
+/web_client/bai5dum/html/externalLinkPage.html
+https://www.npmjs.com/package/dompurify
+*/
