@@ -1,6 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -12,8 +11,24 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  const avatarImg = document.createElement("img");
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of' + obj.author;
+  avatarWrapper.append(avatarImg);
+  const discussionTitle = document.createElement("h2");
+  const titleAncher = document.createElement("a")
+  titleAncher.href = obj.url
+  titleAncher.textContent = obj.title;
+  discussionTitle.append(titleAncher);
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__informaton";
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInformation);
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "✓" : "ing...";
+  discussionAnswered.append(checked);
+ // const
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
 
 
@@ -30,5 +45,5 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
+const ul = document.querySelector("ul.discussions__container"); // 어차피조회는 여기서 하는거 같은데? 저 div안에 넣으라는 말 같은데???
 render(ul);

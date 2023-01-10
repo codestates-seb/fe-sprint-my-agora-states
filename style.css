@@ -1,1 +1,173 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    background-color: #ecf2f5d2;
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    height: 100vh;
+    width: 540px
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 7px inset rgba(52, 90, 171, 0.594);
+    border-bottom: none;
+    border-radius: 8px;
+    padding-top: 7px;
+    padding-bottom: 14px;
+    
+}
+.form__container{
+    display: flex;
+    border: 7px inset rgba(52, 90, 171, 0.594);
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    margin-top: 27px;
+
+    border-radius: 8px;
+    padding-top: 10px;
+    height: 50vh;
+}
+
+.discussions__container{
+    padding-top: 30px;
+
+}
+
+.discussion__container{
+    display: flex;
+    border-bottom: 7px inset rgba(52, 90, 171, 0.594);
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 8px;
+    padding-top: 10px;
+}
+img{
+    background-color: rgba(52, 90, 171, 0.594);
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 3.5px;
+    border-radius: 100px;
+    width: 60px;
+}
+.discussion__title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px; 
+}
+.discussion__information{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px
+}
+
+.discussion__content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:450px;
+    border-radius: 8px;
+    padding-top: 10px;
+    height: 10vh;
+}
+
+.form__container{
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; 
+    padding: 17px;
+    
+}
+
+.form__input--name{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    width: 450px;
+    height: 130px;
+}
+
+.form__input--title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    width: 450px;
+    height: 130px;
+}
+input{
+    display: flex;
+    border: none;
+    border-bottom: 3px solid rgba(52, 90, 171, 0.594);
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 445px;
+    height: 30px;
+    font-size: 25px;
+    
+}
+
+.form__submit{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 30px;
+    width: 450px;
+}
+
+#story{
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px inset rgba(52, 90, 171, 0.594);
+    border-radius: 8px;
+    width: 450px;
+    height: 240px;
+    color: black;
+    font-size: 20px;
+}
+button {
+    cursor: pointer;
+    border-radius: 7px;
+    width: 13rem;
+    height: 2.25rem;
+    font-size: 20px;
+    margin: 17px;
+    transition: all 0.3s;
+}
+  
+button:hover {
+    background-color: #0077FF;
+    font-size: 20px;
+    width: 13rem;
+    color:#ebf0f3;
+}
+button:focus {
+    background-color:#0077FF;
+    font-size: 20px;
+    width: 13rem;
+    color:#ebf0f3;
+}
