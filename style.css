@@ -213,6 +213,7 @@ h1.font-small {
   border-radius: 50%;
   background-color: #3fb950;
   transition: all 300ms;
+  cursor: pointer;
 }
 
 .arrow-up span {
