@@ -1,1 +1,258 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --brown-1: #F8EDE3;
+    --brown-2: #DFD3C3;
+    --brown-3: #D0B8A8;
+    --brown-4: #85586F;
+    --brown-5: #85586fbb;
+}
+
+body { background-color: ivory; }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* -------------------------------------- */
+
+/* form container layout */
+.form__container {
+    width: 580px;
+    height: 200px;
+    border-radius: 15px 15px 0 0;
+    background-color: var(--brown-5);
+}
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.form__input--wrapper {
+    width: 76%;
+    display: flex;
+    text-align: center;
+    font-size: 0.8rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.form__input--name {
+    width: 100%;
+}
+.form__input--title {
+    width: 100%;
+}
+.form__textbox {
+    width: 100%;
+    height: 50%;
+}
+input[type="text"] {
+    width: 90%;
+    padding: 2px 0 0 10px;
+    background-color: var(--brown-1);
+    border: none;
+    outline: none;
+    transition: all 0.2s;
+}
+#name {
+    border-radius: 10px 10px 0 0;
+}
+input[type="text"]:hover {
+    background-color: var(--brown-2);
+}
+textarea {
+    width: 90%;
+    height: 100%;
+    padding: 5px 0 0 10px;
+    background-color: var(--brown-1);
+    border-radius: 0 0 10px 10px;
+    border: none;
+    outline: none;
+    transition: all 0.2s;
+}
+textarea:hover {
+    background-color: var(--brown-2);
+}
+
+/* submit button */
+.form__submit {
+    width: 20%;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--brown-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+input[type="submit"] {
+    height: 171px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--brown-4);
+    transition: all 0.5s;
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+    color: var(--brown-4);
+    background-color: var(--brown-1);
+}
+
+/* -------------------------------------- */
+
+/* discussion layout */
+.discussion__wrapper {
+    width: 580px;
+    height: 1220px;
+    background-color: var(--brown-1);
+    display: flex;
+    justify-content: center;
+}
+.discussion__container {
+    width: 540px;
+    height: 100px;
+    margin: 20px 0;
+    border-radius: 5px 25px 25px 5px;
+    background: linear-gradient(to right, #efe2d1, #c9beb0);
+    box-shadow:  7px 7px 14px #b7ada0, -10px -10px 20px #fff9e6;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s;
+}
+.discussion__container:hover {
+    height: 110px;
+    background: linear-gradient(to right, #dfc5b4, #bba697);
+    box-shadow:  7px 7px 14px #ab978a, -10px -10px 20px #f5d9c6;
+}
+
+/* avatar image style */
+.discussion__avatar--wrapper {
+    padding: 0 5px;
+    background: radial-gradient(circle, rgba(133, 88, 111, 0.7) 30%, rgba(133, 88, 111, 1) 60%);
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50px;
+}
+
+/* discussion content style */
+.discussion__content {
+    width: 440px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.discussion__title > a {
+    font-weight: 600;
+}
+.discussion__title > a:link {
+    color: var(--brown-4);
+}
+.discussion__title > a:visited {
+    color: var(--brown-5)
+}
+.discussion__information {
+    /* author, time */
+    font-size: 0.8rem;
+    text-align: end;
+}
+
+/* question answered checkbox style */
+.discussion__answered {
+    display: flex;
+    font-size: 2rem;
+    color: rgba(255, 0, 0, 0.5);
+    flex-direction: column;
+    justify-content: center;
+}
+.true {
+    color: rgba(0, 128, 0, 0.5);
+}
+
+/* -------------------------------------- */
+
+/* cover */
+.cover__container {
+    width: 580px;
+    height: 200px;
+    border-radius: 15px 15px 0 0;
+    background-color: var(--brown-4);
+    color: var(--brown-4);
+    font-weight: 600;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.5s;
+}
+.hide__button {
+    width: 120px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: var(--brown-1);
+    transition: all 0.2s;
+}
+.hide__button:hover {
+    color: var(--brown-1);
+    background-color: var(--brown-4);
+    border: 2px solid var(--brown-1);
+}
+.cover__text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--brown-1);
+}
+.hide { 
+    display: none;
+}
+
+/* -------------------------------------- */
+
+/* bottom page navigation bar */
+/* not implemented */
+.nav__wrapper {
+    width: 580px;
+    height: 40px;
+    color: var(--brown-1);
+    font-weight: 600;
+    background-color: var(--brown-4);
+    display: flex;
+    align-items: center;
+}
+
+.nav__container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.nav__btn {
+    width: 25px;
+    height: 100%;
+    margin: 0 3px;
+    border: 1px solid var(--brown-4);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.nav__btn.active {
+    color: var(--brown-4);
+    background-color: var(--brown-1);
+}
+
+.nav__btn:hover {
+    color: var(--brown-4);
+    background-color: var(--brown-1);
+}
