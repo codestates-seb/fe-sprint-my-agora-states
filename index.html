@@ -17,6 +17,7 @@
   <body>
     <main>
       <h1>My Agora States</h1>
+
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
@@ -42,22 +43,25 @@
             </div>
             <div class="form__textbox">
               <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
+              <div id="textarea_box">
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder="질문을 작성하세요"
+                  required
+                ></textarea>
+                <div class="form__submit">
+                  <input id="add-discussion" type="submit" value="submit" />
+                </div>
+              </div>
             </div>
           </div>
           <div class="warning hide">이름, 제목, 질문을 작성하세요!</div>
-          <div class="form__submit">
-            <input id="add-discussion" type="submit" value="submit" />
-          </div>
         </form>
       </section>
-      <button id="clear">로컬스토리지 클리어</button>
+
       <section class="discussion__wrapper">
+        <button id="clear">로컬스토리지 클리어</button>
         <ul class="discussions__container"></ul>
         <div class="buttons"></div>
       </section>
