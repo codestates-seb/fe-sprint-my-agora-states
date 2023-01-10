@@ -804,4 +804,8 @@ const agoraStatesDiscussions = [
   };
 });
 
-export { agoraStatesDiscussions };
+const fundamentalDataFormat = {
+  ...agoraStatesDiscussions[0],
+};
+
+export { agoraStatesDiscussions, fundamentalDataFormat };

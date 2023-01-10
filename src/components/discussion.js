@@ -14,7 +14,7 @@ function getDiscussionComponent({
   <li class="discussion__container">
     <div class="discussion__avatar--wrapper">
       <img class="discussion__avatar--image"
-        src="${avatarUrl} "
+        src="${avatarUrl}"
         alt="${author}">
     </div>
     <div class="discussion__content">
@@ -24,9 +24,9 @@ function getDiscussionComponent({
         <p class="dis_info_date">${createdAt}</p>
       </div>
     </div>
-    <div class="discussion__answered"><p>${
-      isAnswered(answer) ? "circle" : "ex"
-    }</p></div>
+    <div class="discussion__answered">
+      <p>${isAnswered(answer) ? "circle" : "ex"}</p>
+    </div>
   </li>
 `;
 }

@@ -1,5 +1,7 @@
-function $(selector) {
-  const element = document.querySelector(selector);
+function $(selector, target) {
+  if (!target) target = document;
+
+  const element = target.querySelector(selector);
 
   if (element && element instanceof HTMLElement) {
     return element;
