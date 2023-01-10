@@ -7,13 +7,16 @@ const convertToDiscussion = (obj) => {
   li.className = "container_Box"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div"); //div 요소 생성
-  avatarWrapper.className = "user_image"; // 프로필 사진
+  avatarWrapper.className = "user_image"; // 프로필 사진 div
 
   const discussionContent = document.createElement("div"); //div 요소 생성
-  discussionContent.className = "user_newDate"; // 제목 및 시간
+  discussionContent.className = "user_text"; //텍스트컨텐츠 div
 
   const discussionAnswered = document.createElement("div"); //div 요소 생성
-  discussionAnswered.className = "discussion__answered"; // 체크박스
+  discussionAnswered.className = "user_newDate"; // 날짜 및 시간 div
+  discussionAnswered.textContent = `${new Date(obj.createdAt).toLocaleTimeString()}`;
+
+
 
   
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
@@ -23,34 +26,32 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg); 
 
+  const contentuserNmae = document.createElement('div'); // 닉네임 삽입
+  contentuserNmae.className = "user_Name";
+  contentuserNmae.textContent = obj.author;
+  discussionContent.append(contentuserNmae);
 
-  const contentTitle = document.createElement('h4'); // 타이틀 삽입
-  contentTitle.className = "discussion__title";
-  discussionContent.append(contentTitle);
+  const checkBox = document.createElement('div'); // 체크박스 삽입
+  checkBox.className = "checkBox";
+  discussionContent.append(checkBox);
 
 
-  const contentLink = document.createElement('a'); // 하이퍼링크 삽입
+  const contentLink = document.createElement('div'); // 텍스트 타이틀 삽입
+  contentLink.className = "titleText";
   contentLink.href = obj.url;
   contentLink.textContent = obj.title;
-  contentTitle.append(contentLink);
+  discussionContent.append(contentLink);
 
 
-  const contentInformation = document.createElement('div'); // 닉네임,시간
-  contentInformation.className = "discussion__information";
-  contentInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
-  discussionContent.append(contentInformation);
-// 시간을 표현할떄 .toLocaleTimeString() 메서드를 사용하여 간단한 시간만 표기하도록 수정.
 
-  const contentAnswered = document.createElement('p'); // 답변 체크박스
-  contentAnswered.className = "discussion__answered";
-  discussionAnswered.append(contentAnswered);
-  if( obj.answer === null ){
-    contentAnswered.textContent = "❌";
+
+  if( obj.answer !== null ){
+    checkBox.textContent = "답변완료";
   }else{
-    contentAnswered.textContent = "✔";
+    checkBox.textContent = "미응답";
+    checkBox.style.backgroundColor = "#cecece";
+    checkBox.style.border = "1px solid #b3b3b3"
   }
-
-
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -58,7 +59,6 @@ const convertToDiscussion = (obj) => {
 
   
 };
-
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -74,11 +74,8 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
-
-
-
 const submitBtn = document.querySelector("#btn")
-
+submitBtn.classList.remove('btnX') 
 submitBtn.onclick = function() {
 
 const newName = document.querySelector("#username")
@@ -87,7 +84,7 @@ const newTextBox = document.querySelector("#story")
 
 const newObj = {
   id: "new id",
-  createdAt: new Date().toLocaleTimeString(),
+  createdAt: new Date(),
   title: newTitel.value,
   url: "https://github.com/codestates-seb/agora-states-fe/discussions",
   author: newName.value,
@@ -99,12 +96,16 @@ agoraStatesDiscussions.unshift(newObj);
 
 const discussion = convertToDiscussion(newObj);
 
-ul.prepend(discussion); //.prepend()는 선택한 요소의 내용의 앞에 콘텐트를 추가합니다.
 
-newName.value ="";
-newTitel.value ="";
-newTextBox.value ="";
+if(newName.value.length === 0 && newTitel.value.length ===0 && newTextBox.value.length === 0){
+  submitBtn.classList.add('btnX') 
+} else {
+  ul.prepend(discussion); //.prepend()는 선택한 요소의 내용의 앞에 콘텐트를 추가합니다.
 
+  newName.value ="";
+  newTitel.value ="";
+  newTextBox.value ="";
+}
 
 }
 
