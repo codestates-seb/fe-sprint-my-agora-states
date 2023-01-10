@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: gray;
+    background-color: #A0C3D2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,22 +22,33 @@ textarea{
     vertical-align : middle;
 }
 
-
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #F7F5EB;
+    text-shadow:2px 2px 2px #000;
+}
 main{
     padding: 5vh 0;
     border-radius: 5px;
-
 }
 
 section.form__container{
-    background-color: aqua;
+    background-color: #F7F5EB;
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 15px;
-
+    border-radius: 5px;
+}
+input{
+    flex-basis: 30%;
 }
 
 li.discussion__container{
-    background-color: bisque;
+    background-color: #EAE0DA;
     max-height : 75vh;
     overflow: auto;
     display: flex;
@@ -48,9 +59,27 @@ li.discussion__container{
     border-radius:5px;
     list-style-type: none;
 }
-
+div.form__input--name,
+div.form__input--title,
+div.form__textbox{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 7px;
+}
+div.form__submit{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
 div.discussion__avatar--wrapper > img{
     width: 48px;
     border-radius: 100%;
+}
+a{
+    text-align: left;
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
+    font-size: small;
 }
 
