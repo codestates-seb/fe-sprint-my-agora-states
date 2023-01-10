@@ -65,12 +65,14 @@ div.form__textbox{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-top : 7px;
     margin-bottom: 7px;
 }
 div.form__submit{
     display: flex;
     justify-content: right;
     align-items: flex-end;
+    margin-bottom: 7px;
 }
 div.discussion__avatar--wrapper > img{
     width: 48px;
