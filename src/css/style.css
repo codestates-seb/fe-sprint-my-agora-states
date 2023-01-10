@@ -1,0 +1,417 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* global */
+:root {
+  --background-main-color: #0d1117;
+  --point-color: #3caf4c;
+  --font-color: #c9d1d9;
+  --icon-background-color: #30363d;
+  --font-point-color: #529bee;
+}
+body {
+  color: var(--font-color);
+}
+
+#wrapper {
+  min-height: 100vh;
+  background-color: var(--background-main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 80%;
+}
+
+.header {
+  background-color: var(--background-main-color);
+  padding: 0 2rem;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__title {
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  color: var(--font-point-color);
+}
+
+/* button list */
+.btnList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* border-bottom: 3px solid var(--font-point-color); */
+  gap: 0.5rem;
+  font-size: 3rem;
+}
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+}
+.btnList__signIn {
+  color: var(--font-color);
+  border: 1px solid var(--font-point-color);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.btnList__signIn:hover {
+  background-color: var(--font-point-color);
+}
+
+.btn {
+  color: white;
+  background-color: var(--point-color);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+.btnList__userId {
+  font-size: 1rem;
+}
+/* main */
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* aside */
+
+.filter__container {
+  flex: 1 0 10%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  font-weight: bold;
+}
+.filter__tagsContainer {
+  overflow: auto;
+  /* border-bottom: 1px solid var(--font-color); */
+}
+
+.filter__tags {
+  display: flex;
+  align-items: center;
+}
+.filter__tagImg {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.filter__container span,
+.filter__container--mobile span {
+  color: var(--font-point-color);
+}
+.filter__container li,
+.filter__container--mobile li {
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+}
+.filter__container li:hover,
+.filter__container li.selected,
+.filter__container--mobile li:hover,
+.filter__container--mobile li.selected {
+  background-color: var(--icon-background-color);
+  color: var(--font-point-color);
+}
+
+/* filter mobile */
+.filter__container--mobile {
+  display: none;
+}
+.filter__container--mobile .btn {
+  max-height: 3rem;
+}
+
+.filter__tagsContainer--mobile {
+  max-height: 100%;
+  overflow: auto;
+}
+/* discussion */
+#discussion__wrapper {
+  flex: 1 0 70%;
+  padding: 1rem;
+  min-height: 80vh;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.discussions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid var(--font-color);
+}
+.discussions__tagImage {
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--icon-background-color);
+}
+.discussions__contentBox {
+  padding: 1rem;
+
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.discussions_title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.discussions__infoBox {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: space-between;
+}
+
+.discussions__answered.answered {
+  color: var(--point-color);
+  font-weight: bold;
+}
+.pagination {
+  margin-top: 1rem;
+}
+.pageList {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.pageList li {
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid var(--font-point-color);
+  border-radius: 5px;
+}
+.pageList li.now {
+  background-color: var(--font-point-color);
+  color: white;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+.modal__title {
+  font-weight: bold;
+  color: var(--font-point-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.modal__container {
+  background-color: var(--background-main-color);
+  width: 80vw;
+  max-height: 80vh;
+  padding: 2rem;
+  border-radius: 20px;
+  overflow: auto;
+}
+.modal__container.modal__sign {
+  background-color: var(--background-main-color);
+  max-width: 50vw;
+  padding: 2rem;
+  border-radius: 20px;
+}
+.modal__text {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+.modal__contentBody input,
+textarea {
+  background-color: transparent;
+  border: 1px solid var(--font-point-color);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--font-color);
+}
+.modal__body * {
+  display: flex;
+  flex-wrap: wrap;
+}
+textarea {
+  height: 25vh;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+.inputBody__input {
+  height: 45vh;
+  resize: none;
+}
+
+/* discussion modal */
+.modal__body {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.modal__body {
+  border: 1px solid var(--font-point-color);
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  word-wrap: break-word;
+}
+.discussion-title {
+  white-space: nowrap;
+}
+.modal__btnList {
+  display: flex;
+  gap: 1rem;
+}
+.modal__discussionInfo {
+  display: flex;
+  font-size: 0.9rem;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--font-point-color);
+  padding: 0 0 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-remove {
+  color: #f64a3a;
+  background-color: var(--icon-background-color);
+}
+.btn-remove:hover {
+  background-color: #f64a3a;
+  color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* .header__title {
+    border-bottom: 3px solid var(--font-point-color);
+  } */
+  .modal__title {
+    font-size: 1.4rem;
+  }
+  .modal__text {
+    font-size: 1rem;
+  }
+  .container {
+    width: 100%;
+  }
+  .header__title {
+    font-size: 1.6rem;
+  }
+  .btnList__signIn {
+    font-size: 0.5rem;
+  }
+  .modal__text.modal__discussionInfo {
+    font-size: 0.5rem;
+  }
+  .modal__body {
+    font-size: 0.5rem;
+  }
+
+  main {
+    display: block;
+  }
+  .filter__container {
+    display: none;
+  }
+  .filter__container--mobile {
+    display: flex;
+    max-height: 5rem;
+    overflow: auto;
+    flex: 1 0 30%;
+    padding: 1rem;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .discussions__tagImage {
+    width: 40px;
+  }
+  .newDiscussion-btn.btn {
+    padding: 0.5rem 1rem;
+  }
+  .discussions {
+    font-size: 0.5rem;
+  }
+  .discussions_title {
+    font-size: 0.6rem;
+  }
+  .discussions__infoBox {
+    font-size: 0.5rem;
+  }
+  .pagination {
+    font-size: 0.5rem;
+  }
+}
+
+/* disabled */
+button:disabled {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .header__title {
+    font-size: 1rem;
+  }
+  .filter__container--mobile {
+    flex-wrap: wrap;
+    max-height: 20rem;
+  }
+  .filter__tagsContainer,
+  .filter__filterContainer {
+    max-height: 3rem;
+  }
+  .modal__title {
+    font-size: 1rem;
+  }
+  .modal__text {
+    font-size: 0.9rem;
+  }
+  .newDiscussion-btn {
+    width: 100%;
+  }
+
+  .modal__btnList {
+    justify-content: space-between;
+    gap: 0;
+  }
+  .modal__btnList--btn {
+    padding: 0.5rem 1rem;
+  }
+  .discussions__createAt {
+    display: none;
+  }
+}
