@@ -3,23 +3,75 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+h1{
+    margin: 20px;
+    font-size: 30px;
+    color: #C58940;
 }
 
 body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
+    background-color: rgba(250, 248, 241, 1)
+}
+
+div.form__input--wrapper > div{
+    width: 540px;
+    display: flex;
+    margin-top: 5px;
+}
+
+label{
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+
+textarea{
+    width: 400px;
+    vertical-align: middle;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+div.form__submit{
+    margin-top: 20px;
+}
+
+div.form__submit > input{
+    width: 70px;
+    height: 50px;
+    background-color: rgba(229,186,115, 0.5);
+}
+
+ul.discussions__container{
+    margin-top: 50px;
 }
 
 li.discussion__container{	
     display : flex;
 	flex-direction: row;
 	justify-content: space-between;
+    align-items: center;
 	width: 540px;
 	margin-bottom: 0.5rem;
-	border-radius: 5px;
+	border-radius: 20px;
 	list-style-type: none;
+    background-color: rgba(250, 234, 177, 0.5)
 }
 
 .discussion__avatar--image{

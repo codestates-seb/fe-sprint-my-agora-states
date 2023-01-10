@@ -27,7 +27,7 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement("h2")
   discussionTitle.className = "discussion__title"
   const discussionTitleA = document.createElement("a")
-  discussionTitleA.href = obj.avatarUrl
+  discussionTitleA.href = obj.url
   discussionTitleA.textContent = obj.title
 
   discussionTitle.append(discussionTitleA)
