@@ -17,7 +17,6 @@ export default function ($app, initialState) {
     this.state.last = Math.ceil(
       Object.values(this.state.discussions).length / 10
     );
-    console.log(this.state);
     this.render();
   };
   const onPageClick = (e) => {
