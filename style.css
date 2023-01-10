@@ -1,7 +1,7 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 :root {
     --color--main: #3C6255;
-    --color--body: #e3f2fd;
+    --color--body: #f0f7e8;
     --color--liText: #bbdefb;
     --color--3: #89abc6;
 }
@@ -38,9 +38,9 @@ section.form__container {
     justify-content: center;
     align-items: center;
 
-    background-color: var(--color--3);
+    border: 2px solid var(--color--3);
     
-    width: 500px;
+    width: 540px;
     height: 300px;
     border-radius: 10px;
 }
@@ -91,10 +91,10 @@ li.discussion__container {
     height: 80px;
     margin: 5px;
 
+    border-top: 2px solid #3C6255;
+    border-bottom: 2px solid #3C6255;
 
-    border-radius: 10px;
-
-    background-color: var(--color--liText);
+    /* background-color: var(--color--liText); */
 }
 
 /* li 점 제거 */
@@ -133,7 +133,7 @@ a:hover, a:visited, a:link, a:active
 }
 
 a:hover {
-    color: aliceblue;
+    color: var(--color--main);
 }
 
 /* 아이디와 날짜를 끝으로 */
