@@ -1,60 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agora States</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="toggle.css" />
+    <link rel="stylesheet" href="pagination.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+      integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
-    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
-  <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
+  <body>
+    <div class="splash-screen">My Agora States</div>
+    <div class="main-title">
+      <h1>My Agora States</h1>
+      <div class="toggleWrapper">
+        <input type="checkbox" class="dn" id="dn" />
+        <label for="dn" class="toggle">
+          <span class="toggle__handler">
+            <span class="crater crater--1"></span>
+            <span class="crater crater--2"></span>
+            <span class="crater crater--3"></span>
+          </span>
+          <span class="star star--1"></span>
+          <span class="star star--2"></span>
+          <span class="star star--3"></span>
+          <span class="star star--4"></span>
+          <span class="star star--5"></span>
+          <span class="star star--6"></span>
+        </label>
+      </div>
+      <div class="search_container">
+        <input
+          placeholder="Search for questions...."
+          required=""
+          class="search_input"
+          name="text"
+          type="text"
+        />
+        <div class="search_icon">
+          <svg
+            viewBox="0 0 512 512"
+            class="ionicon"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Search</title>
+            <path
+              stroke-width="32"
+              stroke-miterlimit="10"
+              stroke="currentColor"
+              fill="none"
+              d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+            ></path>
+            <path
+              d="M338.29 338.29L448 448"
+              stroke-width="32"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke="currentColor"
+              fill="none"
+            ></path>
+          </svg>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
+      </div>
+    </div>
+    <main>
+      <section class="form__container container__box">
+        <form action="" method="get" class="form">
+          <div class="form__input--wrapper">
+            <div class="question">질문하기.</div>
+            <div class="form__input--name">
+              <div class="wave-group">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required=""
+                  class="input form-name"
+                />
+                <span class="bar"></span>
+                <label class="label">
+                  <span class="label-char" style="--index: 0">N</span>
+                  <span class="label-char" style="--index: 1">a</span>
+                  <span class="label-char" style="--index: 2">m</span>
+                  <span class="label-char" style="--index: 3">e</span>
+                </label>
+              </div>
+            </div>
+            <div class="form__input--title">
+              <div class="wave-group">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required=""
+                  class="input form-title"
+                />
+                <span class="bar"></span>
+                <label class="label">
+                  <span class="label-char" style="--index: 0">T</span>
+                  <span class="label-char" style="--index: 1">i</span>
+                  <span class="label-char" style="--index: 2">t</span>
+                  <span class="label-char" style="--index: 3">l</span>
+                  <span class="label-char" style="--index: 4">e</span>
+                </label>
+              </div>
+            </div>
+            <div class="form__textbox">
+              <textarea
+                id="story"
+                name="story"
+                placeholder="질문을 입력하세요"
+                required
+                class="form-text"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form__submit">
+            <input class="input__submit" type="submit" value="submit" />
+          </div>
+        </form>
+      </section>
+      <section>
+        <i id="arrow-right" class="fas fa-caret-right"></i>
+      </section>
+      <section class="discussion__wrapper container__box">
+        <div id="question" class="question">답변보기.</div>
+        <ul class="discussions__container">
+          <li class="discussion__container" id="li-first">
+            <div class="discussion__avatar--wrapper">
+              <img
+                class="discussion__avatar--image"
+                src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+                alt="avatar of kimploo"
+              />
+            </div>
+            <div class="discussion__content">
+              <h2 class="discussion__title">
+                <a
+                  href="https://github.com/codestates-seb/agora-states-fe/discussions/6"
+                  >[notice] 좋은 질문하는 법</a
+                >
+              </h2>
+              <div class="discussion__information">
+                kimploo / 2022-04-22T14:08:33Z
+              </div>
+            </div>
+            <div class="discussion__answered">
+              <p><i class="fas fa-caret-down"></i></p>
+            </div>
+          </li>
+        </ul>
+        <div class="pagination">
+          <i class="fas fa-angle-left arrow-icon-before pagi"></i>
+          <span class="page-number pageNumber1 grayColor">1</span>
+          <span class="page-number pageNumber2">2</span>
+          <span class="page-number pageNumber3">3</span>
+          <span class="page-number pageNumber4">4</span>
+          <span class="page-number pageNumber5">5</span>
+          <i class="fas fa-angle-right arrow-icon-next pagi"></i>
         </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
-  </main>
-</body>
-<script src="data.js"></script>
-<script src="script.js"></script>
-
+      </section>
+    </main>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/f9fb979910.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </html>

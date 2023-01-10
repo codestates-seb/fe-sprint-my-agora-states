@@ -1,1 +1,417 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@900&family=Gaegu:wght@700&family=Lato&family=Lobster&family=Merriweather:wght@900&family=Nanum+Myeongjo&family=Ubuntu&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+}
+.hide{
+  display: none;
+}
+body{
+  background-color: #f5f5f7;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f7;
+    margin: 0px 140px;
+}
+.main-title{
+    background-color: #313132;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding : 15px 200px 15px 100px;
+}
+h1{
+    color:#d6d6d6;
+    font-size: 28px;
+    font-family: 'Lobster', cursive;
+}
+
+
+@keyframes hideSplashScreen{
+  0%{
+      opacity: 1;
+      
+  }
+  25%{
+      opacity: 1;
+  }
+  50%{
+    opacity: 1;
+  }
+  75%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+      visibility: hidden;
+  }
+}
+
+.splash-screen{
+  background-color: #313132;
+  color:#d6d6d6;
+  text-align: center;
+  padding-top: 300px;
+  position: absolute;
+  top:0;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-family: 'Lobster', cursive;
+  animation: hideSplashScreen 1s ease-in-out forwards;
+}
+
+
+
+
+
+
+
+
+
+ul{
+    list-style:none;
+    height: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.form__container{
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
+.discussion__wrapper{
+    width : 540px;
+    transform: translateX(-800px);
+    visibility: hidden;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+.discussion__avatar--image{
+    width : 30px;
+    border-radius: 50%;
+}
+li{
+    border: 2px solid rgba(0,0,0,0.4);
+    background: #f2f2f3;
+    border-radius: 10px;
+    margin-bottom: 11px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.whitebox{
+  border : 1px solid #f5f5f7;
+}
+
+
+li:hover{
+  border: 5px solid #0071e3;
+  background-color: white;
+}
+i{
+    font-size : 20px;
+    color : rgba(0,0,0,0.5);
+}
+.discussion__title{
+    text-align: initial;
+    color:black;
+    font-size: 12px;
+    width:350px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:0px 20px;
+}
+a{
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
+}
+.discussion__information{
+    font-size: 10px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+#arrow-right{
+  color:rgba(0,113,227,1);
+  font-size: 200px;
+  transition : all 0.3s ease-in-out;
+
+}
+#arrow-right:hover{
+  cursor: pointer;
+  color : rgba(0,113,227,0.5);
+}
+.arrowRight{
+  visibility: hidden;
+}
+.discussion__wrapper__right{
+  transform: translateX(0px);
+  visibility: visible;
+}
+
+
+
+
+
+
+/* 질문하기 container */
+.form__container, .discussion__wrapper{
+    font-size: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    aspect-ratio: 1;
+    border-radius: 5%;
+    background: #f2f2f3;
+    margin-bottom: 0.4em;
+    box-shadow: -5px -5px 8px #ffffff7a, 
+                5px 5px 8px #a9a9aa7a;
+    width:550px;
+    height:650px;
+    padding : 70px;
+}
+.question{
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color:rgb(29,29,31, 0.9);
+}
+.form__input--title{
+    margin: 20px 0px;
+}
+.form__input--title .input:focus{
+    width:400px;
+}
+
+
+
+
+
+/*질문작성input*/
+#story{
+    width: 200px;
+    height: 250px;
+    background: rgba(255, 255, 255,0);
+    border-radius: 0.4em;
+    /*box-shadow: 0.3em 0.3em 0.7em #00000015;*/
+    /*transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);*/
+    border: 2px solid #515151;
+    padding: 10px;
+    transition: all;
+    font-size: 16px;
+}
+textarea::placeholder{
+    color: rgba(0,0,0,0.4);
+    font-size: 17px;
+    font-weight: normal;
+}
+#story:focus {
+    outline: none;
+    border : 3px solid #0071e3;
+    animation: storyWidth 0.5s ease-in-out forwards;
+   }
+@keyframes storyWidth{
+    to{
+        width:400px;
+    }
+}
+.input__submit{
+    background-color: rgba(0,113,227,1);
+    color:white;
+    width:200px;
+    border-radius: 10px;
+    padding: 6px;
+    margin-top: 20px;
+    border: none;
+    font-size: 15px;
+}
+.input__submit:hover{
+    cursor: pointer;
+    background-color: rgba(0,113,227,0.8);
+}
+
+
+
+
+
+
+/*input 애니메이션*/
+.wave-group {
+    position: relative;
+  }
+  
+  .wave-group .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+  }
+  
+  .wave-group .input:focus {
+    outline: none;
+    border:none;
+  }
+  
+  .wave-group .label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+  }
+  
+  .wave-group .label-char {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * .05s);
+  }
+  
+  .wave-group .input:focus ~ label .label-char,
+  .wave-group .input:valid ~ label .label-char {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #0071e3;
+  }
+  
+  .wave-group .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+  }
+  .form__input--title .wave-group .bar{
+    width: 400px;
+  }
+  
+  .wave-group .bar:before,.wave-group .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #0071e3;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  
+  .wave-group .bar:before {
+    left: 50%;
+  }
+  
+  .wave-group .bar:after {
+    right: 50%;
+  }
+  
+  .wave-group .input:focus ~ .bar:before,
+  .wave-group .input:focus ~ .bar:after {
+    width: 50%;
+  }
+  
+
+
+
+  /*search css*/
+  .search_container {
+    position: relative;
+    --size-button: 40px;
+  }
+  
+  .search_input {
+    padding-left: var(--size-button);
+    height: var(--size-button);
+    font-size: 15px;
+    border: none;
+    color: white;
+    outline: none;
+    width: var(--size-button);
+    transition: all ease 0.3s;
+    background-color: #191A1E;
+    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  .search_input:focus,
+  .search_input:not(:invalid) {
+    width: 200px;
+    cursor: text;
+    box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+  }
+  
+  .search_input:focus + .search_icon,
+  .search_input:not(:invalid) + .search_icon {
+    pointer-events: all;
+    cursor: pointer;
+  }
+  
+  .search_container .search_icon {
+    position: absolute;
+    width: var(--size-button);
+    height: var(--size-button);
+    top: 0;
+    left: 0;
+    padding: 8px;
+    pointer-events: none;
+    color:rgba(255, 255, 255,0.8);
+  }
+  
+  .search_container .search_icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+
+
+
+
+
+/*
+.card {
+  width: 190px;
+  height: 120px;
+  background-color: #eee;
+  text-align: center;
+  border: 10px solid #eee;
+  border-radius: 20px;
+  box-shadow: inset 5px 5px 10px #bbb, inset -5px -5px 10px #fff;
+  transition: 0.5s;
+}
+
+.card:hover {
+  height: 254px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  color: red;
+  font-size: 30px;
+  background-color: #eee;
+  margin: 20px auto;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 8px 8px 10px #ddd, -8px -8px 10px #fff;
+}
+*/
