@@ -3,11 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Single Day', 'Noto Sans KR', sans-serif;
+    font-family: 'Single Day', 'Ubuntu', sans-serif;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+
 /* 브라우저 초기화 */
 
 
@@ -20,7 +23,9 @@ body {
     /* background-image: url(''); */
     /* background-repeat: no-repeat;
     background-size: cover; */
-    background-image: linear-gradient(to bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+
+    background-color: #FAECD6;
+    /* background-image: linear-gradient(to bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
 
 }
 
@@ -65,6 +70,7 @@ main {
 }
 
 header .main-title {
+    font-size: 4em;
     text-align: center;
     display: flex;
     align-items: center;
@@ -75,6 +81,7 @@ header .main-title {
     right: 0;
     margin: 0 auto;
     height: 80px;
+    margin-bottom: 20px;
 }
 
 
@@ -122,7 +129,8 @@ section.form__container {
     margin: 10px 0;
     /* text-align: center; */
 
-    background-color: white;
+    background-color: #EEEEEE;
+    ;
     border: 3px solid teal;
     border-radius: 10px;
     box-shadow: 4px 4px 0px -3px mintcream, 5px 5px 0px 0px skyblue;
@@ -141,7 +149,8 @@ section.form__container {
     border: 3px solid teal;
     border-radius: 10px;
     box-shadow: 6px 6px 0px -3px mintcream, 7px 7px 0px 0px skyblue;
-    background-color: white;
+    background-color: #EEEEEE;
+    ;
 }
 
 .submit-button:hover {
@@ -171,7 +180,6 @@ section.form__container {
     align-items: center;
     gap: 10px 12px;
     box-shadow: 9px 9px 0px -3px mintcream, 9px 9px 0px 1px skyblue;
-
 }
 
 .discussion__information {
