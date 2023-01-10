@@ -9,6 +9,8 @@
 /* 초기설정 */
 * {
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
 /* body */
@@ -26,12 +28,17 @@ main {
     align-items: center;
 }
 
+/* 제목%로그인 박스 */
+
+
 /* li */
 li.discussion__container {
     display: flex;
     justify-content: space-between;
 
     width: 540px;
+    height: 80px;
+
     border: 1px solid red;
 }
 
@@ -49,17 +56,39 @@ div.discussion__avatar--wrapper {
 div>img {
     border-radius: 50%;
     width: 48px;
+    margin: 5px;
 }
 
 /* 질문 내용 */
 div.discussion__content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
     flex-grow: 1;
+
+    margin: 5px;
+    font-size: 13px;
 }
 
+/* 질문 하이퍼링크 */
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+/* 아이디와 날짜를 끝으로 */
 div.discussion__content>div.discussion__information {
    display: flex;
    justify-content: end;
 }
 
+/* 체크박스 */
+div.discussion__answered {
+    display: flex;
+    align-items: center;
+}
+
+/* 체크박스 사이즈 */
+div.discussion__answered>p {
+    font-size: 35px;
+}

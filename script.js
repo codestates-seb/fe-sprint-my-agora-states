@@ -25,9 +25,9 @@ const convertToDiscussion = (obj) => {
   //h2 타이틀
   const title_h2 = document.createElement('h2');
   title_h2.className = "discussion__title";
-  title_h2.textContent = obj.title;
     //h2 자식 a(타이틀 링크)
     const title_a = document.createElement('a');
+    title_a.textContent = obj.title;
     title_a.href = obj.url;
   //div 날짜
   const information_div = document.createElement('div');
@@ -35,15 +35,15 @@ const convertToDiscussion = (obj) => {
   information_div.textContent = `${obj.id} / ${obj.createdAt}`
 
   // 자식들 추가 (h2, div ,h2 자식 a)
-  title_h2.append(title_a);
   discussionContent.append(title_h2, information_div);
+  title_h2.append(title_a);
 
   //체크표시 만들기
   const answered_div = document.createElement('div');
   answered_div.className = "discussion__answered";
     //체크표시 안에 p
     const answer_p = document.createElement('p');
-    answer_p.textContent = '☑'
+    answer_p.textContent = obj.answer ? '☑' : '☒'
 
     //자식들 추가(체크표시, 체크표시 안에 p)
   answered_div.append(answer_p);
@@ -66,4 +66,8 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
-// 이름
+//답변 달기
+const named = document.querySelector('div.form__input__name>input');
+named.innerHTML = 'hi';
+const title = document.querySelector('div.form__input__title>input');
+const textBox = document.querySelector('div.form__textbox>textarea');
