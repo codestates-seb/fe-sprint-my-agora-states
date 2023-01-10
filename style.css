@@ -22,7 +22,8 @@
 	font-weight:bold;
 	padding:15px 30px;
 	text-decoration:none;
-	/* text-shadow:1px 1px 0px #283966; */
+    height: 60px;
+    width: 300px;
 }
 #submit:hover {
 	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
@@ -35,6 +36,34 @@ main {
     
 }
 
+input {
+    height: 30px;
+    width: 500px;
+}
+textarea {
+    height: 150px;
+    width: 500px;
+}
+
+.form__input--wrapper {
+    padding: 10px;
+    margin: 10px;
+    background: #6189c5;
+    border-radius: 25px;
+}
+
+div.discussion__answered > p {
+    /* 아이콘 */
+    color: #212529;
+}
+div.discussion__information {
+    /* 작성자/작성일 */
+    color: #212529;
+    text-align: right;
+    height: 20%;
+    font-size: 10pt;
+}
+
 .discussion__container{
     /* 1명게시물 + 1명게시물 상위 컨테이너 공간 */
     display: flex;
@@ -44,18 +73,27 @@ main {
 ul{
     /* 1명게시물 상위 컨테이너 */
     list-style:none;
-    background:#476e9e;
-    padding: 10px;
+    background:#212529;
+    /* padding: 5px; */
     width: 540px;
+    border-radius: 35px;
     
     }
 
-li {
+form.form{
+        background:#212529;
+        /* padding: 5px; */
+        width: 540px;
+        border-radius: 35px;
+        
+    }
+
+li.discussion__container {
     /* 1명 게시물 공간 */
     margin: 10px;
     height: 150px;
     background: #6189c5;
-    border-radius: 20px;
+    border-radius: 25px;
     
 }
 
@@ -94,14 +132,6 @@ div.discussion__content {
     margin: 5px;
 }
 
-div.discussion__information {
-    /* 작성자, 날짜 */
-    /* height: 400px; */
-    text-align: right;
-    height: 20%;
-    font-size: 10pt;
-    
-}
 
 h2.discussion__title{
     /* 제목 */
