@@ -46,7 +46,7 @@ const convertToDiscussion = (obj) => {
   discussionInformation.className = "discussion__information";
   discussionInformation.textContent = `${
     obj.author
-  } / ${createdAt.toLocaleString("ko-KR")}`;
+  } | ${createdAt.toLocaleString("ko-KR")}`;
   // advanced - 샘플시간 변형해서 현지시간에 맞게 표현
   // 샘플 : yyyy-mm-ddT00:00:00Z <- .toISOString() 으로 변환하면 왼쪽같은 형식으로 날짜가 반환됨.
   // .toISOString() : 주어진 날짜를 국제표준시 기준 ISO 8601 형식으로 표현해 문자열로 리턴한다.
@@ -56,10 +56,13 @@ const convertToDiscussion = (obj) => {
   // Date.toLocaleString('ko-KR') : 날짜를 한국식으로 표현한다
 
   // 디스커션 답변 여부
-  const discussionAnsweredCheck = document.createElement("p");
-  discussionAnsweredCheck.textContent = obj.answer
-    ? obj.answer.author
-    : "답변없음"; // null 아니면 데이터 형태로 처리되는게 좋은 데이터
+  const discussionAnsweredCheck = document.createElement("span");
+  discussionAnsweredCheck.className = "material-icons";
+  discussionAnsweredCheck.textContent = "favorite";
+  if (obj.answer) {
+    discussionAnsweredCheck.classList.add("complete");
+  }
+  // null 아니면 데이터 형태로 처리되는게 좋은 데이터
 
   avatarWrapper.append(avatarImg);
   discussionContent.append(discussionTitle, discussionInformation);

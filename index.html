@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
@@ -16,36 +20,47 @@
 
   <body>
     <main>
-      <h1>My Agora States</h1>
-      <section class="form__container">
-        <form action="" method="get" class="form">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
-            </div>
-            <div class="form__input--title">
-              <label for="name">Enter your title: </label>
-              <input type="text" name="name" id="title" required />
-            </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
-            </div>
-          </div>
-          <div class="form__submit">
-            <input type="submit" value="submit" />
-          </div>
-        </form>
+      <section class="title__wrapper">
+        <div class="title__container">
+          <h1>My <br />Agora <br />States</h1>
+          <section class="form__container">
+            <form action="" method="get" class="form">
+              <div class="form__input--wrapper">
+                <div class="form__input--name">
+                  <input type="text" name="name" id="name" required />
+                  <label for="name">작성자</label>
+                  <span class="bar"></span>
+                </div>
+                <div class="form__input--title">
+                  <input type="text" name="name" id="title" required />
+                  <label for="name">제목</label>
+                  <span class="bar"></span>
+                </div>
+                <div class="form__textbox">
+                  <textarea
+                    id="story"
+                    name="story"
+                    rows="5"
+                    required
+                  ></textarea>
+                  <label for="story">내용</label>
+                  <span class="bar"></span>
+                </div>
+              </div>
+              <div class="form__submit">
+                <input type="submit" value="질문하기" />
+              </div>
+            </form>
+          </section>
+        </div>
       </section>
+
       <section class="discussion__wrapper">
+        <!-- <div class="discussion__pagenation">
+          <button type="button">1</button>
+        </div> -->
         <ul class="discussions__container">
-          <li class="discussion__container">
+          <!-- <li class="discussion__container">
             <div class="discussion__avatar--wrapper">
               <img
                 class="discussion__avatar--image"
@@ -65,7 +80,7 @@
               </div>
             </div>
             <div class="discussion__answered"><p>☑</p></div>
-          </li>
+          </li> -->
         </ul>
       </section>
     </main>
