@@ -1,0 +1,22 @@
+@import './minireset.css';
+@import './variables.css';
+@import './form.css';
+@import './discussion.css';
+
+html {
+  font-size: 62.5%;
+}
+body {
+  background: var(--gray-3);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.agora-state-app {
+  margin: 64px auto;
+  padding: 0 16px;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

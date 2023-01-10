@@ -1,0 +1,138 @@
+.discussions__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter {
+  display: flex;
+  gap: 4px;
+}
+
+.filter__btn {
+  padding: 4px 8px;
+  font-size: 16px;
+  color: var(--gray-5);
+  background: var(--gray-3);
+  border: none;
+  cursor: pointer;
+}
+
+.filter__btn.active {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--lightgreen);
+}
+
+.discussions__title {
+  color: var(--gray-6);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.discussion {
+  padding: 20px 24px 16px 0;
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.discussion__content {
+  width: 100%;
+}
+
+.discussion__title {
+  margin-bottom: 8px;
+  color: var(--gray-6);
+  font-size: 18px;
+  font-weight: bold;
+  word-break: keep-all;
+}
+.discussion__title:hover {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.discussion__info {
+  color: var(--gray-5);
+  font-size: 1.4rem;
+}
+
+.discussion__is-answer {
+  font-weight: bold;
+}
+
+.discussion__is-answer.answered {
+  color: var(--lightgreen);
+}
+
+.discussion__avatars {
+  display: flex;
+  flex-basis: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatars img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+}
+
+.discussion__avatars img:nth-child(2) {
+  margin-left: -10px;
+}
+
+.discussion__checked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__checked--gray {
+  fill: var(--gray-5);
+}
+
+.discussion__checked--green {
+  fill: var(--lightgreen);
+}
+
+.discussions__pagenation {
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.page-btn {
+  display: block;
+  padding: 6px 10px;
+  font-size: 16px;
+  color: var(--gray-6);
+  border: 1px solid var(--gray-3);
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.page-btn:hover {
+  border: 1px solid var(--gray-6);
+}
+
+.page-btn.active {
+  color: var(--white);
+  background: var(--blue);
+  border: none;
+}
+
+.page-btn:disabled {
+  color: var(--gray-4);
+  cursor: not-allowed;
+  border: 1px solid var(--gray-3);
+}
+
+.page-btn:disabled:hover {
+  border: 1px solid var(--gray-3);
+}
