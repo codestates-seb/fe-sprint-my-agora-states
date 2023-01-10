@@ -8,8 +8,6 @@ if (localStorageData) {                   // 만약 localStorageData가 있으�
     data = agoraStatesDiscussions.slice(); // data는 agoraStatesDiscussions(원본 데이터)을 복사한 그대로. (QQQ: 처음 1번만 쓸 것이기 때문에 그냥 얕은 복사로? 주소값 같아도 상관없어서?)
 }
 
-console.log('초기값: ', data);
-
 // formContainer 나왔다 사라졌다 하게. 시작
 const formContainer = document.querySelector('.form__container');
 const toggleFormButton = document.querySelector('#toggle-form');
@@ -64,13 +62,11 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const renderDiscussions = (element) => {
 
     while (element.firstChild) {               // (8-1) 일단 ul 안의 내용 다 지우기
         element.removeChild(element.firstChild);
     }
-
-    console.log('render 하기 직전: ', data);
 
     for (let i = 0; i < data.length; i += 1) { // (8-2) ul 안에 하나씩 다시 붙이기
         element.append(convertToDiscussion(data[i]));
@@ -81,7 +77,7 @@ const render = (element) => {
 };
 
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+renderDiscussions(ul);
 
 
 const form = document = document.querySelector("form.form");
@@ -111,15 +107,11 @@ form.addEventListener("submit", (event) => {
         ul.removeChild(ul.firstChild);
     }
 
-    render(ul);
-
+    renderDiscussions(ul);
+    console.log(ul);
     author.value = '';
     title.value = '';
     story.value = '';
-
-
-    console.log('submit 후: ', data);
-
 
 })
 
@@ -208,21 +200,21 @@ dataSubmit.addEventListener('click', () => {
 const contents = document.querySelector("ul.discussions__container");
 const buttons = document.querySelector(".buttons");
 
-const numOfContent = agoraStatesDiscussions.length;
+const numOfContent = data.length;
 const maxContent = 10;
 const maxButton = 5;
 
-const maxPage = Math.ceil(agoraStatesDiscussions.length / maxContent);
+const maxPage = Math.ceil(data.length / maxContent);
 let page = 1;
 
 const goPrevPage = () => {
     page -= maxButton;
-    rndr(page);
+    renderContentAndButton(page);
 };
 
 const goNextPage = () => {
     page += maxButton;
-    rndr(page);
+    renderContentAndButton(page);
 };
 
 const prev = document.createElement("button");
@@ -234,8 +226,6 @@ const next = document.createElement("button");
 next.classList.add("button", "next");
 next.innerHTML = '<ion-icon name="chevron-forward-outline"></ion-icon>';
 next.addEventListener("click", goNextPage);
-
-
 
 const makeButton = (id) => {
     const button = document.createElement("button");
@@ -253,11 +243,12 @@ const makeButton = (id) => {
 };
 
 const renderContent = (page) => {
+
     while (contents.hasChildNodes()) {
         contents.removeChild(contents.lastChild);
     }
-    for (let id = (page - 1) * maxContent + 1; id <= page * maxContent && id <= numOfContent; id++) {
-        contents.append(convertToDiscussion(data[id - 1]))  // 여기서 싹다 지우고 새로 입력될 때 agoraStatesDiscussions 거를 불러와서 리셋되던 문제가 있었음.
+    for (let id = (page - 1) * maxContent; id < page * maxContent && id < numOfContent; id++) {
+        contents.append(convertToDiscussion(data[id]))  // 여기서 싹다 지우고 새로 입력될 때 agoraStatesDiscussions 거를 불러와서 리셋되던 문제가 있었음.
     }
 }
 
@@ -276,17 +267,17 @@ const renderButton = (page) => {
     buttons.append(next);
 
     // 이전, 다음 페이지 버튼이 필요한지 체크
-
     if (page - maxButton < 1) buttons.removeChild(prev);
     if (page + maxButton > maxPage) buttons.removeChild(next);
 };
 
-const rndr = (page) => {
-    renderContent(page);
-    renderButton(page);
+const renderContentAndButton = (page) => {
+  renderButton(page);  
+  renderContent(page);
+    
 };
 
-rndr(page);
+renderContentAndButton(page);
 
 
 
