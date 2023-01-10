@@ -30,7 +30,7 @@ h1 {
 input[type="text"]{
     background-color: #f0ECE3;
     border-radius: 3px;
-
+    border: 1px dotted #f0ECE3;
 }
 div.form__input--wrapper  {
     display: flex;
@@ -68,7 +68,6 @@ li.discussion__container{
     margin-bottom: 0.5rem;
     border-radius: 5px;
     list-style-type: none; 
-    
     background-color: #e8f3d6;
 }
 
@@ -79,24 +78,21 @@ div.discussion__avatar--wrapper{
     align-items: center;
 }
 
-
-
-
 div.discussion__avatar--wrapper > img {
     width: 48px;
     height: 48px;
     border-radius : 70%;
-
 }
+
+
+
 .discussion__content > .discussion__title {
     display: flex;
     justify-content: flex-start;
-
 }
 .discussion__content > .discussion__information {
     display: flex;
     justify-content: flex-end;
-
 }
 
 li.discussion__container > .discussion__answered {

@@ -43,7 +43,7 @@ const convertToDiscussion = (obj) => {
   
   const checked = document.createElement("p");
    
- checked.textContent = obj.answer ? "☑" : "x" ;
+ checked.textContent = obj.answer ? "☑" : "☒" ;
 
  discussionAnswered.append(checked);
 
@@ -63,22 +63,38 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+
+/*여기서부터는 submit버튼 누르면 추가되는항목 */
+
 //submit을 클릭하면 밑에항목에 추가된다.
 //이름은 <div class="discussion__information">kimploo 
 //title은 <h2 class="discussion__title">
 //your question의 textarea는 a href
 
-let article_index = document.querySelectorAll("label");
-let article_name = article_index[0];
-discussionTitle = article_index[1];
 
-article_name.onclick = handleClick;
-discussionTitle.onclick = handleClick;
 
-function handleClick() {
+//일단 뭔가를 누군가가 적겟지
+//그럼 name도 쓰고 title도 쓰고 question도 쓰겟지
+//그럼 그걸 일단 crud중 create하겟지
 
-}
+//그게 공중부양하면 append하면 밑에 창에 보여지겠지
 
-// handleclick하면 name이 kimploo 자리에 채워지고
-// title이 좋은질문하는법에 채워지고
-//question이 url로 연결된다
+/* 그럼 일단 create해보자 */
+const newForm = document.createElement("div") //밑에꺼 전체 집합이라고 생각했다
+const newName = document.createElement("form__input--name > input");
+const newTitle = document.createElement("form__input--title > input");
+const newTextbox = document.createElement("form__textbox > textarea");
+//현재 공중부양상태이다 
+
+/*연결하게되면 */
+//newname은 discussionTitle
+//newtitle은 discussion_title
+//newtextbox는 href???
+/*클릭했을때 동작하는 이벤트니까 addEventListener메서드 이용하면될듯*/
+
+//newForm.addEventListener("submit", (event) {
+//  event.preventDefault();  // 입력이 되지않았으면 전송취소하는거!
+// console.log("22222");
+
+ // }
+//)
