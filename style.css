@@ -6,7 +6,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /* font-family: godoM; */
     font-family: 'hyundai', 'YouandiModernTR', 'Spoqa Han Sans Neo', 'Lucida Grande', 'Noto Sans KR', Tahoma, Sans-Serif;
     word-break: keep-all;
     /* font-size: 1em; */
@@ -19,7 +18,6 @@
 /*new font*/
 
 @font-face {
-    /* font-family: 'fontYouandiModernTR'; */
     src:url('../fonts/YouandiModernTR.woff') format('woff'),
         url('../fonts/YouandiModernTR.woff2') format('woff2'),
           url('../fonts/YouandiModernTR.eot'),
@@ -35,14 +33,6 @@
   #hyundai_font{
     font-family : 'hyundai';
    }
-/* @font-face{
-    src:url("../fonts/fontYouandiModernTR.ttf");
-    font-family : "hyundai";
-   }
-   #hyundai_font{
-    font-family : "hyundai";
-   } */
-
 
 h1 {
     font-size: 3em;

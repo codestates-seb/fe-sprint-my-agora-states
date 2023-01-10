@@ -132,31 +132,29 @@ const inputTitle = document.querySelector('#title');
 const inputContent = document.querySelector('#story');
 const inputSubmit = document.querySelector('#submit');
 const formSubmit = document.querySelector('.form');
+const testButton = document.querySelector('#ask-btn');
+const formPopup = document.querySelector('.form__container');
 
 //Validity Tests
 let nameValid = titleValid = contentValid = false;
 let submitValid = false;
 
-//Advanced: function that creates addEventListeners with multiple functions
-//on focus out, retrieve the textContent of the input
-// inputName.addEventListener('focusout', (e)=>(saveText(e, 'newName')));
-// inputTitle.addEventListener('focusout', (e)=>(saveText(e, 'newTitle')));
-// inputContent.addEventListener('focusout', (e)=>(saveText(e, 'newContent')));
-//on keyup, save event.value into local storage
-inputName.addEventListener('keyup', e => saveText(e, 'newName'));
-inputTitle.addEventListener('keyup', e =>saveText(e, 'newTitle'));
-inputContent.addEventListener('keyup', e =>saveText(e, 'newContent'));
 
-inputName.addEventListener('keyup', e => formValidityTest(e));
-inputTitle.addEventListener('keyup', e => formValidityTest(e));
-inputContent.addEventListener('keyup', e => formValidityTest(e));
+//turn Toggle AskForm On and Off
+function openAskForm(){
+  formPopup.style.display = "flex";
+  //turn display on
+}
 
-inputSubmit.addEventListener('click', saveThread); //when clicked, save texts to object, then add obj to threadlist + DOM
-inputSubmit.addEventListener('click', clearInputText);
-inputSubmit.addEventListener('click', () => toggleOnOffElem(false, inputSubmit, 'disabled'));
-inputSubmit.addEventListener('click', closeAskForm);
+function closeAskForm(){
+  formPopup.style.display = "none";
+}
 
-// formSubmit.addEventListener('submit', saveThread);
+function closeAskFormCheck(e){
+  if (e.target === formPopup){
+    closeAskForm();
+  }
+}
 
 // const newThread = Object.create(discussionThreadObj);
 
@@ -283,21 +281,29 @@ function shuffle(array) {
   return array;
 }
 
-//askbutton
-const testButton = document.querySelector('#ask-btn');
-const formPopup = document.querySelector('.form__container');
-testButton.addEventListener('click', openAskForm);
 
+//Advanced: function that creates addEventListeners with multiple functions
+//on focus out, retrieve the textContent of the input
+// inputName.addEventListener('focusout', (e)=>(saveText(e, 'newName')));
+// inputTitle.addEventListener('focusout', (e)=>(saveText(e, 'newTitle')));
+// inputContent.addEventListener('focusout', (e)=>(saveText(e, 'newContent')));
+//on keyup, save event.value into local storage
+inputName.addEventListener('keyup', e => saveText(e, 'newName'));
+inputTitle.addEventListener('keyup', e =>saveText(e, 'newTitle'));
+inputContent.addEventListener('keyup', e =>saveText(e, 'newContent'));
 
-//turn Toggle AskForm On and Off
-function openAskForm(){
-  formPopup.style.display = "flex";
-  //turn display on
-}
+inputName.addEventListener('keyup', e => formValidityTest(e));
+inputTitle.addEventListener('keyup', e => formValidityTest(e));
+inputContent.addEventListener('keyup', e => formValidityTest(e));
 
-function closeAskForm(){
-  formPopup.style.display = "none";
-}
+inputSubmit.addEventListener('click', saveThread); //when clicked, save texts to object, then add obj to threadlist + DOM
+inputSubmit.addEventListener('click', clearInputText);
+inputSubmit.addEventListener('click', () => toggleOnOffElem(false, inputSubmit, 'disabled'));
+inputSubmit.addEventListener('click', closeAskForm);
+
+testButton.addEventListener('click', openAskForm); //ask something button click event
+formPopup.addEventListener('click', closeAskFormCheck);
+// formSubmit.addEventListener('submit', saveThread);
 
 //opening windows
 // function openWin(){
