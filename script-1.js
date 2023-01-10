@@ -26,10 +26,10 @@ const convertToDiscussion = (obj) => {
 
 
 
-  // * TODO 세분화 : 
+  // * TODO 1 디스커션 나열 기능 : 
 
 
-  // 1. 제목(title) 넣기, url 연결하기(클릭 시 새창으로 연결)
+  // [1]. 제목(title) 넣기, url 연결하기(클릭 시 새창으로 연결)
 
   // 1-1. dom 에 h2 > a 생성하고 넣어주기.
   // html : <h2 class="discussion__title"><a class="title__link"></a></h2>
@@ -52,17 +52,39 @@ const convertToDiscussion = (obj) => {
   // const discussionTitleLink = discussionA.href; 
   // 변수에 담아서 내용을 할당했더니 에러남. 왜지?)
 
+
+  //1-3. +) 타이틀에 마우스 올렸을 때 내용 + 답변 보이기 기능-----------------> 에러: 적용이 안됨!!! 왜냐!!! 이벤트 리스너 문제냐? bodyHTML_box가 돔에 안들어가나? 처ㅏㅅ번째것 이후로 안들어가고 있음!
+  const titleBox = document.querySelector('.discussion__title');
+  const showBodyHTML = document.createElement("div");
+  showBodyHTML.className = "bodyHTML_box";
+  titleBox.appendChild(showBodyHTML);
+
+  titleBox.addEventListener('mouseover', function() {
+    if(titleBox.answer === null){
+      titleBox.textContent = bodyHTML;
+    } else {
+      titleBox.textContent = answer.bodyHTML;
+    }
+  })
   
-  // 2. id, 작성 시간(createdAt) 넣기
+
+  // [2]. id, 작성 시간(createdAt) 넣기
+
   // 2-1. div 생성
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
   discussionContent.appendChild(discussionInfo);
+  const writtenDate = obj.createdAt;
+ 
   // 2-2. text 변경
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`
+  discussionInfo.textContent = `${obj.author} / ${writtenDate}`
+
+  // 2-3. Advanced Challenge - 현지 시간 적용
+  // writtenDate.date.toLocaleString('ko-kr') -------------> 왜 안먹히지?! .toLocalTimeString() 함수로 만들어놓기?
 
 
-  // 3. 답변 완료 여부(answer, .discussion__answered) 넣기
+  // [3]. 답변 완료 여부(answer, .discussion__answered) 넣기
+
   // 3-1. div 생성
   // const discussionAnswer = document.createElement("div");
   // discussionAnswer.className = "discussion__answered";
@@ -70,13 +92,16 @@ const convertToDiscussion = (obj) => {
   const discussionAnswerCheck = document.createElement("p");
   discussionAnswerCheck.className = "check__answer"; // p 태그에 새로 클래스 네임 생성해줌
   discussionAnswered.appendChild(discussionAnswerCheck);
+
   // 3-2. p 안의 체크표시 바꾸기
   (obj.answer === null) ? 
-  discussionAnswered.textContent = '❎' : discussionAnswered.textContent = '✅';
+  discussionAnswerCheck.textContent = '❎' : discussionAnswerCheck.textContent = '✅';
   
   return li;
 
 };
+//----------convertToDiscussion 함수 끝----------------//
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {

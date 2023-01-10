@@ -3,6 +3,14 @@
 /*CSS reset */
 @import "reset.css";
 
+:root {
+    --white: #F8F1F1;
+    --yellow: #FFA62B;
+    --orange: #DB6400;
+    --green: #16697A;
+  }
+
+
 body {
     display: flex;
     flex-direction: column;
@@ -12,10 +20,12 @@ body {
 }
 main {
     width: 540px;
-    height: 100vh;
+    height: max-content;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--white);
 }
 
 /*----------h1(My Agora States)-----------*/
@@ -30,27 +40,60 @@ section{
 }
 
 /*----------질문 입력 란 (form__container)-----------*/
+.form {
+    display: flex;
+    flex-direction: column;
+}
 .form__container {
+    width: 100%;
     height: max-content;
     margin: 2rem 0;
 }
 .form__input--wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items:stretch;
 }
 .form__input--wrapper > * {
     margin-bottom: 1rem;
 }
-/* input 태그들을 오른쪽 끝으로 붙여놓고 submit 버튼을 가운데로 가져오고 싶은데...
 
-.form__input--wrapper > * input {
-    align-self: flex-end;
+.form__input--name,
+.form__input--title,
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: nowrap;
 }
+
+label {
+    margin-bottom: 0.4rem;
+}
+
+input, 
+textarea {
+    border: none;
+    border-radius: 10px;
+}
+textarea {
+    width: 32rem;
+    height: 6rem;
+ }
+
 .form__submit {
-    margin: 0 auto;
-} */
+    align-self: center;
+
+}
+.form__submit > input{
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: bisque;
+}
+
 
 
 
@@ -65,13 +108,14 @@ section{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.7rem;
-    border-bottom: 1px solid gray;
-    height: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    height: 5rem;
 }
 
 .discussion__avatar--image {
     border-radius: 50%;
     width: 48px;
+    box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.3);
 }
 
 .discussion__content {
@@ -92,3 +136,25 @@ section{
 .discussion__answered {
     display: block;
 }
+
+.title_link {
+    color: black;
+}
+
+/* 타이틀에 호버 시 질문/답변 말풍선 띄우기*/
+.bodyHTML_box { /*html#52 에 태그 추가*/
+    display: none;
+    position: relative;
+    width: 100%;
+    padding: 8px;
+    left: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    overflow: ellipsis;
+}
+
+ .discussion__title:hover + div.bodyHTML_box {
+    display: block;
+  }
