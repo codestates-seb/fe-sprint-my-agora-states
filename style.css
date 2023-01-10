@@ -12,6 +12,13 @@ body {
 }
 
 @font-face {
+    font-family: '양진체';
+    src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'LINESeedKR-Bd';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
     font-weight: 700;
@@ -31,6 +38,7 @@ body {
     font-weight: bold;
     font-style: normal;
 }
+
 
 @keyframes gradient {
     0% {
@@ -69,6 +77,8 @@ header .h1__title {
 .clock {
     display: flex;
     justify-content: center;
+    font-family: '양진체';
+    font-size: 30px;
 }
 
 
