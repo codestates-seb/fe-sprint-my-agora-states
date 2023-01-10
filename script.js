@@ -15,12 +15,16 @@ let pageBtn = document.querySelectorAll(".page--btn");
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 
+// local storage에 저장하기 위한 변수들
 let savedDiscussions = localStorage.getItem(STORAGE_KEY);
 let parsedDiscussions = savedDiscussions
   ? JSON.parse(savedDiscussions)
   : agoraStatesDiscussions;
 
+// 다크 모드, 라이트 모드 전환을 위해 현재 모드를 알려줄 변수
 let isDark = true;
+
+// 이하는 각 모드 적용에 이용할 클래스 이름들
 const darkBg = "dark--bg";
 const darkComponent = "dark--component";
 const darkFont = "dark--font";
@@ -37,21 +41,22 @@ const lightBtn = "light--btn";
 const lightNotice = "light--notice";
 const lightCurrentPageBtn = "light--current-btn";
 
-const avatarLength = "64px";
-const showNum = 10;
-let page = 0;
-let maxPage = Math.ceil(parsedDiscussions.length / showNum);
-const pageBtnColor = "#2dcddf";
-const currentPageBtnColor = "#6C00FF";
-const numInfoSentence = "현재 Discussion 개수: ";
+const avatarLength = "64px"; // 아바타의 이미지 크기(길이)
+const showNum = 10; // 한 페이지에 보여줄 개수
+let page = 0; // 현재 페이지
+let maxPage = Math.ceil(parsedDiscussions.length / showNum); // 현재 discussion의 수에 따른 최대 페이지
+const numInfoSentence = "현재 Discussion 개수: "; // discussion의 개수를 알려줄 문장
 
+// local storage에 discussion들을 save하는 함수
 const saveDiscussions = (newDiscussion) => {
+  // 만약 새로운 discussion이 있다면 추가해줌
   if (newDiscussion) {
     parsedDiscussions.unshift(newDiscussion);
   }
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedDiscussions));
 
+  // discussion들을 불러옴
   savedDiscussions = localStorage.getItem(STORAGE_KEY);
   parsedDiscussions = JSON.parse(savedDiscussions);
 };
@@ -61,6 +66,7 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+  // 현재 모드에 따른 색 적용
   if (isDark) {
     li.classList.add(darkComponent);
     li.classList.add(darkBorder);
@@ -172,16 +178,21 @@ const render = (element) => {
   return;
 };
 
+// 현재 페이지에 따른 discussion들을 render한다.
 const pageRender = (element) => {
+  // 현재 페이지에 따른 가장 마지막 인덱스를 구한다.
+  // 만약 계산된 인덱스가 discussion의 수를 넘어가면 값을 조정한다.
   const lastIndex =
-    page * showNum + showNum > parsedDiscussions.length
+    page * showNum + showNum > parsedDiscussions.lengt
       ? parsedDiscussions.length
       : page * showNum + showNum;
 
+  // 인덱스에 따른 discussion들을 render한다.
   for (let i = page * showNum; i < lastIndex; ++i) {
     element.append(convertToDiscussion(parsedDiscussions[i]));
   }
 
+  // discussion의 개수를 render 할 때마다 문장을 갱신한다.
   discussionNumInfo.textContent = `${numInfoSentence}${parsedDiscussions.length}개`;
 
   return;
@@ -195,6 +206,7 @@ const makePageBtn = (pageNum) => {
   pageBtn.classList.add("page--btn");
   pageBtn.textContent = pageNum;
 
+  // 모드에 따른 버튼의 색을 바꾼다.
   if (isDark) {
     pageBtn.classList.add(darkBtn);
     pageBtn.classList.add(darkBorder);
@@ -205,7 +217,8 @@ const makePageBtn = (pageNum) => {
     pageBtn.classList.add(lightFont);
   }
 
-  // 만약 버튼의 숫자가 현재 페이지 번호(인덱스이므로 +1)과 같다면 색깔을 바꿔줌
+  // 만약 버튼의 숫자가 현재 페이지 번호(인덱스이므로 +1)과 같다면
+  // 현재 페이지를 나타낼 수 있는 색으로 바꿈
   if (pageNum === page + 1) {
     pageBtn.classList.remove(darkBtn);
     pageBtn.classList.add(darkCurrentPageBtn);
@@ -216,18 +229,23 @@ const makePageBtn = (pageNum) => {
 };
 
 const renderPageBtns = () => {
+  // 1부터 최대 페이지까지 버튼 생성
   for (let i = 0; i < maxPage; ++i) {
     pageBtns.append(makePageBtn(i + 1));
   }
 
+  // 기록된 버튼들을 갱신한다.
   pageBtn = document.querySelectorAll(".page--btn");
 
+  // 갱신된 버튼들로 다시 한 번 눌리는지 검사한다.
   pageBtnCheck();
 };
 
+// 제출 버튼이 눌려쓸 때 질문을 제출하는 버튼
 const handleSubmit = (event) => {
   event.preventDefault();
 
+  // 만약 하나라도 입력하지 않은 것이 있다면 그냥 끝낸다.
   if (
     inputName.value === "" ||
     inputTitle.value === "" ||
@@ -236,8 +254,8 @@ const handleSubmit = (event) => {
     return;
   }
 
+  // 주어진 값(name, title, story)들을 이용해 새로운 discussion을 만든다.
   const today = new Date();
-
   const newDiscussion = {
     id: inputName.value,
     createdAt: `${today.getFullYear()}-${
@@ -252,9 +270,13 @@ const handleSubmit = (event) => {
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   };
 
+  // 만들어진 discussion을 저장한다.
   // agoraStatesDiscussions.unshift(newDiscussion);
   saveDiscussions(newDiscussion);
 
+  // 만약 페이지 버튼을 추가해야 하는 상황일 경우, 새롭게 추가한다.
+  // 저 상황은 discussiond의 개수가 11, 21, ... 91, ... 과 같이 일의 자리가 1이되는 경우이다,
+  // (discussion을 10개씩 보여주기 때문)
   if (parsedDiscussions.length % 10 == 1) {
     maxPage = Math.ceil(parsedDiscussions.length / showNum);
     pageBtns.append(makePageBtn(maxPage));
@@ -263,10 +285,12 @@ const handleSubmit = (event) => {
     pageBtnCheck();
   }
 
+  // 기존에 존재하던 discussion들을 삭제한다.
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
 
+  // 새롭게 discussion들을 render한다.
   pageRender(ul);
 };
 
@@ -304,12 +328,12 @@ const handlePageBtnClick = (event) => {
   pageRender(ul);
 };
 
-const pageBtnCheck = () => {
-  pageBtn.forEach((btn) => btn.addEventListener("click", handlePageBtnClick));
-};
-
+// 모드 변경
 const changeTheme = () => {
+  // 만약 현재 다크 모드라면 라이트 모드로 바꾼다.
   if (isDark) {
+    // 다크 모드에 해당하는 클래스를 전붑 제거하고
+    // 라이트 모드에 해당하는 클래스를 추가한다.
     const darkBgs = document.querySelectorAll(".dark--bg");
     console;
     darkBgs.forEach((b) => {
@@ -356,6 +380,8 @@ const changeTheme = () => {
     isDark = false;
     modeBtn.textContent = "🌙";
   } else {
+    // 현재 라이트 모드라면 라이트 모드에 해당하는 클래스를 전부 제거하고
+    // 다크 모드에 해당하는 클래스를 추가한다.
     const lightBgs = document.querySelectorAll(".light--bg");
     lightBgs.forEach((b) => {
       b.classList.remove(lightBg);
@@ -403,7 +429,12 @@ const changeTheme = () => {
   }
 };
 
-// render(ul);
+// 페이지 버튼이 눌리는지 검사하는 함수
+const pageBtnCheck = () => {
+  // 페이지 버튼이 눌리는지 하나 하나 검사한다.
+  pageBtn.forEach((btn) => btn.addEventListener("click", handlePageBtnClick));
+};
+
 saveDiscussions();
 pageRender(ul);
 renderPageBtns();
