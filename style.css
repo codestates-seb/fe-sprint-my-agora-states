@@ -66,6 +66,9 @@ h1{
     border-radius: 30px;
     border: 1px solid black;
 }
+#submit:hover{
+    text-decoration:underline
+}
 
     
 .discussion__wrapper{
