@@ -61,11 +61,9 @@ const renderlocalStorage = (element) => {
     for (let i = 0; i < objLocalData.length; i++) {
       element.prepend(convertToDiscussion(objLocalData[i]));
     }
-    renderPagination(); // 확인중
   }
   return;
 }
-
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
@@ -93,7 +91,7 @@ formInput.addEventListener('submit', (event) => {
     avatarUrl: null
   }
 
-  window.localStorage.clear();
+  // window.localStorage.clear();
   let objData = [];
   if (localStorage.length > 0) {
     let bjLocalData = JSON.parse(localStorage.getItem('agoraDatas'));
