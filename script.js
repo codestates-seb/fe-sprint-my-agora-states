@@ -1,5 +1,26 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+//data.js 복사
+let firstObj = JSON.parse(JSON.stringify(agoraStatesDiscussions));
+
+// 로컬 데이터 시간순으로 정렬
+let localArr = [];
+for (let i = 0; i < localStorage.length; i++) {
+  localArr.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+}
+localArr.sort((a, b) => {
+  return a.localNum - b.localNum;
+});
+// 로컬 스토리지에 있는 데이터를 data.js에 추가
+for (i = 0; i < localStorage.length; i++) {
+  agoraStatesDiscussions.unshift(localArr[i]);
+}
+
+//로컬 스토리지 클리어
+const storageClear = document.querySelector("#clear");
+storageClear.onclick = () => {
+  localStorage.clear();
+  agoraStatesDiscussions = firstObj;
+  render1(page);
+};
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -12,8 +33,6 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
   // avatar img 추가
   const avatarImg = document.createElement("img");
@@ -30,7 +49,7 @@ const convertToDiscussion = (obj) => {
   contentA.href = obj.url;
   contentA.textContent = obj.title;
   discusstionTitle.append(contentA);
-  discussionContent.append(contentA);
+  discussionContent.append(discusstionTitle);
 
   // content infomation
   const discussionInfo = document.createElement("div");
@@ -59,9 +78,9 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInfo);
 
   // answered?
-  if (obj.answer) discussionAnswered.textContent = "🅅";
-  else discussionAnswered.textContent = "🅇";
+  discussionAnswered.textContent = obj.answer ? "🅅" : "🅇";
 
+  //모두 붙이기
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -72,6 +91,7 @@ const enterName = document.querySelector("#name");
 const enterTitle = document.querySelector("#title");
 const enterStory = document.querySelector("#story");
 
+// submit 버튼 온클릭 이벤트
 submitBtn.onclick = (e) => {
   e.preventDefault();
   // 현재 시각 계산
@@ -106,9 +126,22 @@ submitBtn.onclick = (e) => {
     author: enterName.value,
     title: enterTitle.value,
     bodyHTML: enterStory.value,
+    localNum: Date.now(), // 로컬스토리지 정렬을 위한 프로퍼티
   };
-  agoraStatesDiscussions.unshift(newDiscussion);
-  render1(page);
+
+  const newDiscussionJson = JSON.stringify(newDiscussion); //문자열로 변경
+  const warning = document.querySelector(".warning");
+  if (enterName.value && enterTitle.value && enterStory.value) {
+    warning.classList.add("hide");
+    agoraStatesDiscussions.unshift(newDiscussion);
+    //로컬 스토리지에 등록
+    localStorage.setItem(Date.now(), newDiscussionJson);
+
+    render1(page);
+  } else {
+    // name,title,question에 값이 없으면 warning 출력
+    warning.classList.remove("hide");
+  }
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -120,8 +153,8 @@ submitBtn.onclick = (e) => {
 // };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
 //render(ul);
+const ul = document.querySelector("ul.discussions__container");
 
 // 페이지네이션 구현
 const buttons = document.querySelector(".buttons");
@@ -146,11 +179,13 @@ const makeButton = (id) => {
   return button;
 };
 
+// 리스트 랜더링 함수
 const renderContent = (page) => {
   // 목록 리스트 초기화
   while (ul.hasChildNodes()) {
     ul.removeChild(ul.lastChild);
   }
+
   // 글의 최대 개수를 넘지 않는 선에서, 화면에 최대 6개의 글 생성
   for (
     let id = (page - 1) * showContent + 1;
@@ -171,7 +206,7 @@ const goNextPage = () => {
   page += showButton;
   render1(page);
 };
-
+// 이전 다음 버튼 생성
 const prev = document.createElement("button");
 prev.classList.add("button", "prev");
 prev.innerHTML = "<-";
@@ -182,6 +217,7 @@ next.classList.add("button", "next");
 next.innerHTML = "->";
 next.addEventListener("click", goNextPage);
 
+//버튼 랜더링
 const renderButton = (page) => {
   const maxPage = Math.ceil(agoraStatesDiscussions.length / showContent); //최대 페이지 수
   // 버튼 리스트 초기화
@@ -203,6 +239,7 @@ const renderButton = (page) => {
   if (page + showButton > maxPage) buttons.removeChild(next);
 };
 
+// 종합 랜더링
 const render1 = (page) => {
   renderContent(page);
   renderButton(page);

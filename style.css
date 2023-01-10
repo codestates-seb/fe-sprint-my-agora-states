@@ -23,10 +23,15 @@ main {
   background-color: skyblue;
 }
 
-#answer-box {
-  background-color: aqua;
+.form__submit {
+  display: flex;
+  justify-content: right;
 }
-
+#add-discussion {
+  height: 50px;
+  width: 80px;
+  cursor: pointer;
+}
 section {
   width: 100%;
   padding: 30px;
@@ -38,15 +43,39 @@ li {
   display: flex;
   justify-content: space-between;
 }
-
-.discussion__avatar--image {
-  width: 64px;
-  height: 640x;
-  border-radius: 50%;
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.discussion__avatar--image {
+  margin-left: 5px;
+  width: 48px;
+  border-radius: 50%;
+}
+.discussion__title {
+  margin: 5px 10px;
+  font-size: 16px;
+}
+.discussion__information {
+  font-size: 14px;
+  text-align: right;
+}
+.discussion__answered {
+  display: flex;
+  align-items: center;
+}
+
+.buttons {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+}
 .button {
   width: 20px;
+  cursor: pointer;
+  margin: 0 3px;
 }
 
 .hide {
@@ -54,4 +83,7 @@ li {
 }
 .active {
   background-color: red;
+}
+.warning {
+  color: red;
 }
