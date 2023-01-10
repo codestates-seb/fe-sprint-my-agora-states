@@ -213,3 +213,6 @@ form{
     color: var(--strawberry);
     font-weight: bold;
 }
+.buttons button:hover{
+    cursor: pointer;
+}
