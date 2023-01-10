@@ -1,11 +1,11 @@
 // console.log(agoraStatesDiscussions);
 
 //dataSet agoraStatesDiscussions값을 json형식으로 받는다.
-let dataSet = JSON.parse(localStorage.getItem("dataSet"));
 if (!localStorage.getItem("dataSet")) {
   // 만약 localStorage에 agoraStatesDiscussions가 없다면
   localStorage.setItem("dataSet", JSON.stringify(agoraStatesDiscussions));
 }
+let dataSet = JSON.parse(localStorage.getItem("dataSet"));
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -66,10 +66,11 @@ const bringData = (event) => {
     avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
   };
 
-  dataSet.unshift(newObj);
   const newDis = convertToDiscussion(newObj);
-  ul.prepend(newDis); // prepend는 첫번째 자식 앞 새로운 노드를 추가해준다.
+
+  dataSet.unshift(newObj);
   localStorage.setItem("dataSet", JSON.stringify(dataSet));
+  ul.prepend(newDis); // prepend는 첫번째 자식 앞 새로운 노드를 추가해준다.
 
   userName.value = "";
   userTitle.value = "";
@@ -79,6 +80,7 @@ const bringData = (event) => {
 form.addEventListener("submit", bringData);
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+
 const render = (element) => {
   for (let i = 0; i < dataSet.length; i += 1) {
     element.append(convertToDiscussion(dataSet[i]));
