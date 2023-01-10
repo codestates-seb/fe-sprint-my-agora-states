@@ -1,5 +1,17 @@
 const agoraStatesDiscussions = [
   {
+    id: "id",
+    createdAt: "2022-05-16T01:02:17Z",
+    title: "title",
+    url: "/",
+    author: "dubipy",
+    bodyHTML: "",
+    avatarUrl: "",
+  },
+];
+
+/* const agoraStatesDiscussions = [
+  {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",
     title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
@@ -786,20 +798,21 @@ const agoraStatesDiscussions = [
     avatarUrl:
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   },
-].map(discussion => {
+].map((discussion) => {
   if (discussion.answer) {
     return {
       ...discussion,
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
         ...discussion.answer,
-        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
-      }
-    }
+        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML),
+      },
+    };
   }
 
   return {
     ...discussion,
-    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
-  }
-})
+    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
+  };
+});
+ */
