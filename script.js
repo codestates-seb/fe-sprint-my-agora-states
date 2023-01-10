@@ -1,7 +1,7 @@
 import App from "./src/js/App.js";
 import { $ } from "./src/js/utils/query.js";
 const container = $(".container");
-const app = new App(container);
+new App(container);
 
 // // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);

@@ -13,6 +13,6 @@ export default function App($app) {
 
   this.state = {};
 
-  const header = new Header($app, { userId: user.getCurrentUser() });
-  const main = new Main($app);
+  new Header($app, { userId: user.getCurrentUser() });
+  new Main($app);
 }

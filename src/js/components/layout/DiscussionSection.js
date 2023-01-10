@@ -17,7 +17,6 @@ export default function ($app, initialState) {
     this.render();
   };
   const onPageClick = (e) => {
-    console.log(e.currentTarget.children[0].children);
     if (e.target.tagName === "LI") {
       if (e.target.textContent === "<") {
         if (this.state.start !== 0) {
@@ -42,15 +41,11 @@ export default function ($app, initialState) {
     }
   };
 
-  // console.log(this.state.discussions);
   this.render = () => {
     const $ul = $c("ul");
     $ul.classList.add("discussions__container");
     const sortedDiscussion = Object.values(this.state.discussions).sort(
       (a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-    );
-    console.log(
-      sortedDiscussion.slice(this.state.start, this.state.start + 10)
     );
     const items = map((e) => {
       return new DiscussionItem(this.$target, e);
@@ -61,7 +56,6 @@ export default function ($app, initialState) {
     }, items);
     this.$target.innerHTML = "";
     this.$target.append($ul);
-    console.log(this.state.discussions.length);
     new Pagination(
       this.$target,
       {

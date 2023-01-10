@@ -24,7 +24,6 @@ export default function AsideM($app, initialState, onClick) {
     <ul class="filter__tagsContainer">
       <span>TAGS</span>
       ${map((e) => {
-        // console.log(e);
         return `<li class = "filter__tags ${
           e.selected === true ? "selected" : ""
         }" data-filtername = ${e.name} >

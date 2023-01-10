@@ -16,7 +16,6 @@ export const storageAPI = {
     });
 
     if (Object.keys(storage.getData("discussion")).length === 0) {
-      console.log(storage.getData("discussion"));
       storage.setData("discussion", dObj);
     }
   },

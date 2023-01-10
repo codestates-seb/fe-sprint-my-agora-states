@@ -34,7 +34,6 @@ export const discussion = (() => {
       this.notifyAll();
     },
     removeDiscussion(id) {
-      console.log(discussions["1673309921319"]);
       delete discussions[id];
       storage.setData("discussion", discussions);
       this.notifyAll();

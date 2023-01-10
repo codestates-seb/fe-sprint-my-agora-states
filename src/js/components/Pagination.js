@@ -10,7 +10,6 @@ export default function Pagination($app, initialState, onPageClick) {
     this.state = { ...this.state, ...newState };
     this.render();
   };
-  console.log(this.state.length);
   this.$pagination.className = "pagination";
   this.$pagination.addEventListener("click", onPageClick);
   const pages = Array.from(Array(this.state.last)).keys();
