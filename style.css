@@ -1,1 +1,218 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 초기화 */
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #FAEEE0;
+}
+
+main {
+    width: 540px;
+    padding: 50px 30px 30px 60px;
+    margin: 50px auto;
+    background-color: #F9CF93;
+    border-radius: 4px 12px 12px 4px;
+    position: relative;
+    box-shadow: 8px 4px 3px rgba(0,0,0,0.35);
+}
+main::after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 100%;
+    background: #f0af63;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    font-family: 'Cute Font', cursive;
+    text-align: center;
+    font-size: 3.6rem;
+    letter-spacing: 0.5rem;
+    color: #6028ff;
+    background-color: #FAEEE0;
+    border-radius: 12px;
+    text-shadow: 1px 0px #aaa;
+}
+
+/* form */
+.form__container {
+    margin: 20px 0;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+}
+.form__input--wrapper {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form__input--wrapper > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.form__input--wrapper > div label {
+    width: 140px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    color: #333;
+}
+.form__input--wrapper > div input {
+    flex: 1 0 0;
+    border-radius: 4px;
+    border: 2px solid #EC7272;
+    outline: 0;
+    height: 32px;
+    padding: 0 12px;
+}
+.form__input--wrapper > div textarea {
+    flex: 1 0 0;
+    border-radius: 4px;
+    border: 2px solid #EC7272;
+    outline: 0;
+    height: 64px;
+    padding: 8px 12px;
+    overflow-y: auto;
+    resize: none;
+}
+.form__submit {
+    width: 100%;
+    text-align: right;
+}
+.form__submit > input {
+    width: 100%;
+    font-family: 'Cute Font', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #333;
+    text-transform: uppercase;
+    background-color: #FFAD60;
+    border-top: 1px solid #d5b289;
+    border-right: 1px solid #666;
+    border-bottom: 1px solid #666;
+    border-left: 1px solid #d5b289;
+    cursor: pointer;
+}
+
+/* Discussions */
+ul.discussions__container {
+    border-radius: 12px;
+    overflow: hidden;
+}
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 16px;
+    padding: 16px;
+}
+li.discussion__container:nth-child(odd){
+    background-color: #F9E4C8;
+}
+li.discussion__container:nth-child(even){
+    background-color: #DBD0C0;
+}
+/*** 왼쪽 아바타 ***/
+.discussion__avatar--wrapper {
+    width: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.discussion__avatar--image {
+    width: 100%;
+}
+/*** 중간 Discussion 콘텐츠 ***/
+.discussion__content {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+.discussion__title {
+    font-size: 1rem;
+    line-height: 140%;
+    word-break: keep-all;
+    font-weight: 600;
+    letter-spacing: 0.6;
+}
+.discussion__information {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #666;
+}
+/*** 오른쪽 체크 표시 ***/
+.discussion__answered {
+    font-size: 2rem;
+    padding-left: 10px;
+}
+
+
+/* pagination */
+.pagination__container {
+    position: fixed;
+    top: 110px;
+    right: calc(50% - (540px / 2) - 40px);
+}
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+.pagination li {
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 16px;
+    font-size: 0.8rem;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.pagination li:nth-child(5n+1) {
+    background-color: #FFA1A1;
+}
+.pagination li:nth-child(5n+2) {
+    background-color: #F9FFA4;
+}
+.pagination li:nth-child(5n+3) {
+    background-color: #B4FF9F;
+}
+.pagination li:nth-child(5n+4) {
+    background-color: #95E1D3;
+}
+.pagination li:nth-child(5n) {
+    background-color: #9ADCFF;
+}
+.pagination li.current__page {
+    font-weight: 900;
+    width: 60px;
+    border-left: 0;
+}
+
+.hidden {
+    display: none;
+}
