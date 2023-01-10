@@ -14,11 +14,15 @@
 
 <body>
   <main>
-    <h1 class="text">My Agora States</h1>
+    <div class="container">
+      <h1 class="title">My Agora States</h1>
+    </div>
     <section class="form__container">
       <form action="" method="get" class="form">
+
         <div class="form__input--wrapper">
           <div class="form__input--name">
+
             <!-- <label for="name"></label> -->
             <input type="text" name="name" id="name" required placeholder="Your name">
           </div>
@@ -32,7 +36,7 @@
           </div>
         </div>
           <div class="form__submit">
-            <input type="submit" value="submit">
+            <input type="submit" value="submit" >
           </div>
       </form>
     </section>
@@ -49,9 +53,20 @@
             <!-- <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div> -->
             <div class="discussion__information">kimploo / 오전 8:55:22</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>♥︎</p></div>
         </li>
       </ul>
+      <div class="discussions__pagination">
+        <div id="prev__btn" class="move__btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM12 4C7.6054 4.00111 4.03446 7.54686 4.00224 11.9413C3.97002 16.3358 7.48858 19.9336 11.8827 19.9991C16.2768 20.0647 19.9011 16.5735 20 12.18V13.963V12C19.995 7.58378 16.4162 4.00496 12 4ZM13.45 16.9L8.5 11.95L13.45 7L14.864 8.414L11.328 11.95L14.863 15.486L13.451 16.9H13.45Z" fill="#2E3A59"></path>
+          </svg>
+          </div>
+        <div id="pages__btn" class="move__btn"></div>
+        <div id="next__btn" class="move__btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 22C6.47967 21.9939 2.00606 17.5203 2 12V11.8C2.10993 6.30453 6.63459 1.92796 12.1307 2.00088C17.6268 2.07381 22.0337 6.56889 21.9978 12.0653C21.9619 17.5618 17.4966 21.9989 12 22ZM12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C19.995 7.58378 16.4162 4.00496 12 4ZM10.55 17L9.136 15.585L12.671 12.05L9.136 8.515L10.55 7.1L15.5 12.05L10.551 17H10.55Z" fill="#2E3A59"></path>
+          </svg>
+          </div> 
+      </div>
     </section>
   </main>
 </body>

@@ -2,33 +2,40 @@
 
 @font-face {
   font-family: 'HSGooltokki';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/HSGooltokki.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/HSGooltokki.woff2')
+    format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
-
 @font-face {
   font-family: 'Humanbumsuk';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2')
+    format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MonoplexKR-Italic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Italic.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Italic.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'KyoboHandwriting2021sjy';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2')
+    format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
 
 * {
   margin: 0;
@@ -40,51 +47,51 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(241, 241, 208);
+  background-color: #000;
 }
 main {
-  border: 3px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
 }
 
 h1 {
   font-family: 'HSGooltokki';
-  color:#e3b2df;
-  font-size: 70px;
+  font-size: 50px;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
-  margin-bottom: 20px;
-  /* padding-top: 50px; */
-  animation: blink-effect 3s step-end infinite;
-  border: 3px solid;
-  
-
+  padding: 30px;
+  animation: blink-effect 2s step-end infinite;
+  /* border: 1px solid #fff; */
 }
 
-h1 .text {
-  -ms-transform: rotate(350deg); 
-  -webkit-transform: rotate(350deg); 
-  transform: rotate(350deg);
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
 }
-
-
-@keyframes blink-effect { 70% { opacity: 0; } }
 
 section.form__container {
-  flex:2;
-  margin:40px;
-}
-section.discussion__wrapper{
+  flex: 2;
+  padding: 10px;
   display: flex;
-  flex:4;
+  flex: 4;
+  width: 670px;
+  justify-content: space-between;
+  align-items: center;
+  left: 40px;
+  flex-direction: column;
+}
+
+section.discussion__wrapper {
+  display: flex;
+  flex: 4;
   width: 670px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 form {
@@ -92,88 +99,116 @@ form {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 3px solid;
 }
 
-
 form > div:first-of-type {
-  flex-basis: 30px;
+  flex-basis: 50px;
   padding-top: 28px;
-  padding-left:80px;
-  font-size: 20px;   
+  font-size: 20px;
 }
 
 form > div:nth-of-type(4) {
-  /* margin-top: 20px; */
   padding-top: 25px;
-  padding-left: 5px;
+  padding-left: 10px;
   flex-basis: 30px;
   font-size: 22px;
 }
 
+.title {
+  font-family: neon;
+  color: #fb4264;
+  font-size: 8vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #f40a35;
+}
+.title {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16,
+      0 0 10vw #fa1c16, 0 0 0.4vw #fed128, 0.5vw 0.5vw 0.1vw #806914;
+    color: #fed128;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #8b2926,
+      0 0 5vw #800e0b, 0 0 0.2vw #800e0b, 0.5vw 0.5vw 0.1vw #40340a;
+    color: #cab35e;
+  }
+}
+
 .form__input--wrapper {
-  flex-basis: 400px;
+  flex-basis: 700px;
   display: flex;
   flex-direction: column;
   transition: 3s;
-  /* margin-left: 15px */
 }
 
 .form__input--name,
 .form__input--title,
 .form__textbox {
-  flex:1;
-  width:400px;
+  flex: 2;
+  width: 400px;
   margin: 3px;
-  box-shadow: 3px 3px 3px rgb(255, 0, 0);
+  box-shadow: 2px 2px 2px rgb(102, 255, 102);
   transition-duration: 0.3s;
-  
 }
 .form__input--wrapper input {
-  width:400px;
+  width: 400px;
   height: 30px;
   font-size: 20px;
   font-family: 'Humanbumsuk';
-  border:0px; 
+  border: 0px;
   outline-style: none;
-  border-radius: 10px;
-
+  border-radius: 4px;
+  letter-spacing: 3px;
 }
 .form__input--wrapper input:hover {
-  background-color: #f2d7f2;
+  background-color: #fff000;
   transition: 0.5s;
 }
 .form__input--wrapper textarea {
-  width:400px;
+  width: 400px;
   height: 100px;
   font-size: 20px;
   font-family: 'Humanbumsuk';
-  border:0px;
+  border: 0px;
   outline-style: none;
+  border-radius: 10px;
+  letter-spacing: 3px;
 }
 .form__input--wrapper textarea:hover {
-  background-color: #f2d7f2;
-  transition: 0.5s;
+  background-color: #fff000;
+  transition: 0.3s;
 }
 
 .form__submit {
-  flex-basis:60px;
-  margin:3px;
+  flex-basis: 90px;
+  margin: 5px;
 }
 .form__submit input {
   margin-top: 28px;
   cursor: pointer;
-  width:100px;
+  width: 100px;
   height: 170px;
   font-family: 'Humanbumsuk';
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: 17px;
-  background-color: #e3b2df;
-  box-shadow: 2px 2px 2px rgb(255, 0, 0);
+  background-color: #ffff00;
+  box-shadow: 2px 2px 2px rgb(102, 255, 102);
   transition-duration: 0.3s;
-  color:white;
+  color: #000;
   margin-right: 15px;
   border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 3px;
 }
 .form__submit input:active {
   margin-left: 5px;
@@ -182,17 +217,27 @@ form > div:nth-of-type(4) {
 }
 .form__submit input:hover {
   font-size: 20px;
-  background-color: hsl(152, 71%, 80%);
-  color:rgb(249, 248, 248);
+  /* background-color: hsl(152, 71%, 80%);
+  color:rgb(249, 248, 248); */
+  background: #93f09d;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #b8e999, 0 0 25px #89e06a, 0 0 50px #7bf291,
+    0 0 100px #76eb5c;
 }
 
+.form__submit input {
+  /* position: absolute;git  */
+  display: block;
+}
 ul.discussions__container {
   display: flex;
   flex-direction: column;
-  flex-basis:640px;
+  flex-basis: 640px;
   justify-content: center;
-  align-items:center;
-  margin:10px 0;
+  align-items: center;
+  margin: 10px 0;
+  letter-spacing: 1px;
 }
 
 li.discussion__container {
@@ -202,8 +247,8 @@ li.discussion__container {
   border: 0.5px solid rgb(239, 226, 226);
   width: 630px;
   flex: 1;
-  margin:10px;
-  box-shadow: 3px 3px 3px rgb(0, 255, 0, .5);
+  margin: 10px;
+  box-shadow: 4px 4px 4px rgba(255, 000, 204, 0.4);
   border-radius: 10px;
 }
 
@@ -220,7 +265,7 @@ div.discussion__avatar--wrapper {
 img {
   border-radius: 50%;
   width: 48px;
-  box-shadow: 5px 5px 5px rgb(0, 0, 0, .5);
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
   transition: 2s;
 }
 
@@ -232,7 +277,7 @@ div.discussion__content {
   margin-top: 5px;
 }
 .discussion__title {
-  flex:1.5;
+  flex: 1.5;
   padding-bottom: 5px;
   font-family: 'KyoboHandwriting2021sjy';
   padding-top: 10px;
@@ -240,8 +285,8 @@ div.discussion__content {
   line-height: 1.5;
 }
 .discussion__title > a {
-  text-decoration: none; 
-  color:rgb(184, 93, 211);
+  text-decoration: none;
+  color: rgb(184, 93, 211);
 }
 .discussion__title > a:hover {
   cursor: pointer;
@@ -249,11 +294,10 @@ div.discussion__content {
   font-weight: bold;
 }
 
-
 .discussion__information {
-  flex:1;
+  flex: 1;
   text-align: right;
-  color:#505fe2;
+  color: #505fe2;
   font-size: 1rem;
   font-family: 'MonoplexKR-Italic';
 }
@@ -263,13 +307,42 @@ div.discussion__answered {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .discussion__answered > p {
   font-size: 35px;
-  color:#7aedb0;
+  color: #ff0000;
 }
 
 .discussion__answered > p:hover {
   cursor: pointer;
+}
+
+.discussions__pagination {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center;
+  flex-direction: row; */
+  align-items: center;
+  /* bottom: 0; */
+  background-color: white;
+  border-radius: 20px;
+}
+
+.move__btn {
+  font-size: 32px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+#pages__btn {
+  height: 40px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+#pages__btn > div {
+  height: 40px;
+  line-height: 45px;
+  padding: 0 7px;
 }
