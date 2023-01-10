@@ -1,1 +1,129 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'ChosunCentennial';
+    
+  }
+  @font-face {
+    font-family: 'ChosunCentennial';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/ChosunCentennial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FBC252;
+    padding: 50px;
+}
+
+
+li{
+    list-style: none;
+}
+h1{
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    color: #FBC252;
+}
+.form__container{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+}
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+     
+}
+#name,#story,#submit{
+    width: 540px;   
+    margin: 8px;
+    
+}
+#name{
+    height: 30px;
+    border: 2px solid beige;
+    
+}
+#story{
+    height: 50px;
+    border: 2px solid beige;
+}
+#submit{
+    height: 50px;
+    background-color: #FBC252;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+
+    
+.discussion__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    
+    background-color: white;
+}
+.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border-bottom: 3px solid #FBC252;
+    
+}
+
+.discussion__avatar--image{
+    border-radius: 50%;
+    width: 48px;
+    
+}
+
+.discussion__content{
+    display: block;
+    
+}
+.discussion__content >:nth-child(1){
+    width: 440px;
+    text-align: left;
+    margin-top: 0;
+    padding: 10px;
+    
+}
+   .discussion__content >:nth-child(2){
+       height:30px;
+       text-align: right;
+       padding: 10px;
+       color: gray;
+       
+   }
+.discussion__answered{
+   margin: 5px;
+   text-align: right;
+
+}
+img{
+    width: 48px;
+}
+a{
+    text-decoration-line: none;
+    color: black;
+    font-size: 15px;
+}
+
+
+
