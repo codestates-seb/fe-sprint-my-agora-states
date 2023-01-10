@@ -4,10 +4,58 @@
     padding: 0;
 }
 
+input[type="text"],
+textarea {
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: gray;
+}
+
+textarea {
+    padding: 10px 0;
+    height: 70px;
+    resize: none;
+}
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.form__input__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 1 auto;
+}
+
+.form__input__container > input {
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.form__submit > input {
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+}
+
+.form__container {
+    width: 100%;
+    max-width: 540px;
+    margin: 50px 0;
 }
 
 .form__container > form {
@@ -34,7 +82,9 @@ main {
 
 .discussion__container {
     display: flex;
-    border: 1px solid black;
+    border-radius: 3px;
+    border: 1px solid rgba(239, 239, 240, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 4px;
 }
 
 .discussion__container > div {
