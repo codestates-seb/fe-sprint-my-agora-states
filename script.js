@@ -17,7 +17,7 @@ const convertToDiscussion = (obj) => {
   const avatarImg = document.createElement("img"); // 요소 생성
   avatarImg.className = "discussion__avatar--image"; // 클래스 이름 지정
   avatarImg.src = obj.avatarUrl; // src 속성 설정
-  avatarImg.alt = 'avatar of ' + obj.author; // alt 속성 설정
+  avatarImg.alt = "avatar of " + obj.author; // alt 속성 설정
   avatarWrapper.append(avatarImg); // append
 
   // discussion title
@@ -32,26 +32,27 @@ const convertToDiscussion = (obj) => {
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
   // 날짜 포맷 변경해서 넣어주기
-  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
-
-  // discusstion content에 새로 생성한 두 요소 append
-  discussionContent.append(discussionTitle, discussionInformation);
-
-  // discussion answered 내 Check 아이콘
-  const answeredCheck = document.createElement("a");
-  if (obj.answer !== null && "answer" in obj) {
-    // 답변이 있는 경우, 답변 화면 렌더링(Advanced)
-    answeredCheck.textContent = "✅";
-    answeredCheck.href = obj.answer.url;
-  } else {
-    answeredCheck.textContent = "❌";
-
-  }
-  discussionAnswered.append(answeredCheck);
-
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
-};
+  discussionInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+    ).toLocaleString()}`;
+    
+    // discusstion content에 새로 생성한 두 요소 append
+    discussionContent.append(discussionTitle, discussionInformation);
+    
+    // discussion answered 내 Check 아이콘
+    const answeredCheck = document.createElement("a");
+    if (obj.answer !== null && "answer" in obj) {
+      // 답변이 있는 경우, 답변 화면 렌더링(Advanced)
+      answeredCheck.textContent = "✅";
+      answeredCheck.href = obj.answer.url;
+    } else {
+      answeredCheck.textContent = "❌";
+    }
+    discussionAnswered.append(answeredCheck);
+    
+    li.append(avatarWrapper, discussionContent, discussionAnswered);
+    return li;
+  };
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -69,12 +70,14 @@ const form = document.querySelector(".form");
 const yourName = document.querySelector("#name");
 const yourTitle = document.querySelector("#title");
 const yourQuestion = document.querySelector("#story");
+let discussions = []; // 로컬 스토리지에 있는 데이터를 넣을 배열
+
 // submit 이벤트 발생 시 기존 배열에 데이터 추가시키는 이벤트리스너
 form.addEventListener("submit", addDiscussion);
 
 function addDiscussion(e) {
   e.preventDefault(); // submit 이벤트 발생 시 reload 안하게 막아주기
-  console.log('test')
+  
   const obj = {
     createdAt: new Date(),
     title: yourTitle.value,
@@ -83,54 +86,69 @@ function addDiscussion(e) {
     bodyHTML: yourQuestion.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/119473025?v=4",
   };
-  console.log(obj.createdAt)
+  
   // 맨 위에 추가 해주기
   agoraStatesDiscussions.unshift(obj);
-  ul.prepend(convertToDiscussion(obj))
-
+  ul.prepend(convertToDiscussion(obj));
+  // 로컬 스토리지에 저장하기
+  discussions.unshift(obj);
+  localStorage.setItem('Discussions', JSON.stringify(discussions)); // 로컬스토리지에는 문자열만 저장 가능
+  
   // 폼 제출하면 초기화
-  yourName.value = '';
-  yourTitle.value = '';
-  yourQuestion.value = '';
+  yourName.value = "";
+  yourTitle.value = "";
+  yourQuestion.value = "";
 }
+// 디스커션 유지 기능: 새로고침해도 새로 추가한 디스커션이 유지되도록
+const newDiscussions = JSON.parse(localStorage.getItem('Discussions'));
+console.log(newDiscussions)
+function isNewDiscussions() {
+  if (newDiscussions) {
+    for (let i = 0; i < newDiscussions.length; i += 1) {
+      ul.prepend(convertToDiscussion(newDiscussions[i]));
+    }
+  }
+  return; 
+};
+isNewDiscussions();
 
 // 페이지네이션 기능 구현 (총 게시 글 최소 41개)
-  // 한 페이지에 10개씩 게시물을 보여주기
-  // 이전, 다음 페이지로 갈 수 있게
-  // 다음 페이지가 없거나, 이전 페이지가 없는 경우 페이지 유지
-
-// 디스커션 유지 기능 (LocalStorage)
-  // 새로고침해도 새로 추가한 디스커션이 유지되도록
+// 한 페이지에 10개씩 게시물을 보여주기
+// 이전, 다음 페이지로 갈 수 있게
+// 다음 페이지가 없거나, 이전 페이지가 없는 경우 페이지 유지
 
 // 다크모드
-const checkbox = document.querySelector('.check');
-const themeMode = document.querySelector('.theme-mode')
+const checkbox = document.querySelector(".check");
+const themeMode = document.querySelector(".theme-mode");
 
-const isUserColorTheme = localStorage.getItem('color-theme');
-const isOsColorTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const isUserColorTheme = localStorage.getItem("color-theme");
+const isOsColorTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+  ? "dark"
+  : "light";
 
-const getUserTheme = () => (isUserColorTheme ? isUserColorTheme : isOsColorTheme);
+const getUserTheme = () =>
+  isUserColorTheme ? isUserColorTheme : isOsColorTheme;
 
 // 최초 접속 시 테마 적용 시켜두기
 window.onload = function () {
-  if (getUserTheme === 'dark') {
-    localStorage.setItem('color-theme', 'dark');
-    document.documentElement.setAttribute('color-theme', 'dark');
-    checkbox.setAttribute('checked', true);
-    themeMode.textContent = '🌙'
+  if (getUserTheme === "dark") {
+    localStorage.setItem("color-theme", "dark");
+    document.documentElement.setAttribute("color-theme", "dark");
+    checkbox.setAttribute("checked", true);
+    themeMode.textContent = "🌙";
   } else {
-    localStorage.setItem('color-theme', 'light');
-    document.documentElement.setAttribute('color-theme', 'light');
-    themeMode.textContent = '☀️'
+    localStorage.setItem("color-theme", "light");
+    document.documentElement.setAttribute("color-theme", "light");
+    themeMode.textContent = "☀️";
   }
 };
 // 체크박스 클릭 시 테마 변경
-checkbox.addEventListener('click', e => {
+checkbox.addEventListener("click", (e) => {
   if (e.target.checked) {
-    document.documentElement.setAttribute('color-theme', 'dark');
-    themeMode.textContent = '🌙'
+    document.documentElement.setAttribute("color-theme", "dark");
+    themeMode.textContent = "🌙";
   } else {
-    document.documentElement.setAttribute('color-theme', 'light');
-    themeMode.textContent = '☀️'
+    document.documentElement.setAttribute("color-theme", "light");
+    themeMode.textContent = "☀️";
   }
 });
