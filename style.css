@@ -5,6 +5,9 @@
  list-style: none;
  padding: 0;
  margin: 0;
+ color: black;
+ font-size: 14px;
+ text-decoration: none;
 
 }
 
@@ -15,7 +18,6 @@ body{
 
 main{
   height: 90vh;
-  border: 3px solid black;
   overflow: auto;
 }
 
@@ -32,15 +34,12 @@ main{
 .discussion__container{
   display: flex;
   justify-content: space-between;
-}
-
-.discussion__avatar--wrapper{
-
+  margin: 15px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: antiquewhite;
 }
 
 .discussion__content{
   flex: 1;
-}
-
-.discussion__answered{  
 }

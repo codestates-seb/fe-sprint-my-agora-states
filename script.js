@@ -31,21 +31,25 @@ const convertToDiscussion = (obj) => {
   title.className = 'discussion__title';
 
   //정보
-  const information = document.createElement('div');
-  information.textContent = obj.id + ' / ' + obj.createdAt;
-  information.className = 'discussion__information';
+  const name = document.createElement('div');
+  name.textContent = obj.id;
+  name.className = 'discussion__name';
 
+  const createdAt = document.createElement('div');
+  createdAt.textContent = obj.createdAt;
+  createdAt.className = 'discussion__createdAte';
+  
   // //내용
   // const content = document.createElement('div');
   // content.textContent = obj.bodyHTML;
 
-  discussionContent.append(title, information)
+  discussionContent.append(name, title, createdAt)
 
   //체크
-  const answered = document.createElement('p')
-  answered.textContent = '☑';
-  answered.className = 'discussion__answered';
-  discussionAnswered.append(answered)
+  // const answered = document.createElement('p')
+  // answered.textContent = '☑';
+  // answered.className = 'discussion__answered';
+  // discussionAnswered.append(answered)
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
