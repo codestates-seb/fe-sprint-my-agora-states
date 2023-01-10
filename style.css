@@ -204,3 +204,13 @@ a {
   position: relative;
   margin-bottom: 40px;
 }
+
+.discussion__wrapper::before {
+  content: "";
+  background-image: linear-gradient(to bottom, var(--black-color) 25%, rgba(255, 255, 255, 0));
+  width: 540px;
+  height: 27px;
+  color: aliceblue;
+  position: absolute;
+  z-index: 2;
+}
