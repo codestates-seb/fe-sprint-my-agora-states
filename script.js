@@ -38,7 +38,7 @@ const convertToDiscussion = (obj) => {
   // div로 선언된 질문 속 정보 선언 
   const discussionInfo = document.createElement("div");
   // 저자가 누군지 문자열 리터럴로 선언
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createAt).toLocaleTimeString()}` 
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}` 
   // 질문 내용 적용
   discussionContent.append(discussionTitle, discussionInfo);
 
@@ -68,30 +68,35 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-const form = document.querySelector("form.form");
-const author = form.querySelector("div.form__input--name > input");
-const title = form.querySelector("div.form__input--title > input");
-const textbox = form.querySelector("div.form__itextbox > textarea");
-
-// submit을 클릭하면 자료를 가져온다
-
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", 
+(event) => {
   event.preventDefault(); //서브밋 이벤트로 사용시 꼭 함께 사용해주어야함
-  const obj = {
+  // addEventListener 안으로 선언 위치 이동
+  const author = form.querySelector("div.form__input--name > input").value;
+  const title = form.querySelector("div.form__input--title > input").value;
+  const textbox = form.querySelector("div.form__textbox > textarea").value;
+
+  const Obj = {
     id: "new id",
     createdAt: new Date().toISOString(),
-    title: title.value ,
+    title: title,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
-    author: author.value,
-    bodyHTML: textbox.value,
+    author: author,
+    bodyHTML: textbox,
     avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   }
-})
+// addEventListener 안으로 선언 위치 이동
+  **agoraStatesDiscussions.unshift(newObj);
 
-agoraStatesDiscussions.unshift(obj);
+  const discussion = convertToDiscussion(newObj);
+  
+  ul.prepend(discussion);
 
-const discussion = convertToDiscussion(obj);
-
-ul.prepend(discussion);
+  // submit 후 입력란 빈칸으로 리셋하는 기능 추가
+  form.querySelector("div.form__input--name > input").value = "";
+  form.querySelector("div.form__input--title > input").value = "";
+  form.querySelector("div.form__textbox > textarea").value = "";
+}
+)
 
 
