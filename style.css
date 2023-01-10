@@ -5,19 +5,52 @@
     box-sizing: border-box;
 }
 
-body {
+body{
+    background-color: gray;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
+
+button,
+input, 
+textarea{
+    font-size: 100%;
+    vertical-align: baseline;
+    line-height: normal;
+    vertical-align : middle;
+}
+
+
+main{
+    padding: 5vh 0;
+    border-radius: 5px;
+
+}
+
+section.form__container{
+    background-color: aqua;
+    display: flex;
+    margin-bottom: 15px;
+
+}
+
 li.discussion__container{
+    background-color: bisque;
+    max-height : 75vh;
+    overflow: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 540px; 
-    margin-bottom: 0.5rem;
+    margin-bottom: 15px;
     border-radius:5px;
     list-style-type: none;
 }
+
+div.discussion__avatar--wrapper > img{
+    width: 48px;
+    border-radius: 100%;
+}
+
