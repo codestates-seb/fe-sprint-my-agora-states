@@ -1,1 +1,111 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 초기값 설정 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAF8F1;
+}
+
+main { 
+    background-color: #FAEAB1;
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form__container {
+    background-color: #E5BA73;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--name label{
+    margin-left: 0;
+    float: left;
+}
+
+.form__input--name input{
+    float: right;
+    width: 50%;
+}
+
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--title input{
+    width: 50%;
+
+}
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__textbox #story {
+    margin: 5px;
+}
+
+.dicussion__wrapper {
+    display: flex;
+}
+
+.dicussions__container {
+    
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    width: 578px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.discussion__content {
+    display: block;
+}
+/* 이미지의 크기 조절 */
+img {
+    width: 48px;
+    border-radius: 100%;
+}
+
+li.discussion__container {
+    margin: 10px;
+    background-color: #E5BA73;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    align-items: center;
+    text-align: center;
+}
+
+li.discussion__container a {
+    font-size: 15px;
+}
+
+li.discussion__container p {
+    
+}
+
