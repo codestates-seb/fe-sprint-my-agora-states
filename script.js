@@ -68,7 +68,7 @@ const author = form.querySelector("div.form__input--name > input");
 const title = form.querySelector("div.form__input--title > input");
 const textbox = form.querySelector("div.form__textbox > textarea");
 
-form.addEventListner("submit",(event) =>_{ 
+form.addEventListener("submit", (event) => { 
   event.preventDefault();
   const newData = {
     id: Math.round(Math.random() * 100000),
@@ -84,7 +84,7 @@ form.addEventListner("submit",(event) =>_{
   agoraStatesDiscussions.unshift(newData);
 
   while (ul.firstChild){
-    ul.innerHTML("");
+    ul.removeChild(ul.firstChild);
   }
   render(ul);
 });
