@@ -2,20 +2,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 body {
+  background-color: antiquewhite;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.test {
-  border: 1px solid red;
+.form__container {
+  width: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form__container form {
+  width: 100%;
 }
 
-.form__container {
-  /* border: 1px solid red; */
+.form__container div {
+  width: 100%;
 }
 
 .discussion__wrapper {
@@ -27,14 +34,14 @@ li.discussion__container {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  border: 1px solid blue;
-
   width: 540px;
+  border: 2px solid black;
+  border-radius: 15px;
 }
 
 .discussion__content {
   width: 100%;
-  margin: 10px;
+  margin: 1rem;
 }
 
 .discussion__avatar--wrapper {
@@ -46,6 +53,10 @@ li.discussion__container {
   border-radius: 70%;
 }
 
+h2.discussion__title {
+  font-size: 0.9rem;
+}
+
 .discussion__answered {
   display: flex;
   align-items: center;
@@ -53,4 +64,10 @@ li.discussion__container {
 
 .discussion__information {
   float: right;
+  font-size: 0.7rem;
+}
+
+.form__submit {
+  width: 30%;
+  margin: 0 auto;
 }

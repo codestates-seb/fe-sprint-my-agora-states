@@ -25,14 +25,14 @@ const convertToDiscussion = (obj) => {
   // 콘텐츠 안
   const title = document.createElement("h2");
   const titleLink = document.createElement("a");
-  title.className = "discussion__content";
+  title.className = "discussion__title";
   titleLink.href = obj.url;
   titleLink.textContent = obj.title;
   title.append(titleLink);
 
   const information = document.createElement("div");
   information.className = "discussion__information";
-  information.textContent = obj.createdAt;
+  information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString("ko-kr")}`;
   discussionContent.append(title, information);
 
   //답변 체크
@@ -46,6 +46,13 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  if (localStorage.getItem("cdtData") !== null) {
+    //로컬 스토리지 이미 차있다면
+    const parseCdtSaveData = JSON.parse(localStorage.getItem("cdtData"));
+    agoraStatesDiscussions = [...parseCdtSaveData, ...agoraStatesDiscussions];
+    console.log(agoraStatesDiscussions);
+  }
+
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
