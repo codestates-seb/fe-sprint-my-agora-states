@@ -1,1 +1,167 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;   
+    padding: 0;                       /* 세팅 초기화 시키기 */
+    box-sizing: border-box;         /*모든 요소에 border-box를 적용합니다.*/
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+
+body {
+    
+    display: flex;
+    justify-content: center;             /*아고라 스테이츠 질문 리스트가 중앙으로 와야 합니다.*/
+    align-items: center;                 /* 가운데로 */
+    background-image: linear-gradient(
+      to top,
+      rgb(89, 66, 240),
+      rgb(255, 255, 255)
+    )
+    
+    
+}  
+
+
+.discussion__container {
+    display: flex;      /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다.*/
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    width: 540px;        /*Discussion 컴포넌트 전체의 폭을 540px로 만드세요.*/
+    height: 150px;
+    font-size : 12px;
+    margin : 10px;
+    padding: 15px;
+}
+
+section.form__container {
+    background-color: rgb(0, 75, 110);
+    border-radius: 10px;
+}
+
+.discussion__avatar--image {
+    width: 48px;           /*아바타 사진의 너비를 48px로 설정하세요.*/
+    border-radius: 50%;    /*아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요.*/
+    display: flex;  
+    align-items: center;   /*아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.*/
+    margin: 5px;
+}
+img {
+    width: 48px;
+    border-radius: 100%;
+}
+
+.discussion__answered {
+    align-items: center;  /*체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.*/
+    font-size: 20px;
+    margin: 5px;
+    color: #000000;
+}
+
+
+.discussion__content >:nth-child(1){
+    width: 440px;
+    text-align: left;
+    margin-top: 0;
+   }
+
+.discussion__information {
+    font-size: 14px;
+    color: #FFF9CA;
+}
+
+.discussion__content >:nth-child(2){
+    color: #FFF9CA;
+    font-size: 14px;
+    height:30px;
+    padding-top: 10px;
+    text-align: right;    
+}     /* 오른쪽 정렬하여 오른쪽에 붙입니다. */
+
+
+li.discussion__container {
+    border-radius: 10px;
+    background-color: rgba(0, 165, 231, 0.5);
+}
+
+section.discussion__wrapper{
+    display: flex;
+    flex:4;
+    width: 600px;
+    justify-content: center;
+    align-items:center;
+}
+
+a:link {
+    color: rgb(247, 255, 137);
+    font-size: 20px;
+}
+
+a:visited {
+    color: rgb(79, 96, 253);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #617c00;
+    font-size: 30pt;
+}
+
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#story {
+    width: 450px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form__input--wrapper {
+    margin: 5px;
+    color: rgb(0, 255, 179);
+}
+
+.form__submit {
+    margin:10px;
+}
+
+.form__input--wrapper input {
+    width:300px;
+    font-size:1.2rem;
+    margin: 3px;
+    border-radius: 5px;
+    border: 2px solid #0d9700;
+}
+
+
+.form__submit input {
+    width: 300px;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 60px;
+    margin-right: 0px;
+    border: 2px solid black;
+}
+
+
+textarea {
+    margin : 1px;
+}
+
+.form__submit:hover{
+    transform: scale(1.01);
+}
+
