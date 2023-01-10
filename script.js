@@ -7,7 +7,7 @@ const pagination = (discussions) => {
   const pages = document.querySelector('.pagination__numbers');
   const prevPage = document.querySelector('#prevPage');
   const nextPage = document.querySelector('#nextPage');
-  const paginationLimit = 2;
+  const paginationLimit = 10;
   let totalPages = Math.ceil(discussion.length / paginationLimit);
   let currentPage = 1;
 
@@ -138,7 +138,7 @@ const convertToDiscussion = (obj) => {
   // ** div.discussion__content Fin
 
   const p = document.createElement("p")
-  p.textContent = obj.answer ? '⭕️' : '❌';
+  p.textContent = obj.answer ? '☑' : '◻︎';
   discussionAnswered.append(p)
   // ** div.discussion__answered Fin
 

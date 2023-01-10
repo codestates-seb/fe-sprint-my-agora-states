@@ -1,56 +1,205 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --symbol-color : #82AAE3;
+  --form-color : #5d97e8;
+  --background-color : #f8f9fa;
+  --text-color : #495057;
+  --info-color : #868e96;
+  --border-color : #dee2e6;
+  --shadow-color : #bccadf;
+}
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'GmarketSansMedium';
+  font-weight: 400;
+
 }
 li {
   list-style: none;
 }
+button, input, textarea {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
 /* reset */
 
-.discussion__wrapper{
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  height: 100vh;
+}
+main {
   max-width: 540px;
-  margin: 0 auto;
+  width: 90%;
+  background-color: white;
+  border-radius: 1.5rem;
+  box-shadow: 0px 5px 20px var(--shadow-color);
+}
+.form__container,
+.discussion__wrapper{
+  padding: 1rem;
+}
+.hidden {
+  display: none !important;
+}
+/* layout */
+
+.form__container {
+  /* background-color: var(--symbol-color); */
+  background-image: linear-gradient(to top, #a18cd1 0%, var(--symbol-color) 100%);
+  border-radius: inherit;
+  box-shadow: 0px 5px 15px var(--shadow-color);
+}
+.form__container h1 {
+  text-align: center;
+  color: white;
+  font-size: 16px;;
+  margin-bottom: 1rem;
+}
+.form {
+  display: flex;
+}
+.form__input--wrapper {
+  flex-grow: 2;
+}
+.form__input--wrapper > div {
+  position: relative;
+}
+.form__input--wrapper > div input,
+.form__input--wrapper > div textarea {
+  width: 98%;
+  resize: none;
+  padding: 15px 10px 5px;
+}
+.form__input--wrapper > div input {
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--background-color);
+}
+.form__input--wrapper > div textarea {
+  border: 1px solid var(--background-color);
+}
+
+.form__input--wrapper > div label {
+  position: absolute;
+  left: 5px; top: 5px; 
+  font-size: 14px;
+  color: var(--background-color);
+  transition-duration: 0.3s;
+}
+.form__input--wrapper > div input:focus + label,
+.form__input--wrapper > div textarea:focus + label,
+.form__input--wrapper > div input:valid + label,
+.form__input--wrapper > div textarea:valid + label {
+  font-size: 11px;
+  top: 0px;
+}
+.form__submit{
+  flex-grow: 1;
+}
+.form__submit input{
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--background-color);
+  text-align: center;
+  border-radius: 1rem;
+  color: var(--background-color);
+}
+.form__submit input:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* form Fin */
+
+.discussion__wrapper {
+  height: calc(95vh - 290px);
+  overflow-y: scroll;
 }
 .discussion__container {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px dotted red;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 0;
 }
-/* discussion layout */
 .discussion__avatar--wrapper {
-  flex-basis: 48px;
-  flex-grow: auto;
+  width: 48px;
   height: 48px;
   border-radius: 50%;
   align-self: center;
 }
 .discussion__avatar--image {
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
   border-radius: inherit;
   object-fit: cover;
 }
-/* duscussion avatar */
 .discussion__content {
-  padding: 0.8rem;
-  flex-grow: 1;
+  width: calc(100% - 80px);
+  padding: 0 5px;
 }
 .discussion__title {
   margin-bottom: 1rem;
+  font-size: 16px;
+}
+.discussion__title a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.discussion__title a:hover {
+  color: var(--symbol-color);
+  text-decoration: underline;
 }
 .discussion__information {
   text-align: right;
+  font-size: 14px;
+  color: var(--info-color);
 }
 .discussion__answered {
+  width: 22px;
   align-self: center;
   font-size: 2rem;
+  color: var(--symbol-color);
 }
+/* discssion Fin */
 
-.hidden {
-  display: none;
+.pagination{
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
 }
-.active {
-  background-color: blueviolet;
+.pagination__wrapper {
+  position: relative;
 }
+.pagination button {
+  display: inline-block;
+  width: 30px; line-height: 30px;
+}
+.page__direction {
+  position: absolute;
+  top: 0;
+}
+.page__direction.prev {left: -35px;}
+.page__direction.next {right: -35px;}
+
+.page__btn:not(:first-of-type){
+  margin-left: 5px;
+}
+.page__direction:enabled:hover,
+.page__btn:hover,
+.page__btn.active {
+  /* background-color: var(--symbol-color); */
+  background-image: linear-gradient(120deg, #a18cd1 0%, var(--symbol-color) 100%);
+  border-radius: 50%;
+  color: white;
+}
+/* pagination Fin */
