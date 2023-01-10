@@ -38,7 +38,6 @@ li {
     align-items: center;
     font-size: 20px;
     color:rgb(51, 51, 51);
-    font-family: 'Lobster', cursive;
     padding: 10px;
 }
 
@@ -46,6 +45,7 @@ h1 {
     height: 10px;
     margin: 10px;
     text-shadow: 0 0 5px #3d3d3d;
+    font-family: 'Lobster', cursive;
 }
 
 section.form__container {
@@ -57,23 +57,21 @@ section.form__container {
 .form__input--name input {
     width:300px;
     height: 30px;
-    font-size:1.2rem;
+    font-size:1rem;
     margin: 5px;
     border-radius: 10px;
     border: 2px solid #ffffff;
     box-shadow: 0 0 10px #3d3d3d;
-    font-family: 'Lobster', cursive;
 }
 
 .form__input--title input {
     width:300px;
     height: 30px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 5px;
     border-radius: 10px;
     border: 2px solid #ffffff;
     box-shadow: 0 0 10px #3d3d3d;
-    font-family: 'Lobster', cursive;
 }
 
 .form__textbox {
@@ -85,11 +83,10 @@ section.form__container {
 textarea {
     margin: 5px;
     height: 20vh;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 5px;
     box-shadow: 0 0 10px #3d3d3d;
     border-radius: 10px;
-    font-family: 'Lobster', cursive;
 }
 
 .form__submit input {

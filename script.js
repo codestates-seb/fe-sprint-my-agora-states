@@ -63,7 +63,7 @@ submitButton.addEventListener("submit", (event) => {
   const form = document.querySelector("form.form");
   const newAuthor = form.querySelector("div.form__input--name > input");
   const newTitle = form.querySelector("div.form__input--title > input");
-  const newTextbox = form.querySelector("div.form__textbox > input");
+  const newTextbox = form.querySelector("div.form__textbox > textarea");
 
   const newObj = {
     id: "new id",
