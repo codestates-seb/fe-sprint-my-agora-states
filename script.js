@@ -82,9 +82,15 @@ form.addEventListener("submit", (event) => {
     bodyHTML:textBox.value,
     avatarUrl:"https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4"
   };
+
+
   agoraStatesDiscussions.unshift(newDate);
   while(ul.firstChild){
     ul.removeChild(ul.firstChild);
   }
   render(ul)
 })
+
+
+
+

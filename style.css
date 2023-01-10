@@ -67,7 +67,7 @@ form{
     width: 100%;
 }
 .form__input--wrapper input, textarea {
-    background-color: var(--pale-pink-200);
+    background-color:var(--purple);
 }
 .form__input--wrapper label {
     font-family: 'Courier New', Courier, monospace;
@@ -79,6 +79,7 @@ form{
     border: none;
     height: 45px;
     border-radius: 10px;
+    padding: 0 10px;
 }
 /* 입력폼 > 이름 */
 .form__input--name {
@@ -103,11 +104,17 @@ form{
     border-radius: 10px;
     height: 170px;
 }
+.form__input--wrapper textarea{
+    padding: 10px;
+} 
+.form__input--wrapper textarea::placeholder {
+    color: var(--dark-blue);
+  }
 /* 입력폼 > 버튼 */
 .form__submit {
     width: 60%;
     height: 70px;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .form__submit input {
     width: 100%;
@@ -119,9 +126,14 @@ form{
     font-weight: bold;
     background-color: var(--dark-blue);
     color: var(--strawberry);
+    transition: all 0.2s ease-in-out;
+}
+.form__submit input:hover{
+    cursor: pointer;
+    transform: scale(105%);
 }
 
-/* 댓글창 */
+/* 질문 */
 .discussion__wrapper{
     width: 50%;
     height: 650px;
@@ -134,10 +146,15 @@ form{
     overflow-x:hidden;
     overflow-y: scroll;
 }
+.discussion__wrapper::-webkit-scrollbar {
+    width: 1px;
+  }
+
 .discussions__container{
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
+    width: 100%;
 }
 .discussions__container > li {
     display: flex;
@@ -148,8 +165,11 @@ form{
     align-items: center;
     margin-bottom: 8px;
 }
+.discussions__container > li:hover{
+    background-color: var(--pale-pink-100);
+}
 
-/* 댓글창 > 이미지 */
+/* 질문 > 이미지 */
 .discussion__avatar--wrapper > img {
     object-fit: contain;
     width: 48px;
@@ -173,4 +193,7 @@ form{
     width: 50px;
     text-align: center;
     font-size: 1.2em;
+    color: var(--dark-blue);
 }
+
+/* 페이지 버튼*/
