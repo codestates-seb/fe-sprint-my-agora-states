@@ -1,11 +1,15 @@
 // 선언
 const btnSubmit = document.querySelector(".form__submit input");
-
+let myStorage = window.localStorage; // 로컬 스토리지
+let data = myStorage.getItem("items")
+  ? JSON.parse(myStorage.getItem("items"))
+  : agoraStatesDiscussions;
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
+// data.js가 먼저 로딩되었기 때문에 이 파일에서 해당 변수를 사용할수있다
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -23,7 +27,7 @@ const convertToDiscussion = (obj) => {
   // 아바타 이미지
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = obj.avatarUrl;
+  avatarImg.src = obj.avatarUrl; // TODO: 이미지 없는 경우 기본 이미지 넣도록 수정하기
   avatarImg.alt = `avatar of ${obj.author}`;
 
   // 디스커션 제목
@@ -55,7 +59,7 @@ const convertToDiscussion = (obj) => {
   const discussionAnsweredCheck = document.createElement("p");
   discussionAnsweredCheck.textContent = obj.answer
     ? obj.answer.author
-    : "답변없음";
+    : "답변없음"; // null 아니면 데이터 형태로 처리되는게 좋은 데이터
 
   avatarWrapper.append(avatarImg);
   discussionContent.append(discussionTitle, discussionInformation);
@@ -67,8 +71,13 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  // 만약 기존의 데이터가 있을 경우 초기화 하도록 함
+  while (element.hasChildNodes()) {
+    element.removeChild(element.lastChild);
+  }
+
+  for (let i = 0; i < data.length; i += 1) {
+    element.append(convertToDiscussion(data[i]));
     // 배열의 모든 요소 개수만큼 반복
     // 배열 인덱스번째의 객체가 convertToDiscussion의 매개변수가 된다.
   }
@@ -108,8 +117,19 @@ const addDiscussion = () => {
     // avatarUrl: 1,
   };
 
-  agoraStatesDiscussions.unshift(newObj);
-  ul.prepend(convertToDiscussion(newObj));
+  // advanced : 데이터 추가시 로컬 스토리지에 내용이 추가되어야 함
+  // 추가된 내용을 데이터 배열에 추가
+  // 새 데이터 배열 로컬스토리지에 셋팅
+  // 새로 셋팅된 데이터를 가져와서 렌터링
+  // agoraStatesDiscussions.unshift(newObj);
+  data.unshift(newObj);
+  myStorage.setItem("items", JSON.stringify(data));
+  render(ul);
+
+  // 추가 완료시 입력 내용 삭제
+  author.value = "";
+  title.value = "";
+  story.value = "";
 };
 
 btnSubmit.onclick = addDiscussion;
