@@ -320,9 +320,10 @@ form {
   height: 230px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   transform: scale(1.2);
+  margin-top: 10%;
 }
 
 .form__input--wrapper input {
@@ -334,6 +335,7 @@ form {
   font-family: 'Staatliches', cursive;
   box-shadow:rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   letter-spacing: 0.5px;
+  margin-bottom: 20px;
 }
 
 #name, #title {
