@@ -16,7 +16,9 @@ let pageBtn = document.querySelectorAll(".page--btn");
 const ul = document.querySelector("ul.discussions__container");
 
 let savedDiscussions = localStorage.getItem(STORAGE_KEY);
-let parsedDiscussions = JSON.parse(savedDiscussions);
+let parsedDiscussions = savedDiscussions
+  ? JSON.parse(savedDiscussions)
+  : agoraStatesDiscussions;
 
 let isDark = true;
 const darkBg = "dark--bg";
@@ -43,8 +45,12 @@ const pageBtnColor = "#2dcddf";
 const currentPageBtnColor = "#6C00FF";
 const numInfoSentence = "현재 Discussion 개수: ";
 
-const saveDiscussions = () => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(agoraStatesDiscussions));
+const saveDiscussions = (newDiscussion) => {
+  if (newDiscussion) {
+    parsedDiscussions.unshift(newDiscussion);
+  }
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedDiscussions));
 
   savedDiscussions = localStorage.getItem(STORAGE_KEY);
   parsedDiscussions = JSON.parse(savedDiscussions);
@@ -174,6 +180,8 @@ const pageRender = (element) => {
     element.append(convertToDiscussion(parsedDiscussions[i]));
   }
 
+  discussionNumInfo.textContent = `${numInfoSentence}${parsedDiscussions.length}개`;
+
   return;
 };
 
@@ -242,8 +250,8 @@ const handleSubmit = (event) => {
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   };
 
-  agoraStatesDiscussions.unshift(newDiscussion);
-  saveDiscussions();
+  // agoraStatesDiscussions.unshift(newDiscussion);
+  saveDiscussions(newDiscussion);
 
   if (parsedDiscussions.length % 10 == 1) {
     maxPage = Math.ceil(parsedDiscussions.length / showNum);
@@ -252,8 +260,6 @@ const handleSubmit = (event) => {
 
     pageBtnCheck();
   }
-
-  discussionNumInfo.textContent = `${numInfoSentence}${agoraStatesDiscussions.length}개`;
 
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
