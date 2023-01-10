@@ -2,7 +2,7 @@
 
 #### Github Page DEMO
 
-http://127.0.0.1:5500/index.html
+https://sangbeomheo.github.io/fe-sprint-my-agora-states/
 
 <br>
 
