@@ -86,9 +86,44 @@ const render = (element) => {
   return;
 };
 
+const render2 = (el) => {
+  for (let i = 0; i <noticeDiscussions.length; i += 1){
+    el.append(convertToNotice(noticeDiscussions[i]));
+  }
+}
+
+//convertNoticeDiscussions on the side
+const convertToNotice = (obj) => {
+  const li = document.createElement("li"); // li 요소 생성
+  li.className = "discussion__container"; // 클래스 이름 지정
+
+  const discussionContent = document.createElement("div");
+  discussionContent.className = "discussion__content";
+
+  //fill in discussion content
+  const disTitle = document.createElement('h2');
+  disTitle.className = "discussion__title";
+  const disInfo = document.createElement('div');
+  disInfo.className = "discussion__information2";
+  const disTitleLink = document.createElement('a');
+  disTitleLink.href = obj.url;
+  disTitle.append(disTitleLink);
+  disTitleLink.textContent = obj.title;
+  disInfo.textContent = obj.author;
+  discussionContent.append(disTitle, disInfo);
+
+  li.append(discussionContent);
+  return li;
+}
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const ul2 = document.querySelector("ul.notice__container");
+// render(ul2);
+
 
 
 //Event Listeners for form input
