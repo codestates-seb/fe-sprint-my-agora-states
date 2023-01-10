@@ -1,3 +1,4 @@
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -14,10 +15,41 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + agoraStatesDiscussions[0].author;
+  avatarWrapper.append(avatarImg);
+
+
+  const title = document.createElement('h2');
+  const a = document.createElement('a');
+
+  a.textContent = obj.title;
+  a.href = obj.url;
+
+  title.append(a);
+  discussionContent.append(title);
+
+  const time = Date(obj.createAt);
+
+  const information = document.createElement('div');
+  information.classList.add('discussion__information');
+
+  information.textContent = `${obj.author} / ${time.toLocaleLowerCase()}`;
+  title.append(information);
+
+
+  const check = document.createElement('div');
+  check.classList.add('discussion__answered')
+
+  if (obj.answer !== null) {
+    check.textContent = '☑';
+  }
+ 
 
 
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent, discussionAnswered,check);
   return li;
 };
 
@@ -31,4 +63,5 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
+
 render(ul);
