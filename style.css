@@ -1,1 +1,236 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Gowun+Batang:wght@700&family=Noto+Sans+KR:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Gowun+Batang:wght@700&family=Noto+Sans+KR:wght@500&family=Rubik+Bubbles&family=Single+Day&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Single Day', cursive;
+    
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-position: center;
+    background: url("https://user-images.githubusercontent.com/104641096/168153681-3de36068-1631-4ec2-a179-6ae02200edb1.jpg") no-repeat center;
+    background-size: cover;
+    list-style: none
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    border:1px solid red;
+    height: 100%;
+    width: 560px;
+    padding: 24px;
+    background: rgba(178, 191, 248, 0.15);
+  box-shadow: rgba(93, 163, 243, 0.4) 5px 5px, rgba(125, 157, 247, 0.3) 10px 10px, rgba(64, 109, 255, 0.2) 15px 15px, rgba(86, 59, 243, 0.1) 20px 20px, rgba(81, 91, 233, 0.05) 25px 25px;
+  backdrop-filter: blur( 0px );
+  -webkit-backdrop-filter: blur( 0px );
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+p {
+    font-size:25px;  
+}
+a{
+    font-size:15px; 
+    text-decoration: none;    
+}
+a:link {
+    color : rgb(15, 15, 15);
+    text-decoration: none;
+  }
+  a:visited {
+    color : black;
+    text-decoration: none;
+  }
+  a:hover {
+    color : rgb(0, 47, 255);
+    text-decoration: underline;
+  }
+  a:active {
+    color : green;
+    text-decoration: none;
+  }
+h1 {
+    font-size: 48px; color: #8bbcfc;
+    text-align: center;
+    font-family: 'Rubik Bubbles', cursive;
+}
+img{
+     align-items: center;
+    width: 48px;
+    border : 0.1px solid black;
+    border-radius : 100px;
+}
+/*-------------------------------------------------*/      
+.form{
+   
+    width:540px
+}
+.form__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#username{
+    display: flex;
+    height: 3vh;
+    width: 510px;
+    border: 2px solid  black;
+    border-radius: 10px;
+    
+}
+#titlename{
+    display: flex;
+    height: 3vh;
+    width: 510px;
+    border: 2px solid  black;  
+    border-radius: 10px;
+}
+#story{
+    display: flex;
+    height: 10vh;
+    width: 510px;
+    border: 2px solid  black;
+    border-radius: 10px;
+}
+/*-------------------------------------------------*/  
+#button {
+    width: 100%;
+    justify-content: center;
+    margin-top : 10px;
+    --glow-color: rgb(167, 199, 241);
+    --glow-spread-color: rgba(227, 226, 238, 0.781);
+    --btn-color: rgb(252, 250, 252);
+    border: .15em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+   }
+   
+   #button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+   #button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+   #button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
+
+   nav.page-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 40px 0 20px;
+  }
+  
+  nav.page-button-container button {
+    border: none;
+    padding: 6px 10px;
+    background: #b9cdf8;
+    border-radius: 30px;
+  }
+  
+  nav.page-button-container button:hover {
+    background-color: #54a6f3;
+    transform: scale(1.2);
+  }
+  
+ /*-------------------------------------------------*/  
+.discussion__wrapper{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.discussions__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.discussion__container{
+    margin-top: 10px;
+    height: 80px;
+    width: 540px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    background: rgba(243, 243, 255, 0.15);
+    box-shadow: rgba(8, 15, 31, 0.6) 2px 2px, rgba(137, 194, 247, 0.3) 6px 6px, rgba(91, 112, 233, 0.2) 8px 8px, rgba(69, 168, 214, 0.1) 10px 10px, rgba(240, 46, 170, 0.05) 14px 14px;
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 10px;
+    border: 5px solid rgba(17, 17, 17, 0.18);
+}
+
+.discussion__avatar--image{
+    align-items: center;
+    width: 48px;
+    border : 0.1px solid black;
+}
+.discussion__avatar--wrapper{
+    display: flex;
+    align-items: center;
+    flex:0 0 0;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+}
+.discussion__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 0 0;
+}
+
+.discussion__content > div{
+    font-weight: bold;
+    font-size: 12px;
+   
+}
+
+
