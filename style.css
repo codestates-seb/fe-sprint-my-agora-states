@@ -1,1 +1,172 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./images/question.jpg');
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.603);
+}
+
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+li {
+    list-style-type: none;
+}
+
+.registered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    color:rgb(51, 51, 51);
+    font-family: 'Lobster', cursive;
+    padding: 10px;
+}
+
+h1 {
+    height: 10px;
+    margin: 10px;
+    text-shadow: 0 0 5px #3d3d3d;
+}
+
+section.form__container {
+    margin: 20px;
+    padding: 30px;
+    text-align:center;
+}
+
+.form__input--name input {
+    width:300px;
+    height: 30px;
+    font-size:1.2rem;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px #3d3d3d;
+    font-family: 'Lobster', cursive;
+}
+
+.form__input--title input {
+    width:300px;
+    height: 30px;
+    font-size: 1.2rem;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px #3d3d3d;
+    font-family: 'Lobster', cursive;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+
+}
+
+textarea {
+    margin: 5px;
+    height: 20vh;
+    font-size: 1.2rem;
+    margin: 5px;
+    box-shadow: 0 0 10px #3d3d3d;
+    border-radius: 10px;
+    font-family: 'Lobster', cursive;
+}
+
+.form__submit input {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 15px;
+    border: 2px solid rgb(255, 255, 255);
+    margin : 20px;
+    box-shadow: 0 0 10px #3d3d3d;
+    font-family: 'Lobster', cursive;
+}
+
+.form__submit {
+    height: 10px;
+}
+
+.form__submit input:hover {
+    background-color: #818181;
+    box-shadow: 0 0 10px #3d3d3d;
+}
+
+.discussion__avatar--wrapper > img {
+    width: 70px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px #3d3d3d;
+}
+
+.discussion__wrapper {
+    width: auto;
+    height: 500px;
+    padding: 20px 20px;
+    overflow: scroll;
+}
+
+.discussion__container {
+    background-color: rgba(117, 117, 117, 0.747);
+    border-radius: 80px 40px 40px 80px;
+    width : 600px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 30px;
+    box-shadow: 0 0 10px #3d3d3d;
+}
+
+.discussion__content > :nth-child(1){
+    width: 350px;
+    height: 30px;
+    text-align: left;
+    margin: 10px;
+    font-family: 'GangwonEduPowerExtraBoldA';
+    font-size: 15px;
+    text-shadow: 0 0 5px #3d3d3d;
+}
+
+.discussion__content > :nth-child(2){
+    height: 30px;
+    text-align: left;
+    padding: 10px;
+    font-size: 10px;
+    text-shadow: 0 0 5px #3d3d3d;
+}
+
+.discussion__answered {
+    align-items: center;
+    font-size: 30px;
+    color: rgb(221, 221, 221);
+    text-shadow: 0 0 10px #3d3d3d;
+}
+
+a:link {
+    color: rgb(0, 0, 0);
+    text-decoration-line: none;
+}
+
+

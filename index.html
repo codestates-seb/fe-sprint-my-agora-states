@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -14,28 +17,29 @@
 
 <body>
   <main>
+    <div class="registered">
     <h1>My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" placeholder="Your name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" placeholder="Your title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <textarea id="story" name="story" placeholder="Your question" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="submit"></input>
         </div>
       </form>
     </section>
+  </div>
+
+  <div class="rist">
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -52,6 +56,7 @@
         </li>
       </ul>
     </section>
+  </div>
   </main>
 </body>
 <script src="data.js"></script>
