@@ -60,15 +60,20 @@ const convertToDiscussion = (obj) => {
   // obj.createdAt = obj.createdAt.replace('T', ' ').split('.')[0]
   discussionInfo.classList.add("discussion__information");
   discussionContent.append(discussionTitle, discussionInfo);
-  // const offset = 1000 * 60 * 60 * 9;
-  // const koreaTime = new Date(new Date().getTime + offset);
-  // obj.createdAt = koreaTime.toISOString().replace('T', ' ').split('.')[0];
-
-
+  
   // answered 달렸는지 안달렸는지 data.js 보고 추가
-  const discussionAnswer = document.createElement("p");
-  discussionAnswer.textContent = obj.answer === null? "🙅" : "👍"
+  const discussionAnswer = document.createElement("span");
+  discussionAnswer.textContent = obj.answer === null? 
+  "🏃 답변 기다리는 중"
+   : "👍 답변 완료"
+
+   if (obj.answer === null) {
+    discussionAnswer.classList.add("comment-null")
+   } else {
+    discussionAnswer.classList.add("comment-ok")
+   }
   discussionAnswered.append(discussionAnswer);
+
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;

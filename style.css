@@ -43,6 +43,10 @@ button{
     display: flex;
     justify-content: space-between;
 }
+.header {
+    display:flex;
+
+}
 .header-logo {
     width:7rem;
     height:auto;
@@ -251,11 +255,12 @@ ul.discussions__container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 3rem;
 }
 
 li.discussion__container {
-    width: 45%;
+    width: 48%;
     height: 18rem;
 
     cursor: pointer;
@@ -310,9 +315,23 @@ li div {
 
 .discussion__information {
     color: #7D8596;
+    margin-top:1.5rem;
 }
 .discussion__answered {
     flex-grow:0.3;
+    margin-top: 1.5rem;
+}
+.comment-ok {
+    color: #2464FB;
+    background-color: rgba(36, 100, 251, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+}
+.comment-null {
+    color: #7D8596;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
 }
 
 
