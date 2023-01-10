@@ -12,6 +12,34 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+////틀
+const avatarImg = document.createElement("img")
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = obj.author + "'s avatar"
+  avatarWrapper.append(avatarImg);
+  //// 아바타사진
+const disTitle = document.createElement("h2");
+const disTitleA = document.createElement("a");
+disTitleA.href = obj.url;
+disTitleA.textContent = obj.title;
+disTitle.append(disTitleA);
+discussionContent.append(disTitle);
+// 제목
+
+const disInfo = document.createElement("div");
+
+disInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
+discussionContent.append(disInfo);
+
+
+const checkPoint = document.createElement("p");
+
+checkPoint.textContent = obj.answer ? "☑︎" : "☒";
+discussionAnswered.append(checkPoint);
+
+
+
+
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
@@ -32,3 +60,34 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const submitObj = {
+    id: "unique id" + Math.round(Math.random() * 100000),
+    createdAt: new Date().toISOString(),
+    title: title.value, 
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/36",
+    author: author.value,
+    answer:null,
+    bodyHTML: textbox.value,
+    avatarUrl: "https://i.ytimg.com/vi/a3KJ2c2QmgM/maxresdefault.jpg"
+  }
+
+  agoraStatesDiscussions.unshift(submitObj);
+  const discussion = convertToDiscussion(submitObj);
+  ul.prepend(discussion);
+  
+  form.querySelector("div.form__input--name > input").value = "";
+  form.querySelector("div.form__input--title > input").value = "";
+  form.querySelector("div.form__textbox > textarea").value = "";
+
+});
+

@@ -1,1 +1,21 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url(https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/*font-family: 'Noto Sans KR', sans-serif;*/
+
+body{font-family: 'Noto Sans KR', sans-serif; display: flex; justify-content: center; align-items: center; font-size: 14px;}
+*{box-sizing: border-box; }
+
+
+
+
+
+
+
+
+li.discussion__container{display: flex; flex-flow:row wrap; justify-content: space-between; align-items: center;  width:540px;  height: 100px;}
+
+.discussion__avatar--wrapper>img{width:48px; border-radius: 50%; display: flex; align-items: center;}
+.discussion__content{display: flex; flex-flow:column wrap; justify-content: center; align-items: center;
+ height:100px; width:70%;}
+
+ .discussion__content>div{margin-top: 5px;}
