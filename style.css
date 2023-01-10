@@ -1,15 +1,15 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-ul {
-  list-style: none;
-}
 .test {
   border: 1px solid red;
 }
@@ -19,14 +19,16 @@ ul {
 }
 
 .discussion__wrapper {
-  /* border: 1px solid black; */
   display: flex;
+  justify-content: center;
 }
 
-.discussion__container {
-  border: 1px solid blue;
+li.discussion__container {
   display: flex;
   justify-content: space-between;
+  list-style: none;
+  border: 1px solid blue;
+
   width: 540px;
 }
 
