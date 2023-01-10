@@ -14,8 +14,37 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 아바타 프로필 사진이 들어갈 <img> 요소를 추가하기!
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  // 질문, 글쓴이, 날짜 요소를 추가하기!
+  const discussionTitle = document.createElement("h2"); //질문제목
+  const discussionTitletext = document.createElement("a"); //링크
+  discussionTitletext.href = obj.url;
+  discussionTitletext.textContent = obj.title;
+  discussionTitle.append(discussionTitletext);
 
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  //질문 글쓴이, 날짜 리터럴 선언
+  discussionInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleDateString()}`;
+  //질문 내용
+  discussionContent.append(discussionTitle, discussionInformation);
+
+  //체크박스 넣기 (답변이 있고 없음에 이모지 출력)
+  const answerCheckbox = document.createElement("p");
+  if (obj.answer === null) {
+    answerCheckbox.textContent = "🥺";
+  } else {
+    answerCheckbox.textContent = "😚";
+  }
+  discussionAnswered.append(answerCheckbox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;

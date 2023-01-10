@@ -1,1 +1,90 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 모든 요소에 border-box요소 넣기 */
+  font-family: "Unbounded", cursive;
+  background-color: rgb(237, 228, 224);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+h2 {
+  padding: 10px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.form__container {
+  border-radius: 20px;
+  height: 200px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid rgb(159, 135, 114);
+}
+
+.form__input--name {
+  margin: 20px;
+}
+
+.form__input--title {
+  margin: 20px;
+}
+
+.form__textbox {
+  margin: 20px;
+}
+
+li.discussion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between rgb(159, 135, 114);
+  border: 0.5px solid;
+  width: 540px;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  list-style-type: none;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: left;
+}
+
+a {
+  color: black;
+}
