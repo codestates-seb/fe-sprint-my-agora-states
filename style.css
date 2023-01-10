@@ -14,15 +14,48 @@ body {
 
 main {
 	width: 50vw;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
+
 .form {
 	display: flex;
 	justify-content: space-between;
+	border: 1px solid black;
+	
 }
+
+.form__input__wrapper {
+	display: flex;
+	flex-direction: column;
+
+}
+.form__input--name {
+	display: flex;
+	justify-content: space-between;
+}
+.form__input--title {
+	display: flex;
+	justify-content: space-between;
+}
+.form__textbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.form__submit {
+	margin-left: 10px;
+	flex-basis: 13%;
+}
+
+.form__submit input {
+	height: 100%;
+}
+
+
 
 .discussion__container {
 	display: flex;
@@ -49,5 +82,51 @@ main {
 }
 
 .discussion__answered p {
-	font-size: 2rem;
+	font-size: 1.5rem;
+}
+
+
+
+
+.pageUl {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+	border-radius: 50px;
+	border: 1px solid black;
+}
+
+.pageUl li {
+	list-style: none;
+	line-height: 30px;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 500;
+	cursor: pointer;
+	padding-top: 2px;
+}
+
+
+.pageUl li.numb {
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+} 
+
+.active {
+	background-color: orange
+}
+
+.pageUl li.btn {
+	background-color: orange;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.prev {
+	border-radius: 25px 5px 5px 25px;
+}
+.next {
+	border-radius: 5px 25px 25px 5px;
 }

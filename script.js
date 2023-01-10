@@ -28,25 +28,24 @@ const convertToDiscussion = (obj) => {
   titleLink.href = obj.url;
   titleLink.textContent = obj.title;
   title.append(titleLink);
+
+  const time = obj.createdAt;
   
   const info = document.createElement('div');
   info.classList.add('discussion__information');
-  info.textContent = `${obj.author} / ${obj.createdAt}`
+  info.textContent = `${obj.author} / ${time.slice(0, 10)} | ${time.slice(-9, -1)}`
   discussionContent.append(title, info);
 
   // 체크박스
   const checked = document.createElement('p');
-  checked.textContent = '☑';
+  checked.textContent = obj.answer ? '✅' : '❎';
   discussionAnswered.append(checked);
-/*
-  const checked = document.createElement('p').textContent('☑');
-  discussionAnswered.append(checked);
-*/
+  // 페이지네이션
+  
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
@@ -56,4 +55,42 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
+const pageul = document.querySelector('.pagingul');
+
 render(ul);
+/*
+let total = agoraStatesDiscussions.length;
+function paging(totalPages, page)  {
+  const ulTag = document.querySelector('.pageUl');
+  let liTag = '';
+  let activeli;
+  let beforPages = page-1;
+  let afterPages = page+1;
+  if(page>1) {
+    liTag += `<li class='btn prev' onclick="paging(total, ${page-1})"><span>&lt;Prev</span></li>`;
+  }
+
+  for(let pageLength = beforPages; pageLength<=afterPages; pageLength++) {
+    if(pageLength>totalPages) {
+      continue;
+    }
+    if(pageLength===0) {
+      pageLength = pageLength+1;
+    }
+    if(page===pageLength) {
+      activeli = "active";
+    } else {
+      activeli = "";
+    }
+    liTag += `<li class='numb ${activeli}'><span>${pageLength}</span></li>`;
+  }
+
+  if(page < totalPages) {
+    liTag += `<li class='btn next' onclick="paging(total, ${page+1})"><span>Next&gt</span></li>`;
+  }
+  ulTag.innerHTML = liTag;
+ 
+}
+paging(total, 5);*/
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+
