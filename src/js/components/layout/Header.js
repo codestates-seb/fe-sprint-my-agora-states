@@ -41,7 +41,8 @@ export default function Header($app, initialState) {
             !this.state.userId
               ? `<button class="btnList__signIn">SIGN IN</button>
           <button class="btnList__signIn">SIGN UP</button>`
-              : `<button class="btnList__signIn">LOG OUT</button>`
+              : `<div class='btnList__userId'>${this.state.userId}님</div>
+              <button class="btnList__signIn">LOG OUT</button>`
           }
           </section>
         </header>
