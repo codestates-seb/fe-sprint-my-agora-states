@@ -28,7 +28,7 @@ let rows = 10; //한 목록에 보여줄 아이템
 
 let firstPage = 1;  // 처음 펲이지
 
-function displayList(items, wrapper, rows_per_page, page){  // 화면에 렌더링 함수
+function displayList(items, wrapper, rows_per_page, page){  // 화면에 렌더링 함수 (렌더링 할 요소, 어디에 append 할건지, 한 페이지에 표시할 디스커션 개수, 현재 페이지)
   wrapper.innerHTML = '';
   page--; // 배열 0부터 돌아야되니까 -- 해주기
 
@@ -312,7 +312,6 @@ function draw() {
   
  
     anim = window.requestAnimationFrame(draw);
-
 }
 
 // canvas 초기화함수
@@ -323,15 +322,15 @@ function clear() {  // 매 호출 시 캔버스를 비워준다.
 
 // 공 그려주는 함수
 function ball(x, y, r) {
-  let img = new Image();
+  let img = new Image();  //이미지 생성
   img.src = './images/cinnamon.png';
   ctx.fillStyle = "white";
-  ctx.beginPath();
-  ctx.arc(x, y, r, 0, Math.PI * 2, true);
+  ctx.beginPath();  // 그리기 시작
+  ctx.arc(x, y, r, 0, Math.PI * 2, true); // 공 그리기
   ctx.closePath();
   ctx.fill();
 
-  ctx.drawImage(img, x-80, y-80, 160, 160);
+  ctx.drawImage(img, x-80, y-80, 160, 160); // 이미지 그리기
 }
 
 
