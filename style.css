@@ -40,7 +40,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(247, 247, 239);
+  background-color: rgb(241, 241, 208);
 }
 main {
   border: 3px solid;
@@ -53,20 +53,31 @@ main {
 
 h1 {
   font-family: 'HSGooltokki';
-  font-size: 40px;
+  color:#e3b2df;
+  font-size: 70px;
   font-weight: bold;
   margin-top: 50px;
   text-align: center;
   margin-bottom: 20px;
   /* padding-top: 50px; */
-  animation: blink-effect 2s step-end infinite;
+  animation: blink-effect 3s step-end infinite;
+  border: 3px solid;
+  
+
 }
+
+h1 .text {
+  -ms-transform: rotate(350deg); 
+  -webkit-transform: rotate(350deg); 
+  transform: rotate(350deg);
+}
+
 
 @keyframes blink-effect { 70% { opacity: 0; } }
 
 section.form__container {
   flex:2;
-  margin:10px;
+  margin:40px;
 }
 section.discussion__wrapper{
   display: flex;
@@ -81,6 +92,7 @@ form {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border: 3px solid;
 }
 
 
@@ -93,10 +105,10 @@ form > div:first-of-type {
 
 form > div:nth-of-type(4) {
   /* margin-top: 20px; */
-  padding-top: 28px;
-  padding-left: 10px;
+  padding-top: 25px;
+  padding-left: 5px;
   flex-basis: 30px;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .form__input--wrapper {
@@ -104,7 +116,7 @@ form > div:nth-of-type(4) {
   display: flex;
   flex-direction: column;
   transition: 3s;
-  margin-left: 15px;
+  /* margin-left: 15px */
 }
 
 .form__input--name,
@@ -113,14 +125,14 @@ form > div:nth-of-type(4) {
   flex:1;
   width:400px;
   margin: 3px;
-  box-shadow: 3px 3px 3px rgb(0, 0, 0);
-  transition-duration: 0.2s;
+  box-shadow: 3px 3px 3px rgb(255, 0, 0);
+  transition-duration: 0.3s;
   
 }
 .form__input--wrapper input {
   width:400px;
   height: 30px;
-  font-size:1.2rem;
+  font-size: 20px;
   font-family: 'Humanbumsuk';
   border:0px; 
   outline-style: none;
@@ -128,36 +140,36 @@ form > div:nth-of-type(4) {
 
 }
 .form__input--wrapper input:hover {
-  background-color: #cac8ca;
+  background-color: #f2d7f2;
   transition: 0.5s;
 }
 .form__input--wrapper textarea {
   width:400px;
   height: 100px;
-  font-size:1.2rem;
+  font-size: 20px;
   font-family: 'Humanbumsuk';
   border:0px;
   outline-style: none;
 }
 .form__input--wrapper textarea:hover {
-  background-color: #cac8ca;
+  background-color: #f2d7f2;
   transition: 0.5s;
 }
 
 .form__submit {
-  flex-basis:50px;
+  flex-basis:60px;
   margin:3px;
 }
 .form__submit input {
-  margin-top: 3px;
+  margin-top: 28px;
   cursor: pointer;
   width:100px;
-  height: 175px;
+  height: 170px;
   font-family: 'Humanbumsuk';
   font-weight:bolder;
-  font-size: 1.1rem;
+  font-size: 17px;
   background-color: #e3b2df;
-  box-shadow: 2px 2px 2px rgb(0, 0, 0, .5);
+  box-shadow: 2px 2px 2px rgb(255, 0, 0);
   transition-duration: 0.3s;
   color:white;
   margin-right: 15px;
@@ -187,11 +199,11 @@ li.discussion__container {
   display: flex;
   flex-direction: row;
   list-style-type: none;
-  border: 0.5px solid rgb(176, 175, 175);
-  width:630px;
-  flex:1;
+  border: 0.5px solid rgb(239, 226, 226);
+  width: 630px;
+  flex: 1;
   margin:10px;
-  box-shadow: 3px 3px 3px rgb(0, 0, 0, .5);
+  box-shadow: 3px 3px 3px rgb(0, 255, 0, .5);
   border-radius: 10px;
 }
 
@@ -255,7 +267,7 @@ div.discussion__answered {
 }
 .discussion__answered > p {
   font-size: 35px;
-  color:#43c27e;
+  color:#7aedb0;
 }
 
 .discussion__answered > p:hover {
