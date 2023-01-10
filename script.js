@@ -21,8 +21,11 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(face); // avatarWrapper 의 자식으로 face 추가
   face.src = obj.avatarUrl; // face의 링크로 avatarUrl를 가져옴.
   face.alt = "avatar of" + obj.author; //해당 프로필의 이름으로 
+<<<<<<< HEAD
   face.title = obj.id; // 마우스 오버 하면 작성자의 아이디
 
+=======
+>>>>>>> 8d8c255502fd364f0dd40cd907ff54e56611561c
 
   // 질문의 제목과 질문페이지로의 링크
   // 예) <a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a>
@@ -34,7 +37,11 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(questionTitle);
 
 
+<<<<<<< HEAD
   // 저자, 생성일을 함께 작성
+=======
+  // 질문자의 닉네임 , 작성 날짜
+>>>>>>> 8d8c255502fd364f0dd40cd907ff54e56611561c
   // 예) <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
   // 
   const time = document.createElement("div");
