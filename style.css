@@ -1,1 +1,331 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    src: url("fonts/LABdigital.ttf");
+    font-family: "digital";
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    /* font-family: 'Monoton', cursive; */
+    /* font-family: 'Silkscreen', cursive; */
+    font-family: 'digital';
+    font-weight: 100;
+    color: white;
+}
+
+
+
+
+
+/* body */
+body{
+    width: 100%;
+    /* height: 150vh; */
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+/* main */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2% 0;
+    position: relative;
+}
+
+
+
+
+
+/* userInputContainer */
+section.userInputContainer{
+    height: 20rem;
+    width: 50%;
+    min-width: 40rem;
+    /* background-color: gray; */
+    /* backdrop-filter: blur(10px); */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+
+
+
+/* form */
+form.form{
+    width: 100%;
+    padding: 3% 3%;
+}
+
+div.formInput{
+    width: 100%;
+    height: 100%;
+}
+
+div.inputForm{
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    margin: 1rem 0;
+}
+
+label{
+    line-height: 3rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+label:last-child{
+    line-height: 5rem !important;
+}
+
+.inputForm:last-child{
+    height: 5rem;
+}
+
+input{
+    width: 50%;
+    height: 100%;
+    transition: 0.3s;
+    background: rgba(68, 178, 73, 0.3);
+    padding-left: 1%;
+}
+
+input::placeholder{
+    font-size: 1rem;
+    color: silver;
+}
+
+input:focus{
+    transform: scale(1.09);
+}
+
+
+/* submit */
+.submitBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.submitBtn input{
+    width: 30%;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submitBtn input:hover{
+    transform: scale(1.09);
+}
+
+textarea{
+    width: 50%;
+    transition: 0.3s;
+    background: rgba(68, 178, 73, 0.3);
+    padding: 1% 0 0 1%;
+    font-size: 1rem;
+}
+
+textarea::placeholder{
+    color: silver;
+}
+
+textarea:focus{
+    transform: scale(1.09);
+}
+
+
+
+
+
+/* arrowBox */
+div.arrowBox{
+    display: inline-block;
+    position: absolute;
+    left: 49%;
+    transform: translate(-50%,16rem);
+    margin-left: 0.8rem;
+    text-align: center;
+    animation: arrow_down 1.5s infinite;
+    height: 5rem;
+    z-index: 100;
+}
+
+.scrollArrow {
+    width:1.5rem; 
+    height:1.5rem; 
+    border-right: 3px solid white; 
+    border-bottom: 3px solid white;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    animation: arrow-wave 1s infinite;
+    animation-direction: alternate;
+  }
+  .scrollArrow:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .scrollArrow:nth-child(2) {
+    margin-top:6px; animation-delay: 0.2s;
+  }
+  .scrollArrow:nth-child(3) {
+    margin-top:6px; animation-delay: 0.3s;
+  }
+  @keyframes arrow-wave {
+  0% {opacity: 0;}
+  50% {opacity: .5;}
+  100% {opacity: 1;}
+  }
+  @keyframes arrow_down{
+  0%{top:28px;}
+  50%{top:40px;}
+  100%{top:28px;}
+}
+
+
+
+
+
+/* communityContainer */
+section.communityContainer{
+    width: 50%;
+    min-width: 40rem;
+    margin-top: 6%;
+    /* height: 80%; */
+}
+
+ul.commentContainer{
+    height: 90%;
+    /* overflow: hidden; */
+}
+
+li.commentContainer{
+    height: 7rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: end;
+    border: double 7px #44B249;
+    border-radius: 30px;
+    background: linear-gradient(-45deg,#0F2027, #203A43, #2C5364);
+    background-size: 400% 400%;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px #06F379;
+    animation: boxNeon 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+    transition: 0.5s ;
+    cursor: pointer;
+}
+
+@keyframes boxNeon{
+    0%{box-shadow: 0 0 0px #06F379;}
+    50%{box-shadow: 0 0 20px #06F379;}
+    100%{box-shadow: 0 0 0px #06F379;}
+}
+
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
+li.commentContainer:hover{
+    transform: scale(1.1);
+}
+
+li.commentContainer img{
+    width: 70px;
+}
+
+div.comment{
+    width: 60%;
+    word-break: break-all;
+    text-align: center;
+}
+
+h2.commentTitle{
+    font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+h2.commentTitle a{
+    font-weight: 800;
+}
+
+div.commentInformation{
+    margin-top: 5%;
+}
+
+div.answeredAllBox{
+    width: 10%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.commentAnswered img{
+    width: 1rem;
+}
+
+button.answerBtn{
+    background-color: rgba(68, 178, 73, 0.3);
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+
+
+
+
+/* pageBox  */
+.pageBox{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 3rem;
+}
+
+.pageBtn{
+    height: 100%;
+    width: 3rem;
+    border-radius: 10px;
+    background-color: rgba(68, 178, 73, 0);
+    cursor: pointer;
+    font-size: 2rem;
+    color: #06F379;
+}
+
+
+
+/* canvas */
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -99;
+}
+
