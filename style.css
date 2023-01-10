@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -10,6 +9,27 @@ body {
         background-size: 400% 400%;
         animation: gradient 10s ease infinite;
         
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Oneprettynight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @keyframes gradient {
@@ -30,6 +50,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid black;
 }
 
 ul {
@@ -45,40 +66,45 @@ header .h1__title {
     
 }
 
-form {
+
+#name {
+    width: 250px;
+    height: 30px;
+    border: 2px solid black;
     display: flex;
+}
+
+#name:focus {
+    border: 0px;
+    outline: 2px solid black;
+}
+
+#story {
+    height: 60px;
+    border: 2px solid black;
+}
+
+#story:focus {
+    border: 0px;
+    outline: 2px solid black;
+}
+
+.form{
+    height: 34vh;
+    margin: 15px 0px;
+    border-radius: 13px;
+    padding: 10px 20px;
 }
 
 .form__textbox {
     display: flex;
     flex-direction: column;
-    
+    margin-top: 10px;
+
 }
 
-#name {
-    width: 200px;
-    height: 30px;
-    border: 3px solid black;
-    display: flex;
-}
-
-
-
-#story {
-    width: 270px;
-    height: 50px;
-    border: 3px solid black;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    height: 32vh;
-    justify-content: center;
-    margin: 15px 0px;
-    border: 4px solid black;
-    border-radius: 13px;
-    padding: 10px 20px;
+.form__input--title {
+    margin-top: 10px;
 }
 
 .form__submit {
@@ -125,6 +151,7 @@ form {
 
 .discussion__answered {
     flex: 1;
+    font-size: 1.5em;
 }
 
 .discussion__avatar--image {  
@@ -135,10 +162,23 @@ form {
 
 .discussion__information {
     text-align: end;
+    font-family:'Cafe24Oneprettynight';
+    
 }
 
 a {
     text-decoration: none;
-    font-size: 0.7em;
-    color: black;
+    font-size: 0.8em;
+    color: rgb(79 82 84);
+    font-family: 'GangwonEdu_OTFBoldA';
+
+}
+
+a:hover {
+    color: purple;
+}
+
+
+label {
+    font-family: 'LINESeedKR-Bd';
 }
