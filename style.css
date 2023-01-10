@@ -243,7 +243,6 @@ main {
     color: white;
     font-size: 0.8em;
     border: none;
-    /* height: 100%; */
 }
 
 #submit:disabled {
@@ -274,6 +273,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-content: center;
     width: 100%;
     padding: 0 10px 20px 0;
     align-items: stretch;
@@ -414,7 +414,7 @@ input:focus::-webkit-input-placeholder {
     flex-basis: 15%;
     /* flex-grow: 1; */
     /* width: 15%; */
-    height: 2.5em;
+    height: 100%;
     border-radius: 20px;
     background-color: #b92b27;
     color: white;
