@@ -1,34 +1,78 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+function render(ul, lis) {
+  ul.innerHTML = lis;
+}
 
-  const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
+const ul = document.querySelector(".discussions__container");
+const li = document.createElement('li')
+let lis = "";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+for (const data of agoraStatesDiscussions) {
+  const { avatarUrl, createdAt, title, url, author, answer } = data;
+
+  li.setAttribute('class', 'discussion__container')
+
+  const template = `
+    <li class="discussion__container">
+      <div class="discussion__avatar--wrapper">
+        <img class="discussion__avatar--image"
+          src="${avatarUrl} "
+          alt="${author}">
+      </div>
+      <div class="discussion__content">
+        <h2 class="discussion__title"><a href="${url}">${title}</a></h2>
+        <div class="discussion__information">
+          <p class="dis_info_name">${author}</p>
+          <p class="dis_info_date">${createdAt}</p>
+        </div>
+      </div>
+      <div class="discussion__answered"><p>${
+        "check icon"
+      }</p></div>
+    </li>
+  `;
+
+  lis += template;
+}
+
+render(ul, lis);
 
 
+let submitName = document.getElementById('name');
+let submitTitle = document.getElementById('title');
+let story = document.getElementById('story');
+let today = new Date();
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
-};
+document.getElementById('submitBtn').onclick = function () {
+  console.log(submitName.value);
+  
+  
+  const aaa = `
+    <li class="discussion__container">
+    <div class="discussion__avatar--wrapper">
+    <img class="discussion__avatar--image"
+    src="defaultImg"
+    alt="${submitName.value}">
+    </div>
+    <div class="discussion__content">
+    <h2 class="discussion__title"><a href="#">${submitTitle.value}</a></h2>
+    <div class="discussion__information">
+    <p class="dis_info_name">${submitName.value}</p>
+    <p class="dis_info_date">${today}</p>
+    </div>
+    </div>
+    <div class="discussion__answered"><p>${
+      "check icon"
+    }</p></div>
+    </li>
+    `;
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+  li.innerHtml = aaa;
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+  li.append(aaa);
+}
+
+//submit을 눌렀을 때, 
+//#id, #name, #story의 내용을 li에 push한다.
+//텍스트 내용을 가져오는 함수
+//li에 push하는 함수
