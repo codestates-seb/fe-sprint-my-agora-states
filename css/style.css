@@ -62,10 +62,63 @@ main {
     flex-direction: column;
     align-items: center;
     color: var(--color-white);
+    width: 100%;
+    margin: 0 30px;
 }
 .form__header > h1 {
     font-size: var(--font-large);
     font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form__container {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    justify-content: space-between;
+    /* height: 180px; */
+    margin-bottom: 10px;
+}
+label {
+    margin-bottom: 8px;
+}
+
+.form__input-name-title{
+    height: 100px;
+    flex-basis: 1;
+    width: 200px;
+}
+.form__input--name, .form__input--title {
+    display: flex;
+    flex-direction: column;
+    /* margin: 10px 0; */
+}
+
+.form__input--name{
+    margin-bottom: 10px;
+}
+
+.form__submit {
+    flex-basis: 1;
+
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1;
+    width: 250px;
+}
+textarea#story {
+    height: 80px;
+}
+
+#targetBtn {
+    height: 100%;
+    border-radius:8px;
 }
 
 li {
@@ -74,6 +127,7 @@ li {
 
 .discussion__wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: var(--discussion-size);
 }
@@ -112,7 +166,35 @@ li {
     /* padding: 5px; */
 }
 
-.discussion__answered {
-    /* display: flex; */
-    /* align-self: flex-end; */
+/* 페이지네이션 */
+.pagenation__Nav {
+    display: inline-flex;
+    padding: 1rem 0;
+    justify-content: center;
+}
+
+.pagenation__Btn{
+    width: 60px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.hover, .active{
+    background-color: var(--color-blue);
+    transition: 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.prev {
+    position: absolute;
+    left: -2.5rem;
+}
+
+.next {
+    position: absolute;
+    right: -2.5rem;
 }

@@ -1,8 +1,37 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+console.log(agoraStatesDiscussions.length);
+
+function InputInform(name,title,story) {
+  this.id = name;
+  this.author= name;
+  this.createdAt = new Date().toLocaleTimeString();
+  this.title = title;
+  this.story = story;
+  this.avatarUrl = "https://avatars.githubusercontent.com/u/50021232?v=4";
+}
+{
+// 홍식님 notice 일자 수정
+// const default__inform = document.querySelector(".discussion__information");
+// const default__date = new Date('2022-04-22T14:08:33Z').toLocaleTimeString();
+
+const hongObj = {
+  id : 'kimploo',
+  author : 'kimploo',
+  createdAt : new Date('2022-04-22T14:08:33Z').toLocaleTimeString(),  
+  // createdAt : '으아아',  
+  title : '[notice] 좋은 질문하는 법',
+  // story : story,
+  avatarUrl : "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+}
+console.log(hongObj.createdAt);
+
+agoraStatesDiscussions.unshift(hongObj);
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj,index) => {
+
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -43,7 +72,8 @@ const convertToDiscussion = (obj,index) => {
   const informUser = document.createElement('span');
   const informDate = document.createElement('span');
   informUser.textContent = agoraStatesDiscussions[index].author;
-  informDate.textContent = agoraStatesDiscussions[index].createdAt;
+  // informDate.textContent = agoraStatesDiscussions[index].createdAt;
+  informDate.textContent = new Date(agoraStatesDiscussions[index].createdAt).toLocaleTimeString();
   
   const informText = `${informUser.textContent} / ${informDate.textContent}`;
   discussionContent.append(informText);
@@ -68,6 +98,10 @@ const convertToDiscussion = (obj,index) => {
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i],i));
+    // console.log(i);
+    if(i === agoraStatesDiscussions.length - 1) {
+      let debug = true;
+    }
   }
   return;
 };
@@ -84,15 +118,6 @@ render(ul);
 // convertToDiscussion(0번째 인덱스, 인덱스 값:0)으로 새 li 생성
 // ul에 새 li prepend
 // 텍스트(.value)를 초기화 = ''
-
-function InputInform(name,title,story) {
-  this.id = name;
-  this.author= name;
-  this.createdAt = new Date().toLocaleTimeString();
-  this.title = title;
-  this.story = story;
-  this.avatarUrl = "https://avatars.githubusercontent.com/u/50021232?v=4";
-}
 
 const submitBtn = document.querySelector('.form');
 
@@ -111,3 +136,4 @@ submitBtn.addEventListener('submit', (e) => {
 
   storyText.value = titleText.value = nameText.value = '';
 });
+
