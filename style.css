@@ -3,6 +3,42 @@
     margin:0;
     padding: 0;
 }
+
+.form__input--wrapper{
+    background-color: #0f5e6f;
+    padding: 5px;
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.form__container{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.form__submit{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+body{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: #f2deba;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+  
+}
+section{
+    background-color: #ffefd6;
+    padding: 10px;
+    margin: 10px;
+}
 .discussions__container{
     list-style: none;
     padding-left: 0;
@@ -10,11 +46,14 @@
     
 }
 li{ /*실질적 컨테이너*/
-    width: 540px;
+    width: 600px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    background-color: #0f5e6f;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin: 5px;
 }
 .discussion__avatar--wrapper{
     display: flex;
@@ -24,16 +63,37 @@ li{ /*실질적 컨테이너*/
 img{
     border-radius: 50%;
     width: 48px;
+    margin-right: 10px;
+}
+h2{
+    white-space:pre-line;
+    display: flex;
+    
 }
 .discussions__content{
+    padding-left: 0px;
     float: right;
+    width: 480px;
+
 }
 .discussion__answered{
-    font-size: 20px;
+    text-align: center;
+    font-size: 13px;
+    background-color: #3b8891;
+    height: 10%;
+    width: 5.5%;
+    color: whitesmoke;
+}
+a{
+    color: #f2deba;
+    white-space: pre-wrap;
 }
 .discussion__information{
-    font-size: 7px;
+    width: 440px;
+    margin-top: 2em;
+    font-size: 9px;
     text-align: right;
+    color: #f2deba;
 }
 
 
