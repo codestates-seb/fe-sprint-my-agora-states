@@ -34,7 +34,7 @@ export default function Header($app, initialState) {
     const html = `
         <header class="header">
           <h1 class="header__title">
-            <a href="https://crowwan.github.io/fe-sprint-my-agora-states/"> AGORASTATES</a>
+            <a href="./fe-sprint-my-agora-states/"> AGORASTATES</a>
           </h1>
           <section class="btnList">
           ${
