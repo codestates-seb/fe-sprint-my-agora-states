@@ -1,1 +1,104 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Nanum Myeongjo', serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(doge_gold.jpg);
+}
+li.discussion__container{
+    width: 540px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+/* 사진 */
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 70%;
+    overflow: hidden;
+    width: 48px;
+    height: 48px;
+}
+
+/* 질문 & 날짜 */
+.discussion__content{
+    display: block;
+    /* flex-direction : column;
+    align-items: row; */
+    /* flex-direction : column;
+    justify-content: space-between;
+    align-items: flex-end; */
+}
+/* 질문 */
+.discussion__content >:nth-child(1){
+    text-align: left;
+    width: 440px;
+}
+h2{
+    font-size: 15px;
+    padding: 5px 0 0 5px;
+    color: black;
+}
+/* 날짜 */
+.discussion__content >:nth-child(2){
+    text-align: right;
+    height: 10px;
+}
+.discussion__information{
+    size: 5px;
+} 
+/* 체크박스 */
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 제목 */
+h1{
+    text-align: center;
+}
+/* 폼 */
+/* .form{
+    display: flex;
+} */
+.form__input--wrapper{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+}
+.form__input--name{
+    padding-bottom: 13px;
+}
+.form__input--title{
+    padding-bottom: 13px;
+}
+.form__textbox{
+    display: flex;
+    padding-bottom: 13px;
+}
+.form__submit{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+}
+
+.form__submit input{
+    border: 1px solid black;
+    color: black;
+    padding: 5px;
+}
+
