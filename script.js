@@ -38,13 +38,12 @@ const convertToDiscussion = (obj) => {
 
   //답변 여부
   const discussionCheck = document.createElement("p");
-  if (obj.answer) {
-    discussionCheck.textContent = "☑";
-  } else {
-    discussionCheck.textContent = "☐";
-  }
+  obj.answer
+    ? (discussionCheck.textContent = "☑")
+    : (discussionCheck.textContent = "☐");
   discussionAnswered.append(discussionCheck);
 
+  li.id = obj.id;
   li.append(avatarWrapper, discussionContent, discussionAnswered);
 
   return li;

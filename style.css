@@ -11,6 +11,76 @@ main {
   align-items: center;
 }
 
+/*모달 뒷 배경 설정*/
+.form__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+/* 모달 설정 */
+.form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 400px;
+  height: 400px;
+
+  padding: 10px;
+
+  text-align: center;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.form__input--wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.form__input--name {
+  flex: 1;
+}
+.form__input--title {
+  flex: 1;
+}
+.form__textbox {
+  flex: 3;
+}
+
+/* 글쓰기 버튼 */
+.btn__container {
+  width: 540px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-input {
+  display: flex;
+  justify-content: end;
+}
+
+.close-area {
+  display: flex;
+
+  justify-content: end;
+}
+
+.close-btn {
+  border: none;
+}
+
 /* 의견container 설정 */
 .discussion__container {
   display: flex;
@@ -48,4 +118,8 @@ main {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+.hide {
+  display: none;
 }
