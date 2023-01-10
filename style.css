@@ -19,33 +19,33 @@ body{
   height: 100vh;
 }
 
-
-
-/* .bd1{
+.bd1{
   position: absolute;
-  height: 720px;
-  width: 370px;
-  border: 20px solid rgb(20, 20, 20);
-  border-radius: 30px;
+  height: 723px;
+  width: 363px;
+  border: 20px solid rgb(0, 0, 0);
+  border-radius: 40px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 1);
   z-index: 1;
-} */
+}
 .bd2{
   position: absolute;
-  height: 730px;
-  width: 380px;
-  border: 20px solid rgb(40, 40, 40);
-  border-radius: 35px;
+  height: 745px;
+  width: 385px;
+  border: 30px solid rgb(60, 60, 60);
+  border-radius: 50px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
 }
+
 
 /* 배경화면 */
 main{
   position: relative;
   z-index: 2;
-  height: 700px;
+  height: 710px;
   width: 350px;
-  border: 10px solid black;
   overflow-y: scroll;
-  border-radius: 25px;
+  border-radius: 35px;
   background-image: url('img/bg.jpg');
   background-size: cover;
   background-position: center;
@@ -53,63 +53,193 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  transition: 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.27) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.25) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.2) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.16) 0px 2px 1px, rgba(0, 0, 0, 0.19) 0px 4px 2px, rgba(0, 0, 0, 0.19) 0px 8px 4px, rgba(0, 0, 0, 0.19) 0px 16px 8px, rgba(0, 0, 0, 0.19) 0px 32px 16px;
+  /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
 }
-
-
 
 /* 스크롤바 */
 ::-webkit-scrollbar {
   display: none;
   }
 
+/* 글적는 폼-------------------------------------------------- */
 
-/* -------------------------------------------------- */
-
+/* 글 적는 폼 */
 .form__container{
   display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
+.form__container .discussion__container{
+  background-color: white;
+  width: 330px;
+  height: 100px;
+}
+
+.form__container .discussion__info, .form__container .discussion__title{
+  border: none;
+  outline:none;
+  background-color: rgba(238, 238, 238, 0.8);
+  width: 200px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.form__container .discussion__title{
+  height: 50px;
+}
+
+/* 탑 -------------------------------------------------- */
+
+/* 시계박스 */
 .title__container{
+  position: relative;
   width: 320px;
-  border: 3px solid red;
-  height: 300px;
+  height: 250px;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* -------------------------------------------------- */
+/* 카메라 */
+.camera1, .camera2{
+  position: fixed;
+  top: 165px;
+  width: 170px;
+  height: 12px;
+  background-color: black;
+  z-index: 1;
+}
 
+/* 카메라 */
+.camera2{
+  height: 30px;
+  top: 165px;
+  border-radius: 15px;
+}
+
+
+/* 날짜와 시간*/
+.date{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 날짜 */
+.day{
+  color: #fff;
+  font-size: 16px;
+}
+
+/* 시간 */
+.clock{
+  color: #fff;
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+/* 중간 -------------------------------------------------- */
+
+/* 알림센터 */
+.center{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 320px;
+  height: 40px;
+  padding-left: 7px;
+}
+
+/* 알림센터 문구 */
+.notification{
+  font-size: 16px;
+  color: #eee;
+}
+
+/* 삭제 버튼 */
+.delete__button, .form__button{
+  color: rgba(40, 40, 40, 0.5);
+  font-size: 12px;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  background-color: rgba(238, 238, 238, 0.8);
+  cursor: pointer;
+}
+
+/* 글쓰기 버튼 */
+.form__button{
+  width: 100px;
+  margin-right: 5px;
+}
+
+/* 바텀 -------------------------------------------------- */
 
 /* 기능박스 */
 .discussion__wrapper{
-  border: 3px solid blue;
   width: 320px;
   height: 400px;
+}
+
+
+/* 기능 리스트 박스 */
+.discussion__container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(238, 238, 238, 0.8);
+  border-radius: 20px;
+  margin-bottom: 6px;
+  padding: 11px;
+  cursor: pointer;
 }
 
 /* 이미지 */
 .discussion__avatar--image{
   border-radius: 50%;
-  width: 20px;
+  width: 33px;
+  border: 1px solid #aaa;
 }
 
-/* 기능 리스트 박스 */
-.discussion__container{
+/* 이름 날짜 */
+.discussion__info{
   display: flex;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  margin-bottom: 20px;
-  padding: 10px;
 }
 
+/* 내용 */
 .discussion__title{
-  margin:  0;
+  display: block;
+  font-size: 10px;
+  margin-right: 20px;
+  margin-top: 2px;
 }
 
 .discussion__content{
-  flex: 1;
+  width: 100%;
+  margin-left: 10px;
 }
 
-.discussion__answered{  
+.discussion__name{  
+  font-size: 11px;
+  font-weight: bold;
 }
+
+.discussion__createdAte{
+  color: rgba(40, 40, 40, 0.4);  
+  font-size: 11px;
+}
+
 

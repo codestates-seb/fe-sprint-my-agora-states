@@ -30,27 +30,22 @@ const convertToDiscussion = (obj) => {
   title.href = obj.url;
   title.className = 'discussion__title';
 
-  //정보
+  //이름
   const name = document.createElement('div');
   name.textContent = obj.id;
   name.className = 'discussion__name';
 
+  //작성일
   const createdAt = document.createElement('div');
-  createdAt.textContent = obj.createdAt;
+  createdAt.textContent = obj.createdAt.substr(0,4);
   createdAt.className = 'discussion__createdAte';
   
-  // //내용
-  // const content = document.createElement('div');
-  // content.textContent = obj.bodyHTML;
+  const info = document.createElement('div');
+  info.className = 'discussion__info';
 
-  discussionContent.append(name, title, createdAt)
 
-  //체크
-  // const answered = document.createElement('p')
-  // answered.textContent = '☑';
-  // answered.className = 'discussion__answered';
-  // discussionAnswered.append(answered)
-
+  discussionContent.append(info, title)
+  info.append(name, createdAt)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -66,4 +61,8 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
+
+
 render(ul);
+
+
