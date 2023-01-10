@@ -1,1 +1,422 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e8e8;
+}
+
+main {
+    width: 560px;
+    height: 860px;
+    border-radius: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 50px;
+    padding-bottom: 0;
+    margin: 50px;
+
+    position: relative;
+
+    background: lightgrey;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+}
+
+
+
+
+/* 입력창 */
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    /* color: #5328F0; */
+    color: #555;
+}
+
+.form__container {
+    z-index: 0;
+    height: 39.2%;
+    /* background-color: aquamarine; */
+    padding-bottom: 0;
+}
+
+.form__container, .form__submit {
+    background: transparent;
+}
+
+.form__input--wrapper {
+    justify-content: space-between;
+}
+
+.form__input--name, .form__input--title, .form__textbox, .form__submit {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5328F0;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #F3F3F3;
+}
+
+.inputid:hover, .title:hover, textarea:hover, .inputid:focus, .title:focus, textarea:focus {
+    background-color: #f7f5ff;
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    overflow: auto;
+    resize: none;
+    background-color: #F3F3F3;
+}
+
+
+/* 버튼 */
+
+.button {
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    padding-bottom: 0;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    background-color: #5328F0;
+    color: white;
+    box-shadow: 2px 2px 7px 0 rgb(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.button:hover {
+    /* background-color: #6C48F2; */
+    transform: translateY(-5%);
+    box-shadow: 0 8px 50px #23232333;
+    transform: scale(1.03);
+    z-index: 10;
+}
+
+.button:active {
+    background-color: #5328F0;
+    transform: translateY(5%);
+    box-shadow: 0 8px 50px #23232333;
+    z-index: 10;
+}
+
+
+/* 스크롤 */
+
+.discussion__wrapper {
+    height: 55%;
+    overflow: auto;
+}
+
+.discussion__wrapper::-webkit-scrollbar, textarea::-webkit-scrollbar {
+    width: 13px;
+}
+
+.discussion__wrapper::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
+    background-color: #5328F0;
+    border-radius: 50px;
+}
+
+.discussion__wrapper::-webkit-scrollbar-track, textarea::-webkit-scrollbar-track {
+    /* background-color: #F3F3F3; */
+    box-shadow: 0 8px 30px #23232333;
+    border-radius: 50px;
+}
+
+
+/* 질문 박스 */
+
+li, .answerspace {
+    z-index: 1;
+    list-style: none;
+    float: left;
+    background-color: #F3F3F3;
+    transition: box-shadow .3s ease, transform .2s ease;
+    border-radius: 30px;
+
+    margin-top: 28px;
+    margin-bottom: 3px;
+    margin-right: 22px;
+    padding: 20px;
+
+    width: 200px;
+    height: 200px;
+
+    position: relative;
+}
+
+li:hover {
+    z-index: 10;
+    box-shadow: 0 8px 50px #23232333;
+    transform: translateY(-5%);
+}
+
+
+/* 체크표시 */
+
+/* Hide the default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    z-index: 2;
+    position: absolute;
+    
+    left: 0px;
+    top: 0px;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 100%;
+    background: #e8e8e8;
+    box-shadow: 3px 3px 5px #c5c5c5,
+                -3px -3px 5px #ffffff;
+    transition-duration: 0.5s;
+  }
+  
+  .container input:checked ~ .checkmark {
+    box-shadow: inset 3px 3px 5px #c5c5c5,
+                inset -3px -3px 5px #ffffff;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+  }
+  
+  .container input:checked ~ .checkmark:after {
+    opacity: 1;
+  }
+  
+  .container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid darkgray;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+  }
+
+
+
+  
+
+/* 질문자 정보 */
+
+img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid #D9D9D9;
+    margin-bottom: 4px;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.discussion__avatar--wrapper:hover {
+    transform: scale(1.1);
+}
+
+.id {
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+}
+
+.real_time {
+    font-size: 9px;
+    margin-bottom: 7px;
+    text-align: center;
+    color: #859ba8;
+}
+
+.discussion__content {
+    font-size: 12px;
+    width: 100%;
+    height: 30%;
+    overflow: hidden;
+    color: #333;
+}
+
+.viewmore {
+    font-size: 12px;
+    font-weight: 600;
+    color: #5328F0;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    /* color: white;
+    background-color: #5328F0;
+    padding: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 10px; */
+    text-decoration: none;
+    position: absolute;
+    bottom: -33px;
+    right: -6px;
+}
+
+.viewmore-continer {
+position: relative;
+text-align: right;
+}
+
+
+
+/* 팝업창 */
+
+.answer-style {
+    position: absolute;
+    left: 110px;
+    top: 260px;
+    list-style: none;
+
+    border-radius: 30px;
+    padding: 10px;
+
+    width: 340px;
+    height: 340px;
+    z-index: 20;
+
+    background-color: #F3F3F3;
+    transition: box-shadow .3s ease, transform .2s ease;
+    box-shadow: 0 8px 50px #23232333;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.answer-style:hover {
+    z-index: 30;
+    box-shadow: 0 8px 50px #23232333;
+    transform: scale(1.1);
+}
+
+.dimmed {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+
+    background: rgb(0, 0, 0, 0.4);
+}
+
+.x-btn {
+    font-size: 28px;
+    position: absolute;
+    top: -55px;
+    right: -45px;
+    width: 40px;
+    height: 40px;
+}
+
+button {
+    outline: none;
+    border: none;
+    background-color: #F3F3F3;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+button:active {
+    background-color: #F3F3F3;
+}
+
+
+.answerspace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 90px;
+    padding-right: 2px;
+}
+
+.viewrightnow {
+    position: absolute;
+    bottom: 0px;
+    left: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.viewrightnow-container {
+    padding: 50px;
+    margin: 50px;
+}
+
+.haha {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+}
