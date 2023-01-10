@@ -1,1 +1,124 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  
+}
+
+body {
+  padding: 0;
+  margin: 0 auto;
+  line-height: 1.5;
+  background-color: #FFF8EA;
+  max-width: 540px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  
+}
+
+img{
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+a {
+  text-decoration: none;
+}
+.discussion__answer__content {
+  grid-column: 1/4;
+  display: none;
+  padding: 0 10px;
+}
+
+
+.discussion__container  {
+  background-color: whitesmoke;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 10px 10px 18px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 50px 1fr 20px;
+  align-items: center;
+  gap: 10px 12px;
+}
+
+/* .discussion__answer__content {
+  display: none; 
+  align-items: center;
+  justify-content: space-between; 
+  border: 1px solid black;
+  grid-column: 1/4;
+  padding: 0 10px;
+} */
+
+ .discussion__answer__content {
+  display: grid;
+  /* justify-content: center; */
+  grid-column: 1/4;
+  /* display: none; */
+  padding: 0 10px;
+  
+}
+
+.userQuestionTitle, .userQuestionDescription {
+  display: flex;
+  justify-content: center;
+}
+
+.userQuestionInformation {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+
+.discussion__avatar--image {
+  grid-auto-columns: 1fr ;
+  width: 48px;
+  margin: 10px;
+  
+}
+
+.discussion__content {
+  display: flex;
+  margin: 20px;
+  justify-content: space-around;
+  flex-direction: column;
+  
+}
+
+.discussion__title {
+  margin-top: 5%;
+  font-size: 18px;
+
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+.discussion__answered {
+  font-size: 20px;
+  
+}

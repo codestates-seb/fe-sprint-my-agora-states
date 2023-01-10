@@ -19,15 +19,15 @@
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">이름을 입력하세요 :) </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="name">Enter your title: </label>
+            <label for="name">제목을 입력하세요 ;) </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">질문을 입력하세요😊 </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
@@ -36,6 +36,7 @@
         </div>
       </form>
     </section>
+
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -49,6 +50,24 @@
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
+      
+      
+        <!--답변 자세히 보기-->
+        <div class="discussion__answer__content">
+          <h2 class="discussion__question__title">타이틀</h2>
+          <div class="discussion__question__description">Lorem ipsum dolor sit amet.</div>
+       
+
+            <h2 class="discussion__answer__title">답변 타이틀</h2>
+            <div class="discussion__answer__information">
+            <p class="discussion__answer__date">이름 / 날짜</p>
+          <img class="discussion__answer__avatar--image"
+          src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+          alt="avatar of kimploo"></div>
+          <div class="userQuestionAnswer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, dolorum.</div>
+      </div>
+        </div>
+        <button class="discussion__answer__button">답변 보기</button>
         </li>
       </ul>
     </section>
