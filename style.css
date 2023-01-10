@@ -1,6 +1,5 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 *{
-<<<<<<< HEAD
     margin: 0;   
     padding: 0;                       /* 세팅 초기화 시키기 */
     box-sizing: border-box;         /*모든 요소에 border-box를 적용합니다.*/
@@ -22,41 +21,15 @@ body {
     )
     
     
-=======
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
-}
-/* 세팅 초기화 시키기 */
-
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('ㅁ');
-    background-repeat:no-repeat;
-    background-size: cover;
->>>>>>> 8d8c255502fd364f0dd40cd907ff54e56611561c
 }  
 
 
 .discussion__container {
-<<<<<<< HEAD
     display: flex;      /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다.*/
     flex-direction: row; 
     justify-content: space-between;
     align-items: center;
     width: 540px;        /*Discussion 컴포넌트 전체의 폭을 540px로 만드세요.*/
-=======
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 578px;
->>>>>>> 8d8c255502fd364f0dd40cd907ff54e56611561c
     height: 150px;
     font-size : 12px;
     margin : 10px;
@@ -64,32 +37,20 @@ body {
 }
 
 section.form__container {
-<<<<<<< HEAD
     background-color: rgb(0, 75, 110);
-=======
-    background-color: rgba(255, 255, 255, 0.5);
->>>>>>> 8d8c255502fd364f0dd40cd907ff54e56611561c
     border-radius: 10px;
 }
 
 .discussion__avatar--image {
-<<<<<<< HEAD
     width: 48px;           /*아바타 사진의 너비를 48px로 설정하세요.*/
     border-radius: 50%;    /*아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요.*/
     display: flex;  
     align-items: center;   /*아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.*/
-=======
-    width: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
->>>>>>> 8d8c255502fd364f0dd40cd907ff54e56611561c
     margin: 5px;
 }
 img {
     width: 48px;
     border-radius: 100%;
-<<<<<<< HEAD
 }
 
 .discussion__answered {
@@ -204,6 +165,3 @@ textarea {
     transform: scale(1.01);
 }
 
-=======
-}
->>>>>>> 8d8c255502fd364f0dd40cd907ff54e56611561c
