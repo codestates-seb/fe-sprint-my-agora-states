@@ -12,38 +12,35 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-////틀
-const avatarImg = document.createElement("img")
+  ////틀
+  const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = obj.author + "'s avatar"
+  avatarImg.alt = obj.author + "'s avatar";
   avatarWrapper.append(avatarImg);
   //// 아바타사진
-const disTitle = document.createElement("h2");
-const disTitleA = document.createElement("a");
-disTitleA.href = obj.url;
-disTitleA.textContent = obj.title;
-disTitle.append(disTitleA);
-discussionContent.append(disTitle);
-// 제목
+  const disTitle = document.createElement("h2");
+  disTitle.className = "discussion__title";
+  const disTitleA = document.createElement("a");
 
-const disInfo = document.createElement("div");
+  disTitleA.href = obj.url;
+  disTitleA.textContent = obj.title;
+  disTitle.append(disTitleA);
+  discussionContent.append(disTitle);
+  // 제목
 
-disInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
-discussionContent.append(disInfo);
+  const disInfo = document.createElement("div");
+  disInfo.className = "discussion__information";
+  disInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString()}`;
+  discussionContent.append(disInfo);
 
+  const checkPoint = document.createElement("p");
 
-const checkPoint = document.createElement("p");
-
-checkPoint.textContent = obj.answer ? "☑︎" : "☒";
-discussionAnswered.append(checkPoint);
-
-
-
-
+  checkPoint.textContent = obj.answer ? "☑︎" : "☒";
+  discussionAnswered.append(checkPoint);
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -61,7 +58,6 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-
 const form = document.querySelector("form.form");
 const author = form.querySelector("div.form__input--name > input");
 const title = form.querySelector("div.form__input--title > input");
@@ -73,21 +69,35 @@ form.addEventListener("submit", (event) => {
   const submitObj = {
     id: "unique id" + Math.round(Math.random() * 100000),
     createdAt: new Date().toISOString(),
-    title: title.value, 
+    title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/36",
     author: author.value,
-    answer:null,
+    answer: null,
     bodyHTML: textbox.value,
-    avatarUrl: "https://i.ytimg.com/vi/a3KJ2c2QmgM/maxresdefault.jpg"
-  }
+    avatarUrl:
+      "https://item.kakaocdn.net/do/a5ce3a8ba282e6a89c74cc84ff27aa35f43ad912ad8dd55b04db6a64cddaf76d",
+  };
 
   agoraStatesDiscussions.unshift(submitObj);
   const discussion = convertToDiscussion(submitObj);
   ul.prepend(discussion);
-  
+
   form.querySelector("div.form__input--name > input").value = "";
   form.querySelector("div.form__input--title > input").value = "";
   form.querySelector("div.form__textbox > textarea").value = "";
-
 });
+console.log(localStorage);
+// // 키에 데이터 쓰기
+// localStorage.setItem("key", value);
 
+// // 키로 부터 데이터 읽기
+// localStorage.getItem("key");
+
+// // 키의 데이터 삭제
+// localStorage.removeItem("key");
+
+// // 모든 키의 데이터 삭제
+// localStorage.clear();
+
+// // 저장된 키/값 쌍의 개수
+// localStorage.length;
