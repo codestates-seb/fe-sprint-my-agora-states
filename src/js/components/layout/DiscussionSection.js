@@ -14,6 +14,10 @@ export default function ($app, initialState) {
   discussion.subscribe(this);
   this.setState = (newState) => {
     this.state = { ...this.state, ...newState };
+    this.state.last = Math.ceil(
+      Object.values(this.state.discussions).length / 10
+    );
+    console.log(this.state);
     this.render();
   };
   const onPageClick = (e) => {
@@ -26,7 +30,7 @@ export default function ($app, initialState) {
           });
         }
       } else if (e.target.textContent === ">") {
-        if (this.state.last !== this.state.page) {
+        if (this.state.last - 1 !== this.state.page) {
           this.setState({
             start: this.state.start + 1 * 10,
             page: this.state.page + 1,
