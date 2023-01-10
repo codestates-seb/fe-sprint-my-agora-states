@@ -1,9 +1,9 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 :root {
     --color--main: #3C6255;
-    --color--body: #EAE7B1;
-    --color--2: #A6BB8D;
-    --color--3: #61876E;
+    --color--body: #e3f2fd;
+    --color--liText: #bbdefb;
+    --color--3: #89abc6;
 }
 
 /* 초기설정 */
@@ -18,6 +18,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: var(--color--body);
 }
 
 /* main */
@@ -29,6 +31,29 @@ main {
 }
 
 /* 제목%로그인 박스 */
+section.form__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color--3);
+    
+    width: 500px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* 제목 로그인박스 div 부모 */
+div.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
 
 
 /* li */
@@ -38,8 +63,12 @@ li.discussion__container {
 
     width: 540px;
     height: 80px;
+    margin: 5px;
 
-    border: 1px solid red;
+
+    border-radius: 10px;
+
+    background-color: var(--color--liText);
 }
 
 /* li 점 제거 */
@@ -68,14 +97,19 @@ div.discussion__content {
     flex-grow: 1;
 
     margin: 5px;
-    font-size: 13px;
+    font-size: 10px;
 }
 
-/* 질문 하이퍼링크 */
+/* 질문 하이퍼링크 ?? 초기화가 안됨*/
 a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
 }
+
+a:hover {
+    color: aliceblue;
+}
+
 /* 아이디와 날짜를 끝으로 */
 div.discussion__content>div.discussion__information {
    display: flex;

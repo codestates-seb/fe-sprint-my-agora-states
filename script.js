@@ -67,7 +67,3 @@ render(ul);
 
 
 //답변 달기
-const named = document.querySelector('div.form__input__name>input');
-named.innerHTML = 'hi';
-const title = document.querySelector('div.form__input__title>input');
-const textBox = document.querySelector('div.form__textbox>textarea');
