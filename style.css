@@ -1,62 +1,65 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --color--main: #3C6255;
+    --color--body: #EAE7B1;
+    --color--2: #A6BB8D;
+    --color--3: #61876E;
+}
+
 /* 초기설정 */
 * {
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
 }
 
-/* 메인 */
+/* body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* main */
 main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-/* li 첫번째 컴포넌트 */
-.discussion__container {
+/* li */
+li.discussion__container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
-    margin: 5px;
     width: 540px;
+    border: 1px solid red;
 }
 
-/* 이미지 부모 */
-.discussion__avatar--wrapper {
-    display: flex;
+/* li 점 제거 */
+li {
+    list-style: none;
 }
-/* 이미지 동그랗게 */
-.discussion__avatar--image {
+
+/* 이미지 */
+div.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+
+div>img {
     border-radius: 50%;
     width: 48px;
 }
 
-/* 타이틀 날짜 부모 div */
-.discussion__content {
+/* 질문 내용 */
+div.discussion__content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-/* 타이틀 */
-.discussion__title {
-    flex-grow: 1;
+div.discussion__content>div.discussion__information {
+   display: flex;
+   justify-content: end;
 }
 
-.discussion__information {
-    font-size: 15px;
-    display: flex;
-    justify-content: end;
-
-}
-
-/* 체크표시 */
-.discussion__answered {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-
-    font-size: 30px;
-}

@@ -34,6 +34,7 @@ const convertToDiscussion = (obj) => {
   information_div.className = "discussion__information";
   information_div.textContent = `${obj.id} / ${obj.createdAt}`
 
+  // 자식들 추가 (h2, div ,h2 자식 a)
   title_h2.append(title_a);
   discussionContent.append(title_h2, information_div);
 
@@ -42,7 +43,9 @@ const convertToDiscussion = (obj) => {
   answered_div.className = "discussion__answered";
     //체크표시 안에 p
     const answer_p = document.createElement('p');
+    answer_p.textContent = '☑'
 
+    //자식들 추가(체크표시, 체크표시 안에 p)
   answered_div.append(answer_p);
   discussionAnswered.append(answered_div);
 
@@ -61,3 +64,6 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+// 이름
