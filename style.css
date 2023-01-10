@@ -17,7 +17,7 @@
 /*new font*/
 
 @font-face {
-    font-family: 'fontYouandiModernTR';
+    /* font-family: 'fontYouandiModernTR'; */
     src:url('../fonts/fontYouandiModernTR.woff') format('woff'),
           url('../fonts/fontYouandiModernTR.woff2') format('woff2'),
           url('../fonts/fontYouandiModernTR.svg#fontYouandiModernTR') format('svg'),
