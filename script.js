@@ -103,12 +103,9 @@ form.addEventListener("submit", (event) => {
     data.unshift(newData);
     localStorage.setItem("discussionData", JSON.stringify(data));
 
-    while (ul.firstChild) {
-        ul.removeChild(ul.firstChild);
-    }
 
     renderDiscussions(ul);
-    console.log(ul);
+
     author.value = '';
     title.value = '';
     story.value = '';
@@ -272,9 +269,8 @@ const renderButton = (page) => {
 };
 
 const renderContentAndButton = (page) => {
-  renderButton(page);  
   renderContent(page);
-    
+  renderButton(page);  
 };
 
 renderContentAndButton(page);
