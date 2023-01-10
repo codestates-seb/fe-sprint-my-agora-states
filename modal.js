@@ -36,7 +36,9 @@ formBtn.onclick = function (event) {
   if (inputName && inputTitle && inputTextbox) {
     //console.log(inputName, inputTitle, inputTextbox);
     //글을 맨앞으로 추가
-    ul.prepend(convertToDiscussion(obj));
+    agoraStatesDiscussions.unshift(obj);
+    setPage(totalPage, currentPage);
+    //ul.prepend(convertToDiscussion(obj));
     //모달을 닫고 초기화
     formContainer.classList.add("hide");
     body.style.overflow = "auto";

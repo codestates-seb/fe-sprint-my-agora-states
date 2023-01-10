@@ -1,18 +1,33 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+:root {
+  --main-color: #cff5e7;
+  --sub-color: #59c1bd;
+  --sub-color2: #0d4c92;
+}
+
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
+body {
+  background-color: var(--main-color);
+}
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+h1 {
+  color: var(--sub-color2);
+}
 /*모달 뒷 배경 설정*/
-.form__container {
+.form__container,
+.answer {
   position: absolute;
   top: 0;
   left: 0;
@@ -22,7 +37,8 @@ main {
   background-color: rgba(0, 0, 0, 0.4);
 }
 /* 모달 설정 */
-.form {
+.form,
+.answer_modal {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -44,6 +60,12 @@ main {
   transform: translateX(-50%) translateY(-50%);
 }
 
+.form *,
+.answer_modal * {
+  color: var(--sub-color2);
+  font-size: bold;
+}
+
 .form__input--wrapper {
   flex: 1;
   display: flex;
@@ -52,11 +74,18 @@ main {
 .form__input--name {
   flex: 1;
 }
+
 .form__input--title {
   flex: 1;
 }
 .form__textbox {
+  display: flex;
+  flex-direction: column;
   flex: 3;
+}
+
+.form__textbox > textarea {
+  flex: 1;
 }
 
 /* 글쓰기 버튼 */
@@ -64,11 +93,6 @@ main {
   width: 540px;
   display: flex;
   justify-content: flex-end;
-}
-
-.create-input {
-  display: flex;
-  justify-content: end;
 }
 
 .close-area {
@@ -88,6 +112,9 @@ main {
   width: 540px;
   justify-content: space-between;
   align-items: center;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 /* 아바타 이미지 설정 */
@@ -101,6 +128,7 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 5px;
 }
 
 .discussion__content > * {
@@ -111,7 +139,7 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .discussion__information {
@@ -129,11 +157,44 @@ li {
 
 /* pagination 설정 */
 .pagination {
-  display: flex;
+  margin: 10px;
+  width: 180px;
 }
 .page_list {
+  color: var(--sub-color2);
   display: flex;
 }
+
+.page_list * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
 .select_li {
-  background-color: antiquewhite;
+  color: white;
+  font-size: bold;
+  border-radius: 5px;
+  background-color: var(--sub-color);
+}
+
+button,
+.submit {
+  background-color: var(--sub-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 5px;
+  color: whitesmoke;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.close-btn {
+  color: white;
+  width: 20px;
+  height: 20px;
 }

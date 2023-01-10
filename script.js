@@ -41,10 +41,30 @@ const convertToDiscussion = (obj) => {
   obj.answer
     ? (discussionCheck.textContent = "☑")
     : (discussionCheck.textContent = "☐");
+
   discussionAnswered.append(discussionCheck);
 
   li.id = obj.id;
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
+  const containerAnswer = document.createElement("div");
+  containerAnswer.className = "answer";
+  containerAnswer.classList.add("hide");
+  const modalAnswer = document.createElement("div");
+  modalAnswer.className = "answer_modal";
+  const closeArea = document.createElement("div");
+  closeArea.className = "close-area";
+  const btnClose = document.createElement("button");
+  btnClose.className = "close-btn";
+  btnClose.textContent = "X";
+
+  if (obj.answer) {
+    closeArea.append(btnClose);
+    modalAnswer.append(closeArea);
+    containerAnswer.append(modalAnswer);
+    li.append(containerAnswer);
+  } else {
+  }
 
   return li;
 };
@@ -58,18 +78,18 @@ const render = (element, start = 0) => {
     }
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
+
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+//render(ul);
 
 //Pagination
 const paginationContianer = document.querySelector(".page_list");
 
 //8개씩 출력
-console.log(agoraStatesDiscussions.length / 8);
 let totalPage = Math.ceil(agoraStatesDiscussions.length / 8);
 let currentPage = 1;
 
