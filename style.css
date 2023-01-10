@@ -92,11 +92,12 @@ h1 {
     width: 334.3px;
     
     
-    height: 900px;
+    height: 500px;
     max-height: 900px;
     overflow: auto;
     transition: max-height 0.5s ease-in-out;
     margin-bottom: 20px;
+    margin-top: -20px;
 }
 
 .form__get {
@@ -218,7 +219,7 @@ textarea:focus {
     margin-top: 0px;
     border-bottom: 1px solid rgb(181, 181, 181);
     width: 90%;
-    height: 80%;
+    height: 50%;
     overflow: auto;
 }
 
