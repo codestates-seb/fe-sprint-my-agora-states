@@ -1,5 +1,13 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+// 디스커션 유지 기능: 새로고침해도 새로 추가한 디스커션이 유지되도록
+let discussions; // 로컬 스토리지에 있는 데이터를 넣을 변수 선언
+const newDiscussions = localStorage.getItem('Discussions');
+if (newDiscussions) { // 새로운 디스커션 데이터가 로컬 스토리지에 있는 경우, 그 값을 discussions에 넣기
+  discussions = JSON.parse(newDiscussions); 
+} else { // 없는 경우, 원래 배열(agoraStatesDiscussions) 복사해서 넣기
+  discussions = agoraStatesDiscussions.slice(); 
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -53,15 +61,15 @@ const convertToDiscussion = (obj) => {
     li.append(avatarWrapper, discussionContent, discussionAnswered);
     return li;
   };
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// discussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < discussions.length; i += 1) {
+    element.append(convertToDiscussion(discussions[i]));
   }
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// ul 요소에 discussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
@@ -70,7 +78,6 @@ const form = document.querySelector(".form");
 const yourName = document.querySelector("#name");
 const yourTitle = document.querySelector("#title");
 const yourQuestion = document.querySelector("#story");
-let discussions = []; // 로컬 스토리지에 있는 데이터를 넣을 배열
 
 // submit 이벤트 발생 시 기존 배열에 데이터 추가시키는 이벤트리스너
 form.addEventListener("submit", addDiscussion);
@@ -99,18 +106,6 @@ function addDiscussion(e) {
   yourTitle.value = "";
   yourQuestion.value = "";
 }
-// 디스커션 유지 기능: 새로고침해도 새로 추가한 디스커션이 유지되도록
-const newDiscussions = JSON.parse(localStorage.getItem('Discussions'));
-console.log(newDiscussions)
-function isNewDiscussions() {
-  if (newDiscussions) {
-    for (let i = 0; i < newDiscussions.length; i += 1) {
-      ul.prepend(convertToDiscussion(newDiscussions[i]));
-    }
-  }
-  return; 
-};
-isNewDiscussions();
 
 // 페이지네이션 기능 구현 (총 게시 글 최소 41개)
 // 한 페이지에 10개씩 게시물을 보여주기
