@@ -85,3 +85,29 @@ form.addEventListener("submit", (event) => {
 });
 
 // 내일 할 것 : 시간 고치기(O) , submit 누르면 값 초기화 시켜주기, css++ / 심화과정
+// 페이지네이션 구현하기
+// 현재 페이지 : 1 , 총 데이터 : 41 , 화면에 나타낼 페이지 갯수 : 5 , 화면에 나타낼 데이터 갯수 : 10
+const currentPage = 1;
+const totalCount = agoraStatesDiscussions.length; //41 (초기값)
+const pageCount = 5;
+const limit = 10;
+
+let totalPage = Math.ceil(totalCount / limit); //총 페이지의 갯수 = 총 데이터 / 화면에 나타낼 데이터 갯수 를 올림해줌
+let pageGroup = Math.ceil(currentPage / pageCount); // ex) 1/5 = 0.2 올림 => 1  , 6/5 = 1.2 올림 => 2
+
+//pageGroup의 첫번째, 마지막 숫자 구하여 페이지 넘기기
+let lastNum = pageGroup * pageCount;
+if (lastNum > totalPage) {
+  lastNum = totalPage;
+}
+
+let firstNum = lastNum - (pageCount - 1);
+
+for (let i = firstNum; i <= lastNum; i++) {
+  const nav = document.querySelector("nav");
+  const navButton = document.createElement("button");
+  navButton.className = "pageNum";
+  navButton.id = `page__${i}`;
+  navButton.innerText = `${i}`;
+  nav.append(navButton);
+}

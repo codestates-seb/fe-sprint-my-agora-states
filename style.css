@@ -137,6 +137,7 @@ header .h1__title {
     border: 3px solid black;
     margin-bottom: 4px;
     border-radius: 20px;
+    background-color:floralwhite
 
 }
 
@@ -181,4 +182,19 @@ a:hover {
 
 label {
     font-family: 'LINESeedKR-Bd';
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6em;
+}
+
+.pageNum {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 0;
+    color: black;
+    font-weight: bold;
+    font-size: 1.1em;
 }
