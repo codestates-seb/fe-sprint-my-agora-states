@@ -150,6 +150,11 @@ div.discussion__answered {
     font-size: 20pt; 
     margin: 5px;
 }
+a {
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: #212529; /* 링크의 색상 제거 */
+}
+
 
 
 
