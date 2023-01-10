@@ -41,6 +41,30 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+const form = document.querySelector(".form");
+const author = document.querySelector(".form__input--name > input");
+const title = document.querySelector(".form__input--title > input");
+const textbox = document.querySelector(".form__textbox > textarea");
+
+form.addEventListener("submit",(e) => {
+  e.preventDefault();
+  const obj = {
+    id: "new id",
+    createdAt: new Date().toISOString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/84169393?s=400&u=a807c039fdf25028466d96b7cfd5b74dff4ea38d&v=4",
+    bodyHTML: textbox.value,
+  }
+agoraStatesDiscussions.unshift(obj);
+const discussion = convertToDiscussion(obj);
+ul.prepend(discussion);
+})
+
+
+
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
