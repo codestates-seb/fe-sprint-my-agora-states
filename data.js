@@ -793,13 +793,21 @@ const agoraStatesDiscussions = [
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
         ...discussion.answer,
-        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
-      }
-    }
+        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML),
+      },
+    };
   }
 
   return {
     ...discussion,
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
+  };
+});
+const getDiscussionList = () => {
+  if (localStorage.getItem("discussionList") != null) {
+    const discussionList = JSON.parse(localStorage.getItem("discussionList"));
+    return discussionList;
   }
-})
+  return agoraStatesDiscussions;
+};
+
