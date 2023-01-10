@@ -1,4 +1,3 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -41,13 +40,12 @@ img {
   display: block;
 }
 
-/* Global */
+/* Main */
 main {
   max-width: 856px;
   padding: 20px;
 }
 
-/* Title */
 h1 {
   position: sticky;
   top: 0;
@@ -202,6 +200,7 @@ h1.font-small {
   color: #8b949e;
 }
 
+/* Arrow up */
 .arrow-up {
   display: flex;
   justify-content: center;
