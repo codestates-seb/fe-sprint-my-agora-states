@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -10,10 +7,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   // Avatar
   const avatar = document.createElement("img");
   avatar.className = "discussion__avatar--image";
@@ -21,26 +15,38 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatar);
 
   // Content
-  const contentTitle = document.createElement("h2");
-  const contentLink = document.createElement("a");
-  const contentInfo = document.createElement("div");
-  contentTitle.classList = "discussion__title";
-  contentInfo.classList = "discussion__information";
-  contentTitle.append(contentLink);
-  discussionContent.append(contentTitle, contentInfo);
-  contentLink.textContent = obj.title;
-  contentLink.setAttribute("href", obj.url);
-  contentLink.setAttribute("target", "_blank");
-  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  const title = document.createElement("h2");
+  title.classList = "discussion__title";
+  const link = document.createElement("a");
+  const infoContainer = document.createElement("div");
+  infoContainer.classList = "discussion__information-container";
+  const info = document.createElement("div");
+  info.classList = "discussion__information";
+  const answered = document.createElement("div");
+  answered.className = "discussion__answered";
+
+  infoContainer.append(info, answered);
+  discussionContent.append(title, infoContainer);
+  title.append(link);
+
+  link.textContent = obj.title;
+  info.textContent = `${obj.author} / ${obj.createdAt}`;
+
+  link.setAttribute("href", obj.url);
+  link.setAttribute("target", "_blank");
 
   // Answered
-  const answered = document.createElement("p");
-  discussionAnswered.append(answered);
-  if (!(obj.answer === null)) {
-    answered.textContent = "☑";
+  const p = document.createElement("p");
+  answered.append(p);
+  if (obj.answer === null) {
+    p.classList = "unanswered";
+    p.textContent = "Unanswered";
+  } else {
+    p.classList = "answered";
+    p.textContent = "Answered";
   }
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent);
   return li;
 };
 
