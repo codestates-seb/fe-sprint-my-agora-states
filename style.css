@@ -52,7 +52,7 @@
   }
   to {
       opacity: 1;
-      width: 80%;
+      width: 70%;
       transform: translateZ(0);
   }
 }
@@ -100,7 +100,7 @@ p {
 
 main {
   display: flex;
-  width: 80%;
+  width: 70%;
   height: 80%;
   justify-content: center;
   align-items: center;
@@ -156,6 +156,18 @@ main {
 
 .smallBtn {
   background-color: rgb(36, 179, 43);
+}
+
+.exitBtn:hover {
+  background-color: rgb(194, 55, 55);
+}
+
+.downBtn:hover {
+  background-color: rgb(200, 137, 28);
+}
+
+.smallBtn:hover {
+  background-color: rgb(30, 147, 35);
 }
 
 
@@ -379,7 +391,7 @@ form {
   width: 540px;
   padding: 20px;
   background-color: #f8f6ef;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -412,7 +424,28 @@ form {
 .pagination__container {
   width: 500px;
   height: 300px;
+  display: flex;
+  justify-content: space-around;
 }
+
+.left, .right {
+  color: black;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left:hover, .right:hover {
+  background-color: rgb(25, 189, 172);
+  color: white;
+  transform: scale(1.2);
+} 
 
 
 
@@ -590,6 +623,10 @@ form {
   font-family: 'Staatliches', cursive;
 }
 
+.agorastatesTab:hover {
+  background-color: rgb(20, 152, 139);
+}
+
 .change__opacity__one {
   z-index: 3;
   visibility: visible;
@@ -610,6 +647,7 @@ form {
   height: 80%; */
   transition: all 1s linear;
 }
+
 
 /* 캔버스 */
 canvas {

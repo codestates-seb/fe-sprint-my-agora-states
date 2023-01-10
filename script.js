@@ -26,6 +26,8 @@ let discussionsCount = document.querySelector('.discussions__count');
 let currentPage = 1;  //초기화하면 시작 페이지
 let rows = 10; //한 목록에 보여줄 아이템
 
+let firstPage = 1;  // 처음 펲이지
+
 function displayList(items, wrapper, rows_per_page, page){  // 화면에 렌더링 함수
   wrapper.innerHTML = '';
   page--; // 배열 0부터 돌아야되니까 -- 해주기
@@ -59,6 +61,9 @@ function setupPagination(items, wrapper, rows_per_page) {
   }
 }
 
+let rightBtn = document.querySelector('.right');
+let leftBtn = document.querySelector('.left');
+
 
 // 페이지 버튼 생성 + 버튼 누르면 페이지 이동해주는 함수 생성
 function paginationButton(page, items) {
@@ -82,6 +87,36 @@ function paginationButton(page, items) {
 
   return paginationBtn;
 }
+
+leftBtn.addEventListener('click', function(clickedPage) {
+  if(currentPage > firstPage){  // 1페이지일 경우 전 페이지로 안간다.
+    let currentBtn = document.querySelector('.page_list .active');
+    currentBtn.classList.remove('active');  // 지금 활성화 되어있는 버튼 끄고
+    let prevBtn = currentBtn.previousSibling; // 지금 활성화 되어있는 버튼의 이전 형제를 가져온다.
+    prevBtn.classList.add('active');
+    currentPage = currentPage - 1;  // 현재 페이지를 지금 페이지 - 1 해주기
+    displayList(JSON.parse(localStorage.getItem('Discussions')), listElement, rows, currentPage); // items를 전달받지 못해서 현재 데이터로 렌더링 해주기
+  }
+  else{
+    alert('첫번째 페이지입니다.');
+  }
+});
+
+rightBtn.addEventListener('click', function() {
+  let lastPage = Math.ceil(JSON.parse(localStorage.getItem('Discussions')).length / rows);  // 마지막 페이지
+  if(currentPage < lastPage) {  // 마지막 페이지일 경우 다음 페이지로 안간다.
+    let currentBtn = document.querySelector('.page_list .active');
+    currentBtn.classList.remove('active');
+    let nextBtn = currentBtn.nextSibling;
+    nextBtn.classList.add('active');
+    currentPage = currentPage + 1;
+    displayList(JSON.parse(localStorage.getItem('Discussions')), listElement, rows, currentPage);
+  }
+  else{
+    alert('마지막 페이지입니다.');
+  }
+});
+
 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -211,19 +246,23 @@ submitBtn.addEventListener('click', function(e) {
     avatarUrl: "./images/계피_.png",
     answer: null  // 안 넣어주면 answer null 아닌거 if문에 걸려서 오류난다.
   };
+  if(nameValue !== '' && titleValue !== '' && storyValue !== '' ){
+    agoraStatesDiscussions.unshift(newDiscussion);  // 데이터 배열에 새로만든 객체 추가
 
-  agoraStatesDiscussions.unshift(newDiscussion);  // 데이터 배열에 새로만든 객체 추가
+    discussions.unshift(newDiscussion); // 원래 discussions 배열에 추가한 데이터 객체 추가해주고
 
-  discussions.unshift(newDiscussion); // 원래 discussions 배열에 추가한 데이터 객체 추가해주고
+    localStorage.setItem('Discussions', JSON.stringify(discussions)); // 추가한 데이터가 더해진 discussions를 다시 로컬 스토리지에 데이터로 넣어준다.
+    
+    discussionsCount.innerText = '( ' + discussions.length + ' )';  // 디스커션 개수 업데이트
 
-  localStorage.setItem('Discussions', JSON.stringify(discussions)); // 추가한 데이터가 더해진 discussions를 다시 로컬 스토리지에 데이터로 넣어준다.
-  
-  discussionsCount.innerText = '( ' + discussions.length + ' )';  // 디스커션 개수 업데이트
-
-  displayList(JSON.parse(localStorage.getItem('Discussions')), listElement, rows, currentPage); // 새로운 데이터 추가했을 때도 화면에 그려줘야 하므로 호출
-  setupPagination(JSON.parse(localStorage.getItem('Discussions')), pageList, rows); // 데이터가 늘었을 때 페이지 수가 늘어날 수 있으므로 호출
-  
-  form.reset();
+    displayList(JSON.parse(localStorage.getItem('Discussions')), listElement, rows, currentPage); // 새로운 데이터 추가했을 때도 화면에 그려줘야 하므로 호출
+    setupPagination(JSON.parse(localStorage.getItem('Discussions')), pageList, rows); // 데이터가 늘었을 때 페이지 수가 늘어날 수 있으므로 호출
+    
+    form.reset();
+  }
+  else {
+    alert('모두 입력해주세요.');
+  }
 });
 
 
