@@ -38,3 +38,17 @@ https://sangbeomheo.github.io/fe-sprint-my-agora-states/
 ### 6. 필터 기능 (All, Answered, UnAnswered)
 
 - [x] 필터 버튼 클릭시 리스트 소팅
+
+<br>
+
+### 기능 별 데모 영상
+
+#### Discussion 추가
+![add](https://user-images.githubusercontent.com/41741221/211489651-b05eeeae-35c7-4e29-b3cc-6036580c6e66.gif)
+
+#### 필터 기능 (All, Answered, UnAnswered)
+![filtering](https://user-images.githubusercontent.com/41741221/211489670-5c223222-f3f0-453b-a172-38eb0048efcd.gif)
+
+#### 페이지네이션
+![paging](https://user-images.githubusercontent.com/41741221/211489661-10e52c97-ceeb-4dbd-857e-7cd538a4f681.gif)
+
