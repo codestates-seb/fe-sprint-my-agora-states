@@ -16,7 +16,8 @@ const convertToDiscussion = (obj) => {
   // avatar img
   const avatarImg = document.createElement("img"); // 요소 생성
   avatarImg.className = "discussion__avatar--image"; // 클래스 이름 지정
-  avatarImg.setAttribute("src", obj.avatarUrl); // src 속성 설정
+  avatarImg.src = obj.avatarUrl; // src 속성 설정
+  avatarImg.alt = 'avatar of ' + obj.author; // alt 속성 설정
   avatarWrapper.append(avatarImg); // append
 
   // discussion title
@@ -24,7 +25,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.className = "discussion__title";
   // title url
   const titleUrl = document.createElement("a");
-  titleUrl.setAttribute("href", obj.url);
+  titleUrl.href = obj.url;
   titleUrl.textContent = obj.title;
   discussionTitle.append(titleUrl);
   // discussion information(author, createdAt)
@@ -41,7 +42,7 @@ const convertToDiscussion = (obj) => {
   if (obj.answer !== null && "answer" in obj) {
     // 답변이 있는 경우, 답변 화면 렌더링(Advanced)
     answeredCheck.textContent = "✅";
-    answeredCheck.setAttribute("href", obj.answer.url);
+    answeredCheck.href = obj.answer.url;
   } else {
     answeredCheck.textContent = "❌";
 
@@ -92,3 +93,35 @@ function addDiscussion(e) {
   yourTitle.value = '';
   yourQuestion.value = '';
 }
+
+// 다크모드
+const checkbox = document.querySelector('.check');
+const themeMode = document.querySelector('.theme-mode')
+
+const isUserColorTheme = localStorage.getItem('color-theme');
+const isOsColorTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+const getUserTheme = () => (isUserColorTheme ? isUserColorTheme : isOsColorTheme);
+
+window.onload = function () {
+  if (getUserTheme === 'dark') {
+    localStorage.setItem('color-theme', 'dark');
+    document.documentElement.setAttribute('color-theme', 'dark');
+    checkbox.setAttribute('checked', true);
+    themeMode.textContent = '🌙'
+  } else {
+    localStorage.setItem('color-theme', 'light');
+    document.documentElement.setAttribute('color-theme', 'light');
+    themeMode.textContent = '☀️'
+  }
+};
+
+checkbox.addEventListener('click', e => {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('color-theme', 'dark');
+    themeMode.textContent = '🌙'
+  } else {
+    document.documentElement.setAttribute('color-theme', 'light');
+    themeMode.textContent = '☀️'
+  }
+});

@@ -1,3 +1,19 @@
+/* color set */
+:root[color-theme='dark'] {
+  --main-bg-color: #222831;
+  --sub-bg-color: #393E46;
+  --point-color: #FFD369;
+  --title-color: #FFD369;
+  --text-color: #EEEEEE;
+}
+:root[color-theme='light'] {
+  --main-bg-color: #F6F9FA;
+  --sub-bg-color: #ffffff;
+  --point-color: #FFD369;
+  --title-color: #222831;
+  --text-color: #222831;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +21,68 @@
 }
 
 /* 아고라 스테이츠 질문 리스트 중앙으로 위치 */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-bg-color);
+}
 main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+  width: 600px;
+}
+/* 타이틀 */
+h1 {
+  font-size: 70px;
+  margin: 10px;
+}
+/* form */
+.form__container {
+  background-color: var(--sub-bg-color);
+  border-radius: 5px;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  justify-content: center;
+}
+#name,
+#title,
+#story {
+  width: 400px;
+  margin: 5px;
+}
+#story {
+  height: 55px;
+  resize: none;
+}
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__submit > input {
+  width: 80px;
+  height: 90px;
+  margin: 10px 10px 10px 5px;
+  border-radius: 10px;
+}
+.form__submit > input:hover {
+  background-color: var(--point-color);
+}
+.form label {
+  display: none;
 }
 
 /* 디스커션 */
@@ -21,15 +95,20 @@ li.discussion__container {
   display: flex;
   flex-direction: row;
   width: 540px;
-  justify-content: space-between;
-  margin-top: 5px;
+  margin: 10px 0;
+  background-color: var(--sub-bg-color);
+  border-radius: 10px;
+  list-style: none;
+}
+li.discussion__container > div {
+  margin: 5px;
 }
 .discussion__content {
-  flex-grow: 1;
+  width: 462px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 10px;
+  /* justify-content: space-around; */
+  /* padding: 10px; */
 }
 .discussion__avatar--image {
   border-radius: 50%;
@@ -48,4 +127,21 @@ li.discussion__container {
   flex-direction: column;
   justify-content: center;
   font-size: 30px;
+}
+/* 링크 스타일 */
+a {
+  text-decoration: none;
+  color: var(--title-color);
+}
+.discussion__title > a:hover {
+  text-decoration: underline;
+}
+/* 다크모드 */
+.theme {
+  font-size: 30px;
+  margin-top: 20px;
+  align-self: flex-end;
+}
+.check {
+  zoom: 1.5;
 }
