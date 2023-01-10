@@ -1,1 +1,126 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* global */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap');
+* {
+  color: #2dcddf;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} /* 박스사이즈 초기화 */
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration-line: none;
+}
+h1 {
+  background-color: white;
+  text-align: center;
+}
+
+/* 질문 폼 부분 시작*/
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+}
+.form__input--wrapper {
+}
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input[type='text'] {
+  width: fit-content;
+
+  border-bottom: #ffc93c 1px solid;
+  border-left: none;
+  border-right: medium none;
+  border-top: medium none;
+  font-size: 12pt;
+  color: #2dcddf;
+}
+textarea {
+  background-color: ivory;
+  height: 100px;
+  border: none;
+  resize: none;
+
+  font-size: 12pt;
+}
+
+.form__submit {
+  display: flex;
+
+  justify-content: center;
+}
+input[type='submit'] {
+  flex-basis: 60px;
+  aspect-ratio: 16/9;
+}
+/* 질문 폼 부분 끝 */
+
+/*디스커션 부분 */
+li.discussion__container {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /*디스커션_컨테이너 컨텐츠 정렬 */
+
+  background-color: white;
+} /* 컨텐츠(아바타,디스커션,디스커션답변) 정렬  */
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #3c79f5;
+} /*main 가운데정렬 */
+
+main {
+  width: 540px;
+} /* main 가로 길이 설정*/
+
+img {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+} /* 아바타이미지 크기, 모양 설정*/
+
+.discussion__avatar--wrapper {
+  flex-grow: 0.5;
+  display: flex;
+  justify-content: center;
+}
+
+.discussion__title {
+  font-weight: 400;
+  font-size: larger;
+}
+
+.discussion__content {
+  flex: 15;
+}
+.discussion__information {
+  text-align: right;
+  font-weight: 350;
+  font-size: smaller;
+  color: #f2deba;
+}
+.discussion__answered {
+  flex-grow: 0.5;
+  display: flex;
+  justify-content: center;
+}
+
+/*디스커션 부분 끝 */
