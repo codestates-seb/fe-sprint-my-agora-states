@@ -1,1 +1,214 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main{
+    width: 540px;
+    margin: 0 auto;
+}
+ul,ol,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:#0D2259;
+}
+a:active{
+    color:#0D2259;
+}
+/***!!! HEADER ***/
+header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.logo img{
+    width:100px;
+}
+h1{
+    font-size: 30px;
+    font-weight:900;
+    color: #0D2259;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-shadow: 2px 3px 0px #eee
+}
+.topLogin{
+    width:100px;
+    text-align: end;
+}
+.topLogin a{
+    font-size: 16px;
+    cursor: pointer;
+    color:#442CDC;
+}
+.topLogin a:first-child{
+    padding-right: 15px;
+}
+
+/***!!! ARTICLE ***/
+article{
+    position:relative;
+    width:100%;
+    height: 500px;
+    background-color:#0D2259;
+    /* background-image: url('images/codestates-motif.png'); */
+}
+.mainTxt{
+    line-height: 500px;
+}
+.mainTxt h2{
+    text-align: center;
+    font-weight: 300;
+    color:#fff;
+    font-size:26px;
+}
+
+/***!!! FORM ***/
+.form__container{
+    position:absolute;
+    top:500px;
+    left:50%;
+    width: 740px;
+    height: 400px;
+    border-radius: 10px;
+    background-color:#fff;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+}
+.form{
+    width: 740px;
+    height: 380px;
+    padding:10px 20px;
+    color:#0D2259;
+}
+.formTopBtn__container{
+    width:100%;
+    height:20px;
+    background-color:rgba(163, 175, 205, 0.2);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.formTopBtn{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100px;
+    padding: 5px 0 0 5px;
+}
+.formTopBtn span{
+    display:block;
+    width: 10px;
+    height: 10px;
+    margin-right:4px;
+    border-radius: 10px;
+    background-color: #FE6150;
+}
+.formTopBtn span:nth-child(2){
+    background-color: #FFBC22;
+}
+.formTopBtn span:last-child{
+    background-color: #29D24A;
+}
+.form__input--wrapper div{
+    padding: 10px 0;
+}
+.form__input--wrapper div > label{
+    font-size:14px;
+}
+.form input, .form textarea{
+    width: 100%;
+    background-color:transparent;
+    color:#0d2259;
+    border: 1px solid rgba(13,34,89,0.2);
+    border-radius: 5px;
+    padding: 5px;
+}
+.form input{
+    margin-top: 10px;
+}
+.form textarea{
+    height: 100px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.form textarea::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+.form textarea::placeholder{
+    color:rgba(0,0,0,0.2);
+    font-size:12px;
+}
+.form input:focus, .form textarea:focus{
+    outline: none;
+}
+.form__submit{
+    margin:0 auto;
+    width:20%;
+}
+.form__submit > input{
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.form__submit > input:hover{
+    border:1px solid rgba(13,34,89,1);;
+    background-color: rgba(13,34,89,1);
+    color:#fff;
+}
+
+/***!!! MAIN_discussion ***/
+.discussion__wrapper{
+    margin-top:400px;
+}
+.discussions__container{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.discussion__container{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width:260px;
+    height:320px;
+    margin-bottom:20px;
+    border:1px solid #eee;
+    text-align: center;
+    transition: all 0.5s
+}
+.discussion__container:hover{
+    border: 1px solid #0D2259;  
+}
+.discussion__container div{
+    padding: 10px 0;
+}
+.discussion__avatar--wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.discussion__avatar--image{
+    width:100px;
+    border-radius: 50%;
+}
+.discussion__content{
+    width:200px;
+    font-size:12px;
+}
+.discussion__title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 18px;
+}
+.discussion__answered{
+    font-size:14px;
+    color:#442CDC;
+}
