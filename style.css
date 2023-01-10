@@ -18,24 +18,22 @@ body {
     justify-content: center;
     align-items: center;
     /* background-image: url(''); */
-
-
-
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
     background-image: linear-gradient(to bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 
 }
 
+/* 
 ul {
     list-style: none;
     padding: 0;
-}
-
+} */
+/* 
 ol {
     padding: 0;
     list-style-position: inside;
-}
+} */
 
 img {
     width: 100%;
@@ -156,21 +154,33 @@ section.form__container {
     transform: scale(0.97);
 }
 
-.discussion__wrapper .discussion__container {
+/* .discussion__wrapper  */
+
+.discussion__container {
+    list-style: none;
     background-color: mintcream;
     border: 3px solid teal;
     border-radius: 14px;
     padding: 10px 10px 18px;
     margin: 20px 0;
-    display: grid;
-    grid-template-columns: 50px 1fr 20px;
+    display: flex;
+    justify-content: space-between;
+
+
+    /* grid-template-columns: 50px 1fr 20px; */
     align-items: center;
     gap: 10px 12px;
     box-shadow: 9px 9px 0px -3px mintcream, 9px 9px 0px 1px skyblue;
+
 }
 
+.discussion__information {
+    text-align: right;
+}
+
+/* img 태그의 여백 제거/  */
 .discussion__wrapper .discussion__avatar--wrapper {
-    /* img 태그의 여백 제거 */
+
     font-size: 0;
     line-height: 0;
 }
@@ -183,6 +193,9 @@ section.form__container {
 
 
 }
+
+
+
 
 .discussion__wrapper .discussion__title {
     margin: 0;

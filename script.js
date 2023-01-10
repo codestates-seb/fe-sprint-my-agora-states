@@ -35,6 +35,7 @@ const convertToDiscussion = (obj) => {
 
   //작성자 /날짜 
   const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discussion__information"
   discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}` // 
   discussionContent.append(discussionTitle, discussionInfo);
 
