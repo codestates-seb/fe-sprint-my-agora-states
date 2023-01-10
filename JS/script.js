@@ -28,7 +28,7 @@ const convertToDiscussion = (obj) => {
   title.className = "discussion__title";
   const anchor = document.createElement("a");
   anchor.href = obj.url;
-  title.textContent = obj.title;
+  anchor.textContent = obj.title;
   title.appendChild(anchor);
   discussionContent.appendChild(title);
 
