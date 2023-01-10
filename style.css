@@ -1,15 +1,325 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-
-*{box-sizing: border-box; margin: 0; padding: 0; font-family: 'roboto';}
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+*{box-sizing: border-box; margin: 0; padding: 0; font-family: 'roboto';font-family: 'KoPubWorldDotum';
+    src: url('./font/KoPubWorldDotum.woff') format('woff');}
 li {list-style: none;}
 
 body{
     display: flex;
-
     justify-content: center;
     align-items: center;
-    background-color: #eee;
+    background-color: #f2f2f2;
 }
 
 a{text-decoration: none; color:#000;}
 /*--------------기본값------------------*/
+
+
+
+section {
+    position: relative;
+    width: 650px;
+    max-height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgb(0,0,0,0.1);
+}
+
+header {
+    width: 100%;
+    height: 540px;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+
+.text_contents { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.text_contents>*{margin-top: 10px;}
+.text_contents>h2{
+    font-size: 3.7em;
+    font-weight: 100;
+    color:#fff;
+    font-family: 'Pacifico', cursive;
+    font-style: italic;
+}
+
+input {padding: 5px 20px; 
+    margin-top: 8px; 
+    margin-right: 8px;
+    border-style: none; 
+    border-radius:10px;
+    flex-grow: 1;
+    font-family: 'KoPubWorldDotum';
+    src: url('./font/KoPubWorldDotum.woff') format('woff');
+    transition: all ease-in-out 0.5s;
+}
+input::placeholder{color: #ccc;}
+input:nth-last-child(1){height: 100px;}
+.input_box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 470px;
+    height: 200px;
+    margin-top: 30px;
+}
+
+
+
+.headerBackground { 
+    width: 1000px;
+    height: 1000px;
+    background: linear-gradient(120deg,#a8c2ee, #f9c2eb);
+    margin-top: -550px;
+    margin-left: -24%;
+    z-index: -1;
+}
+
+.ani {animation-name: ani;animation-duration: 10s; animation-iteration-count: infinite;}
+@-webkit-keyframes ani{
+    0%{border-radius: 50%;}
+    50%{border-radius: 45%;}
+    100%{border-radius: 50%;transform: rotate(360deg);}
+}
+
+article {position: relative;}
+.container {width: auto;}
+
+
+
+.sumitBtn{
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgb(0,0,0,0.1);
+    font-size: 2em;
+    color: #c9c2ed;
+    transition: all ease-in-out 0.2s;
+}
+.sumitBtn:hover{
+    color:#c488f7;
+    box-shadow: 0px 0px 30px rgba(91, 80, 189, 0.4);
+    background-color: #f4f0ff;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #fff;
+}
+
+.sumitBtn:active{border: 2px solid rgb(172, 57, 207);background-color: #e88cff;}
+
+
+/* 헤더끝 */
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; 
+    height: 100%;
+
+}
+
+.container_Box{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 500px;
+    height: 130px;
+    border:1px solid #e5e5e5;
+    background-color: #f3f3f3;
+    border-radius:10px; 
+    margin-bottom: 10px;
+
+}
+
+.container_Box>div{
+
+}
+
+.user_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.user_image>img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.user_text {padding: 25px 20px 0px 0px;}
+
+.user_text>:nth-child(1){
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: #363636;
+}
+
+.user_text>:nth-child(2){
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    width: 80px;
+    height: 25px;
+    color:#fff;
+    background-color: #d7c3ee;
+    border-radius: 200px;
+    border : 1px solid #ad97d6;
+}
+
+.user_text>:nth-child(3){letter-spacing: -1px; line-height: 130%; color:#524e64;}
+.user_newDate{
+    width: 200px;
+    right: 0px;
+    padding: 20px;
+    color: #cfcfcf;
+    font-size: 0.8em;
+}
+
+
+
+
+/* 
+
+
+section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 650px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgb(0,0,0,0.1);
+    overflow-y: hidden;
+    
+}
+
+header{
+    width: 100%;
+    height: 450px;}
+
+.headerBackground { 
+    width: 1000px;
+    height: 1000px;
+    background: linear-gradient(120deg,#a8c2ee, #f9c2eb);
+    margin-top: -550px;
+    margin-left: -24%;
+    z-index: -1;
+}
+
+.ani {animation-name: ani;animation-duration: 10s; animation-iteration-count: infinite;}
+@-webkit-keyframes ani{
+    0%{border-radius: 50%;}
+    50%{border-radius: 45%;}
+    100%{border-radius: 50%;transform: rotate(360deg);}
+}
+.sumitBtn{
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, 0%);
+    margin-top: -60px;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgb(0,0,0,0.1);
+    font-size: 2em;
+    color: #c9c2ed;
+    transition: all ease-in-out 0.2s;
+}
+.sumitBtn:hover{
+    color:#c488f7;
+    box-shadow: 0px 0px 30px rgba(91, 80, 189, 0.4);
+    background-color: #f4f0ff;
+    width: 100px;
+    height: 100px;
+    font-size: 2.5em;
+    border: 2px solid #fff;
+}
+
+.text_contents { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.text_contents>*{margin-top: 10px;}
+.text_contents>h2{
+    font-size: 3.7em;
+    font-weight: 100;
+    color:#fff;
+    font-family: 'Pacifico', cursive;
+    font-style: italic;
+}
+
+input {padding: 5px 20px; 
+    margin-top: 8px; 
+    margin-right: 8px;
+    border-style: none; 
+    border-radius:10px;
+    flex-grow: 1;
+    font-family: 'KoPubWorldDotum';
+    src: url('./font/KoPubWorldDotum.woff') format('woff');
+    transition: all ease-in-out 0.5s;
+}
+input::placeholder{color: #ccc;}
+input:nth-last-child(1){height: 100px;}
+.input_box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 470px;
+    height: 200px;
+    margin-top: 30px;
+}
+
+article{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border:1px solid red;
+    z-index: 1;
+    top:500px;
+}
+.container{
+
+    width: 10px;
+    height: 10px;
+    border:1px solid red;
+} */
