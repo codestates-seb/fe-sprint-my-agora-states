@@ -1,6 +1,8 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -26,17 +28,19 @@ const convertToDiscussion = (obj) => {
   // 제목링크
   const discussionLink = document.createElement("a")
   discussionLink.textContent = obj.title;
-  discussionLink.src = obj.url;
+  discussionLink.href = obj.url;
   discussionTitle.append(discussionLink);
+
   // 유저이름, 업로드 시간
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInfo.textContent = `${obj.author} /${new Date(obj.createdAt).toLocaleTimeString()}`;
   discussionContent.append(discussionInfo);
   // 체크박스
   const discussionCheckbox = document.createElement("p");
   discussionCheckbox.className = "discussion__answered";
   discussionContent.append(discussionAnswered);
+
 
   // 만약 답변이 있다면 체크박스, 없다면 x박스
   if(obj.answer !== null){
@@ -78,22 +82,36 @@ const formConatiner = document.querySelector(".form");
 // 서브밋 이벤트시 실행
 formConatiner.addEventListener('submit', (logSubmit) =>{
   // form dom 변수선언
-  //// **함수 밖에서 선언한것 오류! addEventListener 안으로 이동해야함**
+  // **함수 밖에서 선언한것 오류! addEventListener 안으로 이동해야함**
   let formName = document.querySelector('#name').value;
   let formTitle = document.querySelector("#title").value;
   let formTextbox = document.querySelector("#story").value;
   const submitButton = document.querySelector('.form_submit');
+  //시간 > new Date().toISOString() 으로 사용함
+  /*
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    const hour = ('0' + date.getHours()).slice(-2);
+    const minute = ('0' + date.getMinutes()).slice(-2);
+    const second = ('0' + date.getSeconds()).slice(-2);
+
+    const dateStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+  */
   logSubmit.preventDefault() //브라우저의 기본 동작을 막기 위해 사용된다.
   let newAgora = { 
     id: 'newId',
     title: formTitle,
+    createdAt: new Date().toISOString(),
     author: formName,
     answer: null,
     bodyHTML: formTextbox,
     avatarUrl : "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   }
   agoraStatesDiscussions.unshift(newAgora)
-  // ul 리스트 위에 삽입
-  ul.prepend(convertToDiscussion(newAgora))
+  // ul 리스트 위에 삽입 
+  ul.prepend(convertToDiscussion(newAgora)) 
 
 });
+

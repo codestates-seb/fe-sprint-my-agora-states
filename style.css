@@ -4,31 +4,94 @@
     padding: 0;
     margin: 0;
     font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
 }
-
-.contents{
-    width: 50%;
+body{
     display: flex;
     justify-content: center;
     align-items: center;
-
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #54b1d3, #3bcdab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 section{
-    border: 1px solid red;
+    width: 580px;
 }
 h1{
-    width: 100px;
-    border: 1px solid red;
-    display: block;
+    color:#f2f2f3;
+    text-align: center;
+    font-size: 2.5rem;
+    height: 70px;
+    margin-top:50px;
 }
+/* form 입력 */
 .form__container{
-    width:240px;
+
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: .7rem;
+    transition: all ease .3s;
 }
-.discussion__wrapper{   
-    width: 540px;
+
+.form__input--wrapper > div{
+    margin: 10px 0;
 }
+.form__input--wrapper > div > input{
+    padding: 8px;
+    color: #212121;
+    width: 100%;
+    border-radius: .5rem;
+    border: none;
+}
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+}
+.form__textbox > textarea{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    color: #212121;
+    border-radius: .5rem;
+    border: none;
+}
+.form__submit > input{
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: .5rem;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+.form__submit > input:hover{
+    background-color: rgb(45, 44, 47);
+}
+/* 디스커션 목록 */
 ul.discussions__container{
-    background-color: aquamarine;
     display: flex;
     justify-content:space-between;
     flex-direction: column;
@@ -36,34 +99,71 @@ ul.discussions__container{
 }
 
 li.discussion__container{
-    border: 1px solid rgb(156, 176, 24);
+    height: 130px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    flex: 1 1 
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: .7rem;
+    transition: all ease .3s;
+}
+li.discussion__container:hover{
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    border: 1px solid rgba(255, 255, 255, 0.454);
 }
 .discussion__avatar--wrapper{
-    border: 1px solid orange;
-    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.074);
+    box-shadow: -5px -5px 8px #ffffff7a, 
+                5px 5px 8px #a9a9aa7a;
 }
 .discussion__avatar--image{
-    width: 48px;
+    width: 70px;
     border-radius: 50%;
     overflow: hidden;
     background-size: cover;
 }
-
 .discussion__content{
-    border: 1px solid orange;
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    height: 120px;
+    padding: 20px;
+}
+/* 타이틀 */
+.discussion__title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.5em;
+}
+.discussion__title a{
+    width: 100%;
+    font-size: 1.2rem;
 }
 /* 글쓴이 */
 .discussion__information{
     text-align: end;
 }
-
-.discussion__answered{
-    border: 1px solid orange;
+.discussion__answered, p{
+    font-size: 2rem;
+    text-align: center;
+}
+.finish{
+    color: aqua;
 }
