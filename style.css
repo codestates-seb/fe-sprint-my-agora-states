@@ -1,1 +1,105 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Pretendard', Helvetica, sans-serif
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+h1{
+    text-align:center;
+    margin:20px auto;
+    color:#003c89;
+}
+.form__container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:400px;
+}
+.form__container label{
+    color:#666;
+    font-weight:300;
+    font-size:0.8rem;
+}
+
+li.discussion__container{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:540px;
+    margin-bottom:0.5rem;
+    border-radius:5px;
+    list-style-type:none;
+}
+.discussion__avatar--wrapper>img{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+}
+.discussion__content{
+    width:460px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.discussion__content>h2>a{
+    font-size:0.9rem;
+    color:#05135d;
+    font-weight:700;
+    text-decoration:none;
+    text-align:left;
+}
+.discussion__information{
+    text-align:right;
+    font-size:0.8rem;
+}
+.discussion__answered{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.discussion__answered>span{
+    font-size:1rem;
+}

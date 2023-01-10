@@ -1,4 +1,4 @@
-const agoraStatesDiscussions = [
+const agoraStatesDiscussions = [ // 이 대괄호의 정체 - 배열 -> 더미데이터
   {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",
