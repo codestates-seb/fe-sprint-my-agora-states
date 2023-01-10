@@ -121,7 +121,7 @@ const convertToNotice = (obj) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-const ul2 = document.querySelector("ul.notice__container");
+// const ul2 = document.querySelector("ul.notice__container");
 // render(ul2);
 
 
