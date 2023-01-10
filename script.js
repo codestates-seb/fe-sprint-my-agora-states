@@ -32,7 +32,6 @@ const convertToDiscussion = (obj) => {
   discussionInfo.textContent = `${obj.author} / ${new Date(obj.createAt).toLocaleTimeString()}`
   discussionContent.append(discussionTitle, discussionInfo);
 
-
   const checked = document.createElement("p");
   checked.textContent = obj.answer ? "☑︎" : "☒";
   discussionAnswered.append(checked);
