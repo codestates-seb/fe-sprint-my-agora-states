@@ -119,9 +119,13 @@ inputContent.addEventListener('keyup', e => formValidityTest(e));
 inputSubmit.addEventListener('click', saveThread); //when clicked, save texts to object, then add obj to threadlist + DOM
 inputSubmit.addEventListener('click', clearInputText);
 inputSubmit.addEventListener('click', () => toggleOnOffElem(false, inputSubmit, 'disabled'));
+inputSubmit.addEventListener('click', closeAskForm);
+
 // formSubmit.addEventListener('submit', saveThread);
 
 // const newThread = Object.create(discussionThreadObj);
+
+
 
 function formValidityTest(e){
   if(e.target.id === 'name'){
@@ -166,10 +170,13 @@ function saveThread(e){
   //create an object to store the retrieved text info
   const newThread = Object.create(discussionThreadObj);
 
+  //top thread
+  let topThread = document.querySelector('.discussion__container');
+  console.log(topThread);
+
   //timezone offset
   const timezoneOffset = new Date().getTimezoneOffset() * 60000;
   const timezoneDate = new Date(Date.now() - timezoneOffset);
-
   let isoDate = timezoneDate.toISOString();
   // isoDate = isoDate.slice(0, -1);
 
@@ -183,7 +190,8 @@ function saveThread(e){
     newThread.avatarUrl = '../src/' + (AvatDefaultUrls[imgIdx] || '1.png');
     // newThread.createdAt = new Date(isoDate.slice(0, -1));
     filteredDiscussions.unshift(newThread);
-    ul.prepend(convertToDiscussion(newThread));
+    // ul.prepend(convertToDiscussion(newThread));
+    ul.insertBefore(convertToDiscussion(newThread), topThread);
 
     //if it's the last image, shuffle the image again
     if (imgIdx >= imgNum-1){
@@ -239,3 +247,69 @@ function shuffle(array) {
   }
   return array;
 }
+
+//askbutton
+const testButton = document.querySelector('#ask-btn');
+const formPopup = document.querySelector('.form__container');
+testButton.addEventListener('click', openAskForm);
+
+//turn Toggle AskForm On and Off
+function openAskForm(){
+  formPopup.style.display = "flex";
+  //turn display on
+}
+
+function closeAskForm(){
+  formPopup.style.display = "none";
+}
+
+//opening windows
+// function openWin(){
+
+//   let popupWinWidth = 400;
+//   let popupWinHeight = 200;
+//   // Fixes dual-screen position, Most browsers, Firefox
+//   const dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+//   const dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+//   const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+//   const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+//   const left = ((width / 2) - (popupWinWidth/ 2)) + dualScreenLeft;
+//   const top = ((height / 2) - (popupWinHeight / 2)) + dualScreenTop;
+
+//   // let left = (screen.width - popupWinWidth) / 2;
+//   // let top = (screen.height - popupWinHeight) / 4;
+
+//   let myBars = 'directories=no,location=no,menubar=no,status=no';
+
+//   myBars += ',titlebar=no,toolbar=no';
+//   let myOptions = 'scrollbars=no,width=' + popupWinWidth + ',height='+popupWinHeight+',resizeable=yes' + ',top=' + top + ',left=' + left;
+//   let myFeatures = myBars + ',' + myOptions;
+//   let myReadme = 'This is a test.'
+
+//   let newWin = open('', 'myDoc', myFeatures);
+
+//   newWin.document.writeln('<form>');
+//   newWin.document.writeln('<table>');
+//   newWin.document.writeln('<tr valign=TOP><td>');
+//   newWin.document.writeln('<textarea cols=45 rows=7 wrap=SOFT>');
+//   newWin.document.writeln(myReadme + '</textarea>');
+//   newWin.document.writeln('</td></tr>');
+//   newWin.document.writeln('<tr><td>');
+//   newWin.document.writeln('<input type=BUTTON value="Close"');
+//   newWin.document.writeln(' onClick="window.close()">');
+//   newWin.document.writeln('</td></tr>');
+//   newWin.document.writeln('</table></form>');
+//   newWin.document.close();
+//   newWin.focus();
+//   }
+// console.log(testButton);
+
+//drop-down button disable
+// const dropDowns = document.querySelectorAll('.dd-button');
+// console.log(dropDowns);
+
+// for(let d of dropDowns){
+//   d.disabled = true;
+// }
