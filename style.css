@@ -47,3 +47,10 @@ li {
   align-self: center;
   font-size: 2rem;
 }
+
+.hidden {
+  display: none;
+}
+.active {
+  background-color: blueviolet;
+}
