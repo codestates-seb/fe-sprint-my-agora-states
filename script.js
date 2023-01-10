@@ -1,5 +1,64 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+var pageNumber = 1;
+const PAGE_SIZE = 10;
+const LOCAL_STORAGE_KEY = 'agoraDB';
+
+const loadLocalStorageDate = ( ) => {
+  const data = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+  return JSON.parse(data);
+}
+
+const saveLocalStorageDate = (data) => {
+  window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+}
+
+const getPagedDiscussions = (pageNumber) => {
+  const pageSize = PAGE_SIZE;
+  const startIndex = pageSize * (pageNumber - 1);
+  const endIndex = startIndex + (pageSize - 1);
+  return loadLocalStorageDate().slice(startIndex, endIndex + 1);
+}
+
+const createNavi = (ul) => {
+  const naviSize = Math.ceil(loadLocalStorageDate().length / PAGE_SIZE);
+  const discussionFooter = document.querySelector('#pagination-container');
+
+  const naviPrev = document.createElement('a');
+  naviPrev.textContent = '<';
+  naviPrev.className = 'pagenation_btn';
+  naviPrev.href = '#';
+  naviPrev.addEventListener('click', () => {
+   window.pageNumber = window.pageNumber - 1;
+   if(window.pageNumber < 1) window.pageNumber = 1;
+   render(ul); 
+  })
+  discussionFooter.appendChild(naviPrev);
+
+  for(let i = 0; i < naviSize; i++) {
+    const navi = document.createElement('a');
+    navi.textContent = i + 1;
+    navi.id = i + 1;
+    navi.className = 'pagenation_btn';
+    navi.addEventListener('click', () => {
+      window.pageNumber = navi.id;
+      render(ul);
+    })
+    discussionFooter.appendChild(navi);
+  }
+
+  const naviEnd = document.createElement('a');
+  naviEnd.textContent = '>'
+  naviEnd.className = 'pagenation_btn';
+  naviEnd.href = '#';
+  naviEnd.addEventListener('click', () => {
+   window.pageNumber = window.pageNumber + 1;
+   if(window.pageNumber > naviSize) window.pageNumber = naviSize;
+   render(ul); 
+  })
+  discussionFooter.appendChild(naviEnd);
+}
+
 
 const hederButton = document.querySelector("#writeBtn");
 const inputFormBox = document.querySelector('.form__container');
@@ -82,19 +141,62 @@ const convertToDiscussion = (obj) => {
   discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
   discussionContent.appendChild(discussionInformation);
   
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+
+  while (element.hasChildNodes()) {
+    element.removeChild(element.firstChild);
+  }
+
+  const pagedDiscussions = getPagedDiscussions(pageNumber);
+
+  for (let i = 0; i < pagedDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(pagedDiscussions[i]));
   }
   return;
 };
 
+const getKSTNow = () => {
+  const now = new Date();
+  return now.toLocaleString('ko-KR');
+}
+
+if(!loadLocalStorageDate()) {
+  saveLocalStorageDate(agoraStatesDiscussions);
+}
+
+document.getElementById('agora-form').onsubmit = () => {
+  const name = document.getElementById('input-name').value;
+  const title = document.getElementById('input-title').value;
+  const story = document.getElementById('textarea-story').value;
+  const now = getKSTNow();
+
+  const currList = loadLocalStorageDate();
+  currList.unshift({
+    id: "D_kwDOHOApLM4APfjB",
+    createdAt: now,
+    title: title,
+    url: story,
+    author: name,
+    answer: null,
+    bodyHTML:null,
+    avatarUrl:
+      getAbata(),
+  });
+  saveLocalStorageDate(currList);
+}
+
+const getAbata = () => {
+  return './image/abata2.png'
+}
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
+createNavi(ul);
 render(ul);
+
+

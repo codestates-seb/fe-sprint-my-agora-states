@@ -21,7 +21,21 @@ a {
 }
 
 body {
-  background-color: #f3f5f7;
+  background-color: #222222;
+}
+
+footer {
+  position: relative;
+  top:-15px;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  background-color: black;
+}
+
+.pagenation_btn {
+  margin-top: 0;
+  background-color: #fff;
 }
 
 header {

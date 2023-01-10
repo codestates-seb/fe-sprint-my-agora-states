@@ -26,7 +26,7 @@
       <h1>My Agora States</h1>
     </header>
     <section class="form__container">
-      <form action="" method="get" class="form">
+      <form action="" method="get" class="form" id="agora-form">
         <div class="form__input--wrapper">
           <div class="form__input--abata">
             <label for="abata" class="abata">
@@ -39,15 +39,15 @@
           </div>
           <div class="form__input--name">
             <label for="name"><i class="fa-solid fa-circle-user"></i>닉네임 </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="input-name" required>
           </div>
           <div class="form__input--title">
             <label for="title"><i class="fa-solid fa-book-bookmark"></i>제목 </label>
-            <input type="text" name="title" id="title" required>
+            <input type="text" name="title" id="input-title" required>
           </div>
           <div class="form__textbox">
             <label for="story"><i class="fa-solid fa-comment-dots"></i>내용 </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <textarea id="textarea-story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
@@ -79,12 +79,11 @@
     <section class="discussion__wrapper">
       <ul class="discussions__container">
       </ul>
-      <nav id="pagination-container">
-        <a href="#" id="prev-button" class="pagination-button"> &laquo; </a>
-        <div id="pagination-numbers"></div>
-        <a href="#" id="next-button" class="pagination-button"> &raquo; </a>
-      </nav>
+      <footer id="pagination-container">
+      </footer>
     </section>
+
+
     </div>
   </main>
 </body>
