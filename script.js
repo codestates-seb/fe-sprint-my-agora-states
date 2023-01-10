@@ -36,10 +36,10 @@ const convertToDiscussion = (obj) => {
       titleWrapper.append(discussionTitleLink);                // <div><h2><a herf>content</a><h2></div>
 
 // 📆 날짜
-
+      const whatTime = obj.createdAt
       const discussionInformation = document.createElement('div');
       discussionInformation.className = "discussion__information";
-      discussionInformation.textContent = `${obj.author} / ${obj.createdAt.slice(0,10)}`
+      discussionInformation.textContent = `${obj.author} / ${whatTime.toLocaleString()}`
       discussionContent.append(discussionInformation);   
 
 // 💬 답장
@@ -51,13 +51,11 @@ const convertToDiscussion = (obj) => {
       const discussionAnswered = document.createElement("div"); //<div></div>
       discussionAnswered.className = "discussion__answered";    //<div class ='d__a'> </div>
 
-// 📃 부모 li에 (자식요소) 추가
-      
       const checkbox = document.createElement("p");
       checkbox.textContent = obj.answer ? '✔︎' : '✗'
       discussionAnswered.append(checkbox)
 
-// 📃 
+// 📃 li요소 생성
       li.append(avatarWrapper, discussionContent, discussionAnswered); 
       return li;
       };
@@ -80,13 +78,18 @@ const title = document.querySelector("div.form__input--title > input");
 const nameInput = document.querySelector("div.form__input--name > input");
 const textbox = document.querySelector("div.form__textbox > textarea");
 
+
+
+let date = new Date
+let creatdDate = date
+
 form.addEventListener("submit", (event) => {
       event.preventDefault();
-
+      
       // 개체 양식
       const newObj = {
             id: "new id",
-            createdAt: new Date().toISOString(),
+            createdAt: creatdDate,
             title: title.value,
             url: "https://github.com/codestates-seb/agora-states-fe/discussions",
             author: nameInput.value,
@@ -101,7 +104,66 @@ form.addEventListener("submit", (event) => {
 
       //
       const Discussion = convertToDiscussion(newObj);
-
+      
+      event.target.reset()
       ul.prepend(Discussion);
       }
 );
+
+
+
+const rowsPerPage = 10;
+const rows = document.querySelector("ul.discussions__container");
+console.log(rows) //
+const rowsCount = ul.childElementCount; // 42 / 5 -> 8.n 개의 페이지 네이션
+const pageCount = Math.ceil(rowsCount/rowsPerPage); // 9
+
+const numbers = document.querySelector('#numbers');
+
+// 페이지네이션 생성
+
+for(let i = 1; i <= pageCount; i++){
+      numbers.innerHTML += `<li><a href="">${i}</a></li>`;
+}
+const numberBtn = numbers.querySelectorAll('a');
+
+// numberBtn.forEach(function(item,idx){})
+
+numberBtn.forEach((item,idx)=>{
+      item.addEventListener('click', (e)=>{
+            e.preventDefault();
+            for(let nb of numberBtn){
+                  nb.classList.remove('active');
+            }
+            e.target.classList.add('active');
+            displayRow(idx);
+      });
+});
+
+let rowsArray = agoraStatesDiscussions;
+console.log(rowsArray)
+
+//테이블 출력 함수
+function displayRow(idx){
+      /**
+       * idx 0
+       * slice(0,10);
+       * idx 1
+       * slice(10,20);
+       */
+
+      let start = idx * rowsPerPage; 
+      let end = start + rowsPerPage;
+
+       // [...rows]는 안된다... 
+
+      for(ra of rows.li){
+            ra.style.display = "none";
+      }
+      
+      let newRows = rowsArray.slice(start,end);
+      for(nr of newRows){
+            nr.style.display = "block";
+      }
+
+}// displayRow
