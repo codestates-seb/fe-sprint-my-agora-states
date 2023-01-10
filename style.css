@@ -1,1 +1,115 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --deep-skyblue:#81AAE3;
+    --backgroundcolor: #F7F5EB;
+    --button-color:#EAC7C7;
+  }
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backgroundcolor);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 540px;
+}
+ul,ol {
+    list-style: none; /*앞에 점 지우기*/
+}
+.discussion__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+.discussion__avatar__wrapper{
+    display: flex;
+}
+.discussion__avatar--image{
+    border-radius: 50%;
+    width: 48px;
+}
+.discussion__title{
+    font-size: 1rem;
+    width: 350px;
+}
+.discussion__title a{
+    color: inherit;
+    text-decoration: none;
+}
+.discussion__content{
+    margin: 0px 20px;
+}
+.discussion__information{
+    text-align: right;
+     /*일단 이렇게 두고 다른방법 있나 생각해볼것*/
+}
+
+.discussion__answered{
+    font-size: 25px; /*일단 이렇게.*/
+}
+
+.page-button{
+    width: 30px;
+    height: 40px;
+    border: none;
+    background-color: var(--button-color);
+    margin: 5px;
+    border-radius: 7px;
+}
+.page-button:hover{
+    cursor: pointer;
+}
+
+
+.form__contatiner{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    border: none;
+    background-color: var(--backgroundcolor);
+}
+
+#input-name, #input-title{
+    height: 20px;
+    width: 300px;
+    margin: 20px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+textarea{
+    width: 300px;
+    background-color: white;
+    height: 100px;
+    margin: 20px 0px 10px 0px;
+    background-color: var(--backgroundcolor);
+}
+.form__submit{
+    display: flex;
+    justify-content: end;
+}
+.form__submit_btn{
+    background-color: var(--button-color);
+    color: white;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.form__submit_btn{
+    cursor: pointer;
+}
