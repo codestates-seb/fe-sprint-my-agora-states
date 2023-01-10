@@ -44,6 +44,8 @@ img {
 
 .discussion__answered {
   font-size: 23px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form__container {
@@ -184,4 +186,21 @@ a {
   overflow-y: scroll;
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
+}
+
+.remove-btn {
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  background-color: transparent;
+  color: var(--gray-color-500);
+  cursor: pointer;
+  position: absolute;
+  margin-top: 38px;
+  margin-left: -3px;
+}
+
+.discussion__answered > p {
+  position: relative;
+  margin-bottom: 40px;
 }

@@ -19,6 +19,12 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
+  // removeBtn 구현
+  const removeDisContainer = (event) => {
+    const removeOneDis = event.target.parentElement.parentElement;
+    removeOneDis.remove();
+  };
+
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
@@ -39,8 +45,13 @@ const convertToDiscussion = (obj) => {
   discussionContent.appendChild(disInfo);
 
   const disAnswer = document.createElement("p");
+  const removeBtn = document.createElement("button");
   disAnswer.textContent = obj.answer ? "☑︎" : "☒";
-  discussionAnswered.appendChild(disAnswer);
+  removeBtn.className = "remove-btn";
+  removeBtn.textContent = "×";
+  discussionAnswered.append(disAnswer, removeBtn);
+
+  removeBtn.addEventListener("click", removeDisContainer);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
