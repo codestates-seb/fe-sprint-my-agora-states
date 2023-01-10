@@ -95,7 +95,6 @@ export default function Main($app, initialState) {
       asidel.setState(newState);
       asidem.setState(newState);
     } else if (e.target.tagName === "BUTTON") {
-      console.log("t");
       new NewDiscussionModal(
         this.$target,
         {

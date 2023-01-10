@@ -21,12 +21,12 @@ export default function Header($app, initialState) {
       userAPI.logOut(e.current$target);
     }
     if (e.target.textContent === "SIGN UP") {
-      const signUpModal = new SignUpModal($app, {
+      new SignUpModal($app, {
         hide: false,
       });
     }
     if (e.target.textContent === "SIGN IN") {
-      const signInModal = new SignInModal($app, {});
+      new SignInModal($app, {});
     }
   });
 

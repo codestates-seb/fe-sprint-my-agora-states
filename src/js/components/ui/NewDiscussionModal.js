@@ -19,7 +19,6 @@ export default function NewDiscussionModal($app, initialState, onSubmit) {
       this.setState({ hide: true });
     }
     if (e.target.textContent === "SUBMIT") {
-      console.log("t");
       onSubmit();
       this.setState({ hide: true });
     }

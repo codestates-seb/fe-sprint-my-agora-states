@@ -30,7 +30,6 @@ export default function DiscussionModal($app, initialState) {
         const curDiscussion =
           discussion.getDiscussions()[this.state.discussionId];
         const createdAt = new Date().toISOString();
-        console.log(curDiscussion);
         curDiscussion.answer = {
           author: user.getCurrentUser(),
           bodyHTML: $answer.value,
