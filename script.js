@@ -63,20 +63,34 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // 작성
-// const story = document.querySelector("#story")
+
 const form = document.querySelector("form")
-const submit = document.querySelector(".form__submit > input")
+const textarea = document.querySelector("textarea")
 const inputTitle = document.querySelector(".form__input--title > input")
 const inputName = document.querySelector(".form__input--name > input")
-const newQ = ({
-  id: "new id",
-  createdAt: "2023.01.09",
-  title: inputTitle.value, 
-  url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-  author: inputName.value, 
-  answer: null,
-  avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"})
 
-agoraStatesDiscussions.unshift(newQ);
 
-ul.append(convertToDiscussion(newQ))
+form.addEventListener("submit", e => {
+  e.preventDefault(); //제출 후 새로고침 취소
+  const newQ = {
+    id: "new id",
+    createdAt: new Date().toISOString(),
+    title: inputTitle.value, 
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: inputName.value, 
+    answer: null,
+    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"}
+  
+    agoraStatesDiscussions.unshift(newQ);
+    //새로 초기화해서 다시 렌더링
+    ul.innerHTML = "";
+    render(ul)
+
+    //제출후 리셋
+    textarea.value = "";
+    inputTitle.value = "";
+    inputName.value = "";
+  })
+  
+render(ul);
+ 
