@@ -134,7 +134,7 @@ const renderContent = (page) => {
     contents.removeChild(contents.lastChild);
   }
 
-  for (let i = (page - 1) * showContents; i <= page * showContents && i <= totalContents; i++) {
+  for (let i = (page - 1) * showContents; i < page * showContents && i <= totalContents; i++) {
     contents.appendChild(convertToDiscussion(totalContentsArr[i]));
   }
 }
