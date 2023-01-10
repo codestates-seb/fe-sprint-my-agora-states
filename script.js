@@ -26,9 +26,12 @@ const convertToDiscussion = (obj) => {
     );
 
     const discussionContent = createEle("div", "discussion__content");
-    const title = createEle("h2", "discussion__title", {
+    const title = createEle("h2", "discussion__title");
+    const titleAtage = createEle("a", "discussion__title_link", {
         textContent: obj.title,
+        href: obj.url,
     });
+    title.append(titleAtage);
 
     discussionContent.append(title, discussionWrittenInfo);
 
