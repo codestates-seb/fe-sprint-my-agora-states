@@ -58,7 +58,7 @@ const convertToDiscussion = (obj) => {
 // 이름 : ""; author: "dubipy",
 // 제목 : ""; title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
 // 질문 : ""; bodyHTML: '주저리주저리',
-// 1. 선택 할 쿼리셀렉터(클랙스명 or 아이디) -> 서브밋 클릭시 추가시킬 함수.
+// 1. 선택 할 쿼리셀렉터(클랙스명 or 아이디) -> 서브밋 클릭시 추가시킬 함수
 const form = document.querySelector('form'); // 작성세션 전체
 form.addEventListener('submit', (event) => {
   event.preventDefault(); // 기본동작 정지
