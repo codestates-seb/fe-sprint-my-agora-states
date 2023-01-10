@@ -788,8 +788,7 @@ let agoraStatesDiscussions = [
   },
 ].map((discussion) => {
   if (discussion.createdAt) {
-    discussion.createdAt = discussion.createdAt.replace(/T/g, " ");
-    discussion.createdAt = discussion.createdAt.replace(/Z/g, "");
+    discussion.createdAt = discussion.createdAt.replaceAll(/T|Z/g, " ").trim();
   }
 
   if (discussion.answer) {
