@@ -45,7 +45,6 @@ const convertToDiscussion = (obj) => {
     }
   } 
   
-  
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -63,3 +62,21 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// 작성
+// const story = document.querySelector("#story")
+const form = document.querySelector("form")
+const submit = document.querySelector(".form__submit > input")
+const inputTitle = document.querySelector(".form__input--title > input")
+const inputName = document.querySelector(".form__input--name > input")
+const newQ = ({
+  id: "new id",
+  createdAt: "2023.01.09",
+  title: inputTitle.value, 
+  url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+  author: inputName.value, 
+  answer: null,
+  avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4"})
+
+agoraStatesDiscussions.unshift(newQ);
+
+ul.append(convertToDiscussion(newQ))
