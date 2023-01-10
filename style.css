@@ -89,6 +89,7 @@ input{
     width: 300px;
     margin: 20px 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    outline: none;
 }
 
 textarea{
@@ -97,6 +98,7 @@ textarea{
     height: 100px;
     margin: 20px 0px 10px 0px;
     background-color: var(--backgroundcolor);
+    outline: none;
 }
 .form__submit{
     display: flex;
