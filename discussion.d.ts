@@ -13,7 +13,6 @@ interface Answer {
   id: string;
   createdAt: string;
   url: string;
-  avatarUrl: string;
   author: string;
   bodyHTML: string;
 }

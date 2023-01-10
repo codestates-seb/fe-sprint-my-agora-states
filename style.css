@@ -1,1 +1,441 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+/* 브라우저 초기화 */
+
+main {
+  margin: 0px;
+  width: 100;
+  position: relative;
+  bottom: 100px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 10px;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 10px;
+}
+body {
+  background: #e3dfd2;
+  box-shadow: inset 0 0 0vmin 0 #585247;
+}
+.wrap {
+  position: relative;
+  width: 80vmin;
+  height: 100px;
+  margin: 0 auto;
+  background: inherit;
+  transform: scale(0.2) translatez(0px);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+b {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 47.5%;
+  overflow: hidden;
+  transform: scale(0.5) translateZ(0px);
+  background: #fafafa;
+}
+b div {
+  background-size: cover;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  border-radius: inherit;
+}
+b:nth-child(1) {
+  border-radius: 40vmin 0 0 0;
+  transform-origin: 110% 110%;
+  transition: transform 0.4s 0.15s;
+  display: none;
+}
+b:nth-child(1) div {
+  margin: 0px;
+}
+b:nth-child(2) {
+  border-radius: 0 40vmin 0 0;
+  left: 52.5%;
+  transform-origin: -10% 110%;
+  transition: transform 0.4s 0.2s;
+  display: none;
+}
+b:nth-child(2) div {
+  margin: 0px;
+}
+b:nth-child(3) {
+  border-radius: 0 0 0 40vmin;
+  top: 52.5%;
+  transform-origin: 110% -10%;
+  transition: transform 0.4s 0.25s;
+  display: none;
+}
+b:nth-child(3) div {
+  margin: 0px;
+}
+b:nth-child(4) {
+  border-radius: 0 0 40vmin 0;
+  top: 52.5%;
+  left: 52.5%;
+  transform-origin: -10% -10%;
+  transition: transform 0.4s 0.3s;
+  display: none;
+}
+b:nth-child(4) div {
+  margin: 0px;
+}
+b:nth-child(5) {
+  width: 55%;
+  height: 55%;
+  left: 22.5%;
+  top: 22.5%;
+  border-radius: 50vmin;
+  box-shadow: 0 0 0 5vmin #e3dfd2;
+  transform: scale(1);
+  display: none;
+}
+b:nth-child(5) div {
+  margin: 0px;
+}
+span {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  top: 620px;
+  width: 95px;
+  height: 95px;
+  border: none;
+  border-radius: 50%;
+  background: #ac60bb;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+span:after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1fd1f9;
+  background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  transition: all 0.3s ease;
+}
+span:hover {
+  background: transparent;
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+  color: #fff;
+}
+
+span:hover:after {
+  -webkit-transform: scale(2) rotate(180deg);
+  transform: scale(2) rotate(180deg);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+}
+
+span span:after,
+span span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1.5vmin;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+}
+span span:after {
+  top: 1.5vmin;
+}
+span:hover + .wrap,
+.wrap:hover {
+  transform: scale(0.8) translateZ(0px);
+  opacity: 1;
+}
+span:hover + .wrap b,
+.wrap:hover a {
+  transform: scale(1) translatez(0px);
+}
+b:hover div {
+  opacity: 1;
+  transform: translatez(0px);
+}
+
+.form__input--title > label {
+  word-spacing: 5.25px;
+}
+
+.form__input--name > label {
+  word-spacing: 1px;
+}
+
+.form__textbox > label {
+  justify-content: center;
+  display: flex;
+}
+
+h2 {
+  font-family: "Nanum Brush Script", cursive;
+  color: #000000;
+}
+section.form__container {
+  background-color: rgba(255, 151, 0, 1);
+  border-radius: 20px;
+  margin-top: 300px;
+  width: 800px;
+}
+.discussion__answered {
+  font-size: 20px;
+  margin: 0px;
+  color: #fff9ca;
+}
+.discussion__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: 150px;
+  font-size: 10px;
+  border-radius: 19px;
+  margin: 10px;
+  padding: 20px;
+}
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+.discussion__content {
+  display: block;
+}
+.discussion__content > :nth-child(1) {
+  text-align: left;
+  margin-top: 0;
+}
+.discussion__content > :nth-child(2) {
+  height: 30px;
+  text-align: right;
+}
+.li {
+  list-style-type: none;
+}
+section.discussion__wrapper {
+  display: flex;
+  flex: 4;
+  width: 320px;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+.ul {
+  padding: 0px;
+}
+ul {
+  display: flex;
+  width: 800px;
+  height: 1000px;
+}
+ul.discussions__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+li.discussion__container {
+  background-color: rgba(255, 151, 0, 1);
+}
+a:link {
+  color: rgb(0, 0, 0);
+  font-family: "Dongle", sans-serif;
+  font-size: 17px;
+  padding-bottom: 0px;
+}
+a:visited {
+  color: rgb(0, 0, 0);
+}
+
+/* 폼 디자인 */
+h1 {
+  text-align: center;
+  position: relative;
+  top: 380px;
+  color: #ffffff;
+  font-size: 36pt;
+  /* overflow: hidden; */
+  background: linear-gradient(
+    0deg,
+    rgba(255, 151, 0, 1) 0%,
+    rgba(251, 75, 2, 1) 100%
+  );
+  line-height: 60px;
+
+  padding: 0;
+  border: none;
+}
+h3 {
+  text-align: center;
+  color: #ad4eca;
+  margin-bottom: 20px;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  display: flex;
+
+  width: 500px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+#story {
+  width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.form__input--wrapper {
+  margin: 5px;
+}
+.form__input--wrapper input {
+  width: 300px;
+  height: 30px;
+  font-size: 1.2rem;
+  margin: 5px;
+  border-radius: 10px;
+  border: 2px solid #0078aa;
+}
+.form__submit {
+  flex: 1;
+  margin: 3px;
+}
+.form__submit input {
+  width: 448px;
+  height: 43px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-left: 25px;
+  margin-right: 0px;
+  border: 2px solid black;
+}
+textarea {
+  margin: 5px;
+}
+
+.discussion__information {
+  padding-top: 5px;
+  font-size: 13px;
+  color: #fff9ca;
+}
+
+img {
+  width: 48px;
+  border-radius: 100%;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  height: 20px;
+  margin: 0px;
+  position: relative;
+  bottom: 10px;
+}
+
+h1 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+h1:before,
+h1:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: rgba(251, 75, 2, 1);
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+h1:before {
+  height: 0%;
+  width: 2px;
+}
+h1:after {
+  width: 0%;
+  height: 2px;
+}
+h1:hover {
+  color: rgba(251, 75, 2, 1);
+  background: transparent;
+}
+h1:hover:before {
+  height: 100%;
+}
+h1:hover:after {
+  width: 100%;
+}
+h1 span:before,
+h1 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: rgba(251, 75, 2, 1);
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+h1 span:before {
+  width: 2px;
+  height: 0%;
+}
+h1 span:after {
+  height: 2px;
+  width: 0%;
+}
+h1 span:hover:before {
+  height: 100%;
+}
+h1 span:hover:after {
+  width: 100%;
+}
+.a {
+  justify-content: center;
+}
