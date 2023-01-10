@@ -62,23 +62,25 @@ render(ul);
 
 //name, title, question 입력 후 submit 을 누르면 댓글이 작성됨
 //name, title, question을 배열로 만들어서 
-let form = document.querySelector('.form')
+const form = document.querySelector(".form.form")
+const userName = form.querySelector("div.form__input--name > input")
+const title = form.querySelector("div.form__input--title > input")
+const qusetionText= form.querySelector("div.form__textbox > textarea")
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
- 
-const userName = document.querySelector('#user-name')
-const title = document.querySelector('#title')
-const qusetionText= document.querySelector('#question-text')
 
-const obj = {
+const newObj = {
+    id: "New id",
     createdAt: new Date().toISOString(),
     author: userName.value,
     title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe",
+    answer: null,
     avatarUrl:"https://avatars.githubusercontent.com/u/98820643?s=64&v=4",
   }
 
-agoraStatesDiscussions.unshift(obj);
-const addDiscussion = convertToDiscussion(obj);
+agoraStatesDiscussions.unshift(newObj);
+const addDiscussion = convertToDiscussion(newObj);
 ul.prepend(addDiscussion);
 })

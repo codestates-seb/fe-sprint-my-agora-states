@@ -4,31 +4,81 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 body {
     display: flex;
+    align-content: center;
     justify-content: center;
+    background-color: rgba(46, 33, 228, 0.192);
+    word-spacing: 3px;
 }
-
+.logo{
+    margin: 30px;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
 main {
     width: 540px;
-    background-color: beige;
+    margin: 100px;
+    background-color:#fffdfd;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 30px;
+    box-shadow: 1px 1px 7px 10px rgba(18, 13, 83, 0.068);
 }
-h1 {
-    padding:30px 0px;
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+input{
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+textarea {
+    width: 200px;
     height: 100px;
+    margin: 5px;
+    padding: 7px;
+    border-radius: 10px;
+}
+.form__textbox, .form__input--title, .form__input--name{
+    display: flex;
+    justify-content: flex-end;
+}
+
+h1 {
+    padding:40px 0px;
+    height: 120px;
+    font-size: 35px;
+    color: rgb(61, 61, 61);
+    word-spacing: 6px;
 }
 .form__container {
     display: flex;
+    width: 500px;
+    justify-content: center;
     margin: 10px 0px 30px 0px;
-
+    padding: 20px;
+    border-top: 2px solid rgb(225 225 225);
+    border-bottom: 2px solid rgb(225 225 225);
+}
+.discussion__wrapper{
+   margin-bottom: 30px;
 }
 li.discussion__container{
-    width : 400px;
+    border: 1px solid rgb(225 225 225);
+    border-radius: 20px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 20px;
+    width : 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,10 +86,10 @@ li.discussion__container{
 .discussion__avatar--image {
     border-radius: 50%;
     width: 48px;
+    margin: 10px 10px 10px 10px;
 }
 div.discussion__content {
    width: 320px;
-   padding:10px 10px;
 }
 div.discussion__answered{
     width: 30px;
@@ -47,25 +97,48 @@ div.discussion__answered{
     justify-content: center;
 }
 h2 {
-    font-size: 13px;
+    font-size: 14px;
 }
 .discussion__information {
-    font-size: 10px;
-    padding: 2px 0px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(65, 65, 65, 0.829);
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+#title, #user-name, #question-text{
+   border: 3px solid rgb(194, 194, 194);
+}
+.button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color:rgba(118, 155, 255, 0.808);
+    color: rgba(17, 23, 41, 0.884);
 }
 a:link {
-    color: black;
+    color: rgb(61, 61, 61);
     text-decoration: none;
 }
 a:visited {
-    color: black;
+    color: rgb(61, 61, 61);
     text-decoration: none;
 }
 a:hover {
-    color: black;
+    color: rgb(61, 61, 61);
     text-decoration: none;
 }
 a:active {
-    color: black;
+    color: rgb(61, 61, 61);
     text-decoration: none;
+}
+.button:hover{
+    background-color: rgba(155, 218, 84, 0.918);
+    transition: 1s ;
+}
+li.discussion__container:hover{
+   border: 2px solid rgba(155, 218, 84, 0.918);
 }
