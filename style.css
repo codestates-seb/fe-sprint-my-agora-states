@@ -48,6 +48,7 @@ h1{
     border: 3px solid var(--dark-blue);
     border-radius: 15px 0 0 15px;
     width:50%;
+    height: 650px;
 }
 form{
     display: flex;
@@ -123,12 +124,15 @@ form{
 /* 댓글창 */
 .discussion__wrapper{
     width: 50%;
+    height: 650px;
     display: flex;
     flex-flow: column wrap;
     padding: 15px;
     background-color: var(--dark-blue);
     border: 3px solid var(--dark-blue);
     border-radius: 0 15px 15px 0;
+    overflow-x:hidden;
+    overflow-y: scroll;
 }
 .discussions__container{
     display: flex;
@@ -142,6 +146,7 @@ form{
     border-radius: 50px;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 8px;
 }
 
 /* 댓글창 > 이미지 */
@@ -158,14 +163,14 @@ form{
     text-align: center;
 }
 .discussion__content > h2 {
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 .discussion__content > div {
-    font-size: 0.75em;
+    font-size: 0.5em;
     margin-top: 10px;
 }
 .discussion__answered{
     width: 50px;
     text-align: center;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
