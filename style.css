@@ -1,1 +1,125 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  background-image: url(./orora.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+main{
+  background-image:url(./orora2.jpeg) ;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540px;
+  border-bottom: 1px solid #999;
+  margin: 10px;
+  padding: 20px;
+}
+li.discussion__container:hover{
+  box-shadow: 2px 2px;
+  font-weight: 900;
+}
+h1{
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+.form__container{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #999;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.form__container input{
+  outline: 0;
+  background-color: transparent;
+  border-radius: 3px;
+
+}
+.form__container input:focus {
+  background-color: white;
+  width: 300px;
+}
+.form__input--name >input{
+  width: 300px;
+  height: 25px;
+  margin-left: 4px;
+}
+.form__input--title >input{
+  width: 300px;
+  height: 25px;
+  margin-left: 15px;
+}
+.form__input--title{
+  padding: 15px 0px;
+}
+.form__textbox{
+  display: flex;
+  flex-direction: column;
+}
+.form__textbox #story:focus{
+  background-color: white;
+}
+.form__submit{
+  display: flex;
+  justify-content: center;
+}
+.form__submit input{
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10%;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.7s;
+}
+.form__submit input:active{
+  box-shadow: 5px 5px;
+  transform: translateY(4px);
+}
+.form__submit input:hover{
+  transform: scale(1.1);
+  background-color: pink;
+}
+#story{
+  margin: 2% 10%;
+  padding: 2%;
+  border-radius: 5px;
+  outline: 0;
+  border: 2px solid black;
+  background-color: transparent;
+}
+img{
+  display: flex;
+  width: 48px;
+  border-radius: 50%;
+  align-items: center;
+  margin: 5px;
+}
+.discussion__content{
+  display: block;
+}
+.discussion__content >:nth-child(1){
+  width: 440px;
+  text-align: left;
+  margin-top: 0;
+  font-size: 20px;
+}
+.discussion__content >:nth-child(2){
+  height:30px;
+  text-align: right;
+  padding-top: 20px;
+}
+.discussion__answered {
+  font-size: 30px;
+}
