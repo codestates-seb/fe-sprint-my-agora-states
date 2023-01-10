@@ -1,1 +1,109 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing : border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  text-align: center;
+}
+
+.form__container{
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  background-color: skyblue;
+  height: 150px;
+}
+.form__container .form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.form__container form .form__input--wrapper{
+  margin-right: 10px;
+  
+}
+.form__container form .form__input--wrapper input{
+  width: 270px;
+}
+
+.form__container form .form__input--wrapper .form__input--name{
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 10px;
+}
+.form__container form .form__input--wrapper .form__input--title{
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 10px;
+}
+.form__container form .form__input--wrapper .form__textbox{
+  width: 400px;
+  flex-direction: column;
+}
+.form__container form .form__input--wrapper .form__textbox label{
+  text-align: left;
+}
+
+.form__container form div div{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.form__container .form__submit{
+  width: 100px;
+  height: 150x;
+}
+.form__container .form__submit input{
+  width: 100px;
+  height: 91px;
+  border: 0px none black;
+  border-radius: 10px;
+}
+
+.discussion__wrapper .discussions__container{
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+.discussion__wrapper .discussion__container {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.discussion__wrapper .discussions__container li{
+  margin-bottom: 10px;
+}
+.discussion__wrapper .discussion__container .discussion__content{
+  font-size: 12px;
+  width: 400px;
+  text-align: left;
+  
+}
+.discussion__wrapper .discussion__container .discussion__content .discussion__information{
+  text-align: right;
+}
+
+.discussion__wrapper .discussions__container .discussion__avatar--wrapper img{
+  width: 48px;
+  border-radius: 50%;
+  border-style: none;
+}
+.discussion__wrapper .discussion__container .discussion__answered p {
+  
+  font-size: 30px;
+}
