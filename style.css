@@ -107,6 +107,8 @@ body {
     border-radius:10px;
     border-style:solid;
     border-color:var(--bluedark);
+
+    font-size:10px;
 }
 
 .discussion__content {
@@ -118,7 +120,7 @@ body {
     margin:10px;
 }
 
-    /*hyperlink color*/
+/*hyperlink color*/
     .discussion__content a {
         text-decoration: none; /* 링크의 밑줄 제거 */
         color: inherit; /* 링크의 색상 제거 */
