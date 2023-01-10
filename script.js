@@ -188,6 +188,18 @@ displayRow(0);
 
 
 const paginationHide = document.querySelector(".pagination")
+const searchVar = document.querySelector('#search')
+
+searchVar.onkeyup = function() {
+  if (window.event.keyCode == 13) {
+    searchVar.value = '';
+    render(ul);
+    paginationHide.style.display = "";
+  }
+  else{
+    filter()
+  }
+}
 
 function filter() {
   let search = document.getElementById("search").value.toLowerCase();
