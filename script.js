@@ -76,6 +76,7 @@ const render = (element, from, to) => {
 // 페이지네이션을 위한 변수
 let limit = 10,
   page = 1;
+  pageNum = 1;
 
 // render 함수를 사용해서 ul 요소에 data 배열의 모든 데이터를 화면에 렌더링
 const ul = document.querySelector("ul.discussions__container");
@@ -97,17 +98,26 @@ const getPageStartEnd = (limit, page) => {
 };
 
 const buttons = document.querySelector(".buttons");
+const pageNow = document.querySelector(".pagehere");
+pageNow.textContent = `${pageNum}`;
+
 buttons.children[0].addEventListener("click", () => {
   if (page > 1) {
     page = page - 1;
+    pageNum = pageNum - 1;
+    console.log(pageNum);
+    pageNow.textContent = `${pageNum}`;
   }
   const { pageStart, pageEnd } = getPageStartEnd(limit, page);
   render(ul, pageStart, pageEnd);
 });
 
-buttons.children[1].addEventListener("click", () => {
+buttons.children[2].addEventListener("click", () => {
   if (limit * page < data.length - 1) {
     page = page + 1;
+    pageNum = pageNum + 1;
+    console.log(pageNum);
+    pageNow.textContent = `${pageNum}`;
   }
   const { pageStart, pageEnd } = getPageStartEnd(limit, page);
   render(ul, pageStart, pageEnd);

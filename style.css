@@ -139,6 +139,7 @@ form{
     height: 650px;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-between;
     padding: 15px;
     background-color: var(--dark-blue);
     border: 3px solid var(--dark-blue);
@@ -201,6 +202,7 @@ form{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
 }
 .buttons button{
     font-size: 1rem;
@@ -215,4 +217,8 @@ form{
 }
 .buttons button:hover{
     cursor: pointer;
+}
+.buttons div {
+    color: var(--strawberry);
+    font-weight: bold;
 }
