@@ -45,3 +45,26 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 /* 디스커션 추가 기능 */
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();  //자동 이벤트 발생을 막기 위해
+  const obj = {
+    id: "new id",
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    createdAt: new Date().toISOString(), //현재 시간
+    bodyHTML: textbox.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/117844745?v=4"
+  };
+  agoraStatesDiscussions.unshift(obj);
+  const newDiscussion = convertToDiscussion(agoraStatesDiscussions[0]);
+  ul.prepend(newDiscussion);
+  event.target.reset();  //input value 초기화
+  
+  localStorage.getItem()
+});
