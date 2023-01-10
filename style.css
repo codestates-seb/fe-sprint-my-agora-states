@@ -11,6 +11,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
 li {
@@ -20,6 +21,26 @@ li {
 body {
     background-image: url(./bg5.jpg);
     background-size: cover;
+}
+
+h1 {
+    font-weight:bolder;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#popup_open_btn {
+    margin-left: 47%;
+    margin-top: -10px;
+    font-size: 20px;
+    font-weight: 200;
+    border-bottom: 1px solid var(--lineColor);
+    width: fit-content;
 }
 
 #my_modal {
@@ -44,9 +65,6 @@ body {
     align-items: center;
 }
 
-.form__input--name .form__input--title .form__textbox {
-}
-
 .form__container {
     background-color: var(--white);
     margin : 40px;
@@ -54,6 +72,7 @@ body {
     border-radius: 25px;
     height: 15vh;
     padding: 10px ;
+    padding-top: 3px;
 }
 
 .discussion_wrapper1 {
@@ -203,6 +222,75 @@ a {
     font-size: 18px;
 }
 
+#pageList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pageList > li {
+    list-style-type: none;
+    border-bottom: 1px solid var(--lineColor);
+
+    padding: 10px;
+    margin: 5px;
+}
+
+.switch {
+    --button-width: 3.5em;
+    --button-height: 2em;
+    --toggle-diameter: 1.5em;
+    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+    --toggle-shadow-offset: 10px;
+    --toggle-wider: 3em;
+    --color-grey: #cccccc;
+    --color-green: #4296f4;
+   }
+   
+   .slider {
+    display: inline-block;
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: var(--color-grey);
+    border-radius: calc(var(--button-height) / 2);
+    position: relative;
+    transition: 0.3s all ease-in-out;
+   }
+   
+   .slider::after {
+    content: "";
+    display: inline-block;
+    width: var(--toggle-diameter);
+    height: var(--toggle-diameter);
+    background-color: #fff;
+    border-radius: calc(var(--toggle-diameter) / 2);
+    position: absolute;
+    top: var(--button-toggle-offset);
+    transform: translateX(var(--button-toggle-offset));
+    box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+    transition: 0.3s all ease-in-out;
+   }
+   
+   .switch input[type="checkbox"]:checked + .slider {
+    background-color: var(--color-green);
+   }
+   
+   .switch input[type="checkbox"]:checked + .slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+    box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+   }
+   
+   .switch input[type="checkbox"] {
+    display: none;
+   }
+   
+   .switch input[type="checkbox"]:active + .slider::after {
+    width: var(--toggle-wider);
+   }
+   
+   .switch input[type="checkbox"]:checked:active + .slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+   }
+   
 
 
 
