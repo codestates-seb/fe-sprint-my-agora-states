@@ -9,11 +9,56 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    }
+main{
+    background-color: #aacdbe;
+    
 }
-textarea {
-    width: 100%;
+h1 {
+    color: #f0ece3;
+    text-align: center;
+}
+.form__container {
+    background-color: #FFD4b2;
+}
+.form{
+    display: grid;
+    grid-auto-flow: column;
+}
+        
+        /* 추가입력창부분  */
+input[type="text"]{
+    background-color: #f0ECE3;
+    border-radius: 3px;
+
+}
+div.form__input--wrapper  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
+textarea {
+    width: 100%;
+    border-radius: 3px;
+    background-color: #f0ECE3
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 100%;
+    background-color: #f0ECE3;
+    border-radius: 5px;
+    border: 1px dotted #f0ECE3;
+    font-size: 2.5rem;
+    }
+
+ input[type="submit"]:hover {
+        background-color: #e8f3d6;
+        color: #ede4e0;
+    }
+
+        /*밑에 댓글 부분 */
 
 li.discussion__container{
     display: flex;
@@ -23,39 +68,35 @@ li.discussion__container{
     margin-bottom: 0.5rem;
     border-radius: 5px;
     list-style-type: none; 
-    border: 5px solid black;
-}
-.form__container{
-    border: 5px solid red
-}
-.form{
-    display: grid;
-    grid-auto-flow: column;
     
+    background-color: #e8f3d6;
 }
-input[type="submit"] {
-    width: 100%;
-    height: 100%;
-    background-color: yellow;
-    
+
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-h1{
-    text-align: center;
-}
-.form__input--name{
-    border: 5px solid green
-   
-}
+
+
+
+
 div.discussion__avatar--wrapper > img {
     width: 48px;
     height: 48px;
+    border-radius : 70%;
 
 }
-h2.discussion__title {
-    text-align : left;
+.discussion__content > .discussion__title {
+    display: flex;
+    justify-content: flex-start;
+
 }
-div.discussion__information {
-    text-align : right;
+.discussion__content > .discussion__information {
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 li.discussion__container > .discussion__answered {
@@ -63,3 +104,5 @@ li.discussion__container > .discussion__answered {
     flex-direction: column;
     justify-content: center;
 }
+
+
