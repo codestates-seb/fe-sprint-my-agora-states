@@ -50,8 +50,12 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const render = (element, start = 0) => {
+  end = start + 8;
+  for (let i = start; i < end; i += 1) {
+    if (!agoraStatesDiscussions[i]) {
+      break;
+    }
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -60,3 +64,59 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+//Pagination
+const paginationContianer = document.querySelector(".page_list");
+
+//8개씩 출력
+console.log(agoraStatesDiscussions.length / 8);
+let totalPage = Math.ceil(agoraStatesDiscussions.length / 8);
+let currentPage = 1;
+
+function setPage(totalPage, currentPage) {
+  let li = "";
+  let prevPage = currentPage - 2;
+  let nextPage = currentPage + 2;
+
+  if (currentPage === 1) {
+    nextPage += 2;
+  }
+  if (currentPage === 2) {
+    nextPage += 1;
+  }
+  if (currentPage === totalPage) {
+    prevPage -= 2;
+  }
+  if (currentPage === totalPage - 1) {
+    prevPage -= 1;
+  }
+
+  if (currentPage > 1) {
+    li += `<li class="prev__page" onClick=setPage(${totalPage},${
+      currentPage - 1
+    })><</li>`;
+  }
+
+  for (let i = prevPage; i <= nextPage; i++) {
+    if (i >= 1 && i <= totalPage) {
+      //선택해주기
+      if (i === currentPage) {
+        li += `<li class="page_num select_li">${i}</li>`;
+      } else {
+        li += `<li class="page_num">${i}</li>`;
+      }
+    }
+  }
+
+  if (currentPage < totalPage) {
+    li += `<li class="next__page" onClick=setPage(${totalPage},${
+      currentPage + 1
+    })>></li>`;
+  }
+  paginationContianer.innerHTML = li;
+
+  ul.innerHTML = "";
+  render(ul, (currentPage - 1) * 8);
+}
+
+setPage(totalPage, currentPage);
