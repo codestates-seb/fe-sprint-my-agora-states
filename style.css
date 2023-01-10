@@ -1,5 +1,5 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,17 +13,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url();
+    background-color: #FFF8EA;
     background-repeat:no-repeat;
     background-size: cover;
-}
+}  
 
 .form__input--title > label {
-    word-spacing : 7px
+    word-spacing : 7px;
+    color: #ffffff;
 }
 
 .form__input--name > label {
-    word-spacing : 3px
+    word-spacing : 3px;
+    color: #ffffff;
+}
+
+.form__textbox > label {
+    color: #ffffff;
 }
 
 h2 {
@@ -31,13 +37,13 @@ h2 {
     color: #99bcda;
 }
 section.form__container {
-    background-color: rgba(82, 213, 245, 0.5);
+    background-color: #9E7676;
     border-radius: 20px;
 }
 .discussion__answered {
-    padding: 5px;
-    font-size: 5px;
-    margin: 10px;
+    padding-top: 43px;
+    font-size: 20px;
+    margin: 5px;
     color: #FFF9CA;
 
 }
@@ -70,7 +76,9 @@ section.form__container {
 .discussion__content >:nth-child(2){
     height:30px;
     text-align: right;
-    color: #FFF9CA;
+    font-size: 15px;
+    padding: auto;
+    color : #FFF9CA;
 }
 li {
     list-style-type: none;
@@ -86,29 +94,27 @@ ul {
     padding: 0px;
 }
 li.discussion__container {
-    background-color: rgba(0, 165, 231, 0.5);
+    background-color: #815B5B;
 }
 a:link {
     color: white;
     font-family: 'Dongle', sans-serif;
     font-size: 20px;
-    text-align: right;
 }
 a:visited {
     color: rgb(0, 0, 0);
 }
 
-/* 폼 디자인 */
 h1 {
     text-align: center;
     margin-top: 70px;
     margin-bottom: 20px;
-    color: #99bcda;
+    color: #594545;
     font-size: 40pt;
 }
 h3 {
     text-align: center;
-    color: #99bcda;
+    color: #594545;
     margin-bottom: 20px;
 }
 section {
@@ -131,6 +137,7 @@ form {
     width: 500px;
     border-radius: 10px;
     padding: 10px;
+    border: 2px solid black;
 }
 .form__input--wrapper {
     margin: 5px;
@@ -141,19 +148,24 @@ form {
     height: 30px;
     font-size:1.2rem;
     margin: 5px;
-    border-radius: 10px;
-    border: 2px solid #0078AA;
+    /* border-radius: 10px;*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid black;
 }
 .form__submit {
     flex:1;
     margin:3px;
+    display: flex;
+    justify-content: flex-end;
 
 }
 .form__submit input {
-    width: 448px;
+    width: 200px;
     height: 43px;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 20px;
     margin-left: 25px;
     margin-right: 0px;
     border: 2px solid black;

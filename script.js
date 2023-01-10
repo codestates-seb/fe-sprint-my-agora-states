@@ -35,7 +35,7 @@ const convertToDiscussion = (obj) => {
 
   // 답변 유무
   const checked = document.createElement("p");
-  checked.textContent = obj.answer ? "답변 완료" : "답변 대기중";
+  checked.textContent = obj.answer ? "☑" : "☒";
   discussionAnswered.append(checked);
 
 
