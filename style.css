@@ -1,1 +1,660 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+@keyframes blinkEffect {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes left{
+  0%{
+      left: -100%;
+  }
+  50%,100%{
+      left: 100%;
+  }
+}
+
+@keyframes top{
+  0%{
+      top: -100%;
+  }
+  50%,100%{
+      top: 100%;
+  }
+}
+
+@keyframes right{
+  0%{
+      right: -100%;
+  }
+  50%,100%{
+      right: 100%;
+  }
+}
+
+@keyframes bottom{
+  0%{
+      bottom: -100%;
+  }
+  50%,100%{
+      bottom: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      width: 0;
+      transform: translate3d(0, 100%, 0);
+  }
+  to {
+      opacity: 1;
+      width: 70%;
+      transform: translateZ(0);
+  }
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Staatliches', cursive;
+  position: relative; 
+  background-color: #F5EBE0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./images/monteray.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  width: 70%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  animation: fadeInUp 1s linear;
+}
+
+/* 크롬 탭 사진 */
+.tab {
+  margin-bottom: -5px;
+  z-index: 1;
+  position: relative;
+  flex: 1 0 auto;
+}
+
+.tab img{
+  width: 100%;
+}
+
+.buttons {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  padding: 5px;
+  background-color: rgb(222, 224, 225);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 6%;
+  height: 50%;
+}
+
+.buttons button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.exitBtn {
+  background-color: rgb(252, 70, 70);
+}
+
+.downBtn {
+  background-color: rgb(253, 175, 36);
+}
+
+.smallBtn {
+  background-color: rgb(36, 179, 43);
+}
+
+.exitBtn:hover {
+  background-color: rgb(194, 55, 55);
+}
+
+.downBtn:hover {
+  background-color: rgb(200, 137, 28);
+}
+
+.smallBtn:hover {
+  background-color: rgb(30, 147, 35);
+}
+
+
+.section__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%; 
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.start__display {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; 
+  background-color: green;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(251, 251, 251);
+  font-family: 'Staatliches', cursive;
+}
+
+.welcome__text {
+  width: 100%;
+  text-align: center;
+  font-size: 4rem;
+  color: rgb(25, 189, 172); 
+  text-shadow: 5px 5px rgb(9, 80, 73); 
+  margin-bottom: 80px;
+}
+
+.question__text {
+  font-size: 3rem;
+}
+
+.show__content {
+  position: relative;
+  padding: 25px 30px;
+  margin: 30px 0;
+  color: rgb(25, 189, 172); 
+  transition: 0.5s;
+  overflow: hidden;
+  font-size: 2rem;
+}
+
+.show__content:hover {
+  background-color: rgb(25, 189, 172); 
+  color: white;
+}
+
+/* 버튼 css 구현 */
+a span{
+  position: absolute;
+  display: block;
+}
+
+a span:nth-child(1){
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgb(25, 189, 172);
+  animation: left 1s linear infinite;
+}
+
+a span:nth-child(2){
+  top: 100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: rgb(25, 189, 172);
+  animation: top 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+a span:nth-child(3){
+  bottom: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+  background: rgb(25, 189, 172);
+  animation: right 1s linear infinite;
+  animation-delay: 0.50s;
+}
+
+a span:nth-child(4){
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: rgb(25, 189, 172);
+  animation: bottom 1s linear infinite;
+  animation-delay: 0.75s;
+} 
+
+/* form 입력 부분 */
+.menubar {
+  background-color: rgb(25, 189, 172);
+  width: 100%;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px;
+  font-family: 'Staatliches', cursive;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.discussions__count {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.form__text {
+  margin: 0;
+  animation: blinkEffect 1s infinite;
+  font-size: 1.5rem;
+  width: 420px;
+  margin-bottom: 30px;
+  font-family: 'Staatliches', cursive;
+}
+
+.form__container {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(251, 251, 251);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  flex: 1 0 auto;
+}
+
+.form__input--wrapper {
+  width: inherit;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transform: scale(1.2);
+  margin-top: 10%;
+}
+
+.form__input--wrapper input {
+  width: 350px;
+  height: 45px;
+  color: black;
+  flex: 1 0 auto;
+  padding: 10px;
+  font-family: 'Staatliches', cursive;
+  box-shadow:rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+#name, #title {
+  border: 2px solid rgb(25, 189, 172);
+}
+
+#name:focus, #title:focus, #story:focus {
+  outline: none;
+  border: 2px solid rgb(15, 144, 129);
+}
+
+#story {
+  width: 350px;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid  rgb(25, 189, 172);
+  box-shadow:rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 0.5px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form__submit > input{
+  width: 120px;
+  height: 50px;
+  margin: 20px;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(25, 189, 172);
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 5px 0px 0px #007144;
+  position: relative;
+  transition: all 0.2s linear;
+  font-family: 'Staatliches', cursive;
+}
+
+.form__submit > input:hover {
+  transform: translate(0, 5px);
+  box-shadow: 0 0 0 0; 
+}
+
+
+/* 페이지네이션 부분 */
+
+.page_list_container {
+  display: flex;
+  width: 540px;
+  padding: 20px;
+  background-color: #f8f6ef;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.page_list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  background-color: inherit;
+}
+
+.page_list button {
+  color: black;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+}
+
+.page_list button:hover {
+  transform: scale(1.2);
+}
+
+.page_list > .active {
+  background-color: rgb(25, 189, 172);
+  color: white;
+}
+
+.pagination__container {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.left, .right {
+  color: black;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.left:hover, .right:hover {
+  transform: scale(1.2);
+} 
+
+
+
+/* 디스커션 부분 */
+.discussion__wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: #f8f6ef;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  flex: 1 0 auto;
+}
+
+.discussions__container {
+  margin: 0;
+  background-color: inherit;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px 10px 10px;
+}
+
+.ul_container {
+  overflow: scroll;
+}
+
+.ul_container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.discussion__container, .answered__container {
+  width: 520px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+  background-color: white;
+  margin: 5px;
+  box-shadow:rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto;
+}
+
+.discussion__avatar--image, .answered__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  flex: 3 1 50%;
+}
+
+.discussion__title {
+  margin: 10px;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+.discussion__answered {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.answered__check {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 40px;
+  cursor: pointer;
+}
+
+
+/* 답변 박스 */
+
+.answered__container {
+  display: flex;
+  justify-content: space-between;
+  transition: all 1s;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  font-size: 1.1rem;
+  overflow: scroll;
+}
+
+.answered__container::-webkit-scrollbar {
+  display: none;
+}
+
+.answered__information {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 80%;
+}
+
+.answered__writer {
+  font-size: 1.2rem;
+  font-size: bold;
+  flex: 1 0 auto;
+}
+
+.answered__date {
+  flex: 1 0 auto;
+}
+
+.answered__content {
+  margin-top: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.change__opacity__zero {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transition: all 1s linear;
+}
+
+.exit {
+  display: none;
+}
+
+.down {
+  opacity: 0;
+  width: 0;
+  transform: translate3d(0, 100%, 0);
+  transition: all 1s linear;
+}
+
+.up {
+  opacity: 1;
+  width: 80%;
+  transform: translateZ(0);
+  transition: all 1s linear;
+}
+
+.agorastatesTab {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  opacity: 0;
+  border: none;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  width: 60px;
+  border-radius: 15px;
+  background-color: rgb(25, 189, 172);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: 'Staatliches', cursive;
+}
+
+.agorastatesTab:hover {
+  background-color: rgb(20, 152, 139);
+}
+
+.change__opacity__one {
+  z-index: 3;
+  visibility: visible;
+  opacity: 1;
+  transition: all 2s linear;
+}
+
+
+.sizeBig {
+  width: 100%;
+  height: 100%;
+  transition: all 1s linear;
+  border-radius: 0;
+}
+
+.sizeSmall {
+  /* width: 80%;
+  height: 80%; */
+  transition: all 1s linear;
+}
+
+
+/* 캔버스 */
+canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

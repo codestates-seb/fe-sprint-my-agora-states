@@ -1,5 +1,15 @@
 const agoraStatesDiscussions = [
   {
+    id: 'random id',
+    createdAt: '2022-04-22T14:08:33Z',
+    author: 'kimploo',
+    title: '[notice] 좋은 질문하는 법',
+    bodyHTML: '',
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
+    avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+    answer: null  // 안 넣어주면 answer null 아닌거 if문에 걸려서 오류난다.
+  },
+  {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",
     title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
