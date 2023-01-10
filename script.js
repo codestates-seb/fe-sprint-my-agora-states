@@ -220,7 +220,7 @@ function saveThread(e){
     newThread.author = window.localStorage.getItem('newName');
     newThread.title = window.localStorage.getItem('newTitle');
     newThread.bodyHTML = window.localStorage.getItem('newContent');
-    newThread.avatarUrl = '../src/' + (AvatDefaultUrls[imgIdx] || '1.png');
+    newThread.avatarUrl = 'src/' + (AvatDefaultUrls[imgIdx] || '1.png');
     // newThread.createdAt = new Date(isoDate.slice(0, -1));
     filteredDiscussions.unshift(newThread);
     // ul.prepend(convertToDiscussion(newThread));

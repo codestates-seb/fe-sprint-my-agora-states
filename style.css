@@ -18,11 +18,11 @@
 /*new font*/
 
 @font-face {
-    src:url('../fonts/YouandiModernTR.woff') format('woff'),
-        url('../fonts/YouandiModernTR.woff2') format('woff2'),
-          url('../fonts/YouandiModernTR.eot'),
-          url('../fonts/YouandiModernTR.eot?#iefix') format('embedded-opentype'),
-          url('../fonts/YouandiModernTR.ttf') format('truetype');
+    src:url('fonts/YouandiModernTR.woff') format('woff'),
+        url('fonts/YouandiModernTR.woff2') format('woff2'),
+          url('fonts/YouandiModernTR.eot'),
+          url('fonts/YouandiModernTR.eot?#iefix') format('embedded-opentype'),
+          url('fonts/YouandiModernTR.ttf') format('truetype');
     font-family : 'hyundai';
     font-weight: normal;
     font-style: normal;
