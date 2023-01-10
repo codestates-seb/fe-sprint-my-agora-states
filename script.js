@@ -53,12 +53,11 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (num) => {
+const render = (num, arr) => {
   for (let i = 0 + num * 10; i < num * 10 + 10; i += 1) {
-    ul.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    ul.append(convertToDiscussion(arr[i]));
   }
 };
-pageNation();
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 
 let addBtn = document.querySelector(".form__submit_btn");
@@ -82,15 +81,15 @@ const addList = () => {
   document.querySelector("#input-story").value = "";
 
   agoraStatesDiscussions.unshift(addObj);
-  saveDiscussions();
 
   document.querySelector("ul").innerHTML = ""; //이거 나중에 수정해서 다른 방법으로 삭제??
   while (elPageBtnList.hasChildNodes()) {
     elPageBtnList.removeChild(elPageBtnList.lastChild);
   }
+  saveDiscussions();
 
   pageNation();
-  render(0);
+  render(0, agoraStatesDiscussions);
   pageBtnClick();
   //얘 리스트에 추가하는 함수 만들것...??render함수를 실행하는 함수가 필요할 듯함...
 }; //제출한 내용을 배열에 추가 하는 함수
@@ -114,7 +113,6 @@ function pageNation() {
   const numOfContent = agoraStatesDiscussions.length;
   const showContent = 10;
   const maxPage = Math.ceil(numOfContent / showContent);
-  const page = 0;
 
   for (let pageNum = 1; pageNum <= maxPage; pageNum++) {
     const pageButton = document.createElement("button");
@@ -130,15 +128,23 @@ function pageBtnClick() {
   [].forEach.call(clickedPageBtn, (btn) => {
     btn.addEventListener("click", (e) => {
       document.querySelector("ul").innerHTML = "";
-      render(parseInt(e.target.innerText - 1));
+      render(parseInt(e.target.innerText - 1), agoraStatesDiscussions);
       console.log(`${e.target.innerText}`);
     });
   });
 }
-pageBtnClick();
+
 addBtn.addEventListener("click", addList);
 const savedDiscussions = localStorage.getItem("discussion");
 
 const parsedDiscussions = JSON.parse(savedDiscussions);
-console.log(parsedDiscussions);
-render(0);
+
+if (parsedDiscussions !== null) {
+  agoraStatesDiscussions = parsedDiscussions;
+}
+
+render(0, agoraStatesDiscussions);
+pageNation();
+pageBtnClick();
+
+console.log([...parsedDiscussions]);
