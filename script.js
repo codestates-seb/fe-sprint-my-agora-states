@@ -1,6 +1,4 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
-
+//window.localStorage.clear();
 const inputForm = document.querySelector(".form");
 
 inputForm.addEventListener("submit", (e) => {
@@ -27,7 +25,7 @@ inputForm.addEventListener("submit", (e) => {
     for(let i = 0; i < inputAgoraDatasArr.length; i++) {
       inputAgoraDatas.push(inputAgoraDatasArr[i]);
     }
-    inputAgoraDatas.push(inputAgoraData);
+    inputAgoraDatas.unshift(inputAgoraData);
     const inputAgoraDataString = JSON.stringify(inputAgoraDatas);
     window.localStorage.setItem('inputAgoraDatas',inputAgoraDataString);
   } else {
@@ -35,21 +33,14 @@ inputForm.addEventListener("submit", (e) => {
     const inputAgoraDataString = JSON.stringify(inputAgoraDatas);
     window.localStorage.setItem('inputAgoraDatas',inputAgoraDataString);
   }
-  
 
-  agoraStatesDiscussions.unshift(inputAgoraData);
+  totalContentsArr.unshift(inputAgoraData);
+  console.log(totalContentsArr.length);
+  totalContents++;
   inputForm.reset();
 
-  const render = (element) => {
-    for (let i = 0; i < 1; i += 1) {
-      element.prepend(convertToDiscussion(agoraStatesDiscussions[i]));
-    }
-    return;
-  };
-  
-  render(ul);
+  render(page);
 });
-
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -93,29 +84,104 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
+const makeButton = (id) => {
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.dataset.num = id;
+  button.innerText = id;
+  button.addEventListener("click", (e) => {
+    window.scrollTo(0,0);
+    Array.prototype.forEach.call(buttons.children, (button) => {
+      if (button.dataset.num) button.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    renderContent(parseInt(e.target.dataset.num));
+  });
+  return button;
 };
 
-// localStorage에 저장된 데이터 렌더링
-const renderLocalStorage = (element) => {
+const contents = document.querySelector("ul.discussions__container");
+const buttons = document.querySelector(".pagination");
+
+let totalContentsArr = []
+
+const makeTotalContentsArr = () => {
   const agoraDatas = window.localStorage.getItem('inputAgoraDatas');
   const agoraDataObj = JSON.parse(agoraDatas);
 
-  if (agoraDataObj) {
-    for (let i = 0; i < agoraDataObj.length; i++) {
-      element.prepend(convertToDiscussion(agoraDataObj[i]));
+  if(agoraDataObj!==null) {
+    for(let i = 0; i < agoraDataObj.length; i++) {
+      totalContentsArr.push(agoraDataObj[i]);
     }
   }
-  return;
+
+  for(let i = 0; i < agoraStatesDiscussions.length; i++) {
+    totalContentsArr.push(agoraStatesDiscussions[i]);
+  }
+  
+  return totalContentsArr;
 }
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-//window.localStorage.clear();
-renderLocalStorage(ul);
+let totalContents = makeTotalContentsArr().length;    // 총 글 개수
+const showContents = 10;  // 한 번에 보여줄 글의 개수
+const showButton = 3; // 한 번에 보여줄 버튼 개수
+const maxPage = Math.ceil(totalContents / showContents);    // 글을 모두 보여주기 위한 총 페이지 개수
+let page = 1;   // 현재 페이지(시작: 1)
+
+
+const renderContent = (page) => {
+  while (contents.hasChildNodes()) {
+    contents.removeChild(contents.lastChild);
+  }
+
+  for (let i = (page - 1) * showContents; i <= page * showContents && i <= totalContents; i++) {
+    contents.appendChild(convertToDiscussion(totalContentsArr[i]));
+  }
+}
+
+const renderButton = (page) => {
+  while (buttons.hasChildNodes()) {
+    buttons.removeChild(buttons.lastChild);
+  }
+
+  for (let id = page; id < page + showButton && id <= maxPage; id++) {
+    buttons.appendChild(makeButton(id));
+  }
+
+  buttons.children[0].classList.add("active");
+
+  buttons.prepend(prev);
+  buttons.append(next);
+
+  if (page - showButton < 1) buttons.removeChild(prev);
+  if (page + showButton > maxPage) buttons.removeChild(next);
+};
+
+const goPrevPage = () => {
+  window.scrollTo(0,0);
+  page -= showButton;
+  render(page);
+};
+
+const goNextPage = () => {
+  window.scrollTo(0,0);
+  page += showButton;
+  render(page);
+};
+
+const prev = document.createElement("button");
+prev.classList.add("button", "prev");
+prev.innerHTML = '<';
+prev.addEventListener("click", goPrevPage);
+
+const next = document.createElement("button");
+next.classList.add("button", "next");
+next.innerHTML = '>';
+next.addEventListener("click", goNextPage);
+
+
+const render = (page) => {
+  renderContent(page);
+  renderButton(page);
+};
+render(page);

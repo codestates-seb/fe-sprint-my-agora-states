@@ -82,7 +82,7 @@ h1 {
   left: 70px;
 }
 
-.discussion__wrapper {
+.contents-area {
   display: block;
   margin-left: 230px;
 }
@@ -146,4 +146,36 @@ a:hover {
   border-radius: 50px;
   background-color: white;
   cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.page-item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.button {
+  font-family: 'RIDIBatang';
+  padding: 0 10px;
+  font-size: 20px;
+  color: black;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.button.active {
+  color: #452cdd;
+  font-weight: 600;
+}
+
+.button:hover {
+  color: #AB23EB;
+  font-weight: 600;
 }
