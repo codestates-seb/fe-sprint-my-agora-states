@@ -3,11 +3,35 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    
+}
+.form__submit {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 10px;
+}
+#submit {
+	background:linear-gradient(to bottom, #7892c2 10%, #476e9e 80%);
+	/* background-color:#7892c2; */
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:15px 30px;
+	text-decoration:none;
+	/* text-shadow:1px 1px 0px #283966; */
+}
+#submit:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
 }
 
 main {
     display: block;
+    background-color: #476e9e;
     
 }
 
@@ -20,7 +44,7 @@ main {
 ul{
     /* 1명게시물 상위 컨테이너 */
     list-style:none;
-    background-color: brown;
+    background:#476e9e;
     padding: 10px;
     width: 540px;
     
@@ -30,7 +54,7 @@ li {
     /* 1명 게시물 공간 */
     margin: 10px;
     height: 150px;
-    background-color: aquamarine;
+    background: #6189c5;
     border-radius: 20px;
     
 }
@@ -45,6 +69,7 @@ section, h1 {
 section.discussion__wrapper {
     /* 섹션 */
     /* width: 540px; */
+    
     
 }
 
