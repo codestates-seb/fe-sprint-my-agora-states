@@ -30,18 +30,118 @@ input,
 textarea,
 button {
   font-family: "Noto Sans KR", sans-serif;
+  border: none;
+}
+
+textarea {
+  resize: none;
 }
 
 img {
   display: block;
 }
 
-/* Discussion */
-.discussion__wrapper {
+/* Global */
+main {
   max-width: 856px;
-  padding: 20px 0;
+  padding: 20px;
 }
 
+/* Title */
+h1 {
+  margin-bottom: 25px;
+  position: sticky;
+  top: 0;
+  background-color: #0d1117;
+  padding: 10px;
+}
+
+/* Form */
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.name-title__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form__input--name {
+  flex-grow: 1;
+  flex-basis: 160px;
+}
+
+.form__input--title {
+  flex-grow: 4;
+  flex-basis: 200px;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+:is(.form__input--name, .form__input--title, .form__textbox) label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.form__input--name input,
+.form__input--title input,
+.form__textbox textarea {
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  padding: 5px;
+  color: #c9d1d9;
+  background-color: #0d1117;
+  outline: none;
+  transition: all 100ms;
+}
+
+:is(
+    .form__input--name input,
+    .form__input--title input,
+    .form__textbox textarea
+  ):focus {
+  border: 1px solid #3fb950;
+}
+
+.form__textbox textarea:focus {
+  border-right: 0;
+}
+
+.textarea-submit__container {
+  display: flex;
+}
+
+.form__textbox textarea {
+  flex-grow: 2;
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+}
+
+.form__submit input {
+  flex-grow: 1;
+  width: 80px;
+  height: 50px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #3fb950;
+  cursor: pointer;
+}
+
+.form__textbox textarea::placeholder {
+  font-size: 13px;
+  color: #6e7681;
+}
+
+/* Discussion */
 .discussion__container {
   display: flex;
   align-items: center;
@@ -57,7 +157,7 @@ img {
 }
 
 .discussion__content {
-  padding: 0 16px 0 8px;
+  padding: 0 0 0 8px;
 }
 
 .discussion__title {
@@ -91,4 +191,20 @@ img {
 
 .discussion__answered .unanswered {
   color: #8b949e;
+}
+
+/* Mobile,  Tablet */
+@media screen and (max-width: 768px) {
+  main {
+    padding: 30px;
+  }
+
+  .form__input--wrapper {
+    gap: 16px;
+  }
+
+  :is(.form__input--name, .form__input--title, .form__textbox) label {
+    margin-bottom: 5px;
+    font-size: 13px;
+  }
 }

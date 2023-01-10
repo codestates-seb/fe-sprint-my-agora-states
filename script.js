@@ -40,10 +40,10 @@ const convertToDiscussion = (obj) => {
   answered.append(p);
   if (obj.answer === null) {
     p.classList = "unanswered";
-    p.textContent = "Unanswered";
+    p.textContent = "· Unanswered";
   } else {
     p.classList = "answered";
-    p.textContent = "Answered";
+    p.textContent = "· Answered";
   }
 
   li.append(avatarWrapper, discussionContent);

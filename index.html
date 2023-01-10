@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
@@ -20,26 +30,30 @@
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
-            </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required />
+            <div class="name-title__container">
+              <div class="form__input--name">
+                <label for="name">Enter your name</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__input--title">
+                <label for="title">Enter your title</label>
+                <input type="text" name="title" id="title" required />
+              </div>
             </div>
             <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
+              <label for="story">Your question</label>
+              <div class="textarea-submit__container">
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder="질문을 작성하세요"
+                  required
+                ></textarea>
+                <div class="form__submit">
+                  <input type="submit" value="submit" />
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="form__submit">
-            <input type="submit" value="submit" />
           </div>
         </form>
       </section>
@@ -62,13 +76,18 @@
                   >[notice] 좋은 질문하는 법</a
                 >
               </h2>
-              <div class="discussion__information">
-                kimploo / 2022-04-22T14:08:33Z
+              <div class="discussion__information-container">
+                <div class="discussion__information">
+                  kimploo / 2022-04-22T14:08:33Z
+                </div>
+                <div class="discussion__answered">
+                  <p class="answered">Answered</p>
+                </div>
               </div>
             </div>
-            <div class="discussion__answered"><p>☑</p></div>
           </li> -->
         </ul>
+        <div class="buttons"></div>
       </section>
     </main>
   </body>
