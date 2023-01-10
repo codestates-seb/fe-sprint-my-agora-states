@@ -12,6 +12,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(doge_gold.jpg);
 }
 li.discussion__container{
     width: 540px;
