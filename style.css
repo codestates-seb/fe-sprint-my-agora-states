@@ -1,1 +1,221 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* CSS RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* main */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Register Part */
+.register__part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-basis: 70vh;
+  /* background-color: #0a2647; */
+  background-image: url('https://cdn.dribbble.com/userupload/3717656/file/original-66dbb7c4a86da4402f3bbf0db7c7f360.gif?compress=1&resize=1504x1128');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.register__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.register__wrapper h1 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-family: 'Rowdies', cursive;
+}
+
+.form__container {
+  width: 100%;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+}
+
+.form__input--name {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Rowdies', cursive;
+}
+
+.form__input--name input {
+  border: none;
+  height: 30px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Rowdies', cursive;
+}
+
+.form__input--title input {
+  border: none;
+  height: 30px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.form__textbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Rowdies', cursive;
+}
+
+.form__textbox textarea {
+  border: none;
+  height: 50px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.form__submit input {
+  padding: 10px 30px;
+  background-color: #ef9a53;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-family: 'Rowdies', cursive;
+  cursor: pointer;
+}
+
+/* Discussion Part */
+.discussion__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discussions__container {
+  width: 70%;
+  padding: 20px;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  padding: 20px;
+  color: #000;
+}
+
+.discussion__avatar--wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+.discussion__avatar--image {
+  width: 100%;
+  height: 100%;
+}
+
+.discussion__content {
+  flex-basis: 80%;
+  margin: 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.discussion__title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.discussion__title a {
+  color: #000;
+}
+
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  width: 100px;
+}
+
+/* pagination */
+.pagination-container {
+  width: 200px;
+}
+
+.pagination-container button {
+  border: none;
+  background-color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: .2rem;
+}
+
+.pagination-numbers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination-container button.active {
+  background-color: #eee;
+}
+
+.discussion__container.hidden {
+  display: none;
+}
