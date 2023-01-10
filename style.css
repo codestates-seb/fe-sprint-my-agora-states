@@ -33,6 +33,8 @@ main {
 /* 제목%로그인 박스 */
 section.form__container {
     display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
 
@@ -40,8 +42,12 @@ section.form__container {
     
     width: 500px;
     height: 300px;
-    margin: 10px;
     border-radius: 10px;
+}
+
+/* form*/
+form.form {
+   width: 400px;
 }
 
 /* 제목 로그인박스 div 부모 */
@@ -50,7 +56,27 @@ div.form__input--wrapper {
     flex-direction: column;
 }
 
+/* label */
+div.form__input--wrapper label {
+   display: flex;
+}
+/* input,textarea */
+div.form__input--wrapper input,textarea {
+    display: flex;
+    width: 400px;
+}
+/* textarea 크기조절 */
+div.form__textbox>textarea {
+    height: 100px;
+}
+/* 입력하기 버튼  */
+div.form__submit {
+    display: flex;
+    justify-content: end;
 
+    height: 40px;
+    margin-top: 10px;
+}
 
 
 
