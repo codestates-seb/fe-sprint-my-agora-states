@@ -175,4 +175,5 @@ textarea:focus {
 
 .discussion__content {
     padding: 0px 30px;
+    width: 430px;
 }
