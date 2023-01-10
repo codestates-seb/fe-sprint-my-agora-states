@@ -1,1 +1,143 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;  /*모든요소에 box크기를 border로 지정합니다.*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;  /*화면 너비를 100%로 설정해 주어야 중앙정렬시 화면 가운데 옵니다. */
+    display: flex;
+    flex-direction: column;  /* 헤더와 메인을 위아래로 정렬합니다. */
+    align-items: center; /*헤더와 메인을 화면 중앙으로 정렬합니다. */
+    background-image: url(./background2.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Gowun Batang', serif;
+}
+
+/* 헤더 부분 */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;  /*로고와 메뉴간 간격을 조절합니다. */
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.codestates-logo{
+    width: 7rem;
+}
+
+header a{
+    margin: 10px;
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Yeseva One', cursive;
+} 
+
+/*메인부분*/
+main {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.discussion__container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  /*discussion의 내용 박스들을 정렬합니다.*/
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    align-items:  center; /* 세번째 박스의 체크박스를 중앙정렬하려고 사용 */
+    background: rgba( 255, 255, 255, 0.5 );  /*글래스 모피즘*/
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba(214, 214, 223, 0.37);
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 2px solid rgba( 255, 255, 255, 0.18 );
+}
+
+li {
+    list-style: none;  /*모든 li요소의 기본스타일인 점을 보이지 않게 합니다.*/
+}
+
+/*입력 하는 부분 */
+.form__container {
+    background-color: rgba(179, 176, 161, 0.944);
+    border-radius: 2%;
+    width: 380px;
+    height: 26rem;
+    padding: 30px;
+    font-size: 1.3rem;
+    z-index: 6;
+}
+
+.form__container div {
+    display: flex;
+    flex-direction: column;
+}
+
+#name {
+    width: 300px;
+    height: 2rem;
+    font-size: 1.2rem;
+}
+
+#story{
+    width: 300px;
+    height: 8rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.form__submit >:first-child {
+    height: 2.3rem;
+    width: 200px;
+}
+
+.discussion__wrapper {
+    position: relative;
+    max-width: 600px;  /*discussion 컴포넌트 폭을 540px로 만듭니다.*/
+}
+/* 왼쪽 아바타 박스 */
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center; /* 사진이 discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
+    margin-right: 1rem;
+}
+
+.discussion__avatar--image {
+    width: 48px;  /*아바타 사진의 너비를 48px로 만듭니다. */
+    border-radius: 50%;  /* 아바타 사진을 동그랗게 표현합니다. */
+}
+
+/* 중간 Discussion 콘텐츠 */
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.discussion__title {
+    font-size: 1.3rem;
+}
+
+a {
+    text-decoration: none; /* 질문 제목의 하이퍼링크밑줄을 없앱니다. */
+    color: rgb(44, 43, 39);
+    cursor: pointer;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__answered {
+    margin-left: 1.5rem;
+    margin-right: 0.5rem;
+}
