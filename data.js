@@ -765,7 +765,7 @@ const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APXTQ",
     createdAt: "2022-04-22T14:07:35Z",
-    title: "s 마크다운 사용법",
+    title: "[notice] 마크다운 사용법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/3",
     author: "kimploo",
     answer: null,

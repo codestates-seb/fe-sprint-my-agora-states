@@ -1,4 +1,10 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+root {
+    --orange100: #fff9f9;
+    --orange200: #fff2e9;
+    --ornage700: #FEA82F;
+}
+
 * {
     box-sizing: border-box;
     list-style: none;
@@ -13,10 +19,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(#FEA82F, #fff9f9);
 }
 
 h1 {
-    font-size: 3rem;
+    color: #3D8361;
+    font-size: 3.3rem;
+    font-weight: 900;
 }
 
 a {
@@ -34,14 +43,17 @@ main {
     box-shadow: var(--big-box);
     border: 1px solid var(--gray-10);
     border-radius: 4px;
+    background-color: #fff9f9;
+    ;
 }
 
 .form__container {
     padding: 16px;
     margin: 24px;
-    box-shadow: var(--big-box);
+    /* box-shadow: var(--big-box); */
     border: 1px solid var(--gray-10);
     border-radius: 4px;
+    background-color: #fff2e9;
 }
 
 .form__input--wrapper {
@@ -51,28 +63,35 @@ main {
     align-items: center;
 }
 
+input {
+    border-style: none;
+    height: 25px;
+
+}
+
 .form__container div {
     padding: 4px;
-    width: 540px;
+    width: 500px;
     display: flex;
     flex-direction: column;
 }
 
 textarea {
     height: 150px;
+    border-style: none;
 }
 
-/* .submit {
+.form__submit>input {
     cursor: pointer;
-    border: none;
+    background-color: #3D8361;
     border-radius: 4px;
-    color: var(--white);
-    background-color: var(--peach-500);
-    font-size: 14px;
+    border-style: none;
     transition: all 0.3s;
-    padding: 18px 50px;
-    margin: 60px 10px;
-}  */
+    width: 150px;
+    height: 30px;
+    margin: 0px auto;
+    color: #FEF5ED;
+}
 
 .discussion__wrapper {
     margin: 24px;
@@ -91,6 +110,7 @@ li.discussion__container {
 .discussion__avatar--image {
     border-radius: 50%;
     width: 48px;
+    height: 48px;
 }
 
 .discussion__content {
@@ -111,6 +131,41 @@ li.discussion__container {
     padding: 4px 16px;
 }
 
-.discussion__answered>p {
-    font-size: 2rem;
+.answered {
+    margin-left: 0px 16px;
+    font-size: 1rem;
+    color: #5F8D4E;
+}
+
+.non-answered {
+    font-size: 1rem;
+    color: #5F8D4E;
+}
+
+ol.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    height: 50px;
+    align-items: stretch;
+}
+
+a.page {
+    flex-grow: 1;
+    margin: auto;
+    padding: 3px 9px;
+}
+
+a.page.active {
+    flex-grow: 1;
+    color: #FEF5ED;
+    background-color: #3D8361;
+    margin: auto;
+    padding: 3px 9px;
+    border-radius: 50%;
+}
+
+.hide {
+    display: none;
 }
