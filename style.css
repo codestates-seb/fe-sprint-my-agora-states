@@ -1,1 +1,100 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form__container {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 540px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    margin-right: 10px;
+}
+
+#name, #title, #story {
+    flex-grow: 1;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.discussion__wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+ul.discussions__container {
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+}
+
+li.discussion__container {
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.discussion__title {
+    font-size: 1.2em;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: right;
+    margin-left: 10px;
+}
