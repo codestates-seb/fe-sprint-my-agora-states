@@ -59,7 +59,6 @@ h1{
     position: relative;
     top: -2rem;
     z-index: 2;
-
 }
 
 label{ font-size: 1.2rem;}
@@ -130,7 +129,7 @@ ul::-webkit-scrollbar-track{ background-color: rgba(151,227,197,0.2); border-rad
 li{
     display: grid;
     height: 12rem;
-    grid-template-columns: 4.8rem 37rem 2rem;
+    grid-template-columns: 4.8rem 36.2rem 2rem;
     column-gap: 2rem;
     align-items: center;
     border-bottom: 1px solid #e6e6e6;
@@ -149,6 +148,7 @@ li:hover{
     border-radius: 4.8rem;
 }
 
+.discussion__title{ margin-bottom: 1rem; }
 .discussion__title a{ text-decoration: none; }
 .styled-answer{ width: 1.6rem; margin-left: auto; }
 
