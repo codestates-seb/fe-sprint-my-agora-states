@@ -35,13 +35,14 @@ const convertToDiscussion = (obj) => {
   // discussionContent에 작성자와 날짜 넣기
   const discussion__information__maker = document.createElement("div");
   discussion__information__maker.className =  "discussion__information"
+
   //현지시간으로 바꾸기
   let submitTime = obj.createdAt.slice(-9,-1);
   let submitTimes = submitTime.split(":");
   let hour = submitTimes[0]
   let min = submitTimes[1]
   let sec = submitTimes[2]
-console.log(hour,min,sec)
+
   if(hour >= 12){
     console.log(hour)
     hour = hour - 12;
