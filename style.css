@@ -256,3 +256,8 @@ label{
     align-self: flex-end;
     margin: 10px;
 }
+
+/* 올라가기 버튼 */
+.up{
+    width: 100px;
+}
