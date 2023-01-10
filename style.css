@@ -1,1 +1,168 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Seymour+One&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: lightgray;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid grey;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  background-color: whitesmoke;
+}
+h1 {
+  margin-top: 20px;
+  font-size: 45px;
+  font-family: "Seymour One", sans-serif;
+}
+.form__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid lightgrey;
+  margin: 10px;
+  padding: 20px;
+  width: 540px;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* 닉네임 파트 */
+.form__input--name {
+  margin: 10px;
+
+  margin-bottom: -4px;
+}
+.form__input--name > input {
+  border: 2px solid grey;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 50px;
+  width: 500px;
+  padding: 10px;
+}
+.form__input--title > input {
+  border: 2px solid grey;
+  /* border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
+  height: 50px;
+  width: 500px;
+  padding: 10px;
+}
+.form__textbox > #story {
+  border: 2px solid grey;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 100px;
+  width: 500px;
+  padding: 10px;
+  margin-top: -2px;
+}
+/* 입력 부분 */
+.form__submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__submit > input {
+  font-size: 18px;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  /* padding: 10px; */
+  margin: 1rem;
+}
+.form__submit > input {
+  font-size: 18px;
+  color: rgb(83, 79, 79);
+  font-weight: bold;
+  border: 2px solid gray;
+  background-color: lightgray;
+}
+.form__submit > input:hover {
+  background: whitesmoke;
+  border: 2px solid rgb(177, 177, 177);
+  box-shadow: 1px 2px 5px grey;
+}
+
+ul.discussions__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.discussion__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 540px;
+  margin: 0px 10px 10px;
+  padding: 10px;
+  border-bottom: 2px dotted lightgray;
+  list-style-type: none;
+}
+h2 {
+  margin: 5px;
+}
+a {
+  font-size: 18px;
+}
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-grow: 7;
+}
+
+.discussion__avatar--image {
+  flex-grow: 1;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 48px;
+  margin-right: 10px;
+}
+
+.discussion__answered {
+  flex-grow: 1;
+  flex-basis: 0%;
+  font-size: 40px;
+  margin-left: 10px;
+}

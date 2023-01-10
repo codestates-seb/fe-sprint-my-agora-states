@@ -12,10 +12,29 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
+  //  아래 코딩은 사진 넣는 코딩
+  const avatarImg = document.createElement("img");
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = obj.alt;
+  avatarWrapper.append(avatarImg);
+  // 내용 가져오고 하이퍼링크 걸어주기
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+  // 날짜 및 작성자 이름 가져오기
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInformation);
+  // 체크박스 가져오기
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑" : "☒";
+  discussionAnswered.append(checked);
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
