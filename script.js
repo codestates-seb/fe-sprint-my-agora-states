@@ -7,16 +7,45 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+//사진
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+  const photo = document.createElement('img')
+  //사진 =avatarURL;
+  //alt= author
+  photo.src = obj.avatarUrl;
+  photo.alt = 'avatar of' + obj.author;
+  avatarWrapper.append(photo);
+
+  //가운데내용
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  //생성했고 
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  //author / createdAt
+  // toLocaleDateString() 
+  // new Date(obj.createdAt).toLocaleTimeString()
+  discussionContent.append(discussionTitle, discussionInformation);
+
+
+  //끝에 표시
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  
+  const checked = document.createElement("p");
+   
+ checked.textContent = obj.answer ? "☑" : "x" ;
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
+ discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
