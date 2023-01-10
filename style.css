@@ -1,1 +1,141 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}  
+
+li {
+  list-style-type: none;
+}
+
+.form__input--title > label {
+  word-spacing : 7px
+}
+
+.form__input--name > label {
+  word-spacing : 3px
+}
+
+main > h1 {
+  text-align: center;
+  margin: 60 0 60 0;
+  color: rgba(56, 87, 56, 0.888);
+  font-size: 35px;
+}
+
+img {
+  width: 48px;
+  border-radius: 100%;
+  margin-right: 15px;
+}
+
+section.form__container {
+  border-radius: 20px;
+}
+
+.discussion__answered {
+  padding-top: 39px;
+  font-size: 20px;
+  margin: 5px;
+  color: #FFF9CA;
+
+}
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 550px;
+  height: 150px;
+  font-size : 10px;
+  border-radius: 19px;
+  margin : 10px;
+  padding: 20px;
+}
+.discussion__content{
+  display: block;
+}
+
+/* 질문 박스 내부 정렬 */
+.discussion__content >:nth-child(1){
+width: 440px;
+text-align: left;
+margin-top: 0;
+}
+.discussion__content >:nth-child(2){
+  height:30px;
+  text-align: right;
+}
+
+section.discussion__wrapper{
+  display: flex;
+  flex:4;
+  width: 578px;
+  justify-content: center;
+  align-items:center;
+}
+ul {
+  padding: 0px;
+}
+li.discussion__container {
+  background-color: rgba(56, 87, 56, 0.888);
+}
+a:link {
+  color: white;
+  font-family: 'Dongle', sans-serif;
+  font-size: 22px;
+}
+a:visited {
+  color: rgb(0, 0, 0);
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+#story {
+  width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.form__input--wrapper {
+  margin: 5px;
+
+}
+/* 작성란 수정 */
+.form__input--wrapper input {
+  width:300px;
+  height: 30px;
+  font-size:12px;
+  margin: 5px;
+  border-radius: 10px;
+}
+.form__submit {
+  flex:1;
+  margin:3px;
+
+}
+.form__submit input {
+  width: 448px;
+  height: 43px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-left: 25px;
+  margin-right: 0px;
+  border: 2px solid black;
+}
+textarea {
+  margin : 5px;
+}
+
+.discussion__information {
+  padding-top: 17.5px;
+  font-size: 13px;
+  color: #f7f5e2;
+}
