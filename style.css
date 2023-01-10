@@ -1,1 +1,102 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+main {
+    display: block;
+    
+}
+
+.discussion__container{
+    /* 1명게시물 + 1명게시물 상위 컨테이너 공간 */
+    display: flex;
+    align-items: center;
+}
+
+ul{
+    /* 1명게시물 상위 컨테이너 */
+    list-style:none;
+    background-color: brown;
+    padding: 10px;
+    width: 540px;
+    
+    }
+
+li {
+    /* 1명 게시물 공간 */
+    margin: 10px;
+    height: 150px;
+    background-color: aquamarine;
+    border-radius: 20px;
+    
+}
+
+section, h1 {
+    /* 전체 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.discussion__wrapper {
+    /* 섹션 */
+    /* width: 540px; */
+    
+}
+
+div.discussion__avatar--wrapper {
+    /* 이미지 액자 가로 20% */
+    margin: 10px;
+    
+}
+
+img {
+    /* 이미지 */
+    width: 48px;
+    height: 48px;
+    vertical-align: middle; /*수직높이 센터*/
+    border-radius: 50%;
+}
+
+div.discussion__content {
+    /* 제목, 작성자, 날짜 */
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+}
+
+div.discussion__information {
+    /* 작성자, 날짜 */
+    /* height: 400px; */
+    text-align: right;
+    height: 20%;
+    font-size: 10pt;
+    
+}
+
+h2.discussion__title{
+    /* 제목 */
+    width: 90%;
+    height: 70%;
+    margin: 5px;
+    font-size: 15pt;
+    display: flex;
+    align-items: center;
+}
+
+
+div.discussion__answered {
+    /* 체크박스 */
+    /* vertical-align: middle; 수직높이 센터*/
+    font-size: 20pt; 
+    margin: 5px;
+}
+
+
+
+
+      
