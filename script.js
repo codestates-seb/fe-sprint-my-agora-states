@@ -26,11 +26,15 @@ const convertToDiscussion = (obj) => {
     );
 
     const discussionContent = createEle("div", "discussion__content");
-    const title = createEle("h2", "title", { textContent: obj.title });
+    const title = createEle("h2", "discussion__title", {
+        textContent: obj.title,
+    });
 
     discussionContent.append(title, discussionWrittenInfo);
 
-    const discussionAnswered = createEle("div", "discussion__answered");
+    const discussionAnswered = createEle("div", "discussion__answered", {
+        textContent: "☑",
+    });
 
     li.append(avatarWrapper, discussionContent, discussionAnswered);
     return li;
@@ -51,7 +55,7 @@ const discussionForm = document.querySelector(".form");
 discussionForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const DEFAULT_AVATAR_UTL =
+    const DEFAULT_AVATAR_URL =
         "https://avatars.githubusercontent.com/u/120073917?v=4";
 
     const { author, title } = event.target;
@@ -59,7 +63,7 @@ discussionForm.addEventListener("submit", (event) => {
         author: author.value,
         title: title.value,
         createdAt: new Date().toJSON(),
-        avatarUrl: DEFAULT_AVATAR_UTL,
+        avatarUrl: DEFAULT_AVATAR_URL,
     };
 
     ul.prepend(convertToDiscussion(obj));
