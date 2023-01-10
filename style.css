@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
+    padding: 50px;
 }
 
 
@@ -27,6 +28,17 @@ main {
     justify-content: center;
     margin: 50px;
     
+}
+
+#jerry {
+    display: block;
+    width: 200px;
+    position: relative;
+    left: -45%;
+    top: -13%;
+    opacity: 60%;
+    transition: transform 0.5s;
+    margin-bottom: -70px;
 }
 
 h1 {
@@ -206,7 +218,7 @@ textarea:focus {
     margin-top: 0px;
     border-bottom: 1px solid rgb(181, 181, 181);
     width: 90%;
-    height: 90%;
+    height: 80%;
     overflow: auto;
 }
 
