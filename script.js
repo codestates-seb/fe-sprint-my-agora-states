@@ -14,7 +14,40 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.className = 'discussion__avatar--image';
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of" + obj.author;
 
+  avatarWrapper.append(avatarImg);
+  
+  // const contentTitle = document.createElement('h2');
+  // contentTitle.className = 'discussion__title';
+  
+  // const titleAnchor = document.createElement('a');
+  // titleAnchor.textcontent = obj.title;
+  // titleAnchor.href = obj.url;
+  
+  // contentTitle.append(titleAnchor);
+  // discussionContent.append(contentTitle); //이건 도대체 왜 안되는지 영문을 모르겠음
+
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
+  discussionContent.append(discussionTitle);
+  
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  
+  discussionInformation.textContent = obj.createdAt;
+  
+  discussionContent.append(discussionInformation);
+
+  const ckecked = document.createElement("p");
+  ckecked.textContent = "☑";
+  discussionAnswered.append(ckecked);
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -28,6 +61,7 @@ const render = (element) => {
   }
   return;
 };
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
