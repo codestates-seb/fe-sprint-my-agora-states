@@ -2,7 +2,8 @@
 // console.log(agoraStatesDiscussions);
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 
-// window.localStorage.clear(); 로컬스토리지 초기화
+// window.localStorage.clear();
+// 로컬스토리지 초기화
 
 //dataSet agoraStatesDiscussions값을 json형식으로 받는다.
 if (!localStorage.getItem("dataSet")) {
