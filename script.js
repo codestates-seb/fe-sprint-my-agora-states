@@ -84,24 +84,27 @@ const form = document.querySelector('form'); // 작성세션 전체
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   // 대상쿼리 잡기
-  const formName = document.querySelector('.form__input--name #name').value;
-  const formTitle = document.querySelector('.form__input--title #title').value;
-  const formBox = document.querySelector('.form__textbox #story').value;
+  const formName = document.querySelector('.form__input--name #name') // .value;  .value까지 쓰면 초기화코드가 길어짐.
+  const formTitle = document.querySelector('.form__input--title #title')  // .value;  생각해보면 메소드까지 변수화시키면 별로인듯. 매번 변수만들기 귀찮음
+  const formBox = document.querySelector('.form__textbox #story') // .value;
   // console.log(formName);
   const obj = {
     id: "id 불명",
     createdAt: new Date(),
-    title: formTitle,
+    title: formTitle.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
-    author: formName,
+    author: formName.value,
     answer: null,
-    bodyHTML: formBox,
+    bodyHTML: formBox.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   }
 
   agoraStatesDiscussions.unshift(obj);
-  
-  ul.prepend(convertToDiscussion(obj));
+  ul.prepend(convertToDiscussion(obj)); // 렌더링 그대로 전달
+
+  formTitle.value = ''; // 초기화
+  formName.value = '';
+  formBox.value = '';
 
 });
 
