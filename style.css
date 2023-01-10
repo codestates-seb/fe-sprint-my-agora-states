@@ -439,11 +439,10 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem;
 }
 
 .left:hover, .right:hover {
-  background-color: rgb(25, 189, 172);
-  color: white;
   transform: scale(1.2);
 } 
 
