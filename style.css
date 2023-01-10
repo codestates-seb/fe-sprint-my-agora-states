@@ -15,8 +15,22 @@ main{
   background-color: #EAF4F9; 
   padding: 20px;
   border-radius: 50px;
-  width:50vw
+  width:50vw;
+
 }
+
+/* 제목 꾸미기 */
+h1 {
+  display: flex;
+  justify-content: center;
+  color: #3498DB;
+  font-size: 5vw;
+  font-family: 'Moon Dance', cursive;
+  font-family: 'Single Day', cursive;
+  padding-bottom: 40px;
+}
+
+
 
 li {
   list-style : none;
@@ -24,7 +38,40 @@ li {
   flex-direction: row;
 } 
 
+/* 커미션스 박스  */
+.discussion__container{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: 25px 0px;
+  background-color: white;
+  border-radius: 10px;
+}
 
+
+/* 프로필 사진 박스 */
+.discussion__avatar--wrapper{
+  display : flex;
+  flex-direction: column;
+  justify-content: center; 
+  margin-right: 20px;
+}
+
+/* title과 닉네임, 시간 박스 */
+/* ord-break:keep-all로 한글자동 줄 바꿈 */
+.discussion__content{
+  flex-grow: 1;
+  word-break:keep-all;
+}
+
+/* 체크박스의 박스 */
+.discussion__answered{
+  /* 체크박스 중앙으로 */
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
 
 .discussion__avatar--image {
   border-radius: 50%;
@@ -32,12 +79,6 @@ li {
 
 }
 
-.discussion__avatar--wrapper{
-  display : flex;
-  flex-direction: column;
-  justify-content: center; 
-  margin-right: 20px;
-}
 
 
 /* 박스가 꽉차게 안된다.?? */
@@ -46,21 +87,10 @@ li {
   /* 저자,생성일 오른쪽 정렬 */
   display: flex;
   flex-direction : row-reverse; /*역가로정렬*/
-
-}
-.discussion__answered{
-  /* 체크박스 중앙으로 */
-  display : flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 
-/* 제목 꾸미기 */
-h1 {
-  color: #3498DB;
-  font-size: 10vw;
-}
+
 
 
 /* submit 꾸미기  */ 
@@ -105,10 +135,12 @@ form.form {
 .form__submit{
   display: flex;
   flex-direction: row;
+  padding : 10px 0px;
 }
 
 .form__submit input{
   width: 100%;
+  height: 4vh;
   background-color: #3498DB;
   border-style: none;
   border-radius: 5px;
