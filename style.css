@@ -80,8 +80,9 @@ h1 {
     width: 334.3px;
     
     
-    max-height: 10000px;
-    overflow: hidden;
+    height: 900px;
+    max-height: 900px;
+    overflow: auto;
     transition: max-height 0.5s ease-in-out;
     margin-bottom: 20px;
 }
@@ -140,41 +141,30 @@ textarea {
     border-radius: 5px;
     padding: 5px;
     font-family: 'Sora', sans-serif;
-    
 }
-
 textarea:hover {
     border: 2px solid black;
     
 }
-
 textarea:focus {
     outline: none;
     border: 2px solid black;
 }
-
-
-
 .form__input--name, .form__input--title, .form__textbox {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
- 
-    
 }
-
 #name, #title {
     font-size: 0.8rem;
     height: 25px;
     width: 200px;
 }
-
 #story {
     font-size: 0.8rem;
-    height: 80px;
+    height: 130px;
     width: 330px;
 }
-
 .form__submit {
     display: flex;
     flex-direction: row;
@@ -215,7 +205,7 @@ textarea:focus {
     margin-top: 0px;
     border-bottom: 1px solid rgb(181, 181, 181);
     width: 90%;
-    max-height: 300px;
+    max-height: 90%;
     overflow: auto;
 }
 
