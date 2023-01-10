@@ -1,1 +1,1 @@
-# fe-sprint-my-agora-states
+# My-Agora-States
