@@ -43,6 +43,7 @@ header {
   display: flex;
   position: fixed;
   width: 520px;
+  height: 65px;
   top:0;
   background-color: white;
   border-bottom: 1px solid gainsboro;
@@ -363,6 +364,7 @@ main {
 }
 
 .notice-btn {
+  display: none;
   position: relative;
   top:200px;
   z-index: 3;
