@@ -128,7 +128,7 @@ h3 {
 }
 
 .form__submit {
-  margin: 18px 0 20px;
+  margin: 18px 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,4 +168,20 @@ a {
   font-size: 15px;
   display: block;
   margin: 0 14px 0 20px;
+}
+
+.discussion__wrapper {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+/* 기능만 남기고, 스크롤바는 없앰 */
+.discussion__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.discussion__wrapper {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
 }

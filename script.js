@@ -31,7 +31,7 @@ const convertToDiscussion = (obj) => {
   disTitleLink.href = obj.url;
   disTitleLink.textContent = obj.title;
   disTitle.appendChild(disTitleLink);
-  discussionContent.append(disTitle);
+  discussionContent.appendChild(disTitle);
 
   const disInfo = document.createElement("div");
   disInfo.className = "discussion__information";
