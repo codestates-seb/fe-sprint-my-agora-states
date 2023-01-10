@@ -1,1 +1,144 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/*flex grow로 이미지 부분이랑 체크박스에 고정값 할당하고, 텍스트 부분에서 space between 해보기*/
+/*제목에 width 값으로 space between?*/
+
+* {
+    box-sizing: border-box; /*모든 요소에 border-box를 적용합니다.*/
+    padding: 0;
+    margin: 0;
+  
+  }
+  
+  body {
+    background:linear-gradient( #788bff,  #e2fdff);
+    color:#5465ff;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  h1{
+    margin-top: 2vh;
+    color: #ffffff;
+  }
+
+  .form__container{
+    width: 540px;
+    margin: 5vh 0;
+    padding: 1vh;
+    background-color: #ffffff;
+    /* border: 5px solid #bcf4f8; */
+    box-shadow: 0 5px 5px #4759d3;
+    border-radius: 10px;
+    color: #788bff;
+    font-weight: bold;
+  }
+
+  input {
+    border: none;
+    border-radius: 5px;
+    width: 30rem;
+    height: 2rem;
+    font-size: var(--t1);
+    margin: 10px;
+    background-color: #edfbfc;
+    outline-color: #788bff;
+  }
+
+  textarea::placeholder {color:#ccc;}
+
+  textarea{
+    border:none;
+    border-radius: 5px;
+    width: 30rem;
+    height: 5rem;
+    font-size: var(--t1);
+    margin: 10px;
+    background-color: #e2fdff;
+    outline-color: #788bff;
+  }
+
+  .form__submit input{
+    font-weight: bold;
+    background-color: #788bff;
+    color: #ffffff;
+    border-radius: 5px;
+  }
+
+  .form__submit input:hover{
+    background-color: #bfd7ff;
+  }
+
+  li.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 540px;
+    list-style: none; /*<li>요소의 기본 스타일인 점을 보이지 않게 합니다.*/
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 5px #788bff;
+  }
+
+  .discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+  }
+  .discussion__avatar--wrapper > img{
+    width: 60px;
+    border-radius: 100%;
+  }
+
+  .discussion__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 0 0;  /* space between 적용 */
+    margin: 20px;
+  }
+
+
+  .discussion__content > a{ 
+    text-decoration: none;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+
+  .discussion__content > div{
+    text-align: right;
+    font-size: 12px;
+  }
+
+  .discussion__answered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+  }
+
+  button{
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: #788bff;
+    margin: 20px 50px 20vh 50px;
+    padding: 6px 10px;
+    box-shadow: 0 3px 3px #4759d3;
+    border-radius: 50%;
+    transition-duration: 0.3s;
+  }
+
+  button:hover{
+    box-shadow: 0 0 0 #4759d3;
+    background-color: #4759d3;
+  }
