@@ -6,6 +6,9 @@ export const discussion = (() => {
   let discussions = storage.getData("discussion");
   let observers = [];
   return {
+    setUp() {
+      discussions = this.getDiscussions();
+    },
     getSubscribers() {
       return observers;
     },
