@@ -116,10 +116,6 @@ h1.font-small {
   border: 1px solid #3fb950;
 }
 
-.form__textbox textarea:focus {
-  border-right: 0;
-}
-
 .textarea-submit__container {
   display: flex;
 }
@@ -137,8 +133,16 @@ h1.font-small {
   height: 50px;
   border: none;
   border-radius: 0 5px 5px 0;
-  background-color: #3fb950;
+  color: #c9d1d9;
+  background-color: #30363d;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 300ms;
+}
+
+.form__submit input.active {
+  color: #0d1117;
+  background-color: #3fb950;
 }
 
 .form__textbox textarea::placeholder {

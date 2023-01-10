@@ -1,7 +1,7 @@
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  const li = document.createElement("li");
+  li.className = "discussion__container";
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -58,7 +58,7 @@ const render = (element) => {
   return;
 };
 
-// saveDiscussion 로컬 스토리지에 디스커션 저장하는 함수
+// saveDiscussion 로컬 스토리지에 디스커션을 저장하는 함수입니다.
 const saveDiscussion = () => {
   localStorage.setItem("Discussions", JSON.stringify(agoraStatesDiscussions));
 };
@@ -145,4 +145,16 @@ document.addEventListener("scroll", () => {
 arrowUp.addEventListener("click", () => {
   const main = document.querySelector("main");
   main.scrollIntoView({ behavior: "smooth" });
+});
+
+// Submit button
+const textarea = document.querySelector("textarea");
+textarea.addEventListener("keyup", (e) => {
+  const submit = document.querySelector(".form__submit input");
+  const value = e.target.value;
+  if (value) {
+    submit.classList.add("active");
+  } else {
+    submit.classList.remove("active");
+  }
 });
