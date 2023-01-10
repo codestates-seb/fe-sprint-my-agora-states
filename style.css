@@ -1,1 +1,196 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #9FA0A6;
+}
+
+html{ 
+    font-size: 10px;
+    background: #36393F;
+}
+
+main{
+    background-color:#f9f9f9;
+    width: 60rem;
+    height: 90rem;
+    margin: 5rem auto;
+    border-radius: 0.5rem;
+}
+
+/* 타이틀 css ================================================ */
+.back{
+    position: relative;
+    top: 5rem;
+}
+
+h1{
+    background: linear-gradient(to right,#31306e, #65d0de);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 5.5rem;
+    margin-bottom: 3rem;
+}
+
+.question__button{
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    border-radius: 0.5rem;
+    background-color: #6DDEAD;
+    font-size: 1.6rem;
+    color: #fff;
+    cursor: pointer;
+    width: 18rem;
+    height: 4.5rem;
+}
+
+/* 질문 폼 css ================================================ */
+.form__container{
+    width: 50rem;
+    min-width: 30rem;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    position: relative;
+    top: -2rem;
+    z-index: 2;
+
+}
+
+label{ font-size: 1.2rem;}
+
+input,textarea{
+    background-color: #EFF2F9;
+    border: 1px solid #e6e6e6;
+    border-radius: 0.5rem;
+    outline: none;
+    height: 2.8rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+}
+
+textarea{
+    height: 8rem;
+    resize: none;
+}
+
+input:focus,textarea:focus{
+    border: 2px solid rgba(82,106,204,0.5);
+}
+
+.form__submit{
+    display: flex;
+    justify-content: center;
+    gap: 0 0.5rem;
+    margin-top: 1rem;
+}
+
+button{
+    width: 15rem;
+    height: 3.2rem;
+    background-color: #6DDEAD;
+    border: 1px solid #fff;
+    border-radius: 0.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.styled-input-box{
+    display: grid;
+    row-gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 디스커션 리스트 css ========================================== */
+.discussion__wrapper{
+    position: relative; 
+    top: -20rem;
+}
+
+ul{
+    width: 54rem;
+    height: 54rem;
+    margin: 0 auto;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 1px solid #e6e6e6;
+    border-radius: 0.5rem;
+}
+
+/* 리스트 스크롤 */
+ul::-webkit-scrollbar{ width: 0.6rem; }
+ul::-webkit-scrollbar-thumb{ background-color: rgba(79,213,150,0.5); border-radius: 2rem; }
+ul::-webkit-scrollbar-track{ background-color: rgba(151,227,197,0.2); border-radius: 2rem; }
+
+li{
+    display: grid;
+    height: 12rem;
+    grid-template-columns: 4.8rem 37rem 2rem;
+    column-gap: 2rem;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+    list-style-type: none;
+    padding: 2rem 3rem;
+    transition: 0.2s all;
+}
+
+li:hover{
+    background-color: rgba(255,221,148,0.3);
+    border-left: 3px solid rgb(255,221,148);
+}
+
+.discussion__avatar--image{
+    width: 4.8rem;
+    border-radius: 4.8rem;
+}
+
+.discussion__title a{ text-decoration: none; }
+.styled-answer{ width: 1.6rem; margin-left: auto; }
+
+/* 페이지네이션============================================ */
+.paginator {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -10rem;
+}
+
+.page-button{
+    width: 3rem;
+    border-radius: 5rem;
+    background-color: transparent;
+    color: #6DDEAD;
+    transition: all 0.2s;
+}
+
+.page-button:hover{
+    background-color: #6DDEAD;
+    color: #fff;
+}
+
+.page-clicked{
+    background-color: #6DDEAD;
+    color: #fff;
+}
+
+
+/* 질문 폼 애니메이션 관련 css =====================================*/
+@keyframes fade-in-top{
+    0%{ transform:translateY(-50px); opacity:0 }
+    100%{ transform:translateY(0); opacity:1 }
+}
+@keyframes fade-out-top{
+    0%{ transform:translateY(0); opacity:1 }
+    100%{ transform:translateY(-50px); opacity:0; visibility: hidden;}
+}
+
+.hide{ visibility: hidden; }
+.close{ /* 닫기 */ animation: fade-out-top .3s ease-in both; }
+.show{ /* 열기 */ animation: fade-in-top .3s ease-in both; }
+
+
