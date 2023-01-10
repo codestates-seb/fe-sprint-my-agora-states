@@ -85,7 +85,7 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   // 대상쿼리 잡기
   const formName = document.querySelector('.form__input--name #name').value;
-  const formTitle = document.querySelector('.form__input--title #name').value;
+  const formTitle = document.querySelector('.form__input--title #title').value;
   const formBox = document.querySelector('.form__textbox #story').value;
   // console.log(formName);
   const obj = {
