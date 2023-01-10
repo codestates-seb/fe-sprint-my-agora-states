@@ -64,10 +64,12 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const renderDiscussions = (element) => {
 
+    
+
     while (element.firstChild) {               // (8-1) 일단 ul 안의 내용 다 지우기
         element.removeChild(element.firstChild);
     }
-
+    console.log(data);
     for (let i = 0; i < data.length; i += 1) { // (8-2) ul 안에 하나씩 다시 붙이기
         element.append(convertToDiscussion(data[i]));
     }
@@ -87,6 +89,8 @@ const story = form.querySelector("div.form__textbox > textarea");
 
 form.addEventListener("submit", (event) => {
 
+    debugger;
+
     event.preventDefault();
     formContainer.classList.toggle('hidden');
 
@@ -103,103 +107,24 @@ form.addEventListener("submit", (event) => {
     data.unshift(newData);
     localStorage.setItem("discussionData", JSON.stringify(data));
 
-
     renderDiscussions(ul);
 
     author.value = '';
     title.value = '';
     story.value = '';
 
+    renderContent(page);    // 여기서 page 별로 10개씩 채우는 함수를 실행시켜주면 submit 후 첫 화면에 모든 컨텐츠가 다 담기는 현상 해결 완료!!!
+
 })
-
-
-
-/*
-const dataSubmit = document.querySelector('#submitBtn');
-
-dataSubmit.addEventListener('click', () => {
-
-  formContainer.classList.toggle('hidden');
-  
-  console.log("일단 드렁왔어요");
-  let name = document.querySelector('#name').value;
-  let title = document.querySelector('#title').value;
-  let story = document.querySelector('#story').value;
-
-  console.log(name, title, story);
-  const newDiscussion = {
-    title: title,
-    author: name,
-    createdAt: new Date().toISOString(),
-    avatarUrl: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fly6ZE%2FbtrVA0j9QpV%2FTVhGhX6yZbk04FlsfK1Zkk%2Fimg.jpg',
-    url: '#',
-    story: story
-  };
-  console.log(newDiscussion)
-  agoraStatesDiscussions.push(newDiscussion);
-  console.log(agoraStatesDiscussions)
-
-  // Create the discussion element
-  const li = document.createElement("li");
-  li.className = "discussion__container";
-
-  // Create the avatar wrapper and image elements
-  const avatarWrapper = document.createElement("div");
-
-  avatarWrapper.className = "discussion__avatar--wrapper";
-  const avatarImg = document.createElement('img');
-  avatarImg.src = newDiscussion.avatarUrl;
-  avatarImg.alt = 'avatar of ' + newDiscussion.author;
-  avatarWrapper.append(avatarImg);
-
-  // Create the discussion content elements
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  
-  const discussionTitle = document.createElement("h2");
-  discussionTitle.className = "discussion__title";
-  discussionContent.append(discussionTitle);
-
-  const titleLink = document.createElement("a");
-  titleLink.setAttribute("href", newDiscussion.url); 
-  titleLink.setAttribute("target", "_blank");
-  titleLink.textContent = newDiscussion.title;
-  discussionTitle.append(titleLink);
-
-  const discussionInfo = document.createElement("div");
-  discussionInfo.className = "discussion__information";
-  discussionInfo.textContent = newDiscussion.author + " / " + newDiscussion.createdAt;
-  discussionContent.append(discussionInfo);
-
-  // Create the discussion answered element
-  const discussionAnswered = document.createElement("div");
-
-  discussionAnswered.className = "discussion__answered";
-  const answeredP = document.createElement("p");
-  answeredP.textContent = "☐";
-  discussionAnswered.append(answeredP);
-
-  // Append all the elements to the discussion element
-  li.append(avatarWrapper);
-  li.append(discussionContent);
-  li.append(discussionAnswered);
-
-  // Append the discussion element to the discussion list
-  const ul = document.querySelector("ul.discussions__container");
-  ul.prepend(li);
- 
-
-});
-*/
 
 // 페이지네이션
 
 const contents = document.querySelector("ul.discussions__container");
 const buttons = document.querySelector(".buttons");
 
-const numOfContent = data.length;
 const maxContent = 10;
 const maxButton = 5;
+// const numOfContent = data.length;
 
 const maxPage = Math.ceil(data.length / maxContent);
 let page = 1;
@@ -244,7 +169,10 @@ const renderContent = (page) => {
     while (contents.hasChildNodes()) {
         contents.removeChild(contents.lastChild);
     }
-    for (let id = (page - 1) * maxContent; id < page * maxContent && id < numOfContent; id++) {
+    for (let id = (page - 1) * maxContent; id < page * maxContent && id < data.length; id++) {  
+        // 갓상은!!!! 원래는 id < data.length 가 아니라 id < numOfData라고 되어있었고, numOfContent는 위에서 data.length를 할당받은 상태였다. 
+        // 근데 data가 추가되어도 기존에 받아놨던 길이는 변하지 않으니 하나씩 지워질 수 밖에!!!
+
         contents.append(convertToDiscussion(data[id]))  // 여기서 싹다 지우고 새로 입력될 때 agoraStatesDiscussions 거를 불러와서 리셋되던 문제가 있었음.
     }
 }
@@ -269,8 +197,8 @@ const renderButton = (page) => {
 };
 
 const renderContentAndButton = (page) => {
-  renderContent(page);
-  renderButton(page);  
+    renderContent(page);
+    renderButton(page);
 };
 
 renderContentAndButton(page);
