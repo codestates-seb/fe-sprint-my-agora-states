@@ -40,6 +40,7 @@ const convertToDiscussion = (obj) => {
   //체크박스 넣기
   const checkBox = document.createElement("p");
   checkBox.textContent = obj.answer ? "☑︎" : "☒";
+  // if (checkBox.textContent === "☒") checkBox.textContent.style.color = "red";
   discussionAnswered.appendChild(checkBox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -55,6 +56,38 @@ const render = (element) => {
   return;
 };
 
+const inputName = document.querySelector(".form__input--name input");
+const inputTitle = document.querySelector(".form__input--title input");
+const inputAnswer = document.querySelector(".form__textbox textarea");
+const submitForm = document.querySelector(".form");
+console.log(inputName);
+console.log(inputTitle);
+
+submitForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const localTime = new Date();
+  const obj = {
+    answer: null,
+    author: inputName.value,
+    bodyHTML: null,
+    avatarUrl:
+      "https://cdn.pixabay.com/photo/2016/06/15/15/25/loudspeaker-1459128__480.png",
+    createdAt: localTime.toLocaleTimeString(),
+    id: "unique id+ " + Math.round(Math.random * 10000),
+    title: inputTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+  };
+  // 밑과 같이 했을 때 왜 작동이 안 하는지 명확하게 파악해야 한다!
+  agoraStatesDiscussions.unshift(obj);
+
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+  render(ul);
+});
+// console.log(agoraStatesDiscussions);
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+
 const ul = document.querySelector("ul.discussions__container");
+
 render(ul);
