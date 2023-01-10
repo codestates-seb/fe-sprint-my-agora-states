@@ -138,7 +138,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR')}`;
   discussionContent.appendChild(discussionInformation);
   
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -160,11 +160,6 @@ const render = (element) => {
   return;
 };
 
-const getKSTNow = () => {
-  const now = new Date();
-  return now.toLocaleString('ko-KR');
-}
-
 if(!loadLocalStorageDate()) {
   saveLocalStorageDate(agoraStatesDiscussions);
 }
@@ -173,12 +168,11 @@ document.getElementById('agora-form').onsubmit = () => {
   const name = document.getElementById('input-name').value;
   const title = document.getElementById('input-title').value;
   const story = document.getElementById('textarea-story').value;
-  const now = getKSTNow();
 
   const currList = loadLocalStorageDate();
   currList.unshift({
     id: "D_kwDOHOApLM4APfjB",
-    createdAt: now,
+    createdAt: new Date().toISOString(),
     title: title,
     url: story,
     author: name,
