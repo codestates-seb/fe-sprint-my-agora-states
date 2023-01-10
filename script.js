@@ -5,7 +5,7 @@
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
-
+ 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -14,38 +14,41 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   const avatarImg = document.createElement('img');
-  const discussionTitle = document.createElement("h2")
-  const a = document.createElement("a")
-  const discussionInfo = document.createElement("div");
-  const p = document.createElement("p")
-  
   avatarImg.className = "discussion__avatar--image";
   avatarImg.src = obj.avatarUrl
   avatarImg.alt = 'avatar of' + obj.author;
   avatarWrapper.append(avatarImg);
-  
-  discussionTitle.classList = "discussion__title"
-  
+
+  const discussionTitle = document.createElement("h2")
+  discussionTitle.className = "discussion__title"
+
+  const a = document.createElement("a")
   a.href = obj.url
   discussionTitle.append(a)
   discussionTitle.textContent=obj.title
-  
-  discussionInfo.classList = "discussion__information"
-  discussionInfo.textContent = obj.author + "/" + obj.createdAt
-  discussionContent.append(discussionTitle,discussionInfo)
-  
-  p.textContent="☑"
-  discussionAnswered.append(p)
 
-  // const answerTitle = document.querySelector(".discussion__answered")
-  // const answerList = document.createElement("div")
-  // answerList.className = answerer
-  // answerList.textContent = obj.answer
-  // answerTitle.append(answerList)
+  const discussionInfo = document.createElement("div");
+  const p = document.createElement("p")
+  p.textContent= obj.answer ? "☑" : "☒"
+  discussionAnswered.append(p)
+  
+  discussionInfo.className = "discussion__information"
+  discussionInfo.textContent = obj.author + "/" + obj.createdAt
+  discussionContent.append(discussionTitle,discussionInfo,discussionAnswered)
+  
+  
+
+  // const answerTitle = document.createElement(".answer__title")
+  // const answerInfo = document.createElement("h2")
+  // // answerTitle.textContent = obj.answer
+  // answerInfo.textContent = obj[answer].bodyHTML
+
+  // discussionAnswered.append(answerTitle,answerInfo)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -60,6 +63,8 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
+// let data;
+// const localStorageData = localStorage.getItem("agoraStatesDiscussions")
 const submit = document.querySelector('#submit')
 const nameInput = document.querySelector('#name')
 const titleInput = document.querySelector('#title')
@@ -77,19 +82,28 @@ event.preventDefault();
   obj.author = nameInput.value
   obj.title = titleInput.value
   obj.bodyHTML = storyInput.value
-  obj.createdAt = new Date().toLocaleDateString()
+  obj.createdAt = new Date().toDateString() //toLocalDateString도 있음
 
-  localStorage.setItem('obj', JSON.stringify(obj));
+  // localStorage.setItem("obj", JSON.stringify(obj));
+  
+  // if(localStorageData){
+  //   data = JSON.parse(localStorageData)
+  // }else{
+  //   data = agoraStatesDiscussions.slice();
+  // }
 
-  agoraStatesDiscussions.unshift(obj)
-const convertForm = convertToDiscussion(obj)
-ul.prepend(convertForm)
+  // localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
 
-let keys = Object.keys(localStorage);
+  agoraStatesDiscussions.unshift(obj)//obj 객체를 agora배열의 맨 앞쪽에 넣음
+  //아직 agora배열에만 있고 그 배열을 설정하려면 추가행동이 필요함
+  const convertForm = convertToDiscussion(obj)//위에서 설정한 <li> form으로 만듬
+  ul.prepend(convertForm)  //ul의 앞에 둬서 폼이 맨 앞쪽에 보이게 만듬
 
-for(let key of keys) {
-  console.log(`${key}: ${localStorage.getItem(key)}`);
-}
+// let keys = Object.keys(localStorage);
+
+// for(let key of keys) {
+//   console.log(`${key}: ${localStorage.getItem(key)}`);
+// }
 
 }
 

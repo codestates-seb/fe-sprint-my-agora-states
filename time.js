@@ -14,6 +14,7 @@ if(hour > 12){
 }
 
 const clock = document.querySelector('.clock')
+clock.className = "tracking-in-expand"
 
 let time = `${year}년${month}월${date}일 `
 let time2 = `${hour} ${minutes}분`
