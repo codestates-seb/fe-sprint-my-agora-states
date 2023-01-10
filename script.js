@@ -28,7 +28,6 @@ const convertToDiscussion = (obj) => {
   
   disscussionTitle.append(discussionUrl);
 
-  
 
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
