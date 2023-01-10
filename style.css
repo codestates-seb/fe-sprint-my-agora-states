@@ -5,7 +5,8 @@
   --li-bg-color: #FFFFFF;
   --main-color: #313131;
   --author-date-color: #877f7f;
-  --point-color: #FFC7C7;
+  --point-color: #A0C3D2;
+  --check-color: #579BB1;
 }
 
 * {
@@ -84,6 +85,7 @@ section {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
 }
 
 .pagination {
@@ -108,7 +110,7 @@ section {
   position: relative;
   left: 35px;
   /* width: 500px; */
-  background-color: #FFC7C7;
+  background-color: var(--point-color);
   box-shadow: -10px 0px 10px 0px rgba(81, 81, 81, 0.7);
   animation: slidein 0.5s;
 }
