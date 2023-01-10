@@ -19,18 +19,23 @@ const convertToDiscussion = (obj) => {
   discussionFace.alt = "avatar of" + obj.author;
   avatarWrapper.append(discussionFace);
 
+  // const discussionTitle = document.createElement("h2");
+  // const discussionLink = document.createElement("a");
+  // discussionLink.href=obj.url;
+  // discussionTitle.textContent=obj.title;
+  // discussionTitle.append(discussionLink);
+
   const discussionTitle = document.createElement("h2");
-  // discussionTitle.className = "discussion__title";
-  const discussionLink = document.createElement("a");
-  discussionTitle.textContent = obj.title;
-  discussionLink.href = obj.url;
-  discussionTitle.append(discussionLink);
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
   discussionContent.append(discussionTitle);
 
   const discussionPeople = document.createElement("div");
   discussionPeople.className = "discussion__information"
   discussionPeople.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
-  discussionContent.append(discussionPeople);
+  discussionContent.append(discussionTitle,discussionPeople);
 
   const checked = document.createElement("p");
   checked.textContent = obj.answer ? "☑︎" : "☒";
