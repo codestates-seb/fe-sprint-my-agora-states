@@ -119,12 +119,30 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // Scroll event
+const h1 = document.querySelector("h1");
+const h1Height = h1.getBoundingClientRect().height;
 document.addEventListener("scroll", () => {
-  const h1 = document.querySelector("h1");
-  const h1Height = h1.getBoundingClientRect().height;
   if (window.scrollY > h1Height) {
     h1.classList.add("font-small");
   } else {
     h1.classList.remove("font-small");
   }
+});
+
+// Arrow up
+const formContainer = document.querySelector(".form__container");
+const formContainerHeight = formContainer.getBoundingClientRect().height;
+const arrowUp = document.querySelector(".arrow-up");
+document.addEventListener("scroll", () => {
+  const height = h1Height + formContainerHeight;
+  if (window.scrollY > height) {
+    arrowUp.classList.remove("visible");
+  } else {
+    arrowUp.classList.add("visible");
+  }
+});
+
+arrowUp.addEventListener("click", () => {
+  const main = document.querySelector("main");
+  main.scrollIntoView({ behavior: "smooth" });
 });

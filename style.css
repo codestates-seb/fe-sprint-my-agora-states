@@ -198,6 +198,29 @@ h1.font-small {
   color: #8b949e;
 }
 
+.arrow-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #3fb950;
+  transition: all 300ms;
+}
+
+.arrow-up span {
+  color: #0d1117;
+}
+
+.arrow-up.visible {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Mobile,  Tablet */
 @media screen and (max-width: 768px) {
   main {
