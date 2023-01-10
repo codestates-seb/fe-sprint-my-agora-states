@@ -1,1 +1,319 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard';
+    /* font-size: 1rem; */
+}
+
+
+/* 버튼 설정 초기화 */
+button{
+	background: inherit ;
+	border:none;
+	box-shadow:none;
+	border-radius:0;
+	padding:0;
+	overflow:visible;
+	cursor:pointer;
+}
+.hide {
+    display: none;
+}
+
+/* 상단 고정 버튼영역 */
+.header-btn {
+    padding: 1rem 2rem;
+    width: 100%;
+    height: 4.5rem;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:#fff;
+    box-shadow:0 4px 42px 0px rgb(0 0 0 / 15%);
+}
+.header-btn > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.header-logo {
+    width:7rem;
+    height:auto;
+}
+.header-darkmode {
+    width:2.5rem;
+    height: 2.5rem;
+    margin-right: 1.5rem;
+    background-color:#e9e9e9;
+    border-radius: 100%;
+}
+.header-modal {
+    color:#fff;
+    background-color: #2464FB;
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 0.4rem;
+}
+
+
+
+/* 타이틀영역 */
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1.3rem;
+}
+.title-txt {
+    width: 600px;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.max-w {
+    max-width: 1140px;
+}
+
+.form__top--wrapper {
+    height: 54vh;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(src/title-bg.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-repeat:no-repeat;
+    margin-top: 4.5rem;
+}
+
+.form__top {
+    width: 100%;
+    font-size: 1.2rem;
+    color: black;
+    margin-top: 3.5rem;
+    transform: translateY(-50px);
+	opacity: 100;
+	transition-duration: 1.5s
+}
+
+.btn-modal {
+    margin-top: 5rem;
+    width: 12rem;
+    height: 4rem;
+    color: white;
+    background-color: #2464FB;
+    font-size: 1.2rem;
+    font-weight:600;
+    border-radius: 0.6rem;
+}
+
+
+/*질문 팝업 영역*/
+#modal {
+    display: flex;
+
+}
+
+.form__container {
+    width: 37.5rem;
+    height: 47rem;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 1em;
+    box-shadow: 0px 0px 30px 0px #00000020;
+    display:flex;
+    flex-direction: column;
+    visibility: hidden;
+    transition: transform 0.3s, top 0.3s;
+}
+.modal_open {
+    visibility: visible !important;
+    top: 50% !important;
+    position:fixed;
+    z-index: 5;
+    /* transform: translate(-50%, -50%) !important; */
+    /* transition: transform 0.5s, bottom 0.5s !important; */
+}
+.half_black {
+    background-color: #000;
+    opacity: 0.5;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 2;
+}
+.scroll_hidden {
+    overflow-y: hidden;
+}
+
+.form__header {
+    display: flex;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem 1rem;
+}
+
+.btn-close {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.btn-close > img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.form {
+    display: flex;
+    padding: 0 2.5rem 2rem;
+    flex-direction: column;
+
+}
+.form__input--wrapper p {
+    /* text-align: center; */
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight:600;
+    line-height: 2.5rem;;
+}
+.form__input--wrapper div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+.form__input--wrapper div > label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #7D8596;
+}
+.form__input--wrapper div > input {
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e7e7e7;
+    padding: 0.8rem;
+}
+.form__input--wrapper div > textarea {
+    height: 260px;
+    border-radius: 0.5rem;
+    border: 1px solid #e7e7e7;
+    padding: 0.8rem;
+}
+
+input::placeholder {
+    color: #d0d0d0;
+}
+textarea::placeholder {
+    color: #d0d0d0;
+}
+.form__submit {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.form__submit > input{
+    margin-top: 2rem;
+    width: 8rem;
+    height: 3rem;
+    color: white;
+    background-color: #2464FB;
+    font-size: 1rem;
+    font-weight:600;
+    border: 0;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+
+/* 질문 등록 리스트 영역 */
+.discussion__wrapper {
+    background: #fafafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 0;
+}
+
+ul.discussions__container {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+li.discussion__container {
+    width: 45%;
+    height: 18rem;
+
+    cursor: pointer;
+    transition: .2s;
+
+    border-radius: 1rem;
+    background-color:#fff;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+li.discussion__container:hover {
+    transform: scale(1.02);
+}
+
+.discussion__avatar--image {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+}
+
+li a {
+    text-decoration: none; 
+    color: #1E1E1E; 
+}
+
+li div {
+    flex-grow: 1;
+}
+
+.discussion__title {
+    /* 한 줄 자르기 */
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap; /*공백과 줄바꿈을 하는 속성*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* 여러 줄 자르기 추가 스타일 */
+    white-space: normal;
+    line-height: 1.4;
+    height: 4.5rem;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.discussion__information {
+    color: #7D8596;
+}
+.discussion__answered {
+    flex-grow:0.3;
+}
+
+
+

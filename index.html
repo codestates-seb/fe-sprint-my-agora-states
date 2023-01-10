@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="reset.css"> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -14,30 +15,62 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
+    <!-- header 영역 -->
+    <section class="header-btn">
+      <div>
+        <img src="/src/title-txt.png" class = "header-logo" alt = "Moono Agora States">
+        <div> 
+          <button class = "header-darkmode"  type="button" onclick="">
+            <img src="">
+          </button>
+          <button class = "header-modal"  type="button" onclick="openPopup()">질문하기</button>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
+      </div>
     </section>
+
+    <!-- 상단영역 -->
+    <section class="form__top--wrapper">
+      <div class="form__top max-w">
+        <h1><img src="/src/title-txt.png" class = "title-txt" alt = "Moono Agora States"></h1>
+        <p>아고라스테이츠에 질문을 남기고 <br> 다른 사람들의 질문을 확인하세요!</p>
+        <button class = "btn-modal"  type="button" onclick="openPopup()">질문하기</button>
+      </div>
+    </section>
+
+    <!-- 질문 팝업 영역 -->
+    <section>
+        <div class="form__container"  id = "modal">
+            <div class="form__header">
+              <p></p>
+              <button class="btn-close" onclick="closePopup()"><img src="src/btn-close.svg"></button>
+            </div>
+            <form action="" method="get" class="form max-w">
+              <div class="form__input--wrapper">
+                <p>질문을 작성해주세요</p>
+                <div class="form__input--name">
+                  <label for="name">Name </label>
+                  <input type="text" name="name" id="name" placeholder="이름을 입력해주세요" required>
+                </div>
+                <div class="form__input--title">
+                  <label for="name">Title </label>
+                  <input type="text" name="name" id="name" placeholder="질문의 제목을 입력해주세요" required>
+                </div>
+                <div class="form__textbox">
+                  <label for="story">Question Content </label>
+                  <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+                </div>
+              </div>
+              <div class="form__submit">
+                <input type="submit" value="등록하기">
+              </div>
+            </form>
+        </div>
+        <div class="half_black hide"></div>
+    </section>
+
+    <!-- 질문 등록 리스트 -->
     <section class="discussion__wrapper">
-      <ul class="discussions__container">
+      <ul class="discussions__container max-w">
         <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
             <img class="discussion__avatar--image"
@@ -46,13 +79,16 @@
           </div>
           <div class="discussion__content">
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <div class="discussion__information">kimploo | 2022. 4. 22 오후 2:08:33</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered">
+            <p>☑</p>
+          </div>
         </li>
       </ul>
     </section>
   </main>
+  
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
