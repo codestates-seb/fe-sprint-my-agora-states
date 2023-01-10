@@ -1,1 +1,130 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: solid 1px black; */
+}
+
+:root {
+  --background: #7432E0;
+  --semiground: #C780FA;
+  --content: #E3ACF9;
+  --point: #FADA9D;
+}
+
+body {
+  /* height: 50vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--content);
+  background-image: url(https://cdn.pixabay.com/photo/2019/06/16/07/55/background-4277197_1280.jpg);
+}
+a {
+  text-decoration: none;
+  color: var(--content)
+}
+a:hover{
+  color: var(--point)
+}
+.form__container {
+  margin-bottom:20px;
+  background: rgba( 159, 94, 237, 0.70 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+.form__input--wrapper {
+  width: 540px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form__input--name {
+  flex: 1;
+
+}
+.form__input--title {
+  flex: 1;
+
+}
+.form__textbox {
+  display: flex;
+  flex: auto;
+}
+.form__question {
+  flex-grow: 9;
+}
+.form__submit {
+  flex-grow: 1;
+}
+
+li {
+  list-style: none;
+}
+
+.discussions__container {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion__container {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  margin:10px;
+  background: rgba( 159, 94, 237, 0.70 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  background-color: none;  
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+  margin : 10px;
+}
+
+.discussion__content {
+  flex-grow: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.discussion__title {
+  display: flex;
+}
+
+.discussion__information {
+  display: flex;
+}
+
+
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+}
+
+.answerImg {
+  width: 30px;
+  margin : 10px;
+}
+
