@@ -24,6 +24,8 @@ const convertToDiscussion = (obj) => {
   const contentTitle = document.createElement("h2");
   const contentLink = document.createElement("a");
   const contentInfo = document.createElement("div");
+  contentTitle.classList = "discussion__title";
+  contentInfo.classList = "discussion__information";
   contentTitle.append(contentLink);
   discussionContent.append(contentTitle, contentInfo);
   contentLink.textContent = obj.title;
@@ -55,21 +57,7 @@ const saveDiscussion = () => {
   localStorage.setItem("Discussions", JSON.stringify(agoraStatesDiscussions));
 };
 
-// input form
-const form = document.querySelector(".form");
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const inputName = document.querySelector(".form__input--name input");
-  const inputTitle = document.querySelector(".form__input--title input");
-  const inputTextbox = document.querySelector(".form__textbox textarea");
-
-  const name = inputName.value;
-  const title = inputTitle.value;
-
-  inputName.value = "";
-  inputTitle.value = "";
-  inputTextbox.value = "";
-
+const createNewDiscussion = (name, title) => {
   const newDiscussion = {};
 
   const date = new Date();
@@ -87,8 +75,27 @@ form.addEventListener("submit", (event) => {
   newDiscussion.author = name;
   newDiscussion.answer = null;
   newDiscussion.avatarUrl =
-    "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4";
+    "https://avatars.githubusercontent.com/u/87750478?s=64&v=4";
 
+  return newDiscussion;
+};
+
+// input form
+const form = document.querySelector(".form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const inputName = document.querySelector(".form__input--name input");
+  const inputTitle = document.querySelector(".form__input--title input");
+  const inputTextbox = document.querySelector(".form__textbox textarea");
+
+  const name = inputName.value;
+  const title = inputTitle.value;
+
+  inputName.value = "";
+  inputTitle.value = "";
+  inputTextbox.value = "";
+
+  const newDiscussion = createNewDiscussion(name, title);
   agoraStatesDiscussions.unshift(newDiscussion);
   ul.prepend(convertToDiscussion(newDiscussion));
   saveDiscussion();
