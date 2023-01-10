@@ -117,3 +117,14 @@ if (discussions) {
 
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// Scroll event
+document.addEventListener("scroll", () => {
+  const h1 = document.querySelector("h1");
+  const h1Height = h1.getBoundingClientRect().height;
+  if (window.scrollY > h1Height) {
+    h1.classList.add("font-small");
+  } else {
+    h1.classList.remove("font-small");
+  }
+});

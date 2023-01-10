@@ -49,11 +49,16 @@ main {
 
 /* Title */
 h1 {
-  margin-bottom: 25px;
   position: sticky;
   top: 0;
   background-color: #0d1117;
   padding: 10px;
+  margin-bottom: 25px;
+  transition: all 400ms;
+}
+
+h1.font-small {
+  font-size: 16px;
 }
 
 /* Form */
