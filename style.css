@@ -107,8 +107,6 @@ li.discussion__container > div {
   width: 462px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
-  /* padding: 10px; */
 }
 .discussion__avatar--image {
   border-radius: 50%;

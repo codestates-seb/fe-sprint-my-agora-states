@@ -94,6 +94,14 @@ function addDiscussion(e) {
   yourQuestion.value = '';
 }
 
+// 페이지네이션 기능 구현 (총 게시 글 최소 41개)
+  // 한 페이지에 10개씩 게시물을 보여주기
+  // 이전, 다음 페이지로 갈 수 있게
+  // 다음 페이지가 없거나, 이전 페이지가 없는 경우 페이지 유지
+
+// 디스커션 유지 기능 (LocalStorage)
+  // 새로고침해도 새로 추가한 디스커션이 유지되도록
+
 // 다크모드
 const checkbox = document.querySelector('.check');
 const themeMode = document.querySelector('.theme-mode')
@@ -103,6 +111,7 @@ const isOsColorTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 
 const getUserTheme = () => (isUserColorTheme ? isUserColorTheme : isOsColorTheme);
 
+// 최초 접속 시 테마 적용 시켜두기
 window.onload = function () {
   if (getUserTheme === 'dark') {
     localStorage.setItem('color-theme', 'dark');
@@ -115,7 +124,7 @@ window.onload = function () {
     themeMode.textContent = '☀️'
   }
 };
-
+// 체크박스 클릭 시 테마 변경
 checkbox.addEventListener('click', e => {
   if (e.target.checked) {
     document.documentElement.setAttribute('color-theme', 'dark');
