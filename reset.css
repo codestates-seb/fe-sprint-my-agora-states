@@ -51,10 +51,12 @@ table {
     /* color */
     --base-beige: #FFF5E4;
     --dark-blue: #3A4F7A;
+	--pastel-blue :#7895B2;
     --strawberry: #FFC6D3;
     --pale-pink-100:#FFE3E1;
     --pale-pink-200:#FFD1D1;
     --salmon:#FF9494;
+	--purple:#DEBACE;
     --sky-blue:#BFEAF5;
   }
   

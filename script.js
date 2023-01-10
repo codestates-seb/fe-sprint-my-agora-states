@@ -17,8 +17,8 @@ const convertToDiscussion = (obj) => {
 
   //이미지
   const profile = document.createElement("img");
-  profile.setAttribute("src",obj.avatarUrl);
-  profile.setAttribute("alt",`avatar of ${obj.author}`);
+  profile.src = obj.avatarUrl;
+  profile.alt =`avatar of ${obj.author}`;
   profile.className = "discussion__avatar--image";
   avatarWrapper.append(profile);
 
@@ -31,25 +31,27 @@ const convertToDiscussion = (obj) => {
   titleText.append(titleLink);
   const makeTime = document.createElement("div");
   makeTime.className = "discussion__information";
-  makeTime.append(`${obj.author} / ${obj.createdAt}`)
+  makeTime.append(`${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`)
   discussionContent.append(titleText);
   discussionContent.append(makeTime);
 
   //체크박스
   const answerChk = document.createElement("p");
   
-  if(obj.answer === null){
-    answerChk.append(`☒`)
-  }else{
-    answerChk.append(`☑`)
-  }
+  // if(obj.answer === null){
+  //   answerChk.append(`☒`)
+  // }else{
+  //   answerChk.append(`☑`)
+  // }
+  answerChk.textContent = obj.answer ? "☑":"☒";
+  
   discussionAnswered.append(answerChk);
 
 
 
-//   li.append(avatarWrapper, discussionContent, discussionAnswered);
-//   return li;
-// };
+  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  return li;
+};
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {

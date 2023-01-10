@@ -1,12 +1,12 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Noto+Sans+KR:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Noto+Sans+KR:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 a {
     color: #090909;
@@ -37,13 +37,13 @@ h1{
     flex-flow: row nowrap;
     margin-top: 10px;
     width: 100%;
-    min-width: 980px;
+    min-width: 1080px;
 }
 /* 입력폼 */
 .form__container {
     display: flex;
     flex-flow: column wrap;
-    padding: 15px;
+    padding: 20px;
     background-color: var(--pale-pink-100);
     border: 3px solid var(--dark-blue);
     border-radius: 15px 0 0 15px;
@@ -53,27 +53,30 @@ form{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    margin: 15px 0;
+    margin: 25px 0;
 }
 .form__input--wrapper{
     display: flex;
     flex-flow: column wrap;
 }
 .form__input--wrapper div {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 .form__input--wrapper label, input, textarea {
     width: 100%;
 }
+.form__input--wrapper input, textarea {
+    background-color: var(--pale-pink-200);
+}
 .form__input--wrapper label {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.4em;
+    font-size: 1.5em;
     font-weight: bold;
     color: var(--dark-blue);
 }
 .form__input--wrapper input {
     border: none;
-    height: 40px;
+    height: 45px;
     border-radius: 10px;
 }
 /* 입력폼 > 이름 */
@@ -99,6 +102,23 @@ form{
     border-radius: 10px;
     height: 170px;
 }
+/* 입력폼 > 버튼 */
+.form__submit {
+    width: 60%;
+    height: 70px;
+    margin-top: 15px;
+}
+.form__submit input {
+    width: 100%;
+    height: 90%;
+    border:none;
+    border-radius: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: var(--dark-blue);
+    color: var(--strawberry);
+}
 
 /* 댓글창 */
 .discussion__wrapper{
@@ -118,5 +138,34 @@ form{
 .discussions__container > li {
     display: flex;
     background-color: var(--strawberry);
-    border-radius: 25px;
+    padding: 8px 13px;
+    border-radius: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 댓글창 > 이미지 */
+.discussion__avatar--wrapper > img {
+    object-fit: contain;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+/* 댓글창 > 제목 날짜 */
+.discussion__content {
+    width: 350px;
+    text-align: center;
+}
+.discussion__content > h2 {
+    font-size: 0.9em;
+}
+.discussion__content > div {
+    font-size: 0.75em;
+    margin-top: 10px;
+}
+.discussion__answered{
+    width: 50px;
+    text-align: center;
+    font-size: 1.3em;
 }
