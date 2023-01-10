@@ -12,7 +12,7 @@ const convertToDiscussion = (obj) => {
 
   const avatarImg = document.createElement('img');
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarImg.alt = 'avatar of ' + obj.author;  // 이미지가 안떴을 때, 시각장애인 접근성
   avatarWrapper.append(avatarImg);
 
   const discussionTitle = document.createElement('h3');
@@ -43,3 +43,5 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+/* 디스커션 추가 기능 */

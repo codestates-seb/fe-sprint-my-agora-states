@@ -33,7 +33,7 @@ body{
 }
 
 h1 { 
-    animation: flicker 1.5s infinite alternate; 
+    /* animation: flicker 1.5s infinite alternate; */
     font-family: 'Moon Dance', cursive;
     font-size: 50pt;
     text-align: center;
@@ -42,15 +42,62 @@ h1 {
 
 .form__container{
     width: 540px;
-    height: 180px;
+    height: 200px;
     border: 5px solid #fff;
     border-radius: 10pt;
     margin-bottom: 30px;
     display: flex;
+    flex-direction: column;
     justify-content:center;
     align-items:center;
     color: #fff;
     font-size: 16pt;
+    font-weight: 550;
+}
+
+.form__input--name{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.form__input--name>label{
+    width: 150pt;
+    height: 20pt;
+}
+
+.form__input--title{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.form__input--title>label{
+    width: 150pt;
+    height: 20pt;
+}
+
+#name{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__textbox{
+    margin: 10px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#story{
+    width: 280pt;
+    height: 30pt;
+}
+
+.form__submit{
+    display: flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .discussion__wrapper{
@@ -82,16 +129,18 @@ h1 {
 }
 
 .discussion__content{
-    width: 350px;   
-    padding-top: 45px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
 }
 
-.discussion__information{
-    margin-bottom: 20px;
+.discussion__content>div{
+    padding-top: 10px;
 }
 
 .discussion__answered{
-    width: 50px;
+    width: 70px;
     display: flex;
     justify-content:center;
     align-items:center;
