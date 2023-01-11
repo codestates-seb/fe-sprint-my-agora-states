@@ -49,7 +49,11 @@ const convertToDiscussion = (obj) => {
   discussionInformation.textContent=obj.author+ ' / ' +obj.createdAt;
   discussionContent.append(discussionInformation);
   
-
+  if(obj.answer)
+    discussionAnswered.textContent='☑';
+  else
+    discussionAnswered.textContent='ㅁ';
+    
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
