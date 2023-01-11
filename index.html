@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agora</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <main>
+        <section class="userInputContainer">
+            <h1></h1>
+            <form action="" method="" name="userInput" class="form">
+                <div class="formInput">
+                    <div class="nameInput inputForm">
+                        <label for="name">ID code:</label>
+                        <input type="text" name="name" id="name" placeholder="What's your Code" required>
+                    </div>
+                    <div class="titleInput inputForm">
+                        <label for="title">What do you want:</label>
+                        <input type="text" name="title" id="title" placeholder="Write it here" required>
+                    </div>
+                    <div class="textInput inputForm">
+                        <label for="content">what is it:</label>
+                        <textarea type="text" name="content" id="content" placeholder="Write it here" required></textarea>
+                    </div>
+                </div>
+                <div class="submitBtn">
+                    <input type="submit" value="S U B M I T">
+                </div>
+            </form>
+        </section>
+        
+        <div class="arrowBox">
+            <div class="scrollArrow"></div>
+            <div class="scrollArrow"></div>
+            <div class="scrollArrow"></div>
+        </div>
+        
+        <section class="communityContainer">
+            <ul class="commentContainer">
+                <li class="commentContainer">
+                    <div class="avatar">
+                        <img class="avatarImg" src="img/Faces-1.png" alt="faceImg">
+                    </div>
+                    <div class="comment">
+                        <h2 class="commentTitle"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6"  target="_blank">[notice] 좋은 질문하는 법</a></h2>
+                        <div class="commentInformation">Kimploo / 2023-01-09T14:01:04:33Z</div>
+                    </div>
+                    <div class="answeredAllBox">
+                        <div class="commentAnswered"><img src="img/check-02.png" alt=""></div>
+                        <button class="answerBtn"><a href="">답변 보기</a></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <div class="pageBox">
+            <button class="pageBtn">1</button>
+        </div>
+    </main>
+    <canvas width="100%" height="100%" id="canv"></canvas>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="matrix.js"></script>
+</body>
+</html>
