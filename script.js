@@ -1,5 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+let data;
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -12,117 +19,122 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-  
+
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  const discussionAvatarImg = document.createElement('img');
-  discussionAvatarImg.className = "discussion__avatar--image";
-  discussionAvatarImg.alt = 'avatar of' + obj.author;
-  discussionAvatarImg.setAttribute('src',obj.avatarUrl);
-  //let imgsrc = "";
-  //discussionAvatarImg.src = obj.avatarUrl ? avatarUrl : imgsrc;
-  // 아바타의 이미지가 없을때 고정 이미지 사용법
+  const avatarImg = document.createElement("img");
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
 
-  
-  const discussionTitle = document.createElement('h3');
-  discussionTitle.className = "discussion__title";
-  
-  const discussionTitleA = document.createElement('a');
-  discussionTitleA.setAttribute('href',obj.url)
-  discussionTitleA.textContent = obj.title;
-  
-  const discussionInform = document.createElement('div');
-  discussionInform.className = "discussion__information";
-  const koreanDate = new Date(obj.createdAt); //  obj.createAt의 UTC시간을 koreanDate에 저장
-  discussionInform.textContent = `${obj.author} / ${koreanDate.toLocaleTimeString()}`;
-  //toLocalTimeString은 UTC로 표현된 시간을 한국의 표준 시간 오전(후) h:m:s로 나타내는 Date객체의 내장 메서드이다.
-  //discussionInform.textContent = obj.author + '/' + obj.createdAt; // 템플릿리터럴로도 가능
-  
-  const discussionCheck = document.createElement('p');
-  // 조건문으로 answer이 null인지 아닌지 확인해야함.
-  discussionCheck.textContent = obj.answer ? "☑" : "☒" ;
+  const discussionTitle = document.createElement("h2");
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
 
-  discussionContent.appendChild(discussionTitle);
-  discussionTitle.appendChild(discussionTitleA);
-  discussionContent.appendChild(discussionInform);
-  avatarWrapper.appendChild(discussionAvatarImg);
-  discussionAnswered.appendChild(discussionCheck);
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInformation);
+
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "☑" : "☒";
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
-
 };
 
-//디스커션유지
-
-
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i])); // 아고라 디스커션의 0번째 배열부터 함수시작
+// data 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element, from, to) => {
+  console.log(from, to);
+  if (!from && !to) {
+    from = 0;
+    to = data.length - 1;
+  }
+  // 다 지우고 배열에 있는 내용 다 보여주기
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
+    element.append(convertToDiscussion(data[i]));
   }
   return;
 };
 
-// const render = (element,arr) => {
-//   for(let i of arr){
-//     element.append(convertToDiscussion(i));
-//   }
-//   return;
-// };
+// 페이지네이션을 위한 변수
+let limit = 10,
+  page = 1;
 
-//페이지네이션 10개씩
-
-function pagenation() {
-  let dataLength = agoraStatesDiscussions.length;
-  if(dataLength <= 10) return;
-  let totalPage = Math.ceil(dataLength/10); //5
-  let pageGroup = Math.ceil(totalPage/3); //2
-
-
-
-
-  let makepage = document.querySelector('.pageNum');
-
-  for(let i = 1;i <=totalPage;i++){
-    const page = document.createElement('li');
-    page.className= `page${i}`;
-    const pagesrc = document.createElement('a');
-    pagesrc.setAttribute('target','__blank');
-    pagesrc.textContent = `${i}`;
-    pagesrc.addEventListener('click',evt1);
-    page.append(pagesrc);
-    makepage.append(page);
-  }
-    let pagingArr= [];
-    if(totalPage >= 1)
-    for(let i =0;i <= dataLength; i+=10){
-
-      pagingArr.push(agoraStatesDiscussions.slice(i,i+10));
-      console.table(pagingArr);
-  } 
-      console.table(pagingArr.length)
-    return pagingArr
-}
-
-function evt1() {
-
-  const num = this.textContent;
-  let qnum = document.querySelector("discussions__container").childElementCount;
-  console.log(document.querySelector('discussions__container').hasChildNodes())
-  if(document.querySelector('.discussions__container').childElementCount){
-    while(document.querySelector('.discussions__container').childElementCount !== 0){
-      document.querySelector('.discussions__container').removeChild(document.querySelector('.discussion__container'));
-    }
-
-  }
-  render(ul,pagearr[num-1]);
-}
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// ul 요소에 data 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, 0, limit);
 
-pagearr = pagenation();
+const getPageStartEnd = (limit, page) => {
+  const len = data.length - 1;
+  let pageStart = Number(page - 1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if (page <= 0) {
+    pageStart = 0;
+  }
+  if (pageEnd >= len) {
+    pageEnd = len;
+  }
+  return { pageStart, pageEnd };
+};
 
+const buttons = document.querySelector(".buttons");
+buttons.children[0].addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
 
+buttons.children[1].addEventListener("click", () => {
+  if (limit * page < data.length - 1) {
+    page = page + 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[2].addEventListener("click", () => {
+  localStorage.removeItem("agoraStatesDiscussions");
+  data = agoraStatesDiscussions.slice();
+  limit = 10;
+  page = 1;
+  render(ul, 0, limit);
+});
+
+// 문서의 내용을 확인해야 합니다.
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+
+// 문서를 제출해야 합니다.
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const obj = {
+    id: "unique id",
+    createdAt: new Date().toISOString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+  };
+  data.unshift(obj);
+
+  // 로컬스토리지에 저장
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+
+  // 렌더링
+  render(ul, 0, limit);
+});
