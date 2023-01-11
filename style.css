@@ -103,14 +103,19 @@ article {position: relative;}
 .container {width: auto;}
 
 
+.form__submit {
+    width: 100%;
+    height: 90px;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    margin-top: -45px;
+}
 
 .sumitBtn{
     display : flex;
     justify-content : center;
     align-items: center;
-    position: absolute;
-    left: 43%;
-    top: 6.3%;
     width: 90px;
     height: 90px;
     border-radius: 100%;
@@ -120,6 +125,7 @@ article {position: relative;}
     color: #c9c2ed;
     transition: all ease-in-out 0.2s;
     border:2px solid #fff;
+    z-index: 2;
 }
 .sumitBtn:hover{
     color:#c488f7;
