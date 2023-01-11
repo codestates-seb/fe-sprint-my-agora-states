@@ -22,7 +22,7 @@ section {
     background-color: #fff;
     box-shadow: 0px 0px 30px rgb(0,0,0,0.1);
     overflow: hidden;
-    animation: ope 3s forwards;
+    animation: open 3s forwards;
 }
 
 @-webkit-keyframes open{

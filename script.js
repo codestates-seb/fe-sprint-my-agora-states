@@ -98,13 +98,15 @@ const discussion = convertToDiscussion(newObj);
 
 
 if(newName.value.length === 0 && newTitel.value.length ===0 && newTextBox.value.length === 0){
-  submitBtn.classList.add('btnX') 
+  submitBtn.classList.toggle('btnX') 
+ 
 } else {
   ul.prepend(discussion); //.prepend()는 선택한 요소의 내용의 앞에 콘텐트를 추가합니다.
 
   newName.value ="";
   newTitel.value ="";
   newTextBox.value ="";
+  submitBtn.classList.remove('btnX') 
 }
 
 }
