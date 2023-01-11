@@ -3,7 +3,7 @@
 *{padding: 0; margin: 0; box-sizing: border-box; list-style: none;}
 body{background:url(img/background.jpg)no-repeat center / cover;}
 
-main{margin: 0 auto; background: url(/img/iphone.png) no-repeat center / contain; height: 1350px; min-width: 1200px; padding-top: 32px; border-radius: 10px;}
+main{margin: 0 auto; background: url(img/iPhone.png) no-repeat center / contain; height: 1350px; min-width: 1200px; padding-top: 32px; border-radius: 10px;}
 
 #display{overflow: scroll; height: 1190px; border-radius: 80px; width: var(--display); margin: 48px auto;}
 #display::-webkit-scrollbar {display: none;}
@@ -27,7 +27,9 @@ main{margin: 0 auto; background: url(/img/iphone.png) no-repeat center / contain
 
 /* Discussion */
 .discussion__wrapper .discussions__container{width: 540px; height: 1000px; margin: 20px auto 0;}
+
 .discussions__container .discussion__container{display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative; padding: 0 10px;}
+
 .discussion__container:last-of-type{padding-bottom: 50px;}
 .discussion__container .discussion__avatar--wrapper img{width: 48px; border-radius: 50%;}
 .discussion__container .discussion__content{flex: 1 1 auto; margin: 0 20px;}

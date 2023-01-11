@@ -1,5 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
+console.log(agoraStatesDiscussions);
+let data;
+const dataFromLocalStorage = localStorage.getItem('agoraStatesDiscussions');
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
@@ -33,7 +40,7 @@ const convertToDiscussion = (obj) => {
   // 정보
   const contentInfo = document.createElement('p');
   contentInfo.className = 'discussion__info';
-  contentInfo.textContent = obj.author + ' / ' + obj.createdAt;
+  contentInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; // 시간만 문자열로
   discussionContent.append(contentInfo);
   // 체크박스
   const contentAnswered = document.createElement('p');
@@ -67,7 +74,6 @@ render(ul);
 
 // discussion 추가 
 const form = document.querySelector(".form__container");
-//const submitBtn = document.querySelector('button');
 let elInputUsername =document.querySelector('#name');
 let elInputTitle =document.querySelector("#title");
 let elInputContent =document.querySelector('#story');
