@@ -25,7 +25,7 @@ const noticeDiscussions = agoraStatesDiscussions.filter(d => d.author === 'kimpl
 
 //change all the date formats
 filteredDiscussions.forEach(el => {
-  el.createdAt = `${el.createdAt.substring(0, 10)} ${el.createdAt.substring(11, 19)}`
+  el.createdAt = `${el.createdAt.substring(0, 10)} ${el.createdAt.substring(11, 19)}`;
   // el.date
 })
 
