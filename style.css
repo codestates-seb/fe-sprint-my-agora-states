@@ -21,6 +21,11 @@ h1 {
     justify-content: center;
     align-items: center;
     color: var(--sandlight);
+
+    margin-top: 1em;
+    margin-left: 0;
+    margin-bottom: 1em;
+    margin-right: 0;
 }
 
 .form__container {
@@ -75,10 +80,12 @@ body {
 
 
 
-/*.discussions__container {
-    display: flex;*/
-    /*list-style-type: none;*/
-/*}*/
+.discussions__wrapper {
+    display: flex;
+    /* list-style-type: none; */
+    margin: px;
+    
+}
 
 .discussion__container {
     display: flex;
@@ -109,6 +116,8 @@ body {
     border-color:var(--bluedark);
 
     font-size:10px;
+
+    margin: 5px;
 }
 
 .discussion__content {

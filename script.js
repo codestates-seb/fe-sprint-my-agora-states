@@ -1,3 +1,4 @@
+debugger;
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -62,6 +63,36 @@ const render = (element) => {
   }
   return;
 };
+
+// onclick event - 새로운 discussion 추가 기능//
+const submit = document.querySelector(".form__submit");
+submit.addEventListener("click", addDiscussion);
+
+function addDiscussion() {
+  let newArray = {};
+  agoraStatesDiscussions.unshift(newArray);
+  newArray.id = 'a';
+  newArray.title = titleText;
+  
+}
+
+// type event - 사용자가 text를 입력할 때 마다 값을 저장//
+const titleText = document.querySelector(".form__input--title")
+titleText.addEventListener("onkeydown", addTitleText);
+
+function addTitleText() {
+  let titleOnKey = titleText.textContent;
+  return titleOnKey;
+} 
+
+const questionText = document.querySelector(".form__textbox")
+questionText.addEventListener("onkeydown", addFormText);
+
+function addFormText() {
+  let formOnKey = questionText.textContent;
+  return formOnKey;
+}
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
