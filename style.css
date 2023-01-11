@@ -1,1 +1,124 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 0; */
+    box-sizing: border-box;
+    font-size: 100%;
+    --color-bg: #0081B4;
+    --color-section: #FAD3E7;
+    --color-item: #EFA3C8;
+    --color-item2: #F4D9E7;
+}
+
+main{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    background-color: var(--color-item2);
+}
+
+main > *{
+    margin: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.form__container{
+    background-color: var(--color-bg);
+}
+
+section {
+    /* 애니메이션 */
+    width: 100%; 
+    overflow: hidden;
+    white-space: nowrap;
+   
+}
+
+@keyframes section {
+    0%   { transform: translate(0%, 0); }
+    50%   { transform: translate(1%, 0); }
+    100% { transform: translate(0%, 0); }
+
+
+}
+
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction : column;
+    background-color: var(--color-section);
+    /* 애니메이션 */
+    /* display: inline-block; */
+    /* animation: section 3s linear infinite alternate; */
+    animation: section linear 1s infinite;
+
+}
+
+
+
+.discussions__container{
+    width: 540px;
+    display: flex;
+    flex-direction : column;
+
+}
+
+.discussion__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+
+.discussion__avatar--wrapper>img{
+    width: 48px;
+    border-radius: 50%;
+}
+
+li{
+    margin: 0 0 10px 0;
+}
+
+li.discussion__container{
+    display: flex;
+    flex-direction : row;
+    align-items: center;
+    justify-content:space-evenly;
+
+}
+
+.discussion__container > div{
+    height: 48px;
+    flex: 0 1 auto;
+    background-color: var(--color-item);
+}
+
+div.discussion__content{
+
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__title{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.discussion__information{
+    margin-left: auto;
+}
+
+.discussion__answered{
+    display: flex;
+    align-items: center;
+}
