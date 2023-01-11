@@ -1,1 +1,144 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form.form {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #62B6B7;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div.form__input--name,
+div.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    padding-top: 0.2rem;
+}
+/* 버튼 인풋 텍스트 에어리어 빠짐 */
+main {
+    padding: 5vh 0;
+    border-radius: 5px;
+}
+main > *{
+    padding: 0.5rem;
+}
+main > h1 {
+    text-align: center;
+
+}
+h2{
+    font-size: 1.1rem;
+}
+div.form__input--wrapper{
+    flex: 8 0 auto;
+    padding: 0 0.5rem;
+}
+div.form__input--name,
+div.form__input--title { 
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    padding-top: 0.2rem;
+}
+div.form__input--name > label,
+div.form__input--title > label {
+    border: 0;
+    width: 100px;
+    flex: 4 0 0;
+}
+div.form__input--name > input,
+div.form__input--title > input {
+    border: 0;
+    flex: 6 0 0;
+}
+div.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+div.form__textbox > label,
+div.form__textbox > textarea {
+    padding-top: 0.2rem;
+    border: 0;
+}
+section.button > button {
+    flex: 1 0 0;
+    border: 0;
+    margin: 0 0.5rem;
+}
+div.form__submit{
+    display: flex;
+    flex: 2 0 auto;
+}
+div.form__submit > input {
+    border: 0;
+    background-color: white;
+    border-radius: 10px;
+    padding: 0.5rem;
+    flex: 1 0 0;
+}
+li.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 540px;
+    background-color: #97DECE;
+    list-style: none;
+    border-radius: 7px;
+    margin-bottom: 0.5rem;
+}
+div.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 48px;
+}
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+div.discussion__content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 1 0 0;
+    padding: 0.5rem;
+}
+
+h2.discussion__title{
+    padding-top: 0.5rem;
+}
+div.discussion__information{
+    padding: 1rem 0.5rem 0 0.5rem;
+    text-align: right;
+}
+.discussion__answered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    padding: 0.5rem;
+}
+section.buttons{
+    display: flex;
+}
+section.buttons > button{
+    flex: 1 0 0;
+    border: 0;
+    margin: 0 0.5rem;
+}
