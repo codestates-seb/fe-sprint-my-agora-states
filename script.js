@@ -1,3 +1,5 @@
+const agoraStatesDiscussions = JSON.parse(localStorage.getItem('arr')); // 로컬스토리지에 저장
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -49,18 +51,36 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-
+// 10개씩 페이지네이션 기능
+const ul = document.querySelector("ul.discussions__container");
+let startNum = 0;
+const cnt = 10;
+const num = agoraStatesDiscussions.length / 10 - 1
+const onClick = (e) => {
+  e.preventDefault();
+  startNum = Number(e.target.value) * cnt;
+  render(ul)
+}
+const pageRender = () => {
+  let div = ''
+  for (let i = 0; i < num + 1; i++) {
+    div += `<button id="page_index_${i}" value=${i} onclick="onClick(event)">${i + 1} </button>`;
+  }
+  document.getElementById('page').innerHTML = div;
+}
+pageRender()
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  element.innerHTML = '';
+  for (let i = startNum; i < startNum + cnt; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]))
   }
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
+//const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // 데이터 추가 및 문서 내용 가져오기
@@ -85,6 +105,7 @@ form.addEventListener("submit", (event) => {
     
   }
   agoraStatesDiscussions.unshift(newData);
+  localStorage.setItem('arr', JSON.stringify(agoraStatesDiscussions));
   
   const newdiscussion = convertToDiscussion(newData);
 
@@ -92,12 +113,7 @@ form.addEventListener("submit", (event) => {
 
 })
 
-// 새로 쓴 글 위로 오게 합니다
 
-
-  
-
-  
 
   // ul에 있는거 및 첫번째 자식만 지우고 싶을때 
 

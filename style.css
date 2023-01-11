@@ -133,6 +133,11 @@ img {
     border: 2px solid #FFFA78;
 }
 
+#page > button {
+    width: 20%;
+    background-color: #FFFA78;
+}
+
 a:link {
     color: white;
 }

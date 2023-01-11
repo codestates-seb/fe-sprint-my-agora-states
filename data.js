@@ -1,4 +1,4 @@
-const agoraStatesDiscussions = [
+const agoraStatesDiscussionsArr = [
   {
     id: "D_kwDOHOApLM4APjJi",
     createdAt: "2022-05-16T01:02:17Z",
@@ -803,3 +803,11 @@ const agoraStatesDiscussions = [
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
   }
 })
+const getItem = () => {
+  if(localStorage.getItem('arr')){
+    return;
+  }
+  localStorage.setItem('arr', JSON.stringify(agoraStatesDiscussionsArr));
+}
+getItem();
+
