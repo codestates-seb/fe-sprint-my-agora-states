@@ -97,7 +97,7 @@ agoraStatesDiscussions.unshift(newObj);
 const discussion = convertToDiscussion(newObj);
 
 
-if(newName.value.length === 0 && newTitel.value.length ===0 && newTextBox.value.length === 0){
+if(newName.value.length === 0 || newTitel.value.length ===0 || newTextBox.value.length === 0){
   submitBtn.classList.toggle('btnX') 
  
 } else {
