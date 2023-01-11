@@ -91,7 +91,7 @@ let getStory = document.querySelector("#story");
 function handleSubmit(e) {
   e.preventDefault();
   //임의로 이미지 넣기
-  let images = ["1.jpg", "2.png", "3.jpg", "4.png"];
+  let images = ["1.jpg", "2.png", "3.jpg", "4.png"]; //git 배포 --> 구글 url 맘대로 쓰면 저작권 이슈
   let chosenImg = images[Math.floor(Math.random() * images.length)];
   let getImg = `img/${chosenImg}`;
 
@@ -113,9 +113,5 @@ function handleSubmit(e) {
   console.log(agoraStatesDiscussions.length);
 
   ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
-  // getName = "";
-  // getTitle = "";
-  // getStory = "";
-  // getImg = "";
 }
 addEventListener("submit", handleSubmit);
