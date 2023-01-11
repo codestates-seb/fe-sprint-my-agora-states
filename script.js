@@ -61,17 +61,22 @@ const convertToDiscussion = (obj) => {
     li.append(avatarWrapper, discussionContent, discussionAnswered);
     return li;
   };
-// discussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < discussions.length; i += 1) {
+// discussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다. (버튼 누르면 렌더링 된 데이터 싹 지우고 범위 내 데이터 다시 렌더링)
+const render = (element, from, to) => {
+  console.log(from, to);
+  if (!from && !to) { // from, to가 둘 다 없는 경우, 아래 값 할당
+    from = 0;
+    to = discussions.length - 1
+  }
+  // 다 지우고 배열에 있는 내용 다 보여주기
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
     element.append(convertToDiscussion(discussions[i]));
   }
   return;
 };
-
-// ul 요소에 discussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
 
 // Discussion 추가 기능
 const form = document.querySelector(".form");
@@ -109,8 +114,57 @@ function addDiscussion(e) {
 
 // 페이지네이션 기능 구현 (총 게시 글 최소 41개)
 // 한 페이지에 10개씩 게시물을 보여주기
-// 이전, 다음 페이지로 갈 수 있게
-// 다음 페이지가 없거나, 이전 페이지가 없는 경우 페이지 유지
+// 이전, 다음 페이지로 갈 수 있게하고, 다음 페이지나 이전 페이지가 없는 경우 현재 페이지 유지
+let limit = 10; // 한 페이지에 들어갈 게시물 갯수
+let page = 1;
+
+const getPageStartEnd = (limit, page) => {
+  const len = discussions.length -1;
+  let pageStart = Number(page - 1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if (page <= 0) {
+    pageStart = 0;
+  }
+  if (pageEnd >= len) {
+    pageEnd = len;
+  }
+  return { pageStart, pageEnd };
+};
+// 이전, 다음, 로컬스토리지 초기화 버튼 설정
+const buttons = document.querySelector(".buttons");
+buttons.children[0].addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
+  }
+  else {
+    alert("첫 페이지입니다.");
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[1].addEventListener("click", () => {
+  if (limit * page < discussions.length - 1) {
+    page = page + 1;
+  }
+  else {
+    alert("마지막 페이지입니다.")
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+// locaStorage 초기화
+buttons.children[2].addEventListener("click", () => {
+  localStorage.removeItem("Discussions");
+  discussions = agoraStatesDiscussions.slice();
+  limit = 10;
+  page = 1;
+  render(ul, 0, limit);
+});
+
+// ul 요소에 discussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul, 0, limit);
 
 // 다크모드
 const checkbox = document.querySelector(".check");

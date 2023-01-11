@@ -143,3 +143,19 @@ a {
 .check {
   zoom: 1.5;
 }
+/* 페이지네이션, 초기화 버튼 */
+.buttons {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  /* background-color: var(--sub-bg-color); */
+}
+.buttons > button {
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  height: 25px;
+  min-width: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
