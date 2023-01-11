@@ -7,9 +7,18 @@
     font-size: 100%;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+
+}
+
 ul {
     list-style: none;
+    display: flex;
+    flex-direction : column;
 }
+
 
 .discussions__container{
     width: 540px;
@@ -17,15 +26,16 @@ ul {
     flex-direction : column;
 }
 
-.discussion__avatar--image{
+.discussion__avatar--wrapper>img{
     width: 48px;
+    border-radius: 50%;
 }
 
 li.discussion__container{
     display: flex;
     flex-direction : row;
     align-items: center;
-    /* justify-content:  */
+    justify-content: space-between;
 }
 
 .discussion__container > div{
