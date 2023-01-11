@@ -34,6 +34,8 @@ a {
 }
 button {
   cursor: pointer;
+  border: 0;
+  background-color: transparent;
 }
 .hidden {
   display: none;
@@ -50,10 +52,10 @@ body {
 
 .discussion {
   width: 540px;
-  height: 850px;
+  /* height: 850px; */
   border-radius: 5px;
   background-color: var(--main);
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 2px 2px 5px var(--shadow);
 }
 
@@ -178,7 +180,7 @@ nav .links:hover {
 }
 
 .discussion__wrapper {
-  height: 770px;
+  height: 730px;
   overflow: scroll;
 }
 
@@ -264,4 +266,23 @@ nav .links:hover {
   box-shadow: inset 40px 40px 120px var(--hover),
     inset -40px -40px 120px #ffffff;
   transition: 0.3s;
+}
+
+.buttons {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.buttons > button {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+}
+
+button:disabled {
+  /* visibility: hidden; */
+  opacity: 0.3;
+  cursor: default;
 }

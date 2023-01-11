@@ -29,6 +29,61 @@ close.onclick = function () {
   modal.classList.add('hidden');
 };
 
+// 페이지 네이션 기능 구현
+
+let limit = 8,
+  page = 1;
+
+// let totalCount = newAgoraStatesDiscussions.length;
+// const limit = 10;
+// let currentPage = 1;
+// let offset = (currentPage - 1) * limit;
+// let totalPage = Math.ceil(totalCount / limit);
+
+// const pageBtn = document.querySelector('.page');
+// const preBtn = document.querySelector('.pre');
+// const nextBtn = document.querySelector('.next');
+
+// preBtn.disabled = true;
+
+// preBtn.onclick = function () {
+//   currentPage = currentPage - 1;
+//   nextBtn.disabled = false;
+//   if (currentPage === 1) {
+//     preBtn.disabled = true;
+//   } else {
+//     preBtn.disabled = false;
+//   }
+// };
+
+// nextBtn.onclick = function () {
+//   currentPage = currentPage + 1;
+//   preBtn.disabled = false;
+//   if (currentPage === totalPage) {
+//     nextBtn.disabled = true;
+//   } else {
+//     nextBtn.disabled = false;
+//   }
+// };
+
+// const pagenation = (currentPage) => {
+//   // const numBtn = document.createElement('button');
+//   pageBtn.innerHTML = Array(totalPage)
+//     .fill()
+//     .map(
+//       (_, i) =>
+//         `<button
+//         key=${i}
+//         onclick=${() => (currentPage = i + 1)}
+//         disabled=${currentPage === i + 1}
+//       >
+//         ${i + 1}
+//       </button>`
+//     );
+// };
+
+// pagenation(1);
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement('li'); // li 요소 생성
@@ -102,8 +157,27 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < newAgoraStatesDiscussions.length; i += 1) {
+// const render = (element) => {
+//   // newAgoraStatesDiscussions = newAgoraStatesDiscussions.slice(
+//   //   offset,
+//   //   offset + limit
+//   // );
+//   for (let i = 0; i < newAgoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(newAgoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
+
+const render = (element, from, to) => {
+  if (!from && !to) {
+    from = 0;
+    to = newAgoraStatesDiscussions.length - 1;
+  }
+  // 다 지우고 배열에 있는 내용 다 보여주기
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
     element.append(convertToDiscussion(newAgoraStatesDiscussions[i]));
   }
   return;
@@ -111,7 +185,49 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
-render(ul);
+// render(ul);
+
+render(ul, 0, limit);
+
+const getPageStartEnd = (limit, page) => {
+  const len = newAgoraStatesDiscussions.length - 1;
+  let pageStart = Number(page - 1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if (page <= 0) {
+    pageStart = 0;
+  }
+  if (pageEnd >= len) {
+    pageEnd = len;
+  }
+  return { pageStart, pageEnd };
+};
+
+const preBtn = document.querySelector('.pre');
+const nextBtn = document.querySelector('.next');
+
+preBtn.addEventListener('click', () => {
+  if (page > 1) {
+    page = page - 1;
+  }
+  nextBtn.disabled = false;
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+  if (page === 1) {
+    preBtn.disabled = true;
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (limit * page < newAgoraStatesDiscussions.length - 1) {
+    page = page + 1;
+  }
+  preBtn.disabled = false;
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+  if (limit * page >= newAgoraStatesDiscussions.length - 1) {
+    nextBtn.disabled = true;
+  }
+});
 
 // newData
 
