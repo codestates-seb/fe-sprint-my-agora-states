@@ -61,11 +61,12 @@ h1 {
 #title,
 #story {
   width: 400px;
-  margin: 5px;
+  margin: 10px;
 }
 #story {
   height: 55px;
   resize: none;
+  margin-bottom: 15px;
 }
 .form__submit {
   display: flex;
@@ -95,7 +96,8 @@ li.discussion__container {
   display: flex;
   flex-direction: row;
   width: 540px;
-  margin: 10px 0;
+  margin: 15px 0;
+  padding: 5px 10px;
   background-color: var(--sub-bg-color);
   border-radius: 10px;
   list-style: none;
@@ -129,7 +131,7 @@ li.discussion__container > div {
 /* 링크 스타일 */
 a {
   text-decoration: none;
-  color: var(--title-color);
+  color: var(--text-color);
 }
 .discussion__title > a:hover {
   text-decoration: underline;
@@ -148,7 +150,7 @@ a {
   width: 500px;
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  margin: 15px 0 5px 0;
   /* background-color: var(--sub-bg-color); */
 }
 .buttons > button {
