@@ -98,6 +98,8 @@ function setPage(totalPage, currentPage) {
   let prevPage = currentPage - 2;
   let nextPage = currentPage + 2;
 
+  //현재 페이지 위치에 따라
+  //보여지는 페이지 조정
   if (currentPage === 1) {
     nextPage += 2;
   }
@@ -110,24 +112,27 @@ function setPage(totalPage, currentPage) {
   if (currentPage === totalPage - 1) {
     prevPage -= 1;
   }
-
+  // '<'을 누르면 이전 페이지로 이동 가능하게 구현
   if (currentPage > 1) {
     li += `<li class="prev__page" onClick=setPage(${totalPage},${
       currentPage - 1
     })><</li>`;
   }
 
+  //페이지의 num을 설정
+
   for (let i = prevPage; i <= nextPage; i++) {
     if (i >= 1 && i <= totalPage) {
       //선택해주기
       if (i === currentPage) {
-        li += `<li class="page_num select_li">${i}</li>`;
+        li += `<li class="page_num select_li" onClick=setPage(${totalPage},${i})>${i}</li>`;
       } else {
-        li += `<li class="page_num">${i}</li>`;
+        li += `<li class="page_num" onClick=setPage(${totalPage},${i})>${i}</li>`;
       }
     }
   }
 
+  // '>'을 누르면 이후 페이지로 이동 가능하게 구현
   if (currentPage < totalPage) {
     li += `<li class="next__page" onClick=setPage(${totalPage},${
       currentPage + 1
