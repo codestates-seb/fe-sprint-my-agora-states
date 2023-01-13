@@ -36,7 +36,9 @@ formBtn.onclick = function (event) {
   if (inputName && inputTitle && inputTextbox) {
     //console.log(inputName, inputTitle, inputTextbox);
     //글을 맨앞으로 추가
-    agoraStatesDiscussions.unshift(obj);
+    agoraData.unshift(obj);
+    saveData();
+    console.log(agoraData);
     setPage(totalPage, currentPage);
     //ul.prepend(convertToDiscussion(obj));
     //모달을 닫고 초기화
@@ -59,3 +61,9 @@ closeModal.onclick = function () {
   formContainer.classList.add("hide");
   body.style.overflow = "auto";
 };
+
+//데이터를 로컬에 저장
+function saveData() {
+  const stringifyData = JSON.stringify(agoraData);
+  window.localStorage.setItem("agoraData", stringifyData);
+}

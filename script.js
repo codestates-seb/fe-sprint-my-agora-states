@@ -1,6 +1,14 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 //console.log(agoraStatesDiscussions);
 
+const stringifyData = JSON.stringify(agoraStatesDiscussions);
+const getData = localStorage.getItem("agoraData")
+  ? localStorage.getItem("agoraData")
+  : localStorage.setItem("agoraData", stringifyData);
+
+const agoraData = JSON.parse(getData);
+
+console.log(agoraData);
 //아바타이미지 생성
 const createAvartarImg = function (obj) {
   const avatarWrapper = document.createElement("div");
@@ -87,6 +95,7 @@ const createQuestion = function (obj) {
   return discussionQuestion;
 };
 
+//답변 컨텐츠 생성
 const createAnswer = function (obj) {
   const discussionAnswer = document.createElement("div"); // li 요소 생성
   discussionAnswer.className = "discussion__answer hide"; // 클래스 이름 지정
@@ -133,10 +142,10 @@ const convertToDiscussion = (obj) => {
 const render = (element, start = 0) => {
   end = start + 8;
   for (let i = start; i < end; i += 1) {
-    if (!agoraStatesDiscussions[i]) {
+    if (!agoraData[i]) {
       break;
     }
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(agoraData[i]));
   }
 
   return;
@@ -150,7 +159,7 @@ const ul = document.querySelector("ul.discussions__container");
 const paginationContianer = document.querySelector(".page_list");
 
 //8개씩 출력
-let totalPage = Math.ceil(agoraStatesDiscussions.length / 8);
+let totalPage = Math.ceil(agoraData.length / 8);
 let currentPage = 1;
 
 function setPage(totalPage, currentPage) {
@@ -206,16 +215,10 @@ function setPage(totalPage, currentPage) {
 
 setPage(totalPage, currentPage);
 
-const toggleBtn = document.querySelector(".toggle");
-
-toggleBtn.addEventListener("click", () => {
-  toggle(toggleBtn);
-});
-
 function toggle(element) {
   //let element = event.target;
   //console.log(element);
-  console.log(element.className);
+  //console.log(element.className);
   if (element.className.includes("hide")) {
     element.classList.remove("hide");
   } else {
