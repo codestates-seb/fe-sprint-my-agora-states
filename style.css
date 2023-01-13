@@ -1,9 +1,10 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
 :root {
-  --main-color: #cff5e7;
-  --sub-color: #59c1bd;
-  --sub-color2: #0d4c92;
+  --main-color: #395144;
+  --sub-color: #61876e;
+  --sub-color2: #a6bb8d;
+  --sub-color3: #eae7b1;
 }
 
 * {
@@ -11,6 +12,7 @@
   margin: 0px;
   padding: 0px;
   font-family: "Roboto Condensed", sans-serif;
+  border: none;
 }
 
 body {
@@ -23,7 +25,7 @@ main {
 }
 
 h1 {
-  color: var(--sub-color2);
+  color: var(--sub-color3);
 }
 /*모달 뒷 배경 설정*/
 .form__container,
@@ -81,7 +83,13 @@ h1 {
 .form__textbox {
   display: flex;
   flex-direction: column;
+
   flex: 3;
+}
+input,
+textarea {
+  border: solid 1px var(--main-color);
+  border-radius: 10px;
 }
 
 .form__textbox > textarea {
@@ -105,16 +113,32 @@ h1 {
   border: none;
 }
 
+.discussion__wrapper {
+  flex-basis: 80vh;
+  overflow-y: scroll;
+}
+
 /* 의견container 설정 */
 .discussion__container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 540px;
-  justify-content: space-between;
-  align-items: center;
   background-color: whitesmoke;
   border-radius: 10px;
   margin: 5px;
+}
+
+.discussion__question,
+.discussion__answer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  padding: 2px;
+  border: 1px solid var(--sub-color2);
+  border-radius: 10px;
+  background-color: var(--sub-color3);
 }
 
 /* 아바타 이미지 설정 */
@@ -135,11 +159,17 @@ h1 {
   margin: 0.5rem;
 }
 
-.discussion__title {
+.discussion__title,
+.discussion__answeredcontent {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   font-size: 0.9rem;
+}
+
+.discussion__answeredcontent {
+  display: flex;
+  flex-direction: column;
 }
 
 .discussion__information {
@@ -158,24 +188,24 @@ li {
 /* pagination 설정 */
 .pagination {
   margin: 10px;
-  width: 180px;
+  width: 200px;
 }
 .page_list {
   color: var(--sub-color2);
   display: flex;
+  justify-content: space-between;
 }
 
 .page_list * {
-  flex: 1;
   display: flex;
   justify-content: center;
+  width: 20px;
   border-radius: 50%;
 }
 
 .select_li {
   color: white;
   font-size: bold;
-  border-radius: 5px;
   background-color: var(--sub-color);
 }
 
@@ -197,4 +227,5 @@ button,
   color: white;
   width: 20px;
   height: 20px;
+  border-radius: 50%;
 }
