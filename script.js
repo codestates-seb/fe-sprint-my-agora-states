@@ -1,70 +1,130 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 //console.log(agoraStatesDiscussions);
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
-
+//아바타이미지 생성
+const createAvartarImg = function (obj) {
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
-
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-  //사용자 아바타
 
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
+
   if (obj.avatarUrl) {
     avatarImg.src = obj.avatarUrl;
     avatarImg.alt = "avatar of " + obj.author;
     avatarWrapper.append(avatarImg);
   }
+  return avatarWrapper;
+};
+
+//글제목 생성
+const createDiscussionTitle = function (obj) {
   //글 정보
   const discussionTitle = document.createElement("h2");
   discussionTitle.className = "discussion__title";
+
   //제목 40글자로 요약
   discussionTitle.textContent =
     obj.title.length > 40 ? `${obj.title.slice(0, 40)}...` : obj.title;
 
+  return discussionTitle;
+};
+
+//답변 생성
+const createAnswerContent = function (obj) {
+  const answerContent = document.createElement("h3");
+  answerContent.className = "discussion__answeredcontent";
+
+  answerContent.innerHTML = obj.bodyHTML;
+
+  return answerContent;
+};
+
+//글정보 생성
+const createDiscussionInfo = function (obj) {
   const discussionInfo = document.createElement("div");
   discussionInfo.className = "discussion__information";
   discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
-  discussionContent.append(discussionTitle, discussionInfo);
 
+  return discussionInfo;
+};
+
+//답변여부 생성
+const createDiscussionCheck = function (obj) {
   //답변 여부
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+
   const discussionCheck = document.createElement("p");
   obj.answer
     ? (discussionCheck.textContent = "☑")
     : (discussionCheck.textContent = "☐");
-
   discussionAnswered.append(discussionCheck);
 
-  li.id = obj.id;
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  return discussionAnswered;
+};
 
-  const containerAnswer = document.createElement("div");
-  containerAnswer.className = "answer";
-  containerAnswer.classList.add("hide");
-  const modalAnswer = document.createElement("div");
-  modalAnswer.className = "answer_modal";
-  const closeArea = document.createElement("div");
-  closeArea.className = "close-area";
-  const btnClose = document.createElement("button");
-  btnClose.className = "close-btn";
-  btnClose.textContent = "X";
+//질문 컨텐츠 생성
+const createQuestion = function (obj) {
+  const discussionQuestion = document.createElement("div"); // li 요소 생성
+  discussionQuestion.className = "discussion__question"; // 클래스 이름 지정
+
+  const discussionContent = document.createElement("div");
+  discussionContent.className = "discussion__content";
+
+  const avatarWrapper = createAvartarImg(obj);
+  const discussionTitle = createDiscussionTitle(obj);
+  const discussionInfo = createDiscussionInfo(obj);
+  const discussionAnswered = createDiscussionCheck(obj);
+  discussionContent.append(discussionTitle, discussionInfo);
+
+  discussionQuestion.append(
+    avatarWrapper,
+    discussionContent,
+    discussionAnswered
+  );
+
+  return discussionQuestion;
+};
+
+const createAnswer = function (obj) {
+  const discussionAnswer = document.createElement("div"); // li 요소 생성
+  discussionAnswer.className = "discussion__answer hide"; // 클래스 이름 지정
+
+  const discussionContent = document.createElement("div");
+  discussionContent.className = "discussion__content";
+
+  const avatarWrapper = createAvartarImg(obj);
+  const answerContent = createAnswerContent(obj);
+  const discussionInfo = createDiscussionInfo(obj);
+  const discussionAnswered = createDiscussionCheck(obj);
+  discussionContent.append(answerContent, discussionInfo);
+
+  discussionAnswer.append(avatarWrapper, discussionContent, discussionAnswered);
+
+  return discussionAnswer;
+};
+
+// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+const convertToDiscussion = (obj) => {
+  const li = document.createElement("li"); // li 요소 생성
+  li.className = "discussion__container";
+  const discussionQuestion = createQuestion(obj);
+
+  li.append(discussionQuestion);
 
   if (obj.answer) {
-    closeArea.append(btnClose);
-    modalAnswer.append(closeArea);
-    containerAnswer.append(modalAnswer);
-    li.append(containerAnswer);
-  } else {
+    const discussionAnswer = createAnswer(obj.answer);
+    li.append(discussionAnswer);
+    // answer 숨기기 기능
+    discussionQuestion.addEventListener("click", () => {
+      toggle(discussionAnswer);
+    });
   }
+
+  //답변이 있는 경우만 생성
+
+  //li.id = obj.id;
 
   return li;
 };
@@ -145,3 +205,20 @@ function setPage(totalPage, currentPage) {
 }
 
 setPage(totalPage, currentPage);
+
+const toggleBtn = document.querySelector(".toggle");
+
+toggleBtn.addEventListener("click", () => {
+  toggle(toggleBtn);
+});
+
+function toggle(element) {
+  //let element = event.target;
+  //console.log(element);
+  console.log(element.className);
+  if (element.className.includes("hide")) {
+    element.classList.remove("hide");
+  } else {
+    element.classList.add("hide");
+  }
+}
