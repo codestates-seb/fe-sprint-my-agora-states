@@ -1,1 +1,107 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+}
+h1 {
+    font-size: 40px;
+    margin: 0;
+}
+.h1css {
+    padding: 30px 0;
+    background: rgba(237, 193, 211);
+    background: linear-gradient(
+       166deg,
+       rgba(237, 193, 211, 1) 0%,
+       rgba(219, 192, 216, 1) 35%,
+       rgba(127, 188, 242, 1) 100%
+     );
+     border-radius: 24px 24px 0 0 ;
+}
+body{
+    text-align: center;
+}
+main { 
+    -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0); 
+box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0);
+    border-radius: 20px;
+    border: 5px solid black;
+    width: 540px;
+    border-radius: 34px;
+    margin: auto;
+}
+.form {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 25px;
+}
+.form__input--name {
+    margin: 10px 0 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.form__input--title {
+    margin: 10px 0 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.form__textbox {
+    margin: 10px 0 5px 10px;
+}
+.form__submit {
+    margin: 10px 5px;
+    
+}
+.form__submit input:hover {
+    transform: scale(1.1);
+    background-color: #E488FF;
+}
+.discussion__wrapper{
+    border: 3px solid black;
+    border-radius: 0 0 24px 24px;
+    overflow: auto;
+    height: 600px;
+}
+.form__submit input{
+    width: 150px;
+    height: 100%;
+    border-radius: 24px;
+    border: none;
+    font-size: 32px;
+    transition:all 300ms ease-in;
+}
+#story {
+    display: flex;
+}
+.discussions__container{
+    padding: 0;
+
+}
+.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.discussion__answered{
+    font-size: 30px;
+    padding: 20px;
+    display: flex;
+    align-items:flex-start;
+}
+.discussion__content {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.discussion__title{
+    margin: 0;
+}
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
