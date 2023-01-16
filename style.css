@@ -1,1 +1,142 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
+body{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: #ffbde960;
+}
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box; /*모든 요소에 border-box를 적용*/
+    font-family: 'Quicksand', sans-serif;
+}
+
+ul li{
+    list-style-type: none; /*점 안보이게 하기*/
+}
+
+
+.discussion__wrapper{
+    width:540px; /*컴포넌트 전체의 폭540px*/
+   
+   
+}
+
+.discussion__avatar--image{
+    border-radius:100px; /*사진 동그랗게 표현*/
+    width:48px;/*사진의 너비 48px*/
+    margin-right:15px;
+  /*  vertical-align: middle;*가운데안됨*/
+ 
+}
+.discussion__title a{
+    font-size:15px;
+}
+
+li{
+    display:flex;
+    flex-direction: row;
+    align-items: center;/*사진과 내용,체크박스 높이 가운데*/
+}
+
+
+.discussion__content{
+   display: flex;
+   flex-direction: column;
+  /* justify-content: space-between;간격을 어떻게 주는지 모르겠다.*/
+}
+.discussion__content .discussion__information{
+    text-align: right; /*align-items: flex-end; title과 infomation이 둘다 오른쪽으로 가짐*/
+
+}
+.discussion__answered{
+    margin-left:10px
+}
+
+
+section.form__container{
+ 
+    border-radius: 55px;
+    background: #fae3f8;
+    box-shadow:  10px 10px 24px #b392b0,
+             -10px -10px 24px #ffffff;
+
+
+
+}
+
+li{
+    border-radius: 15px;
+    background: #fae3f8;
+    box-shadow:  5px 5px 10px #b392b0,
+             -5px -5px 10px #ffffff;
+    border:rgb(230, 227, 227) solid 3px;
+    padding:15px;
+    margin:10px
+}
+
+form{
+    margin:30px;
+    padding:5px 20px 20px 20px;
+}
+h1{
+    text-align: center;
+}
+
+.form__input--wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form__input--wrapper input{
+    border-radius: 10px;
+    border-style: none;
+}
+.form__input--wrapper textarea{
+    border-radius: 8px;
+    border:none;
+    height:80px;
+    width:200px;
+}
+
+form div{
+    padding:5px
+}
+
+.form__submit input{
+    float:right;/*오른쪽으로 정렬*/
+    width:130px;
+    border:none;
+    border-radius: 55px;
+    background: linear-gradient(145deg, #fff4ff, #d9cdd8);
+    box-shadow:  3px 3px 6px #a49ba3,
+             -3px -3px 6px #ffffff;
+}
+.form__submit input:active {
+    transform: translate(2px, 2px);/*위치 이동*/
+    box-shadow:none;
+  }
+
+  section.buttons{
+    display:flex;
+   
+  }
+
+  section.buttons > button {
+    flex: 1 0 0;
+    border:none;
+    border-radius: 55px;
+    background: linear-gradient(145deg, #fff4ff, #d9cdd8);
+    box-shadow:  3px 3px 6px #a49ba3,
+             -3px -3px 6px #ffffff;
+  }
+  section.buttons > button:active {
+    transform: translate(2px, 2px);/*위치 이동*/
+    box-shadow:none;
+  }
