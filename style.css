@@ -119,6 +119,24 @@ form div{
              -3px -3px 6px #ffffff;
 }
 .form__submit input:active {
-    transform: translate(3px, 3px);/*위치 이동*/
+    transform: translate(2px, 2px);/*위치 이동*/
+    box-shadow:none;
+  }
+
+  section.buttons{
+    display:flex;
+   
+  }
+
+  section.buttons > button {
+    flex: 1 0 0;
+    border:none;
+    border-radius: 55px;
+    background: linear-gradient(145deg, #fff4ff, #d9cdd8);
+    box-shadow:  3px 3px 6px #a49ba3,
+             -3px -3px 6px #ffffff;
+  }
+  section.buttons > button:active {
+    transform: translate(2px, 2px);/*위치 이동*/
     box-shadow:none;
   }
