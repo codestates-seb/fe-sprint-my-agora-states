@@ -7,7 +7,9 @@ ___
 학습하다가 생기는 **질문**을 서로 주고 받는 게시판입니다.
 
 ### 이미지
-![image description](./asset/1.png)
+<!-- ![image description](./asset/1.png) -->
+<img src="./asset/1.png"  width="400" height="600"/>
+
 ___
 ## 기술 스택
 Front-End
