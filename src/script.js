@@ -1,5 +1,7 @@
+require('./style.css');
+const agoraStatesDiscussions = require('./data.js')
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -81,3 +83,17 @@ formEliment.addEventListener('submit',function(event){
   agoraStatesDiscussions.unshift(obj);
   ul.prepend(convertToDiscussion(obj));
 })
+
+//페이지네이션
+
+//총배열의 개수에서 10을 나누고 +1만큼의 페이지를 만듭니다. div로 페이지를 담을 공간을 만들고 createEliment를 페이지 개수만큼 button을 만듭니다.
+//처음에 agoraStatesDiscussions 1~9까지 나타나게 만들어야합니다.
+
+// const contents = document.createElement("div");
+// const buttons = document.createElement("div");
+
+// const numOfContent = agoraStatesDiscussions.length;
+// const showContent = 10;
+// const showButton = 5;
+// const maxPage = Math.ceil(numOfContent / showContent );
+// let page = 1;
