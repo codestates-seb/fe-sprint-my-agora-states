@@ -1,3 +1,5 @@
+
+
 let data; // (1) 앞으로 사용할 데이터. 변수 선언
 
 const localStorageData = localStorage.getItem("discussionData");
@@ -17,9 +19,24 @@ toggleFormButton.addEventListener('click', () => {
 });
 // formContainer 나왔다 사라졌다 하게. 끝
 
+// const date = new Date();
+
+// const year = date.getFullYear();
+// const month = ('0' + (date.getMonth() + 1)).slice(-2);
+// const day = ('0' + date.getDate()).slice(-2);
+// const dateStr = year + '-' + month + '-' + day;
+
+// const hours = ('0' + date.getHours()).slice(-2);
+// const minutes = ('0' + date.getMinutes()).slice(-2);
+// const timeStr = hours + ':' + minutes;
+
 
 const convertToDiscussion = (obj) => {
 
+
+    const dateString = obj.createdAt.slice(0, 10);
+    let timeString = new Date(obj.createdAt).toLocaleTimeString([], { hour12: false }).slice(0,5);
+    console.log(timeString);
 
     const li = document.createElement("li"); // li 요소 생성
     li.className = "discussion__container"; // 클래스 이름 지정
@@ -48,7 +65,7 @@ const convertToDiscussion = (obj) => {
 
     const discussionInfo = document.createElement("div")          // 저자, 날짜
     discussionInfo.className = "discussion__information"
-    discussionInfo.textContent = obj.author + " / " + obj.createdAt
+    discussionInfo.textContent = `${obj.author} / ${dateString} ${timeString}`
     discussionContent.append(discussionInfo)
 
     const discussionAnswered = document.createElement("div");   // 대답 여부 박스
@@ -89,8 +106,6 @@ const story = form.querySelector("div.form__textbox > textarea");
 
 form.addEventListener("submit", (event) => {
 
-    debugger;
-
     event.preventDefault();
     formContainer.classList.toggle('hidden');
 
@@ -113,7 +128,7 @@ form.addEventListener("submit", (event) => {
     title.value = '';
     story.value = '';
 
-    renderContent(page);    // 여기서 page 별로 10개씩 채우는 함수를 실행시켜주면 submit 후 첫 화면에 모든 컨텐츠가 다 담기는 현상 해결 완료!!!
+    renderContentAndButton(page);    // 여기서 page 별로 10개씩 채우는 함수를 실행시켜주면 submit 후 첫 화면에 모든 컨텐츠가 다 담기는 현상 해결 완료!!!
 
 })
 
@@ -126,7 +141,7 @@ const maxContent = 10;
 const maxButton = 5;
 // const numOfContent = data.length;
 
-const maxPage = Math.ceil(data.length / maxContent);
+// const maxPage = Math.ceil(data.length / maxContent);
 let page = 1;
 
 const goPrevPage = () => {
@@ -183,17 +198,18 @@ const renderButton = (page) => {
         buttons.removeChild(buttons.lastChild);
     }
     // 화면에 최대 5개의 페이지 버튼 생성
-    for (let id = page; id < page + maxButton && id <= maxPage; id++) {
+    for (let id = page; id < page + maxButton && id <= Math.ceil(data.length / maxContent); id++) {
         buttons.appendChild(makeButton(id));
     }
     // 첫 버튼 활성화(class="active")
     buttons.children[0].classList.add("active");
     buttons.prepend(prev);
+    console.log(buttons.innerHTML);
     buttons.append(next);
 
     // 이전, 다음 페이지 버튼이 필요한지 체크
     if (page - maxButton < 1) buttons.removeChild(prev);
-    if (page + maxButton > maxPage) buttons.removeChild(next);
+    if (page + maxButton > Math.ceil(data.length / maxContent)) buttons.removeChild(next);
 };
 
 const renderContentAndButton = (page) => {
