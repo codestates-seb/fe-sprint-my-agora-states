@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -82,7 +82,8 @@ function submitMyQeustion(event) {
   inputTitle.value = '';
   inputQuestion.value = '';
 
-  makedObj.push(inputObj);
+  makedObj.push(JSON.stringify(inputObj));
+  saveMyQuestions();
 }
 
 // 페이지네이션 구현하기
@@ -91,6 +92,9 @@ let totalPages = Math.ceil(agoraStatesDiscussions.lenght / 10);
 
 // 디스커션 유지 기능
 let makedObj = [];
+function saveMyQuestions() {
+  localStorage.setItem('questions', makedObj);
+}
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
