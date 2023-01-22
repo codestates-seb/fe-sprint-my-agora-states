@@ -11,6 +11,7 @@ export default function AddForm({ addNewItem }) {
   this.textareaEl.addEventListener('input', () => this.toggleSubmitBtn());
 
   this.submitBtnEl.addEventListener('click', event => {
+    debugger;
     event.preventDefault();
 
     const newItem = this.createNewItem({
