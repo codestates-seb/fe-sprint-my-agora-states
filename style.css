@@ -1,94 +1,246 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Do Hyeon', sans-serif;
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --primary: #5e7c96;
+  --secondary: #DA7F8F;
+  --form-surface: #f6eed8;
+  --visited: #E1E5EA;
+  --link: #A7BBC7;
 }
 
-main{
-    background-color: #BFEAF5;
-}
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-} 
-h1{
-    display: flex;
-    justify-content: center;
+* {
+  font-family: 'Noto Serif KR', serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.form__container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+button,
+input,
+textarea {
+    font-size: 100%; /* 1 */
+    vertical-align: baseline; /* 3 */
+    line-height: normal;
+    *vertical-align: middle; /* 3 */
 }
 
-li.discussion__container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 540px;
-    list-style: none;
-    border: 3px solid #91D8E4;
-    background-color: #EAFDFC;
-    margin-top: 3px;
-    height: 100px;
+body {
+  background-image: url("background2.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.discussion__avatar--wrapper{
-    display: flex;
-    align-items: center;
+main {
+  background: rgba( 255, 255, 255, 0.45 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 5vh 0;
+  border-radius: 5px;
 }
 
-.discussion__avatar--image{
-border-radius: 50px;
-width: 48px;
-
+ul.discussions__container {
+  max-height: 75vh;
+  overflow: auto;
 }
 
-.discussion__content{
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-left: -15px;
-    justify-content: space-between;
-    align-items: stretch;
-    
+main > * {
+  padding: 0.5rem;
 }
 
-.discussion__answered{
-    display: flex;
+main > h1 {
+  text-align: center;
+  color: var(--primary);
 }
 
-.discussion__information{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-top: 5px;
+h2 {
+  font-size: 1.1rem;
 }
 
-/* 페이지네이션 버튼 */
-.pageNum li{
-    float: left;
-    border: 1px solid #82AAE3;
-    border-radius: 3px;
-    list-style: none;
-    margin: 10px,5px;
-    width: 20px;
-    display: flex;
-    justify-content: center;
+h2 > a {
+  color: var(--link);
 }
 
-.pageNum li:active {
-    background-color: #91D8E4;
+h2 > a:visited {
+  color: var(--visited);
 }
 
-.pagination{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 20px 0px;
+h2 > a:hover {
+  color: var(--secondary);
 }
+
+form.form {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--form-surface);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--primary);
+}
+
+div.form__input--wrapper {
+  flex: 8 0 auto;
+  padding: 0 0.5rem;
+}
+
+div.form__input--name,
+div.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+  padding-top: 0.2rem;
+}
+
+div.form__input--name > label,
+div.form__input--title > label {
+  border: 0;
+  width: 100px;
+  flex: 4 0 0;
+}
+
+div.form__input--name > input,
+div.form__input--title > input {
+  border: 0;
+  flex: 6 0 0;
+}
+
+div.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+div.form__textbox > label,
+div.form__textbox > textarea {
+  padding-top: 0.2rem;
+  border: 0;
+}
+
+div.form__submit {
+  display: flex;
+  flex: 2 0 auto;
+}
+
+div.form__submit > input {
+  border: 0;
+  color: var(--primary);
+  background-color: var(--background);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  flex: 1 0 0;
+}
+
+div.form__submit > input:hover,
+div.form__submit > input:active {
+  color: var(--background);
+  background-color: var(--secondary);
+}
+
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  background-color: var(--surface);
+  border-radius: 5px;
+  list-style-type: none;
+}
+
+li.discussion__container > div {
+  /* padding: 0.5rem; */
+}
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+}
+
+div.discussion__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1 0 0;
+  padding: 0.5rem;
+}
+
+h2.discussion__title {
+  padding-top: 0.5rem;
+}
+
+div.discussion__information {
+  padding: 1rem 0.5rem 0 0.5rem;
+  text-align: right;
+  color: var(--primary);
+}
+
+div.discussion__answered {
+  flex: 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: var(--primary);
+}
+
+section.buttons {
+  display: flex;
+}
+
+section.buttons > button {
+  background-color: var(--surface);
+  flex: 1 0 0;
+  border: 0;
+  margin: 0 0.5rem;
+}
+
+.opening{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
   
+  
+}
+
+.openingbox{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.twin{
+  width: 10.5rem;
+  height: 10rem;
+  margin-left: 1rem;
+}
+
+.phrases{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 13px;
+  background-image: url("comment1.png");
+  background-size: cover;
+}
+
+.gogo{
+  
+}
