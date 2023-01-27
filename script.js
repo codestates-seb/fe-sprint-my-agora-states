@@ -51,9 +51,10 @@ const convertToDiscussion = (obj) => {
   // 답변 여부
   const discussionAnsweredBox = document.createElement('p')
   if (obj.answer === null) {
-    discussionAnsweredBox.textContent = '☒';
+    discussionAnsweredBox.textContent = '답변없음';
+    discussionAnswered.className += ' noReply';
   } else {
-    discussionAnsweredBox.textContent = '☑';
+    discussionAnsweredBox.textContent = '답변보기';
     discussionAnsweredBox.addEventListener('click', function() {
       answerContainer.classList.toggle('show');
     })

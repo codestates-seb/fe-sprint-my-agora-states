@@ -68,7 +68,9 @@ input[type='text']::placeholder, textarea::placeholder {
   font-size: 15px;
   text-align: left;
 }
-input[type='text']::-webkit-input-placeholder {color:rgb(255, 255, 255);}
+input[type='text']::-webkit-input-placeholder {
+  color: var(--title-color);
+}
 
 textarea {
   height: 150px;
@@ -130,6 +132,7 @@ input[type='submit'] {
   border-radius: 10px;
   background-color: var(--main-color);
   color: #fff;
+  transition: ease-in-out .3s;
 }
 input[type='submit']:hover {
   background-color: #fff;
@@ -158,7 +161,7 @@ input[type='submit']:hover {
 }
 .discussion__container {
   display: grid;
-  grid-template-columns: 65px 1fr 50px;
+  grid-template-columns: 65px 1fr 60px;
   align-items: center;
   padding: 15px;
   margin-bottom: 10px;
@@ -172,12 +175,16 @@ input[type='submit']:hover {
 }
 .discussion__content {
   flex-grow: 1;
+  margin-right:10px;
+  cursor: pointer;
 }
-.discussion__title,
-.discussion__title a{
+.discussion__title{
   font-size: 1.1rem;
   line-height: 1.5rem;
   color: var(--title-color);
+}
+.discussion__title:hover {
+  color: var(--main-color);
 }
 
 .discussion__story {
@@ -191,17 +198,41 @@ input[type='submit']:hover {
   font-size: 0.8rem;
 }
 .discussion__answered {
-  margin-left: 15px;
+  padding: 10px;
+  margin-left: 2px;
+  background-color: var(--sub-color);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: ease-in-out .3s;
+}
+.discussion__answered:hover {
+  background-color: var(--main-color);
 }
 .discussion__answered p {
-  font-size: 2rem;
+  font-size: 1rem;
+  line-height: normal;
+  margin-top: 3px;
+  text-align: center;
+  transition: ease-in-out .3s;
 }
-
+.discussion__answered:hover p {
+  color: #fff;
+}
+.discussion__answered.noReply {
+  cursor: default;
+}
+.discussion__answered.noReply,
+.discussion__answered.noReply:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.discussion__answered.noReply p,
+.discussion__answered.noReply:hover p {
+  color: inherit;
+}
 .answer__container {
   display: none;
   grid-column: 1 / 4;
   margin-top: 15px;
-
 }
 .show {
   display: flex;
