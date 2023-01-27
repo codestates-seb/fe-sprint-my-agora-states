@@ -38,7 +38,7 @@ const convertToDiscussion = (obj) => {
   discussionStory.className = 'discussion__story';
   discussionStory.innerHTML = obj.bodyHTML;
 
-  li.addEventListener('click', function() {
+  discussionTitle.addEventListener('click', function() {
     discussionStory.classList.toggle('show');
   });
 

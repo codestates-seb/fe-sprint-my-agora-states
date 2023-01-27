@@ -50,13 +50,14 @@ p, code, a, pre, span{
 }
 
 input[type='text'], textarea {
-width: 60%;
+width: 100%;
 border: none;
 padding: 8px;
 border-radius: 20px;
 background-color:var(--bright-color); 
 text-align: left;
 color: var(--main-color);
+cursor: text;
 }
 input[type='text']:focus, textarea:focus {
   outline: none;   /* 아웃라인 지우기 */
@@ -71,6 +72,7 @@ input[type='text']::-webkit-input-placeholder {color:rgb(255, 255, 255);}
 
 textarea {
   height: 150px;
+  text-indent:5px;
 }
 
 body {
@@ -84,13 +86,13 @@ main {
 
 
 h1 {
-  margin-top : 20%;
-  font-size: 2rem;
+  margin-top : 100px;
+  font-size: 3rem;
 }
 
 .form__container {
-  width: 700px;
-  margin-top: 20px;
+  width: 540px;
+  margin-top: 30px;
   background-color: var(--sub-color);
   padding: 60px;
   border-radius: 10px;
@@ -103,8 +105,7 @@ form {
   align-items: center;
 }
 label {
-  color: var(--title-color);
-  font-size: 1.2rem;
+  display: none;
 }
 
 .form__input--wrapper {
@@ -145,7 +146,7 @@ input[type='submit']:hover {
 /* 리스트내용 */
 
 .discussion__wrapper {
-  margin-top: 100px;
+  margin-top: 20px;
   width: 540px;
   border-radius: 10px;
   background-color: var(--sub-color);
