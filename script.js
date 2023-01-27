@@ -12,6 +12,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+
   const discussionText = document.createElement('div');
   discussionText.className = "discussion__text";
   discussionText.textContent = "본문보기";
@@ -37,6 +38,7 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement('h2');
   discussionTitle.className = 'discussion__title';
   discussionTitle.textContent = obj.title;
+
   const discussionStory = document.createElement('div');
   discussionStory.className = 'discussion__story';
   discussionStory.innerHTML = obj.bodyHTML;
@@ -65,7 +67,7 @@ const convertToDiscussion = (obj) => {
     discussionAnswered.className += ' noReply';
   } else {
     discussionAnsweredBox.textContent = '답변보기';
-    discussionAnsweredBox.addEventListener('click', function() {
+    discussionAnswered.addEventListener('click', function() {
       answerContainer.classList.toggle('show');
     })
 

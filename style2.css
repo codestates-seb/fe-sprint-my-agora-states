@@ -159,6 +159,7 @@ h1 {
 }
 .discussion__title {
   margin-bottom: 20px;
+  font-size: 1.3rem;
 }
 .discussion__content {
   display: flex;
