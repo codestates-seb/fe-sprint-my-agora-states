@@ -13,34 +13,77 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  const faceImg = document.createElement("img") // 프로필 사진
-  faceImg.src = obj.avatarUrl;
-  faceImg.alt = "avatar of" + obj.author;
-  avatarWrapper.append(faceImg);
+  // 프로필 이미지 넣기
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  // 질문 내용 넣기
+  const discussionTitleH2 = document.createElement("h2");
+  discussionTitleH2.className = "discussion__title";
+  const discussionTitleA = document.createElement("a");
+  discussionTitleA.href = obj.url;
+  discussionTitleA.textContent = obj.title;
+  discussionTitleH2.append(discussionTitleA);
+  discussionContent.append(discussionTitleH2);
 
-  const discussionTitle = document.createElement("h2");
-  const titleAnchor = document.createElement("a");
-  titleAnchor.href = obj.url;
-  titleAnchor.textContent = obj.title;
-  discussionTitle.append(titleAnchor);
-  discussionContent.append(discussionTitle);
+  // 질문한 시간 넣기
+  const discussionDate = document.createElement("div");
+  discussionDate.className = "discussion__information";
+  discussionDate.textContent = obj.createdAt;
+  discussionContent.append(discussionDate);
+
+  const answerCheckbox = document.createElement("p");
+  if(obj.answer === null){
+    answerCheckbox.textContent = "";
+  } else {
+    answerCheckbox.textContent = "✔️";
+  }
   
+  discussionAnswered.append(answerCheckbox);
 
-  const discussionInfo = document.createElement("div");
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createAt).toLocaleTimeString()}`
-  discussionContent.append(discussionTitle, discussionInfo);
-
-  const checked = document.createElement("p");
-  checked.textContent = obj.answer ? "☑︎" : "☒";
-  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li; // li 요소 append
-
-
+  return li;
 };
+
+// submit 누르면 표시
+const form = document.querySelector(".form");
+const inputName = document.querySelector(".form__input--name > input");
+const inputTitle = document.querySelector(".form__input--title > input");
+const textarea = document.querySelector("#story");
+
+// submit 클릭 시 새로고침 방지
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // 새로운 질문
+  const newUser = {
+    id: "newname",
+    createdAt: new Date().toISOString(),
+    title: inputTitle.value,
+    url: "",
+    author: inputName.value,
+    answer: null,
+    bodyHTML: textarea.value,
+    avatarUrl: "https://i.ibb.co/PQ9yyLB/img.png"
+}
+  // 제일 앞에 넣기
+  agoraStatesDiscussions.unshift(newUser);
+
+  // newUser 추가 함수
+  const newDiscussion = convertToDiscussion(newUser);
+
+  // ul 내부 앞에 newDiscussion 추가
+  ul.prepend(newDiscussion);
+
+  // submit 후 리셋
+  inputName.value = '';
+  inputTitle.value ='';
+  textarea.value = '';
+})
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {

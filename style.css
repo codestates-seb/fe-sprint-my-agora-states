@@ -1,141 +1,227 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-*{
-  margin: 0;
-  padding: 0;
+
+
+* {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-}  
+  background: linear-gradient(-45deg, #858180, #c7a8b5, #bbccd2, #1c1d1d);
+  background-size: 400%;
+  animation: gradient 10s ease infinite;
+}
+
+/* background 전환 */
+@keyframes gradient {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
+}
 
 li {
   list-style-type: none;
 }
 
-.form__input--title > label {
-  word-spacing : 7px
-}
-
-.form__input--name > label {
-  word-spacing : 3px
+section {
+  width: 600px;
 }
 
 main > h1 {
+  /* font-family: 'Nanum Myeongjo', serif; */
+  font-family: 'Lobster', cursive;
   text-align: center;
-  margin: 60 0 60 0;
-  color: rgba(56, 87, 56, 0.888);
-  font-size: 35px;
+  font-size: 60px;
+  color:#d8e2e0;
+  margin: 40px 0 40px 0;
 }
 
-img {
-  width: 48px;
-  border-radius: 100%;
-  margin-right: 15px;
+
+/* 입력 */
+div > label {
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 18px;
 }
 
 section.form__container {
   border-radius: 20px;
+  margin: 0 0 20px 0;
+  padding: 22px;
+  background-color: rgba(244, 252, 249, 0.061);
+  border: 1px solid rgba(210, 238, 223, 0.227);
 }
 
-.discussion__answered {
-  padding-top: 39px;
-  font-size: 20px;
-  margin: 5px;
-  color: #FFF9CA;
-
+input:focus {
+  outline: none;
+  background-color: #eff7fa;
+  box-shadow: 0 0 10px rgb(252, 252, 252);
+  transition: .6s;
 }
-.discussion__container {
+
+textarea:focus {
+  outline: none;
+  background-color: #eff7fa;
+  box-shadow: 0 0 10px rgb(252, 252, 252);
+  transition: .6s;
+}
+
+.form__input--wrapper > div {
+  margin: 15px;
+}
+
+.form__input--wrapper > div > input {
+  /* margin-top: 10px; -> 좀 띄우고 싶은데 텍스트박스 width가 줄어듬.. */
+  width: 525px;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  color: #01361cc1;
+  border-radius: 8px;
+  border: none;
+}
+
+.form__textbox > textarea {
+  width: 525px;
+  height: 110px;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  color: #01361cc1;
+  border-radius: 8px;
+  border: none;
+}
+
+.form__input--wrapper > div > input:hover {
+  background-color: #eff7fa;
+  box-shadow: 0 0 10px rgb(252, 252, 252);
+  transition: .6s;
+}
+
+.form__textbox > textarea:hover {
+  background-color: #eff7fa;
+  box-shadow: 0 0 10px rgb(252, 252, 252);
+  transition: .6s;
+}
+
+textarea::placeholder {
+  color: #01361cc1;
+}
+
+.form__submit {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 550px;
-  height: 150px;
-  font-size : 10px;
-  border-radius: 19px;
-  margin : 10px;
-  padding: 20px;
-}
-.discussion__content{
-  display: block;
-}
-
-/* 질문 박스 내부 정렬 */
-.discussion__content >:nth-child(1){
-width: 440px;
-text-align: left;
-margin-top: 0;
-}
-.discussion__content >:nth-child(2){
-  height:30px;
-  text-align: right;
-}
-
-section.discussion__wrapper{
-  display: flex;
-  flex:4;
-  width: 578px;
   justify-content: center;
-  align-items:center;
-}
-ul {
-  padding: 0px;
-}
-li.discussion__container {
-  background-color: rgba(56, 87, 56, 0.888);
-}
-a:link {
-  color: white;
-  font-family: 'Dongle', sans-serif;
-  font-size: 22px;
-}
-a:visited {
-  color: rgb(0, 0, 0);
+  align-items: center;
 }
 
-.form__textbox {
+.form__submit > input {
+  margin-top: 10px;
+  width: 50%;
+  padding: 25px;
+  border: none;
+  background-color: rgba(32, 77, 60, 0.061);
+  border: 1px solid rgba(210, 238, 223, 0.227);
+  border-radius: 8px;
+
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 20px;
+}
+
+.form__submit > input:hover {
+  color: rgb(255, 254, 254);
+  background-color: #01361c57;
+  box-shadow: 0 0 10px rgb(252, 252, 252);
+  transition: 1s;
+}
+
+
+/* 디스커션 목록 */
+ul.discussions__container{
   display: flex;
   flex-direction: column;
+  justify-content:space-between;
+  flex-wrap: wrap;
 }
-#story {
-  width: 500px;
-  border-radius: 10px;
-  padding: 10px;
-}
-.form__input--wrapper {
-  margin: 5px;
 
+li.discussion__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 10px;
+  height: 120px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  border-radius: 20px;
 }
-/* 작성란 수정 */
-.form__input--wrapper input {
-  width:300px;
-  height: 30px;
-  font-size:12px;
-  margin: 5px;
-  border-radius: 10px;
-}
-.form__submit {
-  flex:1;
-  margin:3px;
 
+li.discussion__container:hover {
+  box-shadow: 1px 1px 20px 1px #f1efee3f;
+  border: 1px solid rgba(255, 255, 255, 0.454);
+  transition: .5s;
 }
-.form__submit input {
-  width: 448px;
-  height: 43px;
-  border-radius: 10px;
-  font-size: 15px;
-  margin-left: 25px;
-  margin-right: 0px;
-  border: 2px solid black;
-}
-textarea {
-  margin : 5px;
+
+p {
+  font-size: large;
+  color: rgb(88, 86, 86);
 }
 
 .discussion__information {
-  padding-top: 17.5px;
-  font-size: 13px;
-  color: #f7f5e2;
+  font-size: 12px;
 }
+
+a {
+  font-size: 18.3px;
+  color: #f6f7f7;
+}
+
+img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  width: 75px;
+  border-radius: 50%;
+  border-radius: 50%;
+  box-shadow: -2px 0 16px rgb(252, 252, 252);
+}
+
+.discussion__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 120px;
+  padding: 25px 20px 25px 20px;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px 0 20px 0;
+}
+
+#pagination li a {
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s
+    
+}
+
+#pagination li a:hover:not(.active) {
+  font-size: 20px;
+  box-shadow: 0 0 10px rgb(252, 252, 252);
+  transition: .6s;
+} 
