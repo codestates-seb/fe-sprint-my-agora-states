@@ -20,7 +20,6 @@
   --sub-color : #E3ACF9;
   --third-color : #FADA9D;
   --bright-color : #FBF1D3;
-  --inputLine : 3px #FBF1D3 solid;
   --title-color : rgba(0, 0, 0, 0.8);
   --font-color : rgba(0, 0, 0, 0.6);
 }
@@ -89,12 +88,18 @@ main {
 
 h1 {
   margin-top : 100px;
+  margin-bottom: 30px;
   font-size: 3rem;
 }
-
+.form__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 90vw;
+}
 .form__container {
   width: 540px;
-  margin-top: 30px;
   background-color: var(--sub-color);
   padding: 60px;
   border-radius: 10px;
@@ -110,11 +115,14 @@ label {
   display: none;
 }
 
-.form__input--wrapper {
-  width: 100%;
-  
+.form__title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
+.form__input--wrapper {
+  width: 100%;  
+}
 .form__input--name,
 .form__input--title,
 .form__textbox {
@@ -149,7 +157,6 @@ input[type='submit']:hover {
 /* 리스트내용 */
 
 .discussion__wrapper {
-  margin-top: 20px;
   width: 540px;
   border-radius: 10px;
   background-color: var(--sub-color);
@@ -241,4 +248,19 @@ input[type='submit']:hover {
 
 .answer__container .discussion__content {
   margin-top: 15px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+	/* 모바일에 사용될 스트일 시트를 여기에 작성합니다. */
+  .form__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .form__container {
+    width: 90vw;
+  }
 }

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -15,31 +15,36 @@
 <body>
   <main>
     <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="name">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
+    <div class="wrapper">
+      <section class="form__container">
+        <div class="form__wrapper">
+          <h2 class="form__title">질문을 남겨주세요!</h2>
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <label for="name">별명</label>
+                <input type="text" name="name" id="name" required>
+              </div>
+              <div class="form__input--title">
+                <label for="name">주제</label>
+                <input type="text" name="title" id="title" required>
+              </div>
+              <div class="form__textbox">
+                <label for="story">남기는 글</label>
+                <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+              </div>
+            </div>
+            <div class="form__submit">
+              <input type="submit" value="submit">
+            </div>
+          </form>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-      </ul>
-    </section>
+      </section>
+      <section class="discussion__wrapper">
+        <ul class="discussions__container">
+        </ul>
+      </section>
+    </div>
   </main>
 </body>
 <script src="data.js"></script>

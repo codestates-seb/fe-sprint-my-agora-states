@@ -12,6 +12,9 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  const discussionText = document.createElement('div');
+  discussionText.className = "discussion__text";
+  discussionText.textContent = "본문보기";
 
   const answerContainer = document.createElement('div');
   answerContainer.className = 'answer__container';
@@ -38,15 +41,22 @@ const convertToDiscussion = (obj) => {
   discussionStory.className = 'discussion__story';
   discussionStory.innerHTML = obj.bodyHTML;
 
-  discussionTitle.addEventListener('click', function() {
+  discussionText.addEventListener('click', function() {
     discussionStory.classList.toggle('show');
   });
 
   // 작성자 및 날짜
   const discussionAuthor = document.createElement('div')
   discussionAuthor.className = 'discussion__information';
-  discussionAuthor.textContent = obj.author + ' / ' + obj.createdAt;
-  discussionContent.append(discussionTitle, discussionAuthor);
+  const authorName = document.createElement('span')
+  authorName.className = 'author__name';
+  authorName.textContent = obj.author;
+  const authorDate = document.createElement('span')
+  authorDate.className = 'author__date';
+  authorDate.textContent = obj.createdAt;
+  discussionAuthor.append(authorName, authorDate)
+  avatarWrapper.append(discussionAuthor)
+  discussionContent.append(avatarWrapper, discussionText);
 
   // 답변 여부
   const discussionAnsweredBox = document.createElement('p')
@@ -64,7 +74,6 @@ const convertToDiscussion = (obj) => {
     answerAvatarImg.className = 'discussion__avatar--image';
     answerAvatarImg.src = obj.answer['avatarUrl'];
     answerAvatarImg.alt = 'avatar of ' + obj.answer['author'];
-    answerWrapper.append(answerAvatarImg);
 
     const answerComment = document.createElement('p');
     answerComment.className = 'answer__comment';
@@ -72,13 +81,19 @@ const convertToDiscussion = (obj) => {
 
     const answerAuthor = document.createElement('div')
     answerAuthor.className = 'discussion__information';
-    answerAuthor.textContent = obj.answer['author'] + ' / ' + obj.answer['createdAt'];
-    answerContent.append(answerComment, answerAuthor);
-
+    const answerName = document.createElement('span')
+    answerName.className = 'author__name';
+    answerName.textContent = obj.author;
+    const answerDate = document.createElement('span')
+    answerDate.className = 'author__date';
+    answerDate.textContent = obj.createdAt;
+    answerAuthor.append(answerName, answerDate)
+    answerWrapper.append(answerAvatarImg, answerAuthor);
+    answerContent.append(answerComment);
     answerContainer.append(answerWrapper, answerContent);
   }
   discussionAnswered.appendChild(discussionAnsweredBox);
-  li.append(avatarWrapper, discussionContent, discussionAnswered, discussionStory, answerContainer);
+  li.append(discussionTitle, discussionContent, discussionStory, discussionAnswered, answerContainer);
   return li;
 };
 
@@ -94,6 +109,13 @@ form.addEventListener('submit', function (event) {
   event.preventDefault();
 })
 
+const qustionToggle = document.querySelector('.form__title');
+qustionToggle.addEventListener('click', function() {
+  form.classList.toggle('show');
+})
+
+
+
 const date = new Date();
 
 const year = date.getFullYear();
@@ -108,6 +130,9 @@ const dateStr = year + '-' + month + '-' + day + 'T' + hours + ':' + minutes  + 
 
 function newDiscussion(event) {
   if(event.target.type === 'submit') {
+    if(inputTitle.value === '' || inputName.value === '' || inputStory.value === '') {
+      return ;
+    }
   agoraStatesDiscussions.push({
       createdAt: dateStr,
       title: inputTitle.value,
