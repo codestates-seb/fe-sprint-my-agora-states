@@ -105,6 +105,33 @@
   gap: 12px;
 }
 
+.discussions__prev-btn,
+.discussions__next-btn {
+  font-size: 1.6rem;
+  color: var(--blue);
+  background: none;
+  border: 1px solid var(--gray-3);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0 16px;
+}
+
+.discussions__prev-btn:disabled,
+.discussions__next-btn:disabled {
+  color: var(--gray-4);
+  cursor: initial;
+}
+.discussions__prev-btn:disabled:hover,
+.discussions__next-btn:disabled:hover {
+  border: 1px solid var(--gray-3);
+}
+
+.discussions__page-btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
 .page-btn {
   display: block;
   padding: 6px 10px;
@@ -117,8 +144,10 @@
   box-sizing: border-box;
 }
 
-.page-btn:hover {
-  border: 1px solid var(--gray-6);
+.page-btn:hover,
+.discussions__prev-btn:hover,
+.discussions__next-btn:hover {
+  border: 1px solid var(--gray-5);
 }
 
 .page-btn.active {
