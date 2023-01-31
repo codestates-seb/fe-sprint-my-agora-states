@@ -27,7 +27,7 @@ https://sangbeomheo.github.io/fe-sprint-my-agora-states/
 ### 4. 페이지네이션
 
 - [x] 한 페이지 당 10개씩 렌더링
-- [ ] 이전, 다음 버튼
+- [x] 이전, 다음 버튼 **23.02.01 구현**
 - [x] 페이지 번호 클릭 시 해당 페이지로 이동
 
 ### 5. Discussion 답변 토글
@@ -44,11 +44,16 @@ https://sangbeomheo.github.io/fe-sprint-my-agora-states/
 ### 기능 별 데모 영상
 
 #### Discussion 추가
+
 ![add](https://user-images.githubusercontent.com/41741221/211489651-b05eeeae-35c7-4e29-b3cc-6036580c6e66.gif)
 
 #### 필터 기능 (All, Answered, UnAnswered)
+
 ![filtering](https://user-images.githubusercontent.com/41741221/211489670-5c223222-f3f0-453b-a172-38eb0048efcd.gif)
 
 #### 페이지네이션
+
 ![paging](https://user-images.githubusercontent.com/41741221/211489661-10e52c97-ceeb-4dbd-857e-7cd538a4f681.gif)
 
+- 23.02.01 Prev/Next 버튼 추가
+  ![paging2](https://user-images.githubusercontent.com/41741221/215812821-82765965-3671-4c49-8554-a4ef4f633dc6.gif)
