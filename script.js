@@ -1,10 +1,11 @@
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
+const convertToDiscussion = obj => {
   const li = document.createElement("li");
   li.className = "discussion__container";
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
 
@@ -17,11 +18,15 @@ const convertToDiscussion = (obj) => {
   // Content
   const title = document.createElement("h2");
   title.classList = "discussion__title";
+
   const link = document.createElement("a");
+
   const infoContainer = document.createElement("div");
   infoContainer.classList = "discussion__information-container";
+
   const info = document.createElement("div");
   info.classList = "discussion__information";
+
   const answered = document.createElement("div");
   answered.className = "discussion__answered";
 
@@ -40,10 +45,10 @@ const convertToDiscussion = (obj) => {
   answered.append(p);
   if (obj.answer === null) {
     p.classList = "unanswered";
-    p.textContent = "· Unanswered";
+    p.textContent = "Unanswered";
   } else {
     p.classList = "answered";
-    p.textContent = "· Answered";
+    p.textContent = "Answered";
   }
 
   li.append(avatarWrapper, discussionContent);
@@ -51,7 +56,7 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = element => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -88,7 +93,7 @@ const createNewDiscussion = (name, title) => {
 
 // input form
 const form = document.querySelector(".form");
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", event => {
   event.preventDefault();
   const inputName = document.querySelector(".form__input--name input");
   const inputTitle = document.querySelector(".form__input--title input");
@@ -107,7 +112,7 @@ form.addEventListener("submit", (event) => {
   saveDiscussion();
 });
 
-const discussions = localStorage.getItem("Discussions");
+const discussions = localStorage.getItem("Discussions"); // localStorage.Discussions
 if (discussions) {
   const parsedDiscussions = JSON.parse(discussions);
   agoraStatesDiscussions = parsedDiscussions;
@@ -149,9 +154,9 @@ arrowUp.addEventListener("click", () => {
 
 // Submit button
 const textarea = document.querySelector("textarea");
-textarea.addEventListener("keyup", (e) => {
+textarea.addEventListener("keyup", event => {
   const submit = document.querySelector(".form__submit input");
-  const value = e.target.value;
+  const value = event.target.value;
   if (value) {
     submit.classList.add("active");
   } else {

@@ -200,6 +200,11 @@ h1.font-small {
   color: #8b949e;
 }
 
+:is(.unanswered, .answered)::before {
+  content: "·";
+  margin-right: 5px;
+}
+
 /* Arrow up */
 .arrow-up {
   display: flex;
