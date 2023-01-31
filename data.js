@@ -786,11 +786,7 @@ let agoraStatesDiscussions = [
     avatarUrl:
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   },
-].map((discussion) => {
-  if (discussion.createdAt) {
-    discussion.createdAt = discussion.createdAt.replaceAll(/T|Z/g, " ").trim();
-  }
-
+].map(discussion => {
   if (discussion.answer) {
     return {
       ...discussion,

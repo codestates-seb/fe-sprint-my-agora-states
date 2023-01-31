@@ -34,8 +34,9 @@ const convertToDiscussion = obj => {
   discussionContent.append(title, infoContainer);
   title.append(link);
 
+  const parsedDate = new Date(obj.createdAt).toLocaleString("ko-kr");
   link.textContent = obj.title;
-  info.textContent = `${obj.author} / ${obj.createdAt}`;
+  info.textContent = `${obj.author} / ${parsedDate}`;
 
   link.setAttribute("href", obj.url);
   link.setAttribute("target", "_blank");
@@ -60,7 +61,7 @@ const render = element => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  return;
+  // return;
 };
 
 // saveDiscussion 로컬 스토리지에 디스커션을 저장하는 함수입니다.
