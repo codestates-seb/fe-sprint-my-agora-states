@@ -5,10 +5,13 @@ const INITIAL_PAGE = 1;
 
 export default function Discussions({ handleFilter, handlePage }) {
   this.currentPage = INITIAL_PAGE;
+  this.lastPage = null;
 
   this.listEl = qs('.discussions__list');
   this.filterEl = qs('.discussions__filter');
   this.pagenationEl = qs('.discussions__pagenation');
+  this.nextBtnEl = qs('.discussions__next-btn');
+  this.prevBtnEl = qs('.discussions__prev-btn');
 
   this.filterEl.addEventListener('click', ({ target }) => {
     if (target.matches('.active') || !target.matches('.filter__btn')) return;
@@ -21,16 +24,36 @@ export default function Discussions({ handleFilter, handlePage }) {
   });
 
   this.pagenationEl.addEventListener('click', ({ target }) => {
-    if (target.matches('.active') || !target.matches('.page-btn')) return;
+    if (target.matches('.discussions__prev-btn')) {
+      this.handleNextPrevBtnClick(false);
+      return;
+    }
 
-    const clickedPage = +target.textContent.trim();
+    if (target.matches('.discussions__next-btn')) {
+      this.handleNextPrevBtnClick(true);
+      return;
+    }
+
+    if (target.matches('.page-btn') && !target.matches('.active')) {
+      const clickedPage = +target.textContent;
+      this.handlePagesBtnClick(clickedPage);
+      return;
+    }
+  });
+
+  this.handleNextPrevBtnClick = plusMinus => {
+    plusMinus ? this.currentPage++ : this.currentPage--;
+    handlePage();
+  };
+
+  this.handlePagesBtnClick = clickedPage => {
     this.currentPage = clickedPage;
 
     handlePage();
-  });
+  };
 
-  this.templateItem = ({ createdAt, title, author, avatarUrl, answer }) => `
-    <li class="discussion">
+  this.templateItem = ({ id, createdAt, title, author, avatarUrl, answer }) => `
+    <li class="discussion" data-id="${id}">
       <div class="discussion__content">
         <h4 class="discussion__title">${title}</h4>
         <div class="discussion__info">
@@ -58,13 +81,37 @@ export default function Discussions({ handleFilter, handlePage }) {
   `;
 
   this.templatePagenation = pageCount => {
+    const isStartPage = this.currentPage === INITIAL_PAGE;
+    const isEndPage = this.currentPage === this.lastPage;
+
+    return (
+      this.templatePrevBtn(isStartPage) +
+      this.templatepageBtns(pageCount) +
+      this.templateNextBtn(isEndPage)
+    );
+  };
+
+  this.templatePrevBtn = isDisabled => {
+    return `<button class="discussions__prev-btn" ${
+      isDisabled ? 'disabled' : ''
+    }>Prev</button>`;
+  };
+
+  this.templateNextBtn = isDisabled => {
+    return `<button class="discussions__next-btn" ${
+      isDisabled ? 'disabled' : ''
+    }>Next</button>`;
+  };
+
+  this.templatepageBtns = pageCount => {
     return Array.from({ length: pageCount })
       .map((_, i) => {
         const page = i + 1;
         return `
-        <button class='page-btn ${this.currentPage === page ? 'active' : ''}'>
-          ${i + 1}
-        </button>`;
+          <button class='page-btn ${this.currentPage === page ? 'active' : ''}'>
+            ${i + 1}
+          </button>
+        `;
       })
       .join('');
   };
@@ -77,6 +124,7 @@ export default function Discussions({ handleFilter, handlePage }) {
     const pageCount = Math.ceil(items.length / ITEM_COUNT_FOR_PAGE);
     const pagenationHTML = this.templatePagenation(pageCount);
 
+    this.lastPage = pageCount;
     this.listEl.replaceChildren();
     this.pagenationEl.replaceChildren();
     this.listEl.insertAdjacentHTML('beforeend', listHTML);
