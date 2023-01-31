@@ -138,9 +138,14 @@ h1.font-small {
   transition: all 300ms;
 }
 
+.form__submit input {
+  cursor: default;
+}
+
 .form__submit input.active {
   color: #0d1117;
   background-color: #3fb950;
+  cursor: pointer;
 }
 
 .form__textbox textarea::placeholder {

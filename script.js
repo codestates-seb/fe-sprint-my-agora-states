@@ -146,12 +146,9 @@ arrowUp.addEventListener("click", () => {
   main.scrollIntoView({ behavior: "smooth" });
 });
 
-// Submit button
-const textarea = document.querySelector("textarea");
-textarea.addEventListener("keyup", event => {
+form.addEventListener("keyup", () => {
   const submit = document.querySelector(".form__submit input");
-  const value = event.target.value;
-  if (value) {
+  if (form[0].value && form[1].value && form[2].value) {
     submit.classList.add("active");
   } else {
     submit.classList.remove("active");
