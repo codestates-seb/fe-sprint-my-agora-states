@@ -32,6 +32,8 @@
 .form__textarea {
   padding: 16px;
   height: 120px;
+  min-height: 120px;
+  max-height: 640px;
   line-height: 1.5;
   border-bottom: 1px dashed var(--gray-5);
 }
