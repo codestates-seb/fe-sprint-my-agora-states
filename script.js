@@ -61,7 +61,6 @@ const render = element => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  // return;
 };
 
 // saveDiscussion 로컬 스토리지에 디스커션을 저장하는 함수입니다.
@@ -92,6 +91,7 @@ form.addEventListener("submit", event => {
   const inputName = document.querySelector(".form__input--name input");
   const inputTitle = document.querySelector(".form__input--title input");
   const inputTextbox = document.querySelector(".form__textbox textarea");
+  const submit = document.querySelector(".form__submit input");
 
   const name = inputName.value;
   const title = inputTitle.value;
@@ -99,6 +99,7 @@ form.addEventListener("submit", event => {
   inputName.value = "";
   inputTitle.value = "";
   inputTextbox.value = "";
+  submit.classList.remove("active");
 
   const newDiscussion = createNewDiscussion(name, title);
   agoraStatesDiscussions.unshift(newDiscussion);
