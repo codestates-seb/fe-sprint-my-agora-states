@@ -1,18 +1,7 @@
-# Description
-
-Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스테이츠를 만듭니다.
-
-- [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)에서 자신의 리포지토리로 fork후 과제 진행합니다.
-
 ## 배포 링크
-
-Github Page 배포 링크를 아래 작성합니다.
 https://aroma-oh.github.io/fe-sprint-my-agora-states/
 
 ## Bare Minimum Requirement Self Checklist
-
-스스로 구현 완료한 부분까지 체크하여 제출합니다.
-
 - [x] 디스커션 나열 기능
     - [x] `script.js`를 수정하여 `agoraStatesDiscussions` 배열의 데이터를 나열할 수 있게 구현합니다.
 - [x] CSS
@@ -31,9 +20,6 @@ https://aroma-oh.github.io/fe-sprint-my-agora-states/
   - [x] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
-
-스스로 구현 완료한 부분까지 체크하여 제출합니다.
-
 - [x] 현지 시간 적용
     - [x] 샘플 시간을 잘 변형하여, 현지 시간에 맞게 표현합니다. (ex. 오전 10:02:17)
 - [x] 페이지네이션 기능
@@ -46,9 +32,6 @@ https://aroma-oh.github.io/fe-sprint-my-agora-states/
     - [ ] LocalStorage에 대해서 스스로 학습하고, 새롭게 추가하는 Discussion이 페이지를 새로고침해도 유지되도록 제작합니다.
 
 ### My Own Self Checklist
-
-자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
-
 - [x] title 줄바꿈이 box의 width에의해 강제 개행되어, 문자열의 공백 기준으로 변경함
 ```
 word-break: keep-all; 
