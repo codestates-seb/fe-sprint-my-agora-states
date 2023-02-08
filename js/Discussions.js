@@ -52,10 +52,10 @@ export default function Discussions({ handleFilter, handlePage }) {
     handlePage();
   };
 
-  this.templateItem = ({ id, createdAt, title, author, avatarUrl, answer }) => `
+  this.templateItem = ({ id, createdAt, title, author, avatarUrl, answer, url }) => `
     <li class="discussion" data-id="${id}">
       <div class="discussion__content">
-        <h4 class="discussion__title">${title}</h4>
+        <h4 class="discussion__title"><a href="${url}" target="blank">${title}</a></h4>
         <div class="discussion__info">
           <span class="discussion__username">${author} asked on </span> ·
           <span class="discussion__create-date">${new Date(

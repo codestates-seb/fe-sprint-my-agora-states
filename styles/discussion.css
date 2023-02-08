@@ -41,14 +41,16 @@
   width: 100%;
 }
 
-.discussion__title {
+.discussion__title > a {
+  display: block;
   margin-bottom: 8px;
   color: var(--gray-6);
+  text-decoration: none;
   font-size: 18px;
   font-weight: bold;
   word-break: keep-all;
 }
-.discussion__title:hover {
+.discussion__title > a:hover {
   color: var(--blue);
   cursor: pointer;
 }
