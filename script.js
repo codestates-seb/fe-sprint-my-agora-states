@@ -1,12 +1,10 @@
 // 선언
 const btnSubmit = document.querySelector(".form__submit input");
 let myStorage = window.localStorage; // 로컬 스토리지
-let data = myStorage.getItem("items")
-  ? JSON.parse(myStorage.getItem("items"))
-  : agoraStatesDiscussions;
-// let data = myStorage.getItem("items")
-//   ? JSON.parse(myStorage.getItem("items"))
-//   : agoraStatesDiscussions;
+
+// 데이터 넣을 변수
+let data;
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 
@@ -30,7 +28,9 @@ const convertToDiscussion = (obj) => {
   // 아바타 이미지
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = obj.avatarUrl; // TODO: 이미지 없는 경우 기본 이미지 넣도록 수정하기
+  avatarImg.src = obj.avatarUrl
+    ? obj.avatarUrl
+    : `https://randomuser.me/api/portraits/women/50.jpg`;
   avatarImg.alt = `avatar of ${obj.author}`;
 
   // 디스커션 제목
@@ -75,14 +75,51 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// fetch data async 함수 - async 사용
+// async function dataSet() {
+//   let response = await fetch("http://localhost:4000/discussions");
+//   return await response.json();
+// }
+
+// async 사용한 render
+// const render = async (element, from, to) => {
+//   if (!from && !to) {
+//     from = 1;
+//     to = data.length - 1;
+//   }
+
+//   // 만약 기존의 데이터가 있을 경우 초기화 하도록 함
+//   while (element.hasChildNodes()) {
+//     element.removeChild(element.lastChild);
+//   }
+
+//   // 렌더링해줄 데이터 세팅
+//   let fetchData = await dataSet();
+//   data = myStorage.getItem("items")
+//     ? JSON.parse(myStorage.getItem("items"))
+//     : fetchData;
+
+//   for (let i = from; i < to; i += 1) {
+//     element.append(convertToDiscussion(data[i]));
+//   }
+
+//   // for (let i = 0; i < data.length; i += 1) {
+//   //   element.append(convertToDiscussion(data[i]));
+//   //   // 배열의 모든 요소 개수만큼 반복
+//   //   // 배열 인덱스번째의 객체가 convertToDiscussion의 매개변수가 된다.
+//   // }
+// };
+
+// 페이지네이션
+let limit = 10; // 한 페이지에 글은 10개까지만
+let page = 1;
+
 const render = (element, from, to) => {
-  if (!from && !to) {
-    from = 1;
+  if (!from && to) {
+    from = 0;
     to = data.length - 1;
   }
 
-  // 만약 기존의 데이터가 있을 경우 초기화 하도록 함
   while (element.hasChildNodes()) {
     element.removeChild(element.lastChild);
   }
@@ -90,19 +127,18 @@ const render = (element, from, to) => {
   for (let i = from; i < to; i += 1) {
     element.append(convertToDiscussion(data[i]));
   }
-
-  // for (let i = 0; i < data.length; i += 1) {
-  //   element.append(convertToDiscussion(data[i]));
-  //   // 배열의 모든 요소 개수만큼 반복
-  //   // 배열 인덱스번째의 객체가 convertToDiscussion의 매개변수가 된다.
-  // }
 };
 
-// 페이지네이션
-let limit = 10; // 한 페이지에 글은 10개까지만
-let page = 1;
+fetch("http://localhost:4000/discussions")
+  .then((res) => res.json())
+  .then((json) => {
+    data = myStorage.getItem("items")
+      ? JSON.parse(myStorage.getItem("items"))
+      : json;
+    render(ul, 0, limit);
+  });
 
-render(ul, 0, limit);
+// render(ul, 0, limit);
 
 const getPageStartEnd = (limit, page) => {
   const len = data.length - 1;
@@ -141,7 +177,7 @@ buttons.children[1].addEventListener("click", () => {
 buttons.children[2].addEventListener("click", () => {
   // 로컬스토리지의 데이터 초기화 하고 페이지도 초기상태로 되돌림
   localStorage.removeItem("items");
-  data = boardData.slice();
+  data = data.slice();
   limit = 10;
   page = 1;
   render(ul, 0, limit);
