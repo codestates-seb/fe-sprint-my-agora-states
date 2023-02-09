@@ -143,6 +143,7 @@ input {
     border: 0;
     flex: 1 1 auto;
     border-radius: 3px;
+    height: 20px;
 }
 
 textarea {
