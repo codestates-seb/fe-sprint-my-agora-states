@@ -11,7 +11,7 @@ const createBtn = document.querySelector(".create-input");
 const closeModal = document.querySelector(".close-btn");
 async function modal() {}
 //제출 버튼 클릭시 실행
-
+debugger;
 formBtn.onclick = async function (event) {
   //새로고침 방지
 
@@ -32,18 +32,17 @@ formBtn.onclick = async function (event) {
     avatarUrl: formImg.avatar_url,
     createdAt: Date(),
   };
-
-  //
+  //필요한 요소가 존재한다면 글 create
   if (inputName && inputTitle && inputTextbox) {
-    //console.log(inputName, inputTitle, inputTextbox);
-    //글을 맨앞으로 추가
-    //agoraData.unshift(obj);
-    //saveData();
-    await createDiscussions(obj);
-    //console.log(agoraData);
-    //setPage(totalPage, currentPage);
-    app();
-    //모달을 닫고 초기화
+    const url = `http://localhost:4000/discussions/`;
+
+    await createDiscussions(obj).then((res) => {
+      agoraData = [...res];
+      console.log(res);
+      render(ul);
+      //모달을 닫고 초기화
+    });
+
     formContainer.classList.add("hide");
     body.style.overflow = "auto";
     formInputName.querySelector("#name").value = "";
@@ -54,6 +53,7 @@ formBtn.onclick = async function (event) {
 
 createBtn.onclick = function () {
   //console.log(formContainer);
+
   formContainer.classList.remove("hide");
   body.style.overflow = "hidden";
 };
