@@ -1,6 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions.length);
-
+let data;
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -50,6 +56,14 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.append(discussionCheck);
   checkAnswered.append(discussionAnswered);
 
+  // 삭제 버튼
+  const removeItem = document.createElement('div');
+  removeItem.classList = "remove-item";
+  const removeBtn = document.createElement("i");
+  removeBtn.classList = "bi bi-trash3-fill";
+  removeItem.append(removeBtn);
+  discussionContent.append(removeItem);
+
   // 답변 확인하기 버튼
   const btnCheck = document.createElement('button');
   btnCheck.className = "btn__check--answered";
@@ -96,11 +110,26 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+// const render = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   // console.log(element)
+//   return;
+// };
+const render = (element, from, to) => {
+  console.log(from, to);
+  if (!from && !to) {
+    from = 0;
+    to = data.length - 1;
   }
-  // console.log(element)
+  // 다 지우고 배열에 있는 내용 다 보여주기
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
+    element.append(convertToDiscussion(data[i]));
+  }
   return;
 };
 
@@ -153,18 +182,27 @@ newDiscussion.addEventListener('sunmit',(event)=>{
 });
 
 // 입력값 추가하기
-function addDiscussion(event){
-  if(event.target.type==='submit'){
-    agoraStatesDiscussions.unshift({
-      id : '',
-      createdAt : new Date().toISOString(),
-      title : newTitle.value,
-      url : "",
-      author : newAuthor.value,
-      answer : {}  ,
-      bodyHTML : newStory.value,
-      avatarUrl : 'https://avatars.githubusercontent.com/u/79903256?s=64&v=4'
-    });
-    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
-  }
-}
+newDiscussion.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  const obj = {
+    id : '',
+    createdAt : new Date().toISOString(),
+    title : newTitle.value,
+    url : "",
+    author : newAuthor.value,
+    answer : {}  ,
+    bodyHTML : newStory.value,
+    avatarUrl : 'https://avatars.githubusercontent.com/u/79903256?s=64&v=4'
+  };
+  data.unshift(obj);
+  localStorage.setItem('agoraStatesDiscussions',JSON.stringify(data));
+  render(ul);
+});
+
+fetch("http://localhost:4000/discussions/")
+  .then(response => response.json())
+  .then(json => {
+    agoraStatesDiscussions = json; 	//위에서 agoraStatesDiscussions 라는 dummy data를 사용했었다.
+    const ul = document.querySelector("ul.discussions__container"); 
+    render(ul); //화면에 dom elements를 render 해주는 함수를 위에서 구현했었다.
+  })
