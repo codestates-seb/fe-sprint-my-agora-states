@@ -57,11 +57,60 @@ h1{
     justify-content:center;
     align-items:center;
     width:400px;
+    margin:20px auto;
 }
-.form__container label{
+.form__input--name, .form__input--title, .form__textbox{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:15px;
+}
+.form__container label{    
+    width:90px;
     color:#666;
     font-weight:300;
     font-size:0.8rem;
+}
+.form__container input{
+    flex:1 1 auto;
+    border-radius:0;
+    border: solid 1px #666;
+    padding:3px;
+}
+.form__container textarea{
+    flex:1 1 auto;
+    border-radius:0;
+    border: solid 1px #666;
+    padding:5px;
+}
+.form__submit{
+    display:flex;    
+    justify-content:center;
+    align-items:center;
+}
+.submit_blank{
+    flex:7 1 auto;
+}
+.form__submit>input{
+    flex:1 1 auto;
+    padding:8px;
+    border-radius:5px;
+    border:solid 0px #666;
+    box-shadow:2px 2px 3px #ccc;
+    color:#003c89;
+    font-size:1.2rem;
+    font-weight:700;
+    background:#d2e5ff;    
+}
+.form__submit>input:hover{
+    color:#b2ffc0;
+    background:#00e1ff;
+    cursor:pointer;
+}
+.form__submit>input:active{
+    color:#b2ffc0;
+    background:#00e1ff;
+    box-shadow:2px 2px 3px #ccc inset;
 }
 
 li.discussion__container{
@@ -102,4 +151,24 @@ li.discussion__container{
 }
 .discussion__answered>span{
     font-size:1rem;
+}
+.buttons>button{
+    padding:8px;
+    border-radius:5px;
+    border:solid 0px #666;
+    box-shadow:2px 2px 3px #ccc;
+    color:#003c89;
+    font-size:1.2rem;
+    font-weight:700;
+    background:#d2e5ff;    
+}
+.buttons>button:hover{
+    color:#b2ffc0;
+    background:#00e1ff;
+    cursor:pointer;
+}
+.buttons>button:active{
+    color:#b2ffc0;
+    background:#00e1ff;
+    box-shadow:2px 2px 3px #ccc inset;
 }
