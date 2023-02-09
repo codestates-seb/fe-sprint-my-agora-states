@@ -8,14 +8,11 @@ const ul = document.querySelector("ul.discussions__container");
 const form = document.querySelector('form.form'); // 작성세션 전체
 let localData = JSON.parse(localStorage.getItem("myAgora")) || [];
 
-console.log("로컬겟 : ", localData)
 const addLocalStorage = (() => {
   if(!localStorage.myAgora) {
       localStorage.setItem('myAgora', JSON.stringify([]));
   }
-})()
-
-console.log("로컬데이타 ",localData)
+})();
 
 const resetForm = () => {
   document.querySelector('.form__input--title #title').value = '';
@@ -35,17 +32,18 @@ const addLocal = () => {
   });
   localStorage.setItem("myAgora", JSON.stringify(localData));
   // agoraStatesDiscussions.unshift(obj); // 서브밋 -> 추가
-  ul.prepend(convertToDiscussion(...localData)); // 추가 -> 렌더링 그대로 전달
+  
 }
 
 form.addEventListener('submit', (event) => {
   event.preventDefault(); // 기본동작 정지
   addLocal();
   resetForm();
+  localRender();
 });
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-console.log("컨버트 로컬 : ", JSON.parse(localStorage.getItem("myAgora")));
+
 const convertToDiscussion = (obj) => {
 const li = document.createElement("li") // li 요소 생성
 const avatarWrapper = document.createElement("div");  // div요소 생성 avatarWrapper > img
@@ -97,10 +95,22 @@ const discussionAnswered = document.createElement("div"); // discussionAnswered 
 const render = (element) => { // ul > 더미배열 [i]값 반환
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     // console.log(JSON.stringify(agoraStatesDiscussions[i]));
+
     element.append(convertToDiscussion(agoraStatesDiscussions[i], )); // 더미[i]를 인자로 사용
   }
   return;
 };
+
+
+console.log("로컬데이타 : ",localData.length)
+const localRender = () => {
+  for (let i = 0; i < localData.length; i += 1) {
+    ul.prepend(convertToDiscussion(localData[i])); // 추가 -> 렌더링 그대로 전달 // 더미[i]를 인자로 사용
+  }
+  return;
+}
+localRender();
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 // render(ul);
 
@@ -124,6 +134,8 @@ const render = (element) => { // ul > 더미배열 [i]값 반환
  * .catch() 메소드를 사용하여 오류를 처리하고, 
  * console.error 함수를 사용하여 오류 메시지를 출력.
 */
+// 주석부분이 순서에요.
+
 // fetch('http://localhost:4000/discussions')
 //   .then(res => res.json())
 //   .then(json => {
@@ -143,4 +155,3 @@ async function fetchData() {
   }
 }
 fetchData();
-
