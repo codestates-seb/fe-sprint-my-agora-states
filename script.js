@@ -1,5 +1,5 @@
+let agoraStatesDiscussions;
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions.length);
 let data;
 const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
 if (dataFromLocalStorage) {
@@ -71,7 +71,7 @@ const convertToDiscussion = (obj) => {
   checkAnswered.append(btnCheck);
 
   // 답변 폼
-  console.log(obj.answer)
+
   // 답변 박스
   const answeredContainer = document.createElement('div');
   answeredContainer.className = "answered__container";
@@ -118,7 +118,7 @@ const convertToDiscussion = (obj) => {
 //   return;
 // };
 const render = (element, from, to) => {
-  console.log(from, to);
+  // console.log(from, to);
   if (!from && !to) {
     from = 0;
     to = data.length - 1;
@@ -134,9 +134,19 @@ const render = (element, from, to) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
-
+// const ul = document.querySelector("ul.discussions__container");
+// render(ul);
+fetch("http://localhost:4000/discussions/")
+  // 본문 가져오기
+  .then((res) => res.json())
+  .then((json) => {
+    // data.js 대신 사용
+    agoraStatesDiscussions = json; 	
+    const ul = document.querySelector("ul.discussions__container"); 
+    render(ul);
+    // console.log(json)
+    console.log(agoraStatesDiscussions);
+  })
 
 // 질문 남기기 버튼을 누르면 폼박스 나오기
 // 닫기 버튼 누르면 폼박스 닫기
@@ -199,10 +209,13 @@ newDiscussion.addEventListener('submit',(event)=>{
   render(ul);
 });
 
-fetch("http://localhost:4000/discussions/")
-  .then(response => response.json())
-  .then(json => {
-    agoraStatesDiscussions = json; 	//위에서 agoraStatesDiscussions 라는 dummy data를 사용했었다.
-    const ul = document.querySelector("ul.discussions__container"); 
-    render(ul); //화면에 dom elements를 render 해주는 함수를 위에서 구현했었다.
-  })
+// fetch("http://localhost:4000/discussions/")
+//   // 본문 가져오기
+//   .then((res) => res.json())
+//   .then((json) => {
+//     // data.js 대신 사용
+//     let agoraStatesDiscussions = json; 	
+//     const ul = document.querySelector("ul.discussions__container"); 
+//     render(ul);
+//     console.log(json)
+//   })
