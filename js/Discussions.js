@@ -25,28 +25,28 @@ export default function Discussions({ handleFilter, handlePage }) {
 
   this.pagenationEl.addEventListener('click', ({ target }) => {
     if (target.matches('.discussions__prev-btn')) {
-      this.handleNextPrevBtnClick(false);
+      this.onNextPrevBtnClick(false);
       return;
     }
 
     if (target.matches('.discussions__next-btn')) {
-      this.handleNextPrevBtnClick(true);
+      this.onNextPrevBtnClick(true);
       return;
     }
 
     if (target.matches('.page-btn') && !target.matches('.active')) {
       const clickedPage = +target.textContent;
-      this.handlePagesBtnClick(clickedPage);
+      this.onPagesBtnClick(clickedPage);
       return;
     }
   });
 
-  this.handleNextPrevBtnClick = plusMinus => {
+  this.onNextPrevBtnClick = plusMinus => {
     plusMinus ? this.currentPage++ : this.currentPage--;
     handlePage();
   };
 
-  this.handlePagesBtnClick = clickedPage => {
+  this.onPagesBtnClick = clickedPage => {
     this.currentPage = clickedPage;
 
     handlePage();
@@ -116,7 +116,33 @@ export default function Discussions({ handleFilter, handlePage }) {
       .join('');
   };
 
+  this.clear = () => {
+    this.pagenationEl.replaceChildren();
+    this.listEl.replaceChildren();
+  };
+
+  this.renderErrorMessage = () => {
+    const errorMessageHTML =
+      '<div class="discussions__error"><a href="/">새로고침하기</a><p>서버와의 통신이 원활하지 않습니다.</p></div>';
+
+    this.clear();
+    this.listEl.insertAdjacentHTML('beforeend', errorMessageHTML);
+  };
+
+  this.renderLoadingIndicator = () => {
+    this.clear();
+    this.listEl.insertAdjacentHTML(
+      'beforeend',
+      '<div class="discussions__loader"></div>'
+    );
+  };
+
   this.render = items => {
+    if (items[0] === 'error') {
+      this.renderErrorMessage();
+      return;
+    }
+
     const startIndex = (this.currentPage - 1) * ITEM_COUNT_FOR_PAGE;
     const renderItems = items.slice(startIndex, startIndex + ITEM_COUNT_FOR_PAGE);
     const listHTML = renderItems.map(itemData => this.templateItem(itemData)).join('');
@@ -125,8 +151,7 @@ export default function Discussions({ handleFilter, handlePage }) {
     const pagenationHTML = this.templatePagenation(pageCount);
 
     this.lastPage = pageCount;
-    this.listEl.replaceChildren();
-    this.pagenationEl.replaceChildren();
+    this.clear();
     this.listEl.insertAdjacentHTML('beforeend', listHTML);
     this.pagenationEl.insertAdjacentHTML('beforeend', pagenationHTML);
   };
