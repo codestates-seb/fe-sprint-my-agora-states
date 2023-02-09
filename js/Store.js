@@ -1,22 +1,21 @@
-import { getLocalStorage, setLocalStorage } from './utils.js';
-import agoraStatesDiscussions from './data.js';
-
-const INITIAL_ITEMS = agoraStatesDiscussions;
-const STORAGE_KEY = 'codestates_discussion_test';
+import { get, post } from './utils.js';
 
 export default function Store() {
-  this.getItems = () => getLocalStorage(STORAGE_KEY) || INITIAL_ITEMS;
-
-  this.setItems = newItems => setLocalStorage(STORAGE_KEY, newItems);
-
-  this.getItemsByFilter = filter => {
-    if (filter === 'All') return this.getItems();
-    if (filter === 'Answered') return this.getItems().filter(item => !!item.answer);
-    if (filter === 'Unanswered') return this.getItems().filter(item => !item.answer);
+  this.getItemsByFilter = async filter => {
+    try {
+      return await get(`http://localhost:4000/discussions?filter=${filter}`);
+    } catch (error) {
+      console.error('Store GET 요청 실패 ' + error);
+      return ['error'];
+    }
   };
 
-  this.addItem = newItem => {
-    const items = [newItem, ...this.getItems()];
-    this.setItems(items);
+  this.createItem = async newItem => {
+    try {
+      return await post('http://localhost:4000/discussions', newItem);
+    } catch (error) {
+      console.error('Store POST 요청 실패 ' + error);
+      return;
+    }
   };
 }
