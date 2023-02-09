@@ -1,7 +1,19 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-
+let agoraStatesDiscussions = []
 const check_Mark = "☑";
 const uncheck_Mark = "☒";
+
+fetch("http://localhost:4000/discussions/")
+  .then(response => response.json())
+  .then(json => {
+       agoraStatesDiscussions = json;
+    const ul = document.querySelector("ul.discussions__container"); 
+    render(ul); 
+  })
+
+ 
+
+  
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -52,36 +64,46 @@ const render = (element) => {
   }
   return;
 };
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+
 
 //------------------------------------------------------------------//
-function InputInform(name,title,story) {
-  this.id = name;
+function InputInform(name,title,bodyHTML) {
+  this.id = agoraStatesDiscussions.length;
   this.author = name;
   this.createdAt = new Date().toLocaleDateString();
   this.title = title;
-  this.story = story;
+  this.bodyHTML = bodyHTML;
   this.avatarUrl = "https://avatars.githubusercontent.com/u/104641096?v=4"
 }
-const submitBtn = document.querySelector('.form')
+
+const submitBtn = document.querySelector('#button')
 
 submitBtn.addEventListener("submit", (event) => {
-event.preventDefault();
+  const newuser = document.querySelector("#username")
+  const newtitle = document.querySelector("#titlename")
+  const newtext = document.querySelector("#story")
 
-const newuser = document.querySelector("#username");
-const newtitle = document.querySelector("#titlename");
-const newtext = document.querySelector("#story");
 
-const newObj = new InputInform(newuser.value,newtitle.value,newtext.value);
-agoraStatesDiscussions.unshift(newObj);
-newuser.value = null
-newtitle.value = null
-newtext.value = null
 
-const discussion = convertToDiscussion(agoraStatesDiscussions[0]);
-ul.prepend(discussion);
+  const newObj = new InputInform(newuser.value,newtitle.value,newtext.value); // new Obj는 새로 작성된 게시물
+
+  newuser.value = null
+  newtitle.value = null
+  newtext.value = null
+
+  fetch("http://localhost:4000/discussions/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newObj)
+  })
+  .then(response => response.json())
+  .then((data) => {
+    agoraStatesDiscussions = data;
+    const ul = document.querySelector("ul.discussions__container"); 
+    render(ul); 
+  })
 })
 //------------------------------------------------------------------//
 
