@@ -54,4 +54,8 @@ export default function AddForm({ addNewItem }) {
     this.textareaEl.value = '';
     this.toggleSubmitBtn();
   };
+
+  this.focus = () => {
+    this.usernameInputEl.focus();
+  };
 }
