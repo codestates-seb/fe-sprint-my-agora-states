@@ -4,6 +4,9 @@ let myStorage = window.localStorage; // 로컬 스토리지
 let data = myStorage.getItem("items")
   ? JSON.parse(myStorage.getItem("items"))
   : agoraStatesDiscussions;
+// let data = myStorage.getItem("items")
+//   ? JSON.parse(myStorage.getItem("items"))
+//   : agoraStatesDiscussions;
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 
@@ -73,21 +76,76 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = (element, from, to) => {
+  if (!from && !to) {
+    from = 1;
+    to = data.length - 1;
+  }
+
   // 만약 기존의 데이터가 있을 경우 초기화 하도록 함
   while (element.hasChildNodes()) {
     element.removeChild(element.lastChild);
   }
 
-  for (let i = 0; i < data.length; i += 1) {
+  for (let i = from; i < to; i += 1) {
     element.append(convertToDiscussion(data[i]));
-    // 배열의 모든 요소 개수만큼 반복
-    // 배열 인덱스번째의 객체가 convertToDiscussion의 매개변수가 된다.
   }
-  return;
+
+  // for (let i = 0; i < data.length; i += 1) {
+  //   element.append(convertToDiscussion(data[i]));
+  //   // 배열의 모든 요소 개수만큼 반복
+  //   // 배열 인덱스번째의 객체가 convertToDiscussion의 매개변수가 된다.
+  // }
 };
 
-render(ul);
+// 페이지네이션
+let limit = 10; // 한 페이지에 글은 10개까지만
+let page = 1;
+
+render(ul, 0, limit);
+
+const getPageStartEnd = (limit, page) => {
+  const len = data.length - 1;
+  let pageStart = Number(page - 1) * Number(limit);
+  // 한 페이지에 나타날 글 중 첫번째 글의 인덱스
+  let pageEnd = Number(pageStart) + Number(limit);
+  // 한 페이지에 나타날 글 중 마지막 글의 인덱스
+  if (page <= 0) {
+    pageStart = 0; // 0이거나 음수이면 첫번째 글부터
+  }
+  if (pageEnd >= len) {
+    pageEnd = len; // 마지막 인덱스까지만 보이게 함
+  }
+  return { pageStart, pageEnd };
+};
+
+const buttons = document.querySelector(".buttons");
+buttons.children[0].addEventListener("click", () => {
+  if (page > 1) {
+    // 페이지가 1보다 크면 = 첫페이지가 아니라면
+    page = page - 1; // 한페이지씩 감소(=뒤로가기)
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[1].addEventListener("click", () => {
+  if (limit * page < data.length - 1) {
+    // 보여진 글의 개수가 전체 글의 개수보다 작다면
+    page = page + 1; // 한 페이지씩 증가
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[2].addEventListener("click", () => {
+  // 로컬스토리지의 데이터 초기화 하고 페이지도 초기상태로 되돌림
+  localStorage.removeItem("items");
+  data = boardData.slice();
+  limit = 10;
+  page = 1;
+  render(ul, 0, limit);
+});
 
 // 디스커션 추가기능
 // 이름, 제목, 본문 작성 후 sumbit 버튼 클릭시 실제 화면에 디스커션이 추가되어야 함
@@ -98,7 +156,8 @@ render(ul);
 // 이름, 제목, 본문을 가져와서 배열에 추가한다.
 // 추가된 내용은 dom으로 만들어서 렌더링되게 한다.
 // 추가된 내용은 배열과 화면 모두 맨 뒤가 아니라 맨 앞에 와야한다. (최신순)
-const addDiscussion = () => {
+const form = document.querySelector(".form");
+form.addEventListener("submit", (event) => {
   // 가져와야 할 내용들
   // 이름(author), 제목(title), 본문(bodyHTML), 현재 시간(클릭된 시간)(createdAt)
   // url, answer = null, avatarUrl 은 되면 추가로 작성
@@ -110,30 +169,28 @@ const addDiscussion = () => {
   const date = Date(); // new Date() : date객체 반환, Date() : 현재 날짜와 시간 나타내는 문자열 반환
   // Invalid Date ?? : 크로스 브라우징 이슈때문에 나타나는 에러
   const newObj = {
-    // id: 1,
+    id: 0,
     createdAt: date,
     title: title.value,
     // url: 1,
     author: author.value,
     answer: false,
     bodyHTML: story.value,
-    // avatarUrl: 1,
+    avatarUrl: `https://randomuser.me/api/portraits/women/50.jpg`,
   };
 
   // advanced : 데이터 추가시 로컬 스토리지에 내용이 추가되어야 함
   // 추가된 내용을 데이터 배열에 추가
   // 새 데이터 배열 로컬스토리지에 셋팅
   // 새로 셋팅된 데이터를 가져와서 렌터링
-  // agoraStatesDiscussions.unshift(newObj);
   data.unshift(newObj);
   myStorage.setItem("items", JSON.stringify(data));
-  render(ul);
+  render(ul, 0, limit);
 
   // 추가 완료시 입력 내용 삭제
   author.value = "";
   title.value = "";
   story.value = "";
-};
+});
 
-btnSubmit.onclick = addDiscussion;
 /* ??? 버튼 클릭 이벤트시 GET http://127.0.0.1:5500/false 404 (Not Found) 에러가 발생하는 것 같다. 값이 무엇이든지 관계없이 404 에러가 발생함 */

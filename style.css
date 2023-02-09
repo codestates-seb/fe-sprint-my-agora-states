@@ -199,16 +199,12 @@ main {
 .discussion__answered .complete {
   color: var(--primary);
 }
-/* .discusstion__pagenation {
-  display: flex;
-  flex-direction: row;
+
+.buttons button {
+  color: var(--white);
+  background-color: var(--font);
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: var(--btn-radius);
 }
-.discussion__pagenation li button {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-.discussion__pagenation li.active button {
-  background-color: gray;
-  color: #fff;
-} */
