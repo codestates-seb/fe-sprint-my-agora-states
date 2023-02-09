@@ -25,28 +25,28 @@ export default function Discussions({ handleFilter, handlePage }) {
 
   this.pagenationEl.addEventListener('click', ({ target }) => {
     if (target.matches('.discussions__prev-btn')) {
-      this.handleNextPrevBtnClick(false);
+      this.onNextPrevBtnClick(false);
       return;
     }
 
     if (target.matches('.discussions__next-btn')) {
-      this.handleNextPrevBtnClick(true);
+      this.onNextPrevBtnClick(true);
       return;
     }
 
     if (target.matches('.page-btn') && !target.matches('.active')) {
       const clickedPage = +target.textContent;
-      this.handlePagesBtnClick(clickedPage);
+      this.onPagesBtnClick(clickedPage);
       return;
     }
   });
 
-  this.handleNextPrevBtnClick = plusMinus => {
+  this.onNextPrevBtnClick = plusMinus => {
     plusMinus ? this.currentPage++ : this.currentPage--;
     handlePage();
   };
 
-  this.handlePagesBtnClick = clickedPage => {
+  this.onPagesBtnClick = clickedPage => {
     this.currentPage = clickedPage;
 
     handlePage();
