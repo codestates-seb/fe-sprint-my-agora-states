@@ -167,3 +167,20 @@
 .page-btn:disabled:hover {
   border: 1px solid var(--gray-3);
 }
+
+.discussions__error {
+  padding: 40px 0;
+  text-align: center;
+}
+.discussions__error p {
+  color: var(--gray-6);
+}
+.discussions__error a {
+  display: block;
+  padding-bottom: 8px;
+  color: var(--blue);
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
