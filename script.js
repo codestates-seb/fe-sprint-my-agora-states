@@ -16,11 +16,8 @@ let url = `http://localhost:4000/discussions`;
 fetch(url)
 .then((res)=> res.json())
 .then((json) => {
-  agoraStatesDiscussions = json;
-  data = [...data, ...agoraStatesDiscussions]
+  newAgoraStatesDiscussions = json;
   const ul = document.querySelector("ul.discussion__container");
-  console.log(agoraStatesDiscussions);
-  console.log(data);
   render(ul);
 })
 
