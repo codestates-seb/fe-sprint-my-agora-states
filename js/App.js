@@ -9,6 +9,10 @@ export default function App() {
 
   const addItem = async newItem => {
     const addedItemId = await store.createItem(newItem);
+    if (!addedItemId) {
+      window.alert('추가실패, 다시 시도해보세요.');
+      return;
+    }
     render();
     addForm.clear();
     addForm.focus();
