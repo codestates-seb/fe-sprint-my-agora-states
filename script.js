@@ -43,7 +43,6 @@ form.addEventListener('submit', (event) => {
 });
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-
 const convertToDiscussion = (obj) => {
 const li = document.createElement("li") // li 요소 생성
 const avatarWrapper = document.createElement("div");  // div요소 생성 avatarWrapper > img
