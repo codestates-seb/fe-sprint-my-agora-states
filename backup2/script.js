@@ -17,7 +17,6 @@ let paginationCheck = 0;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -108,18 +107,11 @@ form.addEventListener("submit", (event) => {
       },
       body: JSON.stringify(newData),
     })
-    .then(() => {
-      fetch('http://localhost:4000/discussions')
-      .then(res => res.json())
-      .then(json => {
-        agoraStatesDiscussions = json;
-        render(ul);
-        displayRow(0);
-      })
+    .then(json => {
+      agoraStatesDiscussions = json;
+      render(ul);
+      displayRow(0);
     })
-  
-
-
 
   //(02.09)이제 이걸 서버로 put 해줘야하는거네..
   // dataSave.push(newData)
@@ -177,7 +169,6 @@ resetKEY.onclick = function() {
   .then(res => res.json())
   .then(json => {
     agoraStatesDiscussions = json;
-    console.log(agoraStatesDiscussions)
     render(ul);
     displayRow(0);
   })
@@ -187,7 +178,8 @@ resetKEY.onclick = function() {
 /////////////////////////////////////////////////////////
 
 // 페이지에 보여줄 갯수
-const rows = document.querySelectorAll('.discussion__container')
+// const rows = document.querySelectorAll('.discussion__container')
+
 const rowsPerPage = 10;
 
 // 하아..

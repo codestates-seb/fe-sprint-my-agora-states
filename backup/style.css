@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Gurajada&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gurajada&family=Noto+Sans+KR:wght@300&display=swap');
+
+/* CSS로 새창을 만들어서 추가하게끔 설정할 예정. */
+
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0px;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#13B294,#078D8E);
+}
+
+a {
+ text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+    width: 540px;
+    font-family: 'Noto Sans KR', sans-serif;    
+}
+
+.hide {
+    display: none;
+}
+
+.agora-title {
+    margin-top: 20px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Gurajada', serif;
+    letter-spacing: 5px;
+    font-size: 26px
+}
+
+.agora-search {
+    color: rgba( 255, 255, 255, 0.6 );
+    font-family: 'Gurajada', serif;
+    letter-spacing: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 100;
+}
+
+.agora-writing {
+    font-family: 'Gurajada', serif;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.agora-writing div:hover {
+    color: lightgray;
+}
+
+.agora-search input {
+    width: 240px;
+    height: 30px;
+    border-radius: 100px;
+    padding-left: 35px;
+}
+
+.agora-search button {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -200px;
+    background-color: rgba( 255, 255, 255, 0 );
+    padding-top: 4px;
+}
+
+main {
+    height: 70%;
+    min-height: 600px;
+    padding: 20px 30px 30px 30px;
+}
+
+h2 {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #1F1F29;
+    font-weight: 700;
+}
+
+h2 a {
+    color: #1F1F29;
+}
+
+.writing {
+    display: flex;
+}
+
+.discussion__wrapper {
+    overflow-x: hidden;
+    height: 600px;
+    padding-right: 10px
+}
+
+.discussion__wrapper::-webkit-scrollbar {
+    width: 12px;
+  }
+.discussion__wrapper::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+  }
+.discussion__wrapper::-webkit-scrollbar-track {
+    background: linear-gradient(#078D8E,#13B294);
+    border-radius: 10px;
+  }
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 21px -5px rgba( 0, 0, 0, 0.3 )
+}
+
+#search {
+    box-shadow: 3px 3px 21px -5px rgba( 0, 0, 0, 0.3 )
+}
+
+.discussion__avatar--wrapper {
+    flex-basis: 50px;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+}
+
+.discussion__information {
+    /* text-align: right; 과제는 오른쪽 정렬인데 난 오른쪽 정렬이 실따...*/
+    padding-top: 5px;
+    font-size: 12px;
+    color: darkgray;
+}
+
+.discussion__content {
+    padding-left: 10px;
+    width: 400px;
+}
+
+.discussion__avatar--image {
+    border-radius: 100px;
+    width: 48px;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 40px;
+    font-size: 30px;
+}
+
+.discussion__answered div {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #13B294;
+    border-radius: 15px;
+}
+
+.discussion__answered .wait-anser {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
+/**/
+
+.write_form {
+    position: absolute;    
+    width: 100%;
+    height: 100%;
+}
+
+.form__container {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: rgba( 255, 255, 255, 0.6 );
+    backdrop-filter: blur(5px);
+    flex-direction: column;
+}
+
+.form-exit {
+    width: 540px;
+    text-align: right;
+    padding-right: 27px;
+    color: white;
+    font-family: 'Gurajada', serif;
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+.form-exit::after {
+    display: inline-block;content: "\00d7"; font-size:35pt;
+    height: 30px;
+    margin-top: -80px;
+    margin-right: 10px;
+}
+
+.form__container form {
+    background: linear-gradient(#13B294,#078D8E);
+    width: 540px;
+    height: 310px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 4px 4px 21px -5px rgba( 0, 0, 0, 0.3 )
+}
+
+.form__input--wrapper div {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.form__input--wrapper div label {
+    color: white;
+    flex-basis: 150px;
+    font-size: 18px;
+    font-family: 'Gurajada', serif;
+    letter-spacing: 2px;
+}
+
+.form__input--wrapper div input {
+    width: 350px;
+    height: 30px;
+    border-radius: 100px;
+    padding: 0 15px;
+}
+
+.form__input--wrapper div textarea {
+    width: 350px;
+    height: 80px;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.form__submit input {
+    font-size: 18px;
+    font-family: 'Gurajada', serif;
+    letter-spacing: 2px;
+    color: white;
+    border-bottom: 2px solid white;
+    background-color: rgba( 255, 255, 255, 0 );
+}
+
+/* 참고 */
+
+#layer_popup{
+    display: none;
+}
+
+.agora-writing label {
+    display: inline-block;
+    padding: 2px 10px;
+    color: rgba( 255, 255, 255, 0.7 );
+    font-size: 20px;
+}
+
+.agora-writing label:hover {
+    color: white;
+}
+
+/* 이제 해야하는 거
+1. 글쓰면 화면에 보이는 거(클릭 이벤트 구현)
+2. 페이지네이션 */
+
+.pagination {
+    width: 540px;    
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination div {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pagination ol, .pagination li {
+    list-style: none;
+    font-family: 'Gurajada', serif;
+    color: white;
+}
+
+.pagination ol {
+    width: 165px;
+    display: flex;
+}
+
+.pagination a {
+    color: white;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+a.active {
+    background-color: white;
+    border-radius: 100px;
+    color: #078D8E;
+    }

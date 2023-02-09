@@ -1,14 +1,5 @@
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-fetch('http://localhost:4000/discussions')
-  .then(res => res.json())
-  .then(json => {
-    agoraStatesDiscussions = json;
-    render(ul);
-    displayRow(0);
-  })
+
 
 // js 스크립트로 가져오는 data
 // console.log(agoraStatesDiscussions);
@@ -17,7 +8,6 @@ let paginationCheck = 0;
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -63,6 +53,18 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다. 가장 하단에서 실행중임.
+const render = (element) => {
+    for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+
+
 const popup = document.querySelector('#layer_popup')
 const resetKEY = document.querySelector('.writing-delet')
 const popupExit = document.querySelector('.form-exit')
@@ -90,7 +92,7 @@ form.addEventListener("submit", (event) => {
   //submit 하면..
   event.preventDefault();
   const newData = {
-    id: Math.round(Math.random() * 100000),
+    id: "unique id" + Math.round(Math.random() * 100000),
     createdAt: new Date().toISOString(), // 현재시간
     title: title.value, // 제목
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
@@ -101,36 +103,17 @@ form.addEventListener("submit", (event) => {
     "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
   }
 
-  fetch('http://localhost:4000/discussions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newData),
-    })
-    .then(() => {
-      fetch('http://localhost:4000/discussions')
-      .then(res => res.json())
-      .then(json => {
-        agoraStatesDiscussions = json;
-        render(ul);
-        displayRow(0);
-      })
-    })
+  dataSave.push(newData)
+  //새로 쓴 글 위로 오게 하려고
+  agoraStatesDiscussions.unshift(newData);
+  savedDate()
   
-
-
-
-  //(02.09)이제 이걸 서버로 put 해줘야하는거네..
-  // dataSave.push(newData)
-  // agoraStatesDiscussions.unshift(newData);
-  // savedDate()
-  
-  // while (ul.firstChild) {
-  //   ul.removeChild(ul.firstChild)
-  // }
-  // render(ul);
-  // displayRow(0);
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild)
+  }
+  // 이 부분이 1차 문제, 여기서 다시 render되면서 어긋남
+  render(ul);
+  displayRow(0);
 
   
   writeForm.classList.add('hide');
@@ -141,46 +124,45 @@ form.addEventListener("submit", (event) => {
 
 const savedDateArray = localStorage.getItem('savedata')
 
-// if(savedDateArray){
-//   const parseData = JSON.parse(savedDateArray)
-//   // parseData.forEach(() => {
-//   //   console.log(dataSave)
-//   // });
-//   for(let index in parseData) {
-//     let p = parseData[index]
-//     // p의 index가 8개라서 8번 반복됨. 내가 가져온 블로그에선 왜 하단의 for in문을 썼는지 궁금해서 남겨둔다.
-//     // for(let key in p){
-//     //   console.log(`${p.author} + ${p.title} + ${p.createdAt}`)
-//     // }
+if(savedDateArray){
+  const parseData = JSON.parse(savedDateArray)
+  // parseData.forEach(() => {
+  //   console.log(dataSave)
+  // });
+  for(let index in parseData) {
+    let p = parseData[index]
+    // p의 index가 8개라서 8번 반복됨. 내가 가져온 블로그에선 왜 하단의 for in문을 썼는지 궁금해서 남겨둔다.
+    // for(let key in p){
+    //   console.log(`${p.author} + ${p.title} + ${p.createdAt}`)
+    // }
 
-//     agoraStatesDiscussions.unshift(p);
-//     /* 배열을 가장 상단 파일에 넣을 수 있다면 그보다 좋은 게 없지않을까... */
-//   }
-//   render(ul);
-// }
+    agoraStatesDiscussions.unshift(p);
+    /* 배열을 가장 상단 파일에 넣을 수 있다면 그보다 좋은 게 없지않을까... */
+  }
+  render(ul);
+}
 
-// if(savedDateArray !== null){
-//   const parseData = JSON.parse(savedDateArray);
-//   dataSave = parseData;
-// } else {
-//   render(ul)
-// }
+if(savedDateArray !== null){
+  const parseData = JSON.parse(savedDateArray);
+  dataSave = parseData;
+} else {
+  render(ul)
+}
 
 resetKEY.onclick = function() {
-  fetch('http://localhost:4000/discussions', {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({}),
-  })
-  .then(res => res.json())
-  .then(json => {
-    agoraStatesDiscussions = json;
-    console.log(agoraStatesDiscussions)
-    render(ul);
-    displayRow(0);
-  })
+    // 새로고침 안 하고 바로 반영되게 하고싶은데 안 되네^^ .. ...
+    // 버튼을 누르면 > 로컬스토리지 삭제 > 삭제한 배열을 다시 재랜더..
+    window.localStorage.clear();
+    window.location.reload()
+
+    // const parseData = JSON.parse(savedDateArray)
+    // for(let index in parseData) {
+    //   let p = parseData[index]
+
+    //   agoraStatesDiscussions.shift(p)
+    //   window.localStorage.clear();
+    //   render(ul)
+    // }
 }
 
 
@@ -189,9 +171,7 @@ resetKEY.onclick = function() {
 // 페이지에 보여줄 갯수
 const rows = document.querySelectorAll('.discussion__container')
 const rowsPerPage = 10;
-
-// 하아..
-const rowsCount = 43;
+const rowsCount = rows.length;
 const pageCount = Math.ceil(rowsCount / rowsPerPage);
 const numbers = document.querySelector('#numbers');
 
@@ -217,11 +197,10 @@ nextPageBtn.addEventListener('click', ()=>{
 })
 
 // 페이지네이션 생성
-
 function paginationRe() {
-  for(let i = 1; i <= pageCount; i++){
-    numbers.innerHTML += `<li><a href="">${i}</a></li>`
-  }
+for(let i = 1; i <= pageCount; i++){
+	numbers.innerHTML += `<li><a href="">${i}</a></li>`
+}
 }
 
 //페이지에 흩뿌리기
@@ -248,7 +227,7 @@ function displayRow(idx){
   let end = start+rowsPerPage;
   // let rowsArray = Array.from(rows)
   let rowsArray = [...rowss];
- 
+  
   for(let ra of rowsArray){
     ra.style.display = 'none';
   }
@@ -265,9 +244,7 @@ function displayRow(idx){
   pageNumber = idx;
 }
 
-
-// ★★★★★여기 수정해야함 안 하면 페이지네이션 안 됨★★★★★
-// displayRow(0);
+displayRow(0);
 
 /////////////////////////////////////////////////////////
 
@@ -304,18 +281,6 @@ function filter() {
 }
 
 ///////////////////////
-
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다. 가장 하단에서 실행중임.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-  element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-}
-return;
-};
-
-
-/////////////////////////
 
 
 // 하단은 내가 처음 한 방법인데, 이러면 새로운 li를 제일 위에 생성하게 되므로 페이지가 넘어가도 생성한 li가 계속 상단에 있게 되는 문제가 발생..
@@ -387,5 +352,8 @@ return;
 //   li.append(avatarWrapper, discussionContent, discussionAnswered);
 //   return li;
 // }
+
+
+
 
 
