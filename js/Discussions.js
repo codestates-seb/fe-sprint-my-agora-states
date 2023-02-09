@@ -116,6 +116,11 @@ export default function Discussions({ handleFilter, handlePage }) {
       .join('');
   };
 
+  this.clear = () => {
+    this.pagenationEl.replaceChildren();
+    this.listEl.replaceChildren();
+  };
+
   this.render = items => {
     const startIndex = (this.currentPage - 1) * ITEM_COUNT_FOR_PAGE;
     const renderItems = items.slice(startIndex, startIndex + ITEM_COUNT_FOR_PAGE);
@@ -125,8 +130,7 @@ export default function Discussions({ handleFilter, handlePage }) {
     const pagenationHTML = this.templatePagenation(pageCount);
 
     this.lastPage = pageCount;
-    this.listEl.replaceChildren();
-    this.pagenationEl.replaceChildren();
+    this.clear();
     this.listEl.insertAdjacentHTML('beforeend', listHTML);
     this.pagenationEl.insertAdjacentHTML('beforeend', pagenationHTML);
   };
