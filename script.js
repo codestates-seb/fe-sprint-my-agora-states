@@ -2,16 +2,30 @@
 // console.log(agoraStatesDiscussions);
 
 // localhost에서 데이터를 가져와 기존 데이터에 더하는 과정
+
+const getData = () => {
+  const URL = `http://localhost:4000/discussions`;
+  const data = fetch(URL).then((res) => res.json());
+  // .then((data) => data);
+  console.log(data);
+  return data;
+};
+
 const localData = JSON.parse(localStorage.getItem('answer'));
+
 let newData = []; // localStorage에 기존 데이터를 남기기 위한 변수
 let newAgoraStatesDiscussions = []; // 현재 페이지에 표시하기 위한 변수
-const start = () => {
+const start = async () => {
+  // console.log(getData());
+  let agoraData = await getData();
+  // console.log(agoraData);
   if (localData) {
-    newAgoraStatesDiscussions = [...localData, ...agoraStatesDiscussions];
+    newAgoraStatesDiscussions = [...localData, ...agoraData];
     newData = [...localData];
   } else {
-    newAgoraStatesDiscussions = [...agoraStatesDiscussions];
+    newAgoraStatesDiscussions = [...agoraData];
   }
+  render(ul, 0, limit);
 };
 
 start();
@@ -169,18 +183,22 @@ const convertToDiscussion = (obj) => {
 // };
 
 const render = (element, from, to) => {
-  if (!from && !to) {
-    from = 0;
-    to = newAgoraStatesDiscussions.length - 1;
+  if (newAgoraStatesDiscussions.length === 0) {
+    return;
+  } else {
+    if (!from && !to) {
+      from = 0;
+      to = newAgoraStatesDiscussions.length - 1;
+    }
+    // 다 지우고 배열에 있는 내용 다 보여주기
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+    for (let i = from; i < to; i += 1) {
+      element.append(convertToDiscussion(newAgoraStatesDiscussions[i]));
+    }
+    return;
   }
-  // 다 지우고 배열에 있는 내용 다 보여주기
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-  for (let i = from; i < to; i += 1) {
-    element.append(convertToDiscussion(newAgoraStatesDiscussions[i]));
-  }
-  return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
