@@ -11,7 +11,7 @@ const createBtn = document.querySelector(".create-input");
 const closeModal = document.querySelector(".close-btn");
 async function modal() {}
 //제출 버튼 클릭시 실행
-debugger;
+
 formBtn.onclick = async function (event) {
   //새로고침 방지
 
@@ -34,12 +34,9 @@ formBtn.onclick = async function (event) {
   };
   //필요한 요소가 존재한다면 글 create
   if (inputName && inputTitle && inputTextbox) {
-    const url = `http://localhost:4000/discussions/`;
-
     await createDiscussions(obj).then((res) => {
       agoraData = [...res];
-      console.log(res);
-      render(ul);
+      setPage(Math.ceil(agoraData.length / 10), 1);
       //모달을 닫고 초기화
     });
 
@@ -52,20 +49,11 @@ formBtn.onclick = async function (event) {
 };
 
 createBtn.onclick = function () {
-  //console.log(formContainer);
-
   formContainer.classList.remove("hide");
   body.style.overflow = "hidden";
 };
 
 closeModal.onclick = function () {
-  //console.log(formContainer);
   formContainer.classList.add("hide");
   body.style.overflow = "auto";
 };
-
-// //데이터를 로컬에 저장
-// function saveData() {
-//   const stringifyData = JSON.stringify(agoraData);
-//   window.localStorage.setItem("agoraData", stringifyData);
-// }

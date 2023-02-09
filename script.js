@@ -4,7 +4,7 @@ const ul = document.querySelector("ul.discussions__container");
 
 getDiscussions().then((res) => {
   agoraData = [...res];
-  render(ul);
+  setPage(Math.ceil(agoraData.length / 10), 1);
 });
 
 //요소내 자식요소를 모두 지우는 함수
@@ -13,12 +13,14 @@ const removeAll = (element) => {
     element.removeChild(element.firstChild);
   }
 };
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 
-const render = (element) => {
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element, start) => {
   removeAll(element);
-  for (let i = 0; i < agoraData.length; i += 1) {
-    element.append(convertToDiscussion(agoraData[i]));
+  for (let i = start; i < start + 10; i += 1) {
+    if (agoraData[i]) {
+      element.append(convertToDiscussion(agoraData[i]));
+    }
   }
   return;
 };
@@ -135,6 +137,7 @@ const convertToDiscussion = (obj) => {
 
   li.append(discussionQuestion);
 
+  //답변이 있는경우만 생성
   if (obj.answer) {
     const discussionAnswer = createAnswer(obj.answer);
     li.append(discussionAnswer);
@@ -144,71 +147,61 @@ const convertToDiscussion = (obj) => {
     });
   }
 
-  //답변이 있는 경우만 생성
-
-  //li.id = obj.id;
-
   return li;
 };
 
-// //Pagination
-// const paginationContianer = document.querySelector(".page_list");
+//Pagination
+const paginationContianer = document.querySelector(".page_list");
 
-// //10개씩 출력
-// let totalPage = Math.ceil(agoraData.length / 10);
-// let currentPage = 1;
+function setPage(totalPage, currentPage) {
+  let li = "";
+  let prevPage = currentPage - 2;
+  let nextPage = currentPage + 2;
 
-// function setPage(totalPage, currentPage) {
-//   let li = "";
-//   let prevPage = currentPage - 2;
-//   let nextPage = currentPage + 2;
+  //현재 페이지 위치에 따라
+  //보여지는 페이지 조정
+  if (currentPage === 1) {
+    nextPage += 2;
+  }
+  if (currentPage === 2) {
+    nextPage += 1;
+  }
+  if (currentPage === totalPage) {
+    prevPage -= 2;
+  }
+  if (currentPage === totalPage - 1) {
+    prevPage -= 1;
+  }
+  // '<'을 누르면 이전 페이지로 이동 가능하게 구현
+  if (currentPage > 1) {
+    li += `<li class="prev__page" onClick=setPage(${totalPage},${
+      currentPage - 1
+    })><</li>`;
+  }
 
-//   //현재 페이지 위치에 따라
-//   //보여지는 페이지 조정
-//   if (currentPage === 1) {
-//     nextPage += 2;
-//   }
-//   if (currentPage === 2) {
-//     nextPage += 1;
-//   }
-//   if (currentPage === totalPage) {
-//     prevPage -= 2;
-//   }
-//   if (currentPage === totalPage - 1) {
-//     prevPage -= 1;
-//   }
-//   // '<'을 누르면 이전 페이지로 이동 가능하게 구현
-//   if (currentPage > 1) {
-//     li += `<li class="prev__page" onClick=setPage(${totalPage},${
-//       currentPage - 1
-//     })><</li>`;
-//   }
+  //페이지의 num을 설정
+  for (let i = prevPage; i <= nextPage; i++) {
+    if (i >= 1 && i <= totalPage) {
+      //선택해주기
+      if (i === currentPage) {
+        li += `<li class="page_num select_li" onClick=setPage(${totalPage},${i})>${i}</li>`;
+      } else {
+        li += `<li class="page_num" onClick=setPage(${totalPage},${i})>${i}</li>`;
+      }
+    }
+  }
 
-//   //페이지의 num을 설정
-//   for (let i = prevPage; i <= nextPage; i++) {
-//     if (i >= 1 && i <= totalPage) {
-//       //선택해주기
-//       if (i === currentPage) {
-//         li += `<li class="page_num select_li" onClick=setPage(${totalPage},${i})>${i}</li>`;
-//       } else {
-//         li += `<li class="page_num" onClick=setPage(${totalPage},${i})>${i}</li>`;
-//       }
-//     }
-//   }
+  // '>'을 누르면 이후 페이지로 이동 가능하게 구현
+  if (currentPage < totalPage) {
+    li += `<li class="next__page" onClick=setPage(${totalPage},${
+      currentPage + 1
+    })>></li>`;
+  }
+  paginationContianer.innerHTML = li;
 
-//   // '>'을 누르면 이후 페이지로 이동 가능하게 구현
-//   if (currentPage < totalPage) {
-//     li += `<li class="next__page" onClick=setPage(${totalPage},${
-//       currentPage + 1
-//     })>></li>`;
-//   }
-//   paginationContianer.innerHTML = li;
-
-//   ul.innerHTML = "";
-//   render(ul, (currentPage - 1) * 10);
-// }
-
-// setPage(totalPage, currentPage);
+  ul.innerHTML = "";
+  render(ul, (currentPage - 1) * 10);
+}
 
 //토글 버튼
 function toggle(element) {
