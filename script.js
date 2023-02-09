@@ -1,5 +1,18 @@
+
+let agoraStatesDiscussions = [];
+const ul = document.querySelector("ul.discussions__container");
+fetch("http://localhost:4000/discussions")
+.then(res => res.json())
+.then(json => {
+   agoraStatesDiscussions = json;
+  render(ul);
+  
+});
+
+
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+//console.log(agoraStatesDiscussions);
 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -57,12 +70,12 @@ const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  return;
+  return ;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+//const ul = document.querySelector("ul.discussions__container");
+//render(ul);
 
 
 /*여기서부터는 submit버튼 누르면 추가되는항목 */
@@ -127,3 +140,4 @@ title.value = " ";
 textbox.value = " ";
 
 });
+
