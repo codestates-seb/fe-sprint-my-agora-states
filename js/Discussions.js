@@ -121,7 +121,28 @@ export default function Discussions({ handleFilter, handlePage }) {
     this.listEl.replaceChildren();
   };
 
+  this.renderErrorMessage = () => {
+    const errorMessageHTML =
+      '<div class="discussions__error"><a href="/">새로고침하기</a><p>서버와의 통신이 원활하지 않습니다.</p></div>';
+
+    this.clear();
+    this.listEl.insertAdjacentHTML('beforeend', errorMessageHTML);
+  };
+
+  this.renderLoadingIndicator = () => {
+    this.clear();
+    this.listEl.insertAdjacentHTML(
+      'beforeend',
+      '<div class="discussions__loader"></div>'
+    );
+  };
+
   this.render = items => {
+    if (items[0] === 'error') {
+      this.renderErrorMessage();
+      return;
+    }
+
     const startIndex = (this.currentPage - 1) * ITEM_COUNT_FOR_PAGE;
     const renderItems = items.slice(startIndex, startIndex + ITEM_COUNT_FOR_PAGE);
     const listHTML = renderItems.map(itemData => this.templateItem(itemData)).join('');
