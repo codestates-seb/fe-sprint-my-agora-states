@@ -24,6 +24,11 @@ main {
   align-items: center;
 }
 
+.title__container {
+  display: flex;
+  height: 10vh;
+  align-items: center;
+}
 h1 {
   color: var(--sub-color3);
 }
@@ -64,7 +69,7 @@ h1 {
 
 .form *,
 .answer_modal * {
-  color: var(--sub-color2);
+  color: var(--main-color);
   font-size: bold;
 }
 

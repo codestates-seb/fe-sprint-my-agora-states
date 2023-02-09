@@ -42,7 +42,7 @@ formBtn.onclick = async function (event) {
     //글을 맨앞으로 추가
     agoraData.unshift(obj);
     saveData();
-    console.log(agoraData);
+    //console.log(agoraData);
     setPage(totalPage, currentPage);
     //ul.prepend(convertToDiscussion(obj));
     //모달을 닫고 초기화
