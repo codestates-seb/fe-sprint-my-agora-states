@@ -9,7 +9,7 @@ const formBtn = document.querySelector(".form__submit").querySelector("input");
 //모달 관련 버튼
 const createBtn = document.querySelector(".create-input");
 const closeModal = document.querySelector(".close-btn");
-
+async function modal() {}
 //제출 버튼 클릭시 실행
 formBtn.onclick = async function (event) {
   //새로고침 방지
@@ -22,12 +22,8 @@ formBtn.onclick = async function (event) {
   let formImg = await fetch("https://api.github.com/users/yunhwan98")
     .then((response) => response.json())
     .then((data) => {
-      //formImg = data;
-      //console.log(data);
       return data;
     });
-
-  console.log(formImg);
 
   const obj = {
     author: inputName,

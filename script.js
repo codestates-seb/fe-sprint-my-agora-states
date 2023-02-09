@@ -2,13 +2,17 @@
 //console.log(agoraStatesDiscussions);
 
 const stringifyData = JSON.stringify(agoraStatesDiscussions);
-const getData = localStorage.getItem("agoraData")
-  ? localStorage.getItem("agoraData")
-  : localStorage.setItem("agoraData", stringifyData);
+//const stringifyData = JSON.stringify(getDiscussions());
+let getData = [];
+if (localStorage.getItem("agoraData")) {
+  getData = localStorage.getItem("agoraData");
+} else {
+  localStorage.setItem("agoraData", stringifyData);
+  getData = localStorage.getItem("agoraData");
+}
 
 const agoraData = JSON.parse(getData);
 
-console.log(agoraData);
 //아바타이미지 생성
 const createAvartarImg = function (obj) {
   const avatarWrapper = document.createElement("div");
