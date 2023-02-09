@@ -24,6 +24,7 @@ export default function App() {
   };
 
   const render = async () => {
+    discussions.renderLoadingIndicator();
     const items = await store.getItemsByFilter(this.currentFilter);
     discussions.render(items);
     addForm.focus();
