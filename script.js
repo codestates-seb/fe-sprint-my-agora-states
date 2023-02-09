@@ -2,6 +2,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 let agoraStatesDiscussions = [];
 const ul = document.querySelector("ul.discussions__container");
+
 fetch("http://localhost:4000/discussions/")
   .then(response => response.json())
   .then(json => {
