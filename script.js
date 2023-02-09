@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+//console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -31,7 +31,7 @@ const convertToDiscussion = (obj) => {
   
   const discussionInformation = document.createElement("div")
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString("ko-KR")}`;
   discussionContent.append(discussionInformation);
 
   const discussionCheck = document.createElement("p")
@@ -55,24 +55,31 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+
 
 
 //name, title, question 입력 후 submit 을 누르면 댓글이 작성됨
-//name, title, question을 배열로 만들어서 
+//name, title, question을 배열로 만들어서
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
 const form = document.querySelector(".form.form")
 const userName = form.querySelector("div.form__input--name > input")
 const title = form.querySelector("div.form__input--title > input")
 const qusetionText= form.querySelector("div.form__textbox > textarea")
+
+fetch('http://localhost:4000/discussions')
+.then(res => res.json())
+.then(json => { 
+agoraStatesDiscussions = json;
+render(ul);
+})
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
 const newObj = {
     id: "New id",
-    createdAt: new Date().toISOString(),
+    createdAt: new Date(),
     author: userName.value,
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe",
@@ -80,7 +87,9 @@ const newObj = {
     avatarUrl:"https://avatars.githubusercontent.com/u/98820643?s=64&v=4",
   }
 
+
 agoraStatesDiscussions.unshift(newObj);
 const addDiscussion = convertToDiscussion(newObj);
 ul.prepend(addDiscussion);
 })
+
