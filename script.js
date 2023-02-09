@@ -11,6 +11,18 @@ if (dataFromLocalStorage) {
   data = agoraStatesDiscussions.slice();
 }
 
+let url = `http://localhost:4000/discussions`;
+
+fetch(url)
+.then((res)=> res.json())
+.then((json) => {
+  agoraStatesDiscussions = json;
+  const ul = document.querySelector("ul.discussion__container");
+  render(ul);
+})
+
+
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 변형 
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
