@@ -1,10 +1,10 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
-let newAgoraStatesDiscussions =
-  JSON.parse(window.localStorage.getItem("agoraStatesDiscussions")) ||
-  agoraStatesDiscussions;
-console.log(newAgoraStatesDiscussions);
+// let newAgoraStatesDiscussions =
+//   JSON.parse(window.localStorage.getItem("agoraStatesDiscussions")) ||
+//   agoraStatesDiscussions;
+// console.log(newAgoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -88,35 +88,35 @@ function dateFormat(date) {
 }
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render1 = (element) => {
-  for (let i = 0; i < newAgoraStatesDiscussions.length; i += 1) {
-    if(newAgoraStatesDiscussions[i].answer !== null) {
-      element.append(convertToDiscussion(newAgoraStatesDiscussions[i]));
-    }
-  }
-  return;
-};
+// const render1 = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     if (agoraStatesDiscussions[i].answer !== null) {
+//       element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//     }
+//   }
+//   return;
+// };
 
-const render2 = (element) => {
-  for (let i = 0; i < newAgoraStatesDiscussions.length; i += 1) {
-    if(newAgoraStatesDiscussions[i].answer === null) {
-      element.append(convertToDiscussion(newAgoraStatesDiscussions[i]));
-    }
-  }
-  return;
-};
+// const render2 = (element) => {
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     if (agoraStatesDiscussions[i].answer === null) {
+//       element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//     }
+//   }
+//   return;
+// };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul2 = document.querySelector("ul.discussions__container__notAnswered");
 const ul1 = document.querySelector("ul.discussions__answered__container");
 
-for (let i = 0; i < newAgoraStatesDiscussions.length; i += 1) {
-  if (newAgoraStatesDiscussions[i].answer === null) {
-    render2(ul2);
-  } else {
-    render1(ul1);
-  }
-}
+// for (let i = 0; i < newAgoraStatesDiscussions.length; i += 1) {
+//   if (newAgoraStatesDiscussions[i].answer === null) {
+//     render2(ul2);
+//   } else {
+//     render1(ul1);
+//   }
+// }
 
 // 디스커션 추가
 const form = document.querySelector("form.form");
@@ -127,34 +127,34 @@ const formSubmit = document.querySelector(".form__submit input[type='submit']");
 
 const date = new Date();
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
 
-  const obj = {
-    id: "105564451",
-    createdAt: date.toLocaleDateString("ko-kr"),
-    title: formTitle.value,
-    url: "",
-    author: formAuthor.value,
-    answer: null,
-    bodyHTML: formStory.value,
-    avatarUrl: "https://avatars.githubusercontent.com/u/105564451?v=4",
-  };
+//   const obj = {
+//     id: "105564451",
+//     createdAt: date.toLocaleDateString("ko-kr"),
+//     title: formTitle.value,
+//     url: "",
+//     author: formAuthor.value,
+//     answer: null,
+//     bodyHTML: formStory.value,
+//     avatarUrl: "https://avatars.githubusercontent.com/u/105564451?v=4",
+//   };
 
-  const newDiscussion = [{ ...obj }, ...newAgoraStatesDiscussions];
-  window.localStorage.setItem(
-    "agoraStatesDiscussions",
-    JSON.stringify(newDiscussion)
-  );
+//   const newDiscussion = [{ ...obj }, ...newAgoraStatesDiscussions];
+//   window.localStorage.setItem(
+//     "agoraStatesDiscussions",
+//     JSON.stringify(newDiscussion)
+//   );
 
-  newAgoraStatesDiscussions.unshift(obj);
-  // prepend : obj를 ul의 맨 앞에 추가
-  ul2.prepend(convertToDiscussion(obj));
+//   agoraStatesDiscussions.unshift(obj);
+//   // prepend : obj를 ul의 맨 앞에 추가
+//   ul2.prepend(convertToDiscussion(obj));
 
-  formAuthor.value = "";
-  formStory.value = "";
-  formTitle.value = "";
-});
+//   formAuthor.value = "";
+//   formStory.value = "";
+//   formTitle.value = "";
+// });
 
 function modal(id) {
   const zIndex = 9999;
@@ -217,4 +217,61 @@ document
   .addEventListener("click", function () {
     // 모달창 띄우기
     modal("my_modal");
+  });
+
+fetch("http://localhost:4000/discussions/")
+  .then((response) => response.json())
+  .then((json) => {
+    let newJson =
+      JSON.parse(window.localStorage.getItem("agoraStatesDiscussions")) || json;
+    console.log("newJson : ", newJson);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const obj = {
+        id: "105564451",
+        createdAt: date.toLocaleDateString("ko-kr"),
+        title: formTitle.value,
+        url: "",
+        author: formAuthor.value,
+        answer: null,
+        bodyHTML: formStory.value,
+        avatarUrl: "https://avatars.githubusercontent.com/u/105564451?v=4",
+      };
+
+      const newDiscussion = [{ ...obj }, ...newJson];
+      window.localStorage.setItem(
+        "agoraStatesDiscussions",
+        JSON.stringify(newDiscussion)
+      );
+
+      json.unshift(obj);
+      // prepend : obj를 ul의 맨 앞에 추가
+      ul2.prepend(convertToDiscussion(obj));
+
+      formAuthor.value = "";
+      formStory.value = "";
+      formTitle.value = "";
+    });
+
+    const render1 = (element) => {
+      for (let i = 0; i < newJson.length; i += 1) {
+        if (newJson[i].answer !== null) {
+          element.append(convertToDiscussion(newJson[i]));
+        }
+      }
+      return;
+    };
+
+    const render2 = (element) => {
+      for (let i = 0; i < newJson.length; i += 1) {
+        if (newJson[i].answer === null) {
+          element.append(convertToDiscussion(newJson[i]));
+        }
+      }
+      return;
+    };
+    render1(ul1);
+    render2(ul2);
   });

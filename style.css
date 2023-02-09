@@ -1,298 +1,304 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 :root {
-    --gray : rgb(232, 233, 235);
-    --white : rgba(255, 255, 255, 0.8);
-    --bluewhite : rgba(250, 251, 252, 0.7);
-    --lineColor : rgba(214, 214, 250, 0.7);
-    --purpleBack : rgb(226,225,244);
-    --purpleText : rgb(120,101,200);
+  --gray: rgb(232, 233, 235);
+  --white: rgba(255, 255, 255, 0.8);
+  --bluewhite: rgba(250, 251, 252, 0.7);
+  --lineColor: rgba(214, 214, 250, 0.7);
+  --purpleBack: rgb(226, 225, 244);
+  --purpleText: rgb(120, 101, 200);
 }
 
 * {
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 body {
-    background-image: url(./bg5.jpg);
-    background-size: cover;
+  background-image: url(./bg5.jpg);
+  background-size: cover;
 }
 
 h1 {
-    font-weight:bolder;
-    font-size: 30px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #popup_open_btn {
-    margin-left: 47%;
-    margin-top: -10px;
-    font-size: 20px;
-    font-weight: 200;
-    border-bottom: 1px solid var(--lineColor);
-    width: fit-content;
+  margin-left: 47%;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 200;
+  border-bottom: 1px solid var(--lineColor);
+  width: fit-content;
 }
 
 #my_modal {
-    display: none;
-    width: 300px;
-    padding: 20px 60px;
-    background-color: #fefefe;
-    border: 1px solid #888;
-    border-radius: 3px;
+  display: none;
+  width: 300px;
+  padding: 20px 60px;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 3px;
 }
 
 #my_modal .modal_close_btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .form__input--wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form__container {
-    background-color: var(--white);
-    margin : 40px;
-    margin-bottom: 20px;
-    border-radius: 25px;
-    height: 15vh;
-    padding: 10px ;
-    padding-top: 3px;
+  background-color: var(--white);
+  margin: 40px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  height: 15vh;
+  padding: 10px;
+  padding-top: 3px;
 }
 
 .discussion_wrapper1 {
-    display: flex;
+  display: flex;
 }
 
 .discussion__wrapper__answered {
-    flex-grow: 1;
-    background-color: var(--bluewhite);
-    margin-left : 40px;
-    margin-right: 0;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    height: 70vh;
-    overflow-y: scroll;
-    border-right: 1px solid var(--lineColor);
+  flex-grow: 1;
+  background-color: var(--bluewhite);
+  margin-left: 40px;
+  margin-right: 0;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  height: 70vh;
+  width: 500px;
+  overflow-y: scroll;
+  border-right: 1px solid var(--lineColor);
 }
 
 .discussion__wrapper_notAnswered {
-    flex-grow: 1;
-    background-color: var(--bluewhite);
-    margin-left : 40px;
-    margin-right: 0;
-    height: 70vh;
-    overflow-y: scroll;
-    border-right: 1px solid var(--lineColor);
+  flex-grow: 1;
+  background-color: var(--bluewhite);
+  margin-left: 40px;
+  margin-right: 0;
+  height: 70vh;
+  width: 500px;
+  overflow-y: scroll;
+  border-right: 1px solid var(--lineColor);
 }
 
-
 .discussion_answered_head {
-    display: flex;
-    padding: 10px 10px 10px 20px;
-    border: 1px solid white;
-    border-top-left-radius: 25px;
-    background-color: var(--white);
+  display: flex;
+  padding: 10px 10px 10px 20px;
+  border: 1px solid white;
+  border-top-left-radius: 25px;
+  background-color: var(--white);
 }
 
 .count_answered {
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    padding-top: 5px;
-    border-radius: 100%;
-    margin-top: 15px;
-    margin-left: 10px;
-    background-color: var(--gray);
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 100%;
+  margin-top: 15px;
+  margin-left: 10px;
+  background-color: var(--gray);
 }
 
 .discussion_notAnswered_head {
-    display: flex;
-    padding: 10px 10px 10px 20px;
-    border: 1px solid white;
-    border-top-right-radius: 25px;
-    background-color: var(--white);
+  display: flex;
+  padding: 10px 10px 10px 20px;
+  border: 1px solid white;
+  border-top-right-radius: 25px;
+  background-color: var(--white);
 }
 
 .count_notAnswered {
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    padding-top: 5px;
-    border-radius: 100%;
-    margin-top: 15px;
-    margin-left: 10px;
-    background-color: var(--gray);
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 100%;
+  margin-top: 15px;
+  margin-left: 10px;
+  background-color: var(--gray);
 }
 
 .discussion__wrapper_notAnswered {
-    flex-grow: 1;
-    border-left: 1px solid var(--gray);
-    background-color: var(--bluewhite);
-    margin-right : 40px;
-    margin-left: 0;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+  flex-grow: 1;
+  border-left: 1px solid var(--gray);
+  background-color: var(--bluewhite);
+  margin-right: 40px;
+  margin-left: 0;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
-.discussions__answered__container, .discussions__container__notAnswered{
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.discussions__answered__container,
+.discussions__container__notAnswered {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.discussion__container, .discussion__container__notAnswered {
-    width: 600px;
-    border: 2px solid var(--lineColor);
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    height: 17vh;
-    margin-bottom: 20px;
-    padding : 0px 10px
-    /* border-bottom: 1px solid black; */
+.discussion__container,
+.discussion__container__notAnswered {
+  width: 600px;
+  border: 2px solid var(--lineColor);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  height: 17vh;
+  margin-bottom: 20px;
+  padding: 0px 10px;
+  /* border-bottom: 1px solid black; */
 }
 
 .discussion__avatar--image {
-    border-radius: 50%;
-    width: 48px;
+  border-radius: 50%;
+  width: 48px;
 }
 
-
-.discussion__avatar--wrapper, .discussion__answered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.discussion__avatar--wrapper,
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 
 .discussion__content {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width:100%;
-    padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  padding: 0px 20px;
 }
 
 .discussion__information {
-    margin-bottom: 20px;
-
+  margin-bottom: 20px;
 }
 
 .createdAt {
-    border: none;
-    padding: 10px;
-    border-radius: 30px;
-    background-color: var(--purpleBack);
-    color: var(--purpleText);
-    font-weight: 600;
-    font-size: small;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: var(--purpleBack);
+  color: var(--purpleText);
+  font-weight: 600;
+  font-size: small;
 }
 
 .author {
-    border: none;
-    padding: 10px;
-    border-radius: 30px;
-    background-color: var(--purpleBack);
-    color: var(--purpleText);
-    font-weight: 600;
-    font-size: small;
-    margin-right: 10px;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: var(--purpleBack);
+  color: var(--purpleText);
+  font-weight: 600;
+  font-size: small;
+  margin-right: 10px;
 }
 
 a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
 }
 
 #pageList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #pageList > li {
-    list-style-type: none;
-    border-bottom: 1px solid var(--lineColor);
+  list-style-type: none;
+  border-bottom: 1px solid var(--lineColor);
 
-    padding: 10px;
-    margin: 5px;
+  padding: 10px;
+  margin: 5px;
 }
 
 .switch {
-    --button-width: 3.5em;
-    --button-height: 2em;
-    --toggle-diameter: 1.5em;
-    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
-    --toggle-shadow-offset: 10px;
-    --toggle-wider: 3em;
-    --color-grey: #cccccc;
-    --color-green: #4296f4;
-   }
-   
-   .slider {
-    display: inline-block;
-    width: var(--button-width);
-    height: var(--button-height);
-    background-color: var(--color-grey);
-    border-radius: calc(var(--button-height) / 2);
-    position: relative;
-    transition: 0.3s all ease-in-out;
-   }
-   
-   .slider::after {
-    content: "";
-    display: inline-block;
-    width: var(--toggle-diameter);
-    height: var(--toggle-diameter);
-    background-color: #fff;
-    border-radius: calc(var(--toggle-diameter) / 2);
-    position: absolute;
-    top: var(--button-toggle-offset);
-    transform: translateX(var(--button-toggle-offset));
-    box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
-    transition: 0.3s all ease-in-out;
-   }
-   
-   .switch input[type="checkbox"]:checked + .slider {
-    background-color: var(--color-green);
-   }
-   
-   .switch input[type="checkbox"]:checked + .slider::after {
-    transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
-    box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
-   }
-   
-   .switch input[type="checkbox"] {
-    display: none;
-   }
-   
-   .switch input[type="checkbox"]:active + .slider::after {
-    width: var(--toggle-wider);
-   }
-   
-   .switch input[type="checkbox"]:checked:active + .slider::after {
-    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
-   }
-   
+  --button-width: 3.5em;
+  --button-height: 2em;
+  --toggle-diameter: 1.5em;
+  --button-toggle-offset: calc(
+    (var(--button-height) - var(--toggle-diameter)) / 2
+  );
+  --toggle-shadow-offset: 10px;
+  --toggle-wider: 3em;
+  --color-grey: #cccccc;
+  --color-green: #4296f4;
+}
 
+.slider {
+  display: inline-block;
+  width: var(--button-width);
+  height: var(--button-height);
+  background-color: var(--color-grey);
+  border-radius: calc(var(--button-height) / 2);
+  position: relative;
+  transition: 0.3s all ease-in-out;
+}
 
+.slider::after {
+  content: "";
+  display: inline-block;
+  width: var(--toggle-diameter);
+  height: var(--toggle-diameter);
+  background-color: #fff;
+  border-radius: calc(var(--toggle-diameter) / 2);
+  position: absolute;
+  top: var(--button-toggle-offset);
+  transform: translateX(var(--button-toggle-offset));
+  box-shadow: var(--toggle-shadow-offset) 0
+    calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+  transition: 0.3s all ease-in-out;
+}
 
+.switch input[type="checkbox"]:checked + .slider {
+  background-color: var(--color-green);
+}
 
+.switch input[type="checkbox"]:checked + .slider::after {
+  transform: translateX(
+    calc(
+      var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)
+    )
+  );
+  box-shadow: calc(var(--toggle-shadow-offset) * -1) 0
+    calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+}
 
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+.switch input[type="checkbox"]:active + .slider::after {
+  width: var(--toggle-wider);
+}
+
+.switch input[type="checkbox"]:checked:active + .slider::after {
+  transform: translateX(
+    calc(
+      var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)
+    )
+  );
+}
