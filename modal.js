@@ -11,6 +11,7 @@ const createBtn = document.querySelector(".create-input");
 const closeModal = document.querySelector(".close-btn");
 async function modal() {}
 //제출 버튼 클릭시 실행
+
 formBtn.onclick = async function (event) {
   //새로고침 방지
 
@@ -36,11 +37,12 @@ formBtn.onclick = async function (event) {
   if (inputName && inputTitle && inputTextbox) {
     //console.log(inputName, inputTitle, inputTextbox);
     //글을 맨앞으로 추가
-    agoraData.unshift(obj);
-    saveData();
+    //agoraData.unshift(obj);
+    //saveData();
+    await createDiscussions(obj);
     //console.log(agoraData);
-    setPage(totalPage, currentPage);
-    //ul.prepend(convertToDiscussion(obj));
+    //setPage(totalPage, currentPage);
+    app();
     //모달을 닫고 초기화
     formContainer.classList.add("hide");
     body.style.overflow = "auto";
@@ -62,8 +64,8 @@ closeModal.onclick = function () {
   body.style.overflow = "auto";
 };
 
-//데이터를 로컬에 저장
-function saveData() {
-  const stringifyData = JSON.stringify(agoraData);
-  window.localStorage.setItem("agoraData", stringifyData);
-}
+// //데이터를 로컬에 저장
+// function saveData() {
+//   const stringifyData = JSON.stringify(agoraData);
+//   window.localStorage.setItem("agoraData", stringifyData);
+// }

@@ -1,18 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-//console.log(agoraStatesDiscussions);
-
-const stringifyData = JSON.stringify(agoraStatesDiscussions);
-//const stringifyData = JSON.stringify(getDiscussions());
-let getData = [];
-if (localStorage.getItem("agoraData")) {
-  getData = localStorage.getItem("agoraData");
-} else {
-  localStorage.setItem("agoraData", stringifyData);
-  getData = localStorage.getItem("agoraData");
-}
-
-const agoraData = JSON.parse(getData);
-
 //아바타이미지 생성
 const createAvartarImg = function (obj) {
   const avatarWrapper = document.createElement("div");
@@ -142,90 +127,89 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, start = 0) => {
-  end = start + 8;
-  for (let i = start; i < end; i += 1) {
-    if (!agoraData[i]) {
-      break;
+async function app() {
+  let agoraData = await getDiscussions();
+  // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+
+  // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+  const ul = document.querySelector("ul.discussions__container");
+  //render(ul);
+
+  //Pagination
+  const paginationContianer = document.querySelector(".page_list");
+
+  //10개씩 출력
+  let totalPage = Math.ceil(agoraData.length / 10);
+  let currentPage = 1;
+  function setPage(totalPage, currentPage) {
+    let li = "";
+    let prevPage = currentPage - 2;
+    let nextPage = currentPage + 2;
+
+    //현재 페이지 위치에 따라
+    //보여지는 페이지 조정
+    if (currentPage === 1) {
+      nextPage += 2;
     }
-    element.append(convertToDiscussion(agoraData[i]));
-  }
+    if (currentPage === 2) {
+      nextPage += 1;
+    }
+    if (currentPage === totalPage) {
+      prevPage -= 2;
+    }
+    if (currentPage === totalPage - 1) {
+      prevPage -= 1;
+    }
+    // '<'을 누르면 이전 페이지로 이동 가능하게 구현
+    if (currentPage > 1) {
+      li += `<li class="prev__page" onClick=setPage(${totalPage},${
+        currentPage - 1
+      })><</li>`;
+    }
 
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-//render(ul);
-
-//Pagination
-const paginationContianer = document.querySelector(".page_list");
-
-//8개씩 출력
-let totalPage = Math.ceil(agoraData.length / 8);
-let currentPage = 1;
-
-function setPage(totalPage, currentPage) {
-  let li = "";
-  let prevPage = currentPage - 2;
-  let nextPage = currentPage + 2;
-
-  //현재 페이지 위치에 따라
-  //보여지는 페이지 조정
-  if (currentPage === 1) {
-    nextPage += 2;
-  }
-  if (currentPage === 2) {
-    nextPage += 1;
-  }
-  if (currentPage === totalPage) {
-    prevPage -= 2;
-  }
-  if (currentPage === totalPage - 1) {
-    prevPage -= 1;
-  }
-  // '<'을 누르면 이전 페이지로 이동 가능하게 구현
-  if (currentPage > 1) {
-    li += `<li class="prev__page" onClick=setPage(${totalPage},${
-      currentPage - 1
-    })><</li>`;
-  }
-
-  //페이지의 num을 설정
-
-  for (let i = prevPage; i <= nextPage; i++) {
-    if (i >= 1 && i <= totalPage) {
-      //선택해주기
-      if (i === currentPage) {
-        li += `<li class="page_num select_li" onClick=setPage(${totalPage},${i})>${i}</li>`;
-      } else {
-        li += `<li class="page_num" onClick=setPage(${totalPage},${i})>${i}</li>`;
+    //페이지의 num을 설정
+    for (let i = prevPage; i <= nextPage; i++) {
+      if (i >= 1 && i <= totalPage) {
+        //선택해주기
+        if (i === currentPage) {
+          li += `<li class="page_num select_li" onClick=setPage(${totalPage},${i})>${i}</li>`;
+        } else {
+          li += `<li class="page_num" onClick=setPage(${totalPage},${i})>${i}</li>`;
+        }
       }
     }
+
+    // '>'을 누르면 이후 페이지로 이동 가능하게 구현
+    if (currentPage < totalPage) {
+      li += `<li class="next__page" onClick=setPage(${totalPage},${
+        currentPage + 1
+      })>></li>`;
+    }
+    paginationContianer.innerHTML = li;
+
+    ul.innerHTML = "";
+    render(ul, (currentPage - 1) * 10);
   }
 
-  // '>'을 누르면 이후 페이지로 이동 가능하게 구현
-  if (currentPage < totalPage) {
-    li += `<li class="next__page" onClick=setPage(${totalPage},${
-      currentPage + 1
-    })>></li>`;
-  }
-  paginationContianer.innerHTML = li;
+  const render = (element, start = 0) => {
+    end = start + 10;
+    for (let i = start; i < end; i += 1) {
+      if (!agoraData[i]) {
+        break;
+      }
+      element.append(convertToDiscussion(agoraData[i]));
+    }
 
-  ul.innerHTML = "";
-  render(ul, (currentPage - 1) * 8);
+    return;
+  };
+  setPage(totalPage, currentPage);
+  //토글 버튼
+  function toggle(element) {
+    if (element.className.includes("hide")) {
+      element.classList.remove("hide");
+    } else {
+      element.classList.add("hide");
+    }
+  }
 }
-
-setPage(totalPage, currentPage);
-
-function toggle(element) {
-  //let element = event.target;
-  //console.log(element);
-  //console.log(element.className);
-  if (element.className.includes("hide")) {
-    element.classList.remove("hide");
-  } else {
-    element.classList.add("hide");
-  }
-}
+app();
