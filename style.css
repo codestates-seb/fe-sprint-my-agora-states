@@ -202,7 +202,13 @@ label{
     background-color: rgb(60, 61, 64);
     color: #fff;
 }
-
+.remove-item{
+    width: 40px;
+    text-align: center;
+}
+.bi bi-trash3-fill{
+    width: 20px;
+}
 /* 답변폼 */
 .answered__box{
     width: 550px;
@@ -256,8 +262,21 @@ label{
     align-self: flex-end;
     margin: 10px;
 }
-
+.buttons{
+    display: flex;
+    position: absolute;
+    top: 200px;
+}
 /* 올라가기 버튼 */
 .up{
-    width: 100px;
+    cursor: pointer;
+    width: 50px;
+    background-color: #7F7F7F;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+    position: fixed;
+    right: 100px;
+    bottom: 40px;
 }

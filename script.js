@@ -1,4 +1,5 @@
 let agoraStatesDiscussions;
+// 서버에서 데이터를받받아오려면 localStorag를 꺼야함.. -> 새로 입력된 아이템을 추가하고 싶다면..?
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 let data;
 const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
@@ -117,6 +118,7 @@ const convertToDiscussion = (obj) => {
 //   // console.log(element)
 //   return;
 // };
+// localstorage 사용시 렌더링
 const render = (element, from, to) => {
   // console.log(from, to);
   if (!from && !to) {
@@ -145,7 +147,7 @@ fetch("http://localhost:4000/discussions/")
     const ul = document.querySelector("ul.discussions__container"); 
     render(ul);
     // console.log(json)
-    console.log(agoraStatesDiscussions);
+    // console.log(agoraStatesDiscussions);
   })
 
 // 질문 남기기 버튼을 누르면 폼박스 나오기
@@ -171,6 +173,13 @@ btnCloseAnswered.onclick = function() {
   answeredForm.classList.add('hide');
 }
 
+// 삭제 버튼 구현
+// const btnRemoveItem = document.querySelector('bi bi-trash3-fill');
+// console.log(data)
+// btnRemoveItem.onclick = function(e){
+//   const item = e.target.id;
+//   return data.fliter(el=>el.id===item)
+// }
 // 답변 렌더링 하기
 
 // 새로 입력된 값 저장하기
@@ -209,13 +218,48 @@ newDiscussion.addEventListener('submit',(event)=>{
   render(ul);
 });
 
-// fetch("http://localhost:4000/discussions/")
-//   // 본문 가져오기
-//   .then((res) => res.json())
-//   .then((json) => {
-//     // data.js 대신 사용
-//     let agoraStatesDiscussions = json; 	
-//     const ul = document.querySelector("ul.discussions__container"); 
-//     render(ul);
-//     console.log(json)
-//   })
+// 페이지네이션을 위한 변수
+let limit = 10,
+  page = 1;
+
+// ul 요소에 data 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul, 0, limit);
+
+const getPageStartEnd = (limit, page) => {
+  const len = data.length - 1;
+  let pageStart = Number(page - 1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if (page <= 0) {
+    pageStart = 0;
+  }
+  if (pageEnd >= len) {
+    pageEnd = len;
+  }
+  return { pageStart, pageEnd };
+};
+
+const buttons = document.querySelector(".buttons");
+buttons.children[0].addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[1].addEventListener("click", () => {
+  if (limit * page < data.length - 1) {
+    page = page + 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[2].addEventListener("click", () => {
+  localStorage.removeItem("agoraStatesDiscussions");
+  data = agoraStatesDiscussions.slice();
+  limit = 10;
+  page = 1;
+  render(ul, 0, limit);
+});
