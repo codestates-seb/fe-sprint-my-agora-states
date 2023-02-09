@@ -2,11 +2,26 @@
 let agoraStatesDiscussions = []
 const check_Mark = "☑";
 const uncheck_Mark = "☒";
+//----------------시간세팅------------------------------/
+function printKorDate() {
+  const today = new Date();
+  const dateString = today.toLocaleDateString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  const dayName = today.toLocaleDateString('ko-KR', {
+    weekday: 'long',
+  });
+   //----------------시간세팅------------------------------/
+  return `${dateString} ${dayName}`;
+}
 
 fetch("http://localhost:4000/discussions/")
   .then(response => response.json())
   .then(json => {
        agoraStatesDiscussions = json;
+       console.log(agoraStatesDiscussions)
     const ul = document.querySelector("ul.discussions__container"); 
     render(ul); 
   })
@@ -66,31 +81,32 @@ const render = (element) => {
 };
 
 
-//------------------------------------------------------------------//
+//---------------------------새로운 디스커션 만들어주는 공장.-------------------------//
 function InputInform(name,title,bodyHTML) {
-  this.id = agoraStatesDiscussions.length;
+  this.id = agoraStatesDiscussions[0].id +1;
   this.author = name;
   this.createdAt = new Date().toLocaleDateString();
+  this.url = "https://github.com/parksubeom?tab=repositories"
   this.title = title;
   this.bodyHTML = bodyHTML;
   this.avatarUrl = "https://avatars.githubusercontent.com/u/104641096?v=4"
 }
-
+//--------------------------서브밋버튼 이벤트 시작---------------------------//
 const submitBtn = document.querySelector('#button')
-
-submitBtn.addEventListener("submit", (event) => {
+submitBtn.addEventListener("click", (event) => { // 서브밋버튼 이벤트 발생 시 동작.
+  console.log('이벤트시작')
+  //------------------------각 인풋박스 변수에 할당해주기-------------------//
   const newuser = document.querySelector("#username")
   const newtitle = document.querySelector("#titlename")
   const newtext = document.querySelector("#story")
 
-
-
+//------------------Post로 넘겨 줄 새로운 discussion newObj로 포장하기-----------//
   const newObj = new InputInform(newuser.value,newtitle.value,newtext.value); // new Obj는 새로 작성된 게시물
-
+//--------------------게시물 작성하고나면 input박스 청소해주기 ~ ---------------//
   newuser.value = null
   newtitle.value = null
   newtext.value = null
-
+//------------------------서버로 POST요청 보내는 메서드---------------------------//
   fetch("http://localhost:4000/discussions/", {
     method: "POST",
     headers: {
