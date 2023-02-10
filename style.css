@@ -1,1 +1,172 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #73A9AD;
+    text-shadow: 15px 15px 10px #a4a4a4;
+}
+
+body {
+    height:120vh;
+    display: flex;
+    justify-content: center;
+    background-color: #fcfaea;
+    filter: drop-shadow(15px 15px 10px #a4a4a4);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 540px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 540px;
+    border: 1px solid #C4DFAA;
+}
+
+h2 {
+    font-size: 17px;
+}
+
+input, textarea {
+    border: 1px solid #C4DFAA;
+    background-color: #fcfaea;
+}
+
+.form__container {
+    border: 1px solid #C4DFAA;
+}
+
+.discussion__information {
+    font-size: 13px;
+}
+
+.form__container {
+    height: 15%;
+    width: 100%;
+    display: flex;
+}
+
+.form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pagenation__container {
+    width: 30%;
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 65%;
+}
+
+.form__input--name, .form__input--title, .form__textbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__submit > input {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+.form__submit {
+    height: 70%;
+    width: 15%;
+}
+
+#story, #name {
+    width: 60%;
+    text-shadow: none;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.discussion__content {
+    flex : 0 0 400px;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.hide {
+    display: none;
+}
+  
+#pagenation__numbers {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+
+  .pagination-container {
+    width: calc(100% - 2rem);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 0;
+  }
+  
+  .pagenation__number,
+  .pagenation__button{
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+  }
+
+  .form__submit>input:hover {
+    background: #73A9AD;
+    color: #fff;
+  }
+
+  a:hover {
+    color: black;
+  }
+  
+  .pagenation__number:hover,
+  .pagenation__button:not(.disabled):hover {
+    background: #fff;
+  }
+   
+  .pagenation__number.active {
+    color: #fff;
+    background: #90C8AC;
+  }
