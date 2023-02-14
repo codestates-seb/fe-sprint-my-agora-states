@@ -146,7 +146,13 @@ form.addEventListener('submit', function (event) {
   };
   agoraStatesDiscussions.unshift(obj);
   const discussion = convertToDiscussion(obj);
+
   console.log('obj', obj);
+
+  inputName.value = "";
+  inputTitle.value = "";
+  inputStory.value = "";
+
   ul.prepend(discussion);
   render(ul);
   
