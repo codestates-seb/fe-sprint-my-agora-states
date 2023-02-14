@@ -1,0 +1,9 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = true
+	ignorecase = true
+[remote "origin"]
+	url = git@github.com:choigirang/myDay.git
+	fetch = +refs/*:refs/*
+	mirror = true
