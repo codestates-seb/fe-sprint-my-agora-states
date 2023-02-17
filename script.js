@@ -62,15 +62,26 @@ const convertToDiscussion = (obj) => {
 
 // 📃 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-      for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-            element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+      for (let i = 0; i < listDiscussions.length; i += 1) {
+            element.append(convertToDiscussion(listDiscussions[i]));
       }
       return;
 };
 
 // 📃 ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+//const ul = document.querySelector("ul.discussions__container");
+//render(ul);
+let listDiscussions = [];
+
+fetch(`http://localhost:4000/discussions`)
+.then(res => res.json())
+.then(json => { 
+  listDiscussions = json;
+  const ul = document.querySelector('ul.discussions__container')
+  render(ul)
+})
+
+
 
 
 const form = document.querySelector("form");
@@ -110,60 +121,3 @@ form.addEventListener("submit", (event) => {
       }
 );
 
-
-
-const rowsPerPage = 10;
-const rows = document.querySelector("ul.discussions__container");
-console.log(rows) //
-const rowsCount = ul.childElementCount; // 42 / 5 -> 8.n 개의 페이지 네이션
-const pageCount = Math.ceil(rowsCount/rowsPerPage); // 9
-
-const numbers = document.querySelector('#numbers');
-
-// 페이지네이션 생성
-
-for(let i = 1; i <= pageCount; i++){
-      numbers.innerHTML += `<li><a href="">${i}</a></li>`;
-}
-const numberBtn = numbers.querySelectorAll('a');
-
-// numberBtn.forEach(function(item,idx){})
-
-numberBtn.forEach((item,idx)=>{
-      item.addEventListener('click', (e)=>{
-            e.preventDefault();
-            for(let nb of numberBtn){
-                  nb.classList.remove('active');
-            }
-            e.target.classList.add('active');
-            displayRow(idx);
-      });
-});
-
-let rowsArray = agoraStatesDiscussions;
-console.log(rowsArray)
-
-//테이블 출력 함수
-function displayRow(idx){
-      /**
-       * idx 0
-       * slice(0,10);
-       * idx 1
-       * slice(10,20);
-       */
-
-      let start = idx * rowsPerPage; 
-      let end = start + rowsPerPage;
-
-       // [...rows]는 안된다... 
-
-      for(ra of rows.li){
-            ra.style.display = "none";
-      }
-      
-      let newRows = rowsArray.slice(start,end);
-      for(nr of newRows){
-            nr.style.display = "block";
-      }
-
-}// displayRow
