@@ -1,0 +1,14 @@
+:root {
+  --light-dark: #525252;
+  --medium-dark: #414141;
+  --deep-dark: #313131;
+  --point-red: #ca3e47;
+  --white: #ffffff;
+}
+
+:root {
+  --minimum-font-size: 0.75rem;
+  --medium-font-size: 1rem;
+  --big-font-size: 1.5rem;
+  --title-font-size: 2rem;
+}
