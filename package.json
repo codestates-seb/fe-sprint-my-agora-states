@@ -1,0 +1,21 @@
+{
+  "name": "agorastates",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XionWCFM/fe-sprint-my-agora-states.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XionWCFM/fe-sprint-my-agora-states/issues"
+  },
+  "homepage": "https://github.com/XionWCFM/fe-sprint-my-agora-states#readme"
+}

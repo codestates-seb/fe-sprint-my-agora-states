@@ -1,4 +1,23 @@
 const submitForm = document.querySelector('.form');
+const pageButtonContainer = document.querySelector('.pageContainer');
+const ul = document.querySelector('.discussContainer');
+
+let activePage = 1;
+const bottomSize = 5;
+const listSize = 10;
+
+const render = (element, min, max) => {
+  for (let i = min; i < max; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+const removeChild = (element) => {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+};
 
 const createElementWithClass = (tagname, classname) => {
   const result = document.createElement(tagname);
@@ -19,7 +38,9 @@ const dateMaker = (element) => {
   const hours = String(date.getHours()).padStart(2, '0');
   const minutes = String(date.getMinutes()).padStart(2, '0');
   const seconds = String(date.getSeconds()).padStart(2, '0');
-  element.textContent += `${year}-${month}-${day} TIME ${hours}:${minutes}:${seconds}`;
+  hours >= 12
+    ? (element.textContent += `오후 ${hours}:${minutes}:${seconds}`)
+    : (element.textContent += `오전 ${hours}:${minutes}:${seconds}`);
   return element;
 };
 
@@ -34,12 +55,27 @@ const avatarMaker = (obj) => {
   avatarIcon.append(avatarImg);
   return avatarIcon;
 };
+//createdAt: '2022-04-28T07:00:41Z',
+
+const parserMaker = (obj) => {
+  const regex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/;
+  const [year, month, day, hours, minutes, seconds] = obj.match(regex);
+  return hours >= 12
+    ? `오후 ${hours}:${minutes}:${seconds}`
+    : `오전 ${hours}:${minutes}:${seconds}`;
+};
 
 const discussInfoMaker = (obj) => {
   let discussInfo = createElementWithClass('div', 'discussInfo');
-  discussInfo = propertyMaker(discussInfo, 'textContent', obj.author);
-  discussInfo.textContent += ' / ';
-  discussInfo = dateMaker(discussInfo);
+  if (obj.createdAt !== undefined) {
+    discussInfo = propertyMaker(discussInfo, 'textContent', obj.author);
+    discussInfo.textContent += ' / ';
+    discussInfo.textContent += parserMaker(obj.createdAt);
+  } else {
+    discussInfo = propertyMaker(discussInfo, 'textContent', obj.author);
+    discussInfo.textContent += ' / ';
+    discussInfo = dateMaker(discussInfo);
+  }
   return discussInfo;
 };
 
@@ -99,39 +135,56 @@ const submitPusher = (event) => {
   console.log(newDiscuss);
   agoraStatesDiscussions.unshift(newDiscuss);
   ul.prepend(newDiscuss);
+  ul.removeChild(ul.lastChild);
+  console.log(agoraStatesDiscussions.length);
   return;
+};
+
+//페이지네이션 파트
+const buttonMaker = (i) => {
+  let btn = createElementWithClass('button', 'pageNumber');
+  btn = propertyMaker(btn, 'id', `page_${i}`);
+  btn = propertyMaker(btn, 'textContent', i);
+  return btn;
+};
+
+const paintButton = (firstNum, lastNum) => {
+  for (let i = firstNum; i < lastNum; i++) {
+    let btn = buttonMaker(i);
+    pageButtonContainer.append(btn);
+  }
+};
+
+const pageButtonNumber = (cursor, total) => {
+  let totalPageSize = Math.ceil(total / listSize);
+  let firstNum = cursor - (cursor % bottomSize) + 1;
+  let lastNum = cursor - (cursor % bottomSize) + bottomSize;
+
+  if (lastNum > totalPageSize) lastNum = totalPageSize;
+  paintButton(firstNum, lastNum, cursor);
+
+  return {
+    firstNum,
+    lastNum,
+    totalPageSize,
+    total,
+    bottomSize,
+    listSize,
+    cursor,
+  };
+};
+
+const pageButtonOnclick = (event) => {
+  if (event.target.classList[0] !== 'pageNumber') return;
+  const nowPage = Number(event.target.textContent);
+  activePage = nowPage;
+  removeChild(ul);
+  render(ul, nowPage * 10 - 10, nowPage * 10);
+  removeChild(pageButtonContainer);
+  pageButtonNumber(nowPage, agoraStatesDiscussions.length);
 };
 
 submitForm.addEventListener('submit', submitPusher);
-
-//페이지네이션 파트
-
-const pageNation = (id) => {
-  let numOfContent = agoraStatesDiscussions.length;
-  let showContent = 10;
-  let showButton = 5;
-  let maxPage = Math.ceil(numOfContent / showContent);
-  let page = 1;
-
-  let button = createElementWithClass('button', 'pageNation');
-  button = propertyMaker(button, 'textContent', id);
-  button.dataset.num = id;
-  button.addEventListener('click');
-};
-
-const onClickPageButton = (event) => {
-  for (let page of event) {
-  }
-};
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector('.discussContainer');
-render(ul);
+pageButtonContainer.addEventListener('click', pageButtonOnclick);
+render(ul, 0, 10);
+pageButtonNumber(1, agoraStatesDiscussions.length);
