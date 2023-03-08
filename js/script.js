@@ -1,12 +1,12 @@
 const submitForm = document.querySelector('.form');
 const pageButtonContainer = document.querySelector('.pageContainer');
 const ul = document.querySelector('.discussContainer');
-
+const nextButton = document.querySelector('.nextButton');
+const prevButton = document.querySelector('.prevButton');
 const bottomSize = 5; // 버튼을 한번에 최대 몇개 보여줄거냐
 const listSize = 10; // 한번에 보여줄 리스트 개수
-let total = agoraStatesDiscussions.length;
+
 let activePage = 1; // 현재 페이지 -> 리스트를 렌더링 너무많은데이터가있으면 그걸 다 렌더링하면 시간이 너무 오래걸림
-let totalPageSize = Math.ceil(total / listSize);
 let firstNum = activePage - (activePage % bottomSize) + 1; // 현재페이지 - (현재페이지 % 버튼갯수) + 1
 let lastNum = activePage - (activePage % bottomSize) + bottomSize;
 
@@ -23,32 +23,63 @@ const getStorage = () => {
 };
 
 getStorage();
+let total = agoraStatesDiscussions.length;
+let totalPageSize = Math.ceil(total / listSize);
 
-const jumpButtonMaker = () => {
-  let nextButton = createElementWithClass('button', 'nextButton');
-  let prevButton = createElementWithClass('button', 'prevButton');
-  nextButton = propertyMaker(nextButton, 'textContent', '>');
-  prevButton = propertyMaker(nextButton, 'textContent', '<');
-  if (totalPageSize > lastNum) pageButtonContainer.append(nextButton);
-  if (firstNum > 5) pageButtonContainer.prepend(prevButton);
+const activeButtonToggle = () => {
+  let activeBtn = document.querySelector(`#page_${activePage}`);
+  console.log(`activeTbn ${activeBtn}`);
+  let removeClass = document.querySelectorAll('.pageNumber');
+  console.log(removeClass);
+  if (activeBtn === null) return;
+  Array.prototype.forEach.call(removeClass, (e) => {
+    e.classList.remove('activeButton');
+  });
+
+  activeBtn.classList.add('activeButton');
+
   return;
 };
 
 const nextButtonOnClick = () => {
   if (totalPageSize > lastNum) {
-    activePage = activePage + 5;
-    document.querySelector(`#page_${activePage}`).click();
+    firstNum += bottomSize;
+    lastNum += bottomSize;
+    activePage = firstNum;
+    removeChild(ul); // 현재 렌더링된 리스트를 지워준다
+    render(ul, activePage * 10 - 10, activePage * 10); // 그리고 다시 리스트를 칠한다
+    if (activePage % bottomSize === 0) return;
+    removeChild(pageButtonContainer); // 버튼도 새로 만들어줄거니까 지워준다
+    paintButton(); // 버튼 새로 만든다
+    activeButtonToggle();
   }
+  console.log(
+    `activePage ${activePage} firstNum ${firstNum} lastNum ${lastNum} totalPageSize ${totalPageSize}`,
+  );
+  return;
 };
 
-const prevPageOnClick = () => {
-  if (firstNum > 5) {
-    document.querySelector(`#page_${activePage}`).click();
-    activePage = activePage - 5;
+const prevButtonOnClick = () => {
+  if (5 < firstNum) {
+    firstNum -= bottomSize;
+    lastNum -= bottomSize;
+    activePage = firstNum;
+    removeChild(ul); // 현재 렌더링된 리스트를 지워준다
+    render(ul, activePage * 10 - 10, activePage * 10); // 그리고 다시 리스트를 칠한다
+    if (activePage % bottomSize === 0) return;
+    if (lastNum % bottomSize !== 0) lastNum = firstNum + 4;
+    removeChild(pageButtonContainer); // 버튼도 새로 만들어줄거니까 지워준다
+    paintButton(); // 버튼 새로 만든다
+    activeButtonToggle();
   }
+  console.log(
+    `activePage ${activePage} firstNum ${firstNum} lastNum ${lastNum} totalPageSize ${totalPageSize}`,
+  );
+  return;
 };
 
 const render = (element, min, max) => {
+  if (agoraStatesDiscussions.length < max) max = agoraStatesDiscussions.length;
   for (let i = min; i < max; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -82,6 +113,7 @@ const dateMaker = () => {
   const seconds = String(date.getSeconds()).padStart(2, '0');
   return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 };
+//createdAt: '2022-04-28T07:00:41Z'
 
 const avatarMaker = (obj) => {
   let avatarIcon = createElementWithClass('div', 'avatarIcon');
@@ -94,7 +126,6 @@ const avatarMaker = (obj) => {
   avatarIcon.append(avatarImg);
   return avatarIcon;
 };
-//createdAt: '2022-04-28T07:00:41Z',
 
 const parserMaker = (obj) => {
   const regex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/;
@@ -106,12 +137,12 @@ const parserMaker = (obj) => {
 
 const discussInfoMaker = (obj) => {
   let discussInfo = createElementWithClass('div', 'discussInfo');
-  if (obj.createdAt !== undefined) {
-    discussInfo = propertyMaker(discussInfo, 'textContent', obj.author);
+  if (obj?.createdAt !== undefined) {
+    discussInfo = propertyMaker(discussInfo, 'textContent', obj?.author);
     discussInfo.textContent += ' / ';
-    discussInfo.textContent += parserMaker(obj.createdAt);
+    discussInfo.textContent += parserMaker(obj?.createdAt);
   } else {
-    discussInfo = propertyMaker(discussInfo, 'textContent', obj.author);
+    discussInfo = propertyMaker(discussInfo, 'textContent', obj?.author);
     discussInfo.textContent += ' / ';
     discussInfo.textContent += dateMaker();
   }
@@ -121,8 +152,8 @@ const discussInfoMaker = (obj) => {
 const discussTitleMaker = (obj) => {
   let discussTitle = createElementWithClass('h2', 'discussTitle');
   let anker = createElementWithClass('a', null);
-  anker = propertyMaker(anker, 'href', obj.url);
-  discussTitle = propertyMaker(discussTitle, 'textContent', obj.title);
+  anker = propertyMaker(anker, 'href', obj?.url);
+  discussTitle = propertyMaker(discussTitle, 'textContent', obj?.title);
   anker.append(discussTitle);
   return anker;
 };
@@ -135,6 +166,8 @@ const contentMaker = (obj) => {
   return discussContent;
 };
 
+/*
+요소 만드는 함수인데.. 안예뻐서 그냥 뺌
 const answerMaker = () => {
   let discussAnswer = createElementWithClass('div', 'discussAnswer');
   let checkBox = createElementWithClass('input', 'checkBox');
@@ -143,14 +176,16 @@ const answerMaker = () => {
   return discussAnswer;
 };
 
+*/
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = createElementWithClass('li', 'discussList');
   let avatar = avatarMaker(obj);
   let content = contentMaker(obj);
-  let answer = answerMaker(obj);
+  // let answer = answerMaker(obj); answer 체크 부분인데 안예뻐서 일단 뻈음
 
-  li.append(avatar, content, answer);
+  li.append(avatar, content); //answer
   return li;
 };
 
@@ -171,6 +206,8 @@ const submitPusher = (event) => {
     author: nameInput.value,
     createdAt: dateMaker(),
   };
+  total = agoraStatesDiscussions.length;
+  totalPageSize = Math.ceil(total / listSize);
   let newDiscuss = convertToDiscussion(obj);
   agoraStatesDiscussions.unshift(obj);
   saveStorage();
@@ -189,19 +226,11 @@ const buttonMaker = (i) => {
 };
 
 const paintButton = () => {
+  if (lastNum >= totalPageSize) lastNum = totalPageSize;
   for (let i = firstNum; i <= lastNum; i++) {
     let btn = buttonMaker(i);
     pageButtonContainer.append(btn);
   }
-};
-
-const pageButtonNumber = () => {
-  total = agoraStatesDiscussions.length;
-  totalPageSize = Math.ceil(total / listSize);
-  firstNum = activePage - (activePage % bottomSize) + 1; // 현재페이지 - (현재페이지 % 버튼갯수) + 1
-  lastNum = activePage - (activePage % bottomSize) + bottomSize;
-  if (lastNum > totalPageSize) lastNum = totalPageSize;
-  paintButton();
 };
 
 const pageButtonOnclick = (event) => {
@@ -210,14 +239,18 @@ const pageButtonOnclick = (event) => {
   activePage = nowPage; // 현재페이지를 계속 버튼 눌릴때마다 바꿔줘야한다했으니까
   removeChild(ul); // 현재 렌더링된 리스트를 지워준다
   render(ul, nowPage * 10 - 10, nowPage * 10); // 그리고 다시 리스트를 칠한다
+  activeButtonToggle();
+  if (activePage % bottomSize === 0) return;
   removeChild(pageButtonContainer); // 버튼도 새로 만들어줄거니까 지워준다
-  pageButtonNumber(); // 버튼 새로 만든다
+  paintButton(); // 버튼 새로 만든다
+  activeButtonToggle();
 };
 
+render(ul, 0, 10);
+paintButton();
 submitForm.addEventListener('submit', submitPusher);
 pageButtonContainer.addEventListener('click', pageButtonOnclick);
-render(ul, 0, 10);
-pageButtonNumber(1, agoraStatesDiscussions.length);
-
 nextButton.addEventListener('click', nextButtonOnClick);
-prevButton.addEventListener('click', prevPageOnClick);
+prevButton.addEventListener('click', prevButtonOnClick);
+
+activeButtonToggle();

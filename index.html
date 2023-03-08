@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -60,7 +64,11 @@
         <ul class="discussContainer"></ul>
       </section>
 
-      <div class="pageContainer"></div>
+      <div class="pageWrapper">
+        <button class="prevButton">◁</button>
+        <div class="pageContainer"></div>
+        <button class="nextButton">▷</button>
+      </div>
     </main>
   </body>
   <script src="./js/data.js"></script>

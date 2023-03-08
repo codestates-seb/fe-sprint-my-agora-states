@@ -39,6 +39,7 @@ textarea {
 .inputContainer textarea:hover {
   border: 2px solid white;
   outline: none;
+  background: linear-gradient(to right, #9164bec5, rgb(186, 74, 192));
   transform: perspective(200px) translateZ(10px) scale(1.1);
   transition: all 0.5s ease-in-out;
 }
@@ -50,6 +51,7 @@ textarea {
   height: 9vh;
   width: 50vw;
   transition: all 0.5s ease-in-out;
+  background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
 }
 
 textarea {
@@ -158,6 +160,7 @@ h1 {
   width: 75vw;
   flex-direction: column;
   padding-left: 30px;
+  padding-right: 30px;
   padding-top: 30px;
 }
 
@@ -229,31 +232,28 @@ h2 {
 }
 
 .pageNumber:hover {
-  transition: all 0.2s ease-in-out;
-  width: 36px;
-  height: 36px;
   opacity: 1;
-  background-color: #9b628aab;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+  transition: all 0.3s ease-in-out;
 }
 
-.pageNumber:not(:hover) {
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  transition: all 1s ease-in-out;
-}
-
-.pageNumberActive {
-  width: 36px;
-  height: 36px;
+.pageNumber:active {
+  border: 1px solid black;
   opacity: 1;
-  background-color: #9b628aab;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+  transition: all 0.3s ease-in-out;
 }
 
 /* 이전페이지 이후페이지 로직 */
 
+.pageWrapper {
+  display: flex;
+}
+
 .nextButton,
-.prevPage {
+.prevButton {
   border: none;
   width: 20px;
   height: 20px;
@@ -265,18 +265,28 @@ h2 {
   opacity: 0.5;
 }
 .nextButton:hover,
-.prevPage:hover {
+.prevButton:hover {
   transition: all 0.2s ease-in-out;
-  width: 36px;
-  height: 36px;
   opacity: 1;
-  background-color: #9b628aab;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
 }
 
 .nextButton:not(:hover),
-.prevPage:not(:hover) {
+.prevButton:not(:hover) {
   width: 20px;
   height: 20px;
   background: transparent;
   transition: all 1s ease-in-out;
+}
+
+.hide {
+  display: none;
+}
+
+.activeButton {
+  transition: all 1s ease-in-out;
+  opacity: 1;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
 }
