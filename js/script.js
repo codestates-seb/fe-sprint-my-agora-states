@@ -2,9 +2,51 @@ const submitForm = document.querySelector('.form');
 const pageButtonContainer = document.querySelector('.pageContainer');
 const ul = document.querySelector('.discussContainer');
 
-let activePage = 1;
-const bottomSize = 5;
-const listSize = 10;
+const bottomSize = 5; // 버튼을 한번에 최대 몇개 보여줄거냐
+const listSize = 10; // 한번에 보여줄 리스트 개수
+let total = agoraStatesDiscussions.length;
+let activePage = 1; // 현재 페이지 -> 리스트를 렌더링 너무많은데이터가있으면 그걸 다 렌더링하면 시간이 너무 오래걸림
+let totalPageSize = Math.ceil(total / listSize);
+let firstNum = activePage - (activePage % bottomSize) + 1; // 현재페이지 - (현재페이지 % 버튼갯수) + 1
+let lastNum = activePage - (activePage % bottomSize) + bottomSize;
+
+const saveStorage = () => {
+  localStorage.setItem('discuss', JSON.stringify(agoraStatesDiscussions));
+};
+
+const getStorage = () => {
+  let saveDiscuss = localStorage.getItem('discuss');
+  if (saveDiscuss !== null) {
+    agoraStatesDiscussions = JSON.parse(saveDiscuss);
+  }
+  return;
+};
+
+getStorage();
+
+const jumpButtonMaker = () => {
+  let nextButton = createElementWithClass('button', 'nextButton');
+  let prevButton = createElementWithClass('button', 'prevButton');
+  nextButton = propertyMaker(nextButton, 'textContent', '>');
+  prevButton = propertyMaker(nextButton, 'textContent', '<');
+  if (totalPageSize > lastNum) pageButtonContainer.append(nextButton);
+  if (firstNum > 5) pageButtonContainer.prepend(prevButton);
+  return;
+};
+
+const nextButtonOnClick = () => {
+  if (totalPageSize > lastNum) {
+    activePage = activePage + 5;
+    document.querySelector(`#page_${activePage}`).click();
+  }
+};
+
+const prevPageOnClick = () => {
+  if (firstNum > 5) {
+    document.querySelector(`#page_${activePage}`).click();
+    activePage = activePage - 5;
+  }
+};
 
 const render = (element, min, max) => {
   for (let i = min; i < max; i += 1) {
@@ -38,16 +80,14 @@ const dateMaker = () => {
   const hours = String(date.getHours()).padStart(2, '0');
   const minutes = String(date.getMinutes()).padStart(2, '0');
   const seconds = String(date.getSeconds()).padStart(2, '0');
-  let result = '';
-  result = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
-  return result;
+  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 };
 
 const avatarMaker = (obj) => {
   let avatarIcon = createElementWithClass('div', 'avatarIcon');
   let avatarImg = createElementWithClass('img', 'avatarImage');
 
-  obj.avatarUrl !== undefined
+  obj?.avatarUrl !== undefined
     ? (avatarImg = propertyMaker(avatarImg, 'src', obj.avatarUrl))
     : (avatarImg = propertyMaker(avatarImg, 'src', './asset/icon/icon1.jpg'));
 
@@ -133,6 +173,7 @@ const submitPusher = (event) => {
   };
   let newDiscuss = convertToDiscussion(obj);
   agoraStatesDiscussions.unshift(obj);
+  saveStorage();
   console.log(agoraStatesDiscussions);
   document.querySelector(`#page_${activePage}`).click();
   return;
@@ -147,44 +188,36 @@ const buttonMaker = (i) => {
   return btn;
 };
 
-const paintButton = (firstNum, lastNum) => {
+const paintButton = () => {
   for (let i = firstNum; i <= lastNum; i++) {
     let btn = buttonMaker(i);
     pageButtonContainer.append(btn);
   }
 };
 
-const pageButtonNumber = (cursor, total) => {
-  let totalPageSize = Math.ceil(total / listSize);
-  let firstNum = cursor - (cursor % bottomSize) + 1;
-  let lastNum = cursor - (cursor % bottomSize) + bottomSize;
-
+const pageButtonNumber = () => {
+  total = agoraStatesDiscussions.length;
+  totalPageSize = Math.ceil(total / listSize);
+  firstNum = activePage - (activePage % bottomSize) + 1; // 현재페이지 - (현재페이지 % 버튼갯수) + 1
+  lastNum = activePage - (activePage % bottomSize) + bottomSize;
   if (lastNum > totalPageSize) lastNum = totalPageSize;
-  paintButton(firstNum, lastNum, cursor);
-
-  return {
-    firstNum,
-    lastNum,
-    totalPageSize,
-    total,
-    bottomSize,
-    listSize,
-    cursor,
-  };
+  paintButton();
 };
 
 const pageButtonOnclick = (event) => {
   if (event.target.classList[0] !== 'pageNumber') return;
-  console.log(event);
-  const nowPage = Number(event.target.textContent); //
-  activePage = nowPage;
-  removeChild(ul);
-  render(ul, nowPage * 10 - 10, nowPage * 10);
-  removeChild(pageButtonContainer);
-  pageButtonNumber(nowPage, agoraStatesDiscussions.length);
+  const nowPage = Number(event.target.textContent); // 눌린 페이지수를 기억한다
+  activePage = nowPage; // 현재페이지를 계속 버튼 눌릴때마다 바꿔줘야한다했으니까
+  removeChild(ul); // 현재 렌더링된 리스트를 지워준다
+  render(ul, nowPage * 10 - 10, nowPage * 10); // 그리고 다시 리스트를 칠한다
+  removeChild(pageButtonContainer); // 버튼도 새로 만들어줄거니까 지워준다
+  pageButtonNumber(); // 버튼 새로 만든다
 };
 
 submitForm.addEventListener('submit', submitPusher);
 pageButtonContainer.addEventListener('click', pageButtonOnclick);
 render(ul, 0, 10);
 pageButtonNumber(1, agoraStatesDiscussions.length);
+
+nextButton.addEventListener('click', nextButtonOnClick);
+prevButton.addEventListener('click', prevPageOnClick);

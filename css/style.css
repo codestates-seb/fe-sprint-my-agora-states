@@ -2,29 +2,77 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 @import './root.css';
 @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+input {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .inputWrapper input,
 textarea {
   border: none;
-  background: transparent;
-  background-color: rgba(230, 230, 230, 0.5);
   border-radius: 10px;
+  background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
   margin: 0.125rem;
-  color: var(--white);
+  color: white;
+  transform-style: preserve-3d;
+  max-width: 70vw;
+  max-height: 10vh;
+  font-size: var(--big-font-size);
+  height: 9vh;
+  width: 50vw;
+  padding-left: 26px;
+  opacity: 0.5;
+  border-radius: 50px;
+  box-shadow: 5px 5px 10px #9c83b6, -5px -5px 10px #d4b1f6;
 }
 
 ::placeholder {
-  color: rgb(226, 226, 226);
+  color: white;
+}
+
+.inputContainer input:focus,
+.inputContainer textarea:focus,
+.inputContainer input:hover,
+.inputContainer textarea:hover {
+  border: 2px solid white;
+  outline: none;
+  transform: perspective(200px) translateZ(10px) scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.inputContainer input:not(:focus),
+.inputContainer input:not(:hover),
+.inputContainer textarea:not(:focus),
+.inputContainer textarea:not(:hover) {
+  height: 9vh;
+  width: 50vw;
+  transition: all 0.5s ease-in-out;
+}
+
+textarea {
+  padding-top: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
 }
 
 .submitForm input {
-  background-color: orange;
+  background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
+  width: 50vw;
+  height: 10vw;
   border: none;
+  font-size: 3rem;
   padding: 0.375rem 0.75rem;
-  border-radius: 10px;
+  border-radius: 120px;
+  box-shadow: 10px 10px 20px #e7e7e7a1, -5px -5px 20px #d6d6d6b6;
   font-weight: bold;
-  color: rgb(226, 226, 226);
+  color: rgb(221, 221, 208);
 }
 
 /* 가운데 정렬 */
@@ -35,7 +83,8 @@ body {
   flex-direction: column;
   font-family: 'Jeju Myeongjo', serif;
   font-size: var(--medium-font-size);
-  background-color: wheat;
+  background-image: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
+  background-size: cover;
 }
 
 .discussContent,
@@ -46,16 +95,22 @@ main {
 }
 
 main {
-  border: red solid 1px;
   width: 80vw;
-  min-height: 85vh;
   flex-direction: column;
+  border-radius: 61px;
+  background: transparent;
+  box-shadow: 10px 10px 20px #cec9ce7e, -5px -5px 20px #d6d6d681;
+  padding: 40px 50px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(10px);
 }
 
 h1 {
-  margin: 1rem;
+  margin: 2rem;
   padding: 1rem;
   font-size: var(--title-font-size);
+  color: white;
+  opacity: 0.35;
 }
 
 /* 인풋 영역 */
@@ -63,12 +118,17 @@ h1 {
 .inputContainer {
   display: flex;
   flex-direction: column;
-  background: cadetblue;
   flex-grow: 1;
-  max-height: 200px;
+  max-height: 500px;
   width: 80vw;
   justify-content: center;
   align-items: center;
+  border-radius: 61px;
+  background: transparent;
+  opacity: 0.5;
+  box-shadow: 6px 6px 12px #c7c7c788, -6px -6px 12px #cac1d3a4;
+  padding: 1px;
+  margin-top: 10px;
 }
 
 .inputContainer > form {
@@ -76,6 +136,12 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.inputWrapper > div {
+  margin: 30px;
 }
 
 /* 디스커스 끝 */
@@ -92,15 +158,26 @@ h1 {
   width: 75vw;
   flex-direction: column;
   padding-left: 30px;
+  padding-top: 30px;
 }
 
 .discussList {
   display: flex;
   align-items: center;
-  width: 70vw;
-  border-bottom: 1px solid rgba(90, 90, 90, 0.7);
-  padding-bottom: 12px;
+  width: 75vw;
+  padding-top: 15px;
+  padding-bottom: 15px;
   margin-top: 12px;
+  margin-bottom: 12px;
+  border-radius: 42px;
+  border-bottom: 1px solid rgba(226, 226, 226, 0.466);
+  box-shadow: 2px 2px 4px #c7c7c742, -2px -2px 4px #cfcfcf34;
+  padding-left: 20px;
+}
+
+.discussList:hover {
+  transform: perspective(700px) translateZ(5px) scale(1.1);
+  transition: all 0.25s ease-in-out;
 }
 
 .discussContent {
@@ -133,12 +210,73 @@ h2 {
   flex-basis: 5vw;
 }
 
+/* 페이지 버튼 컨트롤 영역 */
+
 .pageContainer {
   display: flex;
 }
 
 .pageNumber {
+  border: none;
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  margin: 40px 10px 00px 10px;
+  border-radius: 42px;
+  background: transparent;
+  box-shadow: 2px 2px 4px #905891, -2px -2px 4px #ca7ccd;
+  color: rgb(211, 211, 211);
+  opacity: 0.5;
+}
+
+.pageNumber:hover {
+  transition: all 0.2s ease-in-out;
+  width: 36px;
+  height: 36px;
+  opacity: 1;
+  background-color: #9b628aab;
+}
+
+.pageNumber:not(:hover) {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  transition: all 1s ease-in-out;
+}
+
+.pageNumberActive {
+  width: 36px;
+  height: 36px;
+  opacity: 1;
+  background-color: #9b628aab;
+}
+
+/* 이전페이지 이후페이지 로직 */
+
+.nextButton,
+.prevPage {
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin: 40px 10px 00px 10px;
+  border-radius: 42px;
+  background: transparent;
+  box-shadow: 2px 2px 4px #905891, -2px -2px 4px #ca7ccd;
+  color: rgb(211, 211, 211);
+  opacity: 0.5;
+}
+.nextButton:hover,
+.prevPage:hover {
+  transition: all 0.2s ease-in-out;
+  width: 36px;
+  height: 36px;
+  opacity: 1;
+  background-color: #9b628aab;
+}
+
+.nextButton:not(:hover),
+.prevPage:not(:hover) {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  transition: all 1s ease-in-out;
 }
