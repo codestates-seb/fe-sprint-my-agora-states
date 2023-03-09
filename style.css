@@ -1,4 +1,186 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-* {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+} /*초기화*/
+
+li {
+  /*li의 border 속성*/
+  border: 0.5px solid orange;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__container > * {
+  /*입력창*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__container {
+  border: 1px solid black;
+  width: 100vw;
+  height: 50vh;
+  margin-bottom: 150px;
+}
+
+li.discussion__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 540px;
+  height: 50px;
+  justify-content: space-between;
+} /* discussion 전체 배치 속성 */
+
+.discussion__avatar--image {
+  /*프로필 사진 설정*/
+  width: 48px;
+  border-radius: 70%; /* 이미지를 둥글게 바꿈 */
+  overflow: hidden; /* 이미지를 둥글게 만들 때 남은 부분을 숨김 */
+}
+
+.discussion__content {
+  /*제목과 날짜등을 길이 설정*/
+  display: grid;
+  width: 90%;
+  height: 100%;
+}
+
+.discussion__title {
+  justify-self: flex-start;
+}
+
+.discussion__information {
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
 }
