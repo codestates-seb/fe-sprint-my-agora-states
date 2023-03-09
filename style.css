@@ -41,7 +41,7 @@
   }
   
   section .discussion__content {
-    width: 80%;
+    width: 70%;
   }
   
   section .discussion__title {
@@ -56,4 +56,19 @@
   
   section .discussion__answered p {
     font-size: 25px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  main h1 {
+    margin: 30px 0;
+    font-size: 3em;
+  }
+  
+  section.form__container {
+    margin: 30px 0;
   }
