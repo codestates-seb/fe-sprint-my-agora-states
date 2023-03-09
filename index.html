@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
+    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
@@ -15,13 +16,13 @@
   </head>
   <body>
     <nav class="nav__wrapper">
-      <ul class="nav_contianer">
-        <li class="home">Horang-i Agora States</li>
-        <li class="ask_question">질문하기</li>
+      <ul class="nav_container">
+        <li class="home link">Horang-i Agora States <span>&#128047;</span></li>
+        <li class="ask_question link">질문하기</li>
       </ul>
     </nav>
-    <section class="banner__warapper">
-      <title class="banner__title">Horang-i Agora States</title>
+    <section class="banner__wrapper">
+      <h3 class="banner__title">Horang-i Agora States</h3>
       <button class="ask_question">질문하기</button>
     </section>
     <section class="form__container hide">
@@ -53,7 +54,6 @@
                 placeholder="질문 제목을 입력해주세요."
               />
             </div>
-            <div>질문 제목을 필수로 입력해주셔야 합니다.</div>
             <div class="form__textbox">
               <label for="story">Question Content</label>
               <textarea
@@ -77,7 +77,7 @@
         <ul class="discussions__container"></ul>
       </section>
     </main>
-    <div class="arrow_up_btn">
+    <div class="arrow_up_btn hide">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 509 512"
@@ -91,5 +91,7 @@
     </div>
   </body>
   <script src="data.js"></script>
+  <script src="./module/convert.js"></script>
+  <script src="./module/validation.js"></script>
   <script src="script.js"></script>
 </html>

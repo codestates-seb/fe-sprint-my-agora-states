@@ -20,20 +20,14 @@
  * [ ] 새롭게 추가하는 Discussion이 페이지를 새로고침해도 유지되어야 함
  */
 
-const convertToTime = (createdAt) => {
-  let [writeDate, writeTime] = createdAt.split('T');
-  let timeFirst = writeTime.split('Z')[0].split(':')[0];
+/** navigation */
+const navWrapper = document.querySelector('.nav__wrapper');
+const navContainer = document.querySelector('.nav_container');
+const navLink = document.querySelectorAll('link');
 
-  if (+timeFirst >= 12) {
-    writeTime = `오후 ${writeTime.split('Z')[0]}`;
-  } else {
-    writeTime = `오전 ${writeTime.split('Z')[0]}`;
-  }
-
-  return `${writeDate} ${writeTime}`;
-};
-
-// convertToDiscussion은 discussion 데이터를 DOM으로 생성
+/**
+ * discussion 데이터를 DOM으로 생성하는 함수
+ * */
 const convertToDiscussion = (obj) => {
   const { answer, author, avatarUrl, bodyHTML, createdAt, id, title, url } =
     obj;
@@ -58,7 +52,7 @@ const convertToDiscussion = (obj) => {
   discussionLink.textContent = title;
   const discussionInformation = document.createElement('div');
   discussionInformation.classList.add('discussion__information');
-  discussionInformation.textContent = `${author} | ${convertToTime(createdAt)}`;
+  discussionInformation.textContent = `${author} | ${convertToDate(createdAt)}`;
   discussionTitle.appendChild(discussionLink);
   discussionContent.appendChild(discussionTitle);
   discussionContent.appendChild(discussionInformation);
@@ -92,7 +86,7 @@ const render = (element) => {
 
 /**
  * ul 요소에 discussion 배열의 모든 데이터를 화면에 렌더링
- */
+ * */
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
 
@@ -112,6 +106,7 @@ render(ul);
  * [v] textarea: question content
  * [v] button: submit button
  *  */
+/** add discussion 관련 태그 요소들, modal 관련 태그 요소들 */
 const askQuestionBtn = document.querySelectorAll('.ask_question');
 const formContainer = document.querySelector('.form__container');
 const form = document.querySelector('.form');
@@ -119,20 +114,17 @@ const inputs = document.querySelectorAll('.modal_input');
 const username = document.querySelector('#name');
 const title = document.querySelector('#title');
 const content = document.querySelector('#story');
-const submitBtn = document.querySelector('.submit-btn'); // .form__submit
+const submitBtn = document.querySelector('.submit-btn');
 const closeBtn = document.querySelector('.close');
+const arrowUpBtn = document.querySelector('.arrow_up_btn');
 
+// form안에 input value 유효성 통과 값
 let validUsername = false;
 let validTitle = false;
 let validContent = false;
 
-let isModalShow = false;
-
-const inputValidInitialize = () => {
-  validUsername = false;
-  validTitle = false;
-  validContent = false;
-};
+// 모달 open 여부 값
+let isModalOpen = false;
 
 const formInitialize = () => {
   username.value = '';
@@ -140,13 +132,19 @@ const formInitialize = () => {
   content.value = '';
 };
 
+const inputValidInitialize = () => {
+  validUsername = false;
+  validTitle = false;
+  validContent = false;
+};
+
 const handleChangeModalState = () => {
   formInitialize();
   inputValidInitialize();
 
-  isModalShow = !isModalShow;
+  isModalOpen = !isModalOpen;
 
-  if (isModalShow) {
+  if (isModalOpen) {
     formContainer.classList.remove('hide');
   } else {
     formContainer.classList.add('hide');
@@ -163,11 +161,6 @@ askQuestionBtn.forEach((button) =>
 closeBtn.addEventListener('click', () => {
   handleChangeModalState();
 });
-
-// 이름 유효성 검증
-const validation = (value) => {
-  return value.length > 0;
-};
 
 inputs.forEach((input) =>
   input.addEventListener('keyup', (e) => {
@@ -202,4 +195,26 @@ submitBtn.addEventListener('click', (e) => {
     ul.prepend(convertToDiscussion(questionObj));
     handleChangeModalState();
   }
+});
+
+/**
+ * scroll 발생 시 화면 최상단으로 올라갈 수 있도록 하는 함수
+ * */
+window.addEventListener('scroll', () => {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    arrowUpBtn.classList.remove('hide');
+    navWrapper.classList.add('bg-change');
+    askQuestionBtn[0].classList.add('bg-change');
+  } else {
+    arrowUpBtn.classList.add('hide');
+    navWrapper.classList.remove('bg-change');
+    askQuestionBtn[0].classList.remove('bg-change');
+  }
+});
+
+arrowUpBtn.addEventListener('click', () => {
+  scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 });
