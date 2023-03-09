@@ -8,7 +8,7 @@
 // data > notice + others 분리
 const convertToNotice = (obj) =>{
   const li = document.createElement("li");
-  li.className = "discussion__container ";
+  li.className = "discussion__container_li";
   li.id = obj.id;
 
   //li > div , avatarWrapper , discussionContent, discussionAnswered
@@ -153,6 +153,8 @@ discussionForm.addEventListener('submit', (event) => {
   event.preventDefault();
   submitDiscussion(event);
   rendering(1);
+  setActivePage();
+  setToggleIcon();
   
 });
 // discussion 추가
@@ -213,12 +215,22 @@ const getPaginationBtns = () => {
 const setCurrentPage = (pageNum) => {
   currentPage = pageNum;//현재페이지 설정
 
+  setActivePage();
   const prevRange = (pageNum - 1) * Number(paginationLimit);
   const curRange = pageNum * Number(paginationLimit);
 
   return {prevRange, curRange};
 
 }
+const setActivePage = () => {
+  document.querySelectorAll(".pagination-number").forEach((button) => {
+    button.classList.remove("active");
+    const pageIndex = Number(button.getAttribute('page-index'));
+    if(pageIndex === currentPage){
+      button.classList.add("active");
+    }
+  });
+};
 //notice + others 분류하기
 const seperateDiscussion = () => {
   let localDiscussion = JSON.parse(localStorage.getItem("local__discussion"));
@@ -237,8 +249,12 @@ const rendering = (num) => {
   console.log('rendering ', num);
     const { noticeDiscussions, othersDiscussions } = getPaginationBtns();
     const { prevRange, curRange } = setCurrentPage(num);
+
     const noticeTitle = document.querySelector(".notice_discussion_container").children[2];
-    noticeTitle.textContent = `Notice(${noticeDiscussions.length})`
+    noticeTitle.textContent = `Notice(${noticeDiscussions.length})`;
+    
+    const othersTitle = document.querySelector(".others_discussion_container").children[0];
+    othersTitle.textContent = `Discussions(${othersDiscussions.length})`
     render(noticeDiscussions, othersDiscussions, prevRange, curRange);
     
     document.querySelectorAll(".pagination-number").forEach((button) => {
@@ -247,6 +263,7 @@ const rendering = (num) => {
       if(pageIndex){
         button.addEventListener('click', () =>{
           const {prevRange, curRange} = setCurrentPage(pageIndex);
+          console.log(pageIndex);
           render(noticeDiscussions, othersDiscussions, prevRange, curRange);
         });
       }
@@ -274,6 +291,8 @@ const render = (noticeDiscussions, othersDiscussions, prevRange, curRange)=>{ //
 
 window.addEventListener('load', ()=>{
   rendering(1);
+  setActivePage();
+  setToggleIcon();
 })
 
 //Toggle click
@@ -287,15 +306,15 @@ const enableButton = (button) => {
 const toggleOpenBtn = document.querySelector('.toggleOpen');
 const toggleCloseBtn = document.querySelector('.toggleClose');
 
-toggleOpenBtn.addEventListener('click',function(){
-  toggleOpenBtn.classList.add("disabled");
-  toggleCloseBtn.classList.remove("disabled");
+// toggleOpenBtn.addEventListener('click',function(){
+//   toggleOpenBtn.classList.add("disabled");
+//   toggleCloseBtn.classList.remove("disabled");
  
-  const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
-  for(let i = 0 ; i < noticeLiel.length; i++){
-    noticeLiel[i].classList.add("disabled");
-  }
-});
+//   const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
+//   for(let i = 0 ; i < noticeLiel.length; i++){
+//     noticeLiel[i].classList.add("disabled");
+//   }
+// });
 toggleCloseBtn.addEventListener('click',function(){
   toggleCloseBtn.classList.add("disabled");
   toggleOpenBtn.classList.remove("disabled");
@@ -304,3 +323,54 @@ toggleCloseBtn.addEventListener('click',function(){
     noticeLiel[i].classList.remove("disabled");
   }
 });
+
+const setToggleIcon = () => {
+
+  const toggleBtns = document.querySelectorAll('.toggleBtn');
+
+  toggleBtns[0].addEventListener('click', ()=>{
+    toggleBtns[0].classList.add("disabled");
+    toggleBtns[1].classList.remove("disabled");
+
+    const noticeEl = document.querySelectorAll('.discussion__container_li');
+    noticeEl.forEach((e)=>{
+      e.classList.add("disabled");
+    })
+  });
+
+
+  // toggleBtns.forEach((button) => {
+  //   //openBtn
+
+  //   button.addEventListener('click', ()=>{
+  //     if(button.classList.contains("disabled")){
+  //       butto
+  //     }
+  //     console.log(button[0]);
+  //     button[0].classList.add("disabled");
+  //     button[1].classList.remove("disabled");
+  //     const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
+  //     for(let i = 0 ; i < noticeLiel.length; i++){
+  //       noticeLiel[i].classList.add("disabled");
+  //     }
+  //   })
+  // })
+  // const noticeElements = documents.querySelectorAll('.discussions_container')[0].children;
+
+  // noticeElements.forEach((e) => {
+  //   e
+  // })
+
+}
+setToggleIcon();
+
+prevBtn.addEventListener('click', () =>{
+  rendering(currentPage + 1);
+  setToggleIcon();
+});
+
+nextBtn.addEventListener('click', () => {
+  rendering(currentPage + 1);
+});
+
+
