@@ -25,29 +25,28 @@ const convertToDiscussion = (obj) => {
   const contentTitle = document.createElement('h2')
   contentTitle.className = "discussion__title"
   discussionContent.append(contentTitle)
-//링크
+//link
   const contentLink = document.createElement('a')
   contentLink.href = obj.url
   contentLink.textContent = obj.title
   contentTitle.append(contentLink)
-//정보
+//info
   const contentInformation = document.createElement('div')
   contentInformation.className = "discussion__information"
   contentInformation.textContent = obj.author
   discussionContent.append(contentInformation)
 
-//체크박스
+//checkbox
   const contentAnswered = document.createElement('p')
   contentAnswered.className = "discussion__answered"
   discussionAnswered.append(contentAnswered)
   if( obj.answer === null ){
-    contentAnswered.textContent = "☑"
+    contentAnswered.textContent = "⭕️"
   }else{
-    contentAnswered.textContent = "x"
+    contentAnswered.textContent = "❌"
   }
-  //날짜
+//date
   contentInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString("ko-KR")}`
-
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -66,3 +65,44 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
+//입력 데이터를 가져와 data.js의 객체에 agoraStatesDiscussions객체로 넣어준다???
+const form = document.querySelector("form")
+const submitName = document.querySelector('#name')
+const submitTitle = document.querySelector('#title')
+const submitStory = document.querySelector('#story')
+
+// form.addEventListener("submit", function(e){
+//   e.preventDefault() //이벤트객체의 기존의 기능을 차단하겠다 써밋의 리다이렉션을 막아줌
+//   console.log(form.name.value)
+//   console.log(form.title.value)
+//   console.log(form.story.value)
+// })
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
+  const obj = {
+    id : "unique id",
+    createdAt: new Date().toISOString(),
+    title: submitTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
+    author: submitName.value,
+    answer: 'x',
+    bodyHTML: submitStory.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+  }
+
+agoraStatesDiscussions.unshift(obj)
+const newDiscussion = convertToDiscussion(obj) //위 디스커션 추가 함수 적용
+ul.prepend(newDiscussion)
+})
+
+
+// const h2 = document.getElementsByTagName('h2')
+
+// const handleHover = function(){
+//   h2.style.color = 'red'
+// }
+
+// h2.addEventListener('hover', handleHover)
