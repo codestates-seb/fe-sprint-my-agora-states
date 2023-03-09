@@ -20,6 +20,18 @@ const convertToDiscussion = ({ id, createdAt, title, url, author, bodyHTML, avat
   avatarImage.alt = `avatar of ${author}`;
   avatarWrapper.append(avatarImage);
 
+  const discussionTitle = document.createElement('h2');
+  discussionTitle.className = 'discussion__title';
+  const discussionUrl = document.createElement('a');
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = 'discussion__information';
+
+  discussionUrl.href = url;
+  discussionUrl.textContent = title;
+  discussionTitle.append(discussionUrl);
+  discussionInformation.textContent = `${author} / ${createdAt}`;
+  discussionContent.append(discussionTitle, discussionInformation);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
