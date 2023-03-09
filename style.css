@@ -1,1 +1,62 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container {
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+}
+header {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 300px;
+    flex-shrink: 0;
+    /* CODESTATES 배경 */
+    background-image: linear-gradient(
+        to bottom,
+        rgba(69, 44, 221, 0.3),
+        rgba(255, 255, 255, 0)
+      ),
+      url('codestates-motif.png');
+}
+header > img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+
+.discussion__container{
+    display: flex;
+    background-color: rgba(69, 44, 221, 0.3);
+    margin:5px;
+}
+.discussion__avatar--wrapper > img {
+    width: 80px;
+    height: 80px;
+}
+
+.discussion__content {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    /* width: 650px; */
+    /* 질문 클릭해서 접힐때 650px로 설정하자 */
+    height: 90px;
+}
+
+.discussion__title{
+    font-size: 18px;
+    font-weight: 600;
+}
+.discussion__question{
+    height: 20px;
+    /* 질문 본문 내용은 20px만큼만 보인다. */
+    overflow: hidden;
+}
+.discussion__information{
+    opacity:0.6;
+}

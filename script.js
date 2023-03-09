@@ -10,6 +10,14 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+  const discussionAuthor = document.createElement("div");
+  discussionAuthor.className = "discussion__author";
+  const discussionTitle = document.createElement("div");
+  discussionTitle.className = "discussion__title";
+  const discussionQuestion= document.createElement("div");
+  discussionQuestion.className="discussion__question";
+  const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discussion__information";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
@@ -17,13 +25,22 @@ const convertToDiscussion = (obj) => {
   const avatarImage = document.createElement("img");
   avatarImage.src= obj.avatarUrl;
   avatarWrapper.append(avatarImage);
-  discussionContent.innerHTML=obj.bodyHTML;
-  if(obj.answer !==null){
-    discussionAnswered.innerHTML=obj.answer.bodyHTML;
-  }
-  else {
-    discussionAnswered.innerHTML='unanswered';
-  }
+
+  // if(obj.answer !==null){
+  //   discussionAnswered.innerHTML=obj.answer.bodyHTML;
+  // }
+  // else {
+  //   discussionAnswered.innerHTML='unanswered';
+  // }
+
+  discussionAuthor.textContent=obj.author;
+  discussionTitle.textContent=obj.title;
+  discussionInfo.textContent=obj.createdAt.slice(0,10)+' '+obj.createdAt.slice(11,19);
+  discussionQuestion.innerHTML=obj.bodyHTML;
+  discussionContent.append(discussionAuthor);
+  discussionContent.append(discussionTitle);
+  discussionContent.append(discussionQuestion);
+  discussionContent.append(discussionInfo);
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
