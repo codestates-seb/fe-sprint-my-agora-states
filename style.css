@@ -14,10 +14,12 @@ body{
 /* 입력창 */
 form.form{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 1rem 0.5rem;
     margin: 0.5rem;
     border-radius: 8px;
+    border : 1px solid black;
     /* background-color: #EDF1D6; */
 
 }
@@ -32,10 +34,10 @@ div.form__input--name, div.form__input--title{
     justify-content: space-between;
     padding: 0.2rem;
 }
-div.form__input--name > label, div.form__input--title > label{
+/* div.form__input--name > label, div.form__input--title > label{
     flex: 4 0 0;
     width: 100px;
-}
+} */
 div.form__input--name > input, div.form__input--title > input{
     flex : 6 0 0;
 }
@@ -55,12 +57,13 @@ div.form__textbox > textarea{
 /* submit 버튼 */
 div.form__submit{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     padding: 0 0.2rem;
 }
 div.form__submit>input{
+
     padding: 0.5rem;
-    flex: 1 0 0;
+    /* flex: 1 0 0; */
     border-radius: 8px;
     font-size: 1rem;
     /* color: white; */
@@ -76,6 +79,39 @@ main>h1{
     font-size: 3rem;
     /* color: white; */
 }
+/* 검색창 div.search_wrapper, div.serach_container , label.search_container_label > img + input */
+div.search_wrapper{
+    margin: 0.5rem;
+    padding: 0.5rem ;
+    border-radius: 8px;
+    border : 1px solid black;
+}
+div.container_wrapper{
+    display: flex;
+    flex-direction: row;
+
+}
+label.search_container_label{
+    display: flex;
+    flex-direction: row;
+    padding: 0.2rem;
+    align-items: center;
+    
+}
+label.search_container_label > img{
+    width : 1.5rem;
+    height: 1.5rem;
+}
+label.search_container_label > img + input{
+    margin: 0 0.5rem;
+} 
+label.search_container_label > input {
+    border: none;
+    flex : 1 0 0;
+    height: 1.5rem;
+}
+
+
 /* section */
 
 
