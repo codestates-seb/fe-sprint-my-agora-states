@@ -66,3 +66,31 @@ const form = document.querySelector('.form__input--wrapper');
 writeButton.addEventListener('click', (e) => {
   form.classList.toggle('hide');
 });
+
+// 질문 등록 기능 구현
+
+const submitButton = document.querySelector('#submit');
+const userName = document.querySelector('#name');
+const title = document.querySelector('#title');
+const story = document.querySelector('#story');
+
+const writeFunc = (e) => {
+  e.preventDefault();
+  const newStory = {
+    id: `${Math.random()}`,
+    avatarUrl: 'https://t1.kakaocdn.net/together_image/common/avatar/avatar.png',
+    author: userName.value,
+    title: title.value,
+    createdAt: new Date(),
+    answer: null,
+    bodyHTML: story.value,
+  };
+
+  ul.prepend(convertToDiscussion(newStory));
+  userName.value = '';
+  title.value = '';
+  story.value = '';
+  form.classList.toggle('hide');
+};
+
+submitButton.addEventListener('click', writeFunc);
