@@ -51,8 +51,6 @@ render(container);
 
 // 진짜 나으 아고라 스테이츠 만들기
 
-
-
 const submitBtn = document.querySelector('.form__submit')
 
 const nameInput = document.querySelector('#name')
@@ -76,6 +74,20 @@ submitBtn.addEventListener('click', event => {
   discussionAnswered.className = "discussion__answered";
 
 
+  // 현재 시각
+  const currentDate = new Date();
+
+  let currentYear = currentDate.getFullYear();
+  let currentMonth = currentDate.getMonth() + 1;
+  currentMonth = ('0' + currentMonth).slice(-2)
+  let currentDay = currentDate.getDate();
+  currentDay = ('0' + currentDay).slice(-2)
+  let currentHours = currentDate.getHours();
+  currentHours = ('0' + currentHours).slice(-2)
+  let currentMinutes = currentDate.getMinutes();
+  currentMinutes = ('0' + currentMinutes).slice(-2)
+  let currentSeconds = currentDate.getSeconds();
+  currentSeconds = ('0' + currentSeconds).slice(-2)
 
   avatarWrapper.innerHTML = `<img class="discussion__avatar--image"
   src="https://vehrcommunications.com/wp-content/uploads/2021/12/Grinch.jpg"
@@ -83,7 +95,7 @@ submitBtn.addEventListener('click', event => {
 
   discussionContent.innerHTML = `<h2 class="discussion__title"><a
   href='https://www.google.com/'>${titleInput.value}</a></h2>
-  <div class="discussion__information">2022-05-16T01:02:17Z
+  <div class="discussion__information">${currentYear}-${currentMonth}-${currentDay}T${currentHours}:${currentMinutes}:${currentSeconds}Z
   </div >`
 
   discussionAnswered.innerHTML = `<p>❌</p>`
