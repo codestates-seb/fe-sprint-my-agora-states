@@ -41,7 +41,7 @@
     align-items: center;
     gap: 20px;
   }
-  section .discussion__preview {
+  section .discussion__preview{
     grid-column: 1 / 4;
   }
   section .discussion__avatar--wrapper {

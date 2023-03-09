@@ -43,13 +43,16 @@ const convertToDiscussion = (obj) => {
   discussionIcon.textContent = "☑";
   discussionAnswered.append(discussionIcon);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);  //질문 체크 o,x
+  const discussionPreview = document.createElement("button"); //미리보기
+  discussionPreview.className = "discussion__preview";
+  discussionPreview.textContent = "미리 보기";
+
+  li.append(avatarWrapper, discussionContent, discussionAnswered,discussionPreview);  //질문 체크 o,x
   if (obj.answer === null) {
     discussionIcon.textContent = UNANSERED_MARK;
   } else {
     discussionIcon.textContent = ANSWERED_MARK;
   }
-
   return li;
 };
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
