@@ -217,3 +217,7 @@ button:focus {
   width: 50px;
   border-radius: 10px;
 }
+
+.discussion__detail {
+  margin-top: 2rem;
+}

@@ -1,3 +1,14 @@
+// 로컬스토리지에 새로 등록된 질문이 있을 경우 기존 배열의 앞에 포함시킴
+
+const newAsk = localStorage.getItem('newStory');
+
+if (newAsk) {
+  const newAskArr = JSON.parse(newAsk);
+  for (let ask of newAskArr) {
+    agoraStatesDiscussions.unshift(ask);
+  }
+}
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement('li'); // li 요소 생성
@@ -16,8 +27,12 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.textContent = obj.answer ? '✅ 답변 완료' : '🆘 진행중';
 
   const titleA = document.createElement('a');
-  titleA.href = obj.url;
+  titleA.href = obj.url ?? 'javascript:void(0)';
   titleA.textContent = obj.title;
+
+  const contents = document.createElement('p');
+  contents.className = 'discussion__detail';
+  contents.textContent = obj.bodyHTML;
 
   const avatarWrapper = document.createElement('div');
   avatarWrapper.className = 'discussion__avatar--wrapper';
@@ -33,10 +48,11 @@ const convertToDiscussion = (obj) => {
   const nickname = document.createElement('span');
   nickname.textContent = obj.author;
   const createDate = document.createElement('span');
-  createDate.textContent = dataConverter.date(obj.createdAt);
+  createDate.textContent = dateConverter(obj.createdAt);
 
   li.append(discussionContent);
   discussionContent.append(discussionTitle, avatarWrapper);
+  typeof obj.id === 'number' && discussionContent.append(contents);
   discussionTitle.append(h2, discussionAnswered);
   h2.append(titleA);
   avatarWrapper.append(avatar, discussionInfor);
@@ -69,28 +85,34 @@ writeButton.addEventListener('click', (e) => {
 
 // 질문 등록 기능 구현
 
-const submitButton = document.querySelector('#submit');
+const writeForm = document.querySelector('.form');
 const userName = document.querySelector('#name');
 const title = document.querySelector('#title');
 const story = document.querySelector('#story');
 
 const writeFunc = (e) => {
   e.preventDefault();
+
   const newStory = {
-    id: `${Math.random()}`,
+    id: Math.random(),
     avatarUrl: 'https://t1.kakaocdn.net/together_image/common/avatar/avatar.png',
     author: userName.value,
     title: title.value,
     createdAt: new Date(),
     answer: null,
     bodyHTML: story.value,
+    url: null,
   };
+
+  // 로컬스토리지를 이용해 새로고침 해도 질문이 남아있도록 하기
+  appendToStorage('newStory', newStory);
 
   ul.prepend(convertToDiscussion(newStory));
   userName.value = '';
   title.value = '';
   story.value = '';
   form.classList.toggle('hide');
+  alert('질문 등록이 완료되었습니다!');
 };
 
-submitButton.addEventListener('click', writeFunc);
+writeForm.addEventListener('submit', writeFunc);
