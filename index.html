@@ -24,7 +24,7 @@
       <title class="banner__title">Horang-i Agora States</title>
       <button class="ask_question">질문하기</button>
     </section>
-    <section class="form__container">
+    <section class="form__container hide">
       <div class="modal-background"></div>
       <div class="modal">
         <span class="close">&times;</span>
@@ -37,6 +37,7 @@
                 type="text"
                 name="name"
                 id="name"
+                class="modal_input"
                 required
                 placeholder="이름을 입력해주세요."
               />
@@ -47,22 +48,25 @@
                 type="text"
                 name="title"
                 id="title"
+                class="modal_input"
                 required
                 placeholder="질문 제목을 입력해주세요."
               />
             </div>
+            <div>질문 제목을 필수로 입력해주셔야 합니다.</div>
             <div class="form__textbox">
               <label for="story">Question Content</label>
               <textarea
                 id="story"
                 name="story"
+                class="modal_input"
                 placeholder="질문을 작성해주세요."
                 required
               ></textarea>
             </div>
           </div>
           <div class="form__submit">
-            <input type="submit" value="submit" />
+            <input type="submit" value="submit" class="submit-btn" />
           </div>
         </form>
       </div>

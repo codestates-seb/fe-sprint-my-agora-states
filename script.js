@@ -20,8 +20,6 @@
  * [ ] 새롭게 추가하는 Discussion이 페이지를 새로고침해도 유지되어야 함
  */
 
-console.log(discussions);
-
 const convertToTime = (createdAt) => {
   let [writeDate, writeTime] = createdAt.split('T');
   let timeFirst = writeTime.split('Z')[0].split(':')[0];
@@ -37,7 +35,6 @@ const convertToTime = (createdAt) => {
 
 // convertToDiscussion은 discussion 데이터를 DOM으로 생성
 const convertToDiscussion = (obj) => {
-  console.log(obj);
   const { answer, author, avatarUrl, bodyHTML, createdAt, id, title, url } =
     obj;
   const li = document.createElement('li'); // discussion 1개의 컨테이너, li 요소 생성
@@ -118,21 +115,41 @@ render(ul);
 const askQuestionBtn = document.querySelectorAll('.ask_question');
 const formContainer = document.querySelector('.form__container');
 const form = document.querySelector('.form');
+const inputs = document.querySelectorAll('.modal_input');
 const username = document.querySelector('#name');
 const title = document.querySelector('#title');
 const content = document.querySelector('#story');
-const submitBtn = document.querySelector('.form__submit');
+const submitBtn = document.querySelector('.submit-btn'); // .form__submit
 const closeBtn = document.querySelector('.close');
+
+let validUsername = false;
+let validTitle = false;
+let validContent = false;
 
 let isModalShow = false;
 
+const inputValidInitialize = () => {
+  validUsername = false;
+  validTitle = false;
+  validContent = false;
+};
+
+const formInitialize = () => {
+  username.value = '';
+  title.value = '';
+  content.value = '';
+};
+
 const handleChangeModalState = () => {
+  formInitialize();
+  inputValidInitialize();
   isModalShow = !isModalShow;
   if (isModalShow) {
     formContainer.classList.remove('hide');
   } else {
     formContainer.classList.add('hide');
   }
+  submitBtn.classList.remove('form-valid');
 };
 
 const createDate = () => {
@@ -159,17 +176,48 @@ closeBtn.addEventListener('click', () => {
   handleChangeModalState();
 });
 
-form.addEventListener('click', (e) => {
-  e.preventDefault();
-});
+// form.addEventListener('click', (e) => {
+//   e.preventDefault();
+// });
+
+// 이름 유효성 검증
+const validation = (value) => {
+  return value.length > 0;
+};
+
+inputs.forEach((input) =>
+  input.addEventListener('keyup', (e) => {
+    let target = e.target['id'];
+
+    if (target === 'name') {
+      validUsername = validation(username.value);
+    } else if (target === 'title') {
+      validTitle = validation(title.value);
+    } else if (target === 'story') {
+      validContent = validation(content.value);
+    }
+
+    if (validUsername && validTitle && validContent) {
+      submitBtn.classList.add('form-valid');
+    } else {
+      submitBtn.classList.remove('form-valid');
+    }
+  })
+);
 
 submitBtn.addEventListener('click', (e) => {
-  const questionObj = {
-    author: username.value,
-    avatarUrl: '../images/donut.png',
-    createdAt: new Date(),
-    title: title.value,
-    content: content.value,
-  };
-  ul.prepend(convertToDiscussion(questionObj));
+  e.preventDefault();
+  if (validUsername && validTitle && validContent) {
+    handleChangeModalState();
+    const questionObj = {
+      author: username.value,
+      avatarUrl: '../images/donut.png',
+      createdAt: new Date(),
+      title: title.value,
+      content: content.value,
+    };
+    ul.prepend(convertToDiscussion(questionObj));
+  }
 });
+
+console.log(isModalShow);

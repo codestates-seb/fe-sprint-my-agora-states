@@ -209,11 +209,15 @@ textarea::placeholder {
   font-weight: bold;
 }
 
-.form__submit input:hover {
+/* .form__submit input:hover {
+
+} */
+
+.form-valid {
   cursor: pointer;
   color: var(--white);
   font-weight: bold;
-  background-color: var(--coz-blue-300);
+  background-color: var(--coz-blue-700);
 }
 
 .hide {
