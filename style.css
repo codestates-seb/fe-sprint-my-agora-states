@@ -4,3 +4,7 @@
   padding: 0px;
   margin: 0px;
 }
+
+.hide {
+  display: none;
+}

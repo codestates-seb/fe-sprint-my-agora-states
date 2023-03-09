@@ -2,8 +2,7 @@ const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const divQuestion = document.querySelector("#story");
 const imgAvatar = document.querySelector("#myAvatar");
-
-imgAvatar.addEventListener("click", function () {
+const defaultAvatar = imgAvatar.addEventListener("click", function () {
   const inputLoadAvatar = document.querySelector("#load-Avatar");
   inputLoadAvatar.click();
 });
@@ -47,10 +46,10 @@ const onBtnSubmitClick = (event) => {
   discussion.bodyHTML = divQuestion.innerHTML;
   // 하나라도 null이면 진행하지 않음
   if (discussion.author && discussion.title && discussion.bodyHTML) {
-    discussion.createdAt = customDate(dateToObject());
+    discussion.createdAt = new Date();
     discussion.avatarUrl = null;
-    console.log(discussion);
-    return discussion;
+    addDiscussion(discussion);
+    return;
   }
 };
 
@@ -58,14 +57,19 @@ const btnSubmit = document.querySelector("#questionSubmit");
 btnSubmit.addEventListener("click", onBtnSubmitClick);
 // object to discussions__container
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions[1]);
+console.log(agoraStatesDiscussions[0].createdAt);
 
+const addDiscussion = (obj) => {
+  const discussions = document.querySelector("ul.discussions__container");
+  const li = convertToDiscussion(obj);
+  discussions.insertBefore(li, discussions.children[0]);
+};
 const fillAvatarWrapper = (obj) => {
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   // child
   const avatar = document.createElement("img");
-  avatar.src = obj.avatarUrl;
+  avatar.src = obj.avatarUrl ? obj.avatarUrl : null;
   avatarWrapper.appendChild(avatar);
   return avatarWrapper;
 };
