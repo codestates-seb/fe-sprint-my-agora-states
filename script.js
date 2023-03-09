@@ -14,12 +14,52 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+ // 아바타 
+  const avatarImage = document.createElement('img');
+  avatarImage.className = 'discussion__avatar--image';
+  avatarImage.src = obj.avatarUrl;
+  avatarImage.alt = `avatar of ${obj.author}`;
+  avatarImage.style.width = '50px';
+  avatarWrapper.appendChild(avatarImage);
+
+  // 타이틀
+  const titleName = document.createElement("h2");
+  const titleATag = document.createElement("a");
+  titleName.classList.className = 'discussion__title';
+  titleATag.textContent = obj.title;
+  titleATag.href = obj.url;
+  titleName.appendChild(titleATag);
+  discussionContent.appendChild(titleName); 
+  
+
+  // 인포
+  const info = document.createElement("div");
+  info.className = 'discussion__information';
+  info.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString('ko-KR')}`;
+  discussionContent.appendChild(info);
+
+  // Answered
+  const answered = document.createElement('p');
+  answered.textContent = obj.answer === null?
+  "답변 대기중.."  :  "답변 완료"
+
+  if (obj.answer === null) {
+    answered.classList.add("comment-null")
+  } else {
+    answered.classList.add("comment-ok")
+  }
+  discussionAnswered.append(answered);
+
+  
 
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
+  
 };
+
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -31,4 +71,5 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
+
 render(ul);

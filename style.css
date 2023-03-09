@@ -1,1 +1,49 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* Header */
+header {
+  background-color: black;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+header .inner {
+  max-width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+header .inner h1 {
+  flex-grow: 1;
+  font-size: 30px;
+  opacity: 0.8;
+}
+header .inner h1:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+header .inner a {
+  text-decoration: none;
+  color: white;
+}
+header ul.menu {
+  height: 70px;
+  gap: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header ul.menu li a {
+  padding: 0 10px;
+  font-size: 20px;
+  display: block;
+  align-items: center;
+  color: white;
+  opacity: 0.8;
+  text-decoration: none;
+}
+header ul.menu li a:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
