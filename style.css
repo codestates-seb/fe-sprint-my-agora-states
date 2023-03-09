@@ -1,1 +1,128 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+title{
+    display: none;
+}
+
+.form__container{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:blue;
+    border-radius: 20px;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    font-family: 'Noto Serif KR', serif;
+    background-color: #3A4F7A;
+  }
+h1{
+    align-items: center;
+    margin: 10px;
+    color: #FFC6D3;
+}
+
+p{
+    font-size: 24px;
+}
+.form__container{
+    align-items: center;
+    background-image: url('https://cdn.pixabay.com/photo/2022/03/31/08/47/moon-7102510_1280.jpg');
+    background-size: cover;
+    justify-content: center;
+    color: #3A4F7A;
+  }
+
+img{
+    width: 80px;
+    height: 80px;
+}
+
+.discussion__container{
+   
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 600px;
+  height: 150px;
+  font-size: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #FFC6D3;
+}
+
+h2{
+    margin-left: 15px;
+}
+.form__input--name{
+    margin-top: 10px;
+}
+.discussion__content >:nth-child(1){
+    width: 440px;
+    text-align: left;
+    margin-top: 0;
+    padding: 10px;
+
+}
+
+.discussion__content >:nth-child(2){
+    height:30px;
+    text-align: right;
+    padding: 10px;
+    color: #3A4F7A;
+
+   }
+
+script{
+    display: none;
+}
+
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    width: 500px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+textarea{
+    border:2px solid #ccc; 
+    width: 500px;
+    height: 100px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.form__submit{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+input[type=submit] {
+    width: 100px;
+    padding:5px 15px; 
+    background:#3A4F7A;
+    color: #FFC6D3; 
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    
+}
