@@ -2,7 +2,16 @@
 console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = ({ id, createdAt, title, url, author, bodyHTML, avatarUrl }) => {
+const convertToDiscussion = ({
+  id,
+  createdAt,
+  title,
+  url,
+  author,
+  answer,
+  bodyHTML,
+  avatarUrl,
+}) => {
   const li = document.createElement('li'); // li 요소 생성
   li.className = 'discussion__container'; // 클래스 이름 지정
 
@@ -31,6 +40,10 @@ const convertToDiscussion = ({ id, createdAt, title, url, author, bodyHTML, avat
   discussionTitle.append(discussionUrl);
   discussionInformation.textContent = `${author} / ${parseCreatedTime(createdAt)}`;
   discussionContent.append(discussionTitle, discussionInformation);
+
+  const isAnsweredDiscussion = document.createElement('p');
+  isAnsweredDiscussion.textContent = answer ? '☑' : '☒';
+  discussionAnswered.append(isAnsweredDiscussion);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
