@@ -31,6 +31,7 @@ const convertToNotice = (obj) =>{
   discussionTitle.setAttribute("class", "discussion_title");
   const discussionTitleA = document.createElement("a");
   discussionTitleA.setAttribute("href", obj.url);
+  discussionTitleA.setAttribute("class", "noticeA");
   discussionTitleA.textContent =  obj.title;
   discussionTitle.append(discussionTitleA);
 
@@ -81,6 +82,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.setAttribute("class", "discussion_title");
   const discussionTitleA = document.createElement("a");
   discussionTitleA.setAttribute("href", obj.url);
+  discussionTitleA.setAttribute("class", "othersA");
   discussionTitleA.textContent =  obj.title;
   discussionTitle.append(discussionTitleA);
 
@@ -190,7 +192,7 @@ discussionForm.addEventListener('submit', (event) => {
 const prevBtn = document.querySelector('#prevBtn');
 const nextBtn = document.querySelector('#nextBtn');
 const paginationBtns = document.querySelector('#pagination-numbers');
-const paginationLimit = 10;
+const paginationLimit = 5;
 let currentPage;
 
 const makePaginationBtn = (index) => {
@@ -296,7 +298,7 @@ window.addEventListener('load', ()=>{
 })
 
 //Toggle click
-const disableButton = (button) => {
+const disableButton = (i) => {
   button.classList.add("disabled");
 }
 const enableButton = (button) => {
@@ -316,6 +318,7 @@ const toggleCloseBtn = document.querySelector('.toggleClose');
 //   }
 // });
 toggleCloseBtn.addEventListener('click',function(){
+  console.log('click');
   toggleCloseBtn.classList.add("disabled");
   toggleOpenBtn.classList.remove("disabled");
   const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
@@ -365,7 +368,7 @@ const setToggleIcon = () => {
 setToggleIcon();
 
 prevBtn.addEventListener('click', () =>{
-  rendering(currentPage + 1);
+  rendering(currentPage - 1);
   setToggleIcon();
 });
 

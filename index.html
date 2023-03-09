@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
 
 <body>
@@ -20,8 +21,15 @@
       <section class="discussion__wrapper">
         <div class="notice_discussion_wrapper">
           <div class="notice_discussion_container">
-            <img class="toggleOpen toggleBtn" src="https://cdn-icons-png.flaticon.com/512/156/156319.png" alt="TOGGLE OPEN"/>
-            <img class="toggleClose toggleBtn disabled" src="https://cdn-icons-png.flaticon.com/512/156/156137.png" alt="TOGGLE CLOSE"/>
+            <button class="toggleOpen toggleBtn">
+              <i class="fa-solid fa-caret-right"></i>
+            </button>
+           <button class="toggleClose toggleBtn disabled">
+            <i class="fa-solid fa-caret-down"></i>
+           </button>
+
+            <!-- <img class="toggleOpen toggleBtn" src="https://cdn-icons-png.flaticon.com/512/156/156319.png" alt="TOGGLE OPEN"/>
+            <img class="toggleClose toggleBtn disabled" src="https://cdn-icons-png.flaticon.com/512/156/156137.png" alt="TOGGLE CLOSE"/> -->
             <h2></h2>
           </div>
           <ul class="discussions__container">
@@ -72,11 +80,11 @@
         </ul> -->
         <nav class="pagination-container">
           <button class="pagination-button" id="prevBtn">
-            <i class="fa-solid fa-chevron-left"></i> ＜
+            <i class="fa-solid fa-chevron-left"></i> 
           </button>
           <div id="pagination-numbers"></div>
           <button class="pagination-button" id="nextBtn">
-            ＞ <i class="fa-solid fa-chevron-right"></i>
+             <i class="fa-solid fa-chevron-right"></i>
           </button>
         </nav>
 
@@ -87,8 +95,8 @@
 
           <div class="search_container">
             <label class="search_container_label">
-
-              <img src="https://svgsilh.com/svg/1093183.svg" alt="SEARCH SVG" url="/favicon.ico"/>
+              <i class="fa-solid fa-magnifying-glass" style="color:gray; margin-right: 1rem"></i>
+              <!-- <img src="https://svgsilh.com/svg/1093183.svg" alt="SEARCH SVG" url="/favicon.ico"/> -->
               <input type="text" placeholder="search">
             </label>
           </div>

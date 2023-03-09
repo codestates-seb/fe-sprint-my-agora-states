@@ -1,3 +1,4 @@
+/* border-color: #444c56;  텍스트 색상 : color: #adbac7; */
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 *{
     margin: 0;
@@ -5,13 +6,15 @@
     box-sizing: border-box;
 }
 body{
-  
     display: flex;
     justify-content: center;
-    /* background-color: #9DC08B; */
+    /* background-color: #22272e; */
+    /* background-color: #2d333b; */
+    
 }
 
 /* 입력창 */
+
 form.form{
     display: flex;
     flex-direction: column;
@@ -19,40 +22,42 @@ form.form{
     padding: 1rem 0.5rem;
     margin: 0.5rem;
     border-radius: 8px;
-    border : 1px solid black;
-    /* background-color: #EDF1D6; */
-
+    /* background-color: #2f6f44; */
+    background-color: #3fb950;;
+    width: 350px;
+    border-color:#444c56;
 }
+
 div.form__input--wrapper{
     flex: 8 0 auto;
     padding: 0 0.2rem;
 }
 
-
-div.form__input--name, div.form__input--title{
+div.form__input--name, div.form__input--title, div.form__textbox{
     display: flex;
-    justify-content: space-between;
     padding: 0.2rem;
+    border: none;
 }
-/* div.form__input--name > label, div.form__input--title > label{
-    flex: 4 0 0;
-    width: 100px;
-} */
-div.form__input--name > input, div.form__input--title > input{
-    flex : 6 0 0;
+div.form__input--name > input  , 
+div.form__input--title > input, 
+div.form__textbox > textarea{
+    height: 2rem;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 0.5rem;
 }
-div.form__textbox{
-    display: flex;
-    flex-direction: column;
+div.form__input--title > input {
+    flex: 1 0 0 ;
     
 }
-div.form__textbox > label , div.form__textbox > textarea {
-    padding: 0.2rem;
-}
+
 div.form__textbox > textarea{
-    margin: 0.2rem;
-    resize: none;
+   flex: 1 0 0;
+   resize: none;
+    height: 10rem;
 }
+
 
 /* submit 버튼 */
 div.form__submit{
@@ -61,7 +66,7 @@ div.form__submit{
     padding: 0 0.2rem;
 }
 div.form__submit>input{
-
+    margin-top: 1rem;
     padding: 0.5rem;
     /* flex: 1 0 0; */
     border-radius: 8px;
@@ -77,21 +82,28 @@ main > *{
 main>h1{
     text-align: center;
     font-size: 3rem;
-    /* color: white; */
+    /* color: #adbac7; */
+    margin: 1.5rem;
 }
 /* 검색창 div.search_wrapper, div.serach_container , label.search_container_label > img + input */
 div.search_wrapper{
     margin: 0.5rem;
+    margin-top: 0;
     padding: 0.5rem ;
     border-radius: 8px;
-    border : 1px solid black;
+    /* border : 1px solid black; */
+    /* background-color: #16181c; */
+    border : 2px solid gray;
+
 }
 div.container_wrapper{
     display: flex;
-    /* flex-direction: row; */
-    /* justify-content: space-around; */
-
+    justify-content: space-around;
 }
+div.container_wrapper > section {
+    margin: 2rem;
+}
+
 label.search_container_label{
     display: flex;
     flex-direction: row;
@@ -99,17 +111,17 @@ label.search_container_label{
     align-items: center;
     
 }
-label.search_container_label > img{
-    width : 1.5rem;
-    height: 1.5rem;
-}
-label.search_container_label > img + input{
-    margin: 0 0.5rem;
-} 
+
 label.search_container_label > input {
+    margin: 0 0.5rem;
     border: none;
     flex : 1 0 0;
-    height: 1.5rem;
+    outline: none;
+    font-size: 1rem;
+    /* background-color: transparent; */
+    /* color:  #16181c; */
+    /* background-color: #16181c; */
+    color: white;
 }
 
 
@@ -119,6 +131,16 @@ label.search_container_label > input {
 /* ul  */
 h2{
     font-size: 1rem;
+    /* color: #adbac7; */
+}
+a:link, a:visited{
+  color: black;
+}
+a.noticeA:hover{
+    color:#ffcc01;
+}
+a.othersA:hover{
+    color:#0064bd;
 }
 ul>li{
     margin: 0.5rem;
@@ -184,6 +206,11 @@ div.discussion__answered{
 }
 .notice_discussion_wrapper , .others_discussion_wrapper {
     background-color: #ffcc01;
+    /* background-color: #2d333b; */
+    /* background-color: #2d333b; */
+    /* border : 5px solid #ffcc01; */
+    
+    /* border-color: #444c56; */
     padding: 0.5rem;
     border-radius: 8px;
     margin: 0.2rem;
@@ -202,6 +229,7 @@ div[class*="discussion_container"] > img{
 }
 .others_discussion_wrapper {
     background-color: #0064bd;
+    /* border: 5px solid #0064bd; */
 }
 .disabled{
     display: none;
@@ -224,4 +252,16 @@ nav.pagination-container > button, div#pagination-numbers > button {
 .active{
     color: white;
     background-color: #2f6f44;
+    
+}
+
+button.toggleBtn{
+    background : transparent;
+    border: none;
+    /* color: #adbac7; */
+    margin-right: 0.5rem;
+}
+button.toggleBtn > i {
+    width: 5rem;
+    margin-right: 2rem;
 }
