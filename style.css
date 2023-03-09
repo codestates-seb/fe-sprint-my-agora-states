@@ -1,52 +1,65 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
   box-sizing: border-box;
   list-style: none;
-  
 }
-
-main{
+body {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  
-}
-.discussions__container{
-  padding : 0px;
-}
-.discussion__wrapper {
-  
-  
-  display: flex;
-  justify-content: space-between;
+  background-color: antiquewhite;
 }
 
-.discussion__content {
+.form__container {
   width: 540px;
-  //background-color: antiquewhite;
+}
+.discussion__content {
+  display: flex;
+  
+  background-color: antiquewhite;
+  height: 7px;}
+
+.discussions__container {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.discussion__avatar--wrapper{
+  height: 70px;
+  
+  
+}
+
+.discussion__title {
+  margin-top: -60px;
+  margin-left: 80px;
+  
+  font-size: 15px;
+}
+.discussion__information {
+  font-size: 7px;
+  position : fixed ;
+  text-align: right;
+  margin-top : -25px; 
+  margin-left: 500px; 
 }
 
 .discussion__avatar--image {
   border-radius: 50%;
-  overflow: hidden;
   width: 48px;
+  height: 48px;
+  margin: 10px 0px 0px 10px;
   float: left;
   
-  margin-right: 20px;
-}
-
-.discussion__title {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.discussion__information {
-  font-size: 15px;
 }
 
 .discussion__answered {
-  float: right; 
-  margin-top: -55px;
-  margin-right: 50px;
+  float: right;
+  margin-top: -60px;
+  margin-right: 15px;
+  font-size: 20px;
 }
