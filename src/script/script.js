@@ -36,9 +36,14 @@ const convertToDiscussion = (obj) => {
   const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
+  avatarImg.className = "avatar--image";
   avatarWrapper.append(avatarImg);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const discussionCard = document.createElement("div");
+  discussionCard.className = "discussion__card";
+  discussionCard.append(avatarWrapper, discussionContent, discussionAnswered);
+
+  li.append(discussionCard);
   const ul = document.querySelector("ul.discussions__container");
   ul.append(li);
 
@@ -49,6 +54,7 @@ const convertToDiscussion = (obj) => {
     const answerAvatarWrapper = document.createElement("div");
     answerAvatarWrapper.className = "answer__avatar--wrapper";
     const answerAvatarImage = document.createElement("img");
+    answerAvatarImage.className = "answer__avatar--image";
     answerAvatarImage.src = obj.answer.avatarUrl;
     answerAvatarImage.alt = "avatar of " + obj.answer.author;
     answerAvatarWrapper.append(answerAvatarImage);
