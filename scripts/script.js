@@ -1,5 +1,17 @@
+// class Discussions extends HTMLElement {
+
+//   connectedCallback() {
+//      this.innerHTML = '<label>이름을 입력하쇼</label><input>'
+//   }
+// }
+
+// customElements.define("discussions", Discussions);
+// <custom-input></custom-input>
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+
+
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -13,8 +25,7 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
+  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
