@@ -1,1 +1,95 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* centering webpage: main의 flex-container */
+body {
+  display: flex;
+  justify-content: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* centering h1, section1, section2. three's flex container */
+main {
+  margin-top: 50px;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  width: 70%;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  gap: 40px;
+}
+
+/* h1 제목 */
+
+h1 {
+  background-color: bisque;
+}
+
+/* input section */
+.form__container {
+  background-color: bisque;
+}
+
+/* discussions flex-container */
+.discussions__container {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  list-style-type: none;
+  background-color: bisque;
+}
+
+/* discussion flex-container */
+.discussion__container {
+  width: 600px;
+
+  background-color: aqua;
+  display: flex;
+  /* gap: 50px */
+  justify-content: space-between;
+  gap: 20px;
+  /* width: 540px; */
+  /* justify-content: center; */
+  /* flex-direction: column; */
+}
+
+/* discussion 재료들 avatar, content, answered*/
+.discussion__avatar--image {
+  background-color: blueviolet;
+  margin: auto;
+  width: 48px;
+  border-radius: 50px;
+}
+
+/* content 애들 */
+.discussion__content {
+  background-color: red;
+  flex-grow: 1;
+}
+
+.discussion__title {
+  text-align: left;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+/* check box */
+.discussion__answered {
+  /* background-color: blueviolet; */
+
+  width: 30px;
+  justify-self: center;
+  /* margin: auto; */
+  align-self: center;
+}
