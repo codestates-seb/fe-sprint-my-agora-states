@@ -1,1 +1,79 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 0. 기본 스타일링을 제거*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'NeoDunggeunmo';
+    color: #352B44; */
+}
+
+.discussion__wrapper {
+    border: 1px solid purple;
+    display: flex;
+    align-items: center;
+    width: 700px;
+
+}
+
+
+/* 1. 컴포던트 틀 */
+.discussion__container {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 540px;
+    padding: 10px;
+}
+
+
+/* 2. 컴포던트 왼쪽 */
+.discussion__avatar--wrapper{
+    border: 1px solid blue;
+    display: flex;
+    /* justify-content:center; */
+    align-items: center;
+
+}
+
+/* 2-1. 컴포던트 왼쪽 아바타*/
+.discussion__avatar--image{
+    border: 1px solid skyblue;
+    display: flex;
+    width: 48px;
+    border-radius: 50px;
+}
+
+
+/* 3. 컴포던트 중앙 */
+.discussion__content {
+    border: 1px solid orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 400px; 
+}
+
+/* 3-1. 컴포던트 중앙 제목*/
+.discussion__title {
+    display: flex;
+    border: 1px solid yellow;
+    padding: 3px;
+}
+
+/* 3-2. 컴포던트 중앙 저자/생성일*/
+.discussion__information {
+    display: flex;
+    border: 1px solid rgb(129, 155, 15);
+    padding: 3px;
+    /* justify-content: flex-end; */
+}
+
+
+/* 4. 컴포던트 오른쪽 */
+.discussion__answered {
+    border: 1px solid green;
+    display: flex;
+}
