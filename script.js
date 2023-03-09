@@ -1,15 +1,20 @@
 // Date Transform Fuctions
-const getDate = () => {
-  return new Date().toISOString();
-};
-
-const getDateOffset = () => {
-  return new Date().getDateOffset();
-};
-const ISODateToCustomDate = (str) => {
-  const d = new Date(str);
+/* offset
+const offsetDate = (date) => {
+  const d = new Date("yy-mm-dd/hh:mm:ss");
   const offset = d.getTimezoneOffset();
-  return { year: d.getFullYear(), month: d.getMonth(), day: d.getDay() };
+  return d;
+};
+*/
+const dateToObject = (str) => {
+  const d = new Date(str);
+  return {
+    year: d.getFullYear(),
+    month: d.getMonth(),
+    day: d.getDay(),
+    hour: d.getHours(),
+    minute: d.getMinutes(),
+  };
 };
 
 // object to discussions__container
@@ -38,7 +43,7 @@ const fillDiscussionContent = (obj) => {
   aLink.textContent = obj.title;
   // div - discussion__information obj.author, obj.createdAt
   const divInfo = document.createElement("div");
-  obj.createdAt = ISODateToCustomDate(obj.createdAt);
+  obj.createdAt = getCustomDate(obj.createdAt);
   console.log(obj.createdAt);
   divInfo.textContent = `${obj.author} / ${obj.createdAt}`;
 
