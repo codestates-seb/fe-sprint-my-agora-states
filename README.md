@@ -17,13 +17,8 @@
   - [v] `agoraStatesDiscussions(discussions)` 배열에 추가한 데이터가 실제 쌓여야 합니다.
 - [ ] Github Page 배포
   - [ ] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
-- [ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
-  - [ ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
-  - [ ] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
-
-스스로 구현 완료한 부분까지 체크하여 제출합니다.
 
 - [v] 현지 시간 적용
   - [v] 샘플 시간을 잘 변형하여, 현지 시간에 맞게 표현합니다. (ex. 오전 10:02:17)
