@@ -86,11 +86,61 @@ const addDiscussionHandler = (e) => {
   ul.prepend(convertToDiscussion(newdiscussion));
 };
 
+// Advanced Challenge - Pagenation
+let currentPage = 1;
+const totalCount = agoraStatesDiscussions.length;
+const pageCount = 5; // 1 그룹에 5개씩
+const limit = 10; // 한 페이지 당 보여줄 discussion
+
+const elDiscussionPagination = $('.discussion__pagination');
+
+const pagination = () => {
+  let totalPage = Math.ceil(totalCount / limit);
+  // let pageGroup = Math.ceil(currentPage / pageCount);
+  // let lastNumber = pageGroup * pageCount; // 마지막 페이지 넘버
+  // let firstNumber = lastNumber - (pageCount - 1);
+
+  // if (lastNumber > totalPage) {
+  //   lastNumber = totalPage;
+  // }
+
+  let html = `
+  <button class='pagination__prev' data-fn='prev'><</button>
+  <div class="pagination__wrapper">
+    <span class="pagination__current">${
+      currentPage < 10 ? '0' + currentPage : currentPage
+    }</span> / ${totalPage}
+  </div>
+  <button class='pagination__next' data-fn='next'>></button>
+  `;
+
+  elDiscussionPagination.innerHTML = html;
+
+  const paginationBtns = $$('.discussion__pagination button');
+
+  paginationBtns.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.dataset.fn === 'prev') {
+        currentPage = currentPage - 1 <= 0 ? 1 : currentPage - 1;
+      } else if (button.dataset.fn === 'next') {
+        currentPage =
+          currentPage + 1 >= totalPage ? totalPage : currentPage + 1;
+      }
+      pagination();
+      render(ul, (currentPage - 1) * limit);
+    });
+  });
+};
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const render = (element, startIndex = 0) => {
+  element.innerHTML = '';
+  for (let i = startIndex; i < startIndex + 10; i += 1) {
+    if (i >= agoraStatesDiscussions.length) break;
+    console.log(i);
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
+
   return element;
 };
 
@@ -158,3 +208,4 @@ const initData = `
 
 ul.innerHTML = initData;
 render(ul);
+pagination();
