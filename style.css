@@ -9,6 +9,7 @@ body {
   padding: 0;
   margin: auto;
   font-family: 'IBM Plex Sans KR', sans-serif;
+  background-color: rgba(241, 241, 241, 0.148);
 }
 
 a {
@@ -78,6 +79,7 @@ button:focus {
   align-items: center;
   background: linear-gradient(160deg, #ffffff, #ddd4ff, #beebff);
   padding: 0 2rem;
+  margin-bottom: 2rem;
 }
 
 .hero-left {
@@ -98,11 +100,11 @@ button:focus {
   font-weight: 200;
 }
 
-.hero button {
+#write {
   border: none;
-  border-radius: 20px;
-  width: 200px;
-  height: 50px;
+  border-radius: 18px;
+  width: 190px;
+  height: 45px;
   background-color: #3a1078;
   color: white;
   font-size: 18px;
@@ -122,6 +124,14 @@ button:focus {
 
 .hide {
   display: none;
+}
+
+.form__input--wrapper button[type='submit'] {
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
 }
 
 .form__input--wrapper input {
@@ -149,7 +159,7 @@ button:focus {
 }
 
 .discussion__content {
-  width: 800px;
+  width: 900px;
   padding: 2rem;
   border: none;
   border-radius: 30px;
@@ -167,13 +177,23 @@ button:focus {
 .discussion__title h2 {
   font-size: 20px;
   max-width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .discussion__answered {
   border-radius: 15px;
   padding: 10px 20px;
-  font-size: small;
-  font-weight: bold;
+  font-size: 13px;
+}
+
+.done {
+  color: green;
+}
+
+.ongoing {
+  color: red;
 }
 
 .discussion__avatar--wrapper {

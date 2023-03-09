@@ -1,10 +1,5 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  console.log(obj);
-
   const li = document.createElement('li'); // li 요소 생성
   li.className = 'discussion__container'; // 클래스 이름 지정
 
@@ -18,7 +13,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionAnswered = document.createElement('span');
   discussionAnswered.className = 'discussion__answered';
-  discussionAnswered.textContent = obj.answer ? '답변 완료' : '진행 중';
+  discussionAnswered.textContent = obj.answer ? '✅ 답변 완료' : '🆘 진행중';
 
   const titleA = document.createElement('a');
   titleA.href = obj.url;
@@ -47,6 +42,8 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatar, discussionInfor);
   discussionInfor.append(nickname, createDate);
 
+  obj.answer ? discussionAnswered.classList.add('done') : discussionAnswered.classList.add('ongoing');
+
   return li;
 };
 
@@ -61,3 +58,11 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
+
+// 질문 작성하기 form 토글 기능 구현
+const writeButton = document.querySelector('#write');
+const form = document.querySelector('.form__input--wrapper');
+
+writeButton.addEventListener('click', (e) => {
+  form.classList.toggle('hide');
+});

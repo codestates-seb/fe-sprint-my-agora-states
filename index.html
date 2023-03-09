@@ -37,12 +37,13 @@
           </div>
           <div class="form__submit">
             <section class="form__container">
+              <button id="write">질문 작성하기</button>
               <form action="submit" method="get" class="form">
-                <button type="submit">질문 작성하기</button>
-                <div class="form__input--wrapper">
+                <div class="form__input--wrapper hide">
                   <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required />
                   <input type="text" name="title" id="title" placeholder="Title" required />
                   <textarea id="story" name="story" placeholder="Type your question here" required></textarea>
+                  <button type="submit">질문 등록</button>
                 </div>
               </form>
             </section>
@@ -52,7 +53,7 @@
       </section>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
-          <li class="discussion__container">
+          <!-- <li class="discussion__container">
             <div class="discussion__content">
               <div class="discussion__title">
                 <h2>
@@ -60,7 +61,7 @@
                     >[notice] 좋은 질문하는 법</a
                   >
                 </h2>
-                <span class="discussion__answered">답변 완료</span>
+                <span class="discussion__answered done">✅ 답변 완료</span>
               </div>
               <div class="discussion__avatar--wrapper">
                 <img
@@ -74,7 +75,7 @@
                 </div>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
       </section>
     </main>
