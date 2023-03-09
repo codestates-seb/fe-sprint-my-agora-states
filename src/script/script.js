@@ -35,12 +35,43 @@ const convertToDiscussion = (obj) => {
 
   const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = "avatar of" + obj.author;
+  avatarImg.alt = "avatar of " + obj.author;
   avatarWrapper.append(avatarImg);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   const ul = document.querySelector("ul.discussions__container");
   ul.append(li);
+
+  if (obj.answer) {
+    const answerContainer = document.createElement("div");
+    answerContainer.className = "answer__container";
+
+    const answerAvatarWrapper = document.createElement("div");
+    answerAvatarWrapper.className = "answer__avatar--wrapper";
+    const answerAvatarImage = document.createElement("img");
+    answerAvatarImage.src = obj.answer.avatarUrl;
+    answerAvatarImage.alt = "avatar of " + obj.answer.author;
+    answerAvatarWrapper.append(answerAvatarImage);
+
+    const answerContentFolding = document.createElement("details");
+    answerContentFolding.className = "answer__content--folding";
+    const answerContentFoldingSummary = document.createElement("summary");
+    answerContentFoldingSummary.className = "answer__content--folding-summary";
+    answerContentFoldingSummary.textContent = `이 이슈에 대해 ${obj.answer.author}님의 답변이 있습니다.`;
+    answerContentFolding.append(answerContentFoldingSummary);
+
+    const answerContent = document.createElement("div");
+    answerContent.className = "answer__content";
+    answerContent.innerHTML = obj.answer.bodyHTML;
+
+    const answerInformation = document.createElement("div");
+    answerInformation.className = "answer__information";
+    answerInformation.textContent = `${obj.answer.author} ${obj.answer.createdAt}`;
+
+    answerContentFolding.append(answerInformation, answerContent);
+    answerContainer.append(answerAvatarWrapper, answerContentFolding);
+    li.append(answerContainer);
+  }
   return li;
 };
 
