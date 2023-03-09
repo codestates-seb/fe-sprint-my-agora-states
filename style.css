@@ -2,64 +2,127 @@
 
 * {
   box-sizing: border-box;
-  border: 0.1vw solid gray;
-  width: 75vw;
-  border: 0.1vw solid gray;
-  margin: auto;
-}
-
-li {
-  list-style-type: none;
-}
-
-.discussion__avatar--wrapper {
-  display: flex;
-  width: 50vw;
-  flex-direction: center;
-}
-
-img {
-  border-radius: 50%;
-  width: 5vw;
-  margin: 1vw;
-}
-
-div {
-  border: 0.1vw solid red;
+  font-size: 1vw;
   width: 70vw;
+  border: 0.1vw solid gray;
+  margin: 0.1vw auto;
+  padding: 0;
+}
+
+main {
+  width: 65vw;
+}
+
+h1 {
+  width: 60vw;
+  height: 3vw;
+  margin: 0.5vw auto;
+  padding: 0.2vw 1vw;
+  font-size: 2vw;
+}
+
+section {
+  width: 60vw;
+}
+
+form {
+  width: 55vw;
+}
+
+.form__input--wrapper {
+  width: 50vw;
+}
+
+.form__input--name {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+}
+
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+}
+
+.form__submit {
+  width: 50vw;
+}
+
+label {
+  text-align: center;
+  width: 7.5vw;
+  border: solid rgb(76, 76, 409);
+  background: rgb(211, 211, 555);
+  margin: 0.2vw auto;
+  padding: 0.2vw;
 }
 
 input {
-  border: 0.1vw solid blue;
-  width: 65vw;
+  display: block;
+  text-align: center;
+  width: 35vw;
+  margin: 0.2vw auto;
+  padding: 0.2vw;
 }
 
 textarea {
-  border: 0.1vw solid green;
-  width: 65vw;
+  text-align: center;
+  width: 40vw;
+  height: 10vw;
+  margin: 0.2vw auto;
+  padding: 0.2vw;
+}
+
+ul {
+  width: 55vw;
+}
+
+li {
+  list-style: none;
+  width: 50vw;
+}
+
+.discussion__avatar--wrapper {
+  width: 4vw;
+}
+
+img {
+  display: block;
+  width: 3vw;
+  border-radius: 70%;
+  padding: 0.1vw;
 }
 
 .discussion__content {
-  border: 0.1vw solid orange;
-  width: 50vw;
+  width: 45vw;
 }
 
-.discussion__title {
-  width: 50vw;
+h2 {
+  font-size: 2vw;
+  width: 40vw;
+  margin: 0.1vw auto;
 }
 
-p {
-  width: 50vw;
-}
-
-.discussion__container {
-  width: 50vw;
-}
-
-.discussion__information {
-  width: 50vw;
+div {
+  width: 40vw;
 }
 
 .discussion__answered {
-  width: 50vw;
+  text-align: center;
+  width: 45vw;
+}
+
+p {
+  width: 35vw;
+}
+
+div.discussion__content > div {
+  text-align: right;
 }
