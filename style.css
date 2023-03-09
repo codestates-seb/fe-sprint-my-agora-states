@@ -89,3 +89,8 @@ section .discussion__information {
 section .discussion__answered p {
     font-size: 25px;
 }
+
+section.discussion__date{
+    text-align: end;
+    margin-top: 10px;
+}
