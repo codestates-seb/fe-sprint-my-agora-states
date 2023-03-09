@@ -9,7 +9,7 @@
  * [v] discussions 배열에 추가한 데이터가 실제로 쌓여야 한다.
  *
  * 현지 시간 적용
- * [ ] 샘플 시간을 변형하여, 현지 시간에 맞게 표현 (ex. 오전 10:02:17)
+ * [v] 샘플 시간을 변형하여, 현지 시간에 맞게 표현 (ex. 오전 10:02:17)
  *
  * 페이지네이션 기능
  * [ ] 한 페이지에 10개씩 디스커션이 보여주기
@@ -58,7 +58,7 @@ const convertToDiscussion = (obj) => {
   discussionLink.textContent = title;
   const discussionInformation = document.createElement('div');
   discussionInformation.classList.add('discussion__information');
-  discussionInformation.textContent = `${author} | ${createdAt}`;
+  discussionInformation.textContent = `${author} | ${convertToTime(createdAt)}`;
   discussionTitle.appendChild(discussionLink);
   discussionContent.appendChild(discussionTitle);
   discussionContent.appendChild(discussionInformation);
@@ -143,27 +143,15 @@ const formInitialize = () => {
 const handleChangeModalState = () => {
   formInitialize();
   inputValidInitialize();
+
   isModalShow = !isModalShow;
+
   if (isModalShow) {
     formContainer.classList.remove('hide');
   } else {
     formContainer.classList.add('hide');
   }
   submitBtn.classList.remove('form-valid');
-};
-
-const createDate = () => {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const date = today.getDate();
-  const hour = today.getHours();
-  const minute = today.getMinutes();
-  const second = today.getSeconds();
-
-  return `${year}-${month}-${date} ${
-    hour >= 12 ? '오후' : '오전'
-  } ${hour}:${minute}:${second}`;
 };
 
 askQuestionBtn.forEach((button) =>
@@ -175,10 +163,6 @@ askQuestionBtn.forEach((button) =>
 closeBtn.addEventListener('click', () => {
   handleChangeModalState();
 });
-
-// form.addEventListener('click', (e) => {
-//   e.preventDefault();
-// });
 
 // 이름 유효성 검증
 const validation = (value) => {
@@ -208,16 +192,14 @@ inputs.forEach((input) =>
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   if (validUsername && validTitle && validContent) {
-    handleChangeModalState();
     const questionObj = {
       author: username.value,
-      avatarUrl: '../images/donut.png',
-      createdAt: new Date(),
       title: title.value,
       content: content.value,
+      avatarUrl: '../images/donut.png',
+      createdAt: new Date().toISOString().split('.')[0],
     };
     ul.prepend(convertToDiscussion(questionObj));
+    handleChangeModalState();
   }
 });
-
-console.log(isModalShow);
