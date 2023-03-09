@@ -1,13 +1,13 @@
 const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
-    createdAt: "2022-05-16 01:02:17Z",
+    createdAt: "2022-05-16 01:02:17",
     title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: "dubipy",
     answer: {
       id: "DC_kwDOHOApLM4AKg6M",
-      createdAt: "2022-05-16 02:09:52Z",
+      createdAt: "2022-05-16 02:09:52",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/45#discussioncomment-2756236",
       author: "Kingsenal",
       bodyHTML:
@@ -21,7 +21,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APjIj",
-    createdAt: "2022-05-15 23:57:43Z",
+    createdAt: "2022-05-15 23:57:43",
     title:
       "반복되는 문자 리턴 문제에서 ' '(공백하나인 문자열)입력시 오류가 발생합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
@@ -34,13 +34,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APi4R",
-    createdAt: "2022-05-15 09:28:00Z",
+    createdAt: "2022-05-15 09:28:00",
     title: "JavaScript Koans 04_Scope 문제의 innerFn()에 대하여 질문드립니다!",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/43",
     author: "anotheranotherhoon",
     answer: {
       id: "DC_kwDOHOApLM4AKg7z",
-      createdAt: "2022-05-16 02:47:27Z",
+      createdAt: "2022-05-16 02:47:27",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/43#discussioncomment-2756339",
       author: "Kingsenal",
       bodyHTML:
@@ -54,14 +54,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APh3j",
-    createdAt: "2022-05-13 03:38:57Z",
+    createdAt: "2022-05-13 03:38:57",
     title:
       "Unit10/Checkpoint2/종합퀴즈2/6번 관련하여 클로저의 효용성에 대해 질문드립니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/42",
     author: "JiYJ725",
     answer: {
       id: "DC_kwDOHOApLM4AKdo2",
-      createdAt: "2022-05-13 04:19:10Z",
+      createdAt: "2022-05-13 04:19:10",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/42#discussioncomment-2742838",
       author: "Hong-sk",
       bodyHTML:
@@ -75,14 +75,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APh17",
-    createdAt: "2022-05-13 02:26:58Z",
+    createdAt: "2022-05-13 02:26:58",
     title:
       "클로저 함수의 특징 설명 중 '함수를 리턴하는 함수'가 이해가 되지 않습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/41",
     author: "Hong-sk",
     answer: {
       id: "DC_kwDOHOApLM4AKdsX",
-      createdAt: "2022-05-13 05:20:39Z",
+      createdAt: "2022-05-13 05:20:39",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/41#discussioncomment-2743063",
       author: "kimploo",
       bodyHTML:
@@ -97,14 +97,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APgSk",
-    createdAt: "2022-05-10 14:43:13Z",
+    createdAt: "2022-05-10 14:43:13",
     title:
       "코플릿 배열 24번에 replaceAll을 쓰면 통과가 안되는 이유가 무엇인가요?.?",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/40",
     author: "jindory",
     answer: {
       id: "DC_kwDOHOApLM4AKZuk",
-      createdAt: "2022-05-11 02:28:57Z",
+      createdAt: "2022-05-11 02:28:57",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/40#discussioncomment-2726820",
       author: "Citysquirrel",
       bodyHTML:
@@ -119,13 +119,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APgDd",
-    createdAt: "2022-05-10 07:37:59Z",
+    createdAt: "2022-05-10 07:37:59",
     title: "코플릿 배열 18번 인스턴스(주소값 동일)에 대해 알고 싶습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/39",
     author: "HelloHailie",
     answer: {
       id: "DC_kwDOHOApLM4AKYNk",
-      createdAt: "2022-05-10 08:43:12Z",
+      createdAt: "2022-05-10 08:43:12",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/39#discussioncomment-2720612",
       author: "dldnjswns31",
       bodyHTML:
@@ -138,13 +138,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APgCj",
-    createdAt: "2022-05-10 07:13:15Z",
+    createdAt: "2022-05-10 07:13:15",
     title: '결과값에서 쌍따옴표 "" 를 지울 수 있을까요?',
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/38",
     author: "Mark1237200",
     answer: {
       id: "DC_kwDOHOApLM4AKYLo",
-      createdAt: "2022-05-10 08:26:22Z",
+      createdAt: "2022-05-10 08:26:22",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/38#discussioncomment-2720488",
       author: "Citysquirrel",
       bodyHTML:
@@ -158,13 +158,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfpf",
-    createdAt: "2022-05-09 14:34:03Z",
+    createdAt: "2022-05-09 14:34:03",
     title: "ssh key 등록을 하는 이유는 무엇인가요?",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/37",
     author: "Gwanghyun-Jeon",
     answer: {
       id: "DC_kwDOHOApLM4AKW9l",
-      createdAt: "2022-05-09 15:02:49Z",
+      createdAt: "2022-05-09 15:02:49",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/37#discussioncomment-2715493",
       author: "kimploo",
       bodyHTML:
@@ -178,13 +178,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfnk",
-    createdAt: "2022-05-09 13:48:20Z",
+    createdAt: "2022-05-09 13:48:20",
     title: "npm install 할 때 설치 대상은 어떻게 결정되나요?",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/36",
     author: "Gwanghyun-Jeon",
     answer: {
       id: "DC_kwDOHOApLM4AKW7k",
-      createdAt: "2022-05-09 14:47:22Z",
+      createdAt: "2022-05-09 14:47:22",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/36#discussioncomment-2715364",
       author: "Citysquirrel",
       bodyHTML:
@@ -198,14 +198,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfjB",
-    createdAt: "2022-05-09 11:48:24Z",
+    createdAt: "2022-05-09 11:48:24",
     title:
       "specrunner.html 파일에서는 베어테스트 통과하는데 터미널에는 오류가 발생합니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/35",
     author: "JoeunNAL",
     answer: {
       id: "DC_kwDOHOApLM4AKWnY",
-      createdAt: "2022-05-09 12:06:21Z",
+      createdAt: "2022-05-09 12:06:21",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/35#discussioncomment-2714072",
       author: "Kingsenal",
       bodyHTML:
@@ -219,13 +219,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfZU",
-    createdAt: "2022-05-09 07:21:42Z",
+    createdAt: "2022-05-09 07:21:42",
     title: "ubuntu에서 github로그인 진행시 npx 명령어 문법 오류가 나옵니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/32",
     author: "git-daun",
     answer: {
       id: "DC_kwDOHOApLM4AKWMX",
-      createdAt: "2022-05-09 07:25:14Z",
+      createdAt: "2022-05-09 07:25:14",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/32#discussioncomment-2712343",
       author: "Kingsenal",
       bodyHTML:
@@ -239,14 +239,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfYj",
-    createdAt: "2022-05-09 06:54:20Z",
+    createdAt: "2022-05-09 06:54:20",
     title:
       "과제제출 매니저 설치 node index.js 입력시 Error: EPERM: operation not permitted, uv_cwd",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/31",
     author: "hana1203",
     answer: {
       id: "DC_kwDOHOApLM4AKWMA",
-      createdAt: "2022-05-09 07:20:43Z",
+      createdAt: "2022-05-09 07:20:43",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/31#discussioncomment-2712320",
       author: "Kingsenal",
       bodyHTML:
@@ -260,14 +260,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfYM",
-    createdAt: "2022-05-09 06:45:24Z",
+    createdAt: "2022-05-09 06:45:24",
     title:
       "specRunner에서는 통과가 되는데, node에서 bare에서 조차 통과가 되지 않습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/30",
     author: "sweesweett",
     answer: {
       id: "DC_kwDOHOApLM4AKWME",
-      createdAt: "2022-05-09 07:21:16Z",
+      createdAt: "2022-05-09 07:21:16",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/30#discussioncomment-2712324",
       author: "sweesweett",
       bodyHTML:
@@ -280,13 +280,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfXd",
-    createdAt: "2022-05-09 06:20:08Z",
+    createdAt: "2022-05-09 06:20:08",
     title: "계산기 과제에서 SpecRunner로는 통과되는데 npm run test는 안됩니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/29",
     author: "hxezin",
     answer: {
       id: "DC_kwDOHOApLM4AKWQA",
-      createdAt: "2022-05-09 08:00:27Z",
+      createdAt: "2022-05-09 08:00:27",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/29#discussioncomment-2712576",
       author: "JungYunHan",
       bodyHTML:
@@ -300,13 +300,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfXV",
-    createdAt: "2022-05-09 06:13:35Z",
+    createdAt: "2022-05-09 06:13:35",
     title: "git clone 과정에서 warning 메세지가 뜹니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/28",
     author: "ekim49",
     answer: {
       id: "DC_kwDOHOApLM4AKWQK",
-      createdAt: "2022-05-09 08:01:55Z",
+      createdAt: "2022-05-09 08:01:55",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/28#discussioncomment-2712586",
       author: "Citysquirrel",
       bodyHTML:
@@ -320,13 +320,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfWM",
-    createdAt: "2022-05-09 05:08:49Z",
+    createdAt: "2022-05-09 05:08:49",
     title: "계산기 과제 제출에서 start와 test가 비정상적으로 작동합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/27",
     author: "RyuJiChang",
     answer: {
       id: "DC_kwDOHOApLM4AKWDk",
-      createdAt: "2022-05-09 05:13:42Z",
+      createdAt: "2022-05-09 05:13:42",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/27#discussioncomment-2711780",
       author: "kimploo",
       bodyHTML:
@@ -340,13 +340,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfUo",
-    createdAt: "2022-05-09 03:35:39Z",
+    createdAt: "2022-05-09 03:35:39",
     title: "과제 제출 매니저 설치 단계에서 문제가 발생했습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/26",
     author: "anotheranotherhoon",
     answer: {
       id: "DC_kwDOHOApLM4AKWA7",
-      createdAt: "2022-05-09 04:21:45Z",
+      createdAt: "2022-05-09 04:21:45",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/26#discussioncomment-2711611",
       author: "Citysquirrel",
       bodyHTML:
@@ -361,13 +361,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfUP",
-    createdAt: "2022-05-09 03:14:01Z",
+    createdAt: "2022-05-09 03:14:01",
     title: "과제제출 매니저 설치 오류가 지속됩니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/25",
     author: "delefredag",
     answer: {
       id: "DC_kwDOHOApLM4AKV98",
-      createdAt: "2022-05-09 03:17:47Z",
+      createdAt: "2022-05-09 03:17:47",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/25#discussioncomment-2711420",
       author: "Kingsenal",
       bodyHTML:
@@ -381,13 +381,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfUN",
-    createdAt: "2022-05-09 03:08:52Z",
+    createdAt: "2022-05-09 03:08:52",
     title: "Ubuntu 에서 nvm 버전 확인시 Command 'nvm' not found, did you mean:",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/24",
     author: "kanghyew0n",
     answer: {
       id: "DC_kwDOHOApLM4AKV90",
-      createdAt: "2022-05-09 03:16:33Z",
+      createdAt: "2022-05-09 03:16:33",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/24#discussioncomment-2711412",
       author: "Kingsenal",
       bodyHTML:
@@ -400,13 +400,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfUG",
-    createdAt: "2022-05-09 03:02:38Z",
+    createdAt: "2022-05-09 03:02:38",
     title: 'nvm 설치 후 "zsh: command not found: nvm" 오류메세지가 뜹니다',
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/23",
     author: "Kyoorim",
     answer: {
       id: "DC_kwDOHOApLM4AKV-x",
-      createdAt: "2022-05-09 03:33:32Z",
+      createdAt: "2022-05-09 03:33:32",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/23#discussioncomment-2711473",
       author: "Kingsenal",
       bodyHTML:
@@ -419,14 +419,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfT5",
-    createdAt: "2022-05-09 02:47:18Z",
+    createdAt: "2022-05-09 02:47:18",
     title:
       "[SEB section1 , Unit8 - Chapter2. 패키지와 패키지 매니저 기초 ] 과제제출 매니저 설치가 안됩니다. 에러가 뜹니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/22",
     author: "dukjjang",
     answer: {
       id: "DC_kwDOHOApLM4AKV9Z",
-      createdAt: "2022-05-09 03:06:41Z",
+      createdAt: "2022-05-09 03:06:41",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/22#discussioncomment-2711385",
       author: "Kingsenal",
       bodyHTML:
@@ -439,14 +439,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APfT4",
-    createdAt: "2022-05-09 02:46:38Z",
+    createdAt: "2022-05-09 02:46:38",
     title:
       "우분투에서 nautilus 명령어 실행시  Gtk-WARNING **: 11:41:18.369: cannot open display:오류가 납니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/21",
     author: "git-daun",
     answer: {
       id: "DC_kwDOHOApLM4AKWAR",
-      createdAt: "2022-05-09 04:09:59Z",
+      createdAt: "2022-05-09 04:09:59",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/21#discussioncomment-2711569",
       author: "Hong-sk",
       bodyHTML:
@@ -461,14 +461,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APewe",
-    createdAt: "2022-05-07 08:33:57Z",
+    createdAt: "2022-05-07 08:33:57",
     title:
       "Unit9 - [JavaScript] 배열, 객체 Chapter2-1. 객체 기초 퀴즈 문제 수정이 필요합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/20",
     author: "ryan-kim-dev",
     answer: {
       id: "DC_kwDOHOApLM4AKVJv",
-      createdAt: "2022-05-08 03:56:06Z",
+      createdAt: "2022-05-08 03:56:06",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/20#discussioncomment-2708079",
       author: "kwd8905",
       bodyHTML:
@@ -482,14 +482,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APdBX",
-    createdAt: "2022-05-04 06:29:16Z",
+    createdAt: "2022-05-04 06:29:16",
     title:
       "부모태그에 justify-content: space-between; 속성을 넣었는데 자식태그 사이에 공간이 생기지 않는 이유가 궁금합니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/19",
     author: "NR0617",
     answer: {
       id: "DC_kwDOHOApLM4AKPlB",
-      createdAt: "2022-05-04 08:04:48Z",
+      createdAt: "2022-05-04 08:04:48",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/19#discussioncomment-2685249",
       author: "Kingsenal",
       bodyHTML:
@@ -503,14 +503,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APcip",
-    createdAt: "2022-05-03 09:12:41Z",
+    createdAt: "2022-05-03 09:12:41",
     title:
       "flex grow 사용시 정확한 정렬이 안되고있는데, 이유 및 해결방안 궁금합니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/18",
     author: "KiwookKim",
     answer: {
       id: "DC_kwDOHOApLM4AKOZY",
-      createdAt: "2022-05-03 13:43:28Z",
+      createdAt: "2022-05-03 13:43:28",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/18#discussioncomment-2680408",
       author: "Citysquirrel",
       bodyHTML:
@@ -524,13 +524,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APcDj",
-    createdAt: "2022-05-02 09:31:10Z",
+    createdAt: "2022-05-02 09:31:10",
     title: "Section1/Unit5 [css기초] 종합퀴즈 9번문제 질문드립니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/17",
     author: "JiYJ725",
     answer: {
       id: "DC_kwDOHOApLM4AKMep",
-      createdAt: "2022-05-02 10:06:29Z",
+      createdAt: "2022-05-02 10:06:29",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/17#discussioncomment-2672553",
       author: "kimploo",
       bodyHTML:
@@ -544,13 +544,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APb_b",
-    createdAt: "2022-05-02 06:48:26Z",
+    createdAt: "2022-05-02 06:48:26",
     title: "UrClass에서 제공하는 이미지를 블로그에 인용해도 괜찮을까요?",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/16",
     author: "Topbin2",
     answer: {
       id: "DC_kwDOHOApLM4AKMdX",
-      createdAt: "2022-05-02 09:47:42Z",
+      createdAt: "2022-05-02 09:47:42",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/16#discussioncomment-2672471",
       author: "Kingsenal",
       bodyHTML:
@@ -564,14 +564,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APbXd",
-    createdAt: "2022-04-30 08:29:32Z",
+    createdAt: "2022-04-30 08:29:32",
     title:
       "코플릿 반복문 18번, 소수찾아 나열하는 이중반복문 문제를 풀다 막혀 질문드립니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/15",
     author: "manyb2auties",
     answer: {
       id: "DC_kwDOHOApLM4AKK6v",
-      createdAt: "2022-04-30 13:22:00Z",
+      createdAt: "2022-04-30 13:22:00",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/15#discussioncomment-2666159",
       author: "hxezin",
       bodyHTML:
@@ -585,14 +585,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APaPd",
-    createdAt: "2022-04-28 07:00:41Z",
+    createdAt: "2022-04-28 07:00:41",
     title:
       "코플릿 반복문 17번. 소수 찾기 문제에 parseInt(Math.sqrt(num)) 이 부분이 이해가 가질 않습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/14",
     author: "Topbin2",
     answer: {
       id: "DC_kwDOHOApLM4AKHkl",
-      createdAt: "2022-04-28 07:17:34Z",
+      createdAt: "2022-04-28 07:17:34",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/14#discussioncomment-2652453",
       author: "pseudopool",
       bodyHTML:
@@ -607,13 +607,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APaPX",
-    createdAt: "2022-04-28 06:58:34Z",
+    createdAt: "2022-04-28 06:58:34",
     title: "String()의 사용에 대해 궁금한 점이 생겼습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/13",
     author: "RyuJiChang",
     answer: {
       id: "DC_kwDOHOApLM4AKHkF",
-      createdAt: "2022-04-28 07:11:51Z",
+      createdAt: "2022-04-28 07:11:51",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/13#discussioncomment-2652421",
       author: "cleats01",
       bodyHTML:
@@ -626,13 +626,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APZof",
-    createdAt: "2022-04-27 08:21:48Z",
+    createdAt: "2022-04-27 08:21:48",
     title: "NaN의 falsy값 여부 판단에서 오류가 나서 질문드립니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/12",
     author: "bruadarach",
     answer: {
       id: "DC_kwDOHOApLM4AKFvQ",
-      createdAt: "2022-04-27 08:43:27Z",
+      createdAt: "2022-04-27 08:43:27",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/12#discussioncomment-2644944",
       author: "Kingsenal",
       bodyHTML:
@@ -646,14 +646,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APZjR",
-    createdAt: "2022-04-27 05:19:24Z",
+    createdAt: "2022-04-27 05:19:24",
     title:
       "Unit3 - [JavaScript] 기초 제어문, Chapter 2-2 실습 예시에 오타가 있는거 같습니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/11",
     author: "Gwanghyun-Jeon",
     answer: {
       id: "DC_kwDOHOApLM4AKHRW",
-      createdAt: "2022-04-28 02:12:24Z",
+      createdAt: "2022-04-28 02:12:24",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/11#discussioncomment-2651222",
       author: "kimploo",
       bodyHTML:
@@ -667,13 +667,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APZi2",
-    createdAt: "2022-04-27 04:57:46Z",
+    createdAt: "2022-04-27 04:57:46",
     title: "크롬 콘솔에서 줄바꿈이 있는 csv를 인식하지 못합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/10",
     author: "Gwanghyun-Jeon",
     answer: {
       id: "DC_kwDOHOApLM4AKFeD",
-      createdAt: "2022-04-27 05:45:32Z",
+      createdAt: "2022-04-27 05:45:32",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/10#discussioncomment-2643843",
       author: "Citysquirrel",
       bodyHTML:
@@ -687,14 +687,14 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APY9u",
-    createdAt: "2022-04-26 05:55:37Z",
+    createdAt: "2022-04-26 05:55:37",
     title:
       "문자열을 따옴표로 감싸지 않은 경우만 다른 에러메세지가 나오는 이유가 궁금합니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/9",
     author: "ryan-kim-dev",
     answer: {
       id: "DC_kwDOHOApLM4AKD3S",
-      createdAt: "2022-04-26 09:04:44Z",
+      createdAt: "2022-04-26 09:04:44",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/9#discussioncomment-2637266",
       author: "kimploo",
       bodyHTML:
@@ -709,13 +709,13 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APYU2",
-    createdAt: "2022-04-25 07:45:22Z",
+    createdAt: "2022-04-25 07:45:22",
     title: "typeof 강의중 ()가 빠져있는 것일까요?",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/7",
     author: "namwonjae",
     answer: {
       id: "DC_kwDOHOApLM4AKBjx",
-      createdAt: "2022-04-25 08:10:47Z",
+      createdAt: "2022-04-25 08:10:47",
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/7#discussioncomment-2627825",
       author: "kwd8905",
       bodyHTML:
@@ -728,7 +728,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APXZy",
-    createdAt: "2022-04-22 17:47:35Z",
+    createdAt: "2022-04-22 17:47:35",
     title: "[notice] 좋은 답변하는 법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
     author: "kimploo",
@@ -740,7 +740,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APXTV",
-    createdAt: "2022-04-22 14:09:14Z",
+    createdAt: "2022-04-22 14:09:14",
     title: "[notice] 질문 예시",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/5",
     author: "kimploo",
@@ -752,7 +752,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APXTS",
-    createdAt: "2022-04-22 14:08:33Z",
+    createdAt: "2022-04-22 14:08:33",
     title: "[notice] 좋은 질문하는 법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/4",
     author: "kimploo",
@@ -764,7 +764,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APXTQ",
-    createdAt: "2022-04-22 14:07:35Z",
+    createdAt: "2022-04-22 14:07:35",
     title: "[notice] 마크다운 사용법",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/3",
     author: "kimploo",
@@ -776,7 +776,7 @@ const agoraStatesDiscussions = [
   },
   {
     id: "D_kwDOHOApLM4APXTN",
-    createdAt: "2022-04-22 14:06:03Z",
+    createdAt: "2022-04-22 14:06:03",
     title: "[notice] 질문 템플릿",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/2",
     author: "kimploo",

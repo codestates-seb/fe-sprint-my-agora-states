@@ -14,8 +14,11 @@ body{
 
 h1{
     padding: 30px;
-    text-align: center;
-    
+    text-align: center;   
+}
+
+.logo{
+    width:150px;
 }
 
 .form{
@@ -88,6 +91,8 @@ a{
     align-items: flex-end;
     justify-content: flex-end;
     padding: 10px 10px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.642);
     
 }
 
@@ -109,15 +114,15 @@ a{
     z-index:-1;
   }
   
-  .bg2 {
+.bg2 {
     animation-direction:alternate-reverse;
     animation-duration:4s;
   }
   
-  .bg3 {
+.bg3 {
     animation-duration:5s;
   }
-  
+
   @keyframes slide {
     0% {
       transform:translateX(-25%);
