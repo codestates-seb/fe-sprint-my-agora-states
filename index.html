@@ -32,36 +32,44 @@
       </div>
     </header>
     <main>
-      <section class="form__container">
-        <form action="" method="get" class="form">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+      <button id="button">show modal</button>
+      <dialog id="dialog">
+        <section class="form__container">
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <label for="name">Enter your name: </label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__input--title">
+                <label for="title">Enter your title: </label>
+                <input type="text" name="title" id="title" required />
+              </div>
+              <div class="form__textbox">
+                <label for="story">Your question: </label>
+                <div
+                  contenteditable="true"
+                  id="story"
+                  name="story"
+                  placeholder="질문을 작성하세요"
+                  required
+                ></div>
+              </div>
             </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required />
+            <div class="form__submit">
+              <input type="submit" value="submit" id="questionSubmit" />
             </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <div
-                contenteditable="true"
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></div>
-            </div>
-          </div>
-          <div class="form__submit">
-            <input type="submit" value="submit" id="questionSubmit" />
-          </div>
+          </form>
+        </section>
+        hey
+        <form method="dialog">
+          <button>close</button>
         </form>
-      </section>
+      </dialog>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
           <li class="discussion__container">
+            <div class="discussion__sponsor">스폰서</div>
             <div class="discussion__avatar--wrapper">
               <img
                 class="discussion__avatar--image"
