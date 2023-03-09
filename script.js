@@ -2,11 +2,27 @@ const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const divQuestion = document.querySelector("#story");
 const imgAvatar = document.querySelector("#myAvatar");
-const defaultAvatar = imgAvatar.addEventListener("click", function () {
+const defaultAvatarSrc = "src/images/defaultAvatar.png";
+const button = document.querySelector("#button");
+const dialog = document.querySelector("#dialog");
+button.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+imgAvatar.addEventListener("click", function () {
   const inputLoadAvatar = document.querySelector("#load-Avatar");
   inputLoadAvatar.click();
 });
-
+const localStorageDiscussions =
+  "discussions" in localStorage
+    ? JSON.parse(localStorage.getItem("discussions"))
+    : [];
+console.log(localStorageDiscussions);
+const updateLocalStorage = (discussion) => {
+  console.log(discussion);
+  localStorageDiscussions.push(discussion);
+  localStorage.setItem("discussions", JSON.stringify(localStorageDiscussions));
+};
 // Date Transform Fuctions
 /* offset
 const offsetDate = (date) => {
@@ -47,8 +63,9 @@ const onBtnSubmitClick = (event) => {
   // 하나라도 null이면 진행하지 않음
   if (discussion.author && discussion.title && discussion.bodyHTML) {
     discussion.createdAt = new Date();
-    discussion.avatarUrl = null;
+    discussion.avatarUrl = imgAvatar.currentSrc;
     addDiscussion(discussion);
+    updateLocalStorage(discussion);
     return;
   }
 };
@@ -63,13 +80,15 @@ const addDiscussion = (obj) => {
   const discussions = document.querySelector("ul.discussions__container");
   const li = convertToDiscussion(obj);
   discussions.insertBefore(li, discussions.children[0]);
+  agoraStatesDiscussions.push(obj);
 };
+
 const fillAvatarWrapper = (obj) => {
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   // child
   const avatar = document.createElement("img");
-  avatar.src = obj.avatarUrl ? obj.avatarUrl : null;
+  avatar.src = obj.avatarUrl ? obj.avatarUrl : defaultAvatarSrc;
   avatarWrapper.appendChild(avatar);
   return avatarWrapper;
 };
@@ -86,8 +105,8 @@ const fillDiscussionContent = (obj) => {
   aLink.textContent = obj.title;
   // div - discussion__information obj.author, obj.createdAt
   const divInfo = document.createElement("div");
-  obj.createdAt = customDate(dateToObject(obj.createdAt));
-  divInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  const now = customDate(dateToObject(obj.createdAt));
+  divInfo.textContent = `${obj.author} / ${now}`;
 
   h2Title.appendChild(aLink);
   discussionContent.appendChild(h2Title);
@@ -127,6 +146,10 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  // localStorage rendering
+  for (let i = localStorageDiscussions.length - 1; i > -1; i -= 1) {
+    element.append(convertToDiscussion(localStorageDiscussions[i]));
+  }
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
