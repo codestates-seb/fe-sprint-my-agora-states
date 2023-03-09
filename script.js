@@ -43,37 +43,59 @@ const convertToDiscussion = ({
   const li = document.createElement('li'); // li 요소 생성
   li.className = 'discussion__container'; // 클래스 이름 지정
 
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = 'discussion__information';
   const avatarWrapper = document.createElement('div');
   avatarWrapper.className = 'discussion__avatar--wrapper';
-  const discussionContent = document.createElement('div');
-  discussionContent.className = 'discussion__content';
-  const discussionAnswered = document.createElement('div');
-  discussionAnswered.className = 'discussion__answered';
+  const discussionAuthor = document.createElement('div');
+  discussionAuthor.className = 'discussion__author';
+  const discussionCreatedTime = document.createElement('div');
+  discussionCreatedTime.className = 'discussion__created-time';
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const avatarImage = document.createElement('img');
   avatarImage.className = 'discussion__avatar--image';
   avatarImage.src = avatarUrl;
   avatarImage.alt = `avatar of ${author}`;
   avatarWrapper.append(avatarImage);
 
+  discussionAuthor.textContent = author;
+  discussionCreatedTime.textContent = parseCreatedTime(createdAt);
+
+  discussionInformation.append(avatarWrapper);
+  discussionInformation.append(discussionAuthor);
+  discussionInformation.append(discussionCreatedTime);
+
+  const discussionContent = document.createElement('div');
+  discussionContent.className = 'discussion__content';
+  const discussionContentInformation = document.createElement('div');
+  discussionContentInformation.className = 'discussion__content-information';
   const discussionTitle = document.createElement('h2');
   discussionTitle.className = 'discussion__title';
   const discussionUrl = document.createElement('a');
-  const discussionInformation = document.createElement('div');
-  discussionInformation.className = 'discussion__information';
+  const discussionAnswered = document.createElement('div');
+  discussionAnswered.className = 'discussion__answered';
+  const discussionAnsweredStatus = document.createElement('p');
 
   discussionUrl.href = url;
   discussionUrl.textContent = title;
   discussionTitle.append(discussionUrl);
-  discussionInformation.textContent = `${author} / ${parseCreatedTime(createdAt)}`;
-  discussionContent.append(discussionTitle, discussionInformation);
 
-  const isAnsweredDiscussion = document.createElement('p');
-  isAnsweredDiscussion.textContent = answer ? '☑' : '☒';
-  discussionAnswered.append(isAnsweredDiscussion);
+  if (answer) {
+    discussionAnswered.classList.add('solved');
+    discussionAnsweredStatus.textContent = '답변 완료';
+  } else if (!answer && !title.includes('notice')) {
+    discussionAnswered.classList.add('unsolved');
+    discussionAnsweredStatus.textContent = '답변 대기중';
+  } else {
+    discussionAnswered.classList.add('notice');
+    discussionAnsweredStatus.textContent = '공지';
+  }
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  discussionAnswered.append(discussionAnsweredStatus);
+  discussionContentInformation.append(discussionTitle, discussionAnswered);
+  discussionContent.append(discussionContentInformation);
+
+  li.append(discussionInformation, discussionContent, document.createElement('hr'));
   return li;
 };
 
