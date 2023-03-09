@@ -29,11 +29,20 @@ const convertToDiscussion = ({ id, createdAt, title, url, author, bodyHTML, avat
   discussionUrl.href = url;
   discussionUrl.textContent = title;
   discussionTitle.append(discussionUrl);
-  discussionInformation.textContent = `${author} / ${createdAt}`;
+  discussionInformation.textContent = `${author} / ${parseCreatedTime(createdAt)}`;
   discussionContent.append(discussionTitle, discussionInformation);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
+};
+
+const parseCreatedTime = (time) => {
+  const [dateArr, timeArr] = time.split('T');
+
+  const [year, month, date] = dateArr.split('-');
+  const [hour, min, sec] = timeArr.slice(0, timeArr.length - 1).split(':');
+
+  return `${year}년 ${month}월 ${date}일 ${hour}시 ${min}분 ${sec}초`;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
