@@ -1,7 +1,7 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
 h1 {
-  color: white;
+  color: #70b0fa;
 }
 
 main {
@@ -32,6 +32,7 @@ main {
   padding: 15px;
   padding-left: 50px;
   margin: 20px;
+  color: #592507;
 }
 
 .form__input--wrapper {
@@ -66,7 +67,9 @@ main {
   box-sizing: border-box;
   border-radius: 20px;
   border: none;
-  box-shadow: 5px 5px 5px #d0d0d0;
+  box-shadow: 5px 5px 5px #d0d0d0, -1px -1px 5px #d0d0d0;
+  color: #592507;
+  margin-left: 5px;
 }
 
 .txtfield:focus {
@@ -89,6 +92,7 @@ main {
   box-shadow: 5px 5px 5px #d0d0d0;
   padding: 10px;
   width: 100px;
+  color: #592507;
 }
 
 .submit-button:hover {
@@ -117,6 +121,7 @@ main {
   box-shadow: 10px 10px 20px #0101013f, -3px -3px 10px #0101013f;
   padding: 15px;
   margin: 20px;
+  color: #592507;
 }
 
 .discussion__card {
@@ -162,7 +167,7 @@ main {
   width: 15px;
   align-items: center;
   justify-content: center;
-  color: rgb(166, 166, 166);
+  color: #592507;
 }
 
 .answer__container {
@@ -174,7 +179,7 @@ main {
   padding: 10px;
   border-radius: 50px;
   background: #ffffff;
-  box-shadow: 10px 10px 20px #d0d0d0, -20px -20px 60px #ffffff;
+  box-shadow: 10px 10px 20px #d0d0d0, -1px -1px 5px #d0d0d0;
 }
 
 .answer__container:active {
@@ -193,7 +198,7 @@ main {
 }
 
 details:hover {
-  color: pink;
+  color: rgb(254, 115, 138);
   cursor: pointer;
 }
 
@@ -207,9 +212,9 @@ a:visited {
 
 @keyframes vibration {
   from {
-    transform: rotate(1deg);
+    transform: rotate(0.5deg);
   }
   to {
-    transform: rotate(-1deg);
+    transform: rotate(-0.5deg);
   }
 }
