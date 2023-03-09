@@ -1,5 +1,8 @@
 const dataConverter = {
   date: (date) => {
-    return new Date(date);
+    let createDate = new Date(date);
+    let month = createDate.getMonth();
+    let day = createDate.getDate();
+    return `${month}월 ${day}일`;
   },
 };
