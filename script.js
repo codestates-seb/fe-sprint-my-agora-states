@@ -2,10 +2,8 @@
 import { v4 as uuid4 } from 'https://jspm.dev/uuid';
 import { $, $$ } from './utils/selector.js';
 
-// console.log(uuid4());
-
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+//console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -81,7 +79,6 @@ const addDiscussionHandler = (e) => {
     bodyHTML,
     avatarUrl,
   };
-  // console.log(`${author} / ${title} / ${text}`);
 
   agoraStatesDiscussions.unshift(newdiscussion);
   ul.prepend(convertToDiscussion(newdiscussion));
@@ -96,7 +93,7 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector('ul.discussions__container');
+const ul = $('ul.discussions__container');
 // form 요소
 const elDiscussionForm = $('.form');
 elDiscussionForm.addEventListener('submit', addDiscussionHandler);
