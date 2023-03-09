@@ -1,1 +1,138 @@
+@import 'global-style.css';
+@import 'reset.css';
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+}
+
+/* navbar */
+#navbar {
+  display: flex;
+  /* position: fixed; */
+  background: white;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  /* background-color: antiquewhite; */
+  border-bottom: 1px solid var(--coz-purple-300);
+  box-shadow: -4px 4px 2px -2px var(--coz-purple-300);
+}
+
+#navbar .navbar__logo,
+#navbar .navbar__btn__wrapper {
+  margin: 10px;
+}
+
+#navbar .navbar__btn__wrapper .navbar__btn--add {
+  background-color: var(--coz-purple-600);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#navbar .navbar__btn__wrapper .navbar__btn--add:hover {
+  opacity: 0.8;
+}
+
+/* discussion  */
+.discussion__wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+.discussions__container li {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
+  box-shadow: 0 0 8px var(--coz-purple-300);
+  margin-bottom: 15px;
+  border-radius: 15px;
+  padding: 30px 20px;
+}
+
+/* discussion li > avatar */
+.discussion__wrapper .discussions__container li .discussion__avatar--wrapper {
+  margin: 0 10px;
+}
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__avatar--wrapper
+  img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--coz-purple-500);
+  box-shadow: 0 0 10px var(--coz-purple-300), 0 0 20px var(--coz-purple-300);
+}
+
+/* discussion li > content */
+.discussion__wrapper .discussions__container li .discussion__content {
+  /* margin-right: 10px; */
+  padding: 10px;
+}
+.discussion__wrapper .discussions__container li .discussion__content h2 {
+  font-size: 16px;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__content
+  .discussion__information {
+  font-size: 11px;
+  margin-top: 8px;
+  color: var(--gray-500);
+}
+
+/* discussion li > answered */
+.discussion__wrapper .discussions__container li .discussion__answered {
+  margin-left: auto;
+  flex-basis: 65px;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__answered
+  .discussion__answered--state {
+  display: flex;
+  max-width: 66px;
+  align-items: center;
+  background-color: var(--coz-purple-600);
+  padding: 5px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__answered
+  .discussion__answered--state
+  .elipse {
+  display: block;
+  margin-right: 3px;
+  background-color: yellowgreen;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__answered
+  .discussion__answered--state
+  .text {
+  font-size: 8px;
+}
