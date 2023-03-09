@@ -38,7 +38,7 @@
         <div class="main__info--wrapper">
           <h1>My<br />Agora States</h1>
           <p>누구든지 자유롭게 질문하고 답하며,<br />함께 성장하는 공간</p>
-          <button>질문하기</button>
+          <button id="asking">질문하기</button>
         </div>
         <div class="main__image--wrapper">
           <img src="img/3081665.jpg" alt="main image" />
@@ -46,26 +46,22 @@
       </section>
 
       <section class="form__container">
-        <form action="" method="get" class="form">
+        <h1>질문하기</h1>
+        <form method="get" action="" class="form">
           <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+            <div class="form__personal-input--wrapper">
+              <input id="name" type="text" placeholder="이름을 입력해 주세요." />
+              <input id="email" type="text" placeholder="이메일을 입력해 주세요." />
             </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required />
-            </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-            </div>
+            <input id="title" type="text" placeholder="질문 제목을 입력해 주세요." />
+            <textarea id="story" type="text" placeholder="질문 내용을 입력해 주세요."></textarea>
           </div>
           <div class="form__submit">
-            <input type="submit" value="submit" />
+            <input id="submit-button" type="submit" value="질문 등록하기" />
           </div>
         </form>
       </section>
+
       <section class="discussion__wrapper">
         <ul class="discussions__container">
           <li class="discussion__container">
