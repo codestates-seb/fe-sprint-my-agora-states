@@ -9,7 +9,18 @@ li {
 }
 
 /*
-Arrow Up Button
+Discussions style
+*/
+/* img */
+.discussion__avatar--image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/*
+Arrow Up Button style
 */
 .arrow_up_btn {
   position: absolute;
