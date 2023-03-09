@@ -13,7 +13,6 @@
       referrerpolicy="no-referrer"
     ></script>
   </head>
-
   <body>
     <header>
       <h1>My Agora States or Logo</h1>
@@ -23,8 +22,8 @@
         </div>
         <div class="avatar-select-menu">
           <ul class="avatar-select-menu__list">
-            <li class="avatar-select-menu__item"></li>
-            <li class="avatar-select-menu__item">
+            <li class="avatar-select-menu__preset"></li>
+            <li class="avatar-select-menu__load">
               <input id="load-Avatar" type="file" />
             </li>
           </ul>
@@ -38,20 +37,18 @@
           <form action="" method="get" class="form">
             <div class="form__input--wrapper">
               <div class="form__input--name">
-                <label for="name">Enter your name: </label>
+                <label for="name">작성자</label>
                 <input type="text" name="name" id="name" required />
               </div>
               <div class="form__input--title">
-                <label for="title">Enter your title: </label>
+                <label for="title">제목</label>
                 <input type="text" name="title" id="title" required />
               </div>
               <div class="form__textbox">
-                <label for="story">Your question: </label>
                 <div
                   contenteditable="true"
                   id="story"
                   name="story"
-                  placeholder="질문을 작성하세요"
                   required
                 ></div>
               </div>
@@ -61,9 +58,8 @@
             </div>
           </form>
         </section>
-        hey
         <form method="dialog">
-          <button>close</button>
+          <button value="close">닫기</button>
         </form>
       </dialog>
       <section class="discussion__wrapper">
@@ -88,7 +84,8 @@
                 kimploo / 2022-04-22T14:08:33Z
               </div>
             </div>
-            <div class="discussion__answered"><p>☑</p></div>
+            <p>✅</p>
+            <div class="discussion__answered"></div>
           </li>
         </ul>
       </section>
