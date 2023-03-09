@@ -1,1 +1,213 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'InkLipquid';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Dovemayo-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Dovemayo-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    /* background-image : url('./background.jpg'); */
+    background-image: url('./star.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+* {
+    margin: 0;
+    padding: 0; 
+    /* border: 0px; */
+    box-sizing: border-box; 
+    /* background-color: rgb(4, 7, 25); */
+    
+    color:white;
+  
+}
+a{
+    text-decoration-line: none;
+}
+a:hover{
+    color: #00ffaa;
+}
+li{
+    list-style-type: none;
+}
+.discussion__avatar--wrapper{
+    text-align: center;
+    
+    
+    
+}
+.discussion__avatar--image{
+    border-radius: 50%;
+    width:48px;
+    /* box-shadow: 0px 2px 4px #ff0080, 
+              0px 2px 4px #ff0080, 
+              0px 2px 4px #ff0080, 
+              0px 2px 16px #ff0080; */
+    border:1px solid #ff0080;
+
+}
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    align-items: center;
+    text-align: left;
+    margin: auto;
+    padding:10px;
+    background-color:transparent;
+    
+}
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.title_form{
+    flex-basis: 40%;
+    flex-grow: 50%;
+    text-align: center;
+    height: 50%;
+    margin-top: 5%;
+    
+
+}
+.discussion__wrapper{
+    flex-basis: 60%;
+    flex-grow:50%;
+    font-size:10px;
+    /* border-left: #fff solid; */
+    height: 70%;
+    margin-top:15%;
+    font-family: Dovemayo-Medium;
+   
+}
+.discussions__container{
+    border: 2px solid #fff;
+    overflow: scroll;
+    overflow-x: hidden; /*가로 스크롤 없애기  */
+    height: 500px;
+    width: 700px;
+    margin:auto;
+    box-shadow: 0px  2px 10px #ff0080, 
+              0px 2px 10px #ff0080, 
+              0px 2px 10px #ff0080, 
+              0px 2px 10px #ff0080;
+
+}
+.discussions__container::-webkit-scrollbar {
+    width: 20px;  /* 스크롤바의 너비 */
+}
+
+.discussions__container::-webkit-scrollbar-thumb {
+    height: 5%; /* 스크롤바의 길이 */
+    background: #ff0080; /* 스크롤바의 색상 */
+    border-radius: 20px;
+}
+
+.discussions__container::-webkit-scrollbar-track {
+    background-color: transparent;  /*스크롤바 뒷 배경 색상*/
+}
+
+.discussion__information{
+    font-size:12px;
+    color:hsl(185, 100%, 81%);
+}
+.discussion__container{
+    border-bottom: 1px solid #ebf9e2;
+    padding:15px;
+}
+.discussion__avatar--wrapper{
+    margin-right: 10px;
+}
+.titleAgora{
+    font-size:64px;
+    font-family:InkLipquid ;
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #7b1bb0,
+      0 0 82px #7b1bb0, 0 0 92px #7b1bb0, 0 0 102px #7b1bb0, 0 0 151px #7b1bb0;
+    margin-bottom: 10%;
+}
+.form__container{
+    padding :5%;
+    border-color: #fff 2px;
+    text-align: center;
+    border: 2px solid #fff;
+    width:70%;
+    margin:auto;
+    box-shadow: 0px 2px 4px #ff0080, 
+    0px 2px 4px #ff0080, 
+    0px 2px 4px #ff0080, 
+    0px 2px 16px #ff0080;
+    
+}
+.form__input--wrapper{
+    font-size:20px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+        
+
+}
+.form__input--name{
+    margin: 3%;
+    font-family:NeoDunggeunmoPro-Regular ;
+}
+.form__input--title{
+    margin: 3%;
+    font-family:NeoDunggeunmoPro-Regular ;
+}
+.form__textbox{
+    padding:2%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family:NeoDunggeunmoPro-Regular ;
+}
+.formstyle{
+    /* width: 40%; */
+    height: 30px;
+    border-style: none;
+    border-bottom:dotted 3px;
+    background-color: transparent;
+    
+}
+.formTextboxStyle{
+    width:60%;
+    height: 100px;
+    border-style: none;
+    border-bottom: dotted 3px;
+    background-color: transparent;
+}
+
+.submit{
+    margin-top: 10%;
+    font-family:NeoDunggeunmoPro-Regular ;
+    font-size:24px;
+    padding: 2%;
+    border-radius: 20px;
+    box-shadow: 0px 2px 4px #7b1bb0, 
+              0px 2px 4px #7b1bb0, 
+              0px 2px 4px #7b1bb0, 
+              0px 2px 4px #7b1bb0;
+    background-color: transparent;
+}
+.discussion__answered{
+    margin-left: 10px;
+    font-size:15px;
+    
+}
