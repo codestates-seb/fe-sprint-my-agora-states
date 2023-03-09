@@ -55,7 +55,9 @@ const parseCreatedTime = (time) => {
   const [year, month, date] = dateArr.split('-');
   const [hour, min, sec] = timeArr.slice(0, timeArr.length - 1).split(':');
 
-  return `${year}년 ${month}월 ${date}일 ${hour}시 ${min}분 ${sec}초`;
+  const writtenDate = new Date(`${year}/${month}/${date}/${hour}:${min}`);
+
+  return writtenDate.toLocaleString('ko-KR');
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
