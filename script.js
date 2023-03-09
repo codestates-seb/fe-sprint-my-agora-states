@@ -92,6 +92,7 @@ const fillAvatarWrapper = (obj) => {
   avatarWrapper.className = "discussion__avatar--wrapper";
   // child
   const avatar = document.createElement("img");
+  avatar.classList.add("discussion__avatar--image");
   avatar.src = obj.avatarUrl ? obj.avatarUrl : defaultAvatarSrc;
   avatarWrapper.appendChild(avatar);
   return avatarWrapper;
