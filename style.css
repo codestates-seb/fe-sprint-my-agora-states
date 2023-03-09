@@ -1,1 +1,21 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+/*
+Arrow Up Button
+*/
+.arrow_up_btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: antiquewhite;
+  padding: 0.8rem 0.6rem 0.8rem 1.3rem;
+  border-radius: 50%;
+}
