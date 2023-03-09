@@ -34,7 +34,9 @@ const convertToDiscussion = (obj) => {
 
   discussionContent.innerHTML = `
   <h2 class="discussion__title"><a href="${obj.url}">${obj.title}</a></h2>
-  <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>
+  <div class="discussion__information">${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}</div>
   `;
 
   discussionAnswered.innerHTML = answerButton(obj);
@@ -92,10 +94,67 @@ const render = (element) => {
   return element;
 };
 
+// navbar 요소
+const navbar = $('#navbar');
+const navbarHeight = navbar.getBoundingClientRect().height;
+const newDiscussionBtn = $('#navbar .navbar__btn__wrapper .navbar__btn--add');
+
+document.addEventListener('scroll', () => {
+  if (window.scrollY > navbarHeight) {
+    navbar.classList.add('navbar--dark');
+  } else {
+    navbar.classList.remove('navbar--dark');
+  }
+});
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = $('ul.discussions__container');
+
 // form 요소
+const elFormContainer = $('.form__container');
+const formHeight = elFormContainer.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+  console.log(1 - window.scrollY / formHeight);
+  let opacity = 1 - window.scrollY / formHeight;
+  elFormContainer.style.opacity = opacity;
+
+  if (opacity < 0) {
+    newDiscussionBtn.style.opacity = 1;
+  } else {
+    newDiscussionBtn.style.opacity = 0;
+  }
+});
+
 const elDiscussionForm = $('.form');
 elDiscussionForm.addEventListener('submit', addDiscussionHandler);
 
+const initData = `
+<li class="discussion__container">
+  <div class="discussion__avatar--wrapper">
+    <img
+      class="discussion__avatar--image"
+      src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+      alt="avatar of kimploo"
+    />
+  </div>
+  <div class="discussion__content">
+    <h2 class="discussion__title">
+      <a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">
+        [notice] 좋은 질문하는 법
+      </a>
+    </h2>
+    <div class="discussion__information">kimploo / ${
+      new Date('2022-04-22T14:08:33Z').toLocaleTimeString
+    }</div>
+  </div>
+  <div class="discussion__answered">
+    <div class="discussion__answered--state done">
+      <span class="elipse"></span>
+      <span class="text">답변완료</span>
+    </div>
+  </div>
+</li>
+`;
+
+ul.innerHTML = initData;
 render(ul);

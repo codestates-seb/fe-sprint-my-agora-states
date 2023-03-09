@@ -14,10 +14,18 @@ main {
 
 /* navbar */
 #navbar {
-  background: var(--coz-blue-10);
+  position: fixed;
+  background: transparent;
   width: 100%;
   border-bottom: 1px solid var(--coz-purple-300);
   box-shadow: -4px 4px 2px -2px var(--coz-purple-300);
+  transition: all var(--animation-duration) ease-in-out;
+  z-index: 999;
+}
+
+#navbar.navbar--dark {
+  background: var(--coz-blue-50);
+  padding: 8px;
 }
 
 #navbar .navbar__header {
@@ -26,42 +34,52 @@ main {
   align-items: center;
 }
 
-#navbar .navbar__content {
+.form__container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--coz-blue-10);
+}
+.form__container form {
   /* border: 1px solid salmon; */
   display: flex;
+  position: relative;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 0;
+  padding: 50px 0px;
+  padding-top: 100px;
 }
 
-#navbar .navbar__content form .form__input--wrapper div {
+.form__container form .form__input--wrapper div {
   margin-bottom: 10px;
   display: flex;
 }
 
-#navbar .navbar__content form .form__input--wrapper div .form__input--label {
+.form__container form .form__input--wrapper div .form__input--label {
   display: block;
   width: 150px;
   text-align: right;
   margin-right: 10px;
 }
 
-#navbar .navbar__content form .form__input--wrapper div input {
+.form__container form .form__input--wrapper div input {
   border-radius: 5px;
   width: 200px;
 }
 
-#navbar .navbar__content form .form__input--wrapper div textarea {
+.form__container form .form__input--wrapper div textarea {
   border-radius: 5px;
   width: 200px;
   height: 200px;
 }
 
-#navbar .navbar__content form .form__submit {
-  float: right;
+.form__container form .form__submit {
+  position: absolute;
+  top: 88%;
+  right: 38%;
 }
 
-#navbar .navbar__content form .form__submit input {
+.form__container form .form__submit input {
   background-color: var(--coz-purple-600);
   color: #fff;
   border: none;
@@ -70,7 +88,7 @@ main {
   cursor: pointer;
 }
 
-#navbar .navbar__content form .form__submit input:hover {
+.form__container form .form__submit input:hover {
   opacity: 0.8;
 }
 
@@ -81,9 +99,11 @@ main {
 
 #navbar .navbar__btn__wrapper .navbar__btn--add {
   background-color: var(--coz-purple-600);
+  opacity: 0;
   color: #fff;
   border-radius: 10px;
   padding: 10px;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 #navbar .navbar__btn__wrapper .navbar__btn--add:hover {
