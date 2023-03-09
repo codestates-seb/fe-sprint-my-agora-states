@@ -2,6 +2,12 @@
 * {
   box-sizing: border-box;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 li {
   list-style: none;
 }
@@ -12,6 +18,12 @@ li {
 li.discussion__container {
   display: flex;
   justify-content: space-between;
+}
+div.discussion__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
 }
 div.discussion__avatar--wrapper {
   display: flex;
