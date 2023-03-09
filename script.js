@@ -8,10 +8,10 @@
 // data > notice + others 분리
 const convertToNotice = (obj) =>{
   const li = document.createElement("li");
-  li.className = "discussion__container";
+  li.className = "discussion__container ";
   li.id = obj.id;
 
-  //li > avatarWrapper , discussionContent, discussionAnswered
+  //li > div , avatarWrapper , discussionContent, discussionAnswered
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -46,7 +46,11 @@ const convertToNotice = (obj) =>{
   answerChecked.textContent = obj.answer === null ? '☒' : '☑';
   discussionAnswered.append(answerChecked);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const li_container = document.createElement("div");
+  li_container.setAttribute("class", "li_container");
+  li_container.append(avatarWrapper, discussionContent, discussionAnswered);
+  // li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(li_container);
   return li;
 
 }
@@ -91,8 +95,12 @@ const convertToDiscussion = (obj) => {
   const answerChecked = document.createElement("p");
   answerChecked.textContent = obj.answer === null ? '☒' : '☑';
   discussionAnswered.append(answerChecked);
-
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const li_container = document.createElement("div");
+  li_container.setAttribute("class", "li_container");
+  li_container.append(avatarWrapper, discussionContent, discussionAnswered);
+  // li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(li_container);
+  // li.append(avatarWrapper, discussionContent, discussionAnswered);
   // container.append(li);
 
   // return container;
@@ -229,7 +237,8 @@ const rendering = (num) => {
   console.log('rendering ', num);
     const { noticeDiscussions, othersDiscussions } = getPaginationBtns();
     const { prevRange, curRange } = setCurrentPage(num);
-
+    const noticeTitle = document.querySelector(".notice_discussion_container").children[2];
+    noticeTitle.textContent = `Notice(${noticeDiscussions.length})`
     render(noticeDiscussions, othersDiscussions, prevRange, curRange);
     
     document.querySelectorAll(".pagination-number").forEach((button) => {
@@ -252,6 +261,7 @@ const render = (noticeDiscussions, othersDiscussions, prevRange, curRange)=>{ //
   })
   noticeDiscussions.forEach((noticeDiscussion)=>{
     ul[0].append(convertToNotice(noticeDiscussion));
+    
   })
   othersDiscussions.forEach((otherDiscussion, index)=>{
     if(index >= prevRange && index < curRange){
@@ -266,3 +276,31 @@ window.addEventListener('load', ()=>{
   rendering(1);
 })
 
+//Toggle click
+const disableButton = (button) => {
+  button.classList.add("disabled");
+}
+const enableButton = (button) => {
+  button.classList.remove("disabled");
+}
+
+const toggleOpenBtn = document.querySelector('.toggleOpen');
+const toggleCloseBtn = document.querySelector('.toggleClose');
+
+toggleOpenBtn.addEventListener('click',function(){
+  toggleOpenBtn.classList.add("disabled");
+  toggleCloseBtn.classList.remove("disabled");
+ 
+  const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
+  for(let i = 0 ; i < noticeLiel.length; i++){
+    noticeLiel[i].classList.add("disabled");
+  }
+});
+toggleCloseBtn.addEventListener('click',function(){
+  toggleCloseBtn.classList.add("disabled");
+  toggleOpenBtn.classList.remove("disabled");
+  const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
+  for(let i = 0 ; i < noticeLiel.length; i++){
+    noticeLiel[i].classList.remove("disabled");
+  }
+});
