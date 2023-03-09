@@ -1,1 +1,135 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  
+    display: flex;
+    justify-content: center;
+    /* background-color: #9DC08B; */
+}
+
+/* 입력창 */
+form.form{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+    margin: 0.5rem;
+    border-radius: 8px;
+    /* background-color: #EDF1D6; */
+
+}
+div.form__input--wrapper{
+    flex: 8 0 auto;
+    padding: 0 0.2rem;
+}
+
+
+div.form__input--name, div.form__input--title{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem;
+}
+div.form__input--name > label, div.form__input--title > label{
+    flex: 4 0 0;
+    width: 100px;
+}
+div.form__input--name > input, div.form__input--title > input{
+    flex : 6 0 0;
+}
+div.form__textbox{
+    display: flex;
+    flex-direction: column;
+    
+}
+div.form__textbox > label , div.form__textbox > textarea {
+    padding: 0.2rem;
+}
+div.form__textbox > textarea{
+    margin: 0.2rem;
+    resize: none;
+}
+
+/* submit 버튼 */
+div.form__submit{
+    display: flex;
+    justify-content: center;
+    padding: 0 0.2rem;
+}
+div.form__submit>input{
+    padding: 0.5rem;
+    flex: 1 0 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    /* color: white; */
+    /* background-color: #40513B; */
+}
+
+/* 제목  */
+main > *{
+    padding : 0.5rem;
+}
+main>h1{
+    text-align: center;
+    font-size: 3rem;
+    /* color: white; */
+}
+/* section */
+
+
+/* ul  */
+h2{
+    font-size: 1rem;
+}
+ul>li{
+    margin: 0.5rem;
+    border-radius: 8px;
+}
+li.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 540px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+}
+
+/* discussion__container 내 왼쪽 */
+div.discussion__avatar--wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 0.5rem;
+}
+div.discussion__avatar--wrapper > img{
+    border-radius: 50%;
+    width: 48px;
+}
+
+/* discussion__container 내 가운데 */
+div.discussion__content{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    flex : 1 0 0;
+    justify-content: center;
+    
+}
+div.discussion__content > div.discussion__information {
+    text-align: right;
+}
+a {
+    text-decoration: none;
+}
+/* discussion__container 내 오른쪽 */
+div.discussion__answered{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    font-size:larger;
+}
