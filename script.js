@@ -23,8 +23,8 @@ const convertToDiscussion = (obj) => {
   // TODO: 질문 제목과 내용 >> 생성 및 정보 추가
   const discussionTitle = document.createElement("h2");
   const titleHref = document.createElement("a");
-  discussionTitle.textContent = obj.title;
   titleHref.href = obj.url;
+  titleHref.textContent = obj.title;
   // TODO: 질문 제목과 내용 >> 첨부
   discussionTitle.append(titleHref);
   discussionContent.append(discussionTitle);
