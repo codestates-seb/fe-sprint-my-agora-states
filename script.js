@@ -1,3 +1,12 @@
+const body = document.querySelector("body");
+const modal = document.querySelector(".modal__overlay");
+const modalCloseButton = document.querySelector(".modal__close-area");
+const questionButton = document.querySelector(".discussion__question-button");
+const questionUsername = document.querySelector("#name");
+const questionTitle = document.querySelector("#title");
+const questionStory = document.querySelector("#story");
+const submitButton = document.querySelector(".form__submit");
+
 const changeUtcToLocal = (date) => {
   let localDate = new Date(date);
 
@@ -72,3 +81,41 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const openModal = () => {
+  modal.classList.remove("hide");
+  body.classList.add("modal__scroll--disabled");
+};
+
+const closeModal = () => {
+  modal.classList.add("hide");
+  body.classList.remove("modal__scroll--disabled");
+};
+
+const addQuestion = () => {
+  const username = questionUsername.value;
+  const title = questionTitle.value;
+  const story = questionStory.value;
+
+  const utcDate = new Date().getTime() + (new Date().getTimezoneOffset() * 60 * 1000);
+
+  const newQuestion = {
+    createdAt: changeUtcToLocal(utcDate),
+    title,
+    author: username,
+    bodyHTML: `<p>${story}</p>`,
+    avatarUrl : "https://avatars.githubusercontent.com/u/87750478?s=64&v=4"
+  };
+
+  agoraStatesDiscussions.push(newQuestion);
+  console.log(agoraStatesDiscussions)
+  render(ul);
+};
+
+questionButton.addEventListener("click", openModal);
+modalCloseButton.addEventListener("click", closeModal);
+
+submitButton.addEventListener("click", () => {
+  addQuestion();
+  closeModal();
+});
