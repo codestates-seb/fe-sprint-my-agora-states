@@ -94,7 +94,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  font-size: 16px;
 }
 
 li {
@@ -114,4 +113,9 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   font-size: 0.75rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

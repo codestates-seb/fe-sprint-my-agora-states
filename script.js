@@ -64,9 +64,12 @@ const convertToDiscussion = (obj) => {
 
   if (answer) {
     answered.textContent = '답변 완료';
+    answered.classList.add('answered');
   } else {
     answered.textContent = '대기중';
+    answered.classList.add('hold-on');
   }
+
   discussionAnswered.appendChild(answered);
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 넣기
