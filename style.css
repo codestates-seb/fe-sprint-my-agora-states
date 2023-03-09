@@ -5,12 +5,37 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid black;
-  padding: 1em;
+  padding: 1em 2em;
+}
+
+.logo {
+  width: 10em;
 }
 
 .header__title {
-  font-size: 50px;
+  font-size: 3em;
+}
+
+.header__menu {
+  display: flex;
+  align-items: end;
+}
+
+.header__menu > a {
+  margin-right: 1em;
+  font-size: 1.1em;
+}
+
+.header__avatar--image {
+  width: 2.5em;
 }
