@@ -15,14 +15,15 @@ body{
 h1{
     padding: 30px;
     text-align: center;   
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 10px 0px 10px 0px;
+
 }
 
 .logo{
     width:150px;
-}
-
-.form{
-    padding: 20px;
 }
 
 
@@ -30,18 +31,84 @@ h1{
     display : flex;
     align-items: center;
     justify-content: center;
-    width:1000px;
-    height: 500px;
+    width: 1000px;    height: 500px;
     background-color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border-radius: 30px;
 }
 
-.form__input--wrapper{
-    display:flex;
-    align-items: flex-start;
+.form{
+    width: 950px;
+    height: 450px;
+    display : flex;
+    align-items: center;
+    justify-content: space-evenly;
     flex-direction: column;
+    border: 1px solid #442cdd1d;
+    border-radius: 20px;
 }
+
+.form__input--wrapper{
+    width: 500px;
+    height: 250px;
+    display: flex;
+     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__input--name{
+    padding: 5px;
+    width: 400px;    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form__input--title{
+    padding: 5px;
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form__textbox{
+    padding: 5px;
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#name{
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+}
+#title{
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+}
+#story{
+    width: 200px;
+    height: 150px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+}
+
+.form__submit{
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
 
 .discussion__wrapper{
     background-color: rgb(255, 255, 255, 0.7);
@@ -104,7 +171,7 @@ a{
 
 .bg {
     animation:slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #452CDD 60%, #ffffff 10%);
+    background-image: linear-gradient(-60deg, #452CDD 50%, #442cdd5b 50%);
     bottom:0;
     left:-50%;
     opacity:.5;
@@ -131,3 +198,5 @@ a{
       transform:translateX(25%);
     }
   }
+
+  

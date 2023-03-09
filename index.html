@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
+  <title>Agora States</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="agora-states.png" rel="shortcut icon" type="image/x-icon">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -23,16 +24,16 @@
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Name: </label>
+            <label for="name"><strong>Name</strong></label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Title: </label>
+            <label for="title"><strong>Title</strong></label>
             <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story"><strong>Content</strong></label>
+            <textarea id="story" name="story" required></textarea>
           </div>
         </div>
         <div class="form__submit">
@@ -57,16 +58,42 @@
       </ul>
     </section>
   </main>
-  <a id="MOVE_TOP_BTN" href="#" title="TOP">🚀</a>   <!--topbutton-->
+  <a id="MOVE_TOP_BTN" href="#">🚀</a>   <!--topbutton-->
 	<style>
+    
+  input[type=submit] {
+    font-weight: 600;
+    font-size: 17px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    border-radius: 20px;
+    background-color: #5D47E1;;
+    border: 1px solid #5D47E1;
+    }
+
+  input[type=submit]:hover{
+    transition : 0.2s;
+  transform: scale(1.1);
+  }
+
+  input[type=submit]:active{
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color: black;
+  }
+
 	a#MOVE_TOP_BTN {
 		position: fixed;
 		right: 3%;
 		bottom: 50px;
 		display: none;
 		z-index: 999;
-    font-size: 35px;
+    font-size: 30px;
 	}
+  a#MOVE_TOP_BTN:hover{
+    transition : 0.5s;
+  transform: scale(1.5);}
 	</style>
 	<script src="//code.jquery.com/jquery.min.js"></script>
 	<script>
