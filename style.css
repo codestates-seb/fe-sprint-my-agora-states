@@ -4,6 +4,112 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url('/img/codestates-motif.png');
+}
+
+/* 상단 메뉴 */
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+.img_container{
+    width:10%;
+}
+#codestates_logo{
+    width:100%;
+}
+.menu_container{
+    display: inline-block;
+    font-size: 0.7em;
+    width:15%;
+    text-align: right;
+    padding:20px;
+}
+
+.menu_container a{
+    margin:0px 5px;
+    color:rgb(124, 124, 124);
+    text-decoration-line : none;
+}
+
+.menu_container a:visited{
+    color:rgb(124, 124, 124);
+}
+
+/* 모달 창 배경 */
+#modal.modal_overlay{
+    width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+        /* 나중에 flex로 바꿔줌 */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(1.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* 모달 창 */
+#modal .form{
+    background: white;
+    width:400px;
+    height:500px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: black 1px solid;
+}
+
+#alert{
+    color: red;
+    display: none;
+}
+
+/* 닫기 버튼 */
+#modal .form .modal_close{
+    padding: 0px 0px 20px 380px;
+}
+
+/* 질문 등록 섹션 */
+.enter_discussion{
+    width:100%;
+    background-color: rgb(116, 65, 184);
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.enter_discussion p:first-child{
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.enter_discussion h1{
+    font-size: 5em;
+    margin:10px 0px;
+}
+
+.enter_discussion button{
+    margin: 10px;
+    width:500px;
+    height:80px;
+    border: 0px;
+    border-radius: 20px;
+    background-color: rgb(186, 241, 82);
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    font-weight:bold;
+}
+
+.enter_discussion button:hover{
+    background-color: rgb(155, 214, 45);
 }
 
 /* discussion을 담고 있는 박스 */
@@ -41,13 +147,14 @@ main{
 /* discussion 제목 */
 .discussion__title{
     border: 1px solid blue;
-    font-size: 10px;
+    font-size: 1em;
 }
 
 /* discussion 작성자와 작성시간 */
 .discussion__information{
     border: 1px solid blue;
     text-align: right;
+    font-size: 0.8em;
 }
 
 /* 답변 여부 */
@@ -58,4 +165,16 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.pagenation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.pagenumber{
+    width:50px;
+    border: 1px red dotted;
+    text-align: center;
 }
