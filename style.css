@@ -7,13 +7,22 @@
 }
 main{
     display: flex;
-    flex-flow: column;
-    align-items: center;
+    flex-flow: row;
+    align-items: start;
+    justify-content: space-between;
     min-height: 100vh;
+}
+/* 섹션1,3 */
+.form__container, .section3{
+    width: 300px;
+}
+/* 섹션1 */
+.form__container{
+    position: sticky;
+    top: 150px;
 }
 .discussions__container{
     display: flex;
-    display: fext;
     flex-flow: column;
     gap: 10px;
 }
@@ -23,7 +32,8 @@ main{
     flex-flow: row;
     width: 540px;
     justify-content: space-between;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 /* 프로필 사진 */
 img{
@@ -33,6 +43,10 @@ img{
 /* 가운데 디스커션 */
 .discussion__content{
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
 }
 .discussion__answered{
     display: flex;
@@ -44,5 +58,9 @@ img{
 .discussion__title > a{
     text-decoration-line: none;
     color: black;
+}
+.discussion__information{
+    text-align: right;
+    font-size: 13px;
 }
 /* 왼쪽 answered */
