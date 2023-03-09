@@ -1,7 +1,3 @@
-import 'normalize.css'
-
-
-
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -18,7 +14,36 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // avatar wrapper 에 이미지 dom 넣기
+  const avatarImg = document.createElement('img');
+  avatarImg.className = 'discussion__avatar--image'
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = `picture of ${obj.author}`
+  avatarWrapper.append(avatarImg)
 
+  //Discussion content 에 내용 넣기
+  const discussionTitle = document.createElement('h2');
+  discussionTitle.className = 'discussion__title';
+  const discussionLink = document.createElement('a');
+  discussionLink.style.textDecoration = 'none'
+  discussionLink.style.color = 'black'
+  discussionLink.href = obj.url;
+  discussionLink.target = '_blank';
+  discussionLink.innerHTML = obj.title;
+  discussionTitle.appendChild(discussionLink);
+  const discussionDate = document.createElement('div');
+  discussionDate.innerHTML = obj.createdAt
+  discussionContent.appendChild(discussionTitle);
+  discussionContent.appendChild(discussionDate);
+  
+  //Discussion Answered 넣기
+  const answered = document.createElement('div');
+  if(obj.answer) {
+    answered.innerHTML = '☑'
+  } else {
+    answered.innerHTML = 'X'
+  }
+  discussionAnswered.appendChild(answered)
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
