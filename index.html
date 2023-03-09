@@ -17,16 +17,64 @@
   <body>
     <main>
       <nav id="navbar">
-        <div class="navbar__logo">
-          <a href="#">
-            <img src="images/logo-codestates-ci.png" alt="logo" />
-          </a>
+        <div class="navbar__header">
+          <div class="navbar__logo">
+            <a href="#">
+              <img src="images/logo-codestates-ci.png" alt="logo" />
+            </a>
+          </div>
+          <div>
+            <h1>My Agora States</h1>
+          </div>
+          <div class="navbar__btn__wrapper">
+            <button class="navbar__btn--add">New discussion</button>
+          </div>
         </div>
-        <div>
-          <h1>My Agora States</h1>
-        </div>
-        <div class="navbar__btn__wrapper">
-          <button class="navbar__btn--add">New discussion</button>
+        <div class="navbar__content">
+          <section class="form__container">
+            <form action="" method="get" class="form">
+              <div class="form__input--wrapper">
+                <div class="form__input--name">
+                  <label class="form__input--label" for="name"
+                    >Enter your name:
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="이름을 작성해주세요."
+                    required
+                  />
+                </div>
+                <div class="form__input--title">
+                  <label class="form__input--label" for="title"
+                    >Enter your title:
+                  </label>
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="제목을 작성해주세요."
+                    required
+                  />
+                </div>
+                <div class="form__textbox">
+                  <label class="form__input--label" for="story"
+                    >Your question:
+                  </label>
+                  <textarea
+                    id="story"
+                    name="story"
+                    placeholder="질문을 작성하세요"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form__submit">
+                <input type="submit" value="submit" />
+              </div>
+            </form>
+          </section>
         </div>
       </nav>
 
@@ -91,5 +139,5 @@
     </main>
   </body>
   <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </html>

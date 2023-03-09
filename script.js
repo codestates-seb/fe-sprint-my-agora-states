@@ -1,3 +1,9 @@
+// import { v4 as uuid4 } from 'uuid'; // .js 붙여야되는데...? 바닐라에서는 npm 모듈을 사용하지 못하나...?
+import { v4 as uuid4 } from 'https://jspm.dev/uuid';
+import { $, $$ } from './utils/selector.js';
+
+// console.log(uuid4());
+
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
@@ -55,6 +61,32 @@ const answerButton = ({ answer }) => {
   `;
 };
 
+// 디스커션 추가
+const addDiscussionHandler = (e) => {
+  e.preventDefault();
+  const author = e.target[0].value;
+  const title = e.target[1].value;
+  const bodyHTML = e.target[2].value;
+  const createdAt = new Date().toLocaleTimeString();
+  const answer = null;
+  const avatarUrl = 'https://avatars.githubusercontent.com/u/87750478?s=64&v=4';
+
+  const newdiscussion = {
+    id: uuid4(),
+    createdAt,
+    title,
+    url: '#',
+    author,
+    answer,
+    bodyHTML,
+    avatarUrl,
+  };
+  // console.log(`${author} / ${title} / ${text}`);
+
+  agoraStatesDiscussions.unshift(newdiscussion);
+  ul.prepend(convertToDiscussion(newdiscussion));
+};
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -65,4 +97,8 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
+// form 요소
+const elDiscussionForm = $('.form');
+elDiscussionForm.addEventListener('submit', addDiscussionHandler);
+
 render(ul);

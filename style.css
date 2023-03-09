@@ -14,16 +14,64 @@ main {
 
 /* navbar */
 #navbar {
-  display: flex;
-  /* position: fixed; */
-  background: white;
+  background: var(--coz-blue-10);
   width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  height: 100px;
-  /* background-color: antiquewhite; */
   border-bottom: 1px solid var(--coz-purple-300);
   box-shadow: -4px 4px 2px -2px var(--coz-purple-300);
+}
+
+#navbar .navbar__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#navbar .navbar__content {
+  /* border: 1px solid salmon; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+#navbar .navbar__content form .form__input--wrapper div {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+#navbar .navbar__content form .form__input--wrapper div .form__input--label {
+  display: block;
+  width: 150px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+#navbar .navbar__content form .form__input--wrapper div input {
+  border-radius: 5px;
+  width: 200px;
+}
+
+#navbar .navbar__content form .form__input--wrapper div textarea {
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+}
+
+#navbar .navbar__content form .form__submit {
+  float: right;
+}
+
+#navbar .navbar__content form .form__submit input {
+  background-color: var(--coz-purple-600);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#navbar .navbar__content form .form__submit input:hover {
+  opacity: 0.8;
 }
 
 #navbar .navbar__logo,
