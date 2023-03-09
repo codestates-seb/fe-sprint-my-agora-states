@@ -6,36 +6,40 @@ body {
 }
 
 main {
-    flex-direction : column;/*엄마 바디로부터의 방향*/
+    flex-direction : column;/* 엄마 바디로부터의 방향 */
     display: flex;
-    justify-content: center;
+    /* 메인의 모든요소 가운데정렬 */
     align-items: center;
+    justify-content: center;
 }
 
-.discussion {
+ul{
     display: flex;
+    flex-direction : column;
+
+}
+.discussion {
+ /* display: flex; */
 /* 모든 요소에 border-box를 적용합니다. */
     box-sizing : border-box;
 /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
     list-style: none;
 /* Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
     width: 540px;
-   
 }
-/* .discussions__container{
+
+ .discussion__container{
+    /* flex-direction: column; */
     display: flex;
-
-} */
+} 
 .discussion__avatar--wrapper{
-    /* //아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
-    flex-direction: column;
-    align-items: center;
+    /* //아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. 
+    아래세개가 세트인듯?*/
+    display: flex;
     justify-content: center;
+    align-items: center;
     width: 50px;
-
-    border: 10px solid #FEE500;    
-    
-    
+    /* border: 10px solid #FEE500;     */
 }
 .discussion__avatar--image{
    
@@ -43,6 +47,7 @@ main {
 /* 아바타 사진의 너비를 48px로 설정하세요. */
 width: 48px;
 height: 48px;
+/* 밑의 두줄이 동그랗게 만들어주는 코드 */
 border-radius: 70%;
 overflow: hidden;
 
@@ -50,15 +55,15 @@ overflow: hidden;
 
 .discussion__content{
 
-border: 10px solid #FEE500;
-    flex-direction : column; 
+/* border: 10px solid #FEE500; */
+    /* flex-direction : column;  */
    /* Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
    width: 440px; 
 
-    display: flex;
+    /* display: flex; */
 }
 .discussion__title{
-    flex-direction : column;
+    /* flex-direction : column; */
     font-size: medium;
     width: 440px;
     justify-content:space-around;
@@ -66,7 +71,7 @@ border: 10px solid #FEE500;
 }
 
 .discussion__information{
-    flex-direction : column;
+    /* flex-direction : column; */
     /* 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다. */
     justify-content:space-around;
     text-align: right;
@@ -75,12 +80,12 @@ border: 10px solid #FEE500;
     
 }
 .discussion__answered{
-    flex-direction : column;
     /* 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
-   align-items: center;
-   justify-content: center; 
-   border: 10px solid #FEE500;
-   width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 10px solid #FEE500; */
+    width: 50px;
 
 }
 
