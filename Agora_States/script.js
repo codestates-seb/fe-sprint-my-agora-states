@@ -21,16 +21,19 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg);
   
+
     // title 넣기
   const discussion_h2 = document.createElement('h2');
   discussion_h2.className = "discussion__title";
-  const new_content = document.createTextNode(obj.title);
-  const discussion_link = document.createElement('a');
+  discussion_h2.textContent = obj.title;
+  // const new_content = document.createTextNode(obj.title);
+  // const discussion_link = document.createElement('a');
 
-  discussion_link.href = obj.url; // a태그의 링크 설정
-  discussion_link.appendChild(new_content); // a태그의 자식 요소로 text 추가
-  discussion_h2.appendChild(discussion_link); // h2의 자식 요소로 a태그 추가
+  // discussion_link.href = obj.url; // a태그의 링크 설정
+  // discussion_link.appendChild(new_content); // a태그의 자식 요소로 text 추가
+  // discussion_h2.appendChild(discussion_link); // h2의 자식 요소로 a태그 추가
   discussionContent.append(discussion_h2); // 최종 추가
+
 
     // 작성자/시간 넣기
   const discussionInfo = document.createElement('div');
@@ -40,52 +43,48 @@ const convertToDiscussion = (obj) => {
   discussionInfo.appendChild(infoContent);
   discussionContent.append(discussionInfo);
 
-  //   // 체크박스 넣기
-  // const checkbox = document.createElement('div');
-  // checkbox.className = "discussion__answered";
-  // const check_p = document.createElement('p');
-  // const check_text = document.createTextNode("☑");
 
-  // check_p.appendChild(check_text);
-  // checkbox.appendChild(check_p);
-  // discussionAnswered.append(checkbox);
+    // 체크박스 넣기
+  const checkbox = document.createElement('div');
+  checkbox.className = "discussion__answered";
+  const check_p = document.createElement('p');
+  const check_text = document.createTextNode("☑");
+  check_p.appendChild(check_text);
+  checkbox.appendChild(check_p);
+  discussionAnswered.append(checkbox);
 
     // 질문 내용 넣기
   const question = document.createElement('div');
   question.className = "question_content";
-
   discussionContent.appendChild(question);
   question.innerHTML = obj.bodyHTML;
 
-    // 답변 내용 넣기
-    if (obj.answer !== undefined && obj.answer !== null) { // 답변이 있다면
-      // 답변 박스 선언
-      const answered = document.createElement('div');
-      answered.className = "discussion__content";
-      answered.id = "answerBox";
-      discussionContent.appendChild(answered);
-      
-      // 답변자 이미지
-      const answered_avatar_img = document.createElement('img');
-      answered_avatar_img.className = "answered_avatar_img";
-      answered_avatar_img.src = obj.answer.avatarUrl;
 
-      answered.appendChild(answered_avatar_img);
-      answered_avatar_img.innerHTML = answered_avatar_img;
-      
-      // 답변자명/시간 
-      const answered_info = document.createElement('div');
-      answered_info.className = "answered_info";
-
-      answered.appendChild(answered_info);
-      answered_info.innerHTML = `${obj.answer.author} / ${obj.answer.createdAt}`;
-
-      // 답변 내용
-      const answered_detail = document.createElement('div');
-      answered_detail.className = "answered_detail";
-      answered.appendChild(answered_detail);
-      answered_detail.innerHTML = obj.answer.bodyHTML;
+  // 답변 내용 넣기
+  if (obj.answer !== undefined && obj.answer !== null) { // 답변이 있다면
+    // 답변 박스 선언
+    const answered = document.createElement('div');
+    answered.className = "answer__content";
+    answered.id = "answerBox";
+    question.appendChild(answered);
+    // 답변자 이미지
+    const answered_avatar_img = document.createElement('img');
+    answered_avatar_img.className = "answered_avatar_img";
+    answered_avatar_img.src = obj.answer.avatarUrl;
+    answered.appendChild(answered_avatar_img);
+    answered_avatar_img.innerHTML = answered_avatar_img;
+    // 답변자명/시간 
+    const answered_info = document.createElement('div');
+    answered_info.className = "answered_info";
+    answered.appendChild(answered_info);
+    answered_info.innerHTML = `${obj.answer.author} / ${obj.answer.createdAt}`;
+    // 답변 내용
+    const answered_detail = document.createElement('div');
+    answered_detail.className = "answered_detail";
+    answered.appendChild(answered_detail);
+    answered_detail.innerHTML = obj.answer.bodyHTML;
   }
+
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -101,9 +100,13 @@ const render = (element) => {
   return;
 };
 
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+
 
 // 제출 이벤트 만들기
 const submit_btn = document.querySelector(".form__submit>input");
@@ -114,29 +117,17 @@ submit_btn.addEventListener("click", () => {
   
   let today = new Date();
   const li = convertToDiscussion({
-      id: name_value,
+      id: "",
       createdAt: today.toLocaleString(),
       title: title_value,
       url: "",
-      author: "",
-      answer: {
-        id: "",
-        createdAt: "",
-        url: "",
-        author: "",
-        bodyHTML:
-          '',
-        avatarUrl: "",
-      },
-      bodyHTML:
-        question_value,
-      avatarUrl:
-        "",
+      author: name_value,
+      bodyHTML: question_value,
+      avatarUrl:"https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png",
     }
     );
     
-
-    if (name_value.trim() !== "" || title_value.trim() !== "" || question_value.trim() !== ""){
+    if (name_value.trim() !== "" && title_value.trim() !== "" && question_value.trim() !== ""){
       document.querySelector('.discussions__container').prepend(li);
       document.querySelector('.form__input--name>input').value = "";
       document.querySelector('.form__input--title>input').value = "";
@@ -146,5 +137,29 @@ submit_btn.addEventListener("click", () => {
       alert("빈칸을 모두 입력해주세요.")
     }
   }
-
 )
+
+
+
+// 질문, 답변 내용 접었다 펼치기
+const titles = document.querySelectorAll('.discussion__title');
+const contents = document.querySelectorAll('.question_content');
+
+for (let i = 0; i < titles.length; i++) {
+  const title = titles[i];
+  const content = document.querySelectorAll('.question_content')[i - 1];
+  let isFolded = true;
+  title.addEventListener('click', function() {
+    if (isFolded) {
+      content.style.display = 'block';
+      isFolded = false;
+    }
+    else {
+      content.style.display = 'none';
+      isFolded = true;
+    }
+  })
+}
+
+
+
