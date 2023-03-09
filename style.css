@@ -1,1 +1,127 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 300;
+}
+a {
+    color: black;
+    text-decoration: none;
+    outline: none
+}
+ul {
+    list-style: none;
+}
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    background: inherit ;
+    border:none;
+    box-shadow:none;
+    border-radius:0;
+    padding:0;
+    cursor: pointer;
+}
+body {
+    position: relative;
+}
+
+/* modal */
+.modal {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+.modal.hidden {
+    display: none;
+}
+.modal .modal__background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+}
+.modal .modal__container {
+    width: 540px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #e5e5e5;
+    z-index: 999;
+}
+
+
+/* discussion */
+.discussion__container {
+    display: flex;
+    width: 540px;
+    margin: 20px;
+}
+/* avatar */
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.discussion__avatar--wrapper img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+/* content */
+.discussion__content {
+    width: 100%;
+}
+.discussion__content .discussion__information {
+    text-align: end;
+}
+/* 버튼 */
+.discussion__btn--wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.discussion__btn--wrapper button:first-child {
+    margin-right: 10px;
+}
+
+/* nav */
+.nav__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 540px;
+}
+.nav__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background-color: #e5e5e5;
+}
+.nav__container ul {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+.nav__container ul li {
+    margin-left: 40px;
+}
+.nav__container ul li:first-child {
+    margin-left: 0px;
+}
+.nav__container ul button {
+    font-weight: 700;
+}
+.nav__container ul button.active {
+    color: blue;
+}
