@@ -1,12 +1,18 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
+h1 {
+  color: white;
+}
+
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-image: url("../data/-1__1.jpg");
-  background-size: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .discussions__wrapper {
