@@ -1,0 +1,171 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 초기화 */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none; /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
+}
+
+
+/* 텍스트 크기 조정 */
+h2 {
+    font-size: 1rem;
+}
+
+h3 {
+    margin: 30px 0 10px 0;
+}
+
+.discussion__information{
+    font-size: 0.8rem;
+}
+
+
+/* 나만의 디자인 하기 */
+main {
+    display: flex;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    justify-content: space-evenly;
+    margin: 100px 0;
+}
+
+    /* 질문 작성 부분 폼 컨테이너 */
+.form__container {
+    width: 40%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+}
+
+h1 {
+    width: 100%;
+    height: 20%;
+    padding: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+.form {
+    width: 80%;
+    height: 80%;
+    text-align: center;
+}
+
+#name {
+    width: 40%;
+    height: 30px;
+}
+
+#title {
+    width: 80%;
+    height: 40px;
+}
+
+#story {
+    width: 100%;
+    height: 200px;
+}
+
+    /* 게시판 디자인 */
+        /* UL의 부모 */
+.discussion__wrapper {
+    width: 40%;
+    height: 100%;
+}
+
+        /* UL */
+.discussions__container { 
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+        /* LI */
+.discussion__container {
+    width: 100%;
+    display: flex;
+    padding: 3rem;
+    border: 5px solid black;
+    word-break: break-all;
+}
+
+            /* 왼쪽 아바타 */
+.discussion__avatar--image,  .answered_avatar_img{
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 48px;
+}
+            /* 질문 제목 */
+.discussion__title {
+    margin: 0px;
+}
+
+            /* 작성자 정보 */
+.discussion__information {
+    margin: 0px;
+}
+
+            /* 질문 내용 */
+.discussion__content {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.question_content { /* 질문 내용의 제목 */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+        /* 답변 박스 */
+#answerBox {
+    border: 5px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    margin: 5px;
+}
+
+pre, code {
+    overflow:scroll;
+    width: 37rem;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/* 4. 오른쪽 체크 표시 */
+/* .discussion__answered {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: x-large;
+} */
+
+/* 
+.highlight {
+    width: 100px;
+} */
+
+
+

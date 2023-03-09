@@ -1,0 +1,178 @@
+/* 초기 설정 */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Courgette', cursive;
+  font-size: 16px;
+  font-family: 'Gugi', cursive;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-shadow: 5px 5px #558ABB;
+}
+
+h2 {
+  font-size: 2rem;
+  text-shadow: 5px 5px #558ABB;
+}
+
+h3 {
+  padding: 5px;
+  font-size: large;
+}
+
+.hide {
+  display: none;
+}
+
+.signup {
+  border: none;
+  padding: 0;
+}
+
+.message {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(167, 0, 0);
+  background: none;
+  text-align: center;
+}
+
+.success-message {
+  color: rgb(0, 255, 42);
+}
+
+
+/* Body */
+body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/background-img.png");
+  background-size: cover;
+}
+
+
+/* Header */
+header {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Main */
+main {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Login-box */
+.login-box {
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.5);
+  background-color: #e1ffdb;
+  background: linear-gradient(to bottom, #81b9eb, #848C65);
+}
+
+
+/* Login */
+.login-inner {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+/* Input */
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  padding: 5px;
+  font-size: large;
+  border-radius: 5px;
+  background-color: rgb(208, 240, 255);
+}
+
+/* Button */
+button {
+  width: 170px;
+  height: 40px;
+  font-size: large;
+  border: 0;
+  box-shadow: 5px 5px 1px 1px #32350ebd;
+  border-radius: 5px;
+  background-color: rgba(228, 209, 40, 0.452);
+  transition: all 0.3s;
+}
+
+button:active {
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+button:hover {
+  background-color: rgba(250, 239, 139, 0.596);
+}
+
+
+
+/* 반응형 만들기 */
+@media (max-width: 1000px) {
+  /* Body */
+body {
+  flex-direction: column;
+}
+
+
+/* Header */
+header {
+  width: 100%;
+  height: 20%;
+
+}
+
+
+/* Agora states - text location */
+h1 {
+  position: absolute;
+  top: 13%;
+}
+
+
+/* Main */
+main {
+  width: 100%;
+  height: 80%;
+}
+
+
+}

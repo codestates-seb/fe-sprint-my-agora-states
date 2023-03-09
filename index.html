@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agorastates</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <script src="validator.js"></script>
+  </head>
+
+  <body>
+    <header class = "left-main"><h1>Agora states</h1></header>
+    <main>
+      <div class = login-box>
+        <h2>Create Account</h2>
+        <div class="login-inner">
+          <div class = "id input">
+            <h3>ID</h3>
+            <input type="text" 
+              id="username" 
+              style = "font-weight: bold;" 
+              placeholder="ID" />
+            <div class="success-message hide message">This is an available ID</div>
+            <div class="failure-message hide message">ID must be at least 4 characters long</div>
+            <div class="hard-id hide message">ID can only be in English or numbers</div>
+          </div>
+
+
+          <div class = "password input">
+            <h3>PW</h3>
+            <input type="password" 
+              id="password" 
+              style = "font-weight: bold;" 
+              placeholder="PASSWORD" />
+            <div class="hard-pw hide message">
+              It must contain at least 8 characters, at least one alphabet, number, and special character (@$!%*#?&).
+            </div>
+          </div>
+
+
+          <div class = "password_re input">
+            <h3>Confirm PW</h3>
+            <input
+              type="password"
+              id="password-retype"
+              style = "font-weight: bold;"
+              placeholder="Confirm Password"
+            />
+            <div class="mismatch-message hide message">Passwords do not match, please retype</div>
+          </div>
+
+        </div>
+        <div class="signup">
+          <button type = "reset" style = "font-weight: bold;">Join membership</button>
+        </div>
+      </div>
+      <script src="script.js"></script>
+    </main>
+  </body>
+</html>
