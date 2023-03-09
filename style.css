@@ -48,7 +48,7 @@
 
 .discussion__answered {
   display: flex;
-  width: 50px;
+  min-width: 50px;
   justify-content: center;
   align-items: center;
   font-size: 25px;
