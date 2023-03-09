@@ -8,45 +8,42 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
-  const avatarWrapper = document.createElement("div");
+  const avatarWrapper = document.createElement("div");  //이미지 묶음
   avatarWrapper.className = "discussion__avatar--wrapper";
  
-  const avatarImg = document.createElement("img");
+  const avatarImg = document.createElement("img");  //이미지
 
-  avatarImg.src = obj.avatarUrl;
+  avatarImg.src = obj.avatarUrl;  //data.js와 연동
   avatarImg.alt = "avatar of" + obj.author;
   avatarImg.className = "discussion__avatar--image";
-
   avatarWrapper.append(avatarImg);
 
-  const discussionContent = document.createElement("div");
+  const discussionContent = document.createElement("div");  //컨텐츠 박스
   discussionContent.className = "discussion__content";
 
-  const discussionTitle = document.createElement("h2");
+  const discussionTitle = document.createElement("h2"); //컨텐츠 제목
   discussionTitle.className = "discussion__title";
 
-  const discussionUrl = document.createElement("a");
-  discussionUrl.href = obj.url;
+  const discussionUrl = document.createElement("a");  //링크 연결
+  discussionUrl.href = obj.url;   //data.js와 연동
   discussionUrl.textContent = obj.title;
 
   discussionTitle.append(discussionUrl);
 
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-
   discussionInformation.textContent = obj.createdAt;
-
   discussionContent.append(discussionTitle);
   discussionContent.append(discussionInformation);
 
-  const discussionAnswered = document.createElement("div");
+  const discussionAnswered = document.createElement("div"); //질문 체크
   discussionAnswered.className = "discussion__answered";
 
-  const discussionIcon = document.createElement("p");
+  const discussionIcon = document.createElement("p"); //질문 체크
   discussionIcon.textContent = "☑";
   discussionAnswered.append(discussionIcon);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent, discussionAnswered);  //질문 체크 o,x
   if (obj.answer === null) {
     discussionIcon.textContent = UNANSERED_MARK;
   } else {
