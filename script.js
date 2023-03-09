@@ -4,7 +4,7 @@ const defaultAvatarSrc = "./src/images/defaultAvatar.png";
 const presetAvatarMenu = document.querySelector(
   "li.avatar-select-menu__preset"
 );
-const presetAvatarSrc = "./src/images/mokokos/mokoko0";
+const presetAvatarSrc = "src/images/mokokos/mokoko0";
 // input form
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
@@ -26,14 +26,16 @@ const updateLocalStorage = (discussion) => {
 };
 
 const loadPresetAvatar = () => {
-  let img = document.createElement("img");
-  img.alt = "preset";
   for (let i = 1; i < 5; i++) {
-    img.currentSrc = `${presetAvatarSrc}${i}`;
+    let img = document.createElement("img");
+    img.alt = "preset";
+    img.src = `${presetAvatarSrc}${i}.png`;
     presetAvatarMenu.append(img);
+    img.addEventListener("click", (event) => event.target.currentSrc);
   }
   return;
 };
+
 // Date Transform Fuctions
 const dateToObject = (str = new Date()) => {
   const d = new Date(str);
@@ -76,7 +78,7 @@ const onBtnSubmitClick = (event) => {
 
 // object to discussions__container
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions[0].answer);
+//console.log(agoraStatesDiscussions[0].answer);
 
 const addDiscussion = (obj) => {
   const discussions = document.querySelector("ul.discussions__container");
@@ -169,6 +171,8 @@ btnSubmit.addEventListener("click", onBtnSubmitClick);
 button.addEventListener("click", () => {
   dialog.showModal();
 });
+// avatar preset 불러오기
+loadPresetAvatar();
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
