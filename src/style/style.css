@@ -6,6 +6,29 @@ main {
   justify-content: center;
 }
 
+.discussions__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.form__container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 540px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  background: #ffffff;
+  box-shadow: 10px 10px 20px #d0d0d0, -20px -20px 60px #ffffff;
+  padding: 15px;
+  padding-left: 50px;
+  margin: 20px;
+}
+
+.discussions__container {
+  margin: 0;
+  padding: 0;
+}
+
 .discussion__container {
   display: flex;
   flex-wrap: wrap;
@@ -52,6 +75,16 @@ main {
   width: 15px;
   align-items: center;
   justify-content: center;
+  color: rgb(99, 201, 86);
+}
+
+.discussion__not-answered {
+  display: flex;
+  font-size: 1.5rem;
+  width: 15px;
+  align-items: center;
+  justify-content: center;
+  color: rgb(201, 86, 86);
 }
 
 .answer__container {
