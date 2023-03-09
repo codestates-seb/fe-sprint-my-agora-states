@@ -10,6 +10,7 @@ let activePage = 1; // 현재 페이지 -> 리스트를 렌더링 너무많은�
 let firstNum = activePage - (activePage % bottomSize) + 1; // 현재페이지 - (현재페이지 % 버튼갯수) + 1
 let lastNum = activePage - (activePage % bottomSize) + bottomSize;
 
+/* 로컬스토리지 관련 로직입니다 사용처는 inputSubmit과 최초실행 1번입니다. */
 const saveStorage = () => {
   localStorage.setItem('discuss', JSON.stringify(agoraStatesDiscussions));
 };
@@ -23,14 +24,13 @@ const getStorage = () => {
 };
 
 getStorage();
+
 let total = agoraStatesDiscussions.length;
 let totalPageSize = Math.ceil(total / listSize);
 
 const activeButtonToggle = () => {
   let activeBtn = document.querySelector(`#page_${activePage}`);
-  console.log(`activeTbn ${activeBtn}`);
   let removeClass = document.querySelectorAll('.pageNumber');
-  console.log(removeClass);
   if (activeBtn === null) return;
   Array.prototype.forEach.call(removeClass, (e) => {
     e.classList.remove('activeButton');
@@ -53,9 +53,6 @@ const nextButtonOnClick = () => {
     paintButton(); // 버튼 새로 만든다
     activeButtonToggle();
   }
-  console.log(
-    `activePage ${activePage} firstNum ${firstNum} lastNum ${lastNum} totalPageSize ${totalPageSize}`,
-  );
   return;
 };
 
