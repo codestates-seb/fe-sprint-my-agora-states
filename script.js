@@ -1,6 +1,64 @@
+const inputName = document.querySelector("#name");
+const inputTitle = document.querySelector("#title");
+const divQuestion = document.querySelector("#story");
+const imgAvatar = document.querySelector("#myAvatar");
+
+imgAvatar.addEventListener("click", function () {
+  const inputLoadAvatar = document.querySelector("#load-Avatar");
+  inputLoadAvatar.click();
+});
+
+// Date Transform Fuctions
+/* offset
+const offsetDate = (date) => {
+  const d = new Date("yy-mm-dd/hh:mm:ss");
+  const offset = d.getTimezoneOffset();
+  return d;
+};
+*/
+const dateToObject = (str = new Date()) => {
+  const d = new Date(str);
+  return {
+    year: d.getFullYear(),
+    month: d.getMonth() + 1, // 조심하기
+    day: d.getDate(),
+    hour: d.getHours(),
+    minute: d.getMinutes(),
+  };
+};
+
+const customDate = (dataObj) => {
+  const d = new Date();
+  let date = "";
+  if (dataObj.year === d.getFullYear()) {
+    date = `${dataObj.month}월 ${dataObj.day}일 ${dataObj.hour}시 ${dataObj.minute}분`;
+  } else {
+    date = `${dataObj.year}년 ${dataObj.month}월 ${dataObj.day}일 ${dataObj.hour}시 ${dataObj.minute}분`;
+  }
+  return date;
+};
+
+const onBtnSubmitClick = (event) => {
+  event.preventDefault();
+  // 제출 버튼을 누를 때 inputName, inputTitle, textareaQuestion 의 value를 받아와서 새로운 질문 만들기
+  const discussion = {};
+  discussion.author = inputName.value;
+  discussion.title = inputTitle.value;
+  discussion.bodyHTML = divQuestion.innerHTML;
+  // 하나라도 null이면 진행하지 않음
+  if (discussion.author && discussion.title && discussion.bodyHTML) {
+    discussion.createdAt = customDate(dateToObject());
+    discussion.avatarUrl = null;
+    console.log(discussion);
+    return discussion;
+  }
+};
+
+const btnSubmit = document.querySelector("#questionSubmit");
+btnSubmit.addEventListener("click", onBtnSubmitClick);
 // object to discussions__container
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions[0]);
+console.log(agoraStatesDiscussions[1]);
 
 const fillAvatarWrapper = (obj) => {
   const avatarWrapper = document.createElement("div");
@@ -24,6 +82,7 @@ const fillDiscussionContent = (obj) => {
   aLink.textContent = obj.title;
   // div - discussion__information obj.author, obj.createdAt
   const divInfo = document.createElement("div");
+  obj.createdAt = customDate(dateToObject(obj.createdAt));
   divInfo.textContent = `${obj.author} / ${obj.createdAt}`;
 
   h2Title.appendChild(aLink);
@@ -48,7 +107,6 @@ const fillDiscussionAnswered = (obj) => {
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  console.log(obj.answer);
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
   const avatarWrapper = fillAvatarWrapper(obj);
@@ -56,12 +114,15 @@ const convertToDiscussion = (obj) => {
   // obj 안에 answer 있는 경우에만 함수 호출 => undefined는 나중에 꾸밀 때 조정하기
   const discussionAnswered = obj.answer ? fillDiscussionAnswered(obj) : void 0;
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent);
+  if (discussionAnswered) {
+    li.append(discussionAnswered);
+  }
   return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, category = none) => {
+const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
