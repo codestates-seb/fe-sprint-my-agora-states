@@ -1,1 +1,66 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Ubuntu', sans-serif;*/
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque; /*구역구분*/
+}
+
+li {
+    list-style-type: none;
+    background-color: aquamarine; /*구역구분*/
+    width: 540px; /* Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
+}
+
+img {
+    border-radius: 100%;
+    width: 48px;
+}
+
+main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(251,250,249);
+  } 
+
+  .discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    font-size : 12px;
+    border-radius: 10px;
+    margin : 16px;
+    padding: 30px;
+}
+
+.discussion__content {
+    flex-grow: 0.85;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0px 18px;
+  }
+  
+  .discussion__information {
+    padding-top: 10px;
+    font-size: 11px;
+    color: #000000;
+    text-align: right;
+  }
+
+a:visited { /*링크 색상*/
+    color: rgb(0, 0, 0);
+}
+
+a { /*링크 밑줄 없애기*/
+    text-decoration-line: none;
+}
