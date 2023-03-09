@@ -18,7 +18,7 @@
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
   <main>
-    <h1>Agora States</h1>
+    <h1><img class="logo" src="agora-states.png" alt="CODE_STATES_LOGO" /></h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
@@ -50,13 +50,43 @@
           </div>
           <div class="discussion__content">
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22 14:08:33Z</div>
+            <div class="discussion__information">kimploo / 2022-04-22 14:08:33</div>
           </div>
           <div class="discussion__answered"><p>💜</p></div>
         </li>
       </ul>
     </section>
   </main>
+  <a id="MOVE_TOP_BTN" href="#" title="TOP">🚀</a>   <!--topbutton-->
+	<style>
+	a#MOVE_TOP_BTN {
+		position: fixed;
+		right: 3%;
+		bottom: 50px;
+		display: none;
+		z-index: 999;
+    font-size: 35px;
+	}
+	</style>
+	<script src="//code.jquery.com/jquery.min.js"></script>
+	<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 500) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
+        
+        $("#MOVE_TOP_BTN").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
+    });
+	</script>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
