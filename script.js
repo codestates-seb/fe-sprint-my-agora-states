@@ -68,12 +68,30 @@ render(ul);
 // 디스커션 추가 기능
 // submit 버튼을 누르면 디스커션에 추가되어야한다.
 
-const newDiscussion = (obj) => {
-  const formName = document.querySelector('#id');
-  const formTitle = document.querySelector('#title')
-  const formStory = document.querySelector('#story')
-  const btnSubmit = document. querySelector('#btnSubmit')
+const form = document.querySelector("form.form");
+const formAuthor = form.querySelector(".form__input--name > input");
+const formTitle = form.querySelector(".form__input--title > input");
+const formTextbox = form.querySelector(".form__textbox > textarea");
 
-  // 버튼이 눌리면
-  // form의 value가 추가된다
-}
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const obj = {
+    id: "unique id",
+    createdAt: new Date(),
+    title: formTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: formAuthor.value,
+    answer: null,
+    bodyHTML: formTextbox.value,
+    avatarUrl:
+      "https://pbs.twimg.com/profile_images/1173873201039806464/R1lWiNES_400x400.jpg",
+  };
+  agoraStatesDiscussions.unshift(obj);
+
+  // 렌더링
+  ul.prepend(convertToDiscussion(obj))
+  formAuthor.value ='';
+  formTitle.value='';
+  formTextbox.value ='';
+
+});
