@@ -192,7 +192,7 @@ submitBtn.addEventListener('click', (e) => {
       author: username.value,
       title: title.value,
       content: content.value,
-      avatarUrl: '../images/donut.png',
+      avatarUrl: './images/donut.png',
       createdAt: new Date().toISOString().split('.')[0],
     };
     ul.prepend(convertToDiscussion(questionObj));
