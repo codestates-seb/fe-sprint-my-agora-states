@@ -1,1 +1,97 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* default CSS 초기화 */
+
+* {
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: auto;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* default CSS 초기화 */
+
+.discussion__container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 5rem;
+}
+
+.discussion__content {
+  max-width: 800px;
+  min-width: 420px;
+  padding: 2rem;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: -5px 5px 15px #eaeaea, 5px -5px 15px #ffffff;
+}
+
+.discussion__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.discussion__title h2 {
+  font-size: 25px;
+}
+
+.discussion__answered {
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.discussion__information {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.discussion__information span:nth-child(2) {
+  color: rgb(183, 183, 183);
+  font-size: small;
+}
+
+.discussion__avatar--image {
+  width: 50px;
+  border-radius: 10px;
+}
+
+.discussion__detail {
+  margin-top: 2rem;
+}
