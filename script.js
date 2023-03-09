@@ -1,5 +1,4 @@
-// 로컬스토리지에 새로 등록된 질문이 있을 경우 기존 배열의 앞에 포함시킴
-
+// DESC: 로컬스토리지에 새로 등록된 질문이 있을 경우 기존 배열의 앞에 포함시킴
 const newAsk = localStorage.getItem('newStory');
 
 if (newAsk) {
@@ -27,6 +26,7 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.textContent = obj.answer ? '✅ 답변 완료' : '🆘 진행중';
 
   const titleA = document.createElement('a');
+  // DESC: 새로 작성된 질문은 URL이 없으므로 제목 클릭시 a 태그의 이동 이벤트 방지
   titleA.href = obj.url ?? 'javascript:void(0)';
   titleA.textContent = obj.title;
 
@@ -52,6 +52,7 @@ const convertToDiscussion = (obj) => {
 
   li.append(discussionContent);
   discussionContent.append(discussionTitle, avatarWrapper);
+  // DESC: 기존 배열과 새로 작성된 데이터를 id의 type으로 구분하여 본문 렌더링 여부 결정
   typeof obj.id === 'number' && discussionContent.append(contents);
   discussionTitle.append(h2, discussionAnswered);
   h2.append(titleA);
@@ -75,7 +76,7 @@ const render = (element) => {
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
 
-// 질문 작성하기 form 토글 기능 구현
+// DESC: 질문 작성하기 버튼 클릭시 form 토글
 const writeButton = document.querySelector('#write');
 const form = document.querySelector('.form__input--wrapper');
 
@@ -83,8 +84,7 @@ writeButton.addEventListener('click', (e) => {
   form.classList.toggle('hide');
 });
 
-// 질문 등록 기능 구현
-
+// DESC: 질문 등록
 const writeForm = document.querySelector('.form');
 const userName = document.querySelector('#name');
 const title = document.querySelector('#title');
@@ -104,7 +104,7 @@ const writeFunc = (e) => {
     url: null,
   };
 
-  // 로컬스토리지를 이용해 새로고침 해도 질문이 남아있도록 하기
+  // DESC: 새로고침 해도 질문이 남아있도록 하기
   appendToStorage('newStory', newStory);
 
   ul.prepend(convertToDiscussion(newStory));
