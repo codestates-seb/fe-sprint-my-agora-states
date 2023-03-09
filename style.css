@@ -1,1 +1,19 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+.notosanskr * {
+    font-family: 'Noto Sans KR', sans-serif;
+   }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR';
+}
+
+body {
+    background-color: #24292f;
+}
+
+li {
+    list-style: none;
+}

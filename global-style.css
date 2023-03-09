@@ -1,0 +1,13 @@
+:root {
+  /* color */
+  --color-header-search-bg: #24292f;
+  --color-header-search-border: #57606a;
+  --color-text: #e0e0e0;
+
+  --color-footer-border: #57606a;
+  /* boxShadow */
+  --15px: 0px 0px 15px 0px #00000026;
+  --7px: 0px 0px 7px 0px #00000040;
+  --big-box: 0px 3px 6px -4px #0000001f, 0px 6px 16px 0px #00000014,
+    0px 9px 28px 8px #0000000d;
+}
