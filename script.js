@@ -29,7 +29,34 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+/*인풋 객체로 넘기기*/
+const inputToObject = (e) =>{
+  let inputName = document.querySelector('#name');
+  let inputTitle = document.querySelector('#title');
+  let inputQuestion = document.querySelector('#story');
+  let today = new Date();   
+  let year = today.getFullYear(); 
+  let month = ('0' + (today.getMonth() + 1)).slice(-2);
+  let date = ('0' + today.getDate()).slice(-2);
+  let todayDate = `${year}-${month}-${date}`;
+  let submitObject = {author:inputName.value, title:inputTitle.value, bodyHTML:inputQuestion.value,createdAt:todayDate}
+  inputName.value = "";
+  inputTitle.value = "";
+  inputQuestion.value = "";
+  return submitObject; 
+}
 
+/*submit 눌렀을때 객체추가*/
+const submit = document.querySelector('#submit');
+submit.addEventListener('click', (e)=>{
+  e.preventDefault();
+  listArray = [inputToObject(), ...listArray];
+  totalCount = listArray.length;
+  convertPagination(listArray);
+  render(ul, 0);
+})
+
+/*페이징*/
 const convertPagination = (listArray) =>{
   if(totalCount < listPerPage) return false;
   const lastPage = Math.ceil(totalCount / listPerPage);
