@@ -1,3 +1,17 @@
+// Date Transform Fuctions
+const getDate = () => {
+  return new Date().toISOString();
+};
+
+const getDateOffset = () => {
+  return new Date().getDateOffset();
+};
+const ISODateToCustomDate = (str) => {
+  const d = new Date(str);
+  const offset = d.getTimezoneOffset();
+  return { year: d.getFullYear(), month: d.getMonth(), day: d.getDay() };
+};
+
 // object to discussions__container
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions[0]);
@@ -24,6 +38,8 @@ const fillDiscussionContent = (obj) => {
   aLink.textContent = obj.title;
   // div - discussion__information obj.author, obj.createdAt
   const divInfo = document.createElement("div");
+  obj.createdAt = ISODateToCustomDate(obj.createdAt);
+  console.log(obj.createdAt);
   divInfo.textContent = `${obj.author} / ${obj.createdAt}`;
 
   h2Title.appendChild(aLink);
@@ -72,9 +88,26 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-// name, title, question 받아와서 새로운 질문 만들기
-// 일단 obj 만들기
-// obj.avatarUrl,
+const onBtnSubmitClick = (event) => {
+  event.preventDefault();
+  // 제출 버튼을 누를 때 name, title, question 등의 정보를 받아와서 새로운 질문 만들기
+  const name = document.querySelector("#name");
+  const title = document.querySelector("#title");
+  const question = document.querySelector("#story");
+
+  const discussion = {};
+  discussion.author = name.value;
+  discussion.title = title.value;
+  discussion.bodyHTML = question.value;
+  discussion.createdAt = getDate();
+  discussion.avatarUrl = null;
+  console.log(discussion);
+  console.log(transformDate());
+};
+
+const btnSubmit = document.querySelector("#questionSubmit");
+btnSubmit.addEventListener("click", onBtnSubmitClick);
+
+//  obj 만들기
+
 // 현재 시각 => obj.createdAt
-// id =?
-// name => obj.author
