@@ -14,6 +14,7 @@ main {
 .form__container {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   width: 540px;
   box-sizing: border-box;
   border-radius: 50px;
@@ -22,6 +23,47 @@ main {
   padding: 15px;
   padding-left: 50px;
   margin: 20px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.row_wrap {
+  width: 400px;
+  margin: 0 auto;
+}
+.row {
+  display: flex;
+  padding: 5px 0;
+}
+.txtfield.big {
+  height: 150px;
+}
+.title_content {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+}
+.txtfield {
+  flex: 1;
+  background-color: white;
+  width: 300px;
+  height: 38px;
+  font-size: 13px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 5px 5px 5px #d0d0d0;
+}
+
+.form__submit {
+  margin-top: 5px;
+  float: right;
 }
 
 .discussions__container {
@@ -75,7 +117,7 @@ main {
   width: 15px;
   align-items: center;
   justify-content: center;
-  color: rgb(99, 201, 86);
+  color: rgb(251, 129, 81);
 }
 
 .discussion__not-answered {
@@ -84,7 +126,7 @@ main {
   width: 15px;
   align-items: center;
   justify-content: center;
-  color: rgb(201, 86, 86);
+  color: rgb(166, 166, 166);
 }
 
 .answer__container {
