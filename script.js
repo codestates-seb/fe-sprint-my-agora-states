@@ -1,21 +1,42 @@
+// avatar
+const imgAvatar = document.querySelector("#myAvatar");
+const defaultAvatarSrc = "./src/images/defaultAvatar.png";
+const presetAvatarMenu = document.querySelector(
+  "li.avatar-select-menu__preset"
+);
+const presetAvatarSrc = "src/images/mokokos/mokoko0";
+// input form
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const divQuestion = document.querySelector("#story");
-const imgAvatar = document.querySelector("#myAvatar");
+const btnSubmit = document.querySelector("#questionSubmit");
+// dialog
+const button = document.querySelector("#button");
+const dialog = document.querySelector("#dialog");
 
-imgAvatar.addEventListener("click", function () {
-  const inputLoadAvatar = document.querySelector("#load-Avatar");
-  inputLoadAvatar.click();
-});
+// local storage
+const localStorageDiscussions =
+  "discussions" in localStorage
+    ? JSON.parse(localStorage.getItem("discussions"))
+    : [];
+
+const updateLocalStorage = (discussion) => {
+  localStorageDiscussions.push(discussion);
+  localStorage.setItem("discussions", JSON.stringify(localStorageDiscussions));
+};
+
+const loadPresetAvatar = () => {
+  for (let i = 1; i < 5; i++) {
+    let img = document.createElement("img");
+    img.alt = "preset";
+    img.src = `${presetAvatarSrc}${i}.png`;
+    presetAvatarMenu.append(img);
+    img.addEventListener("click", (event) => event.target.currentSrc);
+  }
+  return;
+};
 
 // Date Transform Fuctions
-/* offset
-const offsetDate = (date) => {
-  const d = new Date("yy-mm-dd/hh:mm:ss");
-  const offset = d.getTimezoneOffset();
-  return d;
-};
-*/
 const dateToObject = (str = new Date()) => {
   const d = new Date(str);
   return {
@@ -47,25 +68,31 @@ const onBtnSubmitClick = (event) => {
   discussion.bodyHTML = divQuestion.innerHTML;
   // 하나라도 null이면 진행하지 않음
   if (discussion.author && discussion.title && discussion.bodyHTML) {
-    discussion.createdAt = customDate(dateToObject());
-    discussion.avatarUrl = null;
-    console.log(discussion);
-    return discussion;
+    discussion.createdAt = new Date();
+    discussion.avatarUrl = imgAvatar.currentSrc;
+    addDiscussion(discussion);
+    updateLocalStorage(discussion);
+    return;
   }
 };
 
-const btnSubmit = document.querySelector("#questionSubmit");
-btnSubmit.addEventListener("click", onBtnSubmitClick);
 // object to discussions__container
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions[1]);
+//console.log(agoraStatesDiscussions[0].answer);
+
+const addDiscussion = (obj) => {
+  const discussions = document.querySelector("ul.discussions__container");
+  const li = convertToDiscussion(obj);
+  discussions.insertBefore(li, discussions.children[0]);
+  agoraStatesDiscussions.push(obj);
+};
 
 const fillAvatarWrapper = (obj) => {
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   // child
   const avatar = document.createElement("img");
-  avatar.src = obj.avatarUrl;
+  avatar.src = obj.avatarUrl ? obj.avatarUrl : defaultAvatarSrc;
   avatarWrapper.appendChild(avatar);
   return avatarWrapper;
 };
@@ -82,8 +109,8 @@ const fillDiscussionContent = (obj) => {
   aLink.textContent = obj.title;
   // div - discussion__information obj.author, obj.createdAt
   const divInfo = document.createElement("div");
-  obj.createdAt = customDate(dateToObject(obj.createdAt));
-  divInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  const now = customDate(dateToObject(obj.createdAt));
+  divInfo.textContent = `${obj.author} / ${now}`;
 
   h2Title.appendChild(aLink);
   discussionContent.appendChild(h2Title);
@@ -99,7 +126,6 @@ const fillDiscussionAnswered = (obj) => {
   // children
   const avatarWrapper = fillAvatarWrapper(obj);
   const discussionContent = fillDiscussionContent(obj);
-
   discussionAnswered.appendChild(avatarWrapper);
   discussionAnswered.appendChild(discussionContent);
   return discussionAnswered;
@@ -116,6 +142,9 @@ const convertToDiscussion = (obj) => {
 
   li.append(avatarWrapper, discussionContent);
   if (discussionAnswered) {
+    const p = document.createElement("p");
+    p.textContent = "✅";
+    li.append(p);
     li.append(discussionAnswered);
   }
   return li;
@@ -123,12 +152,27 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  // localStorage rendering
+  for (let i = localStorageDiscussions.length - 1; i > -1; i -= 1) {
+    element.append(convertToDiscussion(localStorageDiscussions[i]));
+  }
+  // data rendering
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
+imgAvatar.addEventListener("click", function () {
+  const inputLoadAvatar = document.querySelector("#load-Avatar");
+  inputLoadAvatar.click();
+});
+btnSubmit.addEventListener("click", onBtnSubmitClick);
+button.addEventListener("click", () => {
+  dialog.showModal();
+});
+// avatar preset 불러오기
+loadPresetAvatar();
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
