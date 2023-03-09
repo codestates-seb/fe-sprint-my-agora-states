@@ -39,6 +39,16 @@ const convertToDiscussion = (obj) => {
   // author와 time을 info 변수에 저장
   const info = author + " / " + time;
 
+  // 돋보기 그림  img 태그 생성 (on/off)
+  const on = document.createElement("img");
+  on.src = "./img/idea-305335_640.png";
+  const off = document.createElement("img");
+  off.src = "./img/cartoon-1294877_640.png";
+
+  // 응답 있을 시 전구가 켜지도록 구현
+  const response = obj.answer?.bodyHTML;
+  response ? discussionAnswered.append(on) : discussionAnswered.append(off);
+
   // title에 url 적용
   const linkedTitle = document.createElement("A");
   linkedTitle.setAttribute("href", obj.answer?.url);
