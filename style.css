@@ -1,1 +1,16 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  /* border: 0px; */
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding: 1em;
+}
+
+.header__title {
+  font-size: 50px;
+}
