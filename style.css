@@ -153,6 +153,10 @@ header {
     margin-left: 20px;
 }
 
+.discussion__content a:hover {
+    color: black;
+}
+
 .discussion__information {
     position: absolute;
     right: 0;
@@ -500,8 +504,9 @@ figure .img_wrap .motion-cat {
 }
 
 .form__submit input:hover {
-    background: #fede29;
+    background: white;
     color: #000;
+    border: 1px solid black;
 }
 
 footer {
