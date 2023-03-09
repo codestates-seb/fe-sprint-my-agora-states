@@ -1,76 +1,91 @@
 /* reset */
-
+@font-face {
+    font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+    font-family: 'MICEGothic Bold';
+}
+
+body {
     margin: 0;
     padding: 0;
-  }
-  
-  ul {
+}
+
+ul {
     list-style: none;
-  }
-  
+    padding: 0;
+}
+
   /* style */
-  main {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  main h1 {
+}
+
+main h1 {
     margin: 30px 0;
     font-size: 3em;
-  }
-  
-  section.form__container {
+}
+
+section.form__container {
     margin: 30px 0;
-  }
-  
-  section.discussion__wrapper {
+}
+
+section.discussion__wrapper {
     width: 540px;
-  }
-  
-  section .discussion__container {
+}
+
+section .discussion__container {
     border: 1px solid black;
     padding: 10px;
     display: grid;
-    grid-template-columns: 48px 1fr 20px;
+    grid-template-columns: 50px 1fr 20px;
     align-items: center;
-    gap: 20px;
-  }
-  section .discussion__preview{
+    gap: 10px;
+}
+section .discussion__title a {
+    font-size: 17px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+section .discussion__preview{
     grid-column: 1 / 4;
-  }
-  section .discussion__avatar--wrapper {
+}
+section .discussion__avatar--wrapper {
+
     /* img 태그의 여백 제거 */
     font-size: 0;
     line-height: 0;
-  
-    border: 1px solid;
-  }
-  
-  section .discussion__avatar--image {
+    border: none;
+}
+
+section .discussion__avatar--image {
     border-radius: 50%;
     width: 48px;
-  }
-  
-  section .discussion__content {
-    width: 70%;
-  }
-  
-  section .discussion__title {
-    /* margin: 10px 0; */
+}
+
+section .discussion__content {
+    width: 88%;
+}
+
+section .discussion__title {
     margin: 0;
   }
   
-  section .discussion__information {
+section .discussion__information {
     text-align: end;
     margin-top: 10px;
-  }
-  
-  section .discussion__answered p {
+}
+
+section .discussion__answered p {
     font-size: 25px;
-  }
+}
