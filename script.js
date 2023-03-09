@@ -11,12 +11,22 @@ const dateToObject = (str) => {
   return {
     year: d.getFullYear(),
     month: d.getMonth(),
-    day: d.getDay(),
+    day: d.getDate(),
     hour: d.getHours(),
     minute: d.getMinutes(),
   };
 };
 
+const customDate = (dataObj) => {
+  const d = new Date();
+  let date = "";
+  if (dataObj.year === d.getFullYear()) {
+    date = `${dataObj.month}월 ${dataObj.day}일 ${dataObj.hour}시 ${dataObj.minute}분`;
+  } else {
+    date = `${dataObj.year}년 ${dataObj.month}월 ${dataObj.day}일 ${dataObj.hour}시 ${dataObj.minute}분`;
+  }
+  return date;
+};
 // object to discussions__container
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions[0]);
@@ -43,7 +53,7 @@ const fillDiscussionContent = (obj) => {
   aLink.textContent = obj.title;
   // div - discussion__information obj.author, obj.createdAt
   const divInfo = document.createElement("div");
-  obj.createdAt = getCustomDate(obj.createdAt);
+  obj.createdAt = customDate(dateToObject(obj.createdAt));
   console.log(obj.createdAt);
   divInfo.textContent = `${obj.author} / ${obj.createdAt}`;
 
