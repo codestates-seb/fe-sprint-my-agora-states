@@ -1,12 +1,12 @@
 /**
  * TODO:
- * list 불러오기
- * discussion 배열을 이용하여 요소 화면에 렌더링하기
+ * [v] list 불러오기
+ * [v] discussion 배열을 이용하여 요소 화면에 렌더링하기
  *
  * discussion을 추가 기능
- * [ ] section.form__container 요소에 새로운 질문을 추가할 수 있는 입력 폼을 만든다.
- * [ ] 아이디, 본문을 입력하고 등록 버튼을 누르면 화면에 discussion이 추가되어야 한다.
- * [ ] discussions 배열에 추가한 데이터가 실제로 쌓여야 한다. (agoraStatesDiscussion)
+ * [v] section.form__container 요소에 새로운 질문을 추가할 수 있는 입력 폼을 만든다.
+ * [v] 아이디, 본문을 입력하고 등록 버튼을 누르면 화면에 discussion이 추가되어야 한다.
+ * [v] discussions 배열에 추가한 데이터가 실제로 쌓여야 한다.
  *
  * 현지 시간 적용
  * [ ] 샘플 시간을 변형하여, 현지 시간에 맞게 표현 (ex. 오전 10:02:17)
@@ -20,13 +20,26 @@
  * [ ] 새롭게 추가하는 Discussion이 페이지를 새로고침해도 유지되어야 함
  */
 
+console.log(discussions);
+
+const convertToTime = (createdAt) => {
+  let [writeDate, writeTime] = createdAt.split('T');
+  let timeFirst = writeTime.split('Z')[0].split(':')[0];
+
+  if (+timeFirst >= 12) {
+    writeTime = `오후 ${writeTime.split('Z')[0]}`;
+  } else {
+    writeTime = `오전 ${writeTime.split('Z')[0]}`;
+  }
+
+  return `${writeDate} ${writeTime}`;
+};
+
 // convertToDiscussion은 discussion 데이터를 DOM으로 생성
 const convertToDiscussion = (obj) => {
   console.log(obj);
-
   const { answer, author, avatarUrl, bodyHTML, createdAt, id, title, url } =
     obj;
-
   const li = document.createElement('li'); // discussion 1개의 컨테이너, li 요소 생성
   li.className = 'discussion__container';
 
@@ -48,7 +61,7 @@ const convertToDiscussion = (obj) => {
   discussionLink.textContent = title;
   const discussionInformation = document.createElement('div');
   discussionInformation.classList.add('discussion__information');
-  discussionInformation.textContent = `${author} | ${createdAt}`; // TODO: 시간 변경 추가 작업 필요
+  discussionInformation.textContent = `${author} | ${createdAt}`;
   discussionTitle.appendChild(discussionLink);
   discussionContent.appendChild(discussionTitle);
   discussionContent.appendChild(discussionInformation);
@@ -85,3 +98,78 @@ const render = (element) => {
  */
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
+
+/**
+ * [질문하기] 버튼 클릭시 form 모달로 보여주기
+ * [v] 질문하기 버튼을 querySelectorAll('')로 가져오기
+ * [v] 질문하기 버튼의 클릭 여부를 담을 상태값 필요 (모달창 open/close 여부로 판별하면 됨)
+ * [v] 질문하기 버튼을 클릭하면 상태값을 반대로 뒤집어주는 함수 필요
+ * [v] 질문하기 버튼 상태값이 true일 때 모달창으로 보여주기(모달창 open)
+ * [v] x버튼 클릭시 모달창 닫기
+ * [v] 모달창 닫힐 때 질문하기 버튼의 상태값 바꿔주기
+ *
+ * 모달창에서 보여야 할 것
+ * [v] h1: '질문을 작성해주세요.'
+ * [v] input: name
+ * [v] input: title
+ * [v] textarea: question content
+ * [v] button: submit button
+ *  */
+const askQuestionBtn = document.querySelectorAll('.ask_question');
+const formContainer = document.querySelector('.form__container');
+const form = document.querySelector('.form');
+const username = document.querySelector('#name');
+const title = document.querySelector('#title');
+const content = document.querySelector('#story');
+const submitBtn = document.querySelector('.form__submit');
+const closeBtn = document.querySelector('.close');
+
+let isModalShow = false;
+
+const handleChangeModalState = () => {
+  isModalShow = !isModalShow;
+  if (isModalShow) {
+    formContainer.classList.remove('hide');
+  } else {
+    formContainer.classList.add('hide');
+  }
+};
+
+const createDate = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const date = today.getDate();
+  const hour = today.getHours();
+  const minute = today.getMinutes();
+  const second = today.getSeconds();
+
+  return `${year}-${month}-${date} ${
+    hour >= 12 ? '오후' : '오전'
+  } ${hour}:${minute}:${second}`;
+};
+
+askQuestionBtn.forEach((button) =>
+  button.addEventListener('click', () => {
+    handleChangeModalState();
+  })
+);
+
+closeBtn.addEventListener('click', () => {
+  handleChangeModalState();
+});
+
+form.addEventListener('click', (e) => {
+  e.preventDefault();
+});
+
+submitBtn.addEventListener('click', (e) => {
+  const questionObj = {
+    author: username.value,
+    avatarUrl: '../images/donut.png',
+    createdAt: new Date(),
+    title: title.value,
+    content: content.value,
+  };
+  ul.prepend(convertToDiscussion(questionObj));
+});
