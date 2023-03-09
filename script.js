@@ -61,7 +61,7 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, category = none) => {
+const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -71,3 +71,10 @@ const render = (element, category = none) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// name, title, question 받아와서 새로운 질문 만들기
+// 일단 obj 만들기
+// obj.avatarUrl,
+// 현재 시각 => obj.createdAt
+// id =?
+// name => obj.author
