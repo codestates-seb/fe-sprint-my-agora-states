@@ -33,6 +33,10 @@ const convertToDiscussion = (obj) => {
     ? (discussionAnswered.textContent = "☑")
     : (discussionAnswered.textContent = "☒");
 
+  if (discussionAnswered.textContent === "☒") {
+    discussionAnswered.className = "discussion__not-answered";
+  }
+
   const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
