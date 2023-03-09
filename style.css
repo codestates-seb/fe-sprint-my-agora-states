@@ -1,1 +1,103 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: "IBMPlexSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --main-color: #4801cc;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "IBMPlexSansKR-Regular";
+  background-image: url(./background.png);
+  background-size: 20%;
+  background-attachment: fixed;
+  background-color: #fff;
+}
+ul {
+  list-style: none;
+  padding-inline-start: 0px;
+}
+input,
+textarea {
+  font-family: "IBMPlexSansKR-Regular";
+}
+main {
+  margin: 30px 0px;
+}
+.title-logo {
+  font-family: "Bowlby One SC", cursive;
+  text-align: center;
+  font-size: 30px;
+  color: var(--main-color);
+}
+.form__container {
+  margin: 30px auto;
+  display: block;
+  padding: 30px 0px;
+  text-align: center;
+  width: 90%;
+  max-width: 650px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#name,
+#title,
+#story {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #bcbcbc;
+  font-size: 14px;
+}
+#name {
+  width: 150px;
+}
+#title {
+  width: 400px;
+}
+#story {
+  width: 400px;
+  height: 100px;
+}
+.submit {
+  padding: 6px 20px;
+  margin-top: 5px;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.discussion__wrapper {
+  display: block;
+  margin: 50px auto 50px;
+}
+.discussion__container {
+  width: 90%;
+  max-width: 700px;
+  height: 180px;
+  margin: 12px auto;
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.discussion__container:hover {
+  filter: brightness(90%);
+  transition-duration: 0.2s;
+}
