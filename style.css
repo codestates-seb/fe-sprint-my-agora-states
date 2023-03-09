@@ -1,7 +1,6 @@
 /* default CSS 초기화 */
 
 * {
-  max-width: 1200px;
   box-sizing: border-box;
 }
 
@@ -36,6 +35,113 @@ ul {
 
 /* default CSS 초기화 */
 
+button:focus {
+  transform: translateX(1px) translateY(1px);
+}
+
+/* nav */
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 10rem;
+}
+
+.navigation h1 {
+  font-size: 30px;
+  background: linear-gradient(150deg, #ebdffe, #b39eff, #71d5ff);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.navigation nav {
+  display: flex;
+  gap: 50px;
+  font-size: large;
+  cursor: pointer;
+  font-weight: 500;
+  color: #979797;
+}
+
+.navigation > nav a:hover {
+  color: #3a1078;
+}
+
+/* nav */
+
+/* hero */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(160deg, #ffffff, #ddd4ff, #beebff);
+  padding: 0 2rem;
+}
+
+.hero-left {
+  margin-left: 8rem;
+}
+
+.welcome {
+  margin-bottom: 2rem;
+}
+
+.welcome h2 {
+  font-size: 30px;
+}
+
+.welcome p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.hero button {
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  height: 50px;
+  background-color: #3a1078;
+  color: white;
+  font-size: 18px;
+}
+
+.hero img {
+  width: 450px;
+  margin: 1rem 5rem;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+.form__input--wrapper input {
+  border: none;
+  border-radius: 5px;
+  height: 2rem;
+  padding: 5px 10px;
+}
+
+.form__input--wrapper textarea {
+  border: none;
+  resize: none;
+  border-radius: 5px;
+  height: 5rem;
+  padding: 5px 10px;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+/* hero */
+
 .discussion__container {
   display: flex;
   justify-content: center;
@@ -43,8 +149,7 @@ ul {
 }
 
 .discussion__content {
-  max-width: 800px;
-  min-width: 420px;
+  width: 800px;
   padding: 2rem;
   border: none;
   border-radius: 30px;
@@ -94,4 +199,6 @@ ul {
 
 .discussion__detail {
   margin-top: 2rem;
+  /* display: block; 와리가리 해야됨 ~ */
+  display: none;
 }

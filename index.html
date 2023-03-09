@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -22,27 +22,33 @@
 
   <body>
     <main>
-      <h1>My Agora States</h1>
-      <section class="form__container">
-        <form action="" method="get" class="form">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
-            </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required />
-            </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-            </div>
+      <section class="navigation">
+        <h1>Agora States</h1>
+        <nav>
+          <a href="https://www.codestates.com">codestates</a>
+          <a href="https://urclass.codestates.com">UR CLASS</a>
+        </nav>
+      </section>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="welcome">
+            <h2>아고라 스테이츠에 오신 것을 환영합니다!</h2>
+            <p>자유롭게 질문하고 답변을 받아보세요.</p>
           </div>
           <div class="form__submit">
-            <input type="submit" value="submit" />
+            <section class="form__container">
+              <form action="submit" method="get" class="form">
+                <button type="submit">질문 작성하기</button>
+                <div class="form__input--wrapper">
+                  <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required />
+                  <input type="text" name="title" id="title" placeholder="Title" required />
+                  <textarea id="story" name="story" placeholder="Type your question here" required></textarea>
+                </div>
+              </form>
+            </section>
           </div>
-        </form>
+        </div>
+        <img src="./astronaut.png" />
       </section>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
