@@ -1,1 +1,184 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form, figure, figcaption {margin:0; padding:0;}
+
+/* a 링크 초기화 */
+a {color: inherit; text-decoration: inherit;}
+a:hover {color: #2698cb;}
+
+/* 폰트 초기화 */
+body, input, textarea, select, button, table {font-family:  'Noto Sans KR', sans-serif, 'Roboto', sans-serif, 'Nanum Gothic', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #ffffff; font-size: 13px; line-height: 1.5;}
+
+/* 폰트 스타일 초기화 (기울임) */
+em, address {font-style: normal;}
+
+/* 블릿기호 초기화 */
+ul, li, ol {list-style: none;}
+
+/* 제목 태그 초기화 */
+h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: inherit;}
+
+/* 버튼 초기화 */
+button {border: none;}
+
+/* 인풋 초기화 */
+input,textarea {
+    background-color: inherit;
+    outline: none;
+    border: inherit;
+}
+
+textarea {
+    resize: none;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+.nav {
+    border-bottom: 1px solid #999;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.nav .menu {
+    float: right;
+    width: 20px;
+    height: 20px;
+    background-image: url(https://cdn4.iconfinder.com/data/icons/simplicity-1/48/menu-512.png);
+    background-size: cover;
+    filter: invert(100%);
+}
+
+main {
+ padding: 0 80px 0 80px;
+}
+
+.main_container {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    height: 100vh;
+}
+
+.main_title {
+    font-family: bely-display, sans-serif;
+    font-size: 8rem;
+    letter-spacing: 0.2rem;
+    line-height: 0.8;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+}
+/*
+.secondtext::before {
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 2px;
+    top: 40px;
+    left: 0;
+    background-color: #666;
+}*/
+
+.form__container {
+    width: 1000px;
+}
+
+.form {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.form__input--wrapper {
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__input--wrapper #name,#title,#story {
+    width: 300px;
+    border-bottom: 1px solid #666;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    color: #444;
+}
+
+#story {
+    height: 50px;
+}
+
+#submit {
+    display: block;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+/*등록*/
+
+
+
+/*스와이퍼*/
+.swiper {
+    margin-top: 150px;
+}
+
+.swiper-slide {
+    padding: 40px;
+    width: 300px !important;
+    height: 300px !important;
+    border: 1px solid white;
+}
+
+.swiper-slide:hover {
+    background-color: white;
+    color: black;
+}
+
+.discussion__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+.discussion__main {
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__information {
+    color: #999;
+    line-height: 1.5rem;
+}
+
+.discussion__title {
+    font-size: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.discussion__name {
+    color: #666;
+    margin-top: 8px;
+}
+
+/*
+.smile {
+    position: absolute;
+    top: 30px;
+    right: -50px;
+    background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb5IRmm%2Fbtq233fc2DG%2Ffg0WVnV6nVTGJjtKB5ejjk%2Fimg.png);
+    filter: invert(100%);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    opacity: 50%;
+}
+*/
