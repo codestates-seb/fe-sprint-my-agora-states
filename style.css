@@ -16,7 +16,7 @@ body::-webkit-scrollbar {
 }
 
 main {
-  padding: 40px;
+  padding: 0 40px 40px;
   font-family: "NanumSquareNeoLight";
   color: black;
   width: 540px;
@@ -29,6 +29,9 @@ main {
 
 h1 {
   text-align: center;
+  margin: 0;
+  font-size: 28px;
+  padding-top: 40px;
 }
 
 .form {
@@ -63,8 +66,8 @@ h1 {
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   font-family: "NanumSquareNeoLight";
   border: none;
-  border-radius: 15px;
-  height: 40px;
+  border-radius: 8px;
+  height: 24px;
   padding: 0 10px;
   width: 280px;
 }
@@ -72,7 +75,7 @@ h1 {
 .form__textbox {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .form__input--wrapper textarea {
@@ -80,9 +83,8 @@ h1 {
   font-family: "NanumSquareNeoLight";
   border-radius: 15px;
   padding: 10px;
-  height: 60px;
+  height: 40px;
   resize: none;
-
   border: none;
 }
 
@@ -113,6 +115,8 @@ h1 {
 }
 
 .discussions__container {
+  overflow-y: scroll;
+  max-height: calc(100vh - 120px);
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -132,7 +136,7 @@ h1 {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   color: black;
-  padding: 20px;
+  padding: 12px;
   cursor: pointer;
   transition: 200ms;
 }
@@ -150,7 +154,7 @@ h1 {
   transition: 200ms;
   color: black;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .discussion__title a:hover {
@@ -159,7 +163,6 @@ h1 {
 
 .discussion__avatar--image {
   width: 48px;
-
   border-radius: 100%;
 }
 
@@ -169,7 +172,7 @@ h1 {
 
 .discussion__information {
   text-align: end;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .discussion__answered {
@@ -329,7 +332,37 @@ h1 {
   transition: 200ms;
 }
 
-.discussion__pagination--item:hover {
+.discussion__pagination--item.true {
   background-color: #a0c6ff;
   color: white;
+}
+
+.discussion__pagination--item:hover {
+  opacity: 0.3;
+}
+
+.top-floating {
+  width: 48px;
+  height: 48px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  content: "";
+  background-color: #a0c6ff;
+  border-radius: 100%;
+  transition: 200ms;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.407) 0px 3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-floating img {
+  width: 32px;
+  height: 32px;
+}
+.top-floating:hover {
+  transform: translate(0, -4px);
+  opacity: 0.7;
 }
