@@ -222,6 +222,16 @@ a:visited {
   color: #977663;
 }
 
+.page-container {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  font-size: 2rem;
+  margin: 30px;
+}
+
 @keyframes vibration {
   from {
     transform: rotate(0.5deg);
