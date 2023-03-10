@@ -13,7 +13,6 @@ https://10hajin15.github.io/fe-sprint-my-agora-states/
 
 ### 구현한 기능
 - [x] 디스커션 나열 기능
-    - [x] `script.js`를 수정하여 `agoraStatesDiscussions` 배열의 데이터를 나열할 수 있게 구현
 - [x] CSS
 - [x] 디스커션 추가 기능
     - [x] 디스커션 추가 기능을 구현
