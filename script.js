@@ -1,4 +1,4 @@
-// AgoraStates Data -> DOM
+// AgoraStates Data --> DOM
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li elements
   li.className = "discussion__big--container"; // class name setting
