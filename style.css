@@ -2,64 +2,50 @@
 * {
   margin: 0px;
   padding: 0px;
-  border: 0px;
   box-sizing: border-box;
-  list-style: none;
 }
-body {
-  height: 100vh;
+main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
 }
 
-.form__container {
-  width: 540px;
-}
-.discussion__content {
+li.discussion__container {
   display: flex;
-  
-  background-color: antiquewhite;
-  height: 7px;}
-
-.discussions__container {
-  border-radius: 10px;
-  background-color: white;
+  width: 540px;
+  height: 80px;
+  justify-content: space-between;
 }
 
-.discussion__avatar--wrapper{
-  height: 70px;
-  
-  
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.discussion__title {
-  margin-top: -60px;
-  margin-left: 80px;
-  
-  font-size: 15px;
-}
-.discussion__information {
-  font-size: 7px;
-  position : fixed ;
-  text-align: right;
-  margin-top : -25px; 
-  margin-left: 500px; 
-}
-
-.discussion__avatar--image {
+img.discussion__avatar--image {
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  margin: 10px 0px 0px 10px;
-  float: left;
-  
+  width:48px;
 }
 
-.discussion__answered {
-  float: right;
-  margin-top: -60px;
-  margin-right: 15px;
-  font-size: 20px;
+div.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
+h2.discussion__title{
+  text-align: left;
+}
+
+div.discussion__information{
+  text-align: right;
+}
+
+div.discussion__answered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
