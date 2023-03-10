@@ -207,6 +207,7 @@ a {
   .header {
     top: 4rem;
     width: calc(100% - 8rem);
+    max-width: 144rem;
   }
 }
 .header__deco {
@@ -294,6 +295,7 @@ a {
     display: flex;
     justify-content: space-between;
     width: calc(100% - 8rem);
+    max-width: 144rem;
     height: calc(100% - 8rem);
     overflow-y: hidden;
   }
@@ -314,7 +316,7 @@ a {
 }
 @media only screen and (min-width: 768px) {
   .main__visual {
-    margin-top: 6rem;
+    margin-top: 5.8rem;
     padding: 4rem;
   }
 }
@@ -458,7 +460,9 @@ a {
     height: 15rem;
   }
 }
-.main__lists {
+
+.discussion__wrapper {
+  width: 100%;
   padding: 0 2rem 2rem;
   /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
   transition: all 0.3s ease-out;
@@ -469,31 +473,17 @@ a {
   -o-transition: all 0.3s ease-out;
 }
 @media only screen and (min-width: 768px) {
-  .main__lists {
+  .discussion__wrapper {
     padding: 0 4rem 4rem;
   }
 }
 @media only screen and (min-width: 1280px) {
-  .main__lists {
+  .discussion__wrapper {
     order: 1;
     width: 50%;
-    margin-top: 6rem;
+    margin-top: 5.8rem;
     padding: 4rem;
     overflow-y: auto;
-  }
-}
-
-.discussion__wrapper {
-  width: 100%;
-  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-}
-@media only screen and (min-width: 1280px) {
-  .discussion__wrapper {
-    max-width: 54rem;
   }
   .discussion__wrapper::-webkit-scrollbar {
     width: 1rem;

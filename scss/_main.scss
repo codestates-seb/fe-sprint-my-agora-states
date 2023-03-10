@@ -24,6 +24,7 @@
     @include mq("xlarge") {
         top: 4rem;
         width: calc(100% - 8rem);
+        max-width: 144rem;
     }
     &__deco {
         position: absolute;
@@ -85,6 +86,7 @@
         display: flex;
         justify-content: space-between;
         width: calc(100% - 8rem);
+        max-width: 144rem;
         height: calc(100% - 8rem);
         overflow-y: hidden;
     }
@@ -96,7 +98,7 @@
         margin-top: 5rem;
         padding: 2rem;
         @include mq("medium") {
-            margin-top: 6rem;
+            margin-top: 5.8rem;
             padding: 4rem;
         }
         @include mq("xlarge") {
@@ -198,7 +200,29 @@
             }
         }
     }
-    &__lists {
+    // &__lists {
+    // padding: 0 2rem 2rem;
+    // @include mq(medium) {
+    //     padding: 0 4rem 4rem;
+    // }
+    // @include mq("xlarge") {
+    //     order: 1;
+    //     width: 50%;
+    //     margin-top: 6rem;
+    //     padding: 4rem;
+    //     overflow-y: auto;
+    //     // scrollbar-width: none;
+    //     // &::-webkit-scrollbar {
+    //     //     display: none;
+    //     // }
+    // }
+    // }
+}
+
+//dicussion list area
+.discussion {
+    &__wrapper {
+        width: 100%;
         padding: 0 2rem 2rem;
         @include mq(medium) {
             padding: 0 4rem 4rem;
@@ -206,23 +230,9 @@
         @include mq("xlarge") {
             order: 1;
             width: 50%;
-            margin-top: 6rem;
+            margin-top: 5.8rem;
             padding: 4rem;
             overflow-y: auto;
-            // scrollbar-width: none;
-            // &::-webkit-scrollbar {
-            //     display: none;
-            // }
-        }
-    }
-}
-
-//dicussion list area
-.discussion {
-    &__wrapper {
-        width: 100%;
-        @include mq("xlarge") {
-            max-width: 54rem;
             &::-webkit-scrollbar {
                 width: 1rem;
             }
