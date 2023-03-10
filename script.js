@@ -14,26 +14,26 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  const face = document.createElement("img") // 프로필 사진
-  face.src = obj.avatarUrl;
-  face.alt = "avatar of" + obj.author;
-  avatarWrapper.append(face);
+  const avartarImage = document.createElement("img") // 프로필 사진
+  avartarImage.src = obj.avatarUrl;
+  avartarImage.alt = "avatar of" + obj.author;
+  avatarWrapper.append(avartarImage);
   
 
   const discussionTitle = document.createElement("h2");
-  const titleAnchor = document.createElement("a");
-  titleAnchor.href = obj.url;
-  titleAnchor.textContent = obj.title;
-  discussionTitle.append(titleAnchor);
+  const titleList = document.createElement("a");
+  titleList.href = obj.url;
+  titleList.textContent = obj.title;
+  discussionTitle.append(titleList);
   discussionContent.append(discussionTitle);
   
 
   const discussionInfo = document.createElement("div");
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createAt).toLocaleTimeString()}` // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
-  discussionContent.append(discussionTitle, discussionInfo);
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}` // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
+   discussionContent.append(discussionTitle, discussionInfo);
 
   const checked = document.createElement("p");
-  checked.textContent = obj.answer ? "☑︎" : "☒";
+  checked.textContent = obj.answer ? "☑" : "☒";
   discussionAnswered.append(checked);
 
 
@@ -53,13 +53,21 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+
+//추가
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__itextbox > textarea");
+
+//submit
 form.addEventListener("submit", 
 (event) => {
   event.preventDefault(); //서브밋 이벤트로 사용시 꼭 함께 사용해주어야함
   // addEventListener 안으로 선언 위치 이동
-  **const author = form.querySelector("div.form__input--name > input").value;
+  const author = form.querySelector("div.form__input--name > input").value;
   const title = form.querySelector("div.form__input--title > input").value;
-  const textbox = form.querySelector("div.form__textbox > textarea").value;**
+  const textbox = form.querySelector("div.form__textbox > textarea").value;
 
   const newObj = {
     id: "new id",
@@ -71,15 +79,15 @@ form.addEventListener("submit",
     avatarUrl: "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   }
 // addEventListener 안으로 선언 위치 이동
-  **agoraStatesDiscussions.unshift(newObj);
+  agoraStatesDiscussions.unshift(newObj);
 
   const discussion = convertToDiscussion(newObj);
   
-  ul.prepend(discussion);**
+  ul.prepend(discussion);
 
   // submit 후 입력란 빈칸으로 리셋하는 기능 추가
-  **form.querySelector("div.form__input--name > input").value = "";
+  form.querySelector("div.form__input--name > input").value = "";
   form.querySelector("div.form__input--title > input").value = "";
   form.querySelector("div.form__textbox > textarea").value = "";
-}**
+}
 )

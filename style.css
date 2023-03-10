@@ -5,6 +5,14 @@
     padding: 0;
     font-family: 'Raleway', sans-serif;
 }
+a{
+    text-decoration: none;
+}
+div.site{
+    color: white;
+    text-align: right;
+}
+
 video {
     position: fixed;
     top: 0;
@@ -81,14 +89,12 @@ li{
 }
 
 
-h2 {
-    font-family: 'Nanum Brush Script', cursive;
-    color: #99bcda;
-}
+
+/*
 section.form__container {
     background-color: rgba(245, 245, 220, 0.31);
     border-radius: 20px;
-}
+}*/
 .discussion__answered {
     padding-top: 39px;
     font-size: 20px;
@@ -121,6 +127,7 @@ section.form__container {
  width: 440px;
  text-align: left;
  margin-top: 0;
+ margin-left: 5px;
 }
 .discussion__content >:nth-child(2){
     height:30px;
@@ -159,11 +166,7 @@ a:visited {
 
 
 
-h3 {
-    text-align: center;
-    color: #99bcda;
-    margin-bottom: 20px;
-}
+
 section {
     display:flex;
     justify-content: center;
@@ -181,7 +184,7 @@ img {
     width: 70px;
     border-radius: 100%;
 }
-.icon{
+.checked{
     width: 30px;
     opacity: 0.8;
 }
