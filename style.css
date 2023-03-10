@@ -6,20 +6,19 @@ body {
 }
 
 main {
-    flex-direction : column;/* 엄마 바디로부터의 방향 */
+    flex-direction : column;
+    /* 엄마 바디로부터의 방향 */
     display: flex;
     /* 메인의 모든요소 가운데정렬 */
     align-items: center;
     justify-content: center;
 }
 
-ul{
-    display: flex;
-    flex-direction : column;
 
-}
 .discussion {
- /* display: flex; */
+ display: flex;
+ flex-direction : column;
+
 /* 모든 요소에 border-box를 적용합니다. */
     box-sizing : border-box;
 /* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
@@ -31,6 +30,8 @@ ul{
  .discussion__container{
     /* flex-direction: column; */
     display: flex;
+    justify-content: space-between
+
 } 
 .discussion__avatar--wrapper{
     /* //아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. 
@@ -38,7 +39,7 @@ ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    width: 100px;
     /* border: 10px solid #FEE500;     */
 }
 .discussion__avatar--image{
@@ -58,15 +59,16 @@ overflow: hidden;
 /* border: 10px solid #FEE500; */
     /* flex-direction : column;  */
    /* Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
-   width: 440px; 
+   width: 390px; 
 
     /* display: flex; */
 }
 .discussion__title{
     /* flex-direction : column; */
     font-size: medium;
-    width: 440px;
-    justify-content:space-around;
+    /* width: 440px; */
+    /* justify-content:space-around; */
+
 
 }
 
@@ -75,7 +77,7 @@ overflow: hidden;
     /* 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다. */
     justify-content:space-around;
     text-align: right;
-    width: 440px;
+    /* width: 440px; */
 
     
 }
@@ -89,3 +91,27 @@ overflow: hidden;
 
 }
 
+
+.form__container{
+    display: flex;
+    width: 540px;
+
+}
+
+.form__input--wrapper{
+flex-direction: column;
+}
+
+.form__input--title{
+
+
+}
+
+.form__textbox{
+
+
+}
+
+.form__submit{
+    flex-direction:flex-inline;
+}
