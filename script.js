@@ -1,26 +1,37 @@
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   //agoraStatesDiscussions[i]
-  // li 요소 생성
-  const li = document.createElement("li");
-  li.classList.add("discussion__list");
-  // h2 요소 생성
-  const discussionTitle = document.createElement("h2");
-  discussionTitle.classList.add("discussion__title");
-  discussionTitle.textContent = obj.title;
-  li.appendChild(discussionTitle);
-  // div 요소 생성
-  const discussionName = document.createElement("div");
-  discussionName.classList.add("discussion__name");
-  discussionName.textContent = obj.author;
-  li.appendChild(discussionName);
-  // div 요소 생성
-  const discussionBtn = document.createElement("div");
-  discussionBtn.classList.add("discussion__btn");
-  li.appendChild(discussionBtn);
-  // 생성된 요소를 적절한 위치에 추가
-  const parentElement = document.querySelector(".discussions__container");
-  parentElement.appendChild(li);
+ // li 요소 생성
+const li = document.createElement("li");
+li.classList.add("discussion__list");
+
+// a 요소 생성
+const aElement = document.createElement("a");
+aElement.href = obj.url;
+aElement.classList.add("discussion__title");
+aElement.textContent = obj.title;
+
+// a 요소를 li 요소의 자식으로 추가
+li.appendChild(aElement);
+
+// div 요소 생성
+const discussionName = document.createElement("div");
+discussionName.classList.add("discussion__name");
+discussionName.textContent = obj.author;
+
+// div 요소 추가
+li.appendChild(discussionName);
+
+// div 요소 생성
+const discussionBtn = document.createElement("div");
+discussionBtn.classList.add("discussion__btn");
+
+// div 요소 추가
+li.appendChild(discussionBtn);
+
+// 생성된 요소를 적절한 위치에 추가
+const parentElement = document.querySelector(".discussions__container");
+parentElement.appendChild(li);
   return li;
 };
 
