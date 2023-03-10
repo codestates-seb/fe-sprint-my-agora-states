@@ -41,10 +41,14 @@ const convertToDiscussion = (obj) => {
   discussionContent.appendChild(discussionInformation);
 
   if (obj.answer) {
+    const answerAnchor = document.createElement("a");
     const answeredBtn = document.createElement("button");
+
+    answerAnchor.href = `${obj.answer.url}`;
+    discussionAnswered.appendChild(answerAnchor);
     answeredBtn.textContent = "답변 완료";
     answeredBtn.className = "answered-btn";
-    discussionAnswered.append(answeredBtn);
+    answerAnchor.appendChild(answeredBtn);
   }
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -63,22 +67,46 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-const modalForm = document.querySelector(".form__container");
+// 모달 창
+
+const createModalForm = document.querySelector(".form__container");
+
 const btnOpenPopup = document.querySelector(".create-btn");
 const body = document.querySelector("body");
 
 btnOpenPopup.addEventListener("click", () => {
-  modalForm.style.display = "block";
+  createModalForm.style.display = "block";
   body.style.overflow = "hidden";
 });
 
-modalForm.addEventListener("click", (e) => {
+createModalForm.addEventListener("click", (e) => {
   const evTarget = e.target;
   if (evTarget.classList.contains("form__container")) {
-    modalForm.style.display = "none";
+    createModalForm.style.display = "none";
     body.style.overflow = "scroll";
   }
 });
+
+// 답변완료 버튼 클릭 (모달)
+
+// const answerModalForm = document.querySelector(".form__container--answer");
+// const answeredBtn = document.querySelector(".answered-btn");
+
+// answeredBtn.addEventListener("click", (e) => {
+//   console.log(e.target);
+//   answerModalForm.style.display = "block";
+//   body.style.overflow = "hidden";
+// });
+
+// answerModalForm.addEventListener("click", (e) => {
+//   const evTarget = e.target;
+
+//   console.log(evTarget);
+//   if (evTarget.classList.contains("form__container--answer")) {
+//     answerModalForm.style.display = "none";
+//     body.style.overflow = "scroll";
+//   }
+// });
 
 // 내 질문 남기기
 
@@ -110,6 +138,6 @@ submitForm.addEventListener("submit", (e) => {
   document.querySelector("#title").value = "";
   document.querySelector("#story").value = "";
 
-  modalForm.style.display = "none";
+  createModalForm.style.display = "none";
   body.style.overflow = "scroll";
 });

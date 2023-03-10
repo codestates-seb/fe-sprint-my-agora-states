@@ -30,6 +30,10 @@ label {
   border: none;
   border-radius: 10px;
   background-color: rgb(243, 243, 243);
+  font-family: "Montserrat Alternates", sans-serif;
+
+  outline: none;
+  text-indent: 0.5em;
 }
 
 .input-textarea {
@@ -39,6 +43,10 @@ label {
   border: none;
   border-radius: 10px;
   background-color: rgb(243, 243, 243);
+  font-family: "Montserrat Alternates", sans-serif;
+
+  outline: none;
+  text-indent: 0.5em;
 }
 
 .submit-btn {
@@ -61,6 +69,7 @@ label {
 }
 
 .submit-btn:hover {
+  font-weight: bolder;
   transform: scale(1.02);
 }
 
@@ -114,16 +123,32 @@ a:hover {
 
 .discussion__wrapper > h1 {
   padding-top: 1rem;
-  font-size: 2rem;
+  margin-left: 1.5rem;
+  font-size: 3em;
   font-family: "Quicksand", sans-serif;
 }
 
 .discussion__wrapper > h2 {
   margin-bottom: 1rem;
   margin-top: 0.4rem;
-  font-size: 0.7rem;
+  margin-left: 1.5rem;
+
+  font-size: 1em;
   font-family: "Quicksand", sans-serif;
   font-style: italic;
+}
+
+.form__container--answer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+
+  display: none;
+
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .form__container {
@@ -138,6 +163,7 @@ a:hover {
 
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .form__input--wrapper {
   width: 100%;
 }
@@ -190,7 +216,6 @@ a:hover {
 }
 
 .discussion__wrapper {
-  text-align: center;
   width: 100%;
 
   background: url(img/rm218batch4-ning-34.jpg) no-repeat;
@@ -274,6 +299,7 @@ a:hover {
 }
 
 .create-btn:hover {
+  color: rgb(61, 61, 61);
   transform: scale(1.04);
 }
 
