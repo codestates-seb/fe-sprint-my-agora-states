@@ -5,6 +5,7 @@
   box-sizing: border-box;
   color: var(--black);
   font-family: "Gowun Dodum", sans-serif;
+  font-size: 20px;
 }
 
 ::selection {
@@ -31,41 +32,83 @@ main {
 }
 
 h1 {
-  margin: 20px;
+  margin: 30px;
   font-size: 55px;
 }
 
+.form__container {
+  width: 100%;
+}
+
 .form__input--wrapper > div {
+  display: flex;
   margin-bottom: 20px;
 }
 
+label:not(label[for="story"]) {
+  position: absolute;
+  padding-left: 5px;
+  color: var(--darkgray);
+}
+
+label[for="story"] {
+  margin-bottom: 3px;
+  padding-left: 5px;
+  color: var(--darkgray);
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
 input {
+  flex-grow: 2;
   background-color: transparent;
   border: none;
   outline: none;
   border-bottom: 1px solid var(--gray);
+  padding: 0 5px;
+  margin-top: 1px;
+}
+
+input#name {
+  padding-left: 104.31px;
+}
+
+input#title {
+  padding-left: 48px;
 }
 
 textarea {
+  flex-grow: 2;
+  height: 5rem;
   background-color: transparent;
   outline: none;
   border: 1px solid var(--gray);
+  padding: 5px 10px;
 }
 
 .form__submit input {
+  float: right;
   border: none;
-  background-color: var(--darkgray);
+  background-color: var(--gray);
   color: var(--white);
-  width: 80px;
-  height: 30px;
-  border-radius: 15px;
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
   margin-bottom: 20px;
   cursor: pointer;
+  font-weight: 500;
 }
 
-li {
-  display: grid;
-  grid-template-columns: ;
+.form__submit input:hover {
+  background-color: var(--darkgray);
+}
+
+li.discussion__container {
+  display: flex;
+  align-items: center;
   border: 1px solid var(--white);
   border-radius: 30px;
   padding: 10px 20px;
@@ -73,43 +116,31 @@ li {
   margin-bottom: 20px;
 }
 
-.discussion__container {
-  display: flex;
-  align-items: center;
-}
-
 .discussion__avatar--image {
-  top: 10px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
 }
 
 .discussion__content {
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
   padding: 10px 20px;
 }
+
 .discussion__title {
   color: var(--purple);
-  font-size: 20px;
-  font-weight: 500;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .discussion__story {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .discussion__information {
   color: var(--darkgray);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .discussion__answered {

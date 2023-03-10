@@ -1,7 +1,7 @@
 :root {
   --black: black;
   --white: white;
-  --gray: lightgray;
+  --gray: rgba(0, 0, 0, 0.3);
   --darkgray: rgba(0, 0, 0, 0.6);
   --purple: #865dff;
 }

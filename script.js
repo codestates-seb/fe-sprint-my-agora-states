@@ -1,6 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-if (localStorage.discussions === undefined)
-  localStorage.setItem("discussions", JSON.stringify(agoraStatesDiscussions));
+if (localStorage.discussions === undefined) localStorage.setItem("discussions", JSON.stringify(agoraStatesDiscussions));
 
 let discussions = [];
 
@@ -48,22 +47,19 @@ const convertToDiscussion = (obj) => {
   image.src = obj.avatarUrl;
   image.alt = `avatar of ${obj.author}`;
   avatarWrapper.append(image);
-
   const content = document.createElement("a");
   content.href = obj.url ? obj.url : "#";
   if (!obj.url) content.classList.add("not-clickable");
   content.target = "_blank";
   const title = document.createElement("h2");
   title.classList.add("discussion__title");
-  title.textContent = obj.title;
+  title.textContent = obj.url ? `${obj.title} 🔗` : obj.title;
   const story = document.createElement("p");
   story.classList.add("discussion__story");
-  story.innerHTML = obj.url ? "클릭하여 내용 보기👀" : obj.bodyHTML;
+  story.innerHTML = obj.url ? "클릭하여 본문 가기" : obj.bodyHTML;
   const information = document.createElement("div");
   information.classList.add("discussion__information");
-  information.textContent = `${obj.author} / ${new Date(
-    obj.createdAt
-  ).toLocaleString()}`;
+  information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   content.append(title, story, information);
   discussionContent.append(content);
 
