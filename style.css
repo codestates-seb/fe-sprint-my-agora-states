@@ -19,7 +19,7 @@ body{
 
 main{
     /* filter:brightness(70%); : 전체 어두워짐. */
-    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(../pic/sunrise.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(./pic/sunrise.jpg);
     display:flex;
     justify-content:center;
     align-items:center;
