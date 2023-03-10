@@ -1,1 +1,235 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+
+* {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 2rem;
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /*
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    */
+}
+ul,
+ol {
+    list-style: none;
+    background-color: transparent;
+}
+a {
+    text-decoration: none; /* 하이퍼링크 밑줄이 없어짐 */
+}
+
+main {
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed; /* 확대 & 스크롤에 구애받지 않음 */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+main > video {
+    position: fixed; /* 확대 & 스크롤에 구애받지 않음 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 늘리기/줄이기 없으나 일부가 잘려서 출력 */
+    opacity: 0.5;
+    z-index: -999;
+}
+main > section#questions-container {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.all-black {
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed; /* 확대 & 스크롤에 구애받지 않음 */
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes scrollToLeft {
+    from {
+        transform: translate(100vw, 0vh);
+        visibility: initial;
+    }
+    to {
+        transform: translate(-100vw, 0vh);
+        visibility: initial;
+    }
+}
+article {
+    display: inline-flex;
+    visibility: hidden;
+    animation: scrollToLeft 10s linear infinite;
+    opacity: 0.5;
+    z-index: 1;
+    cursor: pointer;
+}
+article:hover {
+    animation-play-state: paused;
+    opacity: 1;
+    z-index: 2;
+    position: relative; /* https://erwinousy.medium.com/z-index%EA%B0%80-%EB%8F%99%EC%9E%91%ED%95%98%EC%A7%80%EC%95%8A%EB%8A%94-%EC%9D%B4%EC%9C%A0-4%EA%B0%80%EC%A7%80-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EA%B3%A0%EC%B9%98%EB%8A%94-%EB%B0%A9%EB%B2%95-d5097572b82f */
+}
+article:hover > a {
+    transition: 0.2s;
+    transform: scale(1.1);
+    background-color: lightblue;
+    border: lightblue 0.5rem solid;
+    border-radius: 10rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0rem 0.54rem 0.55rem,
+        rgba(0, 0, 0, 0.12) 0rem -0.12rem 0.3rem,
+        rgba(0, 0, 0, 0.12) 0rem 0.4rem 0.6rem,
+        rgba(0, 0, 0, 0.17) 0rem 0.12rem 0.13rem,
+        rgba(0, 0, 0, 0.09) 0rem -0.3rem 0.5rem;
+}
+article > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+article > a > img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: black solid 0.1rem;
+}
+article > a > p {
+    padding-top: 0.35rem;
+    padding-left: 0.35rem;
+    color: white;
+    text-shadow: -0.1rem 0 black, 0 0.1rem black, 0.1rem 0 black,
+        0 -0.1rem black;
+    white-space: nowrap;
+}
+
+#modal {
+    visibility: hidden;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(0.25rem);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#modal .modal-window {
+    background: white;
+    box-shadow: 0rem 0.8rem 3.2rem 0rem rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+    width: 80vw;
+    height: 40vw;
+
+    padding: 2rem;
+}
+#modal .modal-window > .info-container {
+}
+#modal .userimg {
+    width: 128px;
+    height: 128px;
+}
+#modal .modal-window {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none; /* 스크롤바 숨기기: 파이어폭스 */
+}
+#modal .modal-window::-webkit-scrollbar {
+    display: none; /* 스크롤바 숨기기: 크롬 계통 */
+}
+#modal .modal-upper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#modal .modal-upper > .info-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#modal .close-button-container {
+    height: 100%;
+    display: flex;
+}
+#modal .title-container > p {
+    margin: 0rem 1rem;
+}
+#modal .title-container > p.info {
+    font-size: 1rem;
+    color: gray;
+    margin: 0rem 1rem;
+}
+#modal .close-button-container > button {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+#modal hr {
+    width: 90%;
+    height: 0.2rem;
+    margin: 2rem 0rem;
+    border: none;
+    background-color: gray;
+}
+
+#form-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input#name,
+input#title,
+textarea {
+    font-family: "Nanum Gothic Coding";
+    font-size: 1.25rem;
+}
+label {
+    color: white;
+}
+form > div.formLeft {
+    margin-right: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form > div.formRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form > div.formRight .input-question-container {
+    margin-right: 0.5em;
+}
