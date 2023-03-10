@@ -83,11 +83,32 @@ function submitEvent(e){
 
   ul.prepend(convertToDiscussion(newobj));
   render(ul);
-  
 }
-//이벤트 헨들러는 onclick, onkeyup 등 이고, 이벤트 리스너는 addEventListener 이다.
-//이벤트 헨들러 혹은 이벤트 리스너로 이벤트를 등록할 수 있다.
-//둘의 차이점은 이벤트 헨들러는 동일한 이벤트를 두 번 등록하면 마지막 것만 실행된다.
-//이벤트 리스너로 등록하면 동일한 이벤트를 여러번 등록해도 모두 실행된다.
+
+
+//검색기능
+function search(){
+  let code = document.querySelector('#search').value;
+  // console.log(code);
+  let discussionContainer = document.querySelectorAll('.discussion__container');
+  let discussionTitle = document.getElementsByClassName('discussion__title');
+  let exContainer = document.querySelector('#exContainer');
+  
+  for (let i=0; i<agoraStatesDiscussions.length; i++){
+    //타이틀이 아닌 곳에서도 includes체크 하므로 원인파악 필요
+    if(agoraStatesDiscussions[i].title.includes(code) === true){
+      discussionContainer[i].style.display = 'flex'
+
+    } else {
+      discussionContainer[i].style.display = 'none';
+    }
+  }
+
+  if(discussionTitle[0].firstChild.textContent.includes(code)){
+    exContainer.style.display = 'flex';
+  } else {
+    exContainer.style.display = 'none';
+  }
+}
 
 

@@ -63,4 +63,11 @@ img{
     text-align: right;
     font-size: 13px;
 }
-/* 왼쪽 answered */
+/* 오른쪽 answered */
+
+/* 섹션3 */
+/* 검색기능 */
+.section3{
+    position: sticky;
+    top: 150px;
+}
