@@ -1,1 +1,246 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Ubuntu', sans-serif;*/
+}
+
+header {
+    width: 100%;
+    height: 4rem;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: white;
+}
+
+.codestates-logo {
+    width: 130px;
+}
+
+.head-logo {
+    width: 50px;
+}
+
+.help-logo {
+    width: 130px;
+}
+
+.AGORA-logo {
+    width: 350PX;
+    margin: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    align-items: center;
+    /*background-attachment: fixed;*/
+    background-image:url('./img/codestates-motif.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+li.discussion__container {
+    list-style-type: none;
+    background-color: rgba(255, 255, 255, 0.411); /*구역구분*/
+    width: 540px;  /*Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
+    box-shadow: 5px 5px 20px rgba(131, 131, 131, 0.692);
+
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 30px;
+
+}
+
+img.discussion__avatar--image {
+    border-radius: 100%;
+    width: 60px;
+}
+
+main {
+    display:flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0);
+    width: 100%;
+  } 
+
+  .discussion__wrapper {
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction : row
+  }
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    font-size : 12px;
+    border-radius: 10px;
+    margin : 16px;
+    padding: 30px;
+}
+
+.discussion__content {
+    flex-grow: 0.85;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0px 18px;
+  }
+  
+.discussion__information {
+    padding-top: 10px;
+    font-size: 11px;
+    color: #000000;
+    text-align: right;
+  }
+
+a { /*링크 밑줄 없애기*/
+    text-decoration-line: none;
+}
+
+a:link { /*링크 누르기 전 색상*/
+    color : rgb(0, 0, 0);
+  }
+
+a:visited { /*링크 방문 후 색상*/
+    color: rgb(121, 121, 121);
+}
+
+a:hover { /*링크에 버튼을 가져갔을때 색상*/
+    color : rgb(11, 41, 211);
+  }
+
+.form {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.form__submit {
+    text-align: right;
+}
+
+input {
+    margin: 5px;
+}
+
+.sub {
+    border: none;
+    width: 80px;
+    height: 115px;
+    border-radius: 5%;
+    background-color: rgb(11, 42, 122);
+    color: white;
+    font-size: smaller;
+    font-weight: 600;
+}
+
+.sub:hover {
+    background-color: #0f104e;
+}
+
+
+
+.inputLine{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#name {
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 8px;
+}
+
+
+#title {
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 8px;
+}
+
+#story {
+    width: 350px;
+    height: 115px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.form__textbox {
+    margin: 5px;
+}
+
+.form__submit {
+    margin: 5px;
+}
+
+.form__container {
+    height: 430px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image:url('./img/back4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+.form__input--wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/*페이지 네이션
+.pages {
+    background-color: #ffcb3c;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 50px;
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
