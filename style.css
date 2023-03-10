@@ -1,1 +1,365 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: "neodgm";
+  src: url("./neodgm.woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "neodgm";
+  font-weight: 100;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  color: #000000e0;
+  text-shadow: 1px 1px 2px white;
+}
+a:visited {
+  color: #19c1e3;
+  text-shadow: 1px 1px 2px black;
+}
+a:active {
+  color: #19c1e3;
+  text-shadow: 1px 1px 2px black;
+}
+
+input {
+  margin-top: 6px;
+  border-radius: 4px;
+  border: none;
+  height: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+textarea {
+  margin-top: 6px;
+  border-radius: 6px;
+  border: none;
+  height: 7rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+main {
+  background: url(./img/pixel_sea_1440x900.jpg) no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  font-size: 3rem;
+  text-shadow: rgb(255, 255, 255) 1px 0 20px;
+  text-align: center;
+  letter-spacing: 4px;
+  padding: 1.5rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+}
+
+.btn_show-form {
+  background-color: #e4e9f363;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border: none;
+  width: 5rem;
+  height: 3rem;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 6px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn_show-form:hover {
+  background-color: #49cde7;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__input--wrapper div {
+  text-shadow: 1px 1px 2px white;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 33%;
+  width: 20rem;
+  margin: 1rem;
+}
+
+.form__submit input {
+  background-color: #fff;
+  text-shadow: 1px 1px 2px white;
+  width: 4rem;
+  height: 2rem;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.form__submit input:hover {
+  background-color: #ffffffb7;
+}
+
+.discussion__wrapper {
+  width: 80rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.discussions__container {
+  background: linear-gradient(to bottom, #f4edddb9, #8cdee0b9, #49cce7b9);
+  border-radius: 20px;
+  height: 100%;
+  list-style: none;
+  overflow: scroll;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.discussions__container::-webkit-scrollbar {
+  display: none;
+}
+
+.discussion__container {
+  display: flex;
+  flex-direction: row;
+  width: 40rem;
+  height: auto;
+  margin: 2rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 12px;
+}
+
+.discussion__container:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.discussion__information {
+  margin-top: 4px;
+  text-align: right;
+  color: #535353e6;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  flex: 1 0 20%;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 70%;
+}
+
+.discussion__answered {
+  display: flex;
+  flex: 1 0 10%;
+  justify-content: flex-end;
+}
+
+.pages {
+  background: linear-gradient(to left, #f4eddd90, #8cdee090, #49cde790);
+  border-radius: 10px;
+  width: 30rem;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.page:hover {
+  background-color: #ffffff96;
+}
+
+.page-selected {
+  border: 1px solid black;
+}
+
+.hide {
+  display: none;
+}
+
+.page-highlight {
+  background-color: #ffffffd0;
+}
+
+.totalDiscussions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 2rem;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blinking {
+  animation: blink 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkling {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 2px #fff;
+  animation: twinkling 1s infinite;
+}
+
+/* 모바일 */
+@media screen and (max-width: 767px) {
+  .btn_show-form {
+    background-color: #e4e9f363;
+    margin-left: 2.5rem;
+    margin-top: 2rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border: none;
+    width: 5rem;
+    height: 3rem;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 6px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .discussion__container {
+    display: flex;
+    flex-direction: row;
+    width: 32rem;
+    height: auto;
+    margin: 2rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 12px;
+  }
+
+  .pages {
+    background: linear-gradient(to left, #f4eddd90, #8cdee090, #49cde790);
+    border-radius: 10px;
+    width: 25rem;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem;
+    padding: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
+/* 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  font-size: 1.1rem;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #f2f0ead6, #95ddded1, #66d6ecdf);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.close {
+  color: #6f6f6f;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  scale: 1.2;
+  transition: 0.3s;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
