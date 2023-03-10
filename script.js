@@ -237,6 +237,9 @@ const setTime = (value) => {
 };
 
 
+const searchIcon = document.querySelector('.search_icon');
+const searchLabel = document.querySelector('#input_search_text');
+
 
 // discussion 추가
 
@@ -286,6 +289,7 @@ discussionForm.addEventListener('submit', (event) => {
   event.preventDefault();
   submitDiscussion(event);
   rendering(1);
+  
   setActivePage();
   setToggleIcon();
   
@@ -505,7 +509,18 @@ window.addEventListener('scroll', checkScroll);
 //top 버튼 이벤트 리스너
 topBtn.addEventListener('click', moveToTop);
 
-//filter
+//검색 조건 함수
+const searchFilterDiscussion = (search) => {
+  let localDiscussion = JSON.parse(localStorage.getItem("local__discussion"));
+  if(localDiscussion === null) localDiscussion = [];
+  const allDiscussions = localDiscussion.concat(agoraStatesDiscussions);
+  return{
+    includeDiscussions : allDiscussions.filter((e) => e.title.includes(search) || e.author.includes(search)),
+    notIncludeDiscussions : allDiscussions.filter((e) => e.title.includes(search) || e.author.includes(search)),
+  }
+}
+
+
 // const filter = (num) => {
 //   const inputSearchText = document.querySelector('#input_search_text');
 //   console.log(inputSearchText);
@@ -521,9 +536,3 @@ topBtn.addEventListener('click', moveToTop);
  
 // }
 
-// const searchIcon = document.querySelector('.search_icon');
-// const searchLabel = document.querySelector('.search_container_label');
-// searchIcon.addEventListener('click', ()=>{
-  
-//   filter(1);
-// });
