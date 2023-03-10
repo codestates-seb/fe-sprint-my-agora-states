@@ -1,1 +1,163 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --background : #f1c29c46;
+    --iconic : #82AAE3;
+    --text : #495057;
+    --border : #a7b8c9;
+    --shadow : #697481;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+}
+main {
+    max-width: 540px;
+    width: 90%;
+    background-color: rgb(232, 229, 248);
+    border-radius: 10px 0px 30px 85px;
+    box-shadow: 0px 15px 25px var(--shadow);
+}
+input, textarea, button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+li {
+    list-style: none;
+}
+.pagination__wrapper {
+    position: relative;
+}
+.pagination{
+    display: flex;
+    justify-content: space-around;
+}
+.page__case.prev {left: -30px;}
+.page__case.next {right: -30px;}
+.pagination button {
+    display: inline-block;
+    width: 47px; line-height: 90px;
+}
+.page__case {
+    position: absolute;
+    top: 0;
+}
+.form {
+    display: flex;
+}
+.form__container {
+    background-image: url("./image/back.jpg");
+    background-size: cover;
+    box-shadow: 0px 5px 65px var(--shadow);
+    border-radius: inherit;
+    opacity: 0.7;
+}
+.form__container h1 {
+    text-align: center;
+    color:#1c2125;
+    font-style: bold;
+    margin-bottom: 2rem;
+    font-size: 35px;;
+}
+.form__input--wrapper {
+    flex-grow: 45;
+}
+.form__input--wrapper > div {
+    position: relative;
+}
+.form__input--wrapper > div input,
+.form__input--wrapper > div textarea {
+    font-size: 13px;
+    padding: 15px 10px 5px;
+}
+.form__input--wrapper > div textarea {
+    border-bottom: 1.4px dotted var(--text);
+}
+.form__input--wrapper > div input {
+    margin-bottom: 15px;
+    border-bottom: 1.4px dotted var(--text);
+}
+.form__input--wrapper > div label {
+    position: absolute;
+    left: 9px; top: -2px; 
+    font-size: 18px;
+}
+.form__submit{
+    flex-grow: 3;
+}
+.form__submit input{
+    width: 100%;
+    height: 90%;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 4rem;
+    color:#181c1f;
+}
+.discussion__wrapper{
+    padding: 1.2rem;
+}
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding: 0.48rem 0;
+    border-color: rgb(202, 202, 202);
+}
+.discussion__avatar--wrapper {
+    border-radius: 50%;
+    align-self: center;
+    width: 43px;
+    height: 43px;
+}
+.discussion__avatar--image {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+}
+.discussion__content {
+    width: 90%;
+    padding: 0 15px;
+}
+.discussion__title a:hover {
+    text-decoration: underline;
+}
+.discussion__information {
+    text-align: match-parent;
+    font-size: 12px;
+    color:#495057;
+}
+.discussion__title a {
+    width: 95%;
+    font-size: 17px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text);
+    text-decoration: none;
+}
+.discussion__answered {
+    width: 42px;
+    align-self: end;
+}
+.form__container{
+    padding: 1.2rem;
+}
+.hide {
+    display: none;
+}
