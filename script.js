@@ -91,6 +91,7 @@ render(ul, 0, 10);
 // 페이지네이션을 위해 버튼 클릭시 나타낼 페이지를 설정
 let pagenumber = document.querySelectorAll('.pagenumber')
 let num = 0
+pagenumberFocus(num)
 for (let i = 0; i <= Math.ceil(agoraStatesDiscussions.length / 10) + 1; i++) {
     if (i === 0) {
         pagenumber[i].onclick = () => {
