@@ -27,10 +27,11 @@ const after = document.createElement('span');
 after.textContent = '〉';
 
 const makeButtons = (element) => {
-  for (let page of pagesArr) {
+  for (let i = 0; i < pagesArr.length; i++) {
     const pageButton = document.createElement('button');
-    pageButton.textContent = page;
-    pageButton.id = 'page';
+    pageButton.textContent = i + 1;
+    pageButton.id = i + 1;
+    +pageButton.id === page && pageButton.classList.add('select');
     element.append(pageButton);
   }
   return;
@@ -51,10 +52,18 @@ const pagenationClickEvent = pagenationSection.addEventListener('click', (e) => 
     e.target.textContent === '〈' ? page !== 1 && --page : page !== pagesArr.length && ++page;
   }
 
+  for (let i = 0; i <= pagesArr.length; i++) {
+    +pagenationSection.children[i].textContent === page
+      ? pagenationSection.children[i].classList.add('select')
+      : pagenationSection.children[i].classList.remove('select');
+  }
+
   startIndex = (page - 1) * limit;
   discussions = agoraStatesDiscussions.slice(startIndex, startIndex + limit);
   render(ul);
 });
+
+pagenationSection.addEventListener('click', (e) => {});
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
