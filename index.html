@@ -10,25 +10,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script   src="https://code.jquery.com/jquery-3.6.4.js"   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="   crossorigin="anonymous"></script>
 </head>
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <h1 class="h1">아고라 스테이츠</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
+          <div class="user_image">
+            <img
+              src="https://api.dicebear.com/5.x/bottts-neutral/svg"
+              alt="avatar"/>
+          </div>
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name"></label>
+            <input type="text" name="name" id="name" placeholder="Name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
+            <label for="title"></label>
+            <input type="text" name="title" id="title" placeholder="Title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story"></label>
+            <textarea id="story" name="story" placeholder="무엇이 궁금한가요?" onkeyup="resize(this)" rows={1} required></textarea>
           </div>
         </div>
         <div class="form__submit">
@@ -36,7 +42,20 @@
         </div>
       </form>
     </section>
-    <section class="discussion__wrapper">
+    <div class="tab">
+      <ul class="tabs">
+        <li class="tabLi on current" data-tab="tab-1">
+          <a class="tabContent" href="#tab1">전체</a>
+        </li>
+        <li class="tabLi" data-tab="tab-2">
+          <a class="tabContent" href="#tab2">답변 완료</a>
+        </li>
+        <li class="tabLi" data-tab="tab-3">
+          <a class="tabContent" href="#tab3">답변 미완료</a>
+        </li>
+      </ul>
+    </div>
+    <section id="tab-1" class="tab-content discussion__wrapper current">
       <ul class="discussions__container">
         <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
@@ -46,13 +65,40 @@
           </div>
           <div class="discussion__content">
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <div class="discussion__name">kimploo</div>
+            <div class="discussion__time">2022. 5. 16. 오전 10:02:17            </div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered checked"><span></span><p>답변 완료</p></>
         </li>
       </ul>
     </section>
+    <section id="tab-2" class="tab-content discussion__wrapper answered">
+      <ul class="discussions__container">
+        <li class="discussion__container">
+          <div class="discussion__avatar--wrapper">
+            <img class="discussion__avatar--image"
+              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+              alt="avatar of kimploo">
+          </div>
+          <div class="discussion__content">
+            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <div class="discussion__name">kimploo</div>
+            <div class="discussion__time">2022. 5. 16. 오전 10:02:17            </div>
+          </div>
+          <div class="discussion__answered checked"><span></span><p>답변 완료</p></>
+        </li>
+      </ul>
+    </section>
+    <section id="tab-3" class="tab-content discussion__wrapper not_answered">
+    </section>
   </main>
+  <nav class="navigation">
+    <h2 class="logo"></h2>
+    <ul class="nav_menu"></ul>
+    <li class="checked"><a href="">Agora States</a></li>
+    <li><a href="https://urclass.codestates.com/">Urclass</a></li>
+    <li><a href="https://www.codestates.com/about">About</a></li>
+  </nav>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>

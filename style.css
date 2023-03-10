@@ -1,1 +1,284 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style:none;
+    font-family: 'Pretendard-Regular';
+    color:#212121;
+    text-decoration: none;
+}
+
+body{
+    display:flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f3f3f3;  
+}
+
+.hide{
+    display:none;
+}
+main{
+    width: 896px;
+}
+
+main .h1{
+    padding:45px 0;
+    font-weight:900;
+    font-size:24px;
+}
+
+main .form__container{
+    display:flex;
+    padding: 32px;
+    border-radius: 24px;
+    background-color:white;
+}
+.form__input--wrapper{
+}
+
+.form__input--wrapper .user_image{
+    display: inline-block;
+    vertical-align:middle;
+    margin-right:16px;
+    width:64px;
+    height:64px;
+}
+.form__input--wrapper .user_image img{
+    width:100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.form__input--wrapper .form__input--name{
+    display:inline-block;
+}
+
+input, textarea{
+    outline:0;
+    border:0;
+}
+input{
+    border-bottom: solid 1px #797979;
+
+}
+.form__input--name input{
+    width:160px;
+    height:32px;
+    font-size:16px;
+}
+
+.form__input--title{
+    margin-top:16px;
+    width:800px;
+}
+
+.form__input--title input{
+    width:100%;
+    height:32px;
+    font-size:24px;
+}
+
+.form__textbox textarea{
+    margin:16px 0px 32px;
+    font-size:24px;
+    overflow-y: hidden;
+    resize:none;
+}
+
+.form__submit input{
+    padding:18px 64px;
+    border-bottom: none;
+    border-radius: 16px;
+    background-color: #4326F5;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:grab;
+}
+
+.form__submit input:hover{
+    background-color:#9887FF;
+    transition: 0.3s;
+}
+
+.discussion__wrapper{
+}
+
+
+.discussion__wrapper .discussion__container{
+    position:relative;
+    display:flex;
+    padding:40px 40px;
+    background-color:white;
+    border-radius: 24px;
+    margin-top:16px;
+}
+
+.discussion__avatar--wrapper{
+    margin-top:32px;
+}
+
+.discussion__content{
+    margin-top:32px;
+    width:100%;
+}
+
+.discussion__content .discussion__title{
+    margin-bottom: 16px;
+    word-break: keep-all;
+}
+.discussion__content .discussion__name{
+    display:inline-block;
+    text-align:left;
+    font-weight: 600;
+}
+
+.discussion__content .discussion__time{
+    display:inline-block;
+    float:right;
+    color:#898989;
+}
+
+.discussion__wrapper .discussion__avatar--image{
+    margin-right:24px;
+    border-radius: 100%;
+    width:64px;
+    height: 64px;
+}
+
+.discussion__wrapper .discussion__title{
+    font-size:24px;
+}
+
+.discussion__wrapper .discussion__answered{
+    position:absolute;
+    top:32px;
+    left:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 100px;
+    background-color: #999999;
+}
+.discussion__wrapper .discussion__answered span{
+    margin-right:4px;
+    width: 8px;
+    height: 8px;
+    border-radius:100%;
+    background-color:#FF4040;
+}
+.discussion__wrapper .checked span{
+    background-color:#94FF40;
+}
+
+.discussion__wrapper .discussion__answered p{
+    color:white;
+    font-size:14px;
+}
+
+/* tab */
+.tab ul{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom:solid 1px hsl(0, 0%, 47%);
+    margin:40px 0;
+}
+.tab ul li {
+    width:100%;
+    text-align: center;
+    position:relative;
+}
+
+.tab ul li a{
+    display:block;
+    width: 100%;
+    font-size:16px;
+    font-weight:600;
+    color:#999999;
+    line-height:48px;
+}
+
+.tab ul li:after{
+    opacity:0;
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    content: "";
+    display:block;
+    width:100%;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #4326F5;
+}
+
+.tab ul li.on:after{
+    opacity:100;
+    transition:0.5s
+}
+.tab ul li.on a{
+    color:#212121;
+    font-weight: 800;
+}
+
+.tab ul li:nth-of-type(2) a:before{
+    content:"";
+    display:inline-block;
+    width:8px;
+    height:8px;
+    margin-right:4px;
+    border-radius: 100%;
+    background-color: #94FF40;
+}
+
+.tab ul li:nth-of-type(3) a:before{
+    content:"";
+    display:inline-block;
+    width:8px;
+    height:8px;
+    margin-right:4px;
+    border-radius: 100%;
+    background-color:#FF4040;
+}
+
+nav{
+    position:absolute;
+    top:40px;
+    left:40px;
+}
+
+.navigation .logo{
+    width:140px;
+    height:33px;
+    background:url('./img/codestates-logo.png') no-repeat 50%;
+    background-size: cover;
+}
+
+.navigation ul{
+    margin-top:80px;
+}
+.navigation li{
+    margin-top:40px;
+    font-size:24px;
+    font-weight: 700;
+}
+
+.navigation .checked a{
+    color:#212121;
+}
+
+.navigation li a{
+    color:#999999;
+}
+
+.navigation li a:hover{
+    color:#212121;
+    transition:0.5s;
+}
