@@ -8,6 +8,9 @@
 
 /* centering webpage: main의 flex-container */
 body {
+  color: #4f697f;
+  font-family: "Noto Sans KR", sans-serif;
+
   display: flex;
   justify-content: center;
   max-width: 1000px;
@@ -17,79 +20,163 @@ body {
 
 /* centering h1, section1, section2. three's flex container */
 main {
-  margin-top: 50px;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
+  background-color: #fcf8f4;
+  margin-top: 30px;
   width: 70%;
 
   display: flex;
   flex-flow: column;
   align-items: center;
-
   gap: 40px;
 }
 
 /* h1 제목 */
 
 h1 {
-  background-color: bisque;
+  font-family: "Coiny", cursive;
+
+  margin-top: 30px;
+  color: #1a6591;
 }
 
 /* input section */
 .form__container {
-  background-color: bisque;
+  font-family: "Coiny", cursive;
+
+  background-color: #f6efd8;
+  padding: 20px 30px;
+  width: 90%;
+  box-shadow: 1px 1px 2px rgb(235, 235, 235);
+}
+
+.form {
+  display: flex;
+  gap: 20px;
+}
+
+.form__input--wrapper {
+  flex-grow: 3;
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: stretch; */
+  gap: 5px;
+}
+
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__input--name > input {
+  /* width: 200px; */
+  /* max-width: 200px; */
+  width: 50%;
+  border: none;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__input--title > input {
+  /* max-width: 200px; */
+  width: 50%;
+  border: none;
+}
+
+.form__textbox > textarea {
+  display: block;
+  border: none;
+
+  /* max-width: 400px; */
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* form submit button */
+.form__submit {
+  flex-grow: 1;
+  /* flex-basis: 300px; */
+}
+
+.form__input {
+  /* margin: auto; */
+  background-color: #fcf8f4;
+  border: none;
+  width: 100%;
+  height: 100%;
+  box-shadow: 1px 1px 2px rgb(189, 189, 189);
+  /* margin-top: 10px; */
+  /* width: 150px; */
+  /* height: 70px; */
+}
+
+.form__input:hover {
+  background-color: pink;
+}
+
+.form__input:active {
+  box-shadow: none;
 }
 
 /* discussions flex-container */
 .discussions__container {
-  /* display: flex; */
-  /* justify-content: space-between; */
   list-style-type: none;
-  background-color: bisque;
 }
 
 /* discussion flex-container */
 .discussion__container {
-  width: 600px;
+  background-color: #ffffff;
+  /* width: 600px; */
+  /* height: 80px; */
+  margin: 10px;
+  /* border: 1px solid #dce5e7; */
+  box-shadow: 1px 1px 1px rgb(241, 241, 241);
 
-  background-color: aqua;
   display: flex;
-  /* gap: 50px */
   justify-content: space-between;
   gap: 20px;
-  /* width: 540px; */
-  /* justify-content: center; */
-  /* flex-direction: column; */
 }
 
 /* discussion 재료들 avatar, content, answered*/
 .discussion__avatar--image {
-  background-color: blueviolet;
   margin: auto;
   width: 48px;
   border-radius: 50px;
+  margin: 15px 10px;
 }
 
 /* content 애들 */
 .discussion__content {
-  background-color: red;
   flex-grow: 1;
+
+  flex-basis: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .discussion__title {
   text-align: left;
 }
 
+.discussion__title > a:link {
+  font-size: 16px;
+  color: #526f89;
+  text-decoration: none;
+}
+
 .discussion__information {
+  font-size: 13px;
   text-align: right;
 }
 
 /* check box */
 .discussion__answered {
-  /* background-color: blueviolet; */
-
-  width: 30px;
+  width: 40px;
   justify-self: center;
-  /* margin: auto; */
   align-self: center;
 }
