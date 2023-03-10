@@ -15,11 +15,37 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
+  // 이미지 넣기
+  const avataImg = document.createElement('img');
+  avataImg.className = "discussion__avatar--image";
+  avataImg.src = obj.avatarUrl;
+  avataImg.alt = `avatar of ${obj.author}`;
+  avatarWrapper.append(avataImg);
+  //이미지 넣기 끝
 
+  //content 넣기
+  const contentTitle = document.createElement('h3');
+  contentTitle.className = "discussion__title"
+  const titleAnchor = document.createElement('a');
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  contentTitle.append(titleAnchor);
+  const contentInfo = document.createElement('div');
+  contentInfo.className = "discussion__information";
+  contentInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
+  discussionContent.append(contentTitle, contentInfo);
+  //content 넣기 끝
+
+  //답변 체크 넣기
+  const checked = document.createElement('p');
+  checked.textContent = obj.answer ? '✅' : '❎' ;
+  discussionAnswered.append(checked); 
+  //답변 체크 끝
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
