@@ -23,17 +23,17 @@ const convertToDiscussion = (obj) => {
   
 
   const discussionTitle = document.createElement("h2");
-  const contentInfo = document.createElement("div");
-  contentInfo.className = "discussion__information";
-  contentInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`//toLocaleString()지정된 지역에서 표현하는 방식의 날짜를 문자로 리턴 
-  //div안에 글쓴이,날짜 추가
-  discussionTitle.className = "discussion__title";
   const titleAnchor = document.createElement("a");
   titleAnchor.href = obj.url;
   titleAnchor.textContent = obj.title;
   discussionTitle.append(titleAnchor);//discussionTitle에 titleAnchor append
   discussionContent.append(discussionTitle);//discussionContent에 discussionTitle append
   
+
+  const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discission__information";
+  discussionInfo.textContent = `${obj.author}  ${new Date(obj.createAt).toLocaleTimeString()}` 
+  discussionContent.append(discussionTitle, discussionInfo);
 
   const checked = document.createElement("p");
   checked.textContent = obj.answer ? '✓' : '𐄂'; // obj.answer값이 있으면 ✓리턴 null이면 𐄂리턴
