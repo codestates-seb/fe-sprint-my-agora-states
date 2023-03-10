@@ -30,29 +30,30 @@ const convertToDiscussion = (obj) => {
 
   const contentInfo = document.createElement("div");
   contentInfo.className = "discussion__information";
-  contentInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
+  contentInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString()}`;
   discussionContent.append(contentTitle, contentInfo);
-  
 
-const checked = document.createElement('p');
-checked.textContent = obj.answer ? "💜" : "❓" ;
-discussionAnswered.append(checked)
+  const checked = document.createElement("p");
+  checked.textContent = obj.answer ? "💜" : "❓";
+  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
-const form = document.querySelector('form.form');
-const title = document.querySelector('input#title');
-const author = document.querySelector('input#name');
-const stroy = document.querySelector('textarea#story');
+const form = document.querySelector("form.form");
+const title = document.querySelector("input#title");
+const author = document.querySelector("input#name");
+const stroy = document.querySelector("textarea#story");
 
-form.addEventListener('submit',(event) =>{
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   //하나의 객체를 만들어서 convertToDiscussion함수에 넣어서 li로 만든 다음 ul요소에 append
   const newdiscussion = {
     id: "unique value",
-    createdAt: new Date (),
+    createdAt: new Date(),
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: author.value,
@@ -69,12 +70,11 @@ form.addEventListener('submit',(event) =>{
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
-  ul.prepend(convertToDiscussion(newdiscussion))
-  title.value="";
-  author.value="";
-  stroy.value="";
-})
-
+  ul.prepend(convertToDiscussion(newdiscussion));
+  title.value = "";
+  author.value = "";
+  stroy.value = "";
+});
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
