@@ -1,1 +1,144 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+}
+
+h1 {
+  font-family: "Climate Crisis", cursive;
+  margin: 30px;
+  color: var(--border);
+}
+
+.form {
+  font-family: "Climate Crisis", cursive;
+
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  background-color: var(--form-background);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 10px;
+}
+
+.form__input--wrapper div {
+  display: flex;
+  flex-direction: column;
+  color: var(--border);
+}
+
+#name,
+#title,
+#story {
+  height: 30px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+}
+
+#story {
+  height: 200px;
+}
+
+/* 제출버튼 */
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+
+.form__submit input {
+  width: 100px;
+  height: 45px;
+
+  background-color: var(--submit);
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  font-family: "Climate Crisis", cursive;
+}
+
+.form__submit input:hover {
+  cursor: pointer;
+  background-color: var(--submit-hover);
+  color: white;
+}
+
+.form__submit input:active {
+  cursor: pointer;
+  background-color: var(--submit-active);
+  color: white;
+}
+
+.discussion__container {
+  width: 540px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--container);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 55px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.discussion__title {
+  text-align: left;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+}
+
+:root {
+  --background: #ffb84c;
+  --form-background: #7db9b6;
+  --border: #322d3c;
+  --submit: #e96479;
+  --submit-hover: #6363e5;
+  --submit-active: #4545cd;
+  --container: white;
+}
