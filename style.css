@@ -11,17 +11,6 @@ title{
     display: none;
 }
 
-.form__container{
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color:blue;
-    border-radius: 20px;
-
-}
-
 body {
     display: flex;
     justify-content: center;
@@ -50,6 +39,37 @@ p{
 img{
     width: 80px;
     height: 80px;
+    border-radius: 50%;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    flex-direction: row;
+}
+
+button{
+    margin: 10px;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFC6D3;
+    color: #3A4F7A;
+    border-radius: 50%;
+}
+
+.form__container{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    border-radius: 20px;
+
 }
 
 .discussion__container{
@@ -62,9 +82,20 @@ img{
   height: 150px;
   font-size: 10px;
   border-radius: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 20px;
   background-color: #FFC6D3;
+  transition: 0.5s;
+}
+
+a{
+    color: #3A4F7A;
+    text-decoration: none;
+
+}
+
+.discussion__container:hover{
+    transform: scale(1.1);
 }
 
 h2{

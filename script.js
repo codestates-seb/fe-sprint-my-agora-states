@@ -40,22 +40,35 @@ checked.textContent = obj.answer ? "🙄" : "✅";
 discussionAnswered.append(checked);
 
 li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
+return li;
 };
-
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
+
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+//localstorage있는 것 더해주기
+if(window.localStorage.length >1){
+
+  for(let i = 0; i<window.localStorage.length-1; i++){
+    let newDatas = window.localStorage.getItem(`newData${i}`);
+    let Obj = JSON.parse(newDatas);
+    agoraStatesDiscussions.unshift(Obj);
+    ul.prepend(convertToDiscussion(Obj));
+  }
+
+}
 
 const form = document.querySelector('form.form');
 const displayauthor = document.querySelector('.form__input--name > input');
@@ -74,14 +87,22 @@ form.addEventListener('submit', (event) => {
     avatarUrl:"https://blog.kakaocdn.net/dn/GHYFr/btrsSwcSDQV/UQZxkayGyAXrPACyf0MaV1/img.jpg"
 
   };
-// 기존 discuusions 데이터의 맨 앞에 입력받은 정보 추가
+alert('등록되었습니다.');
+
 agoraStatesDiscussions.unshift(obj);
 ul.prepend(convertToDiscussion(obj));
+//local에 저장
+const newObj = JSON.stringify(obj);
+let len = window.localStorage.length;
+window.localStorage.setItem(`newData${len-1}`, newObj);
 
 
-//form 초기화
+//초기화
 displayauthor.value = '';
 displayTitle .value = '';
 displayQuestion.value = '';
-});
+}
+
+);
+
 
