@@ -1,1 +1,181 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: RGB(244, 244, 244);
+}
+
+h1 {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: RGB(34, 34, 34);
+}
+
+form {
+    padding: 10px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: RGB(34, 34, 34);
+    font-size: 1.1rem;
+}
+
+#story {
+    display: block;
+    width: 100%;
+    height: 6.25em;
+    resize: none;
+    background-color: RGB(251, 251, 251);
+    border: 1px solid RGB(234, 234, 234);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 1px 1px 1px 1px gray;
+    font-size: 1.1rem;
+}
+#story:hover {
+    background-color: RGB(244, 244, 244);
+}
+
+.form__submit {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit_label {
+    width: 100px;
+    height: 30px;
+    color: RGB(34, 34, 34);
+    border: 1px solid RGB(234, 234, 234);
+    background-color: RGB(251, 251, 251);
+    font-size: 1.1rem;
+    box-shadow: 1px 1px 1px 1px gray;
+    border-radius: 10px;
+}
+.submit_label:hover {
+    background-color: RGB(244, 244, 244);
+}
+
+li {
+    list-style: none;
+}
+
+section {
+    width: 540px;
+}
+
+.discussions__container {
+    padding-left: 0px;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: left;
+    padding: 15px;
+    border: 1px solid RGB(34, 34, 34);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.discussion__avatar--image {
+    border-radius: 50px;
+    width : 75px;
+    height: 75px;
+    
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.discussion__title {
+    margin  : 1rem;
+    font-size: 15px;
+}
+
+.discussion__answered {
+    font-size: 20px;
+    align-items: end;
+}
+
+.discussion__content{
+    width: 100%;
+}
+
+.div_label {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: RGB(255, 255, 255);
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px 5px gray
+}
+
+#name {
+    background-color: RGB(251, 251, 251);
+    border: 1px solid RGB(234, 234, 234);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 5px;
+    box-shadow: 1px 1px 1px 1px gray;
+    padding: 10px;
+}
+#name:hover {
+    background-color: RGB(244, 244, 244);
+}
+
+#title {
+    background-color: RGB(251, 251, 251);
+    border: 1px solid RGB(234, 234, 234);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 5px;
+    box-shadow: 1px 1px 1px 1px gray;
+    padding: 10px;
+}
+#title:hover {
+    background-color: RGB(244, 244, 244);
+}
+
+.form_label {
+    display: block;
+}
+
+#pagenation {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pagenation > button {
+    width: 50px;
+    padding: 3px;
+    color: RGB(34, 34, 34);
+    font-size: 1.1rem;
+    background-color: RGB(251, 251, 251);
+    border: 1px solid RGB(234, 234, 234);
+    box-shadow: 1px 1px 1px 1px gray;
+    border-radius: 50px;
+    margin-left: 15px;
+}
+
+#pagenation > button:hover {
+    background-color: RGB(244, 244, 244);
+}
