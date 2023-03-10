@@ -91,12 +91,12 @@ form.addEventListener("submit", (event) => {
     id: Math.random(),
     createdAt: `${year}-0${month}-${date}T${hours}:${minutes}:${seconds}Z`,
     title: inputTitle.value,
-    url: "https://www.google.co.kr/",
+    url: "https://thsxhqanf1.tistory.com/",
     author: inputName.value,
     answer: null,
     bodyHTML: inputQuestion.value,
     avatarUrl:
-      "https://cdn.clien.net/web/api/file/F01/11059505/25fb954e3ed280.jpg",
+      "http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg",
   };
   agoraStatesDiscussions.unshift(obj);
   const content = convertToDiscussion(obj);
