@@ -15,14 +15,18 @@ body {
 h1 {
   padding: 30px;
   text-align: center;
-  border-radius: 20px;
-  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
 }
 
 .logo {
   padding: 20px;
   width: 250px;
   border-radius: 20px;
+}
+
+strong {
+  font-size: 18p;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .form__container {
@@ -87,6 +91,11 @@ h1 {
   background-color: rgba(245, 245, 245, 0.5);
   border: 1px solid rgba(245, 245, 245, 0);
 }
+
+strong.Name {
+  margin-left: 8px;
+}
+
 #title {
   width: 200px;
   height: 30px;
@@ -95,6 +104,11 @@ h1 {
   background-color: rgba(245, 245, 245, 0.5);
   border: 1px solid rgba(245, 245, 245, 0);
 }
+
+strong.Title {
+  margin-left: 13px;
+}
+
 #story {
   width: 200px;
   height: 150px;
