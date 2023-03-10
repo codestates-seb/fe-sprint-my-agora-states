@@ -5,10 +5,14 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 * {
     box-sizing: border-box;
+    font-weight: bold;
+    font-family: 'Cute Font', cursive;
+    font-size: x-large;
 }
 
 li {
@@ -17,8 +21,12 @@ li {
 
 
 /* 텍스트 크기 조정 */
+h1 {
+    font-size: 80px;
+}
 h2 {
     font-size: 1rem;
+    cursor: pointer;
 }
 
 h3 {
@@ -29,14 +37,51 @@ h3 {
     font-size: 0.8rem;
 }
 
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 20px;
+    background-color: #50b9ff7a;
+    box-shadow: 0 0 30px 10px rgba(19, 110, 185, 0.568);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link > div {
+    padding:  10px 20px;
+    margin: 0 10px;
+    width: 170px;
+    border-radius: 10px;
+    text-shadow: 3px 3px rgb(0, 134, 196);
+    box-shadow: 0 0 20px 10px rgb(133, 190, 255);
+    background-color: rgb(103, 199, 255);
+    transition: 1s;
+    font-size: xx-large;
+}
+
+.nav-link > div:hover {
+    background-color: rgb(177, 226, 255);
+}
+
+.left-nav {
+    display: flex;
+    text-align: center;
+}
+
+
 
 /* 나만의 디자인 하기 */
 body {
     background: linear-gradient(
-        rgba(244, 255, 96, 0.514),
-        rgba(0, 140, 255, 0.575),
-        rgba(244, 255, 96, 0.514)
-    );
+        #52bdff94,
+        #e2e6e5a2
+    ), url("./image/background-img.jpg");
+    background-size: cover;
 }
 
 main {
@@ -44,33 +89,41 @@ main {
     /* flex-direction: column; */
     /* align-items: center; */
     justify-content: space-evenly;
-    margin: 100px 0;
+    margin: 50px 0;
+}
+
+ul {
+    padding: 0;
+}
+
+ol {
+    padding: 0;
 }
 
     /* 질문 작성 부분 폼 컨테이너 */
 .form__container {
-    width: 40%;
+    width: 30%;
     height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px 1px rgba(0, 79, 124, 0.712);
 }
 
 h1 {
     width: 100%;
-    height: 20%;
+    height: 25%;
     padding: 50px;
     margin: 0;
     text-align: center;
+    text-shadow: 7px 7px rgba(0, 71, 104, 0.486); 
 }
 
 .form {
     width: 80%;
     height: 80%;
-    text-align: center;
 }
 
 #name {
@@ -85,7 +138,7 @@ h1 {
 
 #story {
     width: 100%;
-    height: 200px;
+    height: 150px;
 }
 
 input, textarea {
@@ -94,37 +147,75 @@ input, textarea {
     font-size: x-large;
 }
 
+.form__submit>input {
+    width: 150px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 3px 3px 0 1px black;
+}
+
+.form__submit>input:active {
+    box-shadow: 0px 0px 0px 0 black;
+    margin: 3px;
+}
+
+.form__submit>input:hover {
+    background-color: rgb(145, 213, 253);
+}
+
     /* 게시판 디자인 */
         /* UL의 부모 */
 .discussion__wrapper {
     width: 40%;
-    height: 100%;
+    height: 80vh;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 1px rgba(0, 79, 124, 0.712);
 }
+.discussion__wrapper::-webkit-scrollbar{
+    width: 10px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.295);
+    border-radius: 20px;
+}
+.discussion__wrapper::-webkit-scrollbar-thumb {
+    height: 10%;
+    background-color: rgba(25, 0, 255, 0.377);
+    border-radius: 20px;
+}
+.discussion__wrapper::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+
 
         /* UL */
 .discussions__container { 
     display: flex;
     flex-direction: column;
-    padding: 0;
+    align-items: center;
+    padding: 20px;
     margin: 0;
+    
 }
 
         /* LI */
 .discussion__container {
-    width: 100%;
+    width: 80%;
     display: flex;
-    padding: 3rem;
+    padding: 30px 10px;
     word-break: break-all;
     border-radius: 10px;
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px 3px rgba(0, 79, 124, 0.712);
     margin: 15px;
 }
 
             /* 왼쪽 아바타 */
 .discussion__avatar--image,  .answered_avatar_img{
-    border: 3px solid white;
     border-radius: 50%;
     width: 48px;
+    margin: 0 10px 0 15px;
+
 }
             /* 질문 제목 */
 .discussion__title {
@@ -140,38 +231,71 @@ input, textarea {
 .discussion__content {
     display:flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    align-items: baseline;
+    width: 85%;
 }
 
 .question_content { /* 질문 내용의 제목 */
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    background-color: rgba(0, 119, 255, 0.253);
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+
+
+.highlight {
+    width: 100%;
+}
+
+pre, code {
+    overflow:scroll;
+    overflow-y: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: large;
+    color:rgb(134, 59, 29);
+}
+
+pre::-webkit-scrollbar{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.295);
+    border-radius: 20px;
+}
+pre::-webkit-scrollbar-thumb {
+    background-color: rgba(25, 0, 255, 0.377);
+    border-radius: 20px;
+}
+
+code {
+    font-size: x-large;
 }
 
 
         /* 답변 박스 */
 #answerBox {
     padding: 10px;
-    margin: 50px 0;
+    margin: 50px 0 0 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 10px;
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px 10px rgba(0, 79, 124, 0.712);
+    background-color: rgba(17, 0, 255, 0.185);;
 }
 
 p {
     margin: 5px;
 }
 
-pre, code {
-    overflow:scroll;
-    width: 37rem;
-    margin: 0;
-    padding: 0;
-}
+
 
 
 

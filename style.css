@@ -92,7 +92,7 @@ main {
   border-radius: 10px;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.5);
   background-color: #e1ffdb;
-  background: linear-gradient(to bottom, #81b9eb, #848C65);
+  background: linear-gradient(to bottom, #81baeb, #848C65);
 }
 
 
@@ -136,7 +136,6 @@ button {
 button:active {
   box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
   position: relative;
-  top:2px;
 }
 
 button:hover {

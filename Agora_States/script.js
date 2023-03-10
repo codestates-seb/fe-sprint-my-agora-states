@@ -36,22 +36,23 @@ const convertToDiscussion = (obj) => {
 
 
     // 작성자/시간 넣기
+  let today = new Date(obj.createdAt);
   const discussionInfo = document.createElement('div');
   discussionInfo.className = "discussion__information";
-  const infoContent = document.createTextNode(`${obj.author} / ${obj.createdAt}`)
+  const infoContent = document.createTextNode(`${obj.author} / ${today.toLocaleString()}`)
 
   discussionInfo.appendChild(infoContent);
   discussionContent.append(discussionInfo);
 
 
-    // 체크박스 넣기
-  const checkbox = document.createElement('div');
-  checkbox.className = "discussion__answered";
-  const check_p = document.createElement('p');
-  const check_text = document.createTextNode("☑");
-  check_p.appendChild(check_text);
-  checkbox.appendChild(check_p);
-  discussionAnswered.append(checkbox);
+  //   // 체크박스 넣기
+  // const checkbox = document.createElement('div');
+  // checkbox.className = "discussion__answered";
+  // const check_p = document.createElement('p');
+  // const check_text = document.createTextNode("☑");
+  // check_p.appendChild(check_text);
+  // checkbox.appendChild(check_p);
+  // discussionAnswered.append(checkbox);
 
     // 질문 내용 넣기
   const question = document.createElement('div');
@@ -100,8 +101,6 @@ const render = (element) => {
   return;
 };
 
-
-
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
@@ -109,35 +108,38 @@ render(ul);
 
 
 // 제출 이벤트 만들기
-const submit_btn = document.querySelector(".form__submit>input");
-submit_btn.addEventListener("click", () => {
+let form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
   const name_value = document.querySelector('.form__input--name>input').value;
   const title_value = document.querySelector('.form__input--title>input').value;
   const question_value = document.querySelector('.form__textbox>textarea').value;
-  
-  let today = new Date();
+  const ul = document.querySelector('.discussions__container');
   const li = convertToDiscussion({
       id: "",
-      createdAt: today.toLocaleString(),
+      createdAt: new Date(),
       title: title_value,
       url: "",
       author: name_value,
       bodyHTML: question_value,
       avatarUrl:"https://w7.pngwing.com/pngs/565/454/png-transparent-user-computer-icons-anonymity-head-miscellaneous-face-service.png",
-    }
-    );
-    
-    if (name_value.trim() !== "" && title_value.trim() !== "" && question_value.trim() !== ""){
-      document.querySelector('.discussions__container').prepend(li);
-      document.querySelector('.form__input--name>input').value = "";
-      document.querySelector('.form__input--title>input').value = "";
-      document.querySelector('.form__textbox>textarea').value = "";
-    }
-    else {
-      alert("빈칸을 모두 입력해주세요.")
-    }
+    });
+
+
+  // 제출했을 때 값 초기화
+  if (name_value.trim() !== "" && title_value.trim() !== "" && question_value.trim() !== ""){
+    ul.prepend(li);
+    document.querySelector('.form__input--name>input').value = "";
+    document.querySelector('.form__input--title>input').value = "";
+    document.querySelector('.form__textbox>textarea').value = "";
   }
-)
+  else {
+    alert("빈칸을 모두 입력해주세요.")
+  }
+
+})
+
+
 
 
 
@@ -160,6 +162,13 @@ for (let i = 0; i < titles.length; i++) {
     }
   })
 }
+
+
+// // 페이지 네이션
+// function renderPagenation(currentPage) {
+//   // 현재 게시물의 전체 개수가 20개 이하이면 pagenation을 숨깁니다.
+//   if
+// }
 
 
 
