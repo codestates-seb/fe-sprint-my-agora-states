@@ -10,6 +10,8 @@ main{
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 li.discussion__container{
@@ -46,11 +48,37 @@ h3.discussion__title{
 
 div.discussion__information{
     text-align: right;
+    color: white;
 }
 
 div.discussion__answered{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.headline{
+    height: auto;
+    width: auto;
+}
+
+h1{
+    font-size: 300px;
+    color: white;
+}
+h2{
+    font-size: 150px;
+    color: white;
+}
+h4{
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form__container{
+    color: white;
+    width: auto;
+    height: auto;
 }
 
