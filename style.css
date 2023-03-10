@@ -51,7 +51,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     flex-direction: column;
-    padding: 50px;
+    padding: 45px;
 }
 
 
@@ -87,7 +87,7 @@ img.agoraStates:active {
 .windowsBox {
     display: flex;
     /* border: 1px solid rgb(21, 128, 17); */
-    margin-top: 30px;
+    margin-top: 15px;
     width: 1120px;
     height: 600px;
     flex-direction: row;
