@@ -1,1 +1,81 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+a, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.discussion__container {
+    width: 640px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.discussion__avatar--wrapper {
+    /* flex: 1; */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.discussion__content {
+    /* flex: 6; */
+    flex-grow: 1;
+    padding: 0 12px;
+}
+.discussion__title {
+    padding: 2px 0;
+    font-family: 'Pretendard Variable';
+    font-size: 20px;
+    font-weight: 500;
+}
+.discussion__information {
+    padding: 2px 0;
+    padding-left: 4px;
+    font-family: 'Pretendard Variable';
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.discussion__answered {
+    /* flex: 1; */
+    flex-shrink: 0;
+    width: 75px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-family: 'Pretendard Variable';
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 25px;
+    margin: 4px;
+    margin-left: 12px;
+}
+
+.hide {
+    visibility: hidden;
+}
