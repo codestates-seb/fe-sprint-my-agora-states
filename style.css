@@ -63,6 +63,7 @@ main {
 }
 
 .contents h2:nth-child(1) {
+
     color: transparent;
     -webkit-text-stroke: 2px rgb(193, 193, 193);
 }
@@ -226,6 +227,11 @@ li.discussion__container {
     backdrop-filter: blur(3.9px);
     -webkit-backdrop-filter: blur(3.9px);
     border: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+a {
+    color: rgb(87, 87, 87);
+    font-size: 15px;
 }
 
 div.discussion__avatar--wrapper {
