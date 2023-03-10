@@ -1,1 +1,167 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: '나눔스퀘어', 'sans-serif';
+}
+h1 {
+  font-family:'210 라임';
+  text-align: center;
+  font-size:3rem;
+}
+label {
+  font-family:'210 연애시대';
+  font-size:1.5em;
+  color:white;
+  margin-left:7px;
+}
+body{
+  min-height: 100vh;
+  background: var(--background); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+  margin-top:30px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.685),
+    rgba(255, 255, 255, 0.548)
+  ),url("cherry-blossom-tree-1225186.jpg");
+}
+main {
+  width: 780px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.form__container {
+  background-color:rgba(0, 0, 0, 0.562);
+  border-radius:20px;
+  padding:25px;
+  margin-top: 15px;
+}
+#name, #title, #story {
+  width:100%;
+  border-radius: 10px;
+  border:none;
+}
+#name {
+  height:2.5em;
+  margin-top:8px;
+  margin-bottom:20px;
+}
+#title {
+  height:2.5em;
+  margin-top:8px;
+  margin-bottom:20px;
+}
+#story {
+  margin-top:8px;
+  height:6em;
+}
+.form__input--name > input {
+  padding:10px;
+}
+.form__input--title > input {
+  padding:10px;
+}
+.form__textbox > textarea {
+  padding:10px;
+}
+.form__submit {
+  text-align: center;
+}
+.form__submit > input {
+  width: 50%;
+  height: 50px;
+  margin-top : 10px;
+  background-color: #ff9900cb;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 50px;
+  border:none;
+  box-shadow: 0 3px 3px 0 rgba(45, 54, 65, 0.75);
+}
+
+.form__submit > input:hover {
+  background-color: #ff6600;
+  font-weight:bold;
+}
+.discussions__container > li {
+  background-image: linear-gradient(to right, #afe7ffa8, #d7e6ffa6, #ffcd94, #fff2ce);
+  box-shadow: 0 3px 3px 0 rgba(45, 54, 65, 0.75);
+  background-size: 300% 100%;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  border-radius:20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+}
+.discussions__container > li:hover{
+  background-position: 100% 0;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.discussion__avatar--wrapper {
+  padding: 0px;
+  align-items: stretch;
+}
+.discussion__avatar--wrapper > img {
+  border-radius: 50%;
+  width:50px;
+}
+.discussion__content {
+  margin-right: auto;
+  padding: 10px 20px;
+}
+.discussion__title {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  margin-bottom: 1px;
+  color: rgb(0, 0, 0);
+}
+.discussion__answered > p {
+  width:150px;
+  color: #727272;
+  text-align:right;
+  font-size:0.85rem;
+}
+.discussion__information {
+  font-size:0.75rem;
+  color:gray;
+}
+.discussion__title > a {
+  text-decoration: none;
+  color: inherit;
+}
+.page {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.button {
+  width:40px;
+  height:50px;
+  padding:5px;
+  margin-right: 5px;
+  margin-bottom:5px;
+  font-size : 1.2rem;
+  background-color: #ffd45c;
+  border:none;
+  border-radius:10px;
+  color:white;
+  box-shadow: 0 2px 2px 0 rgba(45, 54, 65, 0.75);
+}
+.button:hover {
+  background-color:#ff9148;
+}
+.active {
+  box-shadow:inset 0 4px 4px 0 rgba(45, 54, 65, 0.75);
+  background-color: #ffcd45;
+}
