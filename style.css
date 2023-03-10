@@ -16,7 +16,18 @@ main{
 .form__container, .section3{
     width: 300px;
 }
-/* 섹션1 */
+/* 섹션3 질문란 */
+h1{
+    font-size: 100px;
+    color: rgb(136, 136, 136);
+    padding-bottom: 40px;
+    border-bottom: 3px solid rgb(226, 226, 226);
+}
+.form{
+    margin-right: 50px;
+    margin-top: 40px;
+    text-align: right;
+}
 .form__container{
     position: sticky;
     top: 150px;
@@ -25,15 +36,29 @@ main{
     display: flex;
     flex-flow: column;
     gap: 10px;
+    margin-top: 40px;
+}
+#name, #title, #story, #search{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+#story{
+    height: 200px;
+}
+#submit{
+    margin-left: 50px;
 }
 /* 하나의 디스커션 */
 .discussion__container{
     display: flex;
     flex-flow: row;
-    width: 540px;
+    width: 600px;
     justify-content: space-between;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-bottom: 1px solid gray;
 }
 /* 프로필 사진 */
 img{
@@ -47,10 +72,12 @@ img{
     flex-direction: column;
     justify-content: space-between;
     margin-left: 15px;
+    padding-bottom: 30px;
 }
 .discussion__answered{
     display: flex;
     align-items: center;
+    padding-left: 20px;
 }
 .discussion__title{
     font-size: 15px;
@@ -71,6 +98,12 @@ img{
     position: sticky;
     top: 150px;
 }
+.search{
+    text-align: right;
+    margin-right: 50px;
+    padding-bottom: 40px;
+    border-bottom: 3px solid rgb(226, 226, 226);
+}
 
 /* 버튼 */
 .btns{
@@ -78,4 +111,11 @@ img{
     flex-flow: row;
     justify-content: center;
     gap: 100px;
+    margin-bottom: 100px;
+    margin-top: 30px;
+}
+.btn{
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(136, 136, 136);
 }
