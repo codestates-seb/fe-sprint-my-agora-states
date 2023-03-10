@@ -1,1 +1,307 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    padding: 0;    
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    /* font-family: 'Dongle', sans-serif;
+    font-family: 'Kanit', sans-serif; */
+    cursor: url(./cursor.cur), auto;
+}
+
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.missForms/* 질문 입력 창 */ {
+    display: none;
+}
+
+.topText /* 상단 텍스트 바*/ {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    color: azure;
+    height: 100px;
+    padding-top: 20px;
+}
+.mainTitle/* 상단 메인 타이틀 */ {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    color: #FB4264;
+    text-shadow: 0 0 3vw #F40A35;
+    font-size: 40px;
+    cursor: url(./cursor.cur), auto;
+    animation: flicker 1s ease infinite;
+  -moz-animation: flicker 1s ease infinite;
+  -webkit-animation: flicker 1s ease infinite;
+}
+
+@keyframes flicker /* */ {
+    
+    0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }  
+  }
+
+
+  
+.topText a /* 상단 텍스트 바 중 코드스테이츠 링크  */ {
+    text-decoration-line: none;
+}
+
+.homePage {
+    position: absolute;
+    left: 6%;
+    color: #426DFB;
+    text-shadow: 0 0 3vw #2356FF;
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite
+}
+
+.urClass /* 링크 */ {
+  position:absolute;
+  right: 13%;
+  color: #426DFB;
+  text-shadow: 0 0 3vw #2356FF;
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite
+}
+
+.helpCenter /* 링크 */ {
+    position: absolute;
+    right: 5%;
+    color: #426DFB;
+    text-shadow: 0 0 3vw #2356FF;
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite
+}
+
+@keyframes flux {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+      color: #28D7FE;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+      color: #146C80;
+    }
+  }
+
+.form__container /* 질문 작성지  부모 */ {
+    width: 320px;
+    height: 300px;
+    position: relative;
+    left: 15%;
+    top: 3%;
+    transform: translate(-50%,3%);
+    background-color: #0fa;
+    padding: 5px;
+    background: rgba( 242, 236, 236, 0.05 );
+    box-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+
+#name /* 질문작성 시  이름*/ {
+    border-radius: 20px;
+    padding: 12px;
+    margin: 5px;
+    position: absolute;
+    left: 5%;
+    top: 8%;
+    color: #df3519;
+    background-color: black;
+}
+#title /* 질문작성 시  제목*/{
+    border-radius: 20px;
+    padding: 12px;
+    margin: 5px;
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    color: #df3519;
+    background-color: black;
+}
+
+#story /* 질문작성 시  질문내용*/{
+    border-radius: 20px;
+    position: absolute;
+    right: 7%;
+    top:53%;
+    width: 86%;    
+    color: #df3519;
+    background-color: black;
+    text-align: center;
+}
+
+#but /* 질문작성 제출 버튼*/{
+    position: absolute;
+    top: 10%;
+    left: 85%;
+    transform: translate(-60%, 0);
+    padding: 45px 10px;
+    border-radius: 20px;
+    color: #df3519;
+    background-color: black;
+    
+}
+
+#name::placeholder, #title::placeholder, #story::placeholder {
+    color :#df3519;
+}
+
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url(./pexels-lukas-rychvalsky-939807.jpg);
+    background-attachment: fixed;
+    background-color: black;
+    background-size:50% 50%;
+    opacity: 1;
+    overflow: scroll;
+    z-index: 2;
+}
+
+.discussion__wrapper /* 질문 박스 섹션*/ {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-7%);
+    
+}
+
+.discussions__container /* 질문 박스 묶음 */{
+    list-style-type: none;
+    font-size: 13px;
+    padding:2rem 2.5rem ;
+    background: rgba( 242, 236, 236, 0.05 );
+    box-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
+}
+
+
+.discussion__container /* 1개의 질문 박스 */{
+    display: flex;
+    width: 540px;
+    border: 1px solid #426DFB;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.discussion__avatar--wrapper /* 사진 부모 */{
+    flex-grow: 0;
+    flex-basis: 15%;
+    position: relative;
+}
+.discussion__content /* 질문과 이름,시간 부모 */ {
+    flex-grow: 1;
+    width: 90%;
+    text-align: left;
+    text-shadow: 0 0 1px orange, 0 0 2px red;;
+    color: #df3519;
+    
+}
+
+.discussion__answered /* 체크박스 부모 */{
+    position: relative;
+    left: 10px;
+    top: 10px;
+   font-size: 25px;
+   width: 10%;  
+}
+
+.discussion__answered p /* 체크박스의 이모지 */{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-70%);
+}
+
+.discussion__avatar--image /* 사진 */ {  
+    border-radius: 50%;
+    width: 48px;
+    border: 1px solid #426DFB;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+
+.discussion__title a /* 질문 링크태그 밑줄 제거 및 색 변경 */{
+    text-decoration-line: none;
+    text-shadow: 0 0 1px red, 0 0 3px red;
+    color: orange;
+}
+
+.discussion__information /* 이름이란 시간 */{
+    font-size: 15px;
+    text-align: right;
+    padding-top: 4px;
+}
+
+
+.moveTopBtn {
+    position: fixed;
+    left: 75%;
+    top: 15%;
+    text-decoration-line: none;
+    color: #426DFB;
+    text-shadow: 0 0 3vw #2356FF;
+    font-size: 30px;
+}
+
+
+.moveTopBtn {
+    animation: neon 2s ease infinite;
+    -moz-animation: neon 2s ease infinite;
+    -webkit-animation: neon 2s ease infinite;
+    -o-animation: flux 2s linear infinite;
+  }
+  
+  @keyframes neon {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+      color: #28D7FE;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+      color: #146C80;
+    }
+  }
