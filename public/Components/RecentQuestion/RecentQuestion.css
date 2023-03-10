@@ -1,12 +1,15 @@
 label {
     color: var(--color-text);
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1.35rem;
+    margin-left: 2%;
 }
 
 .recent-question-container, .hotTopic-container {
     height: auto;
-    border: solid 1px white;
+    margin-top: 10px;
+    border: solid 1px var(--color-box-border);
+    border-radius: 15px;
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -17,7 +20,7 @@ label {
 }
 
 .mini__discussion__container {
-    border: 1px solid green;
+    border-bottom: 1px solid var(--color-footer-border);
     padding: 10px;
     display: flex;
 }
@@ -31,7 +34,7 @@ label {
 }
 
 .discussion__content {
-    width: 100%;
+    width: 90%;
     border: solid 1px red;
     margin-left: 15px;
     color: var(--color-text);
