@@ -7,7 +7,7 @@ let now=0;
 
 function playAudio() {
   if(now===0){
-    music.volume = 0.5;
+    music.volume = 0.3;
     music.loop = true;
     music.play();
   now=1;  
