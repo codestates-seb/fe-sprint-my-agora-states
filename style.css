@@ -6,12 +6,25 @@
   margin: 0;
 }
 
-li {
-  list-style-type: none;
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > h1 {
+  font-size: 5rem;
+}
+
+#codestates-logo {
+  flex-basis: 10%;
+  width: 8rem;
+  text-align: center;
+  align-items: center;
 }
 
 .discussion__container {
   display: flex;
+  border: 1px solid black;
 }
 
 .discussion__wrapper {

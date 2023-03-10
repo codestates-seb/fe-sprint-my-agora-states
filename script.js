@@ -2,38 +2,63 @@
 // console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
-  const component = document.createElement("div"); // li 요소 생성
-  component.className = "discussion__container"; // 클래스 이름 지정
+// const convertToDiscussion = (obj) => {
+const component = document.createElement("div"); // li 요소 생성
+component.className = "discussion__container"; // 클래스 이름 지정
 
 
-  const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
+const avatarWrapper = document.createElement("div");
+avatarWrapper.className = "discussion__avatar--wrapper";
+const discussionContent = document.createElement("div");
+discussionContent.className = "discussion__content";
+const discussionAnswered = document.createElement("div");
+discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  avatarWrapper.innerHTML = `<img class="discussion__avatar--image"
+// Answer Text
+
+function getOnlyText(str) {
+  const div = document.createElement('div');
+  div.innerHTML = str;
+
+  return div.textContent || div.innerText || '';
+}
+
+
+
+// TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+avatarWrapper.innerHTML = `<img class="discussion__avatar--image"
   src="${obj.avatarUrl}"
   alt="avatar of ${obj.author}">`
 
-  discussionContent.innerHTML = `<h2 class="discussion__title"><a
-  href=${obj.url}>${obj.title}</a></h2>
-  <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>
-  </div>
-  `
 
-  if (obj.answer !== null) {
-    discussionAnswered.innerHTML = `<p>✅</p>`
-  } else {
-    discussionAnswered.innerHTML = `<p>❌</p>`
+
+if (obj.answer !== null) {
+  const answerText = getOnlyText(obj.answer.bodyHTML)
+  const maxLength = 100;
+  let shortedAnswerText;
+
+  if (answerText.length > maxLength) {
+    shortedAnswerText = answerText.substring(0, maxLength) + '...'
   }
 
+  discussionContent.innerHTML = `<h2 class="discussion__title"><a
+    href=${obj.url}>${obj.title}</a></h2> <p>${shortedAnswerText}</p>
+    <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>
+    </div>
+    `
+  discussionAnswered.innerHTML = `<p>✅</p>`
+} else {
+  discussionContent.innerHTML = `<h2 class="discussion__title"><a
+    href=${obj.url}>${obj.title}</a></h2> <p>답변을 기다리고 있습니다!</p>
+    <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>
+    </div>
+    `
+  discussionAnswered.innerHTML = `<p>❌</p>`
+}
 
-  component.append(avatarWrapper, discussionContent, discussionAnswered);
-  return component;
+
+component.append(avatarWrapper, discussionContent, discussionAnswered);
+return component;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -57,7 +82,7 @@ const nameInput = document.querySelector('#name')
 const titleInput = document.querySelector('#title')
 const contentInput = document.querySelector('#story')
 
-submitBtn.addEventListener('click', event => {
+submitBtn.addEventListener('submit', event => {
   event.preventDefault()
 
   const component = document.createElement('div')
@@ -89,13 +114,17 @@ submitBtn.addEventListener('click', event => {
   let currentSeconds = currentDate.getSeconds();
   currentSeconds = ('0' + currentSeconds).slice(-2)
 
+
+
+
   avatarWrapper.innerHTML = `<img class="discussion__avatar--image"
   src="https://vehrcommunications.com/wp-content/uploads/2021/12/Grinch.jpg"
   alt="avatar of ${nameInput.value}">`
 
   discussionContent.innerHTML = `<h2 class="discussion__title"><a
   href='https://www.google.com/'>${titleInput.value}</a></h2>
-  <div class="discussion__information">${currentYear}-${currentMonth}-${currentDay}T${currentHours}:${currentMinutes}:${currentSeconds}Z
+  <p>${asdf}</p>
+  <div class="discussion__information">${nameInput.value} / ${currentYear}-${currentMonth}-${currentDay}T${currentHours}:${currentMinutes}:${currentSeconds}Z
   </div >`
 
   discussionAnswered.innerHTML = `<p>❌</p>`
@@ -113,3 +142,5 @@ submitBtn.addEventListener('click', event => {
 
   console.log('Button Clicked!')
 })
+
+
