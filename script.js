@@ -1,9 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-// submit 했을때 추가되는 함수를 만들어보자.
-// 일단 addEventListner에 때려박자
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -27,7 +24,7 @@ const convertToDiscussion = (obj) => {
 
   // content
   // title
-  const discussionTitle = document.createElement("h2");
+  const discussionTitle = document.createElement("h3");
   discussionTitle.className = "discussion__title";
 
   const discussionTitleA = document.createElement("a");
@@ -38,13 +35,15 @@ const convertToDiscussion = (obj) => {
   // information
   const discussionTitleInformation = document.createElement("div");
   discussionTitleInformation.className = "discussion__information";
-  discussionTitleInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionTitleInformation.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString()}`;
 
   discussionContent.append(discussionTitle, discussionTitleInformation);
 
   // answered
   const discussionAnsweredCheckbox = document.createElement("p");
-  discussionAnsweredCheckbox.textContent = obj.answer ? "❌" : "✅";
+  discussionAnsweredCheckbox.textContent = obj.answer ? "✅" : "❌";
 
   discussionAnswered.append(discussionAnsweredCheckbox);
 
@@ -60,8 +59,8 @@ const render = (element) => {
   // return;
 
   // for of 를 사용한 방법.
-  for (let dis of agoraStatesDiscussions) {
-    element.append(convertToDiscussion(dis));
+  for (let discussion of agoraStatesDiscussions) {
+    element.append(convertToDiscussion(discussion));
   }
   return;
 
@@ -74,3 +73,33 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// submit 했을때 추가되는 함수를 만들어보자.
+// 일단 addEventListner에 때려박자
+// 먼저 form을 선택해
+const form = document.querySelector(".form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formName = document.querySelector("#name");
+  const formTitle = document.querySelector("#title");
+  const formStory = document.querySelector("#story"); // question
+  // convertToDiscussion() 을 이용할거니까 먼저 {} 안에 집어넣자
+  const formObj = {
+    id: "temporary id",
+    createdAt: new Date(),
+    title: formTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+    author: formName.value,
+    answer: null,
+    bodyHTML: formStory.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
+  };
+
+  agoraStatesDiscussions.unshift(formObj);
+  console.log(agoraStatesDiscussions);
+  const newLi = convertToDiscussion(agoraStatesDiscussions[0]);
+  ul.prepend(newLi);
+  form.reset();
+});
