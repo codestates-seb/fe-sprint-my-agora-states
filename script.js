@@ -82,16 +82,19 @@ render(ul, 0);
 // 객체에 추가해주기
 const form = document.querySelector(".form");
 form.addEventListener("submit", function (e) {
-  let name = document.querySelector("#name").value;
-  let title = document.querySelector("#title").value;
-  let story = document.querySelector("#story").value;
-
+  e.preventDefault();
+  let name = document.querySelector("#name");
+  let namevalue = name.value;
+  let title = document.querySelector("#title");
+  let titlevalue = title.value;
+  let story = document.querySelector("#story");
+  let storyvalue = story.value;
   const newobj = {
     id: "RandomValue",
     createdAt: "2022-04-27T08:21:48Z",
-    title: title,
+    title: titlevalue,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/12",
-    author: name,
+    author: namevalue,
     answer: {
       id: "DC_kwDOHOApLM4AKFvQ",
       createdAt: "2022-04-27T08:43:27Z",
@@ -101,17 +104,14 @@ form.addEventListener("submit", function (e) {
         '<p dir="auto">안녕하세요. <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/bruadarach/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/bruadarach">@bruadarach</a> 님!<br>\n코드스테이츠 교육 엔지니어 권준혁 입니다. <g-emoji class="g-emoji" alias="raised_hands" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64c.png">🙌</g-emoji></p>\n<p dir="auto">질문 주신 내용은  NaN이 어째서 true로 빠지지 않고 false로 가는지에 대한 의문점이 생기셔서 주신 질문으로 확인되어지는데요 !</p>\n<p dir="auto">너무나도 좋은 질문이라고 생각되어집니다 .</p>\n<p dir="auto">콘솔창에 NaN === NaN 을 입력해보시면 어떤 결과가 나오는지 알고 계신가요 ?<br>\n신기하게도 false가 출력됩니다 !</p>\n<p dir="auto">즉, anything === NaN은 false입니다.</p>\n<p dir="auto">아래 MDN 문서에 자세하게 설명 되어 있으니 한 번 읽어보시길 추천드립니다 !</p>\n<p dir="auto"><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/NaN" rel="nofollow">NaN</a></p>\n<p dir="auto">결국 NaN을 판별하기 위해서는 NaN을 판별하는 다른 함수가 필요합니다 !<br>\nMDN에도 판별 함수가 적혀져 있지만<br>\nhow to know if a variable is NaN in javascript 라는 검색어로 구글링으로 한 번 찾아보시는 것도 좋을 것 같습니다 !</p>\n<p dir="auto">답변이 되셨다면 내용을 간략하게 정리해서 코멘트를 남기고 answered를 마크해주세요 <g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji><br>\n감사합니다.<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji><br>\n코드스테이츠 교육 엔지니어 권준혁</p>',
       avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
     },
-    bodyHTML: `${story}`,
+    bodyHTML: `${storyvalue}`,
     avatarUrl:
       "https://avatars.githubusercontent.com/u/55401378?s=64&u=9ef138579365bd13856792f624c418cf760453f3&v=4",
   };
 
   agoraStatesDiscussions.push(newobj);
-
-  alert("등록 완료되었습니다");
-  e.preventDefault();
-
   name.value = "";
   title.value = "";
   story.value = "";
+  alert("등록 완료되었습니다");
 });
