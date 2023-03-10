@@ -25,7 +25,9 @@ const convertToDiscussion = (obj) => {
   contentInformation.className = "discussion__information";
   discussionContent.append(contentInformation);
 
-  contentInformation.textContent = `${obj.author} ${obj.createdAt}`;
+  contentInformation.textContent = `${obj.author} ${new Date(
+    obj.createdAt
+  ).toLocaleString("ko-KR")}`;
 
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -76,7 +78,9 @@ const convertToDiscussion = (obj) => {
 
     const answerInformation = document.createElement("div");
     answerInformation.className = "answer__information";
-    answerInformation.textContent = `${obj.answer.author} ${obj.answer.createdAt}`;
+    answerInformation.textContent = `${obj.answer.author} ${new Date(
+      obj.answer.createdAt
+    ).toLocaleString("ko-KR")}`;
 
     answerContentFolding.append(answerInformation, answerContent);
     answerContainer.append(answerAvatarWrapper, answerContentFolding);
@@ -96,3 +100,27 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const submitButton = document.querySelector(".submit-button");
+const inputName = document.querySelector(".name-field");
+const inputTitle = document.querySelector(".title-field");
+const inputContent = document.querySelector(".content-field");
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (!inputName.value || !inputTitle.value || !inputContent.value) {
+    alert("입력 사항을 모두 입력해주세요.");
+    return;
+  }
+  const createdTime = new Date().toLocaleString();
+  const newDiscussion = {
+    id: "dummy_id",
+    createdAt: createdTime,
+    title: inputTitle.value,
+    url: "#",
+    author: inputName.value,
+    answer: null,
+    avatarUrl: "https://avatars.githubusercontent.com/u/116490814?v=4",
+  };
+  agoraStatesDiscussions.unshift(newDiscussion);
+  ul.prepend(convertToDiscussion(newDiscussion));
+});
