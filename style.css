@@ -1,1 +1,211 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Space+Grotesk:wght@600&family=Ubuntu:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
+* {
+  background-color: #e8f6ef;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.discussions__container {
+  background-color: #b8dfd8;
+  border-radius: 30px;
+  width: 540px;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: "Noto Sans KR", sans-serif;
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px gray;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.form {
+  border: 2px solid black;
+}
+.discussion__container {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #ffe194;
+  border-radius: 15px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffe194;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 10px;
+  background-color: #ffe194;
+}
+.line {
+  color: black;
+  text-decoration-line: none;
+  background-color: #ffe194;
+}
+
+/*방문했을 때 링크 색상 변경*/
+
+.line:visited {
+  color: grey;
+}
+
+.discussion__title {
+  text-align: left;
+  background-color: #ffe194;
+}
+
+.discussion__information {
+  text-align: right;
+  padding-top: 5px;
+  background-color: #ffe194;
+  font-size: small;
+}
+
+.discussion__answered {
+  display: flex;
+  justify-content: end;
+  align-items: right;
+  margin-right: 10px;
+  background-color: #ffe194;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  /* vertical-align: bottom; */
+  object-fit: cover;
+  height: 50px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.check {
+  border-radius: 10px;
+  display: flex;
+  background-color: #4c4c6d;
+  padding: 7px;
+  text-align: center;
+  color: white;
+}
+/* logo */
+.logo {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: xxx-large;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 2px gray;
+}
+
+/* submit */
+.form__input--wrapper {
+  background-color: #b8dfd8;
+}
+.form {
+  width: 540px;
+  padding: 20px 30px;
+  background-color: #b8dfd8;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  box-shadow: 2px 2px 2px gray;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+}
+
+.form__input--name {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7px;
+  font-size: 22px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #b8dfd8;
+}
+.form__input--title {
+  display: flex;
+  flex-direction: column;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #b8dfd8;
+  margin-bottom: 7px;
+  font-size: 22px;
+}
+.form__textbox {
+  font-size: 22px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #b8dfd8;
+  margin-bottom: 15px;
+}
+#story {
+  display: flex;
+  /* width: 534px; */
+  width: 100%;
+  flex-direction: column;
+  height: 145px;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.form__submit {
+  display: flex;
+  margin-top: 10px;
+  background-color: #b8dfd8;
+
+  justify-content: flex-end;
+}
+.form--name {
+  background-color: #b8dfd8;
+}
+.form--title {
+  background-color: #b8dfd8;
+}
+.form--text {
+  background-color: #b8dfd8;
+}
+.submit {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  font-family: "Noto Sans KR", sans-serif;
+  align-items: center;
+  background-color: #4c4c6d;
+  color: white;
+}
+
+#name {
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  /* font-weight: bold; */
+}
+
+#title {
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid black;
+}
