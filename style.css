@@ -1,1 +1,110 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR";
+}
+section.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img#logo {
+  scale: 0.8;
+}
+h1#form__title {
+  font-size: 33px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+h2#form__title2 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+div.form__input--wrapper {
+  display: flex;
+  width: 500px;
+  font-size: 20px;
+  font-weight: 600;
+  align-items: start;
+  background-color: rgb(229, 218, 255);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 50px;
+  flex-direction: column;
+  box-shadow: 3px 3px 5px #b6b5b5;
+}
+label {
+  font-weight: 500;
+  font-size: 15px;
+  margin-right: 50px;
+  margin-left: 10px;
+}
+input#name,
+input#title,
+input#story {
+  border: 0;
+  scale: 1.3;
+  width: 300px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+input#form__button {
+  padding: 5px;
+  background-color: rgb(118, 59, 255);
+  border: 0;
+  border-radius: 5px;
+  scale: 1.2;
+  margin-left: 400px;
+  margin-top: 10px;
+  color: white;
+  font-weight: 500;
+}
+
+.discussion__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  background-color: rgb(243, 243, 243);
+}
+.discussion__container {
+  display: flex;
+  width: 540px;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 3px 3px 3px #cecece;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.discussion__avatar--image {
+  border-radius: 100%;
+}
+
+h2.discussion__title > a {
+  color: black;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.discussion__content {
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+.discussion__information {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.discussion__answered {
+  scale: 2;
+  margin: 0 20px;
+}
