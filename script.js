@@ -62,6 +62,9 @@ const answerButton = ({ answer }) => {
 };
 
 // 디스커션 추가
+
+const localStorage = window.localStorage; // 로컬스토리지 객체 생성
+
 const addDiscussionHandler = (e) => {
   e.preventDefault();
   // console.log(e.target);
@@ -73,7 +76,7 @@ const addDiscussionHandler = (e) => {
   const answer = null;
   const avatarUrl = 'https://avatars.githubusercontent.com/u/87750478?s=64&v=4';
 
-  const newdiscussion = {
+  const newDiscussion = {
     id: uuid4(),
     createdAt,
     title,
@@ -84,10 +87,12 @@ const addDiscussionHandler = (e) => {
     avatarUrl,
   };
 
-  agoraStatesDiscussions.unshift(newdiscussion);
+  agoraStatesDiscussions.unshift(newDiscussion);
   // ul.prepend(convertToDiscussion(newdiscussion));
   render(ul);
   pagination(1);
+
+  localStorage.setItem(newDiscussion.id, JSON.stringify(newDiscussion));
 
   e.target[0].value = '';
   e.target[1].value = '';
@@ -176,8 +181,17 @@ const elDiscussionForm = $('.form');
 elDiscussionForm.addEventListener('submit', addDiscussionHandler);
 
 // init
-render(ul);
-pagination(1);
+if (localStorage.length > 0) {
+  const uuids = Object.keys(localStorage);
+  for (let i = 0; i < localStorage.length; i++) {
+    agoraStatesDiscussions.unshift(JSON.parse(localStorage.getItem(uuids[i])));
+  }
+  render(ul);
+  pagination(1);
+} else {
+  render(ul);
+  pagination(1);
+}
 
 // modal 요소
 const elFormModal = $('.form__modal');
