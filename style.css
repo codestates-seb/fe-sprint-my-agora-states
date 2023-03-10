@@ -1,1 +1,143 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Maven Pro', sans-serif;
+  
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://cdn.pixabay.com/photo/2016/02/13/12/26/aurora-1197753_1280.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 30px;
+  background-color: #7997dc6c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:550px;
+  height: 100px;
+  border-radius: 20px;
+
+}
+
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 450px;
+  box-shadow: 0 0 1px;
+}
+
+.discussion__avatar--image {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #7997dc6c;
+  justify-content: center;
+  align-items: center;
+  width:550px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+input#name, input#title, textarea#story{
+  background-color: #fffbe99b;
+  border-radius: 5px;
+  width: 300px;
+  margin: 10px;
+  border:none;
+}
+
+.form__submit input {
+  background-color: #b323cc52;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0px 5px 10px 5px;
+}
+
+div.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7997dc6c;
+  justify-content: center;
+  align-items: center;
+  width:550px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+
+
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding : 10px
+}
+
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding : 10px
+}
+
+div.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 10px;
+
+}
+
+
+h2.discussion__title {
+  text-align: left;
+  font-size: 15px;
+}
+
+div.discussion__information {
+  text-align: right;
+  font-size: 10px;
+}
+
+section.discussion__wrapper {
+  background-color: #7997dc6c;
+  width:550px;
+  border-radius: 20px;
+  margin : 30px;
+  display: flex;
+  justify-content: center;
+  box-shadow: black;
+}
+
+li.discussion__container {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #a4dbe350;
+  margin: 20px;
+  border-radius: 20px;
+}
+
