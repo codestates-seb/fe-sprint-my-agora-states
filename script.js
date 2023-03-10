@@ -1,7 +1,9 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 if (localStorage.discussions === undefined) localStorage.setItem("discussions", JSON.stringify(agoraStatesDiscussions));
+localStorage.setItem("filter-likes", JSON.stringify(false));
 
 let discussions = [];
+let likes = [];
 
 function saveDiscussion() {
   localStorage.setItem("discussions", JSON.stringify(discussions));
@@ -22,6 +24,7 @@ form.addEventListener("submit", (event) => {
     bodyHTML: story.value,
     avatarUrl: "./rocket-boy.png",
     answer: null,
+    like: false,
   };
   ul.prepend(convertToDiscussion(newDiscussion));
   discussions.unshift(newDiscussion);
@@ -39,7 +42,8 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-  const discussionMarked = document.createElement("div");
+  const discussionLiked = document.createElement("div");
+  discussionLiked.className = "discussion__liked";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const image = document.createElement("img");
@@ -67,25 +71,50 @@ const convertToDiscussion = (obj) => {
   answer.textContent = obj.answer === null ? "🌝" : "✅";
   discussionAnswered.append(answer);
 
-  const mark = document.createElement("input");
-  mark.type = "checkbox";
-  mark.addEventListener("click", () => {});
-  discussionMarked.append(mark);
+  const like = document.createElement("input");
+  like.type = "checkbox";
+  if (obj.like) like.checked = true;
+  else like.checked = false;
+  like.addEventListener("click", () => {
+    if (obj.like) {
+      obj.like = false;
+    } else {
+      obj.like = true;
+    }
+    saveDiscussion();
+  });
+  discussionLiked.append(like);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent, discussionAnswered, discussionLiked);
   return li;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < discussions.length; i += 1) {
-    element.append(convertToDiscussion(discussions[i]));
+const render = (element, currentData) => {
+  for (let i = 0; i < currentData.length; i += 1) {
+    element.append(convertToDiscussion(currentData[i]));
   }
   return;
 };
 
 discussions = JSON.parse(localStorage.getItem("discussions"));
-console.log("discussion", discussions);
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, discussions);
+
+const button = document.querySelector(".discussion__likes");
+button.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (JSON.parse(localStorage.getItem("filter-likes"))) {
+    ul.innerHTML = "";
+    render(ul, discussions);
+    localStorage.setItem("filter-likes", JSON.stringify(false));
+  } else {
+    ul.innerHTML = "";
+    discussions = JSON.parse(localStorage.getItem("discussions"));
+    likes = discussions.filter((discussion) => discussion.like);
+    render(ul, likes);
+    localStorage.setItem("filter-likes", JSON.stringify(true));
+  }
+});

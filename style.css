@@ -106,6 +106,19 @@ textarea {
   background-color: var(--darkgray);
 }
 
+button {
+  position: absolute;
+  margin-top: -63px;
+  margin-left: 15px;
+  width: 45px;
+  height: 45px;
+  line-height: 35px;
+  border: none;
+  border-radius: 50%;
+  font-size: 30px;
+  color: var(--pink);
+}
+
 li.discussion__container {
   display: flex;
   align-items: center;
@@ -143,8 +156,30 @@ li.discussion__container {
   font-size: 14px;
 }
 
-.discussion__answered {
-  font-size: 20px;
+.discussion__liked {
+  display: flex;
+  align-items: center;
+}
+
+.discussion__liked input {
+  position: relative;
+  visibility: hidden;
+  width: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.discussion__liked input:after {
+  content: "❤";
+  position: absolute;
+  margin-top: -11px;
+  visibility: visible;
+  color: var(--gray);
+  font-size: 24px;
+}
+
+.discussion__liked input:checked:after {
+  color: var(--pink);
 }
 
 .not-clickable {
