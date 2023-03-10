@@ -1,16 +1,16 @@
 
 // 새로운 디스커션 추가하기
+let newDiscussArr = []; // 새 오브젝트를 담을 배열. 이거를 localStorage에 전달할 것임
+
 const formSubmit = document.querySelector('.form__submit');
-// formSubmit.onclick = submitNewDiscuss();
 formSubmit.addEventListener('click', ()=> {
     submitNewDiscuss();
   })
-
+  // 엔터 방지
 formSubmit.addEventListener("keydown", evt => {
     if (evt.code === "Enter") {
         evt.preventDefault();
     }
-    
 });
 
 
@@ -26,29 +26,6 @@ function newDiscussionObj (name, title, question) {
 }
 
 
-// localStorage에 오브젝트 등록
-function newDiscussionUpload (obj) {
-  // 객체를 JSON 문자열로 변환
-  const objString = JSON.stringify(obj);
-  // setItem
-  window.localStorage.setItem('newDiscuss', objString);
-  console.log(`String으로 변환된 obj: ${objString}`); //시험용
-}
-
-// localStorage에서 오브젝트 가져오기
-function newDiscussionRender () {
-  // getItem
-  const discussString = window.localStorage.getItem('newDiscuss');
-  // JSON 문자열을 객체로 변환
-//   console.log(`LocalStorage에서 가져온 discussString: ${discussString}`); //시험용
-  const discussObj = JSON.parse(discussString);
-//   console.log(`객체화 시킨 discussObj: ${discussObj}`); //시험용
-  
-  ul.prepend(convertToDiscussion(discussObj));
-}
-
-
-
 // 페이지에 렌더
 function submitNewDiscuss() {
   const newdiscussName = document.querySelector('#name').value;
@@ -56,7 +33,18 @@ function submitNewDiscuss() {
   const newdiscussQuestion = document.querySelector('#story').value;
 //   console.log(`입력된 이름: ${newdiscussName}, 제목: ${newdiscussTitle}, 내용: ${newdiscussQuestion}`); //시험용
   const newDiscuss = new newDiscussionObj(newdiscussName,newdiscussTitle,newdiscussQuestion);
-  
-  newDiscussionUpload(newDiscuss);
-  newDiscussionRender();
+  newDiscussArr.push(newDiscuss);
+  localStorage.setItem('discussItems', JSON.stringify(newDiscussArr));
+
+  ul.prepend(convertToDiscussion(newDiscuss));
+}
+
+
+// localStroage에 아이템이 있으면 추가
+const storageItems = JSON.parse(localStorage.getItem('discussItems'));
+if (storageItems) {
+    // ul.prepend(convertToDiscussion(storageItems));
+    for (let i = 0; i < storageItems.length; i++){
+        ul.prepend(convertToDiscussion(storageItems[i]));
+    }  
 }
