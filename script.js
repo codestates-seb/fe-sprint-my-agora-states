@@ -1,3 +1,81 @@
+// 요소 노드 취득
+const ul = document.querySelector("ul.discussions__container");
+const inputName = document.querySelector("#name");
+const inputTitle = document.querySelector("#title");
+const inputStory = document.querySelector("#story");
+const submitBtn = document.querySelector("#submitBtn");
+const deleteBtn = document.querySelector(".discussion__deleteBtn");
+const nav = document.querySelector("#nav");
+const feedsContents = document.querySelector(".feeds__contents");
+const feedDetail = document.querySelector("#feedDetail");
+const feedDetailPreviousBtn = document.querySelector(
+  ".feedDetail__previousBtn"
+);
+const feedDetailContent = document.querySelector(".feedDetail__content");
+const userImg = document.querySelector(".userImg");
+const userName = document.querySelector(".userName");
+const uploadDate = document.querySelector(".uploadDate");
+const formHeaderText = document.querySelector(".form__header_text");
+const feedDetailBellBtn = document.querySelector(".feedDetail__bellBtn");
+const feedDetailQuestion = document.querySelector(".feedDetail__question");
+
+// 시간 변환 함수
+const timeConvert = function (time) {
+  return new Date(time).toLocaleString();
+};
+
+//폼전송 이벤트
+submitBtn.addEventListener("click", () => {
+  const isBlank = blankCheck();
+  if (!isBlank) {
+    discussionsArray.unshift(createQuestion());
+    formReset();
+    localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
+
+    currentPage = 1;
+    totalPage = Math.ceil(discussionsArray.length / 10);
+    render(ul);
+  }
+});
+
+// 디테일 페이지 ----------------------------------------------------
+
+// 사이드 폼 변환
+const converToForm = () => {};
+//디테일 렌더 함수
+const convertToDetail = (obj) => {
+  userImg.src = obj.avatarUrl;
+  userImg.alt = "avatar of " + obj.author;
+  userName.innerText = obj.author;
+  uploadDate.innerText = timeConvert(obj.createdAt);
+  // 사이드 폼 변경
+  formHeaderText.innerHTML = "답변하기";
+  // 없는답변 처리
+  if (obj.answer === null) return;
+  // 질문생성한거도 innerHtml 넣으면 올리기
+  feedDetailQuestion.innerHTML = obj.bodyHTML;
+  feedDetailContent.innerHTML = obj.answer.bodyHTML;
+};
+//디테일 페이지 이동
+const enterDetailPage = (obj) => {
+  nav.classList.add("hidden");
+  feedsContents.classList.add("hidden");
+  feedDetail.classList.remove("hidden");
+  // 디테일 페이지 렌더
+  convertToDetail(obj);
+};
+// 이전 페이지 이동
+feedDetailPreviousBtn.addEventListener("click", () => {
+  nav.classList.remove("hidden");
+  feedsContents.classList.remove("hidden");
+  feedDetail.classList.add("hidden");
+  formHeaderText.innerHTML = "질문하기";
+});
+// 알림 버튼
+feedDetailBellBtn.addEventListener("click", () => {
+  alert("띠링띠링");
+});
+
 // 질문 배열
 const discussionsArray = [];
 // 로컬스토리지 연동
@@ -12,11 +90,6 @@ if (localData !== null) {
 let currentPage = 1;
 let totalPage = Math.ceil(discussionsArray.length / 10);
 
-// 시간 변환 함수
-const timeConvert = function (time) {
-  return new Date(time).toLocaleString();
-};
-
 // 요소 삭제 함수
 const deleteDiscussion = function (id) {
   const ok = confirm("질문을 삭제하시겠습니까?");
@@ -29,13 +102,6 @@ const deleteDiscussion = function (id) {
     render(ul);
   }
 };
-
-// modal
-// const modal = document.querySelector(".modal");
-// const modalBackground = document.querySelector(".modal__background");
-// modalBackground.addEventListener("click", () => {
-//   modal.classList.add("hidden");
-// });
 
 const navBtns = document.querySelector("ul.nav__btns");
 
@@ -81,11 +147,14 @@ const convertToDiscussion = (obj) => {
   discussionInformation.innerText = `${obj.author} / ${timeConvert(
     obj.createdAt
   )}`;
+  discussionContent.addEventListener("click", () => {
+    enterDetailPage(obj);
+  });
+
   discussionContent.append(discussionTitle, discussionInformation);
 
   // create discussionContent anchor
   const discussionAnchor = document.createElement("a");
-  discussionAnchor.href = obj.url;
   discussionAnchor.innerText = obj.title;
   discussionTitle.appendChild(discussionAnchor);
 
@@ -106,9 +175,7 @@ const convertToDiscussion = (obj) => {
     discussionAnswerBtn.src = "./check_icon.png";
   }
   discussionAnswerBtn.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-    // 밸류를 채워넣은 모달을 순간적으로 생성해서 해당요소를 통해 discussionsArray 수정
-    // 답변 등록
+    // 누르면 상세페이지로
   });
   discussionBtnWrapper.append(discussionDeleteBtn, discussionAnswerBtn);
 
@@ -142,14 +209,7 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
-const inputName = document.querySelector("#name");
-const inputTitle = document.querySelector("#title");
-const inputStory = document.querySelector("#story");
-const submitBtn = document.querySelector("#submitBtn");
-const deleteBtn = document.querySelector(".discussion__deleteBtn");
 
 // 공백체크 함수
 const blankCheck = function () {
@@ -186,20 +246,6 @@ const createQuestion = function () {
   };
   return newObj;
 };
-
-//폼전송 이벤트
-submitBtn.addEventListener("click", () => {
-  const isBlank = blankCheck();
-  if (!isBlank) {
-    discussionsArray.unshift(createQuestion());
-    formReset();
-    localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
-
-    currentPage = 1;
-    totalPage = Math.ceil(discussionsArray.length / 10);
-    render(ul);
-  }
-});
 
 //페이지네이션
 const navButtons = document.querySelectorAll(".nav__pageBtn");

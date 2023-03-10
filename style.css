@@ -91,7 +91,7 @@ main {
 }
 #header .header__wrapper .header__container .header__user h2 {
     font-weight: 500;
-    margin-right: 8px;
+    margin-right: 4px;
 }
 #header .header__wrapper .header__container .header__user img {
     height: 40px;
@@ -132,6 +132,7 @@ main {
     flex: 1 1 0%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 .feeds__contents li .discussion__content h2 a {
     color: #3182F7;
@@ -163,6 +164,65 @@ main {
     width: 48px;
     border-radius: 50%;
     margin-right: 15px;
+}
+/* feedDetail */
+#feedDetail {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#feedDetail .feedDetail__header{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 24px;
+    justify-content: space-between;
+}
+#feedDetail .feedDetail__header img{
+    height: 40px;
+    border-radius: 50%;
+}
+#feedDetail .feedDetail__header .feedDetail__previousBtn img {
+    height: 25px;
+}
+#feedDetail .feedDetail__header .feedDetail__bellBtn img {
+    height: 23px;
+}
+/* feedDetail__content */
+#feedDetail .feedDetail__content--wrapper {
+    height: 100%;
+    overflow-y: hidden;
+}
+#feedDetail .feedDetail__content,.feedDetail__question {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 24px;
+    height: 100%;
+    overflow-y: hidden;
+}
+#feedDetail .feedDetail__content hr {
+    margin: 20px 0;
+}
+/* feedDetail__user */
+#feedDetail .feedDetail__user {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin: 0 24px;
+}
+#feedDetail .feedDetail__user .userImg {
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+#feedDetail .feedDetail__user .userInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#feedDetail .feedDetail__user .userInfo p {
+    font-size: 14px;
+    color: #8D8D8D;
 }
 
 /* nav */

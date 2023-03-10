@@ -22,8 +22,8 @@
         <div class="header__container">
           <img src="./logo.png" />
           <div class="header__user">
-            <h2>너굴 부동산</h2>
-            <img src="./raccoon.jpg"/>
+            <h2>라이언 하르트</h2>
+            <img src="./ryan.jpg"/>
           </div>
         </div>
       </div>
@@ -44,14 +44,40 @@
                 <img src="./next_icon.png"/>
               </button>
             </nav>
-            <!-- <div id="feedDetail">
-            </div> -->
+            <!-- 피드 상세페이지 -->
+            <section id="feedDetail" class="hidden">
+              <div class="feedDetail__header">
+                <button class="feedDetail__previousBtn">
+                  <img src="./previous_icon.png"/>
+                </button>
+                <button class="feedDetail__bellBtn">
+                  <img src="./bell_icon.png"/>
+                </button>
+              </div>
+              <div class="feedDetail__content--wrapper">
+                <div class="feedDetail__user">
+                  <img class="userImg"/>
+                  <div class="userInfo">
+                    <h5 class="userName"></h5>
+                    <p class="uploadDate"></p>
+                  </div>
+                </div>
+                <div>질문</div>
+                <div class="feedDetail__question">
+                  <!-- 디테일 질문 렌더 -->
+                </div>
+                <div>답변</div>
+                <div class="feedDetail__content">
+                  <!-- 디테일 렌더 -->
+                </div>
+              </div>
+            </section>
         </div>
-        <!-- 질문폼 -->
+        <!-- 사이드 폼 -->
         <aside id="form">
           <form action="" method="get" class="form">
             <div class="form__header">
-              <h2>질문하기</h2>
+              <h2 class="form__header_text">질문하기</h2>
               <img src="./info_icon.png"/>
             </div>
             <div class="form__input--wrapper">
@@ -68,7 +94,7 @@
                 <textarea
                   id="story"
                   name="story"
-                  placeholder="질문을 작성하세요"
+                  placeholder="내용을 작성하세요"
                   required
                 ></textarea>
               </div>
