@@ -46,6 +46,8 @@ header {
   justify-content: space-around;
   align-items: center;
   background-color: #1b1d2a;
+  z-index: 1;
+  border-bottom: solid 5px #0c0f1d;
 }
 
 /* 임시 */
@@ -197,20 +199,25 @@ button#btn-close {
 .discussions__container {
   width: 540px;
   display: flex;
+  position: sticky;
+  top: 20vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #1b1d2a;
+  border-radius: 16px;
+  margin-top: 50px;
 }
 .discussion__container {
   width: 540px;
-  border: solid 3px #0c0f1d;
-  border-width: 3px 0px;
+  border: solid 1px #0c0f1d;
+  border-width: 1px 0px;
 }
 .discussion__information {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
 }
 .discussion__name-date {
   display: flex;
@@ -244,15 +251,34 @@ button#btn-close {
 }
 .discussion__content {
   display: block;
+  margin: 10px 10px;
 }
 .discussion__content a {
   color: rgba(255, 255, 255, 0.8);
 }
+.discussion__body {
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+}
+.discussion__body > p {
+  font-size: 1rem;
+  margin: 0px;
+  padding: 0 5px;
+}
 .discussion__answered {
   margin-right: 15px;
 }
-.discussion__answered p {
+.discussion__answered > p {
   font-size: 2rem;
+}
+.discussion__container > p {
+  font-size: 2rem;
+}
+.discussion__information > p {
+  font-size: 2rem;
+  margin-right: 15px;
 }
 
 @keyframes sponsor {

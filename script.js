@@ -112,7 +112,20 @@ const fillAvatarWrapper = (obj) => {
   avatarWrapper.append(avatar);
   return avatarWrapper;
 };
-
+const fillNameDate = (obj) => {
+  const divNameDate = document.createElement("div");
+  divNameDate.classList.add("discussion__name-date");
+  const divName = document.createElement("div");
+  divName.classList.add("discussion__name");
+  const divDate = document.createElement("div");
+  divDate.classList.add("discussion__date");
+  //children
+  const now = customDate(dateToObject(obj.createdAt));
+  divName.textContent = obj.author;
+  divDate.textContent = now;
+  divNameDate.append(divName, divDate);
+  return divNameDate;
+};
 const fillDiscussionContent = (obj) => {
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
@@ -124,13 +137,9 @@ const fillDiscussionContent = (obj) => {
   aLink.href = obj.url;
   aLink.textContent = obj.title;
   // div - discussion__information obj.author, obj.createdAt
-  const divInfo = document.createElement("div");
-  const now = customDate(dateToObject(obj.createdAt));
-  divInfo.textContent = `${obj.author} / ${now}`;
 
   h2Title.append(aLink);
   discussionContent.append(h2Title);
-  discussionContent.append(divInfo);
   return discussionContent;
 };
 
@@ -147,26 +156,39 @@ const fillDiscussionAnswered = (obj) => {
   return discussionAnswered;
 };
 
+const fillBodyHTML = (obj) => {
+  const body = document.createElement("div");
+  body.classList.add("discussion__body");
+  body.setHTML(obj.bodyHTML);
+  return body;
+};
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
+  const divInformation = document.createElement("div");
   const avatarWrapper = fillAvatarWrapper(obj);
-  const discussionContent = fillDiscussionContent(obj);
+  const divNameDate = fillNameDate(obj);
+  divInformation.classList.add("discussion__information");
+  const body = fillBodyHTML(obj);
   // obj 안에 answer 있는 경우에만 함수 호출 => undefined는 나중에 꾸밀 때 조정하기
   const discussionAnswered = obj.answer ? fillDiscussionAnswered(obj) : void 0;
-
-  li.append(avatarWrapper, discussionContent);
+  const discussionContent = fillDiscussionContent(obj);
+  divInformation.append(avatarWrapper, divNameDate);
   if (discussionAnswered) {
     const p = document.createElement("p");
     p.textContent = "✅";
-    li.append(p);
+    divInformation.append(p);
     li.append(discussionAnswered);
   } else {
     const p = document.createElement("p");
     p.textContent = "☑️";
-    li.append(p);
+    divInformation.append(p);
   }
+  li.prepend(body);
+  li.prepend(discussionContent);
+  li.prepend(divInformation);
+
   return li;
 };
 
