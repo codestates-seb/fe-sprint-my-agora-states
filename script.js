@@ -14,30 +14,35 @@ const saveLocalStorageDate = (data) => {
     window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
 };
 
-// 페이징 작업
+// 페이징 작업 (0~8) (9~17) (18~26)
+// 페이지는 1부터 시작이지만, 게시글은 인덱스 0번부터 불러온다.
 const getPagedDiscussions = (pageNumber) => {
     const pageSize = PAGE_SIZE;
     const startIndex = pageSize * (pageNumber - 1);
     const endIndex = startIndex + (pageSize - 1);
+
     return loadLocalStorageDate().slice(startIndex, endIndex + 1);
 };
 
-// 페이징 바 만들기
+// 페이징 바 만들기(화면 새로 렌더링할 때마다 새로 그림!)
 const createNavi = (ul) => {
     const naviSize = Math.ceil(loadLocalStorageDate().length / PAGE_SIZE);
     const discussionFooter = document.querySelector('#pagination_container');
 
+    // '<' 버튼을 누르면 pageNumber - 1 해주기
     const naviPrev = document.createElement('a');
     naviPrev.textContent = '<';
     naviPrev.className = 'pagination-button';
     naviPrev.href = '#';
-    naviPrev.addEventListener('click', () => {
+    naviPrev.addEventListener('click', (e) => {
+        e.preventDefault();
         pageNumber = pageNumber - 1;
         if (pageNumber < 1) pageNumber = 1;
         render(ul);
     });
     discussionFooter.appendChild(naviPrev);
 
+    // '숫자' 버튼을 누르면 해당 pageNumber로 렌더링
     for (let i = 0; i < naviSize; i++) {
         const navi = document.createElement('a');
         navi.textContent = i + 1;
@@ -50,14 +55,15 @@ const createNavi = (ul) => {
         discussionFooter.appendChild(navi);
     }
 
+    // '>' 버튼을 누르면 pageNumber + 1 해주기
     const naviEnd = document.createElement('a');
     naviEnd.textContent = '>';
     naviEnd.className = 'pagination-button';
     naviEnd.href = '#';
-    naviEnd.addEventListener('click', () => {
+    naviEnd.addEventListener('click', (e) => {
+        e.preventDefault();
         pageNumber = pageNumber + 1;
         if (pageNumber > naviSize) pageNumber = naviSize;
-        console.log(pageNumber);
         render(ul);
     });
     discussionFooter.appendChild(naviEnd);
@@ -69,8 +75,6 @@ if (!loadLocalStorageDate()) {
 
 const $submit = document.querySelector('.form');
 $submit.addEventListener('submit', (e) => {
-    // e.preventDefault();
-
     const obj = {
         id: 'guest',
         createdAt: dateFormating(),
@@ -92,8 +96,8 @@ $submit.addEventListener('submit', (e) => {
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-    const li = document.createElement('li'); // li 요소 생성
-    li.className = 'discussion__container'; // 클래스 이름 지정
+    const li = document.createElement('li');
+    li.className = 'discussion__container';
 
     const avatarWrapper = document.createElement('div');
     avatarWrapper.className = 'discussion__avatar--wrapper';
@@ -140,7 +144,7 @@ const convertToDiscussion = (obj) => {
 };
 
 const render = (element) => {
-    console.log(element);
+    // 현재 화면에 그려진 요소들을 새로 렌더링하기 위해 기존 요소들 삭제
     while (element.hasChildNodes()) {
         element.removeChild(element.firstChild);
     }
