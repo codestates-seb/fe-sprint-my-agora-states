@@ -1,1 +1,248 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('./src/Cafe24Ssurround.ttf');
+}
+@font-face {
+    font-family: 'Maplestory OTF Light';
+    src: url('./src/Maplestory\ OTF\ Light.otf')
+}
+
+:root {
+        --light-brown: rgb(243,233,199);
+        --brown: rgb(208,135,55);
+        --grayish-green: rgb(125, 112, 87);
+ }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./src/grass.jpeg);
+    background-repeat: repeat;
+    font-family: 'Cafe24Ssurround';
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome_view{
+    height: 81vh;
+    min-height: 700px;
+    margin: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.title_img{
+    width: 40vw;
+    min-width: 320px;
+    animation: motion 1s linear 0s infinite alternate;}
+        
+@keyframes motion {
+	0% {transform: translate(0, 0);}
+	100% {transform: translate(0, -10px);}
+}
+
+.chatbox_tag{
+    font-family: 'Maplestory OTF Light';
+    font-size: 1.3rem;
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    transform: rotate(-6deg);
+}
+
+.form__container{
+    position: relative;
+    background-image: url(./src/대화창.png);
+    background-repeat: no-repeat;
+    background-size: 950px 350px;
+    width: 950px;
+    height: 350px;
+}
+
+form{
+    position: relative;
+    top: 17%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    appearance: none;
+    border: 2px solid rgb(196, 115, 29);
+    border-radius: 6px;
+    height: 40px;
+    margin: 10px;
+    font-size: 1rem;
+    padding-left: 5px;
+}
+
+input:not(.submitBtn):focus{
+    outline: none;
+    border: 2px solid rgb(196, 115, 29);
+    background-color: antiquewhite;
+}
+
+#story:focus{
+    outline: none;
+    border: 2px solid rgb(196, 115, 29);
+    background-color: antiquewhite;
+}
+
+#name{
+    width: 200px;
+    font-family: 'Maplestory OTF Light';
+}
+
+#title{
+    width: 600px;
+    font-family: 'Maplestory OTF Light';
+}
+#story{
+    appearance: none;
+    border: 2px solid rgb(196, 115, 29);
+    border-radius: 6px;
+    width: 600px;
+    height: 90px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 1rem;
+    font-family: 'Maplestory OTF Light';
+}
+
+textarea::placeholder{
+    font-family: 'Maplestory OTF Light';
+}
+
+label{
+    color:rgb(196, 115, 29);
+    font-size: 1.2rem;
+}
+
+.form__textbox > label{
+    position: relative;
+    top: -50px;
+}
+
+.submitBtn{
+    position: absolute;
+    right: 18%;
+    top: 90%;
+  appearance: none;
+  background-color: transparent;
+  color: rgb(196, 115, 29);
+  font-family: "Cafe24Ssurround";
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border: none;
+}
+
+.submitBtn:hover{
+    color: rgb(149, 87, 21);
+}
+
+.submitBtn:active{
+    transform: translate(2px, 3px);
+}
+
+.discussion__wrapper{
+    background-color: rgb(85, 116, 98);
+    padding: 30px 50px;
+    border-radius: 15px;
+}
+
+li.discussion__container{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1000px;
+}
+
+.discussion__avatar--image{
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.discussion__content{
+    flex-grow: 1;
+}
+
+.discussion__title{
+    margin: 10px 0;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    word-wrap: break-word;
+}
+
+a{
+    color: var(--grayish-green);
+    text-decoration: none;
+    font-stretch: narrower;
+}
+
+.discussion__information{
+    font-size: 0.9rem;
+}
+
+.discussion__answered{
+    font-size: 2rem;
+    margin-left: 20px;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 50px 0;
+    padding: 20px;
+}
+
+#page_numbers {
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+  }
+
+.list {
+    list-style: none;
+   float: left;
+   margin: 0 30px;
+   font-size: 1.5rem;
+}
+
+.list a:hover{
+    color: rgb(196, 115, 29);
+}
+
+.list a:active{
+    color: white;
+}
+
+.hide{
+    display: none !important;
+}
+
+.active{
+    font-size: 2rem;
+}
