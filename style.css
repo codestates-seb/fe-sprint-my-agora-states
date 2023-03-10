@@ -148,6 +148,7 @@ main {
   max-width: 700px;
   min-width: 590px;
   visibility: hidden;
+  margin-bottom: 50px;
   opacity: 0;
 }
 
