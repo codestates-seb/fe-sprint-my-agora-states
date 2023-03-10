@@ -40,7 +40,7 @@ main {
 section.main {
   width: 100vw;
   height: 100vh;
-  background-image: url('/img/main--bg.png');
+  background-image: url('../img/main--bg.png');
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@ section.main {
 .banner {
   width: 100vw;
   height: 36vh;
-  background-image: url('/img/banner--bg.png');
+  background-image: url('../img/banner--bg.png');
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
