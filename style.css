@@ -1,1 +1,232 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(250, 166, 225);
+}
+
+a:hover{
+    color: rgb(248, 72, 204);
+}
+
+h1{
+    margin-top: 50px;
+    color: rgb(250, 166, 225);
+    display: flex;
+    padding: 12px;
+    font-size: 50px;
+    justify-content: center;
+}
+
+.form__input--wrapper > div, .form__submit {
+    margin: 10px;
+}
+
+div > label {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(235, 235, 235);
+}
+
+input{
+    border: white;
+    border-radius: 48px;
+    box-shadow:  10px 10px 60px #cccccc,
+                -10px -10px 60px #ffffff;
+    padding: 10px;
+    width: 100%;
+}
+
+.form__submit{
+    width: 100px;
+    margin: 10px;
+}
+
+.form__submit > input{
+    width: 100px;
+    height: 100%;
+    font-size: 20px;
+    color: white;
+    background-color:black
+}
+
+.form__submit > input:hover{
+    background-color: rgb(250, 166, 225);
+}
+
+textarea{
+    display: flex;
+    justify-content: center;
+    border: white;
+    border-radius: 48px;
+    box-shadow:  10px 10px 60px #cccccc,
+                -10px -10px 60px #ffffff;
+    padding: 10px;
+    width: 100%;
+}
+
+textarea::placeholder{
+    line-height: 15px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+.form__container{
+    width: 540px;
+    margin: 30px;
+    padding: 12px;
+}
+
+.form__container > form {
+    display: flex;
+}
+
+.form__input--wrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.form__input--wrapper > div{
+    display: flex;
+}
+
+.discussion__wrapper{
+    width: 540px;
+}
+
+.discussions__container{
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+}
+
+.discussion__container{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid rgb(235, 235, 235);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 12px;
+    height: 200px;
+}
+
+.discussion__container > div{
+    border: 2px solid rgb(235, 235, 235);
+    padding: 15px;
+}
+
+.discussion__content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px 12px 0px 12px;
+}
+
+.discussion__information{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgb(200, 128, 218);
+}
+
+.discussion__information:hover{
+    color: rgb(158, 27, 190);
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    transition: all 0.1s linear;
+}
+
+img:hover{
+    transform: scale(1.4);
+}
+
+.discussion__answered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: rgb(250, 166, 225);
+}
+
+/* 상단 가는 버튼 */
+.arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    font-size: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: rgb(250, 166, 225);
+    background-color: white;
+    transition: all 100ms ease-in;
+    border: white;
+    box-shadow: 4px 8px 19px -4px black;
+}
+
+.arrow-up:hover{
+    cursor: pointer;
+}
+
+.arrow-up:active{
+    color: rgb(248, 72, 204);
+}
+
+.pagination{
+    display: flex;
+    background-color: white;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 2px 10px -4px black;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.page{
+    padding: 15px;
+    text-align:center;
+    list-style: none;
+    font-size: 24px;
+    color: rgb(250, 166, 225);
+}
+
+.page:hover{
+    color: rgb(248, 72, 204);
+    cursor: pointer;
+}
