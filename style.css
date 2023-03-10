@@ -385,15 +385,27 @@ footer {
   user-select: none;
 }
 
+.link {
+  margin-bottom: 10px;
+  display: flex;
+  font-size: 1.2rem;
+  gap: 10px;
+}
+
 footer p {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 footer p:first-of-type {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 10px;
+}
+
+footer a {
+  color: white;
 }
 
 .state {
