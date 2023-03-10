@@ -1,4 +1,4 @@
-// 깃허브 연결이 잘 되었는지 확인 세 번째
+// 깃허브 연결이 잘 되었는지 확인 다섯 번째
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
 
