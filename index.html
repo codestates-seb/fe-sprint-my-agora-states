@@ -16,29 +16,32 @@
   <body>
     <main>
       <div class="header">
-        <div>
-          <img src="./images.png" alt="logo" />
+        <div class="logo">
+          <img onclick="newPage()" src="./images.png" alt="logo" />
         </div>
         <h1>My Agora States</h1>
       </div>
+      <div class="question_button">질문 할래요!</div>
       <section class="form__container">
-        <form action="" method="get" class="form">
+        
+        <form action="" method="get" class="form hide">
           <div class="form__input--wrapper">
             <div class="form__input--name">
-              <label for="name">Enter your name: </label>
+              <label for="name">이름: </label>
               <input type="text" name="name" id="name" required />
             </div>
             <div class="form__input--title">
-              <label for="title">Enter your title: </label>
+              <label for="title">제목: </label>
               <input type="text" name="title" id="title" required />
             </div>
             <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
+              <label for="story">질문내용: </label>
+              <input type="text"
                 id="story"
                 name="story"
                 placeholder="질문을 작성하세요"
-                required></textarea>
+
+                required></input>
             </div>
           </div>
           <div class="form__submit">
@@ -70,8 +73,11 @@
           </li>
         </ul>
       </section>
+      <div class="buttons"></div>
     </main>
   </body>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="data.js"></script>
   <script src="script.js"></script>
 </html>
