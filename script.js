@@ -44,20 +44,19 @@ const convertToNotice = (obj) =>{
 
   //discussionAnswered > p
   const answerChecked = document.createElement("p");
-  answerChecked.textContent = obj.answer === null ? '☒' : '☑';
+  answerChecked.innerHTML = obj.answer === null ? '' : `<button><i class="fa-regular fa-comment"></i><span>${obj.answer.length}</span></button`;
   discussionAnswered.append(answerChecked);
 
   const li_container = document.createElement("div");
   li_container.setAttribute("class", "li_container");
   li_container.append(avatarWrapper, discussionContent, discussionAnswered);
-  // li.append(avatarWrapper, discussionContent, discussionAnswered);
+  
   li.append(li_container);
   return li;
 
 }
 const convertToDiscussion = (obj) => {
-  // const container = document.createElement("div");
-  
+
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
   li.id = obj.id;
@@ -93,19 +92,15 @@ const convertToDiscussion = (obj) => {
   discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
   discussionContent.append(discussionTitle, discussionInfo);
 
-  //discussionAnswered > p
-  const answerChecked = document.createElement("p");
-  answerChecked.textContent = obj.answer === null ? '☒' : '☑';
-  discussionAnswered.append(answerChecked);
+  //discussionAnswered 
+  discussionAnswered.innerHTML = obj.answer === null ? `<button><i class="fa-regular fa-comment"></i></button><span>0</span>` : `<button><i class="fa-solid fa-comment"></i></button><span>${[obj.answer].length}</span>`;
+ 
   const li_container = document.createElement("div");
   li_container.setAttribute("class", "li_container");
   li_container.append(avatarWrapper, discussionContent, discussionAnswered);
-  // li.append(avatarWrapper, discussionContent, discussionAnswered);
+ 
   li.append(li_container);
-  // li.append(avatarWrapper, discussionContent, discussionAnswered);
-  // container.append(li);
-
-  // return container;
+ 
   return li;
 };
 
@@ -135,7 +130,7 @@ const submitDiscussion = (event) => {
     createdAt : new Date().toISOString(),
     title : event.target[1].value,
     author : event.target[0].value,
-
+    answer : null,
     url : "",
     avatarUrl:`https://picsum.photos/seed/${event.target[0].value}/200/200`,
 
@@ -144,7 +139,6 @@ const submitDiscussion = (event) => {
   event.target[0].value = "";
   event.target[1].value = "";
   event.target[2].value = "";
-  console.log(newDiscussion);
 
   const updatedDiscussion = [newDiscussion, ...localDiscussion()];  //기존의 localDiscussion()에 unshift 
   
@@ -192,7 +186,7 @@ discussionForm.addEventListener('submit', (event) => {
 const prevBtn = document.querySelector('#prevBtn');
 const nextBtn = document.querySelector('#nextBtn');
 const paginationBtns = document.querySelector('#pagination-numbers');
-const paginationLimit = 5;
+const paginationLimit = 10;
 let currentPage;
 
 const makePaginationBtn = (index) => {
@@ -218,6 +212,8 @@ const setCurrentPage = (pageNum) => {
   currentPage = pageNum;//현재페이지 설정
 
   setActivePage();
+  handlePageSetting();
+
   const prevRange = (pageNum - 1) * Number(paginationLimit);
   const curRange = pageNum * Number(paginationLimit);
 
@@ -248,24 +244,25 @@ const seperateDiscussion = () => {
 
 
 const rendering = (num) => {
-  console.log('rendering ', num);
+  
     const { noticeDiscussions, othersDiscussions } = getPaginationBtns();
     const { prevRange, curRange } = setCurrentPage(num);
-
+    
     const noticeTitle = document.querySelector(".notice_discussion_container").children[2];
     noticeTitle.textContent = `Notice(${noticeDiscussions.length})`;
     
     const othersTitle = document.querySelector(".others_discussion_container").children[0];
     othersTitle.textContent = `Discussions(${othersDiscussions.length})`
+    
     render(noticeDiscussions, othersDiscussions, prevRange, curRange);
     
     document.querySelectorAll(".pagination-number").forEach((button) => {
       const pageIndex = Number(button.getAttribute('page-index'));
-      console.log('pageIndex',pageIndex);
+     
       if(pageIndex){
         button.addEventListener('click', () =>{
           const {prevRange, curRange} = setCurrentPage(pageIndex);
-          console.log(pageIndex);
+         
           render(noticeDiscussions, othersDiscussions, prevRange, curRange);
         });
       }
@@ -273,7 +270,7 @@ const rendering = (num) => {
   };
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (noticeDiscussions, othersDiscussions, prevRange, curRange)=>{ // noticeElement, othersElement) => {
-  console.log('render' );
+  
   const ul = document.querySelectorAll(".discussions__container");
   ul.forEach((e) => {
     e.innerHTML ="";
@@ -298,7 +295,7 @@ window.addEventListener('load', ()=>{
 })
 
 //Toggle click
-const disableButton = (i) => {
+const disableButton = (button) => {
   button.classList.add("disabled");
 }
 const enableButton = (button) => {
@@ -318,7 +315,7 @@ const toggleCloseBtn = document.querySelector('.toggleClose');
 //   }
 // });
 toggleCloseBtn.addEventListener('click',function(){
-  console.log('click');
+
   toggleCloseBtn.classList.add("disabled");
   toggleOpenBtn.classList.remove("disabled");
   const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
@@ -377,3 +374,61 @@ nextBtn.addEventListener('click', () => {
 });
 
 
+
+
+const handlePageSetting = () => {
+  pageCount = paginationBtns.querySelectorAll("button").length;
+
+  if (currentPage === 1) {
+    disableButton(prevBtn);
+  } else {
+    enableButton(prevBtn);
+  }
+
+  if (pageCount === currentPage) {
+    disableButton(nextBtn);
+  } else {
+    enableButton(nextBtn);
+  }
+}
+
+// const filter = (num) => {
+//   const inputSearchText = document.querySelector('#input_search_text');
+//   console.log(inputSearchText);
+//   const {noticeDiscussions, othersDiscussions} = seperateDiscussion();
+
+//   const filterNoticeDiscussions = noticeDiscussions.filter((e)=> e.title.includes(inputSearchText));
+//   const filterOthersDiscussions = othersDiscussions.filter((e)=> e.title.includes(inputSearchText));
+
+
+//   const { prevRange, curRange } = setCurrentPage(num);
+   
+//   render(filterNoticeDiscussions, filterOthersDiscussions,prevRange, curRange);
+ 
+// }
+
+// const searchIcon = document.querySelector('.search_icon');
+// const searchLabel = document.querySelector('.search_container_label');
+// searchIcon.addEventListener('click', ()=>{
+  
+//   filter(1);
+// });
+
+
+const topBtn = document.querySelector('.topBtn');
+
+const checkScroll = () => {
+  let pageYOffset = window.pageYOffset;
+  if(pageYOffset !== 0){
+    topBtn.classList.remove('disabled');
+  }else{
+    topBtn.classList.add('disabled');
+  }
+}
+const moveToTop = () => {
+  if(window.pageYOffset > 0){
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+}
+window.addEventListener('scroll', checkScroll);
+topBtn.addEventListener('click', moveToTop);
