@@ -44,6 +44,7 @@ a {
     height: 90vh;
     background-color: white;
     border-radius: 20px;
+    backdrop-filter: blur(10px);
 }
 
 .form__input--wrapper > div {
