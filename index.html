@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
@@ -15,48 +17,68 @@
   </head>
 
   <body>
+    <header id="header">
+      <div class="header__wrapper">
+        <div class="header__container">
+          <img src="./logo.png" />
+          <div class="header__user">
+            <h2>너굴 부동산</h2>
+            <img src="./raccoon.jpg"/>
+          </div>
+        </div>
+      </div>
+    </header>
     <main>
-      <h1>My Agora States</h1>
-      <section class="modal hidden">
-        <div class="modal__container"></div>
-        <div class="modal__background"></div>
-      </section>
-      <section class="form__container">
-        <form action="" method="get" class="form">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+      <div class="main__container">
+        <!-- 피드 -->
+        <div id="feeds">
+            <section class="feeds__contents">
+              <ul class="discussions__container"></ul>
+            </section>
+            <nav id="nav">
+              <button class="nav__previousPage">
+                <img src="./previous_icon.png"/>
+              </button>
+              <ul class="nav__btns"></ul>
+              <button class="nav__nextPage">
+                <img src="./next_icon.png"/>
+              </button>
+            </nav>
+            <!-- <div id="feedDetail">
+            </div> -->
+        </div>
+        <!-- 질문폼 -->
+        <aside id="form">
+          <form action="" method="get" class="form">
+            <div class="form__header">
+              <h2>질문하기</h2>
+              <img src="./info_icon.png"/>
             </div>
-            <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required />
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <h4>QUESTIONER</h4>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__input--title">
+                <h4>QUESTION NAME</h4>
+                <input type="text" name="title" id="title" required />
+              </div>
+              <div class="form__textbox">
+                <h4>QUESTION CONTENT</h4>
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder="질문을 작성하세요"
+                  required
+                ></textarea>
+              </div>
             </div>
-            <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea
-                id="story"
-                name="story"
-                placeholder="질문을 작성하세요"
-                required
-              ></textarea>
+            <div class="form__submit--wrapper">
+              <button type="button" id="submitBtn">SUBMIT</button>
             </div>
-          </div>
-          <div class="form__submit">
-            <button type="button" id="submitBtn">submit</button>
-          </div>
-        </form>
-      </section>
-      <section class="discussion__wrapper">
-        <ul class="discussions__container"></ul>
-      </section>
-      <section class="nav__wrapper">
-        <nav class="nav__container">
-          <button class="nav__previusPage">👈️</button>
-          <ul class="nav__btns"></ul>
-          <button class="nav__nextPage">👉</button>
-        </nav>
-      </section>
+          </form>
+        </aside>
+      </div>
     </main>
   </body>
   <script src="data.js"></script>

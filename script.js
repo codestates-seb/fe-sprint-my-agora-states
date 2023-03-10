@@ -31,11 +31,11 @@ const deleteDiscussion = function (id) {
 };
 
 // modal
-const modal = document.querySelector(".modal");
-const modalBackground = document.querySelector(".modal__background");
-modalBackground.addEventListener("click", () => {
-  modal.classList.add("hidden");
-});
+// const modal = document.querySelector(".modal");
+// const modalBackground = document.querySelector(".modal__background");
+// modalBackground.addEventListener("click", () => {
+//   modal.classList.add("hidden");
+// });
 
 const navBtns = document.querySelector("ul.nav__btns");
 
@@ -92,15 +92,19 @@ const convertToDiscussion = (obj) => {
   // create discussionAnswered
   const discussionBtnWrapper = document.createElement("div");
   discussionBtnWrapper.className = "discussion__btn--wrapper";
-  const discussionDeleteBtn = document.createElement("button");
+  const discussionDeleteBtn = document.createElement("img");
   discussionDeleteBtn.className = "discussion__deleteBtn";
-  discussionDeleteBtn.innerText = "x";
+  discussionDeleteBtn.src = "./delete_icon.png";
   discussionDeleteBtn.addEventListener("click", () => {
     deleteDiscussion(obj.id);
   });
-  const discussionAnswerBtn = document.createElement("button");
+  const discussionAnswerBtn = document.createElement("img");
   discussionAnswerBtn.className = "discussion__answerBtn";
-  discussionAnswerBtn.innerText = "v";
+  if (obj.answer === null) {
+    discussionAnswerBtn.src = "./edit_icon.png";
+  } else {
+    discussionAnswerBtn.src = "./check_icon.png";
+  }
   discussionAnswerBtn.addEventListener("click", () => {
     modal.classList.remove("hidden");
     // 밸류를 채워넣은 모달을 순간적으로 생성해서 해당요소를 통해 discussionsArray 수정
@@ -200,7 +204,7 @@ submitBtn.addEventListener("click", () => {
 //페이지네이션
 const navButtons = document.querySelectorAll(".nav__pageBtn");
 const nextButton = document.querySelector(".nav__nextPage");
-const previusButton = document.querySelector(".nav__previusPage");
+const previousButton = document.querySelector(".nav__previousPage");
 
 navButtons.forEach((element) => {
   element.addEventListener("click", () => {
@@ -216,7 +220,7 @@ nextButton.addEventListener("click", () => {
   }
   render(ul);
 });
-previusButton.addEventListener("click", () => {
+previousButton.addEventListener("click", () => {
   currentPage--;
   if (currentPage <= 1) {
     currentPage = 1;
