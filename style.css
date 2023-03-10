@@ -1,33 +1,331 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
-    margin: 0; 
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'GmarketSansMedium';
+    text-decoration: none;
+    color: #333;
 }
+
+
+
 li {
     list-style: none;
 }
 
-.discussion__wrapper { width: 540px;}
+body {
+    background: url('img/bg.png');
+    background-size: contain;
+
+}
+
+
+main {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+
+    padding: 2rem;
+
+    justify-content: space-between;
+}
+
+h1.logo {
+    text-align: center;
+}
+
+h1.logo img {
+    width: 150px;
+}
+
+section.form__container {
+    position: sticky;
+    top: 0;
+    flex-basis: 30%;
+    height: calc(100vh - 2rem);
+    display: flex;
+    align-items: center;
+
+
+}
+
+section.discussion__wrapper {
+    flex-basis: calc(70% - 1rem)
+}
+
+form.form {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem;
+    flex: 1;
+    transform: translateY(-150%);
+    transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1)0.8s;
+}
+
+form.form.active {
+    transform: translateY(0);
+}
+
+form.form>*+* {
+    margin-top: 1rem
+}
+
+textarea {
+    resize: none;
+    height: 10rem;
+}
+
+.form__input--wrapper div+div {
+
+    margin-top: 2rem;
+}
+
+
+
 
 .discussion__container {
     display: flex;
     align-items: center;
 }
+
 .discussion__avatar--wrapper {
     border-radius: 50%;
     overflow: hidden;
-    width: 48px;
+    width: 70px;
+
+}
+
+ul.discussions__container {
+    display: flex;
+    flex-direction: column;
+}
+
+li.discussion__container {
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem;
+    margin: 1.5rem;
+}
+
+div.discussion__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+span.discussion__Author {
+    margin: 0 1rem;
+    padding: 0.5rem;
+    background: rgba(250, 174, 75, 0.3);
+    border-radius: 1rem
 }
 
 .discussion__avatar--image {
     display: block;
-    width: 100%; 
+    width: 100%;
 }
+
 .discussion__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-basis: 100%;
+    min-height: 5rem;
 }
 
-.discussion__information { text-align: right;}
+.discusson_date {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.discussion__answered p {
+    position: absolute;
+    top: calc(-1rem - 21px);
+    right: 1rem;
+    height: calc(1rem + 20px);
+    line-height: calc(1rem + 20px);
+    border-radius: 1rem 1rem 0 0;
+    border-bottom: 2px solid #FFF;
+    min-width: 115px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 10px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+}
+.discussion__answered p::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+}
+p.complete::after {
+   
+    background: #609966;
+}
+
+p.waiting::after {
+    background: #E7B10A
+}
+
+/* input box css */
+
+.form__input--box {
+    position: relative;
+}
+
+.form__input {
+    font-size: 1rem;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.form__input:focus {
+    outline: none;
+}
+
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.form__input:focus~label,
+.form__input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+.form__input:focus~.bar:before,
+.form__input:focus~.bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.form__input:focus~.highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* submit */
+#btnSubmit {
+    --color: #031a67;
+    font-family: inherit;
+    display: inline-block;
+    width: 8rem;
+    height: 2.6rem;
+    line-height: 2.5rem;
+    display: block;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color);
+    transition: color .5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+}
+
+#btnSubmit:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+#btnSubmit:hover {
+    color: #fff;
+}
+
+#btnSubmit:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+}
+
+#btnSubmit:hover:before {
+    top: -30px;
+    left: -30px;
+}
+
+#btnSubmit:active:before {
+    background: #0d2259;
+    transition: background 0s;
+}
