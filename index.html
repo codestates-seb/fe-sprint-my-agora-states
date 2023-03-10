@@ -26,11 +26,11 @@
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
             <div class="form__input--name">
-              <label for="name"><strong>Name</strong></label>
+              <label for="name"><strong class="Name">Name</strong></label>
               <input type="text" name="name" id="name" required />
             </div>
             <div class="form__input--title">
-              <label for="title"><strong>Title</strong></label>
+              <label for="title"><strong class="Title">Title</strong></label>
               <input type="text" name="title" id="title" required />
             </div>
             <div class="form__textbox">
@@ -99,6 +99,9 @@
       a#MOVE_TOP_BTN:hover {
         transition: 0.5s;
         transform: scale(1.5);
+      }
+      a#MOVE_TOP_BTN:active {
+        font-size: 20px;
       }
     </style>
     <script src="//code.jquery.com/jquery.min.js"></script>
