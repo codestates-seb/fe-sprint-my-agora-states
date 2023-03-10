@@ -1,6 +1,6 @@
 ## 배포 시연 화면
 
-![presentation_light](https://user-images.githubusercontent.com/65957855/224229430-b29939fc-14ba-4eee-8ebf-cab7d8346b62.gif)
+![ezgif-5-41fe775fba](https://user-images.githubusercontent.com/65957855/224230349-cc41ee00-b34b-4b5b-ba46-135dea2cddf1.gif)
 
 ## Bare Minimum Requirement Self Checklist
 
