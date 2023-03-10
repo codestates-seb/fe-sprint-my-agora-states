@@ -1,0 +1,244 @@
+#AgoraStates {
+    width: 100%;
+    height: 100vh;
+}
+
+.agora_states_page {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 23%;
+    background-color: #3E4A7B;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.733);
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    margin-top: 40vh;
+}
+
+.user_id_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 50%;
+    width: 200px;
+    height: 190px;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+
+.user h1 {
+    margin-top : 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#get_user_id {
+    margin: 0;
+    font-size: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user_link_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+
+.link_union {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    height: 35px;
+}
+
+.link_union img {
+    margin: 0 20px;
+    width: 35px;
+    transition: 0.3s;
+}
+
+.link_union img:hover {
+    transform: scale(1.1);
+}
+
+.form__container {
+    width: 100%;
+}
+
+.discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 77%;
+    justify-content: center;
+    background-color: rgb(214, 214, 214);
+}
+
+.write {
+    display: flex;
+    font-size: 2rem;
+    margin: auto;
+    margin-top: 2vh;
+    background-color: white;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+    transition: 0.3s;
+    user-select: none;
+    cursor: pointer;
+    width: 200px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.write:hover {
+    background-color: rgb(223, 223, 223);
+}
+.write:active {
+    background-color: white;
+}
+
+.discussions__container {
+    flex: 5 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 91%;
+}
+
+.discussion__container {
+    display: flex;
+    padding: 5px 0;
+    background-color: white;
+    margin: 5px 0;
+    border-radius: 8px;
+}
+
+.discussion__avatar--image {
+    width: 64px;
+    height: 64px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+#pagination {
+    list-style-type: none;
+    flex: 3 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+#pagination > li > button {
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.current_button button {
+    color: rgb(236, 93, 255);
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3;
+  }
+  
+  .modal_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 600px;
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 10px 25px rgba(92, 99, 105, 0.479);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal_title {
+    font-size: 2rem;
+    border: 1px solid rgb(223, 223, 223);
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+    border-radius: 8px;
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 10px 0;
+  }
+
+  .modal_close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .modal_open_animation {
+    visibility: visible;
+  }
+
+  #story {
+    resize: none;
+    columns: 5;
+    overflow: hidden;
+    padding-top: 20px; 
+    height: 200%;
+  }
+
+  #submit {
+    border: none;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .3);
+    background-color: white;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+    transition: 0.3s;
+    margin-top: 200px;
+    width: 30%;
+    padding: 10px 0;
+}
+
+  #submit:hover { 
+    background-color: rgb(223, 223, 223);
+  }
+
+  #submit:active {
+    background-color: white;
+  }
+
+.total_agora_list {
+    margin-left: 5vh;
+    margin-top: 5vh;
+    font-size: 1.3rem;
+    font-weight: 600;
+}

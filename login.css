@@ -1,0 +1,122 @@
+#login_site {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form_login {
+    background-color: white;
+    width: 400px;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+  }
+  
+  .title {
+    font-size: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .inputContainer {
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 17px;
+  }
+
+  .input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #bbbcbe;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+  }
+  
+  /* Hide the placeholder texts (a) */
+  
+  ::placeholder {
+    color: transparent;
+  }
+
+  .label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: white;
+    color: #bbbcbe;
+    font-size: 16px;
+    transition: 0.3s;
+    z-index: 0;
+  }
+
+  .input:focus + .label {
+    top: -7px;
+    left: 10px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(103, 226, 189);
+  }
+
+  .input:focus {
+    border: 2px solid rgb(103, 226, 189);
+  }
+
+  .input:not(:placeholder-shown)+ .label {
+    top: -7px;
+    left: 10px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .submitBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: rgb(73, 168, 140);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+    transition: 0.3s;
+  }
+  
+  .submitBtn:hover {
+    background-color: rgb(102, 226, 189);
+    transform: translateY(-2px);
+  }
+
+  .submitBtn:active {
+    background-color: rgb(73, 168, 140);
+    transform: translateY(0px);
+  }
+
+  .shift_up {
+    animation: shiftUp 1.5s;
+  }
+
+  @keyframes shiftUp {
+    0% {
+        transform: translateY(0%);
+    }
+    30% {
+        transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+  }
