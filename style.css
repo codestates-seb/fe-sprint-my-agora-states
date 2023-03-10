@@ -1,1 +1,168 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --main-color: rgb(33, 33, 36);
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--main-color);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 24px 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  width: 768px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: calc(-50vw + 384px);
+  padding-left: calc(50vw - 384px);
+  padding-right: calc(108vw - 384px);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(99, 99, 99, 0.3);
+
+  margin-bottom: 16px;
+}
+
+.header img {
+  width: 80px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.greeting {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.greeting h1 {
+  margin-bottom: 8px;
+}
+
+.form__input--wrapper input {
+  width: 100%;
+  border: 1px solid #eaebee;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-size: 16px;
+  box-shadow: none;
+  appearance: none;
+  padding: 16px;
+  background: transparent;
+  margin-bottom: 16px;
+}
+
+.form__input--wrapper textarea {
+  width: 100%;
+  border: 1px solid #eaebee;
+  box-sizing: border-box;
+  border-radius: 6px;
+  height: 200px;
+  padding: 16px;
+  font-size: 16px;
+  font-family: pretendard;
+}
+
+.form__input--wrapper textarea::placeholder {
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+}
+
+.form__submit input {
+  width: 100%;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  margin-top: 4px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.form__submit input:hover {
+  background: rgb(127, 169, 144);
+}
+
+.discussion__wrapper {
+  margin-top: 32px;
+}
+
+.discussion__wrapper > h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.discussions__container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.discussion__container {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  border-bottom: 1px solid rgba(99, 99, 99, 0.3);
+  padding-bottom: 10px;
+}
+
+.discussion__container:last-child {
+  border-bottom: none;
+}
+
+.discussion__avatar--image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.discussion__content {
+  margin-right: auto;
+}
+
+.discussion__title {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.discussion__information {
+  font-size: 12px;
+  color: rgb(72, 72, 72);
+}
+
+.discussion__answered p {
+  font-size: 28px;
+}
