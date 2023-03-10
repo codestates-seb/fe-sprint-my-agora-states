@@ -134,10 +134,7 @@ ul {
   justify-content: space-between;
   width: 900px;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.25);
   backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(2.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
@@ -162,6 +159,7 @@ ul {
 a {
   text-decoration: none; /* 링크의 밑줄 제거 */
   color: inherit; /* 링크의 색상 제거 */
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .discussion__information {
@@ -170,7 +168,7 @@ a {
   justify-content: flex-end;
   padding: 10px 10px;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.642);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .discussion__answered {
