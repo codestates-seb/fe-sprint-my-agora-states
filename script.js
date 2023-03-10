@@ -12,7 +12,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAuthor = document.createElement("div");
   discussionAuthor.className = "discussion__author";
-  const discussionTitle = document.createElement("div");
+  const discussionTitle = document.createElement("a");
   discussionTitle.className = "discussion__title";
   const discussionQuestion= document.createElement("div");
   discussionQuestion.className="discussion__question";
@@ -24,19 +24,18 @@ const convertToDiscussion = (obj) => {
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const avatarImage = document.createElement("img");
   avatarImage.src= obj.avatarUrl;
+  avatarImage.alt = "avatar of " + agoraStatesDiscussions[0].author;
   avatarWrapper.append(avatarImage);
 
-  // if(obj.answer !==null){
-  //   discussionAnswered.innerHTML=obj.answer.bodyHTML;
-  // }
-  // else {
-  //   discussionAnswered.innerHTML='unanswered';
-  // }
-
   discussionAuthor.textContent=obj.author;
+  discussionTitle.href=obj.url;
   discussionTitle.textContent=obj.title;
-  discussionInfo.textContent=obj.createdAt.slice(0,10)+' '+obj.createdAt.slice(11,19);
+  discussionInfo.textContent=`${new Date(obj.createdAt).toLocaleString()}`;
   discussionQuestion.innerHTML=obj.bodyHTML;
+  
+  const answeredCheck = document.createElement('p');
+  answeredCheck.textContent= obj.answer ? '☑' : ' ';
+  discussionAnswered.append(answeredCheck);
   discussionContent.append(discussionAuthor);
   discussionContent.append(discussionTitle);
   discussionContent.append(discussionQuestion);
@@ -58,3 +57,33 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const newPost = document.querySelector(".form");
+const newAuthor = document.querySelector("#name");
+const newTitle = document.querySelector("#title");
+const newInfo = document.querySelector("#story");
+
+newPost.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const newObj={
+    id: "unique num",
+    createdAt: new Date(),
+    title: newTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/7",
+    author: newAuthor.value,
+    answer: {
+      id: "DC_kwDOHOApLM4AKBjx",
+      createdAt: "2022-04-25T08:10:47Z",
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions/7#discussioncomment-2627825",
+      author: "kwd8905",
+      bodyHTML:
+        '<p dir="auto"><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/namwonjae/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/namwonjae">@namwonjae</a> 님 안녕하세요!<br>\n코드스테이츠 교육 엔지니어 곽운도입니다. 🙌🏻</p>\n<p dir="auto">콘텐츠 오류를 신속하게 제보해 주셔서 감사 드립니다!<br>\n말씀해 주신 내용은 현재 정정 완료하였습니다.</p>\n<p dir="auto">다시 한 번 감사드립니다.</p>\n<p dir="auto">코드스테이츠 교육 엔지니어<br>\n곽운도 드림</p>',
+      avatarUrl: "https://avatars.githubusercontent.com/u/79880249?s=64&v=4",
+    },
+    bodyHTML: newInfo.value
+      ,
+    avatarUrl: "https://avatars.githubusercontent.com/u/96907839?s=64&v=4",
+  };
+  ul.prepend(convertToDiscussion(newObj));
+  event.target.reset();
+})

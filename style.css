@@ -3,22 +3,25 @@
     margin:0;
     box-sizing: border-box;
 }
-.container {
+body {
     display:flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 header {
+    position:fixed;
     display: flex;
     justify-content: center;
     height: 100vh;
-    width: 300px;
+    width:300px;
+    /* flex-basis: 300px;
     flex-shrink: 0;
+    flex-grow: 0; */
     /* CODESTATES 배경 */
     background-image: linear-gradient(
         to bottom,
-        rgba(69, 44, 221, 0.3),
-        rgba(255, 255, 255, 0)
+        rgba(42, 45, 49,0.5),
+        rgb(42, 45, 49,1)
       ),
       url('codestates-motif.png');
 }
@@ -28,24 +31,54 @@ header > img {
     object-fit: contain;
 }
 
+main {
+    align-items: stretch;
+    flex-grow:1;
+    min-width:0;
+    margin-left: 300px;;
+    padding: 15px 0px;
+    background-color: rgba(42, 45, 49,1);
+    color: white;
+}
+main > h1 {
+    padding:0px 0px 5px 30px;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+    font-size:20px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
 
 .discussion__container{
     display: flex;
-    background-color: rgba(69, 44, 221, 0.3);
-    margin:5px;
+    /* justify-content: space-between; */
+    background-color: rgb(63, 66, 69);
+    margin: 10px 30px;
+    height:120px;
+    border-radius: 10px;
+}
+.discussion__avatar--wrapper {
+    display:flex;
+    flex-grow: 0;
+    align-items: center;
+    padding: 0px 20px 0px 15px;
+
 }
 .discussion__avatar--wrapper > img {
     width: 80px;
     height: 80px;
+    border-radius: 50%;
 }
 
 .discussion__content {
     display:flex;
+    flex-grow: 1;
+    justify-content: center;
     flex-direction: column;
-    width: 100%;
+    width:70%;
     /* width: 650px; */
     /* 질문 클릭해서 접힐때 650px로 설정하자 */
-    height: 90px;
 }
 
 .discussion__title{
@@ -59,4 +92,59 @@ header > img {
 }
 .discussion__information{
     opacity:0.6;
+}
+
+.discussion__answered {
+    display:flex;
+    flex-grow:0;
+    align-items: center;
+    padding-right:20px;
+}
+.discussion__answered > p {
+    font-size: 50px;
+}
+
+
+
+/* search */
+.search-tab {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 30px;
+    background-color: rgb(63, 66, 69);
+    border-radius: 10px;
+    height: 60px;
+    font-size:20px;
+}
+.search-tab > i {
+    margin: 5px 20px;
+}
+.search-tab__search-part{
+    display:flex;
+    align-items: center;
+    flex-grow:1;
+    padding-top:3px;
+}
+.search-tab__search-part > input {
+    width:100%;
+    height:30px;
+    border: none;
+    background-color: transparent;
+}
+.search-tab__search-part > input::placeholder{
+    font-size: 20px;
+}
+.search-tab__new-post {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(68, 44, 220,0.8);
+    height: 44px;
+    border-radius: 20px;
+    margin: 0px 20px;
+    padding: 0px 20px;
+}
+.search-tab__new-post > i {
+    margin-right: 10px
 }
