@@ -51,13 +51,13 @@ const createNavi = (ul) => {
     navi.id = i + 1;
     navi.className = "pagination-button";
     navi.addEventListener("click", (e) => {
-      let $active = document.getElementById(`${pageNumber}`);
-      $active.classList.remove("active");
+      let active = document.getElementById(`${pageNumber}`);
+      active.classList.remove("active");
       let num = e.target.textContent;
       // pageNumber = navi.id;
       pageNumber = Number(num);
-      $active = document.getElementById(`${pageNumber}`);
-      $active.classList.add("active");
+      active = document.getElementById(`${pageNumber}`);
+      active.classList.add("active");
       render(ul);
     });
     pageNavigator.appendChild(navi);
