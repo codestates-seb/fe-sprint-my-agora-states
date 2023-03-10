@@ -17,15 +17,15 @@ body {
 }
 
 
-/*////////////////////////////////////////////////////////*/
-.discussion__avatar--wrapper {
+/*///////class명이 복잡하기 때문에 요소 종류 명을 사용 //////////*/
+div.discussion__avatar--wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 
-.discussion__avatar--image {
+img.discussion__avatar--image {
     width: 48px;
     border-radius: 50px;
     margin-left: 5px;
@@ -38,30 +38,31 @@ li.discussion__container{
     width: 540px;
     height: 70px;
     background-color: rgba(0, 0, 0, 0.2);
-    list-style: none;
+    list-style: none; /*display:flex 주면 사용하지 않아도 됨 */
     border-radius: 5px;
     margin-bottom: 0.5rem;
 }
 
-.discussion__content {
+div.discussion__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 380px;
-    margin: 5px;
+    flex-grow: 1;
+    padding: 0px 20px;
 }
-.discussion__title {
+h2.discussion__title {
     font-size: 1.2rem;
 }
-.discussion__information {
+div.discussion__information {
     font-size: 0.8rem;
     text-align: end;
 }
 
-.discussion__answered {
+div.discussion__answered {
     font-size: 2rem;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-right: 5px;
 }
