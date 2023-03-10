@@ -11,6 +11,7 @@ body {
     padding: 0;
 }
 
+
 main {
     display: flex;
     flex-direction: column;
@@ -18,16 +19,38 @@ main {
     align-items: center;   
 }
 
-.discussions__container {
-    width: 540px;
+.home {
+    width: 100vw;
+    padding-left: 2vw;
+}
+
+.room {
+    width: 100vw;
+    padding-left: 3vw;
+}
+
+.contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.discussion {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
+.discussions__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 li {
-    width: 540px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
