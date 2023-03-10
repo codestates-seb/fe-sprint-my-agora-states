@@ -7,64 +7,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="myagora.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
 <body>
+  <div class="modal">
+    <div class="modal_body">
+      <div class="modal_close">❌</div>
+      <div class="modal_title">글 작성하기</div>
+      <section class="form__container">
+        <form action="" method="get" class="form">
+          <div class="form__input--wrapper">
+            <div class="inputContainer">
+              <input type="text" name="name" id="name" class="input" placeholder="a" required>
+              <label for="name" class="label">name</label>
+            </div>
+            <div class="inputContainer">
+              <input type="text" name="title" id="title" class="input" placeholder="a"  required>
+              <label for="title"class="label">title</label>
+            </div>
+            <div class="inputContainer">
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" class="input" placeholder="a" rows="3" required></textarea>
+              <label for="story"class="label">question</label>
+            </div>
+          </div>
+          <div class="form__submit">
+            <input id="submit" type="submit" value="submit">
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
   <main id="login_site">
     <form action="" class="form_login">
       <h1 class="title">로그인</h1>
 
       <div class="inputContainer">
-        <input type="text" class="input" placeholder="a" required>
+        <input type="text" class="input" id="login__id" placeholder="a" autocomplete="off" required>
         <label for="" class="label">Id</label>
       </div>
 
       <div class="inputContainer">
-        <input type="text" class="input" placeholder="a" required>
+        <input type="password" class="input" placeholder="a" required>
         <label for="" class="label">Password</label>
       </div>
 
       <input type="submit" class="submitBtn" value="Login">
     </form>
   </main>
-  <main id="AgoraStates" class="hidden">
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+  <main id="AgoraStates" >
+    <div class="agora_states_page">
+      <section class="side">
+        <div class="user">
+          <div class="user_id_area">
+            <h1 id="get_user_id"></h1>
           </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+          <h1>Agora States</h1>
+          <div class="user_link_container">
+            <div class="user_mypage">마이 페이지</div>
+            <div class="user_info">정보 변경하기</div>
           </div>
         </div>
-        <div class="form__submit">
-          <input id="submit" type="submit" value="submit">
-        </div>
-      </form>
-    </section>
+        <nav class="link_union">
+          <a href="
+          https://fragrant-queen-2a4.notion.site/e440653863c14e8e9ba8c4ebbbac13f3" target="_blank"><img id="notion-logo" src="/asset/notion.png" alt="노션 로고"></a>
+          <a href="https://github.com/KimJunpyo" target="_blank"><img id="github-logo" src="/asset/github.png" alt="깃헙 로고"></a>
+          <a href="https://velog.io/@player1552" target="_blank"><img id="velog-logo" src="/asset/velog.png" alt="벨로그 로고"></a>
+        </nav>
+      </section>
+    
     <section class="discussion__wrapper">
+      <div class="write btn-open-popup">글 쓰러가기</div>
+      <div class="total_agora_list"></div>
       <ul class="discussions__container">
-        
+      </ul>
+      <ul id="pagination">
       </ul>
     </section>
+    </div>
   </main>
-  <ul id="pagination">
-  </ul>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
 <script src="loginscript.js"></script>
+<script src="modal.js"></script>
 
 </html>

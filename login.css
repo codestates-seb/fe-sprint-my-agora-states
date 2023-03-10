@@ -32,7 +32,7 @@
     left: 0px;
     height: 100%;
     width: 100%;
-    border: 1px solid #DADCE0;
+    border: 1px solid #bbbcbe;
     border-radius: 7px;
     font-size: 16px;
     padding: 0 20px;
@@ -53,7 +53,7 @@
     left: 15px;
     padding: 0 4px;
     background-color: white;
-    color: #DADCE0;
+    color: #bbbcbe;
     font-size: 16px;
     transition: 0.3s;
     z-index: 0;
