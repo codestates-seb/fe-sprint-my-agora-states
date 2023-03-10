@@ -35,8 +35,6 @@ a {
 
 .form__container {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     position: fixed;
     top:5%;
     left:10%;
@@ -47,8 +45,13 @@ a {
     backdrop-filter: blur(10px);
 }
 
-.form__input--wrapper > div {
+.form {
+    margin-top: 50px;
+}
+
+.form__input--wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -56,6 +59,16 @@ a {
 .form__submit {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+}
+
+input.submitBtn {
+    width: 68px;
+    height: 34px;
+    border: 0px;
+    border-radius: 4px;
+    background-color: #000000;
+    color: whitesmoke;
 }
 
 li.discussion__container {
@@ -97,4 +110,36 @@ div.discussion__answered {
     height: 50px;
     width: 200px; 
     font-size: 18px;
+}
+
+.write-input {
+    width: 40vw;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin: 8px;
+}
+
+.storyText {
+    width: 40vw;
+    height: 30vh;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin: 8px;
+    align-self: right;
+}
+
+.btnContainer {
+    text-align:right;
+    padding: 20px;
+}
+
+.close {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 1px solid lightgrey;
+    background-color: white;
+    color: grey;
 }
