@@ -54,18 +54,17 @@ Github Page 배포 링크를 아래 작성합니다.
     - [x] 점점 투명화되면서 사라지도록 하기
   - [x] 상단바에 고정되면 `display:none` 이었던 `New Discussion`을 노출시킨다.
     - [x] `New Discussion`을 클릭하면 작성 폼이 모달 형태로 팝업된다.
+- [x] Top 버튼 만들기
+- [ ] Dark Mode
 - [ ] 무한스크롤
   - [ ] 스크롤이 내려가는 시각적인 피드백 제공하기
   - [ ] 10개 씩 렌더링
   - [ ] 로딩 애니메이션 추가
-- [ ] Top 버튼 만들기
-- [ ] Dark Mode
 
 ### 배포 시연 화면
 
-아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
-
-![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+- <b>Advanced Challenges</b>
+  ![image](../images/agora-advanced.gif)
 
 ### 가장 자랑하고 싶은 기능
 

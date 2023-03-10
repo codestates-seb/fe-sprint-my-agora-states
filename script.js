@@ -1,3 +1,4 @@
+'use strict';
 // import { v4 as uuid4 } from 'uuid'; // .js 붙여야되는데...? 바닐라에서는 npm 모듈을 사용하지 못하나...?
 import { v4 as uuid4 } from 'https://jspm.dev/uuid';
 import { $, $$ } from './utils/selector.js';
@@ -36,7 +37,7 @@ const convertToDiscussion = (obj) => {
   <h2 class="discussion__title"><a href="${obj.url}">${obj.title}</a></h2>
   <div class="discussion__information">${obj.author} / ${new Date(
     obj.createdAt
-  ).toLocaleTimeString()}</div>
+  ).toLocaleString()}</div>
   `;
 
   discussionAnswered.innerHTML = answerButton(obj);
@@ -172,8 +173,10 @@ document.addEventListener('scroll', () => {
 
   if (opacity < 0) {
     newDiscussionBtn.style.opacity = 1;
+    elArrowUpBtn.style.opacity = 1;
   } else {
     newDiscussionBtn.style.opacity = 0;
+    elArrowUpBtn.style.opacity = 0;
   }
 });
 
@@ -215,4 +218,11 @@ elFormModalSubmit.addEventListener('submit', (event) => {
   e.target[0].value = '';
   e.target[1].value = '';
   e.target[2].value = '';
+});
+
+// arrow up
+const elArrowUpBtn = $('.arrow-up');
+elArrowUpBtn.addEventListener('click', () => {
+  // scrollIntoView(); // 이거 왜 안됨.....???
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
