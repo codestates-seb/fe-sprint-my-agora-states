@@ -1,1 +1,207 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "LINESeedKR-Bd";
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+input {
+  font-family: "LINESeedKR-Bd";
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+label {
+  line-height: 2;
+  text-align: left;
+  display: block;
+  margin-bottom: 13px;
+  margin-top: 20px;
+  color: black;
+  font-size: 14px;
+  font-weight: 200;
+}
+textarea {
+  font-family: "LINESeedKR-Bd";
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  resize: none;
+}
+
+body {
+  background-image: url("./images/스폰지밥\ 배경2.jpg");
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+.submitsection {
+  width: 500px;
+  height: 540px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 5px 5px rgba(157, 219, 219, 0.7);
+}
+.form__submit {
+  text-align: center;
+}
+.form__submit input {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  font-size: 22px;
+  padding: 20px 60px;
+  color: white;
+  margin: 20px 10px 10px;
+  border-radius: 6px;
+  text-align: center;
+  transition: top 0.01s linear;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  background-color: #6da2d9;
+  box-shadow: 0 0 0 1px #6698cb inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 rgba(110, 164, 219, 0.7), 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.form__submit input:active {
+  top: 9px;
+  box-shadow: 0 0 0 1px #6191c2 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.discussion__wrapper {
+  width: 600px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgba(90, 177, 204, 0.871);
+  box-shadow: 10px 5px 5px rgba(101, 177, 177, 0.8);
+}
+
+.discussion__avatar--wrapper img {
+  border-radius: 70%;
+  width: 48px;
+}
+.discussions__container {
+  width: 540px;
+}
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.discussion__container div {
+  padding: 3px;
+}
+.discussion__content {
+  display: block;
+  width: 480px;
+}
+.discussion__content h2 {
+  text-align: left;
+}
+.discussion__content div {
+  text-align: right;
+}
+
+.Pagebutton button {
+  width: 50px;
+  margin: 2px;
+  border-radius: 10px;
+  background-color: #7fccde;
+  cursor: pointer;
+}
+.Pagebutton button.active {
+  top: 1px;
+  border-color: rgba(0, 0, 0, 0.34) rgba(0, 0, 0, 0.21) rgba(0, 0, 0, 0.21);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.89), 0 1px rgba(0, 0, 0, 0.05) inset;
+  position: relative;
+}
+.Pagebutton button:active {
+  top: 1px;
+  border-color: rgba(0, 0, 0, 0.34) rgba(0, 0, 0, 0.21) rgba(0, 0, 0, 0.21);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.89), 0 1px rgba(0, 0, 0, 0.05) inset;
+  position: relative;
+}
+
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.animation {
+  position: absolute;
+  z-index: 200;
+  transform-style: preserve-3d;
+  /*     animation: rotate-container 10s infinite ease-in-out alternate; */
+
+  /* overflow: hidden; */
+}
+@keyframes move {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(45vw);
+    opacity: 0;
+  }
+}
+@keyframes rotate-container {
+  0% {
+    transform: perspective(1000px) translateZ(0px);
+  }
+  100% {
+    transform: perspective(1000px) translateZ(150px);
+  }
+}
