@@ -14,13 +14,18 @@ main{
     justify-content: center;
     align-items: center;
     border: rgb(107, 78, 64)  10px solid;
-    background-color: #4A655A ;
+    background-color: rgb(12, 150, 74) ;
+}
+h1{
+    margin-top: 10px;
 }
 .form__input--wrapper{
     display: flex;
-    flex-direction: column;
+    text-align: center;
+    flex-direction: row;
     justify-content: space-between;
-    align
+    align-items: center;
+    margin: 20px;
 }
 .form__input--name{
     flex: 1;
@@ -31,15 +36,19 @@ main{
 .form__textbox{
     flex: 1;
 }
-ul.discussion__title{
+ul.discussion__container{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 li.discussion__container{
     width: 400px;
     height: 150px;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    border: 2px rgb(7, 8, 7) solid;
+    border: 1px rgba(255, 255, 255, 0.582) solid;
 }
 .discussion__avatar--wrapper{
     display: flex;
@@ -47,15 +56,17 @@ li.discussion__container{
     align-items: center;
     text-align: center;    
     width: 54px;
+    flex-grow: 1;
 }
 .discussion__avatar--image{
     border-radius: 50%;
     width: 60px;
 }
 .discussion__content{
+    width: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-grow: 1;
 }
 .discussion__title{
@@ -68,6 +79,8 @@ li.discussion__container{
     text-align: right;
 }
 .discussion__answered{
+    width: 30px;
     display: flex;
     align-items: center;
+    
 }
