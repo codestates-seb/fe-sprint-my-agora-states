@@ -1,1 +1,438 @@
+@import 'global-style.css';
+@import 'reset.css';
+
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+}
+
+/* navbar */
+#navbar {
+  position: fixed;
+  background: transparent;
+  width: 100%;
+  border-bottom: 1px solid var(--coz-purple-300);
+  box-shadow: -4px 4px 2px -2px var(--coz-purple-300);
+  transition: all var(--animation-duration) ease-in-out;
+  z-index: 2;
+}
+
+#navbar.navbar--dark {
+  background: var(--coz-blue-50);
+  padding: 8px;
+}
+
+#navbar .navbar__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#navbar .navbar__header .navbar__title {
+  color: var(--coz-purple-500);
+}
+
+.form__container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--coz-blue-10);
+}
+.form__container .form {
+  /* border: 1px solid salmon; */
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px 0px;
+  padding-top: 100px;
+}
+
+.form__container form .form__input--wrapper div {
+  margin-bottom: 10px;
+  display: flex;
+  color: var(--coz-purple-500);
+  font-weight: 600;
+}
+
+.form__container form .form__input--wrapper div .form__input--label {
+  display: block;
+  width: 150px;
+  text-align: right;
+  margin-right: 10px;
+  line-height: 36px;
+}
+
+.form__container form .form__input--wrapper div input {
+  border-radius: 5px;
+  width: 300px;
+}
+
+.form__container form .form__input--wrapper div textarea {
+  border-radius: 5px;
+  width: 300px;
+  height: 200px;
+}
+
+.form__container form .form__submit {
+  margin-left: 80%;
+}
+
+.form__container form .form__submit input {
+  background-color: var(--coz-purple-600);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.form__container form .form__submit input:hover {
+  opacity: 0.8;
+}
+
+#navbar .navbar__logo,
+#navbar .navbar__btn__wrapper {
+  margin: 10px;
+}
+
+#navbar .navbar__btn__wrapper .navbar__btn--add {
+  background-color: var(--coz-purple-600);
+  opacity: 0;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+#navbar .navbar__btn__wrapper .navbar__btn--add:hover {
+  opacity: 0.8;
+}
+
+/* discussion  */
+.discussion__wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+.discussions__container li {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
+  box-shadow: 0 0 8px var(--coz-purple-300);
+  margin-bottom: 15px;
+  border-radius: 15px;
+  padding: 30px 20px;
+}
+
+/* discussion li > avatar */
+.discussion__wrapper .discussions__container li .discussion__avatar--wrapper {
+  margin: 0 10px;
+}
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__avatar--wrapper
+  img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--coz-purple-500);
+  box-shadow: 0 0 10px var(--coz-purple-300), 0 0 20px var(--coz-purple-300);
+}
+
+/* discussion li > content */
+.discussion__wrapper .discussions__container li .discussion__content {
+  /* margin-right: 10px; */
+  padding: 10px;
+}
+.discussion__wrapper .discussions__container li .discussion__content h2 {
+  font-size: 16px;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__content
+  .discussion__information {
+  font-size: 11px;
+  margin-top: 8px;
+  color: var(--gray-500);
+}
+
+/* discussion li > answered */
+.discussion__wrapper .discussions__container li .discussion__answered {
+  margin-left: auto;
+  flex-basis: 65px;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__answered
+  .discussion__answered--state {
+  display: flex;
+  max-width: 66px;
+  align-items: center;
+  background-color: var(--coz-purple-600);
+  padding: 5px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__answered
+  .discussion__answered--state
+  .elipse {
+  display: block;
+  margin-right: 3px;
+  background-color: yellowgreen;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+}
+
+.discussion__wrapper
+  .discussions__container
+  li
+  .discussion__answered
+  .discussion__answered--state
+  .text {
+  font-size: 8px;
+}
+
+/* Discussion pagination */
+.discussion__wrapper .discussion__pagination {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.discussion__wrapper .discussion__pagination button {
+  background-color: var(--coz-blue-100);
+  border-radius: 100%;
+  color: var(--coz-purple-500);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.discussion__wrapper .discussion__pagination .pagination__wrapper {
+  display: inline-block;
+  width: 80px;
+  padding: 5px;
+  margin: 0 10px;
+  border-radius: 8px;
+  background-color: var(--coz-blue-100);
+}
+
+.discussion__wrapper
+  .discussion__pagination
+  .pagination__wrapper
+  .pagination__current {
+  color: var(--coz-purple-500);
+}
+
+/* form 모달관련 */
+.dim {
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+}
+
+.form__modal {
+  display: none;
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: var(--coz-blue-10);
+  box-shadow: 0px 0px 10px var(--coz-purple-500);
+  z-index: 999;
+}
+
+.form__modal .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #222; */
+}
+
+.form__modal .form .form__header {
+  padding: 10px;
+  color: var(--coz-purple-500);
+}
+
+.form__modal .form .form__input--wrapper {
+  width: 100%;
+  /* border: 1px solid salmon; */
+}
+
+.form__modal .form .form__input--wrapper div {
+  /* border: 1px solid salmon; */
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: var(--coz-purple-500);
+  font-weight: 600;
+}
+
+.form__modal .form .form__input--wrapper div .form__input--label {
+  display: block;
+  text-align: right;
+  margin-right: 10px;
+  line-height: 36px;
+}
+
+.form__modal form .form__input--wrapper div input {
+  border-radius: 5px;
+  width: 300px;
+  border: none;
+}
+
+.form__modal form .form__input--wrapper div textarea {
+  border-radius: 5px;
+  width: 300px;
+  height: 200px;
+}
+
+.form__modal form .form__submit input {
+  background-color: var(--coz-purple-600);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.form__modal form .form__submit input:hover {
+  opacity: 0.8;
+}
+
+.form__modal .form__btn--close {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  width: 14px;
+  height: 14px;
+  /* background-color: rgb(242, 106, 92); */
+  background-color: #ff5d5b;
+  border: 1px solid #cf544d;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.form__modal .form__btn--close::before,
+.form__modal .form__btn--close::after {
+  content: '';
+  width: 1px;
+  height: 70%;
+  background-color: #222;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+
+.form__modal .form__btn--close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.form__modal .form__btn--close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.form__modal .form__btn--close:hover::before,
+.form__modal .form__btn--close:hover::after {
+  top: 50%;
+  opacity: 1;
+}
+
+/* Arrow up */
+.arrow-up {
+  position: fixed;
+  opacity: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  bottom: 10%;
+  right: 5%;
+  background: var(--coz-blue-500);
+  border: 1px solid var(--coz-blue-700);
+  box-shadow: 0px 0px 10px var(--coz-purple-500);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.arrow-up span {
+  display: inline-block;
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #fff;
+
+  /* background-color: var(--coz-purple-100); */
+  /* border: 1px solid var(--coz-purple-500); */
+  /* margin-top: 150px; */
+  /* transition: float 1.1s ease-in-out; */
+}
+
+.arrow-up .left {
+  position: absolute;
+  height: 30px;
+  top: 12%;
+  left: 30%;
+}
+
+.arrow-up .right {
+  position: absolute;
+  height: 30px;
+  top: 12%;
+  right: 30%;
+}
+.arrow-up span:nth-of-type(1) {
+  transform: rotate(45deg);
+}
+
+.arrow-up span:nth-of-type(3) {
+  transform: rotate(-45deg);
+}
+
+@keyframes float {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 100px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
