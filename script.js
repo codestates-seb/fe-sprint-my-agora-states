@@ -42,10 +42,10 @@ const convertToDiscussion = (obj) => {
   // 답변이 달려있으면 O, 아니면 X를 추가
   let isAnswered = document.createElement('p')
   isAnswered.classList.add('discussion__answered')
-  if (obj.answer === undefined) {
+  if (obj.answer === null || obj.answer === 'no answer') {
     isAnswered.textContent = '❌'
   } else {
-    isAnswered.textContent = '⭕'
+    isAnswered.textContent = '✅'
   }
   discussionAnswered.append(isAnswered)
 
@@ -58,12 +58,12 @@ let pagenation = document.querySelector('.pagenation')
 let go_before = document.createElement('div')
 go_before.classList.add('pagenumber')
 go_before.textContent = '이전'
-  pagenation.append(go_before)
+pagenation.append(go_before)
 
-for(let i = 0; i < Math.ceil(agoraStatesDiscussions.length / 10); i++){
+for (let i = 0; i < Math.ceil(agoraStatesDiscussions.length / 10); i++) {
   let pageNum = document.createElement('div')
   pageNum.classList.add('pagenumber')
-  pageNum.textContent = i+1
+  pageNum.textContent = i + 1
   pagenation.append(pageNum)
 }
 
@@ -88,117 +88,104 @@ const render = (element, first, last) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul,0, 10);
+render(ul, 0, 10);
 
 // 페이지네이션을 위해 버튼 클릭시 나타낼 페이지를 설정
 let pagenumber = document.querySelectorAll('.pagenumber')
 let num = 0
-pagenumber[0].onclick = () =>{
-  if(num !== 0){
-    num -= 10
-  }
-  render(ul, num, num+10)
-}
-pagenumber[1].onclick = () =>{
-  num = 0
-  render(ul, num, num+10)
-}
-pagenumber[2].onclick = () =>{
-  num = 10
-  render(ul, num, num+10)
-}
-pagenumber[3].onclick = () =>{
-  num = 20
-  render(ul, num, num+10)
-}
-pagenumber[4].onclick = () =>{
-  num = 30
-  render(ul, num, num+10)
-}
-pagenumber[5].onclick = () =>{
-  num = 40
-  render(ul, num, num+10)
-}
-pagenumber[6].onclick = () =>{
-  if(num !== 40){
-    num += 10
-  }
-  render(ul, num, num+10)
-}
-
-// 모달 켜고 끄기
-let question_btn = document.querySelector('#question_btn')
-let modal = document.querySelector('.modal_overlay')
-let modal_close = document.querySelector('.modal_close')
-
-// 질문하기 버튼을 누르면 모달 생성
-question_btn.addEventListener('click', () => {
-  modal.style.display = "flex"
-  let name_blank = document.querySelector('#name')
-  let title_blank = document.querySelector('#title')
-  let story_blank = document.querySelector('#story')
-  name_blank.value = ''
-  title_blank.value = ''
-  story_blank.value = ''
-  alert.style.display = 'none'
-})
-
-// 닫기 버튼을 누르면 모달 꺼짐
-modal_close.addEventListener('click', () => {
-  modal.style.display = 'none'
-})
-
-// 폼 제출
-let form = document.querySelector('.form')
-let question_name = document.querySelector('#name')
-let question_title = document.querySelector('#title')
-let question_story = document.querySelector('#story')
-
-// 시간 정보를 가져오는 함수
-form.addEventListener('submit', (event) => {
-  function createTime() {
-    let today = new Date()
-    let year = today.getFullYear();
-    let month = today.getMonth();
-    if (month < 9) {
-      month = '0' + (Number(month) + 1);
-    } else {
-      (parseInt(month) + 1)
+for (let i = 0; i <= Math.ceil(agoraStatesDiscussions.length / 10) + 1; i++) {
+  if (i === 0) {
+    pagenumber[i].onclick = () => {
+      if (num !== 0) {
+        num -= 10
+      }
+      pagenumberFocus(num)
+      render(ul, num, num + 10)
     }
-    let day = today.getDate();
-    if (day < 10) {
-      day = '0' + day;
+  } else if (i === Math.ceil(agoraStatesDiscussions.length / 10) + 1) {
+    pagenumber[i].onclick = () => {
+      if (num !== 40) {
+        num += 10
+      }
+      pagenumberFocus(num)
+      render(ul, num, num + 10)
     }
-    let hour = today.getHours();
-    let minute = today.getMinutes();
-    let second = today.getSeconds();
-    return `${year}-${month}-${day}T${hour}:${minute}:${second}Z`;
-  }
-
-  //제출을 눌러도 새로고침이 되지 않게 함
-  event.preventDefault();
-
-  let question_obj = {}
-  question_obj.avatarUrl = 'https://avatars.githubusercontent.com/u/117385050?s=400&v=4'
-  question_obj.title = question_title.value
-  question_obj.author = question_name.value
-  question_obj.createdAt = createTime()
-  question_obj.bodyHTML = question_story.value
-
-  // 배열에 새로운 객체를 넣고 렌더링
-  agoraStatesDiscussions.unshift(question_obj)
-  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions));
-  render(ul,0, 10);
-})
-
-// 제출 버튼을 눌렀을 때, 정보가 제대로 입력되었는지 확인
-let submit_btn = document.querySelector('.form__submit')
-let alert = document.querySelector('#alert')
-submit_btn.addEventListener('click', () => {
-  if (question_name.value && question_title.value && question_story.value) {
-    modal.style.display = 'none'
   } else {
-    alert.style.display = 'flex'
+    pagenumber[i].onclick = () => {
+      num = (Number(pagenumber[i].textContent) - 1) * 10
+      pagenumberFocus(num)
+      render(ul, num, num + 10)
+    }
+    pagenumberFocus(num)
+    render(ul, num, num + 10)
   }
-})
 
+  // 페이지 버튼 포커싱
+  function pagenumberFocus(num) {
+    for (let i = 0; i <= Math.ceil(agoraStatesDiscussions.length / 10); i++) {
+      if (i === num / 10 + 1) {
+        pagenumber[i].classList.add('focus')
+      } else {
+        pagenumber[i].classList.remove('focus')
+      }
+    }
+  }
+
+  // 모달 켜고 끄기
+  let question_btn = document.querySelector('#question_btn')
+  let modal = document.querySelector('.modal_overlay')
+  let modal_close = document.querySelector('.modal_close')
+
+  // 질문하기 버튼을 누르면 모달 생성
+  question_btn.addEventListener('click', () => {
+    modal.style.display = "flex"
+    let name_blank = document.querySelector('#name')
+    let title_blank = document.querySelector('#title')
+    let story_blank = document.querySelector('#story')
+    name_blank.value = ''
+    title_blank.value = ''
+    story_blank.value = ''
+    alert.style.display = 'none'
+  })
+
+  // 닫기 버튼을 누르면 모달 꺼짐
+  modal_close.addEventListener('click', () => {
+    modal.style.display = 'none'
+  })
+
+  // 폼 제출
+  let form = document.querySelector('.form')
+  let question_name = document.querySelector('#name')
+  let question_title = document.querySelector('#title')
+  let question_story = document.querySelector('#story')
+
+  form.addEventListener('submit', (event) => {
+    //제출을 눌러도 새로고침이 되지 않게 함
+    event.preventDefault();
+
+    let question_obj = {}
+    question_obj.avatarUrl = 'https://avatars.githubusercontent.com/u/117385050?s=400&v=4'
+    question_obj.title = question_title.value
+    question_obj.author = question_name.value
+    question_obj.createdAt = new Date().toLocaleString()
+    question_obj.bodyHTML = question_story.value
+    question_obj.answer = 'no answer'
+
+    // 배열에 새로운 객체를 넣고 렌더링
+    console.log(question_obj.answer.length)
+    agoraStatesDiscussions.unshift(question_obj)
+    localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions));
+    render(ul, 0, 10);
+  })
+
+  // 제출 버튼을 눌렀을 때, 정보가 제대로 입력되었는지 확인
+  let submit_btn = document.querySelector('.form__submit')
+  let alert = document.querySelector('#alert')
+  submit_btn.addEventListener('click', () => {
+    if (question_name.value && question_title.value && question_story.value) {
+      modal.style.display = 'none'
+    } else {
+      alert.style.display = 'flex'
+    }
+  })
+}
