@@ -55,7 +55,7 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const newDiscussion = {
     id: "unique value",
-    createdAt: new Date,
+    createdAt: new Date(),
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: author.value,
@@ -64,8 +64,11 @@ form.addEventListener('submit', (event) => {
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
-  ul.prepend(convertToDiscussion(newDiscussion))
+  ul.prepend(convertToDiscussion(newDiscussion));
+  agoraStatesDiscussions.unshift(newDiscussion);
 })
+
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
