@@ -67,7 +67,7 @@ form.addEventListener('submit', (event) => {
 
   const newdiscussion = {
     id: 'none',
-    createdAt: new Date().toLocaleString(),
+    createdAt: new Date(),
     title: inputTitle.value,
     url: "https://sebfe-codestates.zendesk.com/hc/ko",
     author: inputName.value,
