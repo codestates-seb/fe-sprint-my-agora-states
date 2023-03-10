@@ -1,3 +1,7 @@
+const main = document.querySelector("main");
+main.addEventListener("click", () =>
+  document.querySelector(".avatar-select-menu").classList.add("hide")
+);
 // avatar
 const myAvatar = document.querySelector("#myAvatar");
 const defaultAvatarSrc =
