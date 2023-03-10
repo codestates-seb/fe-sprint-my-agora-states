@@ -48,62 +48,13 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// 페이지네이션
 const ul = document.querySelector(".discussions__container");
-
-// const renderDisplay = (wrapper, page, rows_page) => {
-
 if (localStorage.getItem("discussionStorage") !== null) {
   agoraStatesDiscussions = JSON.parse(
     localStorage.getItem("discussionStorage")
   );
 }
 
-//   wrapper.innerHTML = "";
-//   page--; //page를 0으로 만들어서 반복문에 사용하기좋게함
-
-//   let start = page * rows_page; // 선택한 페이지의 제일 처음요소
-//   let end = start + rows_page; // 한 페이지에 들어갈 수 있는 아이템개수만큼
-//   let paginated_items = agoraStatesDiscussions.slice(start, end);
-
-//   for (let i = 0; i < paginated_items.length; i++) {
-//     wrapper.append(convertToDiscussion(paginated_items[i]));
-//   }
-//   return;
-// };
-
-// // 페이지 버튼
-// function setupPagination(wrapper, rows_page) {
-//   // wrapper.innerHTML = "";
-
-//   let page_count = Math.ceil(agoraStatesDiscussions.length / rows_page);
-//   for (let i = 1; i < page_count + 1; i++) {
-//     let btn = paginationBtn(i);
-//     // wrapper.appendChild(btn);
-//   }
-// }
-// function paginationBtn(page) {
-//   let num = document.createElement("p");
-//   num.textContent = page;
-//   let button = createEl("button", "nav_btn");
-//   button.append(num);
-
-//   if (currentPage === page) {
-//     button.classList.add("active");
-//   }
-//   button.addEventListener("click", () => {
-//     currentPage = page;
-//     renderDisplay(ul, currentPage, itemsInPage);
-
-//     let current_btn = document.querySelector(".nav_btn.active");
-//     current_btn.classList.remove("active");
-//     button.classList.add("active");
-//   });
-//   return button;
-// }
-
-// renderDisplay(ul, currentPage, itemsInPage);
-// setupPagination(nav, itemsInPage);
 //agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   ul.innerHTML = "";
@@ -168,9 +119,6 @@ submitForm.addEventListener("submit", (e) => {
     "discussionStorage",
     JSON.stringify(agoraStatesDiscussions)
   );
-  // currentPage = 1;
-  // render(ul, currentPage, itemsInPage);
-  // setupPagination(nav, itemsInPage);
   render(ul);
   author.value = "";
   title.value = "";
