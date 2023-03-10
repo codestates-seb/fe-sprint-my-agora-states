@@ -198,6 +198,10 @@ main {
   font-size: 12px;
 }
 
+.invalid {
+  border: 2.7px solid #ff360a90 !important;
+}
+
 .form__input--wrapper input:focus,
 .form__input--wrapper textarea:focus {
   outline: none;
