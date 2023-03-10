@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Agora States</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="favicon" href="./image/My_logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+  <nav>
+    <a id = "urclass" href="https://urclass.codestates.com/"> 
+      <svg width="170" height="40" viewBox="0 0 111 29" fill="none" xmlns="http://www.w3.org/2000/svg" class="general-header__content--logo--small">
+        <path d="M31.9 0.5L29 3.4V9L31.9 11.9H47.8L50.7 9V3.5L47.8 0.6H31.9V0.5Z" fill="#452CDD"></path>
+        <path d="M19.2999 17L16.3999 19.9V25.5L19.2999 28.4H47.6999L50.5999 25.5V19.9L47.6999 17H19.2999Z" fill="#0D2259"></path>
+        <path d="M2.9 17L0 19.9V25.5L2.9 28.4H8.5L11.4 25.5V19.9L8.5 17H2.9Z" fill="#0D2259"></path>
+        <path d="M64.7526 19.2126H68.5496V16.1313H62.9444L60.4131 19.2126V25.9188L62.9444 29.0001H68.5496V25.9188H64.7526L63.6677 24.6501V20.4813L64.7526 19.2126Z" fill="#0D2259"></path>
+        <path d="M73.2505 16.1313H70.1768V29.0001H75.7819L77.0476 25.9188H73.2505V16.1313Z" fill="#0D2259"></path>
+        <path d="M81.9296 16.1313L77.2285 29.0001H79.9407L80.8447 26.6438H85.365L86.2691 29.0001H88.9812L84.2802 16.1313H81.9296ZM81.9296 23.9251L83.1953 20.6626L84.461 23.9251H81.9296Z" fill="#0D2259"></path>
+        <path d="M91.6933 15.95L89.3428 18.125V21.75L91.3317 23.7437H96.3944V25.5562L95.6712 26.2812H92.2358V24.8312H89.3428V26.6437L91.6933 28.8187H97.1177L99.2874 26.6437V23.2L97.2985 21.2062H92.959L92.2358 20.4812V18.8499H96.3944V19.7562H99.2874V18.125L97.1177 15.95H91.6933Z" fill="#0D2259"></path>
+        <path d="M110.679 19.7562V18.125L108.328 15.95H102.904L100.734 18.125V21.75L102.723 23.7437H107.786V25.5562L107.062 26.2812H103.627V24.8312H100.734V26.6437L102.904 28.8187H108.328L110.679 26.6437V23.2L108.509 21.2062H104.35L103.627 20.4812V18.8499H107.786V19.7562H110.679Z" fill="#0D2259"></path>
+        <path d="M100.734 12.8687H103.808V8.51875H104.893H105.977L107.786 12.8687H110.679L108.69 7.6125L110.498 5.4375V4.16875V3.44375V3.08125L107.966 0H105.435H103.808H100.734V7.79375V12.8687ZM107.605 4.35L106.158 5.98125H103.808V4.53125V2.71875H106.158L107.605 4.35Z" fill="#0D2259"></path>
+        <path d="M96.0328 12.8687L98.5642 9.7875V0H95.6712V8.3375L94.4055 9.7875H92.4166L90.9701 8.3375V0H88.0771V9.7875L90.6085 12.8687H96.0328Z" fill="#0D2259"></path>
+      </svg>
+    </a>
+    <div class="left-nav">
+      <a class = "nav-link" href = "https://urclass.codestates.com/courses/active"><div>In class</div></a>
+      <a class = "nav-link" href = "https://urclass.codestates.com/classrooms"><div>Coplit</div></a>
+      <a class = "nav-link" href = "https://help-urclass-codestates.zendesk.com/hc/ko"><div>Help Center</div></a>
+    </div>
+  </nav>
+  <main>
+    <section class="form__container">
+      <h1>My Agora States</h1>
+      <form onsubmit = "return false" action="" method="get" class="form">
+        <div class="form__input--wrapper">
+          <div class="form__input--name">
+            <h3 for="name">Name</h3>
+            <input type="text" name="name" id="name">
+          </div>
+          <div class="form__input--title">
+            <h3 for="title">Title</h3>
+            <input type="text" name="title" id="title">
+          </div>
+          <div class="form__textbox">
+            <h3 for="story">Question content</h3>
+            <textarea id="story" name="story" placeholder="질문을 작성하세요"></textarea>
+          </div>
+        </div>
+        <div class="form__submit">
+          <input type="submit" value="submit">
+        </div>
+      </form>
+    </section>
+    <section class="discussion__wrapper">
+      <ul class="discussions__container">
+        <li class="discussion__container">
+          <div class="discussion__avatar--wrapper">
+            <img class="discussion__avatar--image"
+              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+              alt="avatar of kimploo">
+          </div>
+          <div class="discussion__content">
+            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <div class="discussion__information">kimploo / 2022. 04. 22. 오후 2:08:33</div>
+          </div>
+          <!-- <div class="discussion__answered"><p>☑</p></div> -->
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</html>
