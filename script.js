@@ -35,9 +35,16 @@ const createNavi = (ul) => {
     naviPrev.className = 'pagination-button';
     naviPrev.href = '#';
     naviPrev.addEventListener('click', (e) => {
+        let $active = document.getElementById(`${pageNumber}`);
+        $active.classList.remove('active');
         e.preventDefault();
         pageNumber = pageNumber - 1;
         if (pageNumber < 1) pageNumber = 1;
+
+        $active = document.getElementById(`${pageNumber}`);
+        $active.classList.add('active');
+        console.log('page', pageNumber);
+
         render(ul);
     });
     discussionFooter.appendChild(naviPrev);
@@ -48,12 +55,20 @@ const createNavi = (ul) => {
         navi.textContent = i + 1;
         navi.id = i + 1;
         navi.className = 'pagination-button';
-        navi.addEventListener('click', () => {
-            pageNumber = navi.id;
+        navi.addEventListener('click', (e) => {
+            let $active = document.getElementById(`${pageNumber}`);
+            $active.classList.remove('active');
+            let num = e.target.textContent;
+            // pageNumber = navi.id;
+            pageNumber = Number(num);
+            $active = document.getElementById(`${pageNumber}`);
+            $active.classList.add('active');
             render(ul);
         });
         discussionFooter.appendChild(navi);
     }
+    const init = document.getElementById('1');
+    init.classList.add('active');
 
     // '>' 버튼을 누르면 pageNumber + 1 해주기
     const naviEnd = document.createElement('a');
@@ -61,9 +76,13 @@ const createNavi = (ul) => {
     naviEnd.className = 'pagination-button';
     naviEnd.href = '#';
     naviEnd.addEventListener('click', (e) => {
+        let $active = document.getElementById(`${pageNumber}`);
+        $active.classList.remove('active');
         e.preventDefault();
         pageNumber = pageNumber + 1;
         if (pageNumber > naviSize) pageNumber = naviSize;
+        $active = document.getElementById(`${pageNumber}`);
+        $active.classList.add('active');
         render(ul);
     });
     discussionFooter.appendChild(naviEnd);
