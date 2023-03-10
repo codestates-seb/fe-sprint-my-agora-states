@@ -1,10 +1,10 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 let index = 1;
+// localStorage.clear();
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  // const objString = JSON.stringify(obj);
-  // localStorage.setItem("objstorage",objString);
+
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -51,21 +51,13 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.append(discussionAns);
   
 
-  // if(index%10 === 0){
-  //   const showMoreBtn = document.createElement("button");
-  //   showMoreBtn.className ="showMore";
-  //   showMoreBtn.textContent = "더보기";
-  //   li.append(showMoreBtn);
-  //   console.log("실행됨");
-  // }
-  //
 
 
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   
-  // return li;
+
   index++;
 
   return li;
@@ -78,6 +70,7 @@ const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    
   }
   return;
 };
@@ -93,7 +86,7 @@ const title = document.querySelector('.form__input--title > input'); //inp;ut-ti
 const textArea = document.querySelector('.form__textbox > textarea'); //form_textbox에 입력하는 질문 textarea 요소들
 let newobj = JSON.parse(localStorage.getItem("objstorage"));
 let localnum = 0;
-// 함수form.addEventListener의 'submit'이벤트를 통해 각각의 데이터 정보를 -> 아래 form에 맞춰 리턴해라.
+// 함수form.addEventListener의 'submit'이벤트를 통해 각각의 데이터 정보를 리턴
 form.addEventListener('submit', (event) => {
   event.preventDefault(); //1)submit눌렀을때 새로고침되는걸 방지
   // const convertToDiscussion = (obj)/에 돌려줄 obj 객체를 하나 만든다.
@@ -115,16 +108,19 @@ form.addEventListener('submit', (event) => {
     avatarUrl:
       "https://avatars.githubusercontent.com/u/82064490?s=400&u=9f590e40f0f357bc23e77008d2d0e5ce0ee3f3c0&v=4",
   };
-  // const objString = JSON.stringify(obj);
-  // localStorage.setItem("objstorage",objString);
-
-  // let newobj = JSON.parse(localStorage.getItem("objstorage"));
-  localnum ++;
-  //만든 배열을 data더미의 배열에 추가해준다.(맨 앞 요소로)
+  
+  // 만든 배열을 data더미의 배열에 추가해준다.(맨 앞 요소로)
   agoraStatesDiscussions.unshift(obj);
-  //전체 데이터 더미를 ui로 append해준다(맨 앞으로->prepend)
+  //전체 데이터 더미를 ul로 append해준다(맨 앞으로->prepend)
   ul.prepend(convertToDiscussion(obj));
- 
+  localStorage.setItem("n"+localnum,JSON.stringify(obj));
+  // let localstored = JSON.parse(localStorage.getItem("n"+localnum));
+  
+  localnum ++;
+
+  // localStorage.setItem("index",localnum);
+  
+  
   //입력한 값을 submit에서 댓글창으로 append 되면 값을 초기화한다.
   author.value = "";
   title.value  = "";
@@ -133,7 +129,23 @@ form.addEventListener('submit', (event) => {
 });
 
 
-
 const ul = document.querySelector("ul.discussions__container");
+
+/* 만약 localStorage에 저장된게 있다면 ?
+  저장된 길이만큼 for 문을 돌아 getItem을 이용해 저장된 객체를 가져와
+  dom 객체를 생성해주고 생성된 객체를 ul의 맨 앞에 붙여넣어준다. 
+  문제점 : 키의 값이 달라야지 저장되는데 현재 키의 상태를 n1 ,n2 이런식으로 뒤에 숫자를 추가해넣었는데 
+  다시 새로고침을 하고 나면 다시 0으로 초기화되기때문에 값이 덮어씌여진다. 
+*/
+if(localStorage.length!==0){
+for(let i =0 ;i<localStorage.length; i++){
+  let stored =JSON.parse(localStorage.getItem("n"+i));
+  // convertToDiscussion(agoraStatesDiscussions.push(stored));
+  // agoraStatesDiscussions.unshift(stored);
+  console.log("실행");
+  ul.prepend(convertToDiscussion(stored))
+}
+}
+
 render(ul);
 console.log(ul);
