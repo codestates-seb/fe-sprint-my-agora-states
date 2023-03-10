@@ -156,14 +156,14 @@ section {
 .form_label {
     display: block;
 }
-#pagenation {
+#pagination {
     margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#pagenation > button {
+#pagination > button {
     width: 50px;
     padding: 3px;
     color: RGB(34, 34, 34);
@@ -175,6 +175,6 @@ section {
     margin-left: 15px;
 }
 
-#pagenation > button:hover {
+#pagination > button:hover {
     background-color: RGB(244, 244, 244);
 }
