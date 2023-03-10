@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
+  
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -13,24 +14,64 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <span class="navbar-brand">링크 이름</span>
+        <span class="navbar-brand">링크 이름</span>
+        <span class="navbar-brand">링크 이름</span>
+        <span class="navbar-brand">링크 이름</span>
+        <!-- <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+    </div>
+  </nav>
+  <script>
+    // nav bar 스트롤 폰트 사이즈
+  // const window = document.querySelector('window')
+//   const nav_font = document.querySelector('navbar-brand')
+//   widnow.addEventListener('scroll', function(){
+//     let fontSize = widnow.scrollTop()
+//     if(fontSize >= 100){
+//         nav_font.styl.fontSize('font-size', '20px')
+//     }else {
+//       nav_font.styl.fontSize('font-size', '30px')
+//   }
+// })
+  const navbackground = document.querySelector('.navbar')
+  const fontsize = document.querySelector('.container-fluid');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 100){
+      fontsize.style.fontSize = '25px';
+      navbackground.style.backgroundColor = 'rgb(66,65,66)';
+    } else {
+      fontsize.style.fontSize = '30px';
+      navbackground.style.backgroundColor = '';
+
+    }
+  })
+  
+  </script>
+  <div style="height: 200px;"></div>
+  <div class="top_background"></div>
   <main>
     <h1>My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">이름 : </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
+            <label for="title">제목 : </label>
             <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">질문 : </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
+        <br>
         <div class="form__submit">
           <input type="submit" value="submit">
         </div>
@@ -45,10 +86,10 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <h3 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h3>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>✋</p></div>
         </li>
       </ul>
     </section>
