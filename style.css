@@ -1,1 +1,219 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vh;
+  font-family: 'Rampart One', cursive;
+  color: rgb(113, 230, 243);
+  margin: 1vh;
+}
+
+body {
+  background-color: #f4abd8;
+}
+
+.form__container {
+  display: inline-block;
+  background-color: rgb(125, 250, 230);
+  color: #864ed5;
+  width: 50vh;
+  height: 72vh;
+  padding: 5vh;
+  border-radius: 10vh;
+  margin: 10vh;
+}
+
+.form__input--name {
+  font-size: 3vh;
+  font-family: 'Genos', sans-serif;
+}
+
+.form__input--title {
+  font-size: 3vh;
+  font-family: 'Genos', sans-serif;
+}
+
+.form__textbox {
+  font-size: 3vh;
+
+  font-family: 'Genos', sans-serif;
+}
+
+.newQuestion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5.5vh;
+  font-family: 'Rampart One', cursive;
+}
+
+#name {
+  height: 5vh;
+  width: 24vh;
+  font-size: 2vh;
+  font-family: 'Genos', sans-serif;
+  background-color: #fbd6f5;
+  border-radius: 10px;
+  padding: 1vh;
+}
+
+#title {
+  height: 5vh;
+  width: 24vh;
+  font-size: 2vh;
+  font-family: 'Genos', sans-serif;
+  background-color: #fbd6f5;
+  border-radius: 10px;
+  padding: 1vh;
+}
+
+#story {
+  height: 20vh;
+  width: 40vh;
+  font-size: 2vh;
+  font-family: 'Genos', sans-serif;
+  background-color: #fbd6f5;
+  border-radius: 13px;
+  padding: 1.5vh;
+}
+
+textarea {
+  height: 10vh;
+  border-radius: 10px;
+  background-color: #fbd6f5;
+  font-size: 2vh;
+  padding: 2vh;
+}
+
+#submitButton {
+  height: 6vh;
+  width: 19vh;
+  border-radius: 20px;
+  font-size: 3vh;
+  font-family: 'Genos', sans-serif;
+  background-color: #fbd6f5;
+  color: #333;
+}
+
+#submitButton:hover {
+  background-color: #bb9bc8;
+
+  /* 글씨 커지게 
+  transform: scale(2);
+  transition-duration: 0.5s; */
+}
+
+.display {
+  height: 20vh;
+  width: 100vh;
+  margin: 2vh;
+  background: #12c2e9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+
+    #89ddf0,
+    #12c2e9
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #12c2e9,
+    #89ddf0,
+    #f7e4fc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6vh;
+  color: rgb(247, 240, 246);
+  padding: 7vh;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+ul.discussion__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+li.discussion__container {
+  display: flex;
+  width: 700px;
+  height: 125px;
+  padding: 20px;
+  margin: 15px;
+  justify-content: space-between;
+  border-style: solid;
+  border-width: 0.7vh;
+  border-radius: 15px;
+  background: #acb6e5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #86fde8,
+    #acb6e5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #86fde8,
+    #acb6e5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-color: #96a3de;
+}
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+h3.discussion__title {
+  text-align: left;
+}
+
+div.discussion__information {
+  font-family: 'Gowun Dodum', sans-serif;
+  color: #ffffff;
+  text-align: right;
+}
+
+.discussion__wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  height: 140vh;
+  margin: 3vh;
+  width: 90vh;
+}
+
+img {
+  border-radius: 70%;
+  height: 10vh;
+  border-style: solid;
+  border-width: 0.4vh;
+  border-color: #96a3de;
+}
+
+a {
+  font-family: 'Gowun Dodum', sans-serif;
+  color: #ffffff;
+}
+
+input {
+  font-family: 'Gowun Dodum', sans-serif;
+  color: #020002;
+}
