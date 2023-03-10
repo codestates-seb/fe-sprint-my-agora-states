@@ -142,7 +142,7 @@ input[type="submit"]:hover {
 .discussion__wrapper {
   background: #fff6ea;
   width: 580px;
-  height: 1220px;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
