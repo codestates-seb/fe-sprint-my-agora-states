@@ -13,43 +13,99 @@
 </head>
 
 <body>
+  <nav id="topNav">
+    <div class="codestateslogo">
+      <img src="./logo.JPG" alt="코드스테이츠로고">
+    </div>
+    <div class="userInform">
+      <p>이은희 님</p>
+      <svg width="29" height="30" viewBox="0 0 29 30" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 14.9999C0 7.17992 6.34667 0.833252 
+        14.1667 0.833252C21.9867 0.833252 28.3333 7.17992 28.3333 14.9999C28.3333 22.8199
+         21.9867 29.1666 14.1667 29.1666C6.34667 29.1666 0 22.8199 0 14.9999ZM5.66667 
+         20.6383C7.49417 23.3866 10.625 25.1999 14.1667 25.1999C17.7083 25.1999 20.8392 
+         23.3866 22.6667 20.6383L20.6667 17.5L18 15.8875H10L7.5 17.5L5.66667 20.6383ZM10
+          7.54288L12.0401 5.50188L15.9599 5.5L18 7.54099V11.4576L15.9571 13.5H12.0429L10
+           11.4576V7.54288Z" fill="current"></path></svg>
+    </div>
+  </nav>
+
+  
+    <div class="modal hide">
+      <div class="modal__obverlay"></div>
+
+
+    <form action="" method="get" class="form ">
+      <div class="form__input--wrapper">
+        <!-- 아이디 입력칸 -->
+        <div class="form__input--name">
+          <label for="name">이름</label>
+          <input type="text" name="name" id="name" required>
+        </div>
+        <!-- 질문입력칸 -->
+        <div class="form__input--title">
+          <label for="title">질문제목 </label>
+          <input type="text" name="title" id="title" required>
+        </div>
+        
+        <!-- 질문 내용칸 -->
+        <div class="form__textbox">
+          <label for="story">상세 질문</label>
+          <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+        </div>
+      </div>
+      <!-- 제출 버튼  -->
+      <div class="form__submit">
+        <input id="submit"type="submit" value="submit">
+      </div>
+      <button id="goout">나가기</button>
+    </form>
+   </div>
   <main>
-    <h1>My Agora States</h1>
+    <div class="wrap">
+      <img src="https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/zoom-dynamic-color.png" class="color">
+    </div>
+    <!-- myAgora states-->
     <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
+      
+      <h1>My Agora States</h1>
+      <p>무슨 문제든 저희가 도와드릴게요 아참.<br/>솔로탈출은 저희도 해결중입니다.(울컥)</p>
+      <!-- <input type="text" id="searchbox"> -->
+      <img src="./sreachbox.JPG" alt="검색창">
+      <button id ="openpop">질문하기</button>
+      <!-- <img src="https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/zoom-dynamic-color.png" class="color">
+      <img src="https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/zoom-dynamic-color.png" class="color"> -->
+      
+      
+      <!-- 질문제출 팝업창  -->
+      
+      
+    
+      <!--  -->
     </section>
+
     <section class="discussion__wrapper">
       <ul class="discussions__container">
-        <li class="discussion__container">
+        <!-- <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
+            <img src="" alt="" class="discussion__avatar--image">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
+            <h2 class="discussion__title"><a href="">텍스트</a></h2>
+             <div class="discussion__information">사람이름/ 시간</div> 
+         
+             <div class="discussion__answered">
+               <div class= "done hide">답변완료</button>
+               <div class= "notyet hide">답변 대기중</button>
+            </div>
+          
+            </div>
+           -->
+
+
+
         </li>
+    
       </ul>
     </section>
   </main>
