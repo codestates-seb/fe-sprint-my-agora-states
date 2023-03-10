@@ -142,8 +142,10 @@ NewPage(page, maxItem);
 
 //입력 폼에서 받은 데이터를 agoraStatesDiscussions에 저장
 
-const submitBtn = document.querySelector("input[type='submit']");
-submitBtn.onclick = () => {
+const form = document.querySelector("form.form");
+form.addEventListener("submit",  (event) => {
+  event.preventDefault();
+
     const InputName = document.querySelector("#name");
     const InputTitle = document.querySelector("#title");
     const InputStory = document.querySelector("#story");
@@ -156,7 +158,6 @@ submitBtn.onclick = () => {
     const time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() +
             "-" + date.getDay() + "T" + date.getHours() + ":" + date.getMinutes() + "z";
 
-    if (InputName.value != "" && InputTitle.value != "" && InputStory.value != "") {
         let tempobject = {
             id: seq,
             createdAt: time,
@@ -179,20 +180,7 @@ submitBtn.onclick = () => {
         render(ul, currentPage, maxItem);
         NewPage(page, maxItem)
     }
-}
+);
 InputName = '';
 InputTitle = '';
 InputStory = '';
-
-const homebtn = document.querySelector("#welcome-button");
-const home = document.querySelector(".welcome");
-
-home.addEventListener("click", () => {
-    const main = document.querySelector("main");
-    $(homebtn).fadeOut(1500,()=>{$(main).fadeIn(15000);
-    });
-    $(home).fadeOut(6000);
-  
-    
-})
-
