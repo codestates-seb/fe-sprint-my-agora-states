@@ -99,18 +99,21 @@ let formStatus = false;
 // 페이지 네이션
 let currentPage = 0;
 let totalDiscussons = 0;
+
 const totalPages = () => {
   return Math.ceil(agoraStatesDiscussions.length / PAGE_LIMIT);
 };
 
-const addPagesNumber = () => {
-  $pages.replaceChildren();
-  totalDiscussons = agoraStatesDiscussions.length;
+const totalDiscussonCalculate = (arr) => {
+  totalDiscussons = arr.length;
   const totalDiscussionsDiv = document.createElement("div");
   totalDiscussionsDiv.classList.add("totalDiscussions");
   totalDiscussionsDiv.textContent = `Total: ${totalDiscussons}`;
   $pages.append(totalDiscussionsDiv);
+};
 
+const addPagesNumber = () => {
+  $pages.replaceChildren();
   for (let i = 1; i < totalPages() + 1; i++) {
     const span = document.createElement("span");
     span.classList.add("page");
@@ -175,6 +178,7 @@ const renderPage = (element, currentPage) => {
     : agoraStatesDiscussions;
   // 로컬스토리지에 데이터가 있으면 불러오고, 없으면 기존 데이터 불러오기
   addPagesNumber();
+  totalDiscussonCalculate(loadData);
   element.replaceChildren(); // 모두 지우고 새로 넣으려고
   const start = currentPage === 0 ? 0 : (currentPage - 1) * 10;
   const end = start + PAGE_LIMIT;
