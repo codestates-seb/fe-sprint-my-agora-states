@@ -68,7 +68,7 @@ main {
     display: flex;
     position: relative;
     box-sizing: border-box;
-    height: 700px;
+    height: 80vh;
     padding: 30px;
     margin-top:70px;
     border-radius: 50px;
@@ -170,6 +170,7 @@ section.discussion__wrapper ul > li > div.discussion__avatar--wrapper {
 section.discussion__wrapper ul li div.discussion__avatar--wrapper img {
     border-radius: 70%;
     width: 48px;
+    margin-bottom: 10px;
 }
 
 section.discussion__wrapper ul > li > div.discussion__content {
@@ -184,11 +185,14 @@ section.discussion__wrapper ul > li > div.discussion__content a {
 }
 section.discussion__wrapper ul > li > div.discussion__content > div.discussion__information {
     text-align: right;
+    margin-top: 8px;
+    font-family: math;
 }
 
 section.discussion__wrapper ul > li > div.discussion__answered {
     flex: 1 0 10%;
-    text-align: center;
+    text-align: right;
+    padding-right: 12px;
 }
 
 /* 답변 내용 */
@@ -231,6 +235,7 @@ section.discussion__wrapper ul > li div.exit a.answer__link div.answer__content 
 section.discussion__wrapper ul > li div.exit a.answer__link div.answer__content div.answer__information{
     text-align: right;
     margin-top:15px;
+    font-family: math;
 }
 
 .agorastates {
