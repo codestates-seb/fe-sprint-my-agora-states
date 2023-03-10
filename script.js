@@ -92,7 +92,7 @@ const pageRender = () => {
   for (let i = 0; i < num + 1; i++) {
     div += `<button id="${i}" value=${i} onclick="onClick(event)">${i + 1} </button>`;
   }
-  document.getElementById('pagenation').innerHTML = div;
+  document.getElementById('pagination').innerHTML = div;
 }
 pageRender();
 
