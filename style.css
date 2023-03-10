@@ -65,7 +65,6 @@ main {
   flex-direction: column;
   width: 70vw;
   margin-bottom: 2em;
-  background-color: beige;
 }
 
 .menu-bar {
@@ -99,6 +98,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 1em 1.5em;
+  margin-bottom: 1em;
   border: 0.1em solid black;
 }
 
@@ -175,4 +175,15 @@ main {
 
 .modal__scroll--disabled {
   overflow: hidden;
+}
+
+.page-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.page-bar__button {
+  width: 2em;
+  height: 2em;
 }
