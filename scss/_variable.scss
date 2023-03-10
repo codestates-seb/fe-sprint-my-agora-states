@@ -1,0 +1,35 @@
+//responsive media query
+//ver.1 breakpoint by device
+$mobile: 375px;
+$tablet: 768px;
+$pc: 1280px;
+$max: 1440px;
+
+//ver.2 breakpoint by width
+$breakpoints: (
+    "small": 375px,
+    "medium": 768px,
+    "large": 992px,
+    "xlarge": 1280px,
+    "xslarge": 1400px,
+);
+// $sidebar-breakpoint: 1025px;
+
+//font-family
+$mainFont: "Poppins", "NanumBarunGothic", sans-serif;
+$engFont: "Poppins", "Arial", sans-serif;
+$korFont: "NanumBarunGothic", sans-serif;
+
+//colors
+$bg: #f1ecde;
+$white: #ffffff;
+$black: #2e2e2e;
+$yellow: #f2a73f;
+$yellowOpacity: rgba(242, 167, 63, 0.8);
+$blue: #2ea4d5;
+$blueOpacity: rgba(46, 164, 213, 0.7);
+$pink: #e21f7e;
+$pinkOpacity: rgba(226, 31, 126, 0.6);
+$btnRed: #fb5f5f;
+$btnYellow: #fbcf5f;
+$btnGreen: #34c900;

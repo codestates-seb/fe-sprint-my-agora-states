@@ -1,0 +1,818 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+.form__button button, .popup__header, .overlay, .discussion__answered, .main__visual .text-balloon__btn, .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+button,
+textarea {
+  background-color: transparent;
+  border: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: #2e2e2e;
+  font-family: "Poppins", "NanumBarunGothic", sans-serif;
+  font-size: 10px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #f2a73f;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.hidden {
+  width: 0;
+  height: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 5rem;
+  background-color: #f1ecde;
+  border: 0.3rem solid #2e2e2e;
+  border-radius: 2rem 2rem 0 0;
+  z-index: 1;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .header {
+    top: 6rem;
+    width: calc(100% - 12rem);
+    height: 6rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .header {
+    top: 4rem;
+    width: calc(100% - 8rem);
+    max-width: 144rem;
+  }
+}
+.header__deco {
+  position: absolute;
+  top: 1.3rem;
+  left: 1.5rem;
+  display: flex;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .header__deco {
+    top: 1.8rem;
+    left: 2rem;
+  }
+}
+.header__deco__close-btn {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  border: 0.2rem solid #2e2e2e;
+  border-radius: 50%;
+}
+.header__deco__close-btn:nth-child(1) {
+  background-color: #fb5f5f;
+}
+.header__deco__close-btn:nth-child(2) {
+  background-color: #fbcf5f;
+}
+.header__deco__close-btn:nth-child(3) {
+  background-color: #34c900;
+}
+.header__title {
+  color: #2e2e2e;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .header__title {
+    font-size: 1.8rem;
+  }
+}
+
+.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f1ecde;
+  border: 0.3rem solid #2e2e2e;
+  border-radius: 2rem;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  scrollbar-width: none;
+}
+@media only screen and (min-width: 768px) {
+  .main {
+    width: calc(100% - 12rem);
+    height: calc(100% - 12rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 8rem);
+    max-width: 144rem;
+    height: calc(100% - 8rem);
+    overflow-y: hidden;
+  }
+}
+.main::-webkit-scrollbar {
+  display: none;
+}
+.main__visual {
+  margin-top: 5rem;
+  padding: 2rem;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .main__visual {
+    margin-top: 5.8rem;
+    padding: 4rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__visual {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    width: 50%;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .main__visual::-webkit-scrollbar {
+    display: none;
+  }
+}
+.main__visual .text-balloon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1ecde;
+  border: 0.3rem solid #2e2e2e;
+  border-radius: 2rem;
+  box-shadow: 0.3rem 0.4rem 0 0 #2e2e2e;
+}
+.main__visual .text-balloon__greeting {
+  padding: 4rem 4rem 3.2rem;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .main__visual .text-balloon__greeting {
+    padding: 8rem 8rem 4rem;
+  }
+}
+.main__visual .text-balloon__msg {
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-align: center;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .main__visual .text-balloon__msg {
+    margin-bottom: 4rem;
+    font-size: 2rem;
+  }
+}
+.main__visual .text-balloon__btn {
+  width: 13rem;
+  height: 4rem;
+  margin-bottom: 2rem;
+  background-color: rgba(226, 31, 126, 0.5);
+  border: 0.2rem solid #2e2e2e;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+.main__visual .text-balloon__btn:hover, .main__visual .text-balloon__btn:active {
+  background-color: rgba(226, 31, 126, 0.8);
+  box-shadow: 1px 1px 0px 0px #2e2e2e;
+}
+@media only screen and (min-width: 768px) {
+  .main__visual .text-balloon__btn {
+    width: 15rem;
+    height: 5rem;
+    margin-bottom: 4rem;
+  }
+}
+.main__visual .text-balloon__tail {
+  margin-top: -3px;
+}
+.main__visual__dec {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: 1rem;
+}
+.main__visual__dec-txt {
+  width: 70%;
+  max-width: 28rem;
+  padding-left: 2rem;
+  color: #2e2e2e;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .main__visual__dec-txt {
+    max-width: 41.2rem;
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__visual__dec-txt {
+    max-width: 41.2rem;
+    font-size: 4rem;
+  }
+}
+.main__visual__dec-img {
+  width: 8rem;
+  height: 8rem;
+  fill: #2e2e2e;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .main__visual__dec-img {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__visual__dec-img {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+.discussion__wrapper {
+  width: 100%;
+  padding: 0 2rem 2rem;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .discussion__wrapper {
+    padding: 0 4rem 4rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .discussion__wrapper {
+    order: 1;
+    width: 50%;
+    margin-top: 5.8rem;
+    padding: 4rem;
+    overflow-y: auto;
+  }
+  .discussion__wrapper::-webkit-scrollbar {
+    width: 1rem;
+  }
+  .discussion__wrapper::-webkit-scrollbar-track {
+    background-color: #f1ecde;
+  }
+  .discussion__wrapper::-webkit-scrollbar-thumb {
+    background-color: #f2a73f;
+  }
+}
+.discussion__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  border: 2px solid #2e2e2e;
+  border-radius: 1rem;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 1280px) {
+  .discussion__container {
+    padding: 2.5rem;
+  }
+}
+.discussion__container:not(:first-of-type) {
+  margin-top: 1.5rem;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .discussion__container:not(:first-of-type) {
+    margin-top: 2rem;
+  }
+}
+.discussion__avatar--wrapper {
+  width: 4.8rem;
+  height: 4.8rem;
+  margin-right: 2rem;
+  border-radius: 50%;
+  border: 2px solid #2e2e2e;
+  overflow: hidden;
+}
+.discussion__content {
+  flex: calc(100% - 11.8rem);
+  overflow: hidden;
+}
+.discussion__title {
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.discussion__information {
+  font-size: 1.2rem;
+  text-align: right;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 1280px) {
+  .discussion__information {
+    font-size: 1.4rem;
+  }
+}
+.discussion__answered {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 2rem;
+  font-size: 2.4rem;
+}
+
+.discussion__container:nth-of-type(3n - 2) {
+  background-color: rgba(46, 164, 213, 0.7);
+}
+.discussion__container:nth-of-type(3n - 2) .discussion__avatar--wrapper {
+  background-color: #e21f7e;
+}
+.discussion__container:nth-of-type(3n - 2) .discussion__answered {
+  color: #ffffff;
+}
+.discussion__container:nth-of-type(3n -1) {
+  background-color: rgba(226, 31, 126, 0.6);
+}
+.discussion__container:nth-of-type(3n -1) .discussion__avatar--wrapper {
+  background-color: #f2a73f;
+}
+.discussion__container:nth-of-type(3n -1) .discussion__answered {
+  color: #ffffff;
+}
+.discussion__container:nth-of-type(3n) {
+  background-color: rgba(242, 167, 63, 0.8);
+}
+.discussion__container:nth-of-type(3n) .discussion__avatar--wrapper {
+  background-color: #2ea4d5;
+}
+.discussion__container:nth-of-type(3n) .discussion__answered {
+  color: #ffffff;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.popup {
+  width: 90%;
+  border-radius: 2rem;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .popup {
+    width: 75rem;
+  }
+}
+.popup__header {
+  position: relative;
+  width: 100%;
+  height: 5rem;
+  background-color: #f1ecde;
+  border: 0.3rem solid #2e2e2e;
+  border-radius: 2rem 2rem 0 0;
+  z-index: 1;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .popup__header {
+    height: 6rem;
+  }
+}
+.popup__header__close {
+  position: absolute;
+  top: 1.3rem;
+  left: 1.5rem;
+  display: flex;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .popup__header__close {
+    top: 1.8rem;
+    left: 2rem;
+  }
+}
+.popup__header__close-btn {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  border: 0.2rem solid #2e2e2e;
+  border-radius: 50%;
+}
+.popup__header__close-btn:nth-child(1) {
+  background-color: #fb5f5f;
+}
+.popup__header__close-btn:nth-child(2) {
+  background-color: #fbcf5f;
+}
+.popup__header__close-btn:nth-child(3) {
+  background-color: #34c900;
+}
+.popup__header--title {
+  color: #2e2e2e;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .popup__header--title {
+    font-size: 1.8rem;
+  }
+}
+.popup__main {
+  width: 100%;
+  height: auto;
+  padding: 3rem 2rem;
+  background-color: #f1ecde;
+  border-left: 0.3rem solid #2e2e2e;
+  border-right: 0.3rem solid #2e2e2e;
+  border-bottom: 0.3rem solid #2e2e2e;
+  border-radius: 0 0 2rem 2rem;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .popup__main {
+    padding: 6rem 8rem;
+  }
+}
+.popup__main--title {
+  padding: 2rem 0 4rem;
+  font-size: 3rem;
+  text-align: center;
+  /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+@media only screen and (min-width: 768px) {
+  .popup__main--title {
+    padding: 2rem 0 8rem;
+    font-size: 3.6rem;
+  }
+}
+
+.form__text--area {
+  margin-bottom: 2rem;
+}
+.form__text--area label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.form__text--area input[type=text] {
+  width: 100%;
+  height: 4rem;
+  padding: 0 1rem;
+  font-size: 1.4rem;
+  border: 0.2rem solid #2e2e2e;
+  border-radius: 0.5rem;
+}
+.form__text--area input[type=text]::-moz-placeholder {
+  font-family: "Poppins", "NanumBarunGothic", sans-serif;
+}
+.form__text--area input[type=text]::placeholder {
+  font-family: "Poppins", "NanumBarunGothic", sans-serif;
+}
+.form__text--area input[type=text]:focus {
+  border: 0.2rem solid #f2a73f;
+}
+.form__text--area textarea {
+  width: 100%;
+  height: 15rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: 0.2rem solid #2e2e2e;
+  border-radius: 0.5rem;
+}
+.form__text--area textarea::-moz-placeholder {
+  font-family: "Poppins", "NanumBarunGothic", sans-serif;
+}
+.form__text--area textarea::placeholder {
+  font-family: "Poppins", "NanumBarunGothic", sans-serif;
+}
+.form__text--area textarea:focus {
+  border: 0.2rem solid #f2a73f;
+}
+.form__button {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.form__button button {
+  width: 12rem;
+  height: 4rem;
+  border: 0.2rem solid #2e2e2e;
+  border-radius: 1rem;
+  font-family: "Poppins", "NanumBarunGothic", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.form__button button:active, .form__button button:hover {
+  box-shadow: 1px 1px 0px 0px #2e2e2e;
+}
+.form__button--cancel {
+  margin-right: 2rem;
+}
+.form__button--submit {
+  background-color: rgba(242, 167, 63, 0.8);
+}
+.form__button--submit:hover {
+  background-color: #f2a73f;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 0;
+}
+.pagination .button {
+  width: 3rem;
+  height: 3rem;
+  border: 0.2rem solid #2e2e2e;
+  border-radius: 0.5rem;
+}
+.pagination .button:not(:first-of-type) {
+  margin-left: 1rem;
+}
+.pagination .button.active {
+  box-shadow: 1px 1px 0px 0px #2e2e2e;
+}

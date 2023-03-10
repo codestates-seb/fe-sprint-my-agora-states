@@ -1,0 +1,495 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+// header
+.header {
+    @extend %flexCenter;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 5rem;
+    background-color: $bg;
+    border: 0.3rem solid $black;
+    border-radius: 2rem 2rem 0 0;
+    z-index: 1;
+    @include mq("medium") {
+        top: 6rem;
+        width: calc(100% - 12rem);
+        height: 6rem;
+    }
+    @include mq("xlarge") {
+        top: 4rem;
+        width: calc(100% - 8rem);
+        max-width: 144rem;
+    }
+    &__deco {
+        position: absolute;
+        top: 1.3rem;
+        left: 1.5rem;
+        display: flex;
+        @include mq("medium") {
+            top: 1.8rem;
+            left: 2rem;
+        }
+        &__close-btn {
+            display: block;
+            width: 2rem;
+            height: 2rem;
+            margin-right: 1rem;
+            border: 0.2rem solid $black;
+            border-radius: 50%;
+            &:nth-child(1) {
+                background-color: $btnRed;
+            }
+            &:nth-child(2) {
+                background-color: $btnYellow;
+            }
+            &:nth-child(3) {
+                background-color: $btnGreen;
+            }
+        }
+    }
+    &__title {
+        color: $black;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-align: center;
+        @include mq("medium") {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+    border: 0.3rem solid $black;
+    border-radius: 2rem;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    @include mq("medium") {
+        width: calc(100% - 12rem);
+        height: calc(100% - 12rem);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @include mq("xlarge") {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 8rem);
+        max-width: 144rem;
+        height: calc(100% - 8rem);
+        overflow-y: hidden;
+    }
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &__visual {
+        margin-top: 5rem;
+        padding: 2rem;
+        @include mq("medium") {
+            margin-top: 5.8rem;
+            padding: 4rem;
+        }
+        @include mq("xlarge") {
+            display: flex;
+            flex-direction: column;
+            order: 2;
+            width: 50%;
+            overflow-y: auto;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        .text-balloon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $bg;
+            border: 0.3rem solid $black;
+            border-radius: 2rem;
+            box-shadow: 0.3rem 0.4rem 0 0 $black;
+            &__greeting {
+                padding: 4rem 4rem 3.2rem;
+                @include mq("medium") {
+                    padding: 8rem 8rem 4rem;
+                }
+            }
+            &__msg {
+                margin-bottom: 2rem;
+                font-size: 1.6rem;
+                font-weight: 300;
+                text-align: center;
+                @include mq("medium") {
+                    margin-bottom: 4rem;
+                    font-size: 2rem;
+                }
+            }
+            &__btn {
+                @extend %flexCenter;
+                width: 13rem;
+                height: 4rem;
+                margin-bottom: 2rem;
+                background-color: rgba(226, 31, 126, 0.5);
+                border: 0.2rem solid $black;
+                border-radius: 1rem;
+                // box-shadow: 1px 1px 0px 0px $black;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                &:hover,
+                &:active {
+                    background-color: rgba(226, 31, 126, 0.8);
+                    box-shadow: 1px 1px 0px 0px $black;
+                }
+                @include mq("medium") {
+                    width: 15rem;
+                    height: 5rem;
+                    margin-bottom: 4rem;
+                }
+            }
+            &__tail {
+                margin-top: -3px;
+            }
+        }
+        &__dec {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            margin-top: 1rem;
+            &-txt {
+                width: 70%;
+                max-width: 28rem;
+                padding-left: 2rem;
+                color: $black;
+                font-size: 2rem;
+                font-weight: 700;
+                line-height: 1.2;
+                @include mq("medium") {
+                    max-width: 41.2rem;
+                    font-size: 3rem;
+                }
+                @include mq("xlarge") {
+                    max-width: 41.2rem;
+                    font-size: 4rem;
+                }
+            }
+            &-img {
+                width: 8rem;
+                height: 8rem;
+                fill: $black;
+                @include mq("medium") {
+                    width: 10rem;
+                    height: 10rem;
+                }
+                @include mq("xlarge") {
+                    width: 15rem;
+                    height: 15rem;
+                }
+            }
+        }
+    }
+}
+
+//dicussion list area
+.discussion {
+    &__wrapper {
+        width: 100%;
+        padding: 0 2rem 2rem;
+        @include mq(medium) {
+            padding: 0 4rem 4rem;
+        }
+        @include mq("xlarge") {
+            order: 1;
+            width: 50%;
+            margin-top: 5.8rem;
+            padding: 4rem;
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+                width: 1rem;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: $bg;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: $yellow;
+                // border-radius: 1rem;
+            }
+        }
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 2rem;
+        border: 2px solid $black;
+        border-radius: 1rem;
+        @include mq("xlarge") {
+            padding: 2.5rem;
+        }
+        &:not(:first-of-type) {
+            margin-top: 1.5rem;
+            @include mq("medium") {
+                margin-top: 2rem;
+            }
+        }
+    }
+    &__avatar--wrapper {
+        width: 4.8rem;
+        height: 4.8rem;
+        margin-right: 2rem;
+        border-radius: 50%;
+        border: 2px solid $black;
+        overflow: hidden;
+    }
+    &__content {
+        flex: calc(100% - 11.8rem);
+        // flex-grow: 1;
+        overflow: hidden;
+    }
+    &__title {
+        @include line(1);
+        margin-bottom: 2rem;
+        font-size: 1.6rem;
+        line-height: 1.5;
+    }
+    &__information {
+        font-size: 1.2rem;
+        text-align: right;
+        @include mq("xlarge") {
+            font-size: 1.4rem;
+        }
+    }
+    &__answered {
+        @extend %flexCenter;
+        width: 3rem;
+        height: 3rem;
+        margin-left: 2rem;
+        font-size: 2.4rem;
+    }
+}
+
+// 리스트 색상 조정
+.discussion__container {
+    &:nth-of-type(3n - 2) {
+        background-color: $blueOpacity;
+        .discussion__avatar--wrapper {
+            background-color: $pink;
+        }
+        .discussion__answered {
+            color: $white;
+        }
+    }
+    &:nth-of-type(3n -1) {
+        background-color: $pinkOpacity;
+        .discussion__avatar--wrapper {
+            background-color: $yellow;
+        }
+        .discussion__answered {
+            color: $white;
+        }
+    }
+    &:nth-of-type(3n) {
+        background-color: $yellowOpacity;
+        .discussion__avatar--wrapper {
+            background-color: $blue;
+        }
+        .discussion__answered {
+            color: $white;
+        }
+    }
+}
+
+//입력창 팝업
+.overlay {
+    @extend %flexCenter;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.popup {
+    width: 90%;
+    border-radius: 2rem;
+    @include mq("medium") {
+        width: 75rem;
+    }
+    &__header {
+        @extend %flexCenter;
+        position: relative;
+        width: 100%;
+        height: 5rem;
+        background-color: $bg;
+        border: 0.3rem solid $black;
+        border-radius: 2rem 2rem 0 0;
+        z-index: 1;
+        @include mq("medium") {
+            height: 6rem;
+        }
+        &__close {
+            position: absolute;
+            top: 1.3rem;
+            left: 1.5rem;
+            display: flex;
+            @include mq("medium") {
+                top: 1.8rem;
+                left: 2rem;
+            }
+            &-btn {
+                display: block;
+                width: 2rem;
+                height: 2rem;
+                margin-right: 1rem;
+                border: 0.2rem solid $black;
+                border-radius: 50%;
+                &:nth-child(1) {
+                    background-color: $btnRed;
+                }
+                &:nth-child(2) {
+                    background-color: $btnYellow;
+                }
+                &:nth-child(3) {
+                    background-color: $btnGreen;
+                }
+            }
+        }
+        &--title {
+            color: $black;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            @include mq("medium") {
+                font-size: 1.8rem;
+            }
+        }
+    }
+    &__main {
+        width: 100%;
+        height: auto;
+        padding: 3rem 2rem;
+        background-color: $bg;
+        border: {
+            left: 0.3rem solid $black;
+            right: 0.3rem solid $black;
+            bottom: 0.3rem solid $black;
+        }
+        border-radius: 0 0 2rem 2rem;
+        @include mq("medium") {
+            padding: 6rem 8rem;
+        }
+        &--title {
+            padding: 2rem 0 4rem;
+            font-size: 3rem;
+            text-align: center;
+            @include mq("medium") {
+                padding: 2rem 0 8rem;
+                font-size: 3.6rem;
+            }
+        }
+    }
+}
+
+.form {
+    &__text {
+        &--area {
+            margin-bottom: 2rem;
+            label {
+                display: block;
+                margin-bottom: 0.8rem;
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+            input[type="text"] {
+                width: 100%;
+                height: 4rem;
+                padding: 0 1rem;
+                font-size: 1.4rem;
+                border: 0.2rem solid $black;
+                border-radius: 0.5rem;
+                &::placeholder {
+                    font-family: $mainFont;
+                }
+                &:focus {
+                    border: 0.2rem solid $yellow;
+                }
+            }
+            textarea {
+                width: 100%;
+                height: 15rem;
+                padding: 1rem;
+                font-family: inherit;
+                font-size: 1.4rem;
+                border: 0.2rem solid $black;
+                border-radius: 0.5rem;
+                &::placeholder {
+                    font-family: $mainFont;
+                }
+                &:focus {
+                    border: 0.2rem solid $yellow;
+                }
+            }
+        }
+    }
+    &__button {
+        display: flex;
+        justify-content: center;
+        padding-top: 1rem;
+        button {
+            @extend %flexCenter;
+            width: 12rem;
+            height: 4rem;
+            border: 0.2rem solid $black;
+            border-radius: 1rem;
+            font-family: $mainFont;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            &:active,
+            &:hover {
+                box-shadow: 1px 1px 0px 0px $black;
+            }
+        }
+        &--cancel {
+            margin-right: 2rem;
+        }
+        &--submit {
+            background-color: $yellowOpacity;
+            &:hover {
+                background-color: $yellow;
+            }
+        }
+    }
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 0;
+    .button {
+        width: 3rem;
+        height: 3rem;
+        border: 0.2rem solid $black;
+        border-radius: 0.5rem;
+        &:not(:first-of-type) {
+            margin-left: 1rem;
+        }
+    }
+    .button.active {
+        box-shadow: 1px 1px 0px 0px $black;
+    }
+}
