@@ -1,4 +1,3 @@
-/* border-color: #444c56;  텍스트 색상 : color: #adbac7; */
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 *{
     margin: 0;
@@ -12,73 +11,7 @@ body{
     /* background-color: #2d333b; */
     
 }
-
-/* 입력창 */
-
-form.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem 0.5rem;
-    margin: 0.5rem;
-    border-radius: 8px;
-    /* background-color: #2f6f44; */
-    background-color: #3fb950;;
-    /* width: 350px; */
-    width: 25rem;
-    border-color:#444c56;
-}
-
-div.form__input--wrapper{
-    flex: 8 0 auto;
-    padding: 0 0.2rem;
-}
-
-div.form__input--name, div.form__input--title, div.form__textbox{
-    display: flex;
-    padding: 0.2rem;
-    border: none;
-}
-div.form__input--name > input  , 
-div.form__input--title > input, 
-div.form__textbox > textarea{
-    height: 2rem;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    padding: 0.5rem;
-}
-div.form__input--title > input {
-    flex: 1 0 0 ;
-    
-}
-
-div.form__textbox > textarea{
-   flex: 1 0 0;
-   resize: none;
-    height: 10rem;
-}
-
-
-/* submit 버튼 */
-div.form__submit{
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 0.2rem;
-}
-div.form__submit>input{
-    margin-top: 1rem;
-    padding: 0.8rem;
-    /* flex: 1 0 0; */
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #2f6f44;
-    color: white;
-    border: none;
-}
-
-/* 제목  */
-main > *{
+main > * {
     padding : 0.5rem;
 }
 main>h1{
@@ -87,17 +20,7 @@ main>h1{
     /* color: #adbac7; */
     margin: 1.5rem;
 }
-/* 검색창 div.search_wrapper, div.serach_container , label.search_container_label > img + input */
-div.search_wrapper{
-    margin: 0.5rem;
-    margin-top: 0;
-    padding: 0.5rem ;
-    border-radius: 8px;
-    /* border : 1px solid black; */
-    /* background-color: #16181c; */
-    border : 2px solid gray;
 
-}
 div.container_wrapper{
     display: flex;
     justify-content: space-around;
@@ -107,36 +30,65 @@ div.container_wrapper > section {
     margin: 1.5rem;
 }
 
-label.search_container_label{
-    display: flex;
-    flex-direction: row;
-    padding: 0.2rem;
-    align-items: center;
-    
-}
-
-label.search_container_label > input {
-    margin: 0 0.5rem;
-    border: none;
-    flex : 1 0 0;
-    outline: none;
-    font-size: 1rem;
-    /* background-color: transparent; */
-    /* color:  #16181c; */
-    /* background-color: #16181c; */
-
-}
-
-
 /* section */
-div.notice_discussion_container > h2 , div.others_discussion_container > h2{
+/* section */
+div.notice_discussion_container > h2 , 
+div.others_discussion_container > h2{
     font-size: 1.1em;
 }
+.notice_discussion_wrapper , .others_discussion_wrapper {
+    background-color: #ffcc01;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    margin: 0.2rem;
+}
+.notice_discussion_container, .others_discussion_container {
+    /* width: 50rem; */
+    padding: 0.5rem;
+    margin: 0.5rem;
+    padding-left:0;
+    display: flex;
+    align-items: center;
+}
+.notice_discussion_wrapper>ul>li>div:hover,
+.others_discussion_wrapper>ul>li>div:hover,
+div.form__submit>input:hover{
+    /* background-color: #fff4d1; */
+    /* opacity: 0.5; */
+    transform:scale(1.05);  
+    transition: transform .5s;
+}
+div[class*="discussion_container"] > img{
+    margin-right: 0.5rem;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+.others_discussion_wrapper {
+    background-color: #0064bd;
+}
+/* 토글버튼 */
+button.toggleBtn{
+    background : transparent;
+    border: none;
+    /* width:2rem; */
+    /* color: #adbac7; */
+    margin-right: 0.5rem;
+}
+button.toggleBtn > svg {
+    width: 1rem;
+}
 
-/* ul  */
+/* Discussion List */
+ul>li{
+    margin: 0.5rem;
+    border-radius: 8px;
+    list-style: none;
+}
 h2{
     font-size: 1rem;
-    /* color: #adbac7; */
+}
+a {
+    text-decoration: none;
 }
 a:link, a:visited{
   color: black;
@@ -147,11 +99,7 @@ a.noticeA:hover{
 a.othersA:hover{
     color:#0064bd;
 }
-ul>li{
-    margin: 0.5rem;
-    border-radius: 8px;
-    list-style: none;
-}
+
 /* li.discussion__container{
     display: flex;
     flex-direction: row;
@@ -173,6 +121,7 @@ ul>li{
     background-color: white;
     border-radius: 8px;
 } */
+/* li */
 /* 변경 후 */
 div.li_container, div.discussion__container_li{  
     display: flex;
@@ -200,10 +149,8 @@ div.discussion_title{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-/* div.discussion_section > div.discussionTitle{
-    flex : 0 0 0 ;
-} */
-/* discussion__container 내 왼쪽 */
+
+/* 유저 이미지 */
 div.discussion__avatar--wrapper{
     display:flex;
     justify-content: center;
@@ -217,7 +164,7 @@ div.discussion__avatar--wrapper > img{
     width: 2rem;
 }
 
-/* discussion__container 내 가운데 */
+/* user 질문 */
 div.discussion__content{
     display: flex;
     flex-direction: column;
@@ -229,10 +176,8 @@ div.discussion__content{
 div.discussion__content > div.discussion__information {
     /* text-align: right; */
 }
-a {
-    text-decoration: none;
-}
-/* discussion__container 내 오른쪽 */
+
+/* 답변유무 */
 div.discussion__answered{
     display: flex;
     flex-direction: column;
@@ -240,87 +185,6 @@ div.discussion__answered{
     align-items: center;
     padding: 0.5rem;
     font-size:larger;
-}
-.notice_discussion_wrapper , .others_discussion_wrapper {
-    background-color: #ffcc01;
-    /* background-color: #2d333b; */
-    /* background-color: #2d333b; */
-    /* border : 5px solid #ffcc01; */
-    
-    /* border-color: #444c56; */
-    padding: 0.5rem 0.8rem;
-    border-radius: 8px;
-    margin: 0.2rem;
-}
-.notice_discussion_container, .others_discussion_container {
-    /* width:540px; */
-    /* width: 50rem; */
-    padding: 0.5rem;
-    margin: 0.5rem;
-    padding-left:0;
-    display: flex;
-    align-items: center;
-}
-.notice_discussion_wrapper>ul>li>div:hover,
-.others_discussion_wrapper>ul>li>div:hover,
-div.form__submit>input:hover{
-    /* background-color: #fff4d1; */
-    /* opacity: 0.5; */
-    transform:scale(1.05);  
-    transition: transform .5s;
-}
-div[class*="discussion_container"] > img{
-    margin-right: 0.5rem;
-    width: 0.8rem;
-    height: 0.8rem;
-}
-.others_discussion_wrapper {
-    background-color: #0064bd;
-}
-.disabled{
-    display: none;
-}
-
-.pagination-container{
-    display: flex;
-    justify-content: center;
-}
-nav.pagination-container > button, div#pagination-numbers > button {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    /* padding-left : 0; */
-    border : none;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-
-.active{
-    color: white;
-    /* background-color: #2f6f44; */
-    background-color: #0064bd;
-    
-}
-
-button.toggleBtn{
-    background : transparent;
-    border: none;
-    /* width:2rem; */
-    /* color: #adbac7; */
-    margin-right: 0.5rem;
-}
-button.toggleBtn > svg {
-    width: 1rem;
-}
-button.search_icon{
-    background : transparent;
-    border: none;
-
-}
-button.search_icon > svg {
-    color:gray; 
 }
 div.discussion__answered {
     display: flex;
@@ -339,6 +203,120 @@ div.discussion__answered > span{
     font-size: 1rem;
     font-weight: 500;
 }
+
+/* 페이지 버튼 */
+.pagination-container{
+    display: flex;
+    justify-content: center;
+}
+nav.pagination-container > button, div#pagination-numbers > button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    /* padding-left : 0; */
+    border : none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.active{
+    color: white;
+    /* background-color: #2f6f44; */
+    background-color: #0064bd;
+}
+
+/* 검색창 div.search_wrapper, div.serach_container , label.search_container_label > img + input */
+div.search_wrapper{
+    margin: 0.5rem;
+    margin-top: 0;
+    padding: 0.5rem ;
+    border-radius: 8px;
+    /* border : 1px solid black; */
+    /* background-color: #16181c; */
+    border : 2px solid gray;
+}
+button.search_icon{
+    background : transparent;
+    border: none;
+}
+button.search_icon > svg {
+    color:gray; 
+}
+label.search_container_label{
+    display: flex;
+    flex-direction: row;
+    padding: 0.2rem;
+    align-items: center;
+}
+label.search_container_label > input {
+    margin: 0 0.5rem;
+    border: none;
+    flex : 1 0 0;
+    outline: none;
+    font-size: 1rem;
+    /* background-color: transparent; */
+    /* color:  #16181c; */
+    /* background-color: #16181c; */
+}
+
+/* 입력창 */
+form.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+    margin: 0.5rem;
+    border-radius: 8px;
+    /* background-color: #2f6f44; */
+    background-color: #3fb950;;
+    /* width: 350px; */
+    width: 25rem;
+    border-color:#444c56;
+}
+div.form__input--wrapper{
+    flex: 8 0 auto;
+    padding: 0 0.2rem;
+}
+div.form__input--name, div.form__input--title, div.form__textbox{
+    display: flex;
+    padding: 0.2rem;
+    border: none;
+}
+div.form__input--name > input  , 
+div.form__input--title > input, 
+div.form__textbox > textarea{
+    height: 2rem;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+div.form__input--title > input {
+    flex: 1 0 0 ;   
+}
+div.form__textbox > textarea{
+   flex: 1 0 0;
+   resize: none;
+    height: 10rem;
+}
+
+/* submit 버튼 */
+div.form__submit{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 0.2rem;
+}
+div.form__submit>input{
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #2f6f44;
+    color: white;
+    border: none;
+}
+
+/* topBtn */
 div.top_btn_section{
     display: inline-block;
     position: fixed;
@@ -353,4 +331,10 @@ button.topBtn {
 
 button.topBtn > svg {
     color:#444c56;
+}
+
+
+/* class 추가 목록 */
+.disabled{
+    display: none;
 }
