@@ -1,1 +1,150 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+body {
+    font-size: 20px;
+    background-image: url('https://img.freepik.com/free-vector/matrix-style-binary-code-digital-falling-numbers-blue-background_1017-37387.jpg?w=1480&t=st=1678381803~exp=1678382403~hmac=c241405e2f04fd07543b2cf16f83267508be7e2a147be57def5915c2b39c8894');
+    background-size:contain;
+
+}
+
+
+.discussion__container {                 /*각각의 질문창*/
+    
+    border: 3px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    width: 620px;                              /*Discussion 컴포넌트 전체의 폭을 540px로 만드세요.*/
+    height: 90px;
+    align-items: center;                       /*아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.*/
+    border-radius: 8px;    
+    margin-bottom: 24px;
+    background-color: gray;
+    opacity: 0.8;
+}
+
+.discussion__avatar--image {
+    border-radius: 50px;;                     /*아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요.*/
+    width: 60px;                              /*아바타 사진의 너비를 48px로 설정하세요.*/
+    height: 60px;
+    ;
+}
+.discussion__content {
+    width: 450px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+.discussion__answered {
+    color: rgb(22, 103, 22);
+    font-size: 50px;
+
+}
+
+a {
+    text-decoration: none;
+    color: rgb(17, 15, 15);
+    font-size: 17px;
+}
+
+main {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.form__container {
+    margin: 40px;
+    margin-bottom: 0px;
+    width:  750px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('http://clipart-library.com/images/di4oGKG5T.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.95;
+}
+
+input {
+    width: 450px;
+    height: 25px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    padding: 17px;
+    margin: 2px;
+    background-color: rgb(84, 83, 83);
+    color: white;
+
+}
+
+#submitbtn {
+    height: 5px;
+    padding-bottom: 28px;
+}
+
+#submitbtn:hover {
+    background-color: rgb(144, 141, 141);
+    cursor: grab;
+}
+
+
+
+#story {   
+    width: 450px;
+    height: 190px;
+    padding: 13px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    background-color: rgb(84, 83, 83);
+    color: white;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    width: 680px;
+    height: 350px;
+    padding-bottom: 210px;
+}
+
+h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 90px;
+    font-style: italic;
+    padding-top: 40px;
+    text-shadow: 3px 3px blue;
+}
+
+.questionpic {
+    width: 350px;
+    height: 230px;
+    opacity: 0.60;
+    position: relative;
+    
+}
+
