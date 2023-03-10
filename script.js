@@ -143,7 +143,6 @@ prevButton.addEventListener('click', () => {
  * 다음 페이지로 이동 버튼 클릭 시 발생할 이벤트
  */
 nextButton.addEventListener('click', () => {
-  console.log(currentPage, getPagesCount());
   if (currentPage < getPagesCount()) {
     currentPage += 1;
     movePageHilighting(currentPage);
@@ -155,6 +154,7 @@ nextButton.addEventListener('click', () => {
  * 페이지 번호 버튼 클릭 시 발생할 이벤트
  */
 pageNumberWrapper.addEventListener('click', (e) => {
+  if (e.target.id === 'page-number--wrapper') return;
   currentPage = +e.target.textContent;
   movePageHilighting(currentPage);
   changePage(currentPage);
