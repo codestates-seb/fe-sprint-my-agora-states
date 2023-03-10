@@ -71,10 +71,10 @@ const now = new Date();
 
 // Img Random
 const imagePaths = [
-  (src = "/img/ava1.png"),
-  (src = "/img/ava2.png"),
-  (src = "/img/ava3.jpg"),
-  (src = "/img/ava4.png"),
+  (src = "/fe-sprint-my-agora-states/img/ava1.png"),
+  (src = "/fe-sprint-my-agora-states/img/ava2.png"),
+  (src = "/fe-sprint-my-agora-states/img/ava3.jpg"),
+  (src = "/fe-sprint-my-agora-states/img/ava4.png"),
 ];
 function showRandomImage() {
   let randomIndex = Math.floor(Math.random() * imagePaths.length); // 랜덤한 인덱스 선택

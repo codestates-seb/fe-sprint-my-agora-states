@@ -23,7 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/img/back.jpg");
+  background-image: url("/fe-sprint-my-agora-states/img/back.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
