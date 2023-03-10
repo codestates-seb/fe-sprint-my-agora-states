@@ -62,8 +62,8 @@ https://xionwcfm.github.io/fe-sprint-my-agora-states/
 ### 배포 시연 화면
 
 아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
+![써밋](https://user-images.githubusercontent.com/101111364/224233521-fd9380ac-21d2-45d7-b798-588cb8fc4f31.PNG)
 
-![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
 
 ### 가장 자랑하고 싶은 기능
 
