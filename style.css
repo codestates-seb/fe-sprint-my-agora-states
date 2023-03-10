@@ -189,10 +189,10 @@ a:hover {
   top: 50%;
   left: 50%;
 
-  width: 50%;
-  height: 60%;
+  width: 20rem;
+  height: 25rem;
 
-  padding: 40px;
+  padding: 1rem;
   /* background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15); */
