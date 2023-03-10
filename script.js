@@ -41,8 +41,9 @@ askingButton.addEventListener('click', () => {
  * 질문 등록하기 버튼 클릭 시 발생할 이벤트
  */
 submitButton.addEventListener('click', (e) => {
+  e.preventDefault();
+
   if (!isValid()) {
-    e.preventDefault();
     return;
   }
 
@@ -57,6 +58,7 @@ submitButton.addEventListener('click', (e) => {
     avatarUrl: 'img/user.png',
   });
 
+  console.log(agoraStatesDiscussions);
   render();
   initializeOption();
   alert('질문이 등록되었습니다.');
