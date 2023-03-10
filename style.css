@@ -1,1 +1,215 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+  
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+  margin-top:30px;
+  background-image: linear-gradient(
+      to bottom,
+      #b0e9ff4d,
+      rgba(255, 255, 255, 0)
+    );
+}
+
+main {
+  display: flex; 
+  flex-direction:column; 
+  justify-content: center; 
+  align-items: center;
+  width: 780px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+}
+
+header {
+  font-weight: bold;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+/* 밑줄 없애기 */
+a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+label { 
+  font-size: 15px;
+  color: #333;
+}
+
+
+/* 이름 타이틀 내용 위치 크기 조정*/
+#name, #title, #story {
+  width:100%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+#name {
+  height: 2.5em;
+}
+
+#name:focus {
+  background-color: #cecece88;
+  transition: .3s;
+}
+
+#title {
+  height:2.5em;
+}
+
+#title:focus {
+  background-color: #cecece88;
+  transition: .3s;
+}
+
+#story {
+  height:6em;
+}
+
+#story:focus {
+  background-color: #cecece88;
+  transition: .3s;
+}
+
+.form__input--name > input {
+  padding:10px;
+}
+
+.form__input--title > input {
+  padding:10px;
+}
+
+.form__textbox > textarea {
+  padding:10px;
+}
+.form__submit {
+  text-align: center;
+}
+
+.form__submit > input {
+  padding: 15px 25px;
+  margin: 20px auto;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  position: relative;
+  font-size: 17px;
+  background: #ecf0f3;
+  border-radius: 15px;
+  box-shadow: -8px -4px 8px 0px #ffffff,
+    8px 4px 12px 0px #d1d9e6;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+
+.form__submit > input::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+
+.form__submit > input:hover {
+  color: #0e73ff;
+  font-weight: bold;
+}
+
+.discussions__container > li {
+  background-color: #fff;
+  border-radius:20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+}
+
+.discussions__container > li:hover{
+  background-color: #cad0cb;
+}
+
+.discussion__avatar--wrapper {
+  padding: 0px;
+  align-items: stretch;
+}
+
+.discussion__avatar--wrapper > img {
+  border-radius: 50%;
+  width:50px;
+}
+.discussion__content {
+  margin-right: auto;
+  padding: 10px 20px;
+}
+
+.discussion__title {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  margin-bottom: 1px;
+  color: rgb(0, 0, 0);
+}
+
+.discussion__answered > p {
+  width:150px;
+  color: #727272;
+  text-align:right;
+  font-size:0.85rem;
+}
+
+div {
+  font-size:0.75rem;
+  color:gray;
+}
+
+.discussion__information {
+  font-size:0.75rem;
+  color:gray;
+}
+
+.discussion__title > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 상단 이동 버튼 */
+#to-top {
+  width: 42px;
+  height: 42px;
+  background-color: #aaaaaa;
+  background: #ecf0f3;
+  border-radius: 15px;
+  box-shadow: -8px -4px 8px 0px #ffffff,
+    8px 4px 12px 0px #d1d9e6;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1;
+}
