@@ -17,12 +17,12 @@ li.discussion__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* width: 580px;
+    width: 580px;
     height: 150px;
     font-size: 20px;
     border-radius: 19px;
     margin: 10px;
-    padding: 20px; */
+    padding: 20px;
 }
 
 div.discussion__avatar--wrapper {
