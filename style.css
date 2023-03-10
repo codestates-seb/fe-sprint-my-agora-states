@@ -1,1 +1,335 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #fafafa;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.body.hide {
+  overflow: hidden;
+}
+
+main {
+  padding: 40px;
+  font-family: "NanumSquareNeoLight";
+  color: black;
+  width: 540px;
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  gap: 20px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.form__input--name {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form__input--wrapper label {
+}
+
+.form__input--wrapper input {
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  font-family: "NanumSquareNeoLight";
+  border: none;
+  border-radius: 15px;
+  height: 40px;
+  padding: 0 10px;
+  width: 280px;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form__input--wrapper textarea {
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  font-family: "NanumSquareNeoLight";
+  border-radius: 15px;
+  padding: 10px;
+  height: 60px;
+  resize: none;
+
+  border: none;
+}
+
+.form__submit input {
+  width: 80px;
+  height: 100%;
+  background-color: #a0c6ff;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  font-size: 16px;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.form__submit input:hover {
+  opacity: 0.7;
+}
+
+.discussion__wrapper * {
+  box-sizing: border-box;
+}
+
+.discussion__wrapper {
+  width: 540px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.discussions__container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.discussion__container {
+  border-radius: 15px;
+  list-style: none;
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  color: black;
+  padding: 20px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+/* TO DO */
+.discussion__container:hover {
+  transform: translate(0, -8px);
+}
+
+.discussion__title {
+  margin-top: 0;
+}
+
+.discussion__title a {
+  transition: 200ms;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.discussion__title a:hover {
+  color: #bebebe;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+
+  border-radius: 100%;
+}
+
+.discussion__content {
+  width: 100%;
+}
+
+.discussion__information {
+  text-align: end;
+  font-size: 14px;
+}
+
+.discussion__answered {
+  font-size: 20px;
+}
+
+.discussion__answered--icon.true {
+  color: green;
+}
+
+.discussion__answered--icon.false {
+  color: red;
+}
+
+.answer__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: 200ms;
+  height: 100vh;
+}
+
+.answer__wrapper.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.answer__wrapper--background {
+  width: 100vw;
+  content: "";
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.299);
+}
+
+.answer__container {
+  max-height: calc(100vh - 120px);
+  position: fixed;
+  bottom: 0;
+  background: white;
+  border-radius: 15px 15px 0 0;
+  padding: 30px;
+  width: 480px;
+  left: calc(50vw - 270px);
+  overflow-y: scroll;
+}
+
+.answer__container::-webkit-scrollbar {
+  display: none;
+}
+
+.answer__container--question-box {
+  margin-bottom: 40px;
+}
+
+.question-box__title {
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+  font-family: "NanumSquareNeoBold";
+  font-size: 20px;
+}
+
+.question-box__author {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: end;
+  margin-bottom: 12px;
+}
+
+.question-box__author--image {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+}
+
+.question-box__date {
+  font-size: 12px;
+  text-align: end;
+  margin-bottom: 16px;
+}
+
+.question-box__question {
+  word-wrap: break-word;
+  height: 100%;
+  word-break: break-all;
+  overflow: auto;
+  font-size: 14px;
+  background-color: #fafafa;
+  padding: 12px;
+  border-radius: 15px;
+}
+
+.answer__container--answer-box.hide {
+  display: none;
+}
+
+.answer-box__title {
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+  font-family: "NanumSquareNeoBold";
+  font-size: 20px;
+}
+
+.answer-box__author {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: end;
+  margin-bottom: 12px;
+}
+
+.answer-box__author--image {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+}
+
+.answer-box__date {
+  font-size: 12px;
+  text-align: end;
+  margin-bottom: 16px;
+}
+
+.answer-box__answer {
+  word-wrap: break-word;
+  height: 100%;
+  word-break: break-all;
+  overflow: auto;
+  font-size: 14px;
+  background-color: #fafafa;
+  padding: 12px;
+  border-radius: 15px;
+}
+
+.discussion__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.discussion__pagination--item {
+  width: 32px;
+  height: 32px;
+  font-family: "NanumSquareNeoBold";
+  border-radius: 8px;
+  border: 3px solid #a0c6ff;
+  color: #a0c6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.discussion__pagination--item:hover {
+  background-color: #a0c6ff;
+  color: white;
+}
