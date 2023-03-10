@@ -26,21 +26,24 @@ askingButton.addEventListener('click', () => {
   sidebarContainer.classList.toggle('lower');
 });
 
+/**
+ * 질문 등록하기 버튼 클릭 시 발생할 이벤트
+ */
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
 
-  ul.append(
-    convertToDiscussion({
-      createdAt: new Date().toISOString(),
-      title: inputTitle.value,
-      author: inputName.value,
-      answer: null,
-      bodyHTML: inputQuestion.value,
-      avatarUrl: '',
-    })
-  );
-
   formContainer.classList.toggle('show');
+
+  agoraStatesDiscussions.push({
+    createdAt: new Date().toISOString(),
+    title: inputTitle.value,
+    author: inputName.value,
+    answer: null,
+    bodyHTML: inputQuestion.value,
+    avatarUrl: 'img/user.png',
+  });
+
+  render(ul);
 });
 
 /**
