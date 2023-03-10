@@ -250,7 +250,7 @@ input[type="submit"]:hover {
 .hide {
   display: none;
 }
-.nav__wrapper {
+/* .nav__wrapper {
   width: 580px;
   height: 40px;
   color: #b7ada0;
@@ -289,4 +289,4 @@ input[type="submit"]:hover {
 .nav_btn:hover {
   color: #ab978a;
   background-color: #ab978a;
-}
+} */
