@@ -1,21 +1,48 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 @import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+/*dsektop 1210 - 1600*/
+
+
+body{
+  justify-content: center;
+  display: flex;
+}
+
+.font_notosans {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.font_logo {
+  font-family: 'Staatliches', cursive;
+}
 
 * {
   box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 li {
   list-style: none;
 }
 
-.discussion__container {
-  width: 540px;
-  flex-direction: row;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.discussion__line {
+  flex-grow: 1;
+}
 
+.discussion__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.discussion__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 2em;
 }
 
 .discussion__avatar--image {
@@ -26,22 +53,236 @@ li {
 
 .discussion__avatar--wrapper {
   border-radius: 100%;
-  width: 48px;
+  width: 50px;
   display: flex;
   flex-grow: 0;
+  margin-right: 3%;
+  
 }
+
 .discussion__content {
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  flex-direction: row;
+  flex-grow: 2;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
 }
+
 .discussion__title, .discussion__information {
   display: flex;
   margin: 0.5% 0px;
 }
+
+.discussion__information {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 0;
+}
+
 .discussion__answered {
   display: flex;
   flex-grow: 0;
+}
+
+.form__container {
+  display: flex;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, #DAEDFF 0%, rgba(217, 217, 217, 0) 30%);
+  max-width: 1500px;
+
+}
+
+.intro_img {
+  display: flex;
+  max-width: 875px;
+  max-height: 594px
+}
+
+.main__title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4vw;
+}
+
+.main__title > p, h1{
+  display: flex;
+  line-height: 150%;
+}
+
+.intro__page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main__title > h1 {
+  font-size: 64px;
+  font-family: 'Staatliches', cursive;
+}
+
+.discussion__card {
+  width: 387px;
+  height: 225px;
+  margin: 0;
+  background-color: #fff;
+  margin-bottom: 3em;
+  box-shadow: 0px 7px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 2em;
+  padding: 2% 2%;
+  flex-direction: column;
+}
+
+.discussion_author {
+  flex-grow: 1;
+}
+
+.discussion_date {
+  flex-grow: 0;
+}
+
+.disscusion__card--hr{
+  display: flex;
+  width: 342px;
+}
+
+#btnWrap {
+  width: 500px;
+  margin: 100px auto;
+}
+
+#popupBtn {
+  width: 150px;
+  height: 50px;
+  padding: 10px 5px;
+  background-color: #002875;
+  color: #fff;
+  font-weight: bold;
+}
+
+#modalWrap {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  backdrop-filter: blur(2px);
+  display: flex;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#modalBody {
+  width: 500px;
+  height: 300px;
+  padding: 30px 30px;
+  margin: 0 auto;
+  border: 1px solid #777;
+  background-color: #fff;
+}
+
+.form {
+  display: flex;
+  background: #fff;
+  justify-content: center;
+  height: fit-content;
+  width: 50vw;
+  max-width: 800px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form__input--wrapper input, textarea {
+  width: 40vw;
+  text-align: center;
+  display: flex;
+  max-width: 800px;
+}
+
+#name, #story {
+  font-size: 20px;
+}
+
+.form__input--wrapper div{
+  padding-top: 5%;
+  justify-content: center;
+  display: flex;
+}
+
+.form__logo {
+  background-color: #002875;
+  display:flex;
+  max-width: 800px;
+  height: 100px;
+  width: 50vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.form__logo > img {
+  max-width: 324px;
+  max-height: 59px;
+  display: flex;
+}
+
+#story {
+  height: 30vh;
+}
+
+#title{
+  font-size: 26px;
+}
+.form__submit {
+  flex-direction: row;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form__submit > input {
+  color: #fff;
+  background-color: #002875;
+  height: 100px;
+  font-size: 40px;
+  font-family: 'Staatliches', cursive;
+  max-width: 300px
+  display: flex;
+  width:100%;
+}
+
+#submit {
+  border-right: 1px solid #fff;
+}
+
+ a {
+  text-decoration: none;
+  color: #212121;
+}
+.discussion__content > h2 {
+  margin-left: 5%; 
+  font-weight: bold;
+
+}
+
+.discussion__content {
+  display: flex;
+  margin-top: 10%;
+  flex-direction: row;
+  justify-content: flex-start;
 }
