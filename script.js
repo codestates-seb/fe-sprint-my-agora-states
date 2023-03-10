@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   // JavaScript 코드 실행
   localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
-});
+
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -52,6 +52,9 @@ const render = (element) => {
 
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+});
+
+
 
 //2. 폼 제출 시 데이터 출력
 const $form = document.querySelector(".form");
