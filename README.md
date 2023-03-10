@@ -10,6 +10,8 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 Github Page 배포 링크를 아래 작성합니다.
 
+https://xionwcfm.github.io/fe-sprint-my-agora-states/
+
 ## Bare Minimum Requirement Self Checklist
 
 스스로 구현 완료한 부분까지 체크하여 제출합니다.
