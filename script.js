@@ -16,7 +16,7 @@ const convertToDiscussion = (obj) => {
 
   // 아바타
   const avatarImg = document.createElement('img');
-  avatarImg.src = agoraStatesDiscussions[0].avatarUrl;
+  avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of ' + agoraStatesDiscussions[0].author;
   avatarWrapper.append(avatarImg);
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
@@ -103,3 +103,13 @@ function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: "smooth"});
 }
+
+//로컬스토리지
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
+// 로컬스토리지에 저장
+localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
