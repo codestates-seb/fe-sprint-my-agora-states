@@ -52,7 +52,9 @@ const convertToDiscussion = (obj) => {
   discussionLink.textContent = title;
   const discussionInformation = document.createElement('div');
   discussionInformation.classList.add('discussion__information');
-  discussionInformation.textContent = `${author} | ${convertToDate(createdAt)}`;
+  discussionInformation.textContent = `${author} | ${new Date(
+    createdAt
+  ).toLocaleString()}`; // convertToDate(createdAt)
   discussionTitle.appendChild(discussionLink);
   discussionContent.appendChild(discussionTitle);
   discussionContent.appendChild(discussionInformation);
