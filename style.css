@@ -431,3 +431,33 @@ main {
     display: none;
   }
 }
+
+.pagination--container {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pagination__button--wrapper {
+  /* background-color: blue; */
+  display: flex;
+  padding: 15px;
+}
+
+.page-button {
+  font-size: 13px;
+  line-height: 200%;
+  padding: 0 10px;
+  color: var(--pale-font-color);
+}
+
+.page-number--button {
+  margin: 10px;
+  color: var(--pale-font-color);
+  font-size: 15px;
+}
+
+.selected-page {
+  color: var(--purple);
+  font-weight: 800;
+}
