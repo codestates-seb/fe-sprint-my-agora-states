@@ -40,9 +40,9 @@ const convertToDiscussion = (obj) => {
 
   // 답변 유무를 확인하여 존재하는 답변 출력
   if(obj.answer === null) {
-    discussionAnswered.innerHTML+='<p>☒</p>';
+    discussionAnswered.innerHTML+="<img src='https://cdn-icons-png.flaticon.com/512/3247/3247297.png' width='17px'>";
   } else {
-    discussionAnswered.innerHTML+='<p>☑</p>';
+    discussionAnswered.innerHTML+="<img src='https://cdn-icons-png.flaticon.com/512/6325/6325553.png' width='20px'>";
     Answer.classList.add('exit');
     // Answer.innerHTML += obj.answer.bodyHTML;
     Answer.append(addAnswer(obj.answer));
@@ -66,7 +66,7 @@ const addAnswer = (obj) => {
   const discussionContent = document.createElement("div");
   discussionContent.className = "answer__content";
   // 답변 기호
-  isAnswer.textContent = '⮡';
+  isAnswer.innerHTML = "<img src='https://as2.ftcdn.net/v2/jpg/05/28/00/07/1000_F_528000768_Ro4XI3y2bwJD9Jr2W3Ic5oQ6IvubKhRu.webp' width='12px'>";
 
   // 답변 이미지
   const avatarImg = document.createElement('img');
@@ -103,6 +103,9 @@ inputBtn.onclick = function() {
   const minutes = today.getMinutes();  // 분
   const createdAt = `${year}-${month}-${date} ${hours}:${minutes}`;
 
+  if(name === '' || title === '' || story === '') {
+    return;
+  }
   // 저장할 객체 생성
   const obj = {
     avatarUrl : "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
@@ -143,6 +146,7 @@ const addLocalstorage = () => {
   }
 }
 
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -155,3 +159,10 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// opacity input 을 이용해 투명도 조절
+document.querySelector('#opacity').addEventListener('input',e=>{
+  const container = document.querySelectorAll('.discussion__container');
+  for(let ele of container) {
+    ele.style.backgroundColor = `rgba(255,255,255,${e.target.value*0.1})`;
+  }
+});
