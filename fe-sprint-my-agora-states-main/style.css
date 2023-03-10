@@ -1,0 +1,109 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* //남은 여백을 어느정도 차지할 것인가 플렉스 글로우 
+요소를 wrapper로 감싸는 기준이 궁금합니다! img태그 등을 wrapper로 안 감싸고 다루면 별로 좋지 않은 코드인가요? */
+*{
+    box-sizing: border-box;
+    padding: 0;  
+    margin: 0;
+}
+body{
+  background-color: #E3DFFD;
+}
+main{
+  display : flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+main>h1{
+  color: #E96479;
+}
+li.discussion__container {
+  display: flex;
+  width: 420px;
+  height: 60px;
+  justify-content: space-between;
+  margin : 20px;
+}
+div.discussion__avatar--wrapper{
+  display: flex; 
+  justify-self: center;
+  align-items: center;
+}
+div.discussion__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;   /*??*/
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+h2.discussion__title{
+  text-align: left;
+}
+div.discussion__information{
+  text-align: right;
+}
+div.discussion__answered{
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+img{
+  border-radius: 50%;
+  width: 58px;
+}
+a{
+  color: black;
+}
+.form__input--wrapper{
+  font-size: large;
+  color: #E96479;
+}
+.discussions__container{
+  overflow-y: scroll;
+  height: 600px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.discussions__container::-webkit-scrollbar {
+  display: none; 
+}
+section.form__container{
+  margin: 100px;
+}
+#name{
+  width: 300px;
+  height: 30px;
+  border-radius: 20px;
+ 
+  border: 1px;
+  margin: 10px;
+}
+#title{
+  width: 300px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px;
+  margin: 10px;
+}
+#story{
+  width: 300px;
+  height: 60px;
+  border-radius: 20px;
+  border: 1px;
+  margin: 10px;
+  padding: 15px;
+  padding-left: 30px;
+}
+input {
+  padding: 15px;
+  padding-left: 30px;
+}
+label{
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
