@@ -71,3 +71,11 @@ img{
     position: sticky;
     top: 150px;
 }
+
+/* 버튼 */
+.btns{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    gap: 100px;
+}
