@@ -38,12 +38,13 @@ const convertToDiscussion = (obj) => {
 
   // author와 time을 info 변수에 저장
 
-  // 돋보기 그림  img 태그 생성 (on/off)
+  // 전구 그림  img 태그 생성 (on/off)
   const on = document.createElement("img");
   on.src = "./img/cartoon-1294877_640.png";
   const off = document.createElement("img");
   off.src = "./img/idea-305335_640.png";
-
+  on.className = "light_bulb";
+  off.className = "light_bulb";
   // 응답 있을 시 전구가 켜지도록 구현
   const response = obj.answer?.bodyHTML;
   response ? discussionAnswered.append(on) : discussionAnswered.append(off);
@@ -84,8 +85,7 @@ form.addEventListener("submit", (event) => {
     author: author.value,
     answer: null,
     bodyHTML: story?.value,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+    avatarUrl: "./img/bg.jpeg",
   };
   ul.prepend(convertToDiscussion(newDiscussion));
   title.value = "";
