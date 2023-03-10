@@ -42,9 +42,9 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, from, to) => {
+const render = (element, from, to, arr) => {
   for (let i = from; i < to; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(arr[i]));
   }
   return;
 };
@@ -89,23 +89,35 @@ function submitEvent(e){
 function search(){
   let code = document.querySelector('#search').value;
   // console.log(code);
-  let discussionContainer = document.querySelectorAll('.discussion__container');
-  let discussionTitle = document.getElementsByClassName('discussion__title');
-  
+  let searchArr=[];
+  let beforePage = document.getElementById("beforePage");
+  let nextPage = document.getElementById('nextPage');
+  let discussionContainer = document.querySelector('.discussion__container');
+
   for (let i=0; i<agoraStatesDiscussions.length; i++){
     if(agoraStatesDiscussions[i].title.includes(code)){
-      discussionContainer[i+1].style.display = 'flex'
-      console.log(i, code);
-
-    } else {
-      discussionContainer[i+1].style.display = 'none';
+      searchArr.push(agoraStatesDiscussions[i]);
     }
   }
-
-  if(discussionTitle[0].firstChild.textContent.includes(code)){
-    discussionContainer[0].style.display = 'flex';
-  } else {
-    discussionContainer[0].style.display = 'none';
+  if(code === ''){
+    //앞에 render된 내용 삭제
+    while (ul.firstChild) { 
+      ul.removeChild(ul.firstChild);
+    }
+    render(ul, 0, showContent-1, agoraStatesDiscussions);
+    //버튼 보이게
+    beforePage.style.display = 'flex';
+    nextPage.style.display = 'flex';
+  } 
+  else {
+    //앞에 render된 내용 삭제
+    while (ul.firstChild) { 
+      ul.removeChild(ul.firstChild);
+    }
+    render(ul, 0, searchArr.length, searchArr)
+    //버튼 안보이게
+    beforePage.style.display = 'none';
+    nextPage.style.display = 'none';
   }
 }
 
@@ -152,7 +164,7 @@ function beforePageEvent(){
     ul.removeChild(ul.firstChild);
   }
   
-  render(ul, startContent, lastContent)
+  render(ul, startContent, lastContent, agoraStatesDiscussions)
 }
 //다음페이지로
 function nextPageEvent(){
@@ -173,8 +185,8 @@ function nextPageEvent(){
     ul.removeChild(ul.firstChild);
   }
 
-  render(ul, startContent, lastContent)
+  render(ul, startContent, lastContent, agoraStatesDiscussions)
 }
 
-render(ul, 0, showContent-1);
+render(ul, 0, showContent-1, agoraStatesDiscussions);
 
