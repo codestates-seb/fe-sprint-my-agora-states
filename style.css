@@ -1,1 +1,194 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-section {
+    display: flex;
+    width: 100%;
+    height: 65px;
+    background-color:rgb(253, 253, 253);
+    box-shadow: 0px 0px 2px 2px rgb(34, 34, 34);
+}
+
+.title-section {
+    /* border: 3px solid aliceblue; */
+    flex-grow: 1;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    color:rgb(27, 27, 27);
+}
+
+.help-section {
+    flex-grow: 0;
+    width: 60px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.mypage-section {
+    width: 60px;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-right: 80px;
+}
+
+/* 데이터 불러오는 부분 */
+
+.discussions__container {
+    margin-left: 300px;
+}
+.discussion__wrapper {
+    flex-grow: 1;
+} 
+
+li.discussion__container {
+    display: flex;
+    width: 600px;
+    height: 80px;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+img {
+    border-radius: 50%;
+    width: 60px;
+}
+
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+h3.discussion__title {
+    text-align: left;
+}
+
+div.discussion__information {
+    text-align: right;
+}
+
+div.discussion_answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-discussion-container {
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}
+
+
+/* 질문 작성 부분 */
+.form__container {
+    flex-grow: 0.5;
+    background-color: rgb(253, 253, 253);
+    box-shadow: 0px 0px 5px 2px rgb(41, 41, 41);
+}
+
+.form {
+    height: 500px;
+    margin-top: 300px;
+}
+
+
+.form__input--name {
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+input[id="name"] {
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+input[id="name"]:focus {
+    outline: 3px solid rgb(27, 27, 27);
+}
+
+input[id="name"]:-placeholder {
+    text-align: center;
+}
+
+.form__input--title {
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+}
+input[id="title"] {
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+input[id="title"]:focus {
+    outline: 3px solid rgb(27, 27, 27);
+}
+
+.form__textbox {
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+textarea[id="story"] {
+    width: 300px;
+    height: 80px;
+    border-radius: 20px;
+}
+
+textarea[id="story"]:focus {
+    outline: 3px solid rgb(27, 27, 27);
+}
+
+.form__submit {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+input[id="submit"] {
+    width: 100px;
+    height: 80px;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(27, 27, 27);
+    box-shadow: 3px 3px 3px black;
+
+    transition-duration: 0.3s;
+}
+
+
+input[id="submit"]:active {
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: none;
+}
+
