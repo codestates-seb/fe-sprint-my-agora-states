@@ -1,0 +1,7 @@
+:root {
+  --black: black;
+  --white: white;
+  --gray: lightgray;
+  --darkgray: rgba(0, 0, 0, 0.6);
+  --purple: #865dff;
+}
