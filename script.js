@@ -1,7 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -44,9 +40,38 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// 페이징
+let totalpage = Math.ceil(agoraStatesDiscussions.length / 10); //총 페이지 수
+
+// 총 페이지 수 렌더링
+const pageul = document.querySelector("ul.pageul");
+for (let i = 1; i <= totalpage; i++) {
+  const pageli = document.createElement("li");
+  pageli.className = "page";
+  pageli.textContent = `${i}`;
+  pageul.append(pageli);
+}
+
+// 몇번째 페이지가 클릭되었는지 반환하는 함수
+pageul.addEventListener("click", (e) => {
+  const nodes = [...e.target.parentElement.children];
+  const index = nodes.indexOf(e.target);
+  render(ul, index);
+});
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const render = (element, index) => {
+  if (index == undefined) {
+    index = 0;
+  }
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = index * 10; i <= index * 10 + 9; i += 1) {
+    if (i == agoraStatesDiscussions.length) {
+      //최종 게시글까지 렌더링 차례가 되면 for문중지
+      break;
+    }
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -54,7 +79,7 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, 0);
 
 const form = document.querySelector("form.form");
 // 질문 추가
@@ -103,13 +128,3 @@ function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: "smooth"});
 }
-
-//로컬스토리지
-const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
-if (dataFromLocalStorage) {
-  data = JSON.parse(dataFromLocalStorage);
-} else {
-  data = agoraStatesDiscussions.slice();
-}
-// 로컬스토리지에 저장
-localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
