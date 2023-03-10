@@ -121,7 +121,6 @@ main {
   background: transparent;
   padding: 0px 50px;
   margin-bottom: 25px;
-  backdrop-filter: blur(10px);
 }
 
 h1 {
@@ -330,6 +329,10 @@ a:active {
   text-decoration: none;
 }
 
+.danaka {
+  background: url(../asset/image/danaka.gif);
+}
+
 @media (max-width: 800px) {
   .submitForm input {
     font-size: 3rem;
@@ -340,4 +343,22 @@ a:active {
   textarea {
     min-height: 10vw;
   }
+}
+
+.counter {
+  color: rgba(255, 255, 255, 0.459);
+  font-size: var(--big-font-size);
+  transition: all 2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.hilite {
+  color: yellow;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+  text-shadow: 2px 2px 4px #d3d3d3, -2px -2px 4px #dadada;
+  backdrop-filter: blur(20px);
+  background-color: rgba(172, 55, 143, 0.425);
+  padding: 1rem;
+  z-index: 100;
+  border-radius: 10px;
 }

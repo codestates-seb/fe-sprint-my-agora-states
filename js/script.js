@@ -1,3 +1,6 @@
+const h1 = document.querySelector('h1');
+const countingDiv = document.querySelector('.counter');
+const body = document.querySelector('body');
 const submitForm = document.querySelector('.form');
 const pageButtonContainer = document.querySelector('.pageContainer');
 const ul = document.querySelector('.discussContainer');
@@ -9,6 +12,28 @@ const listSize = 10; // 한번에 보여줄 리스트 개수
 let activePage = 1; // 현재 페이지 -> 리스트를 렌더링 너무많은데이터가있으면 그걸 다 렌더링하면 시간이 너무 오래걸림
 let firstNum = activePage - (activePage % bottomSize) + 1; // 현재페이지 - (현재페이지 % 버튼갯수) + 1
 let lastNum = activePage - (activePage % bottomSize) + bottomSize;
+
+let danakaMaker = new Array(20).fill(false);
+danakaMaker[0] = true;
+let counter = 0;
+let flagDanaka = false;
+
+h1.addEventListener('click', () => {
+  console.log(countingDiv.textContent.includes('축하'));
+  if (flagDanaka) return;
+  let danakaif = danakaMaker[Math.floor(Math.random() * danakaMaker.length)];
+  counter += 1;
+  if (danakaif) {
+    body.classList.add('danaka');
+    countingDiv.textContent = `Congratulations! you found danaka in ${counter} attempts`;
+    countingDiv.classList.add('hilite');
+    flagDanaka = true;
+    return;
+  } else {
+    countingDiv.textContent = `시행횟수 ${counter}`;
+    return;
+  }
+});
 
 /* 로컬스토리지 관련 로직입니다 사용처는 inputSubmit과 최초실행 1번입니다. */
 const saveStorage = () => {
