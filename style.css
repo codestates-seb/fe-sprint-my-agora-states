@@ -1,1 +1,268 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  height: 64px;
+  width: 100vw;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+header > div {
+  display: flex;
+  align-items: center;
+}
+header > h2 {
+  font-size: 30px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #201976;
+}
+
+.btn_option {
+  border: 0;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 10px;
+}
+.btn_option:hover {
+  background-color: #f3f3f3;
+}
+.btn_option:active {
+  background-color: lightgray;
+}
+#intro {
+  background-image: url("./image/2112.w037.n003.50B.p1.50.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 25vw;
+  min-height: 250px;
+}
+#intro > h1 {
+  font-size: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#intro > p {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0 50px 0;
+}
+.question {
+  width: 100%;
+  height: 50px;
+  font-size: 17px;
+  padding: 8px;
+  margin-bottom: 24px;
+  font-family: none;
+}
+.questionContent {
+  height: 300px;
+}
+.submit {
+  border-radius: 10px;
+  border: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+  background-color: #7064ff;
+  color: white;
+}
+.submit:hover {
+  font-weight: bold;
+  background-color: #5b51cb;
+}
+.submit:disabled,
+.submit[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+}
+
+main {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 200px;
+  border-radius: 50%;
+}
+.discussions__container {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+  flex-wrap: wrap;
+}
+.discussion__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #e1e1e1;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  align-items: center;
+  width: 28vw;
+  min-width: 200px;
+  max-width: 500px;
+  height: 200px;
+}
+.discussion__avatar--image {
+  display: flex;
+  width: 40px;
+}
+.question_userinfo {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid darkgray;
+  padding-top: 8px;
+  width: 100%;
+}
+.question_userinfo > span {
+  margin-left: 8px;
+  flex-grow: 1;
+  font-size: 12px;
+  font-weight: bold;
+}
+.question_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  width: 100%;
+}
+.question_content > div {
+  display: flex;
+  justify-content: flex-end;
+}
+a {
+  text-decoration-line: none;
+}
+.discussion__content {
+  margin: 0 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.discussion__content > h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: black;
+}
+h3 > a {
+  color: #545454;
+  background-color: transparent;
+  text-decoration: none;
+}
+.discussion__content > div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#myBtn {
+  border: 0;
+  background-color: #7064ff;
+  border-radius: 10px;
+  padding: 12px 56px;
+  font-size: 15px;
+  color: white;
+}
+#myBtn:hover {
+  font-weight: bold;
+  background-color: #5b51cb;
+}
+.hide {
+  display: none;
+}
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+#login_content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 16px 24px 24px 24px;
+  width: 280px;
+  height: 280px;
+  border-radius: 20px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+#login_content > div {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 7% auto;
+  padding: 20px 40px 40px 40px;
+  width: 40vw;
+  max-width: 500px;
+  min-width: 600px;
+  border-radius: 20px;
+}
+.modal-content > div {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:active {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: #7064ff;
+}
+.input_login {
+  padding: 8px;
+  width: 100%;
+  height: 50px;
+}
+.form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
