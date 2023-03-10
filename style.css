@@ -1,1 +1,232 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+input:focus {
+    outline:1px solid rgba(42, 45, 49,1);
+}
+textarea:focus {
+    outline:1px solid rgba(42, 45, 49,1);
+}
+body {
+    display:flex;
+    width: 100vw;
+    height: 100%;
+}
+header {
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width:300px;
+    /* flex-basis: 300px;
+    flex-shrink: 0;
+    flex-grow: 0; */
+    /* CODESTATES 배경 */
+    background-image: linear-gradient(
+        to bottom,
+        rgba(42, 45, 49,0.5),
+        rgb(42, 45, 49,1)
+      ),
+      url('codestates-motif.png');
+}
+header > img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+main {
+    align-items: stretch;
+    flex-grow:1;
+    min-width:0;
+    margin-left: 300px;;
+    padding: 15px 0px;
+    background-color: rgba(42, 45, 49,1);
+    color: white;
+}
+main > h1 {
+    padding:0px 0px 5px 30px;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+    font-size:20px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+.form__container {
+    margin: 25px 30px;
+    background-color: rgb(63, 66, 69);
+    border-radius: 10px;
+    height: 200px;
+}
+.form__input--name {
+    display:flex;
+    align-items: center;
+    padding-top: 10px;
+    margin: 10px 10px;
+    font-size: 25px;
+}
+.form__input--name > input {
+    border:none;
+    background-color: transparent;
+    width: 90%;
+    height: 30px;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+.form__input--name > input::placeholder{
+    font-size: 17px;
+} 
+.form__input--title, .form__textbox , .form__submit{
+    margin: 5px 10px;
+}
+.form__input--title >input{
+    border:none;
+    background-color: transparent;
+    width: 100%;
+    height: 30px;
+}
+.form__input--title >input::placeholder{
+    font-size: 25px;
+} 
+.form__textbox >textarea{
+    border:none;
+    background-color: transparent;
+    width: 100%;
+    height:65px;
+}
+.form__textbox >textarea::placeholder{
+    font-size: 17px;
+} 
+.form__submit{
+    display:flex;
+    flex-direction: row-reverse;
+}
+.form__submit > input{
+    background-color: rgba(68, 44, 220,0.8);
+    border:1px solid rgba(68, 44, 220,1);
+    width: 80px;
+    height:30px;
+    border-radius: 20px;
+}
+.form__submit > input[value="submit"]{
+    font-size: 20px;
+    color: white;
+}
+
+
+
+
+
+
+
+.discussion__container{
+    display: flex;
+    /* justify-content: space-between; */
+    background-color: rgb(63, 66, 69);
+    margin: 10px 30px;
+    height:120px;
+    border-radius: 10px;
+}
+.discussion__avatar--wrapper {
+    display:flex;
+    flex-grow: 0;
+    align-items: center;
+    padding: 0px 20px 0px 15px;
+
+}
+.discussion__avatar--wrapper > img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.discussion__content {
+    display:flex;
+    flex-grow: 1;
+    justify-content: center;
+    flex-direction: column;
+    width:70%;
+    /* width: 650px; */
+    /* 질문 클릭해서 접힐때 650px로 설정하자 */
+}
+
+.discussion__title{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px 0px;;
+}
+.discussion__question{
+    height: 20px;
+    /* 질문 본문 내용은 20px만큼만 보인다. */
+    overflow: hidden;
+    opacity:0.6;
+}
+.discussion__information{
+    opacity:0.6;
+}
+
+.discussion__answered {
+    display:flex;
+    flex-grow:0;
+    align-items: center;
+    padding-right:20px;
+}
+.discussion__answered > p {
+    font-size: 50px;
+}
+
+
+
+/* search */
+.search-tab {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 30px;
+    background-color: rgb(63, 66, 69);
+    border-radius: 10px;
+    height: 60px;
+    font-size:20px;
+}
+.search-tab > i {
+    margin: 5px 20px;
+}
+.search-tab__search-part{
+    display:flex;
+    align-items: center;
+    flex-grow:1;
+    padding-top:3px;
+}
+.search-tab__search-part > input {
+    width:100%;
+    height:30px;
+    border: none;
+    background-color: transparent;
+}
+.search-tab__search-part > input::placeholder{
+    font-size: 20px;
+}
+.search-tab__new-post {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(68, 44, 220,0.8);
+    height: 44px;
+    border-radius: 20px;
+    margin: 0px 20px;
+    padding: 0px 20px;
+}
+.search-tab__new-post > i {
+    margin-right: 10px
+}
+
+.hide {
+    visibility: hidden;
+}
