@@ -10,29 +10,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  </head>
 
 <body>
+
   <main>
-    <h1>My Agora States</h1>
     <section class="form__container">
+      <div class="title ">My Agora States</div>
+      <div class="subtitle">질문을 적어주세요!</div>
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+          <div class="form__input--name ">
+            <label for="name"> </label>
+            <input type="text" name="name" id="name" class="input-color" placeholder=이름 required>
           </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
+          <div class="form__input--title ">
+            <label for="title"> </label>
+            <input type="text" name="title" id="title" class="input-color" placeholder=제목 required>
           </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+          <div class="form__textbox ">
+            <label for="story"> </label>
+            <textarea id="story" name="story" class="input-color" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input type="submit" value="submit" class="input-color">
         </div>
       </form>
     </section>
@@ -45,10 +49,13 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <h3 class="discussion__title"><a
+                href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h3>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered">
+            <p>✔</p>
+          </div>
         </li>
       </ul>
     </section>
