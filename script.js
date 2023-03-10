@@ -8,6 +8,13 @@ const inputTitle = document.querySelector('#title');
 const inputQuestion = document.querySelector('#story');
 const submitButton = document.querySelector('#submit-button');
 
+const paginationContainer = document.querySelector('.pagination--container');
+const prevButton = document.getElementById('button-prev');
+const nextButton = document.getElementById('button-next');
+const pageNumberWrapper = document.getElementById('page-number--wrapper');
+const DISCUSSIONS_PER_PAGE = 10;
+let currentPage = 1;
+
 const nothingFiltered = document.querySelector('.nothing-image--wrapper');
 
 const sidebarContainer = document.querySelector('.side-bar__container');
@@ -18,7 +25,7 @@ const recentSortOption = document.querySelector('#option-recent');
 const oldSortOption = document.querySelector('#option-old');
 const dictionarySortOption = document.querySelector('#option-dictionary');
 
-let currentDiscussions;
+let currentDiscussions = agoraStatesDiscussions;
 let currentSortStatus = recentSortOption;
 
 askingButton.addEventListener('click', () => {
@@ -43,7 +50,7 @@ submitButton.addEventListener('click', (e) => {
     avatarUrl: 'img/user.png',
   });
 
-  render(ul);
+  render();
 });
 
 /**
@@ -91,7 +98,7 @@ noticeFilterOption.addEventListener('click', async () => {
 recentSortOption.addEventListener('click', () => {
   currentSortStatus = recentSortOption;
   ul.innerHTML = '';
-  render(ul, sortRecentOrder(currentDiscussions));
+  render(sortRecentOrder(currentDiscussions));
 });
 
 /**
@@ -100,7 +107,7 @@ recentSortOption.addEventListener('click', () => {
 oldSortOption.addEventListener('click', () => {
   currentSortStatus = oldSortOption;
   ul.innerHTML = '';
-  render(ul, sortOldOrder(currentDiscussions));
+  render(sortOldOrder(currentDiscussions));
 });
 
 /**
@@ -109,7 +116,39 @@ oldSortOption.addEventListener('click', () => {
 dictionarySortOption.addEventListener('click', () => {
   currentSortStatus = dictionarySortOption;
   ul.innerHTML = '';
-  render(ul, sortDictionaryOrder(currentDiscussions));
+  render(sortDictionaryOrder(currentDiscussions));
+});
+
+/**
+ * 이전 페이지로 이동 버튼 클릭 시 발생할 이벤트
+ */
+prevButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    movePageHilighting(currentPage);
+    changePage(currentPage);
+  }
+});
+
+/**
+ * 다음 페이지로 이동 버튼 클릭 시 발생할 이벤트
+ */
+nextButton.addEventListener('click', () => {
+  console.log(currentPage, getPagesCount());
+  if (currentPage < getPagesCount()) {
+    currentPage += 1;
+    movePageHilighting(currentPage);
+    changePage(currentPage);
+  }
+});
+
+/**
+ * 페이지 번호 버튼 클릭 시 발생할 이벤트
+ */
+pageNumberWrapper.addEventListener('click', (e) => {
+  currentPage = +e.target.textContent;
+  movePageHilighting(currentPage);
+  changePage(currentPage);
 });
 
 /**
@@ -190,7 +229,7 @@ const unfilterUnsolved = () => {
 };
 
 /**
- * @params {[]} - 정렬 전 배열
+ * @param {[]} - 정렬 전 배열
  * @returns {array} - 최근 등록 순 정렬 후 배열
  */
 const sortRecentOrder = (array) => {
@@ -202,7 +241,7 @@ const sortRecentOrder = (array) => {
 };
 
 /**
- * @params {[]} - 정렬 전 배열
+ * @param {[]} - 정렬 전 배열
  * @returns {array} - 오래된 등록 순 정렬 후 배열
  */
 const sortOldOrder = (array) => {
@@ -214,7 +253,7 @@ const sortOldOrder = (array) => {
 };
 
 /**
- * @params {[]} - 정렬 전 배열
+ * @param {[]} - 정렬 전 배열
  * @returns {array} - 제목 가나다 순 정렬 후 배열
  */
 const sortDictionaryOrder = (array) => {
@@ -225,17 +264,65 @@ const sortDictionaryOrder = (array) => {
   });
 };
 
+/**
+ * @param {number} - 이동할 페이지 번호
+ */
+const movePageHilighting = (page) => {
+  const pageNumberButtons = document.querySelectorAll('.page-number--button');
+
+  pageNumberButtons.forEach((button) => {
+    if (button.classList.contains('selected-page')) {
+      button.classList.remove('selected-page');
+    }
+  });
+
+  pageNumberButtons[page - 1].classList.add('selected-page');
+};
+
+/**
+ * @returns {number} - 총 페이지 개수
+ */
+const getPagesCount = () => {
+  return Math.ceil(currentDiscussions.length / DISCUSSIONS_PER_PAGE);
+};
+
+/**
+ * 필요한 페이지 개수만큼 페이지 버튼 만들기
+ */
+const renderPageNumber = () => {
+  pageNumberWrapper.innerHTML = '';
+
+  for (let i = 1; i <= getPagesCount(); i++) {
+    pageNumberWrapper.innerHTML += `<span class="page-number--button"> ${i} </span>`;
+  }
+
+  pageNumberWrapper.firstChild.classList.add('selected-page');
+};
+
+/**
+ * @param {number} - 이동할 페이지 번호
+ */
+const changePage = (page) => {
+  if (page < 1) {
+    page = 1;
+  }
+  if (page > getPagesCount() - 1) {
+    page = getPagesCount();
+  }
+
+  ul.innerHTML = '';
+
+  for (
+    let i = (page - 1) * DISCUSSIONS_PER_PAGE;
+    i < page * DISCUSSIONS_PER_PAGE && i < currentDiscussions.length;
+    i++
+  ) {
+    ul.append(convertToDiscussion(currentDiscussions[i]));
+  }
+};
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = ({
-  id,
-  createdAt,
-  title,
-  url,
-  author,
-  answer,
-  bodyHTML,
-  avatarUrl,
-}) => {
+const convertToDiscussion = ({ createdAt, title, url, author, answer, bodyHTML, avatarUrl }) => {
   const li = document.createElement('li'); // li 요소 생성
   li.className = 'discussion__container'; // 클래스 이름 지정
 
@@ -295,21 +382,22 @@ const convertToDiscussion = ({
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, discussions = agoraStatesDiscussions) => {
+const render = (discussions = agoraStatesDiscussions, page = 1) => {
+  currentPage = page;
   currentDiscussions = discussions;
 
   if (currentDiscussions.length === 0) {
+    paginationContainer.className = 'hide';
     nothingFiltered.classList.remove('hide');
     return;
   }
   nothingFiltered.classList.add('hide');
+  paginationContainer.className = 'pagination--container';
 
-  for (let i = 0; i < discussions.length; i += 1) {
-    element.append(convertToDiscussion(discussions[i]));
-  }
+  renderPageNumber();
+  changePage(page);
+
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-render(ul);
+render();
