@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -17,7 +14,11 @@ const convertToDiscussion = (obj) => {
   // avatar wrapper 에 이미지 dom 넣기
   const avatarImg = document.createElement('img');
   avatarImg.className = 'discussion__avatar--image'
-  avatarImg.src = obj.avatarUrl;
+  if(obj.avatarUrl) {
+    avatarImg.src = obj.avatarUrl;
+  } else {
+    avatarImg.src = "./blank_img.png"
+  }
   avatarImg.alt = `picture of ${obj.author}`
   avatarWrapper.append(avatarImg)
 
@@ -31,7 +32,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.appendChild(discussionLink);
   const discussionDate = document.createElement('div');
   discussionDate.className = 'discussion__information';
-  discussionDate.innerHTML = obj.createdAt
+  discussionDate.innerHTML = `${obj.createdAt.substring(0,10)} | ${obj.createdAt.substring(11,19)}`
   discussionContent.appendChild(discussionTitle);
   discussionContent.appendChild(discussionDate);
   
@@ -39,8 +40,10 @@ const convertToDiscussion = (obj) => {
   const answered = document.createElement('div');
   if(obj.answer) {
     answered.innerHTML = '☑'
+    answered.style.color = 'green'
   } else {
     answered.innerHTML = 'X'
+    answered.style.color = 'red'
   }
   discussionAnswered.appendChild(answered)
 
@@ -66,6 +69,36 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
+//==============form 구현====================
+const discussionForm = document.querySelector('.form');
+const inputName = document.querySelector('#name');
+const inputTitle = document.querySelector('#title');
+const inputStory = document.querySelector('#story');
+
+discussionForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let currentTime = new Date()
+
+  let question = {
+    createdAt: `${currentTime.toISOString()}`,
+    title: inputTitle.value,
+    author: inputName.value,
+  }
+
+  console.log(question.createdAt)
+
+  const newLi = convertToDiscussion(question);
+  ul.insertBefore(newLi, ul.firstChild)
+
+  updateObserver();
+
+})
+
+
+function updateObserver() {
+  const newElement = document.querySelector('.discussion__container:first-child');
+  observer.observe(newElement);
+}
 
 //스크롤 애니메이션
 let observer = new IntersectionObserver((e) => {

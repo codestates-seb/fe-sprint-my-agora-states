@@ -3,8 +3,13 @@
     box-sizing: border-box;
 }
 
+h1 {
+    color: white;
+    margin-bottom: 80px;
+}
+
 body {
-    background-color: beige;
+    background-color: rgb(16, 16, 16);
 }
 
 
@@ -22,14 +27,16 @@ main {
     width: 540px;
     margin: 10px;
 
-    background: rgb(144, 195, 144);
-    border-radius: 10px;
+    background: rgb(26, 26, 27);
+    border-radius: 3px;
+    border: 1px solid rgb(45, 46, 47);
+    opacity: 0;
+    transition: opacity 1s;
 
 }
 
-li.discussion__container {
-    opacity: 0;
-    transition: all 1s;
+.discussion__container:hover {
+    border: 1px solid white
 }
 
 ul {
@@ -57,12 +64,12 @@ ul {
     margin: 5px 10px 5px 10px;
     padding: 5px;
     border-radius: 10px;
+    color: white;
 }
 
 .discussion__title {
     margin-bottom: 5px;
     margin-top: 0px;
-    color: black;
     font-size: 15px;
     margin: 5px;
     display: flex;
@@ -70,7 +77,7 @@ ul {
 }
 
 .discussion__title>a {
-    color: black;
+    color: white;
     text-decoration: none;
     word-break: keep-all;
     target: _blank;
@@ -91,4 +98,27 @@ ul {
     margin-left: auto;
     margin-right: 15px;
     font-size: 20px;
+    color: green;
+}
+
+/* Form */
+.form__container {
+    margin: 16px;
+}
+
+.form {
+    background-color: green;
+    padding: 10px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* form and discussions */
+.form__and__discussions {
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: space-between;
+    margin-left: 200px;
 }
