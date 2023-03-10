@@ -4,7 +4,7 @@
 }
 
 .grid-item {
-    border: solid pink;
+    border: solid 1px pink;
 }
 
 /* Intro area */
@@ -43,8 +43,8 @@
 }
 
 .intro-title {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.7rem;
+    font-weight: 600;
     color: var(--color-text);
 }
 
@@ -65,7 +65,7 @@
     height: 70px;
     line-height: 70px;
     margin-bottom: 50px;
-    border: solid red;
+    border: solid 1px red;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
@@ -82,16 +82,22 @@
 
 .mini-board-container {
     width: 100%;
-    height: 700px;
+    height: auto;
     margin-bottom: 80px;
+    padding: 20px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: solid blue;
+    border: solid 1px blue;
 }
 
 .mini-board-right {
     display: grid;
     grid-template-columns: 1fr;
+    padding-left: 50px;
+}
+
+.mini-board-right .grid-item{
+    height: fit-content;
 }
 
 

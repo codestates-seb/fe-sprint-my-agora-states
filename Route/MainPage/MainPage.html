@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="MainPage.css">
-    <link rel="stylesheet" href="../../Components/Header/Header.css">
-    <link rel="stylesheet" href="../../Components/Footer/Footer.css">
-    <link rel="stylesheet" href="../../global-style.css">
+    <link rel="stylesheet" href="./../../style.css">
+    <link rel="stylesheet" href="./MainPage.css">
+    <link rel="stylesheet" href="./../../Components/Header/Header.css">
+    <link rel="stylesheet" href="./../../Components/Footer/Footer.css">
+    <link rel="stylesheet" href="./../../Components/RecentQuestion/RecentQuestion.css">
+    <link rel="stylesheet" href="./../../global-style.css">
     <title>Agora-States</title>
 </head>
 <body>
@@ -46,14 +50,24 @@
 
         <section class="mini-board-container">
             <div class="grid-item">
-                <div class="RecentQuestion"></div>
+                <label>최근 올라온 질문</label>
+                <div class="recent-question-container">
+                    <ul class="recent-question-list">
+                    </ul>
+                    <a class="more-link">더 알아보기 ></a>
+                </div>
             </div>
             <div class="mini-board-right grid-item">
                 <div class="grid-item">
-                    <div class="HotTopic"></div>
+                    <label>이번주 HOT 토픽! 가장 많은 사람들이 고민한 질문이에요.</label>
+                    <div class="hotTopic-container">
+                        <ul class="hotTopic-list">
+                        </ul>
+                        <a class="more-link">더 알아보기 ></a>
+                    </div>
                 </div>
                 <div class="grid-item">
-                    <div class="MiniQuestion"></div>
+                    <div id="MiniQuestion"></div>
                 </div>
             </div>
         </section>
@@ -68,6 +82,7 @@
 
     <script src="../../data.js"></script>
     <script src="./MainPage.js"></script>
+    <script src="../../Components/RecentQuestion/RecentQuestion.js"></script>
     <script src="https://kit.fontawesome.com/f48d1cc008.js" crossorigin="anonymous"></script>
 </body>
 </html>
