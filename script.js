@@ -3,11 +3,58 @@ const newAsk = localStorage.getItem('newStory');
 
 if (newAsk) {
   const newAskArr = JSON.parse(newAsk);
-  console.log('newAsk', newAskArr);
   for (let ask of newAskArr) {
     agoraStatesDiscussions.unshift(ask);
   }
 }
+
+// 페이지네이션
+
+let discussions = agoraStatesDiscussions.slice(0, 6);
+const totalContents = agoraStatesDiscussions.length;
+const limit = 6;
+const pages = Math.ceil(totalContents / limit);
+const pagesArr = Array.from({ length: pages }, (v, i) => i + 1);
+let page = 1;
+let startIndex = (page - 1) * limit;
+
+const main = document.querySelector('main');
+const pagenationSection = document.createElement('section');
+pagenationSection.className = 'pagenation';
+const before = document.createElement('span');
+before.textContent = '〈';
+const after = document.createElement('span');
+after.textContent = '〉';
+
+const makeButtons = (element) => {
+  for (let page of pagesArr) {
+    const pageButton = document.createElement('button');
+    pageButton.textContent = page;
+    pageButton.id = 'page';
+    element.append(pageButton);
+  }
+  return;
+};
+
+main.append(pagenationSection);
+makeButtons(pagenationSection);
+pagenationSection.prepend(before);
+pagenationSection.append(after);
+
+const pagenationClickEvent = pagenationSection.addEventListener('click', (e) => {
+  while (ul.hasChildNodes()) {
+    ul.removeChild(ul.lastChild);
+  }
+  if (e.target.nodeName === 'BUTTON') {
+    page = Number(e.target.textContent);
+  } else if (e.target.nodeName === 'SPAN') {
+    e.target.textContent === '〈' ? page !== 1 && --page : page !== pagesArr.length && ++page;
+  }
+
+  startIndex = (page - 1) * limit;
+  discussions = agoraStatesDiscussions.slice(startIndex, startIndex + limit);
+  render(ul);
+});
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -67,8 +114,8 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < discussions.length; i++) {
+    element.append(convertToDiscussion(discussions[i]));
   }
   return;
 };
@@ -81,7 +128,7 @@ render(ul);
 const writeButton = document.querySelector('#write');
 const form = document.querySelector('.form__input--wrapper');
 
-writeButton.addEventListener('click', (e) => {
+writeButton.addEventListener('click', () => {
   form.classList.toggle('hide');
 });
 
