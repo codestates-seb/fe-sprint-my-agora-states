@@ -1,1 +1,206 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  color: #ff87af;
+}
+
+.discussion__wrapper {
+  width: 540px;
+}
+
+li.discussion__container {
+  margin: 20px 0;
+  display: flex;
+  /* width: 540px;
+  height: 80px; */
+  justify-content: space-between;
+}
+
+.discussions__container {
+  list-style: none;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+.discussion__content {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  font-family: "comic sans ms", "KNPSKkomi-Regular00";
+}
+
+.discussion__title {
+  text-align: left;
+}
+
+.discussion__information {
+  text-align: right;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #f17171;
+}
+
+.discussion__answerd {
+  display: flex;
+}
+
+p {
+  font-size: 30px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+h1 {
+  font-family: "comic sans ms";
+  background: #ff87af;
+  background: linear-gradient(to right, #ff87af 0%, #c8a8ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* 
+textarea#story {
+  width: 500px;
+  border-radius: 50px;
+  padding: 10px;
+} */
+
+.form__input--wrapper {
+  text-align: center;
+  font-family: "comic sans ms";
+  font-weight: bold;
+  color: #ff87af;
+  /* background: linear-gradient(to right, #ff87af 0%, #c8a8ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  font-size: 18px;
+  padding: 11px 13px;
+  border-radius: 20px;
+  border: 2px solid #ffffff;
+  margin: 5px;
+}
+
+/* section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  display: flex;
+  width: 500px;
+  flex-wrap: wrap;
+  flex-direction: row;
+} */
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+#name {
+  height: 20px;
+  width: 120px;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  border-width: 1px;
+}
+
+#name:focus {
+  border-color: #ff8787;
+}
+
+/* input:focus {
+  outline: none;
+} */
+
+#title {
+  height: 20px;
+  width: 120px;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  border-width: 1px;
+}
+
+#title:focus {
+  border-color: #ff8787;
+}
+
+#story {
+  height: 40px;
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+}
+
+#story:focus {
+  border-color: #ff8787;
+}
+
+/* .form__input--wrapper input {
+  width: 300px;
+  height: 30px;
+  font-size: 1.2rem;
+  margin: 5px;
+  border-radius: 10px;
+  border: 2px solid #0078aa;
+} */
+.form__submit {
+  flex: 1;
+  margin: 3px;
+  text-align: center;
+}
+.form__submit input {
+  font-family: "comic sans ms";
+  font-weight: bold;
+  color: #ffffff !important;
+  font-size: 18px;
+  text-shadow: 0px 0px 0px #ffffff;
+  box-shadow: 0px 0px 0px #ffffff;
+  padding: 11px 13px;
+  border-radius: 20px;
+  border: 2px solid #fbf5ff;
+  background: #ff8787;
+  background: linear-gradient(to top, #ff8787, #ffb8d4);
+}
+
+.form__submit input:hover {
+  color: #ffffff !important;
+  background: #df94ff;
+  background: linear-gradient(to top, #df94ff, #c8a3ff);
+}
+
+@font-face {
+  font-family: "KNPSKkomi-Regular00";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KNPSKkomi-Regular00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
