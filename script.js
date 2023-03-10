@@ -24,7 +24,6 @@ const btnOpenForm = document.querySelector("#btn-open-form");
 const dialog = document.querySelector("#dialog");
 const textbox = document.querySelector(".form__textbox");
 const btnClose = document.querySelector("#btn-close");
-
 // local storage
 const localStorageDiscussions =
   "discussions" in localStorage
@@ -87,14 +86,16 @@ const onBtnSubmitClick = (event) => {
     discussion.avatarUrl = myAvatar.currentSrc;
     addDiscussion(discussion);
     updateLocalStorage(discussion);
+    inputName.value = null;
+    inputTitle.value = null;
+    divQuestion.innerHTML = null;
+    dialog.close();
     return;
   }
 };
-
 // object to discussions__container
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 //console.log(agoraStatesDiscussions[0].answer);
-
 const addDiscussion = (obj) => {
   const discussions = document.querySelector("ul.discussions__container");
   const li = convertToDiscussion(obj);
@@ -155,13 +156,14 @@ const fillDiscussionAnswered = (obj) => {
   discussionAnswered.append(discussionContent);
   return discussionAnswered;
 };
-
 const fillBodyHTML = (obj) => {
   const body = document.createElement("div");
   body.classList.add("discussion__body");
+  body.classList.add("hide");
   body.setHTML(obj.bodyHTML);
   return body;
 };
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -188,7 +190,7 @@ const convertToDiscussion = (obj) => {
   li.prepend(body);
   li.prepend(discussionContent);
   li.prepend(divInformation);
-
+  li.addEventListener("click", onDiscussionClick);
   return li;
 };
 
@@ -204,7 +206,7 @@ const render = (element) => {
   }
   return;
 };
-
+// modal 관련
 btnOpenForm.addEventListener("click", function () {
   dialog.showModal();
 });
@@ -216,17 +218,26 @@ btnClose.addEventListener("click", function (event) {
   event.preventDefault();
   dialog.close();
 });
+// avatar + local storage
 myAvatar.addEventListener("click", function () {
   const avatarSelectMenu = document.querySelector(".avatar-select-menu");
   avatarSelectMenu.classList.toggle("hide");
 });
-
 btnClearAvatar.addEventListener("click", function () {
   myAvatar.src = "./src/images/defaultAvatar.png";
 });
 btnClearLocal.addEventListener("click", () => localStorage.clear());
-btnSubmit.addEventListener("click", onBtnSubmitClick);
 
+btnSubmit.addEventListener("click", onBtnSubmitClick);
+// discussion container
+const onDiscussionClick = (event) => {
+  let node = event.target;
+  while (node.tagName !== "LI") {
+    node = node.parentElement;
+  }
+  const body = node.querySelector(".discussion__body");
+  body.classList.toggle("hide");
+};
 // avatar preset 불러오기
 loadPresetAvatar();
 myAvatar.src = defaultAvatarSrc;

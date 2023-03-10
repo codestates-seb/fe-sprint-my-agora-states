@@ -14,7 +14,7 @@ a {
   text-decoration: none;
 }
 h2 a {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 .hide {
   display: none;
@@ -47,7 +47,7 @@ header {
   align-items: center;
   background-color: #1b1d2a;
   z-index: 1;
-  border-bottom: solid 5px #0c0f1d;
+  border-bottom: solid 1vh #0c0f1d;
 }
 
 /* 임시 */
@@ -226,7 +226,7 @@ button#btn-close {
   flex: 1 0 0;
 }
 .discussion__name {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
 }
 .discussion__date {
@@ -257,21 +257,34 @@ button#btn-close {
   color: rgba(255, 255, 255, 0.8);
 }
 .discussion__body {
-  height: 300px;
   overflow-x: hidden;
   overflow-y: scroll;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
 }
-.discussion__body > p {
+.discussion__body:active {
+  display: block;
+  height: min-content;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-wrap: normal;
+}
+.discussion__body::-webkit-scrollbar {
+  display: none;
+}
+.discussion__body * {
   font-size: 1rem;
   margin: 0px;
-  padding: 0 5px;
+  padding: 0 15px;
+}
+.discussion__body span {
+  padding: 0;
 }
 .discussion__answered {
   margin-right: 15px;
 }
 .discussion__answered > p {
   font-size: 2rem;
+  color: rgba(0, 0, 0, 0.9);
 }
 .discussion__container > p {
   font-size: 2rem;
@@ -279,6 +292,7 @@ button#btn-close {
 .discussion__information > p {
   font-size: 2rem;
   margin-right: 15px;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 @keyframes sponsor {
