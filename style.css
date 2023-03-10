@@ -34,18 +34,24 @@ main {
   align-items: center;
 }
 
+#navbar .navbar__header .navbar__title {
+  color: var(--coz-purple-500);
+}
+
 .form__container {
   width: 100%;
   margin: 0 auto;
   background-color: var(--coz-blue-10);
 }
-.form__container form {
+.form__container .form {
   /* border: 1px solid salmon; */
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 500px;
+  margin: 0 auto;
   padding: 50px 0px;
   padding-top: 100px;
 }
@@ -53,6 +59,8 @@ main {
 .form__container form .form__input--wrapper div {
   margin-bottom: 10px;
   display: flex;
+  color: var(--coz-purple-500);
+  font-weight: 600;
 }
 
 .form__container form .form__input--wrapper div .form__input--label {
@@ -64,19 +72,17 @@ main {
 
 .form__container form .form__input--wrapper div input {
   border-radius: 5px;
-  width: 200px;
+  width: 300px;
 }
 
 .form__container form .form__input--wrapper div textarea {
   border-radius: 5px;
-  width: 200px;
+  width: 300px;
   height: 200px;
 }
 
 .form__container form .form__submit {
-  position: absolute;
-  top: 88%;
-  right: 38%;
+  margin-left: 80%;
 }
 
 .form__container form .form__submit input {

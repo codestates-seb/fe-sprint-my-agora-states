@@ -87,17 +87,19 @@ const addDiscussionHandler = (e) => {
   agoraStatesDiscussions.unshift(newdiscussion);
   // ul.prepend(convertToDiscussion(newdiscussion));
   render(ul);
-  pagination();
+  pagination(1);
+
+  e.target[0].value = '';
+  e.target[1].value = '';
+  e.target[2].value = '';
 };
 
 // Advanced Challenge - Pagenation
-let currentPage = 1;
-
+// let currentPage = 1;
 const limit = 10; // 한 페이지 당 보여줄 discussion
-
 const elDiscussionPagination = $('.discussion__pagination');
 
-const pagination = () => {
+const pagination = (currentPage) => {
   const totalCount = agoraStatesDiscussions.length;
   let totalPage = Math.ceil(totalCount / limit);
 
@@ -123,7 +125,7 @@ const pagination = () => {
         currentPage =
           currentPage + 1 >= totalPage ? totalPage : currentPage + 1;
       }
-      pagination();
+      pagination(currentPage);
       render(ul, (currentPage - 1) * limit);
     });
   });
@@ -175,7 +177,7 @@ elDiscussionForm.addEventListener('submit', addDiscussionHandler);
 
 // init
 render(ul);
-pagination();
+pagination(1);
 
 // modal 요소
 const elFormModal = $('.form__modal');
@@ -195,4 +197,8 @@ elFormModalSubmit.addEventListener('submit', (event) => {
   elFormModal.style.display = 'none';
 
   addDiscussionHandler(event);
+
+  e.target[0].value = '';
+  e.target[1].value = '';
+  e.target[2].value = '';
 });

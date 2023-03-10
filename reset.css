@@ -40,3 +40,7 @@ input,
 input:focus {
   border: none;
 }
+
+textarea {
+  resize: none;
+}
