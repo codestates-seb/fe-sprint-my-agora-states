@@ -123,64 +123,222 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 } /*초기화*/
+*{
+  transition: all 0.3s;
 
-li {
-  /*li의 border 속성*/
-  border: 0.5px solid orange;
 }
+
 
 main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("https://cdn.dribbble.com/users/650400/screenshots/15802026/media/f46731c80d7698808a0519210432e186.jpg?compress=1&resize=1200x900&vertical=top");
+    background-size: 100% 100%;
+    min-height: 100vh;
+    max-height: 100%;
+    background-repeat:no-repeat
 }
+.form__container div{
+  font-size: 20px;
+  font-style: italic;
 
-.form__container > * {
-  /*입력창*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .form__container {
-  border: 1px solid black;
-  width: 100vw;
-  height: 50vh;
-  margin-bottom: 150px;
+  width: 580px;
+  height: 250px;
+  border-radius: 15px;
+  margin: 50px;
+  
+
 }
+
+.form__container::before{
+  content: "";
+  background-size: contain;
+  background-color: bisque;
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.5;
+}
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+
+
+.form__input--wrapper {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+
+}
+.form__input--name {
+  width: 100%;
+  margin-top: 10px;
+  
+}
+.form__input--title {
+  width: 100%;
+  
+}
+.form__textbox {
+  width: 100%;
+  height: 70%;
+}
+
+input[type="text"] {
+  width: 80%;
+  border-radius: 15px;
+  background-color: antiquewhite  ;
+  transition: all 0.2s;
+  text-align: center;
+  height: 100%;
+}
+
+input[type="text"]:hover {
+  opacity: 70%;
+}
+textarea {
+  width: 90%;
+  height: 80px;
+
+  padding:0px;
+  background-color: antiquewhite;
+  border-radius: 15px;
+  text-align: center;
+
+  transition: all 0.2s;
+}
+
+
+.form__submit {
+  width: 20%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+input[type="submit"] {
+  height: 30px;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  background-color: #EDF1D6;
+  
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+  color: brown;
+  background-color: cadetblue;
+}
+
+
+/* ------------------------------ */
+
+.discussion__wrapper{  
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  }
 
 li.discussion__container {
   box-sizing: border-box;
   display: flex;
   flex-flow: row nowrap;
   width: 540px;
-  height: 50px;
+  height: 80px;
   justify-content: space-between;
-} /* discussion 전체 배치 속성 */
+  gap: 10px;
+  border-radius: 25px;
+  margin: 20px 0;
+  background-color: antiquewhite;
+  box-shadow:  3px 3px 3px #F6E1C3, -2px -2px 3px #F6E1C3;
 
+} /* discussion 전체 배치 속성 */
+.discussion__container:hover{
+    height: 90px;
+    background: linear-gradient(to right, #dfc5b4, #bba697);
+    box-shadow:  7px 7px 14px #ab978a, -10px -10px 20px #f5d9c6;
+    transition: all 0.5s;
+}
+
+
+.discussion__avatar--wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  border-radius: 25px   0px 0px 25px;
+background-color: wheat;
+overflow: hidden;
+
+}
 .discussion__avatar--image {
   /*프로필 사진 설정*/
   width: 48px;
   border-radius: 70%; /* 이미지를 둥글게 바꿈 */
   overflow: hidden; /* 이미지를 둥글게 만들 때 남은 부분을 숨김 */
+
 }
 
 .discussion__content {
   /*제목과 날짜등을 길이 설정*/
   display: grid;
-  width: 90%;
+  width: 460px;
   height: 100%;
 }
 
 .discussion__title {
+  margin-top: 10px;
   justify-self: flex-start;
+  
+}
+a {
+  color: black;
+  text-decoration: none;
 }
 
+a:hover{
+  color: brown;
+  text-decoration:underline
+}
 .discussion__information {
   justify-self: flex-end;
   align-self: flex-end;
 }
 
 .discussion__answered {
+  width: 20px;
+flex-direction: column;
   display: flex;
   align-items: center;
+  justify-content: center;
+  
+}
+.page__container button{
+  border: 0;
+  background-color: antiquewhite;
+}
+
+.active{
+background-color: #ab978a !important;
+}
+.page__btn:hover{  
+    background-color: #ab978a !important;
 }
