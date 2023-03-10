@@ -24,11 +24,11 @@ const convertToDiscussion = (obj) => {
   discussionTitle.className = 'discussion__title';
   const idTime = document.createElement("div");
   idTime.className = 'discussion__information';
-  idTime.textContent = `${obj.author} / ${obj.createdAt}`;
+  idTime.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   discussionContent.append(discussionTitle, idTime);
 
   const checkanswered = document.createElement('p');
-  checkanswered.textContent = 'V';
+  checkanswered.textContent = obj.answer ? 'V' : 'X';
   discussionAnswered.append(checkanswered);
 
 
@@ -53,5 +53,41 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+
+
+
+//DOM을 데이터로
+function questionStyle(){
+  let newobj = {
+    author : document.getElementById('name').value,
+    title : document.getElementById('title').value,
+    story : document.getElementById('story').value,
+    createdAt: new Date().toLocaleString(),
+    avatarUrl :"https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
+    alt : "no image",
+  }
+  return newobj;
+}
+
+//입력창에 서브밋하면 반영하기
+let form = document.querySelector(".form");
+form.addEventListener("submit", submitEvent);
+function submitEvent(e){
+  e.preventDefault(); //새로고침 안되게
+  console.log('good');
+  //unshift된 값이 계속 바뀌지 않고 쌓이도록 let 대신 const
+  const newobj = questionStyle();
+  agoraStatesDiscussions.unshift(newobj);
+
+  console.log(agoraStatesDiscussions[0]);
+
+  ul.prepend(convertToDiscussion(newobj));
+  render(ul);
+  
+}
+//이벤트 헨들러는 onclick, onkeyup 등 이고, 이벤트 리스너는 addEventListener 이다.
+//이벤트 헨들러 혹은 이벤트 리스너로 이벤트를 등록할 수 있다.
+//둘의 차이점은 이벤트 헨들러는 동일한 이벤트를 두 번 등록하면 마지막 것만 실행된다.
+//이벤트 리스너로 등록하면 동일한 이벤트를 여러번 등록해도 모두 실행된다.
 
 
