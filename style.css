@@ -75,6 +75,7 @@ li.discussion__container {
     display:flex;
     flex-direction:row;
     align-items: center;
+    padding: 8px;
     height: 150px;
     margin: 16px 0;
     background-color: snow;
