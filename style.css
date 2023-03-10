@@ -394,9 +394,6 @@ main {
   position: relative;
   top: -860px;
   right: -65%;
-  /* position: fixed;
-  top: 440px;
-  right: 180px; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -443,7 +440,6 @@ main {
 }
 
 .pagination__button--wrapper {
-  /* background-color: blue; */
   display: flex;
   padding: 15px;
 }
