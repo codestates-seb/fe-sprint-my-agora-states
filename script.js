@@ -100,6 +100,7 @@ form.addEventListener("submit", (event) => {
     bodyHTML: story.value,
     avatarUrl:
       "https://cdn.pixabay.com/photo/2016/12/21/08/58/questions-1922476_1280.jpg",
+    url: "",
   };
 
   ul.prepend(convertToDiscussion(newDiscussion));
