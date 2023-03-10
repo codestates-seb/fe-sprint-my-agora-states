@@ -1,1 +1,182 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: url(img/clouds.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    min-width: 540px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: rgba(250, 250, 250, 0.7);
+    text-shadow: rgba(0, 0, 0, 0.7) 15px 15px 1px;
+    margin: 10px;
+    position: absolute;
+    top: 0;
+}
+
+.form__container form {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 75px 20px 20px;
+    border-radius: 0 0 20px 20px;
+    max-width: 800px;
+    min-width: 540px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;    
+    animation: 3s slidein;
+    
+}
+
+@keyframes slidein {
+    0% {top: -250px;}    
+    100% {top: 0px;}
+}
+
+.form__container form > div {
+    flex-grow: 1;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper > div > label {
+    font-size: 0.7rem;
+    width: 60px;
+    font-weight: bold;
+}
+.form__input--wrapper > div > :last-child {
+    flex-grow: 1;
+    margin-left:10px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    min-height: 25px;
+    padding: 5px;
+}
+
+.form__input--wrapper > div > :last-child:focus {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.form__submit {
+    display: flex;
+}
+
+.form__submit #btnSubmit {
+    flex-grow: 1;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    color:rgba(0, 0, 0, 0.9)
+}
+
+.form__submit #btnSubmit:hover {
+    cursor: pointer;
+    color:rgba(250, 250, 250, 0.7)
+}
+
+li.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(250, 250, 250, 0.2);
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow:
+    0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1),
+    0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+li.discussion__container:hover {
+    box-shadow:
+    inset 0 5px 5px -5px rgba(0, 0, 0, 0.7),
+    inset -5px 0 5px -5px rgba(0, 0, 0, 0.7), 
+    inset 5px 0 5px -5px rgba(0, 0, 0, 0.7);
+}
+
+.discussion__content {
+    flex-grow: 1;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2.discussion__title {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+h2.discussion__title a {
+    color: rgba(0, 42, 84, 0.8);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+h2.discussion__title a:hover {
+    color: rgba(1, 82, 153, 0.8);
+}
+
+.discussion__information {
+    text-align: right;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.7)
+}
+
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
