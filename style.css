@@ -111,19 +111,28 @@ li {
 .discussion__wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.discussions__container {
+  margin: 0;
+  padding: 0;
+  border-radius: 50px;
+  background: #ffffff;
+  box-shadow: 34px 34px 68px #949494, -34px -34px 68px #ffffff;
 }
 
 .discussion__container {
   display: flex;
   justify-content: space-between;
-  width: 1200px;
-  border: solid black;
+  width: 1100px;
 }
 
 .discussion__content {
   display: flex;
   flex-direction: column;
   width: 100vh;
+  border-bottom: 1px solid black;
 }
 
 .discussion__title {

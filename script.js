@@ -75,6 +75,7 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
 
   const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
   avatarWrapper.append(avatarImg);
