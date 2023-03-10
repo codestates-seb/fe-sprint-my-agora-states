@@ -3,9 +3,10 @@ const ul = document.querySelector('ul.discussions__container');
 const askingButton = document.getElementById('asking');
 
 const formContainer = document.querySelector('.form__container');
-const inputName = document.querySelector('#name');
-const inputTitle = document.querySelector('#title');
-const inputQuestion = document.querySelector('#story');
+const inputName = document.getElementById('name');
+const inputEmail = document.getElementById('email');
+const inputTitle = document.getElementById('title');
+const inputQuestion = document.getElementById('story');
 const submitButton = document.querySelector('#submit-button');
 
 const paginationContainer = document.querySelector('.pagination--container');
@@ -33,11 +34,17 @@ askingButton.addEventListener('click', () => {
   sidebarContainer.classList.toggle('lower');
 });
 
+// ---------------------------------------------------------------
+// Event Listeners
+// ---------------------------------------------------------------
 /**
  * 질문 등록하기 버튼 클릭 시 발생할 이벤트
  */
 submitButton.addEventListener('click', (e) => {
-  e.preventDefault();
+  if (!isValid()) {
+    e.preventDefault();
+    return;
+  }
 
   formContainer.classList.toggle('show');
 
@@ -51,17 +58,19 @@ submitButton.addEventListener('click', (e) => {
   });
 
   render();
+  initializeOption();
+  alert('질문이 등록되었습니다.');
 });
 
 /**
  * 답변 완료 선택 시 발생할 이벤트
  */
-solvedFilterOption.addEventListener('click', async () => {
+solvedFilterOption.addEventListener('click', () => {
   ul.innerHTML = '';
   if (solvedFilterOption.checked) {
-    currentDiscussions = await filterSolved();
+    currentDiscussions = filterSolved();
   } else {
-    currentDiscussions = await unfilterSolved();
+    currentDiscussions = unfilterSolved();
   }
   currentSortStatus.dispatchEvent(new MouseEvent('click'));
 });
@@ -69,12 +78,12 @@ solvedFilterOption.addEventListener('click', async () => {
 /**
  * 답변 대기중 선택 시 발생할 이벤트
  */
-unsolvedFilterOption.addEventListener('click', async () => {
+unsolvedFilterOption.addEventListener('click', () => {
   ul.innerHTML = '';
   if (unsolvedFilterOption.checked) {
-    currentDiscussions = await filterUnsolved();
+    currentDiscussions = filterUnsolved();
   } else {
-    currentDiscussions = await unfilterUnsolved();
+    currentDiscussions = unfilterUnsolved();
   }
   currentSortStatus.dispatchEvent(new MouseEvent('click'));
 });
@@ -82,12 +91,12 @@ unsolvedFilterOption.addEventListener('click', async () => {
 /**
  * 공지 선택 시 발생할 이벤트
  */
-noticeFilterOption.addEventListener('click', async () => {
+noticeFilterOption.addEventListener('click', () => {
   ul.innerHTML = '';
   if (noticeFilterOption.checked) {
-    currentDiscussions = await filterNotice();
+    currentDiscussions = filterNotice();
   } else {
-    currentDiscussions = await unfilterNotice();
+    currentDiscussions = unfilterNotice();
   }
   currentSortStatus.dispatchEvent(new MouseEvent('click'));
 });
@@ -150,6 +159,51 @@ pageNumberWrapper.addEventListener('click', (e) => {
   movePageHilighting(currentPage);
   changePage(currentPage);
 });
+
+// ---------------------------------------------------------------
+// Functions
+// ---------------------------------------------------------------
+/**
+ * @returns {boolean} - 유효성 검사 결과
+ */
+const isValid = () => {
+  let res = true;
+  if (inputName.value === '') {
+    inputName.classList.add('invalid');
+    res = false;
+  }
+  if (inputEmail.value === '') {
+    inputEmail.classList.add('invalid');
+    res = false;
+  }
+  if (inputTitle.value === '') {
+    inputTitle.classList.add('invalid');
+    res = false;
+  }
+  if (inputQuestion.value === '') {
+    inputQuestion.classList.add('invalid');
+    res = false;
+  }
+
+  if (res) {
+    inputName.classList.remove('invalid');
+    inputEmail.classList.remove('invalid');
+    inputTitle.classList.remove('invalid');
+    inputQuestion.classList.remove('invalid');
+  }
+
+  return res;
+};
+
+/**
+ * 필터링, 정렬 옵션 초기화
+ */
+const initializeOption = () => {
+  solvedFilterOption.checked = true;
+  unsolvedFilterOption.checked = true;
+  noticeFilterOption.checked = true;
+  currentSortStatus = recentSortOption;
+};
 
 /**
  * @returns {string} - 시간을 현지 시간에 맞춰 변경해 주는 함수
