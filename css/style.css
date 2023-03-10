@@ -2,6 +2,7 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 @import './root.css';
 @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
 input {
   text-align: center;
   display: flex;
@@ -16,27 +17,27 @@ textarea {
   border-radius: 10px;
   background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
   margin: 0.125rem;
-  color: white;
   transform-style: preserve-3d;
-  max-width: 70vw;
-  max-height: 10vh;
   font-size: var(--big-font-size);
   height: 9vh;
-  width: 50vw;
   padding-left: 26px;
   opacity: 0.5;
-  border-radius: 50px;
-  box-shadow: 5px 5px 10px #9c83b6, -5px -5px 10px #d4b1f6;
+  box-shadow: 5px 5px 10px #c2c0c441, -5px -5px 10px #d4b1f63f;
+  border: none;
+  color: white;
+  transform-style: preserve-3d;
+  max-width: 50vw;
+  max-height: 10vh;
+  width: 50vw;
 }
 
 ::placeholder {
   color: white;
 }
-
-.inputContainer input:focus,
-.inputContainer textarea:focus,
-.inputContainer input:hover,
-.inputContainer textarea:hover {
+.inputWrapper input:focus,
+.inputWrapper textarea:focus,
+.inputWrapper input:hover,
+.inputWrapper textarea:hover {
   border: 2px solid white;
   outline: none;
   background: linear-gradient(to right, #9164bec5, rgb(186, 74, 192));
@@ -44,19 +45,16 @@ textarea {
   transition: all 0.5s ease-in-out;
 }
 
-.inputContainer input:not(:focus),
-.inputContainer input:not(:hover),
-.inputContainer textarea:not(:focus),
-.inputContainer textarea:not(:hover) {
-  height: 9vh;
-  width: 50vw;
+.inputWrapper input:not(:focus),
+.inputWrapper input:not(:hover),
+.inputWrapper textarea:not(:focus),
+.inputWrapper textarea:not(:hover) {
   transition: all 0.5s ease-in-out;
   background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
 }
 
 textarea {
   padding-top: 10px;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,18 +63,38 @@ textarea {
 }
 
 .submitForm input {
-  background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
-  width: 50vw;
-  height: 10vw;
+  background: linear-gradient(to right, rgba(59, 28, 129, 0.795), #dd70b9d3);
   border: none;
-  font-size: 3rem;
-  padding: 0.375rem 0.75rem;
-  border-radius: 120px;
-  box-shadow: 10px 10px 20px #e7e7e7a1, -5px -5px 20px #d6d6d6b6;
-  font-weight: bold;
-  color: rgb(221, 221, 208);
+  font-size: 5rem;
+  border-radius: 50px;
+  box-shadow: 10px 10px 20px #cbccc867, -5px -5px 20px #d6d6d642;
+  color: rgba(221, 221, 208, 0.726);
+  transform-style: preserve-3d;
+  max-width: 40vw;
+  max-height: 18vh;
+  height: 18vh;
+  width: 50vw;
 }
 
+.submitForm input:hover {
+  border: 2px solid white;
+  outline: none;
+  background: linear-gradient(to right, rgba(176, 66, 180, 0.795), #8155add3);
+  transform: perspective(200px) translateZ(10px) scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.submitForm input:not(:hover) {
+  transition: all 0.5s ease-in-out;
+}
+
+.submitForm input:focus {
+  background: linear-gradient(to right, rgba(189, 43, 194, 0.877), #7433b4d3);
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+/* .submitForm input:not(:focus),  */
 /* 가운데 정렬 */
 
 body {
@@ -99,18 +117,18 @@ main {
 main {
   width: 80vw;
   flex-direction: column;
-  border-radius: 61px;
+  border-radius: 10px;
   background: transparent;
-  box-shadow: 10px 10px 20px #cec9ce7e, -5px -5px 20px #d6d6d681;
-  padding: 40px 50px;
+  padding: 0px 50px;
   margin-bottom: 25px;
   backdrop-filter: blur(10px);
 }
 
 h1 {
-  margin: 2rem;
-  padding: 1rem;
-  font-size: var(--title-font-size);
+  padding-top: 100px;
+  margin: 0;
+  padding-bottom: 50px;
+  font-size: 3.5rem;
   color: white;
   opacity: 0.35;
 }
@@ -128,9 +146,9 @@ h1 {
   border-radius: 61px;
   background: transparent;
   opacity: 0.5;
-  box-shadow: 6px 6px 12px #c7c7c788, -6px -6px 12px #cac1d3a4;
   padding: 1px;
   margin-top: 10px;
+  margin-bottom: 70px;
 }
 
 .inputContainer > form {
@@ -288,4 +306,38 @@ h2 {
   opacity: 1;
   background-color: #b3649bab;
   transform: perspective(200px) translateZ(20px) scale(1.3);
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  color: white;
+  opacity: 0.5;
+  text-decoration: none;
+}
+a:visited {
+  color: #c0178dd3;
+  opacity: 0.7;
+  text-decoration: none;
+}
+a:hover {
+  color: rgba(184, 87, 31, 0.699);
+  text-decoration: none;
+}
+a:active {
+  color: khaki;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .submitForm input {
+    font-size: 3rem;
+    min-height: 10vw;
+  }
+
+  .inputWrapper input,
+  textarea {
+    min-height: 10vw;
+  }
 }

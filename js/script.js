@@ -14,7 +14,6 @@ let lastNum = activePage - (activePage % bottomSize) + bottomSize;
 const saveStorage = () => {
   localStorage.setItem('discuss', JSON.stringify(agoraStatesDiscussions));
 };
-
 const getStorage = () => {
   let saveDiscuss = localStorage.getItem('discuss');
   if (saveDiscuss !== null) {
@@ -22,7 +21,6 @@ const getStorage = () => {
   }
   return;
 };
-
 getStorage();
 
 let total = agoraStatesDiscussions.length;
@@ -180,8 +178,6 @@ const convertToDiscussion = (obj) => {
   const li = createElementWithClass('li', 'discussList');
   let avatar = avatarMaker(obj);
   let content = contentMaker(obj);
-  // let answer = answerMaker(obj); answer 체크 부분인데 안예뻐서 일단 뻈음
-
   li.append(avatar, content); //answer
   return li;
 };
@@ -192,9 +188,11 @@ submit 이벤트 처리
 
 const submitPusher = (event) => {
   event.preventDefault();
+
   const nameInput = document.querySelector('#name'); // name 입력 필드 선택
   const titleInput = document.querySelector('#title'); // title 입력 필드 선택
   const storyInput = document.querySelector('#story'); // story 입력 필드 선택
+
   const obj = {
     url: '#',
     avatarUrl: './asset/icon/icon1.jpg',
@@ -203,12 +201,14 @@ const submitPusher = (event) => {
     author: nameInput.value,
     createdAt: dateMaker(),
   };
+
   total = agoraStatesDiscussions.length;
   totalPageSize = Math.ceil(total / listSize);
-  let newDiscuss = convertToDiscussion(obj);
+
+  convertToDiscussion(obj);
   agoraStatesDiscussions.unshift(obj);
   saveStorage();
-  console.log(agoraStatesDiscussions);
+
   document.querySelector(`#page_${activePage}`).click();
   return;
 };
