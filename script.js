@@ -7,7 +7,13 @@ const pagination = document.querySelector('.discussions__pagination');
 const count = document.querySelector('#count');
 const writeBtn = document.querySelector('#formWrite');
 const formContainer = document.querySelector('.form__container');
-let listArray = agoraStatesDiscussions;
+let listArray ;
+if(localStorage.getItem("storageDicussions") === null){
+  listArray = agoraStatesDiscussions;
+}else{
+  listArray = JSON.parse(localStorage.getItem('storageDicussions'));
+}
+
 const listPerPage = 10;
 let totalCount = listArray.length;
 
@@ -68,6 +74,7 @@ submit.addEventListener('click', (e)=>{
   e.preventDefault();
   listArray = [inputToObject(), ...listArray];
   totalCount = listArray.length;
+  localStorage.setItem("storageDicussions", JSON.stringify(listArray))
   convertPagination(listArray);
   render(ul, 0);
   fadeOut(formContainer);
@@ -145,6 +152,21 @@ const render = (element, startNum) => {
   for (let i = startNum; i < realEndNum; i ++) {
     element.append(convertToDiscussion(listArray[i]));
   }
+  const listObj = document.querySelector('li.discussion__container');
+  const listObjAll = document.querySelectorAll('li.discussion__container');
+
+  for(let i=0; i < listObjAll.length; i++){
+    listObjAll[i].addEventListener("click", (e) => {
+      if(e.currentTarget.classList.contains('on')){
+        e.currentTarget.classList.remove('on');
+      }else{
+        for(let j=0; j<listObjAll.length;j++){
+          listObjAll[j].classList.remove('on');
+          e.currentTarget.classList.add('on');
+        }
+      }
+    })
+  }
   return;
 };
 
@@ -152,22 +174,5 @@ const render = (element, startNum) => {
 
 convertPagination(listArray);
 render(ul, 0);
-const listObj = document.querySelector('li.discussion__container');
-const listObjAll = document.querySelectorAll('li.discussion__container');
-console.log(listObj)
-console.log(listObjAll)
 
-for(let i=0; i <= listObjAll.length; i++){
-  listObjAll[i].addEventListener("click", (e) => {
-    if(e.currentTarget.classList.contains('on')){
-      e.currentTarget.classList.remove('on');
-    }else{
-      for(let j=0; j<listObjAll.length;j++){
-        listObjAll[i].classList.remove('on');
-        e.currentTarget.classList.add('on');
-      }
-      
-    }
-  })
-}
 
