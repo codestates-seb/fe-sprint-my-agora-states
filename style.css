@@ -26,7 +26,7 @@ h1 {
 
 strong {
   font-size: 18p;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgb(0 0 0 / 60%);
 }
 
 .form__container {
@@ -38,7 +38,6 @@ strong {
   border-radius: 30px;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 3px 3px 6px 0px rgba(138, 124, 214, 0.2), inset -7px -7px 16px 0px rgba(138, 124, 214, 0.2), inset 0px 1px 2px 0px rgb(255, 255, 255);
 }
 
 .form {
@@ -131,7 +130,6 @@ strong.Title {
   border-radius: 30px;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 3px 3px 6px 0px rgba(138, 124, 214, 0.2), inset -7px -7px 16px 0px rgba(138, 124, 214, 0.2), inset 0px 1px 2px 0px rgb(255, 255, 255);
 }
 
 ul {
@@ -149,7 +147,6 @@ ul {
   width: 900px;
   border-radius: 30px;
   backdrop-filter: blur(2.5px);
-  box-shadow: 3px 3px 6px 0px rgba(138, 124, 214, 0.2), inset -7px -7px 16px 0px rgba(138, 124, 214, 0.2), inset 0px 1px 2px 0px rgb(255, 255, 255);
 }
 
 .discussion__avatar--image {
@@ -173,7 +170,7 @@ ul {
 a {
   text-decoration: none; /* 링크의 밑줄 제거 */
   color: inherit; /* 링크의 색상 제거 */
-  color: rgba(0, 0, 0, 0.9);
+  color: rgb(0 0 0 / 80%);
 }
 
 .discussion__information {
