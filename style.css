@@ -1,1 +1,117 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    flex-direction : column;
+    /* 엄마 바디로부터의 방향 */
+    display: flex;
+    /* 메인의 모든요소 가운데정렬 */
+    align-items: center;
+    justify-content: center;
+}
+
+
+.discussion {
+ display: flex;
+ flex-direction : column;
+
+/* 모든 요소에 border-box를 적용합니다. */
+    box-sizing : border-box;
+/* <li> 요소의 기본 스타일인 점을 보이지 않게 합니다. */
+    list-style: none;
+/* Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
+    width: 540px;
+}
+
+ .discussion__container{
+    /* flex-direction: column; */
+    display: flex;
+    justify-content: space-between
+
+} 
+.discussion__avatar--wrapper{
+    /* //아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. 
+    아래세개가 세트인듯?*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    /* border: 10px solid #FEE500;     */
+}
+.discussion__avatar--image{
+   
+/* 아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요. */
+/* 아바타 사진의 너비를 48px로 설정하세요. */
+width: 48px;
+height: 48px;
+/* 밑의 두줄이 동그랗게 만들어주는 코드 */
+border-radius: 70%;
+overflow: hidden;
+
+}
+
+.discussion__content{
+
+/* border: 10px solid #FEE500; */
+    /* flex-direction : column;  */
+   /* Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다. */
+   width: 390px; 
+
+    /* display: flex; */
+}
+.discussion__title{
+    /* flex-direction : column; */
+    font-size: medium;
+    /* width: 440px; */
+    /* justify-content:space-around; */
+
+
+}
+
+.discussion__information{
+    /* flex-direction : column; */
+    /* 저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다. */
+    justify-content:space-around;
+    text-align: right;
+    /* width: 440px; */
+
+    
+}
+.discussion__answered{
+    /* 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 10px solid #FEE500; */
+    width: 50px;
+
+}
+
+
+.form__container{
+    display: flex;
+    width: 540px;
+
+}
+
+.form__input--wrapper{
+flex-direction: column;
+}
+
+.form__input--title{
+
+
+}
+
+.form__textbox{
+
+
+}
+
+.form__submit{
+    flex-direction:flex-inline;
+}
