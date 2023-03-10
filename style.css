@@ -68,6 +68,7 @@ main {
   width: 150px;
   text-align: right;
   margin-right: 10px;
+  line-height: 36px;
 }
 
 .form__container form .form__input--wrapper div input {
@@ -300,17 +301,18 @@ main {
   display: block;
   text-align: right;
   margin-right: 10px;
+  line-height: 36px;
 }
 
 .form__modal form .form__input--wrapper div input {
   border-radius: 5px;
-  width: 200px;
+  width: 300px;
   border: none;
 }
 
 .form__modal form .form__input--wrapper div textarea {
   border-radius: 5px;
-  width: 200px;
+  width: 300px;
   height: 200px;
 }
 

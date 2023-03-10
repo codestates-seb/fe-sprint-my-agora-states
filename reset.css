@@ -35,12 +35,18 @@ h3 h4 {
 }
 
 textarea,
-textarea:focus,
-input,
-input:focus {
+input {
   border: none;
+  padding: 10px;
 }
 
 textarea {
   resize: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: var(--coz-blue-100);
+  box-shadow: 0 0 10px #d6a8e9;
 }
