@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
+  <!-- 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -14,28 +19,30 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <div class="form__area">
+    <h1>아고라 스테이츠</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">이름: </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
+            <label for="title">제목: </label>
             <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story">내용: </label>
+            <textarea id="story" name="story" placeholder="" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <input id="submitbutton" type="submit" value="submit">
         </div>
       </form>
     </section>
+    </div>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -52,7 +59,25 @@
         </li>
       </ul>
     </section>
+
+    <nav>
+      <div class = "pagenation__container">
+        
+        <button class = "pagenation__button" id="prev-button">
+          &lt;
+        </button>
+
+        <div id="pagination-numbers">
+        </div>
+
+        <button class = "pagenation__button" id="next-button">
+          &gt;
+        </button>
+
+      </div>
+    </nav>
   </main>
+  
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>

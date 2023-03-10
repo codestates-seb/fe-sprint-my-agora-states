@@ -1,1 +1,276 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* Global */
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-evenly;
+}
+
+:root {
+    /* Color */
+
+    /* Font size */
+    --font-large: 30px;
+    --font-regular: 15px;
+    --font-samll: 10px;
+    /* Font weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+    /* Size */
+    --size-border-circle: 50%;
+}
+
+/* discussion */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.discussion__wrapper{
+    width: 540px;
+}
+
+.discussion__avatar--image{
+    border-radius: var(--size-border-circle);
+    width: 48px;
+    border:2px solid black;
+    margin: 5px;
+}
+
+.discussion__container{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.discussion__content{
+    overflow: hidden;
+    flex-basis:80%
+}
+
+.discussion__answered{
+    flex-basis:10%
+}
+
+.discussion__avatar--wrapper{
+    flex-basis:10%
+}
+
+.discussion__information{
+    text-align: right;
+}
+
+a{
+    font-size: var(--font-regular);
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+
+li{
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    width: 100%;
+    margin: 10px;
+}
+
+.discussion__information{
+    color:dimgray;
+    font-size: var(--font-samll);
+    font-weight: var(--weight-bold);
+}
+
+p{
+    text-align:center;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 0;
+    color: #27253d;
+    background: #e6f3f8;
+  }
+  
+  main {
+    position: relative;
+    padding: 1rem 1rem 3rem;
+    min-height: calc(100vh - 4rem);
+  }
+  
+  h1 {
+    margin-top: 0;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .pagination-container {
+    width: calc(100% - 2rem);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 0;
+    justify-content: center;
+  }
+  
+  .pagination-number,
+  .pagination-button{
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+  }
+  
+  .pagination-number:hover,
+  .pagination-button:not(.disabled):hover {
+    background: #fff;
+  }
+  
+  .pagination-number.active {
+    color: #fff;
+    background: #0085b6;
+  }
+  
+  footer {
+    padding: 1em;
+    text-align: center;
+    background-color: #FFDFB9;
+  }
+  
+section.form__container{
+    font-size: var(--font-regular);
+    font-weight: 800;
+    display: flex;
+}
+
+a:hover{
+    color:rgb(136, 116, 116)
+}
+
+.form__input--name{
+    margin: 5px;
+    display: flex;
+    text-align: center;
+    justify-content:space-between;
+    
+}
+.form__input--title{
+    margin: 5px;
+    display: flex;
+    text-align: center;
+    justify-content:space-between;
+    
+}
+.form__textbox{
+    margin: 5px;
+    display: flex;
+    text-align: center;
+    justify-content:space-between;
+}
+
+#story{
+    width: 185px;
+    height: 100px;
+    resize: none;
+}
+
+
+.form__submit{
+    display:flex;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.form__area{
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+
+}
+
+li:hover{
+    background-color: rgb(228, 216, 202);
+}
+
+label{
+    text-align: center;
+    width: 40px;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#name{
+    background-color: rgb(228, 216, 202);
+    border: 2px;
+    border-radius: 15px;
+    padding: 7px;
+    width: 180px;
+}
+#story{
+    background-color: rgb(228, 216, 202);
+    border: 2px;
+    border-radius: 15px;
+    width: 180px;
+    padding: 7px;
+}
+#title{
+    background-color: rgb(228, 216, 202);
+    border: 2px;
+    border-radius: 15px;
+    width: 180px;
+    padding: 7px;
+}
+#submitbutton{
+    border: 1px solid black;
+    background-color: rgb(228, 216, 202);
+    font-weight: bold;
+    border-radius: 15px;
+    height:20px;
+    width:60px;
+    text-align: center;
+}
+#submitbutton:hover{
+    cursor: pointer;
+    background-color: rgb(136, 116, 116);
+}
+
+.pagenation__container{
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+}
