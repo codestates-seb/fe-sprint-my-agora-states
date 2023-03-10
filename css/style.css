@@ -1,0 +1,364 @@
+@import './nomalize.css';
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import './root.css';
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
+input {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inputWrapper input,
+textarea {
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
+  margin: 0.125rem;
+  transform-style: preserve-3d;
+  font-size: var(--big-font-size);
+  height: 9vh;
+  padding-left: 26px;
+  opacity: 0.5;
+  box-shadow: 5px 5px 10px #c2c0c441, -5px -5px 10px #d4b1f63f;
+  border: none;
+  color: white;
+  transform-style: preserve-3d;
+  max-width: 50vw;
+  max-height: 10vh;
+  width: 50vw;
+}
+
+::placeholder {
+  color: white;
+}
+.inputWrapper input:focus,
+.inputWrapper textarea:focus,
+.inputWrapper input:hover,
+.inputWrapper textarea:hover {
+  border: 2px solid white;
+  outline: none;
+  background: linear-gradient(to right, #9164bec5, rgb(186, 74, 192));
+  transform: perspective(200px) translateZ(10px) scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.inputWrapper input:not(:focus),
+.inputWrapper input:not(:hover),
+.inputWrapper textarea:not(:focus),
+.inputWrapper textarea:not(:hover) {
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
+}
+
+textarea {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.submitForm input {
+  background: linear-gradient(to right, rgba(59, 28, 129, 0.795), #dd70b9d3);
+  border: none;
+  font-size: 5rem;
+  border-radius: 50px;
+  box-shadow: 10px 10px 20px #cbccc867, -5px -5px 20px #d6d6d642;
+  color: rgba(221, 221, 208, 0.726);
+  transform-style: preserve-3d;
+  max-width: 40vw;
+  max-height: 18vh;
+  height: 18vh;
+  width: 50vw;
+}
+
+.submitForm input:hover {
+  border: 2px solid white;
+  outline: none;
+  background: linear-gradient(to right, rgba(176, 66, 180, 0.795), #8155add3);
+  transform: perspective(200px) translateZ(10px) scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.submitForm input:not(:hover) {
+  transition: all 0.5s ease-in-out;
+}
+
+.submitForm input:focus {
+  background: linear-gradient(to right, rgba(189, 43, 194, 0.877), #7433b4d3);
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+/* .submitForm input:not(:focus),  */
+/* 가운데 정렬 */
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Jeju Myeongjo', serif;
+  font-size: var(--medium-font-size);
+  background-image: linear-gradient(to right, #ab8fc7, rgb(173, 106, 175));
+  background-size: cover;
+}
+
+.discussContent,
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 80vw;
+  flex-direction: column;
+  border-radius: 10px;
+  background: transparent;
+  padding: 0px 50px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  padding-top: 100px;
+  margin: 0;
+  padding-bottom: 50px;
+  font-size: 3.5rem;
+  color: white;
+  opacity: 0.35;
+}
+
+/* 인풋 영역 */
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: 500px;
+  width: 80vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 61px;
+  background: transparent;
+  opacity: 0.5;
+  padding: 1px;
+  margin-top: 10px;
+  margin-bottom: 70px;
+}
+
+.inputContainer > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.inputWrapper > div {
+  margin: 30px;
+}
+
+/* 디스커스 끝 */
+.discussWrapper {
+  flex-basis: 40vh;
+  min-height: 40vh;
+  min-width: 80vw;
+  flex: 1;
+}
+
+.discussContainer {
+  display: flex;
+  justify-content: center;
+  width: 75vw;
+  flex-direction: column;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+}
+
+.discussList {
+  display: flex;
+  align-items: center;
+  width: 75vw;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border-radius: 42px;
+  border-bottom: 1px solid rgba(226, 226, 226, 0.466);
+  box-shadow: 2px 2px 4px #c7c7c742, -2px -2px 4px #cfcfcf34;
+  padding-left: 20px;
+}
+
+.discussList:hover {
+  transform: perspective(700px) translateZ(5px) scale(1.1);
+  transition: all 0.25s ease-in-out;
+}
+
+.discussContent {
+  display: flex;
+  flex-direction: column;
+  max-width: 60vw;
+  align-items: flex-start;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.discussInfo {
+  text-align: center;
+  font-size: var(--minimum-font-size);
+  flex: 1;
+}
+
+h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+  max-width: 60vw;
+  font-size: var(--big-font-size);
+}
+
+.avatarIcon > img {
+  height: 5vh;
+  border-radius: 50%;
+  flex-basis: 5vw;
+}
+
+/* 페이지 버튼 컨트롤 영역 */
+
+.pageContainer {
+  display: flex;
+}
+
+.pageNumber {
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin: 40px 10px 00px 10px;
+  border-radius: 42px;
+  background: transparent;
+  box-shadow: 2px 2px 4px #905891, -2px -2px 4px #ca7ccd;
+  color: rgb(211, 211, 211);
+  opacity: 0.5;
+}
+
+.pageNumber:hover {
+  opacity: 1;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+  transition: all 0.5s ease-in-out;
+}
+
+.pageNumber:active {
+  opacity: 1;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+  transition: all 0.3s ease-in-out;
+}
+
+/* 이전페이지 이후페이지 로직 */
+
+.pageWrapper {
+  display: flex;
+}
+
+.nextButton,
+.prevButton {
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin: 40px 10px 00px 10px;
+  border-radius: 42px;
+  background: transparent;
+  box-shadow: 2px 2px 4px #905891, -2px -2px 4px #ca7ccd;
+  color: rgb(211, 211, 211);
+  opacity: 0.5;
+}
+.nextButton:hover,
+.prevButton:hover {
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+}
+
+.nextButton:not(:hover),
+.prevButton:not(:hover) {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  transition: all 1s ease-in-out;
+}
+
+.hide {
+  display: none;
+}
+
+.activeButton {
+  transition: all 1s ease-in-out;
+  opacity: 1;
+  background-color: #b3649bab;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  color: white;
+  opacity: 0.5;
+  text-decoration: none;
+}
+a:visited {
+  color: #c0178dd3;
+  opacity: 0.7;
+  text-decoration: none;
+}
+a:hover {
+  color: rgba(184, 87, 31, 0.699);
+  text-decoration: none;
+}
+a:active {
+  color: khaki;
+  text-decoration: none;
+}
+
+.danaka {
+  background: url(../asset/image/danaka.gif);
+}
+
+@media (max-width: 800px) {
+  .submitForm input {
+    font-size: 3rem;
+    min-height: 10vw;
+  }
+
+  .inputWrapper input,
+  textarea {
+    min-height: 10vw;
+  }
+}
+
+.counter {
+  color: rgba(255, 255, 255, 0.459);
+  font-size: var(--big-font-size);
+  transition: all 2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.hilite {
+  color: yellow;
+  transform: perspective(200px) translateZ(20px) scale(1.3);
+  text-shadow: 2px 2px 4px #d3d3d3, -2px -2px 4px #dadada;
+  backdrop-filter: blur(20px);
+  background-color: rgba(172, 55, 143, 0.425);
+  padding: 1rem;
+  z-index: 100;
+  border-radius: 10px;
+}
