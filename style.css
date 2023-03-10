@@ -307,14 +307,18 @@ div.discussion__answered > span{
     font-size: 1rem;
     font-weight: 500;
 }
-
-button.topBtn {
+div.top_btn_section{
+    display: inline-block;
     position: fixed;
-    bottom: 10px;
-    right: 20px;
+    bottom: 30px;
+    right: 100px;
+}
+button.topBtn {
    border: none;
    background-color: transparent;
+   cursor: pointer;
 }
+
 button.topBtn > svg {
     color:#444c56;
 }

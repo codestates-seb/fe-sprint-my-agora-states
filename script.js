@@ -420,6 +420,7 @@ const topBtn = document.querySelector('.topBtn');
 const checkScroll = () => {
   let pageYOffset = window.pageYOffset;
   if(pageYOffset !== 0){
+    console.log(pageYOffset);
     topBtn.classList.remove('disabled');
   }else{
     topBtn.classList.add('disabled');
