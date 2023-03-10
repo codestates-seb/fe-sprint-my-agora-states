@@ -1,0 +1,13 @@
+%clearfix {
+    &:after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

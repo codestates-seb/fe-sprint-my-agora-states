@@ -1,0 +1,69 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:list";
+
+//responsive media query
+//ver.1 디바이스 종류로 나눈 것
+@mixin responsive($device) {
+    /* 사용법 : @include mq(디바이스 종류) */
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    // transition: ease all 0.5s;
+    @if $device == "mobile" {
+        @media screen and (min-width: $mobile) and (max-width: #{$tablet - 1px}) {
+            @content;
+        }
+    } @else if $device == "tablet" {
+        @media screen and (min-width:$tablet) and (max-width: #{$pc - 1px}) {
+            @content;
+        }
+    } @else if $device == "pc" {
+        @media screen and (min-width: $pc) {
+            @content;
+        }
+    }
+}
+
+@mixin mq($size, $type: min, $orientation: width) {
+    /* 사용법 : @include mq(화면 너비, min/max(선택), width/height(선택)) */
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    @if map-has-key($breakpoints, $size) {
+        $size: map-get($breakpoints, $size);
+    }
+    @if $type == max {
+        $size: $size - 1px;
+    }
+    @if $orientation == width {
+        @media only screen and (#{$type}-width: $size) {
+            @content;
+        }
+    }
+    @if $orientation == height {
+        @media only screen and (#{$type}-height: $size) {
+            @content;
+        }
+    }
+}
+
+//말줄임 후략
+@mixin line($lineCount: 1) {
+    /* 사용법 : @include line(라인수) */
+    @if ($lineCount == 1) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    } @else {
+        -webkit-box-orient: vertical;
+        display: block;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-line-clamp: $lineCount;
+    }
+}

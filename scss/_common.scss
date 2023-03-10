@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color: $black;
+    font-family: $mainFont;
+    font-size: 10px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: $yellow;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.hidden {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+}
