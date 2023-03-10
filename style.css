@@ -248,13 +248,14 @@ header {
     cursor: pointer;
 }
 
-#pagination_container a .active {
-    background-color: blueviolet;
-    color: white;
+#pagination_container .active {
+    background-color: #fede29;
+    color: #000;
+    border-radius: 50%;
 }
 
 #pagination_container a:hover:not(.active) {
-    background-color: #fede29;
+    background-color: #d4d3cc;
     border-radius: 50%;
 }
 
