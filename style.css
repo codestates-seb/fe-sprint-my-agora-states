@@ -4,7 +4,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #D6E6F2;
+    background-image: url('/img/codestates-motif.png');
 }
 
 /* 상단 메뉴 */
@@ -81,7 +81,7 @@ header{
 /* 질문 등록 섹션 */
 .enter_discussion{
     width:100%;
-    background-color: #769FCD;
+    background-color: rgb(116, 65, 184);
     color:white;
     display: flex;
     flex-direction: column;
@@ -116,7 +116,7 @@ header{
 .discussion__container {
     display: flex;
     justify-content: space-between;
-    border: 4px solid #B9D7EA;
+    border: 1px solid black;
     width:540px;
     list-style-type: none;
 }
