@@ -56,6 +56,8 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// 디스커션 추가 기능 구현
+
 const form = document.querySelector('.form');
 
 const inputName = document.querySelector('#name');
@@ -80,3 +82,81 @@ form.addEventListener('submit', (event) => {
 
 inputName.value = inputTitle.value = inputQuesiton.value = '';
 })
+
+// 페이지네이션 기능 구현 실패
+
+// const itemList = document.querySelectorAll('li.discussionContainer')
+
+// const itemPerPage = 10;
+// let currentPage = 1;
+// const totalPages = Math.ceil(itemList.length/itemPerPage);
+
+// const pagination = document.querySelector('.paginaton');
+
+// const pageButtons = pagination.querySelectorAll('.page');
+
+// function renderPageButtons () {
+//   for (let i =1; i <= totalPages; i++) {
+//     const newpage = document.createElement('button');
+//     newpage.className = 'page';
+//     newpage.textContent = i; 
+//     pagination.append(newpage);
+//   }
+// }
+
+// function showPageItems (page) {
+//   const startIndex = (page - 1) * itemPerPage;
+//   const endIndex = startIndex + itemPerPage;
+//   for (let i = 0; i < itemList.length; i++) {
+//     if (i >= startIndex && i < endIndex) {
+//       itemList[i].style.display = 'block';
+//     } else {
+//       itemList[i].style.display = 'none';
+//     }
+//   }
+//   currentPage = page;
+//   updateActivePage();
+// }
+
+// function updateActivePage () {
+//   pageButtons.forEach((button) => {
+//     if (button.textContent === String(currentPage)) {
+//       button.classList.add('active');
+//     } else {
+//       button.classList.remove('active');
+//     }
+//   })
+// }
+
+// renderPageButtons();
+// showPageItems(currentPage);
+
+// pageButtons.forEach((button) => {
+//   button.addEventListener('click', () => {
+//     showPageItems(parseInt(button.textContent));
+//   });
+// })
+
+
+
+
+
+// const prevButton = document.querySelector('.prev');
+// const nextButton = document.querySelector('.next');
+
+
+// function createNewPageButton() {
+//   const newButton = document.createElement('button');
+//   newButton.className ='page';
+//   newButton.innerText = totalPages + 1;
+//   pagination.insertBefore(newButton, nextButton);
+
+//   newButton.addEventListener('click', () => {
+//     currentPage = parseInt(newButton.innerText);
+//     showData();
+//     updateActivePage();
+//   })
+// }
+
+// // 총 게시물 숫자가 현재 만들어져 있는 페이지에서 보여줄 수 있는 수를 넘어가면
+// // 새로운 페이지 생성
