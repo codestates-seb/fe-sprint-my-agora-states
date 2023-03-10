@@ -1,11 +1,17 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
-
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
     format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PyeongChangPeace-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -83,6 +89,8 @@ label {
 a {
   text-decoration: none;
   color: rgb(33, 33, 33);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 a:hover {
@@ -125,7 +133,7 @@ a:hover {
   padding-top: 1rem;
   margin-left: 1.5rem;
   font-size: 3em;
-  font-family: "Quicksand", sans-serif;
+  font-family: "PyeongChangPeace-Bold";
 }
 
 .discussion__wrapper > h2 {
@@ -134,7 +142,7 @@ a:hover {
   margin-left: 1.5rem;
 
   font-size: 1em;
-  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
   font-style: italic;
 }
 
@@ -233,7 +241,12 @@ a:hover {
 .discussion__container {
   list-style-type: none;
 
-  margin: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1.3rem;
 
   width: 13rem;
   height: 16rem;
@@ -254,26 +267,55 @@ a:hover {
   background-color: rgba(16 18 27 / 10%);
 }
 
+@media (max-width: 500px) {
+  .discussion__container {
+    margin: 0.5rem;
+    width: 10rem;
+    height: 13rem;
+  }
+}
+
 .discussion__content {
+  flex: 0.25 0.25 auto;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
 }
 .discussion__title {
+  width: 100%;
+  white-space: normal;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  height: 2.4em;
+
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
 }
 .discussion__information {
   font-size: 0.5rem;
 }
+
+.discussion__avatar--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  flex: 0.5 0.5 auto;
+}
+
 .discussion__avatar--image {
-  margin: 1rem;
+  /* margin: 1rem; */
+
   width: 5rem;
   height: 5rem;
   border-radius: 50px 50px;
 }
 
 .discussion__answered {
-  padding: 1rem;
+  flex: 0.25 0.25 auto;
+  width: 100%;
+  /* padding: 1rem; */
 }
 
 .create-btn {
