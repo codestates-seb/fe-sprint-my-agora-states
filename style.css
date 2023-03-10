@@ -8,6 +8,7 @@ main {display: flex;
     justify-content: start;
     align-items: center;
     background-color: #3A1078;
+    font-size: small;
 }
 h1 {
     color: white;
@@ -20,6 +21,11 @@ li.discussion__container {
     background-color: white;
     border-radius: 30px;
     border: 2px solid black;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+li.discussion__container:hover {
+    scale: 1.1;
 }
 div.discussion__avatar--wrapper {
     display: flex;
@@ -50,10 +56,16 @@ img {
     width: 48px;
 }
 a{color: black;}
-#inputbtn {border:1x solid #ff0080;    /*---테두리 정의---*/
-    background-Color: white;   /*--백그라운드 정의---*/
-    font:12px 굴림;      /*--폰트 정의---*/
-    font-weight:bold;   /*--폰트 굵기---*/
-    color:black;    /*--폰트 색깔---*/
-    width:200px;height:30;  /*--버튼 크기---*/
-margin-left: 100px;}
+#inputbtn {border:1x solid #ff0080;    
+    background-Color: white;   
+    font:12px 굴림;      
+    font-weight:bold;   
+    color:black;    
+    width:200px;
+    height:30;  
+margin-left: 30px;
+}
+#inputbtn:hover{scale: 1.1;}
+input { width: 200px; margin-bottom: 20px;}
+textarea{width: 200px;}
+label{color: white;}
