@@ -1,1 +1,248 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* default CSS 초기화 */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: auto;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  background-color: rgba(241, 241, 241, 0.148);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+}
+
+/* default CSS 초기화 */
+
+button:focus {
+  transform: translateX(1px) translateY(1px);
+}
+
+/* nav */
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 10rem;
+}
+
+.navigation h1 {
+  font-size: 30px;
+  background: linear-gradient(150deg, #ebdffe, #b39eff, #71d5ff);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.navigation nav {
+  display: flex;
+  gap: 50px;
+  font-size: large;
+  cursor: pointer;
+  font-weight: 500;
+  color: #979797;
+}
+
+.navigation > nav a:hover {
+  color: #3a1078;
+}
+
+/* nav */
+
+/* hero */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(160deg, #ffffff, #ddd4ff, #beebff);
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-left {
+  margin-left: 8rem;
+}
+
+.welcome {
+  margin-bottom: 2rem;
+}
+
+.welcome h2 {
+  font-size: 30px;
+}
+
+.welcome p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+#write {
+  border: none;
+  border-radius: 18px;
+  width: 190px;
+  height: 45px;
+  background-color: #3a1078;
+  color: white;
+  font-size: 18px;
+}
+
+.hero img {
+  width: 450px;
+  margin: 1rem 5rem;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+.form__input--wrapper button[type='submit'] {
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+.form__input--wrapper input {
+  border: none;
+  border-radius: 5px;
+  height: 2rem;
+  padding: 5px 10px;
+}
+
+.form__input--wrapper textarea {
+  border: none;
+  resize: none;
+  border-radius: 5px;
+  height: 5rem;
+  padding: 5px 10px;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+/* hero */
+
+.discussion__container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 5rem;
+}
+
+.discussion__content {
+  width: 900px;
+  padding: 2rem;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: -5px 5px 15px #eaeaea, 5px -5px 15px #ffffff;
+}
+
+.discussion__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.discussion__title h2 {
+  font-size: 20px;
+  max-width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.discussion__answered {
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+.done {
+  color: green;
+}
+
+.ongoing {
+  color: red;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.discussion__information {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.discussion__information span:nth-child(2) {
+  color: rgb(183, 183, 183);
+  font-size: small;
+}
+
+.discussion__avatar--image {
+  width: 50px;
+  border-radius: 10px;
+}
+
+.discussion__detail {
+  margin-top: 2rem;
+}
+
+.pagenation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.pagenation button {
+  border: none;
+  width: 1.5rem;
+  font-size: 16px;
+}
+
+.select {
+  font-style: italic;
+  border-radius: 3px;
+  background-color: #b39eff;
+  color: white;
+}
