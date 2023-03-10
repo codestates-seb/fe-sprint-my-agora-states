@@ -35,9 +35,9 @@ const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APi4R",
     createdAt: "2022-05-15T09:28:00Z",
-    title: "JavaScript Koans 04_Scope 문제의 innerFn()에 대하여 질문드립니다!",
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/43",
-    author: "anotheranotherhoon",
+    title: "우분투에서 nautilus 명령어 실행시  Gtk-WARNING **: 11:41:18.369: cannot open display:오류가 납니다.",
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/21",
+    author: "anotherhoon",
     answer: {
       id: "DC_kwDOHOApLM4AKg7z",
       createdAt: "2022-05-16T02:47:27Z",
@@ -59,16 +59,7 @@ const agoraStatesDiscussions = [
       "Unit10/Checkpoint2/종합퀴즈2/6번 관련하여 클로저의 효용성에 대해 질문드립니다.",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/42",
     author: "JiYJ725",
-    answer: {
-      id: "DC_kwDOHOApLM4AKdo2",
-      createdAt: "2022-05-13T04:19:10Z",
-      url: "https://github.com/codestates-seb/agora-states-fe/discussions/42#discussioncomment-2742838",
-      author: "Hong-sk",
-      bodyHTML:
-        '<p dir="auto">아래 작성해주신 코드내용처럼 isShow를 전역변수로 선언해서 실행하셔도 크게 문제는 일어나지 않습니다.</p>\n<p dir="auto">다만 isShow를 굳이 클로저를 활용해 접근하는 이유는 클로저를 사용하는 것이 <strong>상태를 안전하게 변경하고 유지할 수 있기 때문</strong>입니다.</p>\n<p dir="auto">아래 코드의 경우 isShow가 전역 스코프에 있기 때문에 toggle함수 말고도, 다른 모든 부분에서도 isShow를 참조할 수 있고, 변경할 수 있습니다.</p>\n<p dir="auto">isShow는 토글의 display를 block으로 해줄지, none으로 해줄지를 나타내는 용도로만 쓰여야되는데, 모든 곳에서 참조 및 변경이 가능하다면 <strong>의도치 않은 변경에 의한 오류</strong>를 야기시킬 수 있습니다.</p>\n<p dir="auto">따라서 클로저를 통해 내부함수말고는 접근할 수 없게끔 만들어주는 것이 상태를 안전하게 보관할 수 있는 것입니다.</p>\n<p dir="auto">이 내용은 오늘 줌 강의시간에 크루님이 말씀해주신 캡슐화나 정보은닉과도 깊은 연관이 있다고 생각됩니다 :)</p>',
-      avatarUrl:
-        "https://avatars.githubusercontent.com/u/61141988?s=64&u=92c71910d9f6409d38d40d7d5a0a094d8ec647ed&v=4",
-    },
+    answer: null,
     bodyHTML:
       '<p dir="auto">안녕하세요! 클로저의 효용성에 의문이 들어 질문 드립니다!</p>\n<p dir="auto">클로저를 사용하는 정답코드</p>\n<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="        var box = document.querySelector(\'.box\');\n        var toggleBtn = document.querySelector(\'.toggle\');\n\n        var toggle = (function () {\n            var isShow = false;\n            // TODO: ① 클로저를 반환하는 함수를 작성하세요.\n            return function () {\n                // TODO: ③ isShow 변수의 상태를 변경하는 코드를 작성하세요.\n                box.style.display = isShow ? \'block\' : \'none\';\n                isShow = !isShow;\n            };\n        })();\n\n        // ② 이벤트 프로퍼티에 클로저를 할당\n        toggleBtn.onclick = toggle;"><pre>        <span class="pl-k">var</span> <span class="pl-s1">box</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">querySelector</span><span class="pl-kos">(</span><span class="pl-s">\'.box\'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>\n        <span class="pl-k">var</span> <span class="pl-s1">toggleBtn</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">querySelector</span><span class="pl-kos">(</span><span class="pl-s">\'.toggle\'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>\n\n        <span class="pl-k">var</span> <span class="pl-s1">toggle</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>\n            <span class="pl-k">var</span> <span class="pl-s1">isShow</span> <span class="pl-c1">=</span> <span class="pl-c1">false</span><span class="pl-kos">;</span>\n            <span class="pl-c">// TODO: ① 클로저를 반환하는 함수를 작성하세요.</span>\n            <span class="pl-k">return</span> <span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>\n                <span class="pl-c">// TODO: ③ isShow 변수의 상태를 변경하는 코드를 작성하세요.</span>\n                <span class="pl-s1">box</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">display</span> <span class="pl-c1">=</span> <span class="pl-s1">isShow</span> ? <span class="pl-s">\'block\'</span> : <span class="pl-s">\'none\'</span><span class="pl-kos">;</span>\n                <span class="pl-s1">isShow</span> <span class="pl-c1">=</span> <span class="pl-c1">!</span><span class="pl-s1">isShow</span><span class="pl-kos">;</span>\n            <span class="pl-kos">}</span><span class="pl-kos">;</span>\n        <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>\n\n        <span class="pl-c">// ② 이벤트 프로퍼티에 클로저를 할당</span>\n        <span class="pl-s1">toggleBtn</span><span class="pl-kos">.</span><span class="pl-c1">onclick</span> <span class="pl-c1">=</span> <span class="pl-s1">toggle</span><span class="pl-kos">;</span></pre></div>\n<p dir="auto">전역 변수를 통해 상태를 관리하는 코드</p>\n<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="        var box = document.querySelector(\'.box\');\n        var toggleBtn = document.querySelector(\'.toggle\');\n        var isShow = false;\n        var toggle = function () {\n            box.style.display = isShow ? \'block\' : \'none\';\n            isShow = !isShow; // 전역 변수에 적용\n        };\n\n        // ② 이벤트 프로퍼티에 클로저를 할당\n        toggleBtn.onclick = toggle;"><pre>        <span class="pl-k">var</span> <span class="pl-s1">box</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">querySelector</span><span class="pl-kos">(</span><span class="pl-s">\'.box\'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>\n        <span class="pl-k">var</span> <span class="pl-s1">toggleBtn</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">querySelector</span><span class="pl-kos">(</span><span class="pl-s">\'.toggle\'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>\n        <span class="pl-k">var</span> <span class="pl-s1">isShow</span> <span class="pl-c1">=</span> <span class="pl-c1">false</span><span class="pl-kos">;</span>\n        <span class="pl-k">var</span> <span class="pl-en">toggle</span> <span class="pl-c1">=</span> <span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>\n            <span class="pl-s1">box</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">display</span> <span class="pl-c1">=</span> <span class="pl-s1">isShow</span> ? <span class="pl-s">\'block\'</span> : <span class="pl-s">\'none\'</span><span class="pl-kos">;</span>\n            <span class="pl-s1">isShow</span> <span class="pl-c1">=</span> <span class="pl-c1">!</span><span class="pl-s1">isShow</span><span class="pl-kos">;</span> <span class="pl-c">// 전역 변수에 적용</span>\n        <span class="pl-kos">}</span><span class="pl-kos">;</span>\n\n        <span class="pl-c">// ② 이벤트 프로퍼티에 클로저를 할당</span>\n        <span class="pl-s1">toggleBtn</span><span class="pl-kos">.</span><span class="pl-c1">onclick</span> <span class="pl-c1">=</span> <span class="pl-en">toggle</span><span class="pl-kos">;</span></pre></div>\n<p dir="auto">아래처럼 isShow를 전역변수로 선언하고, 그 상태를 토대로 스타일을 적용해주어도 똑같이 동작하는데, 굳이 클로저를 활용하는 이유가 궁금합니다.</p>\n<p dir="auto">이렇게 토글버튼 등에서 클로저를 활용하는 경우는 나중에 코드가 방대해졌을 때, 동작과 상태가 한번에 묶여있는 형태가 유지보수하기 용이해서 활용하는 것인가요? 혹은 다른이유가 있는지 궁금합니다.</p>\n<p dir="auto">감사합니다.</p>',
     avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4",
@@ -441,8 +432,8 @@ const agoraStatesDiscussions = [
     id: "D_kwDOHOApLM4APfT4",
     createdAt: "2022-05-09T02:46:38Z",
     title:
-      "우분투에서 nautilus 명령어 실행시  Gtk-WARNING **: 11:41:18.369: cannot open display:오류가 납니다.",
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/21",
+      "JavaScript Koans 04_Scope 문제의 innerFn()에 대하여 질문드립니다!",
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/43",
     author: "git-daun",
     answer: {
       id: "DC_kwDOHOApLM4AKWAR",
