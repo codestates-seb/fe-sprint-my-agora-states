@@ -1,1 +1,71 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main {display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: #3A1078;
+    font-size: small;
+}
+h1 {
+    color: white;
+}
+li.discussion__container {
+    display: flex;
+    width: 540px;
+    height: 80px;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 30px;
+    border: 2px solid black;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+li.discussion__container:hover {
+    scale: 1.1;
+}
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding: 10px;
+}
+h2.discussion__title {
+    text-align: left;
+}
+div.discussion__information {
+    text-align: right;
+}
+div.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+img {
+    border-radius: 50%;
+    width: 48px;
+}
+a{color: black;}
+#inputbtn {border:1x solid #ff0080;    
+    background-Color: white;   
+    font:12px 굴림;      
+    font-weight:bold;   
+    color:black;    
+    width:200px;
+    height:30;  
+margin-left: 30px;
+}
+#inputbtn:hover{scale: 1.1;}
+input { width: 200px; margin-bottom: 20px;}
+textarea{width: 200px;}
+label{color: white;}
