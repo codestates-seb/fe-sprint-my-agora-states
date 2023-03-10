@@ -135,9 +135,10 @@ div.li_container, div.discussion__container_li{
 div.user_info_section,div.discussion_section{
     display: flex;
     align-items:center;
-    padding: 0.2rem;
+    /* padding: 0.2rem; */
 }
 div.discussion_section{
+    padding: 0.5rem;
     padding-left: 0.5rem;
     display: flex;
     justify-content: space-between;
@@ -163,7 +164,21 @@ div.discussion__avatar--wrapper > img{
     /* width: 48px; */
     width: 2rem;
 }
-
+div.discussion__information{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+div.discussion__information > p:nth-child(2) {
+    margin: 0 1rem;
+    font-weight: 100;
+    opacity: 0.8;
+}
+div.discussion__information > p{
+    font-size: 0.8rem;
+    color: gray;
+    cursor: pointer;
+}
 /* user 질문 */
 div.discussion__content{
     display: flex;

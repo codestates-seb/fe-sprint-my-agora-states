@@ -24,7 +24,7 @@ const convertToNotice = (obj) =>{
 
   const discussionInfo = document.createElement("div");
   discussionInfo.setAttribute("class", "discussion__information");
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
+  discussionInfo.innerHTML = `<p class="authorName">${obj.author}</p>  <p class="vertical_bar">|</p> <p class="timeDif">${setTime(new Date(obj.createdAt))}</p>`; //현지시각 반영
 
   userInfoSection.append(avatarWrapper, discussionInfo);
 
@@ -96,6 +96,7 @@ const convertToNotice = (obj) =>{
   return li;
 
 }
+
 // others discussion 나열
 const convertToDiscussion = (obj) => {
 
@@ -116,7 +117,8 @@ const convertToDiscussion = (obj) => {
 
   const discussionInfo = document.createElement("div");
   discussionInfo.setAttribute("class", "discussion__information");
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
+  // discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
+  discussionInfo.innerHTML = `<p class="authorName">${obj.author} </p> <p>|</p> <p class="timeDif">${setTime(new Date(obj.createdAt))}</p>`; //현지시각 반영
 
   userInfoSection.append(avatarWrapper, discussionInfo);
 
@@ -197,6 +199,45 @@ const convertToDiscussion = (obj) => {
  
   return li;
 };
+
+//discussion 시간 계산
+const setTime = (value) => {
+  //value 는 시간으로 들어옴
+  let now = new Date();
+
+  //  toLocalString() //2023. 3. 10. 오후 3:08:56
+   if(value.getFullYear() === now.getFullYear() &&
+      value.getMonth() === now.getMonth() &&
+      value.getDate() === now.getDate()){
+     //오늘인 경우
+     const diff = now.getTime() - value.getTime();
+ 
+     const diffMSec = Math.floor( diff / ( 1000 ));
+    if(diffMSec >= 0 && diffMSec <= 60){
+      return `${diffMSec}초 전`;
+    }else{
+      const diffMin = Math.floor(diff / (60 * 1000));
+      if(diffMin > 0 && diffMin < 60){
+        return `${diffMin}분 전`;
+      }else{
+        const diffHour = Math.floor(diff  / (60 * 60 * 1000));
+        return `${diffHour}시간 전`;
+      }
+    }
+   
+  }else{//오늘이 아닌 경우
+    const diffMSec = now.getTime() - value.getTime();
+    const diffDate = Math.floor(diffMSec / (24 * 60 * 60 * 1000));
+    if(diffDate > 0 && diffDate <= 7){
+      return `${diffDate} 일 전`;
+    }else{
+      return `${value.toLocaleString().slice(0,11)}`;
+    }
+  }
+};
+
+
+
 // discussion 추가
 
 const discussionForm = document.querySelector('.form');
