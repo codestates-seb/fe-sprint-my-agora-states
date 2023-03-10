@@ -2,63 +2,96 @@
 // console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-// const convertToDiscussion = (obj) => {
-const component = document.createElement("div"); // li 요소 생성
-component.className = "discussion__container"; // 클래스 이름 지정
+const convertToDiscussion = (obj) => {
+
+  // const component = document.createElement("div"); // li 요소 생성
+  // component.className = "discussion__container"; // 클래스 이름 지정
 
 
-const avatarWrapper = document.createElement("div");
-avatarWrapper.className = "discussion__avatar--wrapper";
-const discussionContent = document.createElement("div");
-discussionContent.className = "discussion__content";
-const discussionAnswered = document.createElement("div");
-discussionAnswered.className = "discussion__answered";
-
-// Answer Text
-
-function getOnlyText(str) {
-  const div = document.createElement('div');
-  div.innerHTML = str;
-
-  return div.textContent || div.innerText || '';
-}
+  const discussionContent = document.createElement("div");
+  discussionContent.className = "discussion__content";
 
 
 
-// TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-avatarWrapper.innerHTML = `<img class="discussion__avatar--image"
-  src="${obj.avatarUrl}"
-  alt="avatar of ${obj.author}">`
+  // Answer Text
 
 
 
-if (obj.answer !== null) {
-  const answerText = getOnlyText(obj.answer.bodyHTML)
-  const maxLength = 100;
-  let shortedAnswerText;
 
-  if (answerText.length > maxLength) {
-    shortedAnswerText = answerText.substring(0, maxLength) + '...'
+
+  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+
+  // 제목 생략
+  let shortedTitleText = obj.title;
+  if (obj.title.length > 20) {
+    shortedTitleText = shortedTitleText.substring(0, 16) + ' ...'
   }
 
-  discussionContent.innerHTML = `<h2 class="discussion__title"><a
-    href=${obj.url}>${obj.title}</a></h2> <p>${shortedAnswerText}</p>
-    <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>
-    </div>
-    `
-  discussionAnswered.innerHTML = `<p>✅</p>`
-} else {
-  discussionContent.innerHTML = `<h2 class="discussion__title"><a
-    href=${obj.url}>${obj.title}</a></h2> <p>답변을 기다리고 있습니다!</p>
-    <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>
-    </div>
-    `
-  discussionAnswered.innerHTML = `<p>❌</p>`
-}
+  // 닉네임 생략
+  let shortedUserName = obj.author;
+  if (obj.author.length > 12) {
+    shortedUserName = shortedUserName.substring(0, 8) + '...'
+  }
+
+  // 텍스트만 긁어오는 함수
+  function getOnlyText(str) {
+    const div = document.createElement('div');
+    div.innerHTML = str;
+    return div.textContent || div.innerText || '';
+  }
+
+  if (obj.answer !== null) {
+    // Answer 생략
+    const answer = obj.answer.bodyHTML;
+    let shortedAnswerText = getOnlyText(answer)
 
 
-component.append(avatarWrapper, discussionContent, discussionAnswered);
-return component;
+    if (shortedAnswerText.length > 150) {
+      shortedAnswerText = shortedAnswerText.substring(0, 146) + ' ...'
+    }
+
+    discussionContent.innerHTML = `<div class="question-section">
+    <div class="discussion__avatar--wrapper">
+      <img class="discussion__avatar--image"
+        src=${obj.avatarUrl}
+        alt="avatar of ${obj.author}">
+      <p class="user-name">${shortedUserName}</p>
+    </div>
+    <h3 class="discussion__title"><a
+        href=${obj.url}>${shortedTitleText}</a></h3>
+    <div class="discussion__answered">
+      <p>✅</p>
+    </div>
+  </div>
+  <div class="answer-section">
+    <p class="text-answer">${shortedAnswerText}</p>
+  </div>
+  <div class="discussion__information"> ${obj.createdAt}</div>`
+
+
+  } else {
+    discussionContent.innerHTML = `<div class="question-section">
+    <div class="discussion__avatar--wrapper">
+      <img class="discussion__avatar--image"
+        src=${obj.avatarUrl}
+        alt="avatar of ${obj.author}">
+      <p class="user-name">${shortedUserName}</p>
+    </div>
+    <h3 class="discussion__title"><a
+        href=${obj.url}>${shortedTitleText}</a></h3>
+    <div class="discussion__answered">
+      <p>❌</p>
+    </div>
+  </div>
+  <div class="answer-section">
+    <p class="text-answer">[[답변을 기다리고 있습니다]]</p>
+  </div>
+  <div class="discussion__information"> ${obj.createdAt}</div>`
+  }
+
+
+  // component.append(discussionContent);
+  return discussionContent;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
@@ -70,11 +103,13 @@ const render = (element) => {
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const container = document.querySelector("div.discussions__container");
+const container = document.querySelector("div.discussion__container");
 render(container);
 
 
 // 진짜 나으 아고라 스테이츠 만들기
+
+const formContainer = document.querySelector('.form__container')
 
 const submitBtn = document.querySelector('.form__submit')
 
@@ -82,21 +117,17 @@ const nameInput = document.querySelector('#name')
 const titleInput = document.querySelector('#title')
 const contentInput = document.querySelector('#story')
 
-submitBtn.addEventListener('submit', event => {
+submitBtn.addEventListener('click', event => {
   event.preventDefault()
 
-  const component = document.createElement('div')
-  component.className = "discussion__container"
+  // const component = document.createElement('div')
+  // component.className = "discussion__container"
 
-
-  const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
+  formContainer.style.display = "none"
 
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
 
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
 
 
   // 현재 시각
@@ -116,31 +147,69 @@ submitBtn.addEventListener('submit', event => {
 
 
 
+  // discussionContent.innerHTML = `<h2 class="discussion__title"><a
+  // href='https://www.google.com/'>${titleInput.value}</a></h2>
+  // <p>❌</p>
+  // <div class="discussion__information">${nameInput.value} / ${currentYear}-${currentMonth}-${currentDay}T${currentHours}:${currentMinutes}:${currentSeconds}Z
+  // </div >`
 
-  avatarWrapper.innerHTML = `<img class="discussion__avatar--image"
-  src="https://vehrcommunications.com/wp-content/uploads/2021/12/Grinch.jpg"
-  alt="avatar of ${nameInput.value}">`
+  discussionContent.innerHTML =
+    `<div class="question-section">
+    <div class="discussion__avatar--wrapper">
+      <img class="discussion__avatar--image"
+      src="https://avatars.githubusercontent.com/u/94218285?s=64&u=96e12a65d2e9387f8a949da5103ec2751b6c1f1f&v=4"
+      alt="avatar of ${nameInput.value}">
+    <p class="user-name">${nameInput.value}</p>
+  </div> <h3 class="discussion__title"><a href='https://www.google.com/'>${titleInput.value}</a></h3><div class="discussion__answered"><p>❌</p></div></div>
+<div class="answer-section"><p class="text-answer">[[답변을 기다리고 있습니다]]</p></div>
+<div class="discussion__information"> ${currentYear}-${currentMonth}-${currentDay}T${currentHours}:${currentMinutes}:${currentSeconds}Z</div>`
 
-  discussionContent.innerHTML = `<h2 class="discussion__title"><a
-  href='https://www.google.com/'>${titleInput.value}</a></h2>
-  <p>${asdf}</p>
-  <div class="discussion__information">${nameInput.value} / ${currentYear}-${currentMonth}-${currentDay}T${currentHours}:${currentMinutes}:${currentSeconds}Z
-  </div >`
 
-  discussionAnswered.innerHTML = `<p>❌</p>`
-
-
-  component.append(avatarWrapper, discussionContent, discussionAnswered);
-
-  container.prepend(component)
+  container.prepend(discussionContent)
 
   nameInput.value = '';
   titleInput.value = '';
   contentInput.value = '';
 
-  nameInput.focus();
+  formContainer.classList.add('hide');
 
-  console.log('Button Clicked!')
 })
 
+// 질문하기 모달
 
+const askBtn = document.querySelector('.askBtn');
+
+
+askBtn.addEventListener('click', () => {
+  formContainer.style.display = "block"
+})
+
+const modalCloseBtn = document.querySelector('#closeBtn')
+modalCloseBtn.addEventListener('click', () => {
+  formContainer.style.display = "none"
+})
+
+window.addEventListener('click', event => {
+  if (event.target == formContainer) {
+    formContainer.style.display = "none";
+  }
+})
+
+// header 고정
+
+const header = document.querySelector('header');
+const sticky = header.offsetTop;
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+});
+
+const toTheTopBtn = document.querySelector('.to-the-top')
+
+toTheTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+})
