@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="asset/css/bootstrap.css">
+    <link rel="stylesheet" href="asset/css/login.css">
+</head>
+
+<body>
+    <main>
+        <div class="card border-primary" style="max-width: 20rem;">
+            <img class="logo" src="asset/image/codestates-logo.png" alt="CODE_STATES_LOGO" />
+            <div class="card-header">
+                <div class="card-body">
+                    <fieldset>
+                        <input type="text" id="username" placeholder="아이디" />
+                    </fieldset>
+
+                    <div class="success-message hide">사용할 수 있는 아이디입니다</div>
+                    <div class="failure-message hide" style="color: rgb(219, 72, 72);">아이디는 네 글자 이상, 영어 또는 숫자만 가능 합니다</div>
+
+                    <fieldset>
+                        <input type="password" id="password" placeholder="비밀번호" />
+                    </fieldset>
+                    
+                    <div class="validate-mismatch-massage hide" style="color: rgb(219, 72, 72);">비밀번호는 최소 8자 이상하면서, 알파벳과 숫자 및 특수문자(@$!%*#?&) 는 하나 이상 포함해야
+                        합니다
+                    </div>
+
+                    <fieldset>
+                        <input type="password" id="password-retype" placeholder="비밀번호 확인" />
+                    </fieldset>
+
+                    <div class="success-pw-message hide">사용할 수 있는 비밀번호 입니다</div>
+                    <div class="mismatch-message hide" style="color: rgb(219, 72, 72);">비밀번호가 일치하지 않습니다</div>
+
+                    <fieldset class="signup" style="text-align: center;">
+                        <button type="button" class="btn btn-outline-primary">회원가입</button>
+                    </fieldset>
+
+                    <script src="asset/js/login.js"></script>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
