@@ -1,11 +1,15 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+// index.html을 열어서 agoraStatessions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
 const noticeSection = agoraStatesDiscussions.splice(
   36,
   agoraStatesDiscussions.length - 1
 );
-console.log(agoraStatesDiscussions);
+let getItem = localStorage.getItem("newPost");
+if (getItem) {
+  getItem = JSON.parse(getItem);
+  agoraStatesDiscussions.unshift(...getItem);
+}
 ////////////////////////////////////////////
 ////// 메인 컨텐츠 렌더링
 ////////////////////////////////////////////
@@ -20,7 +24,7 @@ const convertToDiscussion = (obj) => {
 
   const imgBox = document.createElement("img");
   imgBox.classList.add("discussion__avatar--image");
-  imgBox.setAttribute("src", obj.avatarUrl);
+  imgBox.setAttribute("src", `${obj.avatarUrl}`);
   avatarWrapper.appendChild(imgBox);
 
   const discussionContent = document.createElement("div");
@@ -65,9 +69,11 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+let renderLength = 7;
+let renderStart = 0;
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = renderStart; i < renderLength; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -126,8 +132,12 @@ let findId = agoraStatesDiscussions.map((a) => a["id"]);
 /// answer 박스 보여주는 이벤트 핸들러
 function showAnswer(event) {
   const check = event.currentTarget.children[2].textContent;
-  const siblingElement = event.currentTarget.nextElementSibling;
-  if (check === "" || siblingElement.className === "answerBox") return;
+  const siblingElement = event.currentTarget.nextElementSibling
+    ? event.currentTarget.nextElementSibling
+    : null;
+  if (check === "") return;
+  if (siblingElement === null) {
+  } else if (siblingElement.className === "answerBox") return;
 
   const hereTarget = event.currentTarget;
   const idBox = hereTarget.querySelector(".discussion__content").children[1];
@@ -166,7 +176,7 @@ function removeAnswerBox(event) {
 }
 
 /// list 누르면 answer 박스 보여주기
-const questionList = document.querySelectorAll(".discussion__container");
+let questionList = document.querySelectorAll(".discussion__container");
 questionList.forEach((element) =>
   element.addEventListener("click", showAnswer)
 );
@@ -235,22 +245,39 @@ function clickSubmit(event) {
     unshiftObj["id"] = `${Date.now()}`;
     unshiftObj["createdAt"] = `${Year}-${Month}-${Day}`;
     unshiftObj["title"] = `${titleInputValue}`;
-    unshiftObj["author"] = "냥펀치";
+    unshiftObj["author"] = "nyang-punch";
     unshiftObj["answer"] = null;
     unshiftObj["bodyHTML"] = `${storyInputValue}`;
     unshiftObj["url"] = "";
     unshiftObj["avatarUrl"] =
       "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg";
     agoraStatesDiscussions.unshift(unshiftObj);
+
+    if (localStorage.getItem("newPost")) {
+      let localItem = JSON.parse(localStorage.getItem("newPost"));
+      localItem = [unshiftObj, ...localItem];
+      localStorage.setItem("newPost", JSON.stringify(localItem));
+    } else {
+      localStorage.setItem("newPost", JSON.stringify([{ ...unshiftObj }]));
+    }
+
     findId = agoraStatesDiscussions.map((a) => a["id"]);
 
-    const discussionContainer = document.querySelector(
-      ".discussions__container"
-    );
-    discussionContainer.insertAdjacentElement(
-      "afterbegin",
-      convertToDiscussion(unshiftObj)
-    );
+    const firstBtn = document.querySelector(".page-btn");
+
+    if (firstBtn.classList.contains("bold")) {
+      const discussionContainer = document.querySelector(
+        ".discussions__container"
+      );
+      discussionContainer.insertAdjacentElement(
+        "afterbegin",
+        convertToDiscussion(unshiftObj)
+      );
+    }
+
+    ul.innerHTML = "";
+    render(ul);
+
     titleInput.value = "";
     storyInput.value = "";
   }
@@ -275,3 +302,44 @@ function LeftMove() {
 
 leftBtn.addEventListener("click", LeftMove);
 rightBtn.addEventListener("click", RightMove);
+
+////////////////////////////////////////////
+////// 페이지네이션 숫자 클릭 시 이동,
+////////////////////////////////////////////
+const pageBtn = document.querySelectorAll(".page-btn");
+
+// let renderLength = 7;
+// let renderStart = 0;
+function pageBtnClick(event) {
+  const clickValue = event.currentTarget.textContent;
+  pageBtn.forEach((element) => element.classList.remove("bold"));
+  event.currentTarget.classList.toggle("bold");
+  renderStart = (clickValue - 1) * 8;
+  renderLength = renderStart + 7;
+  ul.innerHTML = "";
+  render(ul);
+
+  questionList = document.querySelectorAll(".discussion__container");
+  questionList.forEach((element) =>
+    element.addEventListener("click", showAnswer)
+  );
+}
+
+pageBtn.forEach((element) => element.addEventListener("click", pageBtnClick));
+
+////////////////////////////////////////////
+////// 페이지네이션 이전, 다음 버튼
+////////////////////////////////////////////
+const nextBtn = document.querySelector(".next");
+function nextClick() {
+  let maxPage = Math.ceil(agoraStatesDiscussions / 7);
+  const currentMaxPage = Number(nextBtn.previousElementSibling.textContent);
+
+  if (maxPage > currentMaxPage) {
+    const firstPageValue = currentMaxPage + 1;
+    pageBtn.forEach((element, idx) => {
+      element.textContent = firstPageValue + idx;
+    });
+  } else return;
+}
+nextBtn.addEventListener("click", nextClick);

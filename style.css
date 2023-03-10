@@ -6,12 +6,13 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "SBAggroB";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff")
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
 }
+
 :root {
   --main-color: #4801cc;
   --sub-color: #dad8fe;
@@ -41,6 +42,23 @@ input,
 textarea {
   font-family: "IBMPlexSansKR-Regular";
 }
+.btn-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.btn-container > button {
+  padding: 5px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  color: #4801cc;
+  font-size: 15px;
+}
+.bold {
+  font-weight: 900;
+}
 .navbar {
   width: 100%;
   height: 60px;
@@ -64,12 +82,12 @@ textarea {
   font-family: "Bowlby One SC", cursive;
   color: var(--main-color);
 }
-.user-container{
+.user-container {
   height: 60px;
   display: flex;
   align-items: center;
 }
-.catImg{
+.catImg {
   width: 40px;
   height: 40px;
   display: block;
@@ -154,14 +172,15 @@ main {
   border-radius: 10px;
   cursor: pointer;
 }
-.slider-container{
+.slider-container {
   display: flex;
   margin: 0 auto;
   gap: 20px;
   align-items: center;
   justify-content: center;
 }
-.left-btn,.right-btn{
+.left-btn,
+.right-btn {
   padding: 20px 10px;
   border: none;
   border-radius: 5px;
@@ -174,10 +193,12 @@ main {
   font-size: 16px;
   transition: all 0.3s;
 }
-.left-btn:hover,.right-btn:hover{
+.left-btn:hover,
+.right-btn:hover {
   background-color: rgba(191, 191, 191, 0.659);
 }
-.left-btn:active, .right-btn:active{
+.left-btn:active,
+.right-btn:active {
   transform: scale(0.9);
 }
 .notice-container {
@@ -219,7 +240,7 @@ main {
   transition-duration: 0.2s;
 }
 .notice__title {
-  font-family: "SBAggroB";
+  font-family: "GangwonEduPowerExtraBoldA";
   font-size: 20px;
   flex-grow: 1;
   margin: 0;
@@ -249,7 +270,7 @@ main {
 .discussion__container {
   width: 90%;
   max-width: 700px;
-  height: 120px;
+  height: 100px;
   margin: 12px auto;
   padding: 16px 24px;
   border-radius: 10px;
@@ -332,6 +353,7 @@ main {
 .closeBtn:hover {
   background-color: #eee;
 }
+
 /* 애니메이션 */
 @keyframes text-shadow-pop-tr {
   0% {
@@ -360,21 +382,22 @@ main {
 }
 
 @media (max-width: 768px) {
-  .left-btn,.right-btn{
+  .left-btn,
+  .right-btn {
     display: none;
   }
-  .notice-container{
+  .notice-container {
     max-width: 623px;
     margin: 0 auto;
   }
 }
 @media (max-width: 630px) {
-  .left-btn,.right-btn{
+  .left-btn,
+  .right-btn {
     display: none;
   }
-  .notice-container{
+  .notice-container {
     max-width: 480px;
     margin: 0 auto;
   }
 }
-
