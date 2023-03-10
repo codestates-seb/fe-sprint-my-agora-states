@@ -161,6 +161,7 @@ form.addEventListener('submit', (event) => {
     //제출을 눌러도 새로고침이 되지 않게 함
     event.preventDefault();
 
+    //새로운 오브젝트 생성
     let question_obj = {}
     question_obj.avatarUrl = 'https://avatars.githubusercontent.com/u/117385050?s=400&v=4'
     question_obj.title = question_title.value
