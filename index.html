@@ -14,31 +14,32 @@
 
 <body>
   <header class="header">
-    <img class="logo" src="./images/logo.png" alt="유어클래스 로고 이미지">
-    <div class="header__title">My Agora States</div>
-    <div class="header__menu">
-      <a
-        href="https://www.notion.so/codestates/SEB-FE-44-Students-e3463fd9bdba4b05998bbab2b3076f1c"
-        target="_blank"
-      >
-        SEB 44 Notion Page
+    <div class="header__top">
+      <a href="https://urclass.codestates.com/" target="_blank">
+        <img class="logo" src="./images/logo.png" alt="유어클래스 로고 이미지">
       </a>
-      <a
-        href="https://github.com/DanoHwang/fe-sprint-my-agora-states"
-        target="_blank"
-      >
-        Github
-      </a>
-      <img class="header__avatar--image" src="./images/user-black.png" alt="사용자 프로필 이미지">
+      <div class="header__menu">
+        <a
+          href="https://www.notion.so/codestates/SEB-FE-44-Students-e3463fd9bdba4b05998bbab2b3076f1c"
+          target="_blank"
+        >
+          SEB 44 Notion Page
+        </a>
+        <a
+          href="https://github.com/DanoHwang/fe-sprint-my-agora-states"
+          target="_blank"
+        >
+          Github
+        </a>
+      </div>
+      <button class="discussion__question-button">질문하기</button>
     </div>
   </header>
   <main>
+    <section class="side">
+      <div class="header__title">My<br/>Agora<br/>States</div>
+    </section>
     <section class="discussion">
-      <div class="menu-bar">
-        <button class="discussion__question-button">질문하기</button>
-        <div class="search-bar"></div>
-        <div class="discussion__dropboxes"></div>
-      </div>
       <div class="discussion__list">
         <section class="discussion__wrapper">
           <ul class="discussions__ul"></ul>
@@ -46,7 +47,6 @@
         </section>
       </div>
     </section>
-
     <div class="modal__overlay hide">
       <div class="modal__window">
         <div class="modal__close-area">X</div>
@@ -75,7 +75,6 @@
         </div>
       </div>
     </div>
-
   </main>
 </body>
 <script src="data.js"></script>

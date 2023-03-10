@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Gowun+Dodum&family=Roboto:wght@500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +22,8 @@ button {
 }
 
 button:hover {
-  background: var(--button-hover-bg-color);
+  background: #411484;
+  color: white;
   outline: 0;
   transition: 0.3s;
 }
@@ -29,12 +33,31 @@ main {
   justify-content: center;
 }
 
+.side {
+  display: flex;
+  flex-grow: 1 0 30%;
+}
+
+.header__title {
+  padding: 1em 0.5em;
+  font-size: 4em;
+  font-family: 'Monoton', cursive;
+  background-color: #411484;
+  color: white;
+  text-align: right;
+  border-bottom: 1em solid rgb(0, 0, 0);
+}
+
 .header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin: 2.5em 2em;
+}
+
+.header__top {
+  display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
-  padding: 1em 2em;
+  align-items: center;
   margin-bottom: 2em;
 }
 
@@ -42,12 +65,9 @@ main {
   width: 10em;
 }
 
-.header__title {
-  font-size: 3em;
-}
-
 .header__menu {
   display: flex;
+  justify-content: space-between;
   align-items: end;
 }
 
@@ -63,19 +83,14 @@ main {
 .discussion {
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  flex: 1 0 70%;
   margin-bottom: 2em;
-}
-
-.menu-bar {
-  display: flex;
-  padding: 1em;
-  background-color: rgb(155, 155, 196);
+  font-family: 'Gowun Dodum', sans-serif;
 }
 
 .discussion__question-button {
   margin: 0;
-  padding: 0.5em 1em;
+  padding: 1em 2.5em;
   font-size: 1em;
   font-weight: 400;
   text-align: center;
@@ -85,11 +100,11 @@ main {
 }
 
 .discussion__list {
-  padding: 1.5em;
+  padding: 0 1.5em;
 }
 
 .discussion__avatar--image {
-  width: 48px;
+  width: 4em;
   border-radius: 50%;
 }
 
@@ -112,6 +127,7 @@ main {
 .discussion__title {
   margin-top: 0.5em;
   margin-bottom: 1em;
+  font-size: 1.4em;
 }
 
 .discussion__information {
@@ -183,7 +199,21 @@ main {
   margin-top: 2em;
 }
 
-.page-bar__button {
+.page-bar__button,
+.page-bar__button--prev,
+.page-bar__button--next {
   width: 2em;
   height: 2em;
+  margin: 0 0.5em;
+  border: none;
+  border-radius: 0.5em;
+}
+
+.page-bar__button--prev,
+.page-bar__button--next {
+  width: 3em;
+}
+
+.button--selected {
+  background-color: #411484;
 }
