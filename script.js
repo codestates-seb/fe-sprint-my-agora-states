@@ -37,7 +37,7 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(contentTitle, contentInfo);
 
   const checked = document.createElement('p');
-  checked.textContent = obj.answer ? '☑' : 'x'; ////삼항연산자///
+  checked.textContent = obj.answer ? '✔️' : '❌'; ////삼항연산자///
   discussionAnswered.append(checked);
   //////////////////////////////////////////////////////////////////////
   li.append(avatarWrapper, discussionContent, discussionAnswered);
