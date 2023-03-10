@@ -58,10 +58,40 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+
+
+// 새 포스트를 누르면 질문 입력창 생성
+const enterNewPost = document.querySelector('.search-tab__new-post');
+const formGenerated = document.querySelector('.newPost-container');
+let cnt=0;
+
+enterNewPost.addEventListener('click', (event) => {
+  cnt=cnt+1;
+  if(cnt%2!==0){
+    // formGenerated.classList.remove('hide');
+    formGenerated.innerHTML=formLayout[0];
+  }
+  else {
+    // formGenerated.classList.add('hide');
+    formGenerated.innerHTML='';
+  }
+});
+
+// const closeButton = document.querySelector('.close-Button');
+// if (formGenerated.innerHTML!==null){
+// closeButton.addEventListener('click',()=>{
+//   formGenerated.innerHTML='';
+// });
+// }
+
+// 새포스트 눌려있을때만 작동.
 const newPost = document.querySelector(".form");
 const newAuthor = document.querySelector("#name");
 const newTitle = document.querySelector("#title");
 const newInfo = document.querySelector("#story");
+
+
+if (newPost.innerHTML!==null){
 
 newPost.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -87,3 +117,4 @@ newPost.addEventListener('submit', (event) => {
   ul.prepend(convertToDiscussion(newObj));
   event.target.reset();
 })
+}

@@ -3,6 +3,12 @@
     margin:0;
     box-sizing: border-box;
 }
+input:focus {
+    outline:1px solid rgba(42, 45, 49,1);
+}
+textarea:focus {
+    outline:1px solid rgba(42, 45, 49,1);
+}
 body {
     display:flex;
     width: 100vw;
@@ -50,6 +56,76 @@ a {
     text-decoration: none;
 }
 
+
+
+
+.form__container {
+    margin: 25px 30px;
+    background-color: rgb(63, 66, 69);
+    border-radius: 10px;
+    height: 200px;
+}
+.form__input--name {
+    display:flex;
+    align-items: center;
+    padding-top: 10px;
+    margin: 10px 10px;
+    font-size: 25px;
+}
+.form__input--name > input {
+    border:none;
+    background-color: transparent;
+    width: 90%;
+    height: 30px;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+.form__input--name > input::placeholder{
+    font-size: 17px;
+} 
+.form__input--title, .form__textbox , .form__submit{
+    margin: 5px 10px;
+}
+.form__input--title >input{
+    border:none;
+    background-color: transparent;
+    width: 100%;
+    height: 30px;
+}
+.form__input--title >input::placeholder{
+    font-size: 25px;
+} 
+.form__textbox >textarea{
+    border:none;
+    background-color: transparent;
+    width: 100%;
+    height:65px;
+}
+.form__textbox >textarea::placeholder{
+    font-size: 17px;
+} 
+.form__submit{
+    display:flex;
+    flex-direction: row-reverse;
+}
+.form__submit > input{
+    background-color: rgba(68, 44, 220,0.8);
+    border:1px solid rgba(68, 44, 220,1);
+    width: 80px;
+    height:30px;
+    border-radius: 20px;
+}
+.form__submit > input[value="submit"]{
+    font-size: 20px;
+    color: white;
+}
+
+
+
+
+
+
+
 .discussion__container{
     display: flex;
     /* justify-content: space-between; */
@@ -82,13 +158,15 @@ a {
 }
 
 .discussion__title{
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px 0px;;
 }
 .discussion__question{
     height: 20px;
     /* 질문 본문 내용은 20px만큼만 보인다. */
     overflow: hidden;
+    opacity:0.6;
 }
 .discussion__information{
     opacity:0.6;
@@ -147,4 +225,8 @@ a {
 }
 .search-tab__new-post > i {
     margin-right: 10px
+}
+
+.hide {
+    visibility: hidden;
 }

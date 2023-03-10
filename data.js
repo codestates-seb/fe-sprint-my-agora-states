@@ -767,3 +767,43 @@ const agoraStatesDiscussions = [
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
   }
 })
+
+const formLayout = [`<section class="form__container">
+<form action="" method="get" class="form">
+  <div class="form__input--wrapper">
+    <div class="form__input--name">
+      <i class="fa-regular fa-circle-xmark close-Button"></i>
+      <!-- <label for="name">Enter your name: </label> -->
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        placeholder="아이디"
+      />
+    </div>
+    <div class="form__input--title">
+      <!-- <label for="title">Enter your title: </label> -->
+      <input
+        type="text"
+        name="title"
+        id="title"
+        required
+        placeholder="제목"
+      />
+    </div>
+    <div class="form__textbox">
+      <!-- <label for="story">Your question: </label> -->
+      <textarea
+        id="story"
+        name="story"
+        placeholder="메세지를 입력하세요..."
+        required
+      ></textarea>
+    </div>
+  </div>
+  <div class="form__submit">
+    <input type="submit" value="submit" />
+  </div>
+</form>
+</section>`];
