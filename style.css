@@ -1,1 +1,375 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+input:focus,
+textarea:focus {outline: none;} 
+a{
+    text-decoration: none;
+    color:#222
+}
+li{
+    list-style: none;
+}
+/* section.form__container{
+    display: none;
+} */
+html, body{
+    height:100vh
+}
+main{
+    display: flex;
+    height: 100vh;
+}
+section.leftMenu{
+    width: 250px;
+    padding:20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #e6e6e6; */
+    
+    left: 0;
+    top: 0;
+}
+section.leftMenu h2{
+    width:40%;
+    margin-top: 40px;
+}
+section.leftMenu h2 img{
+    width:100%
+}
+section.leftMenu > div{
+    margin: 40px 0 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section.leftMenu > div > p{
+    font-weight:600;
+}
+section.leftMenu > div .imgBox{
+    width:80px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+section.leftMenu > div .imgBox img{
+    width:100%;
+}
+section.leftMenu .menu{
+    width: 100%;
+}
+section.leftMenu .menu li{
+    margin-bottom:20px;
+    position: relative;
+    
+}
+section.leftMenu .menu li a{
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+    padding-left:40px;
+    font-size: 14px;
+    transition: all 0.3s;
+    padding-bottom:10px; 
+    
+}
+section.leftMenu .menu li a span{
+    padding-right:14px;
+    font-size: 18px;
+}
+section.leftMenu .menu li::before{
+    content: '';
+    position: absolute;
+    bottom: 0%;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    background: #422dda;
+    display: block;
+    -webkit-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+}
+section.leftMenu .menu li:hover::before{
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1)
+}
+section.leftMenu .menu li:hover a{
+ color: #422dda;
+ letter-spacing: 1px;
+ /* text-transform: uppercase; */
+}
+
+section.pageWrap{
+    background-color:rgba(1,27,103,0.05) ;
+    width:  calc(100% - 250px);
+    padding:0 60px 50px; 
+    box-sizing: border-box;
+    overflow-y:auto
+}
+
+
+.pageWrap > .titleBox{
+    /* margin-bottom:20px; */
+    position:sticky; top:0; 
+    background-color: #f2f3f7;
+    padding-top:50px;
+}
+.pageWrap > .titleBox h1{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.pageWrap > .titleBox div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul.discussions__container li{
+    background-color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    cursor: pointer;
+    border-left:5px solid transparent;
+    transition: all 0.1s;
+    flex-direction: column-reverse;
+}
+ul.discussions__container li.on{
+    border-left:5px solid #011b67 
+}
+ul.discussions__container li:hover{
+    border-left:5px solid #011b67
+}
+ul.discussions__container li:hover div.discussion__content h2{
+    /* font-weight: 700; */
+    color:#011b67
+}
+ul.discussions__container li .discussion__avatar--wrapper{
+}
+ul.discussions__container li .discussion__avatar--wrapper img{
+    width:60px; 
+    border-radius: 100%;
+    overflow: hidden;
+}
+ul.discussions__container li > div{
+    display: flex;
+    width: 100%;
+}
+ul.discussions__container li > div > div{
+    padding:20px; 
+    box-sizing: border-box;
+    
+}
+
+ul.discussions__container li div.discussion__answered{
+    border-left:2px solid rgba(1,27,103,0.05);
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content:center
+}
+
+ul.discussions__container li div.discussion__content{
+    width:calc(100% - 170px);
+    padding:20px 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+ul.discussions__container li div.discussion__content h2{
+    font-size:18px;
+    font-weight:600;
+    transition: all 0.2s;
+}
+
+.pointBtn{
+    border:1px solid transparent; 
+     -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+    transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+    letter-spacing: 2px;
+    transition: 0.4s;
+  padding: 15px;
+  margin:10px 4px;
+  color: #011b67;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display:inline-block;
+  }
+  
+  .pointBtn::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom:0px;
+    z-index:0;
+    width: 0%;
+    height:1px;
+    background: #011b67;
+    box-shadow: inset 0px 0px 0px #011b67;
+    display: block;
+    -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+    transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+  }
+  
+  .pointBtn:hover::before {
+    width:100%;
+  }
+  .pointBtn:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top:0px;
+    z-index:-0;
+    width: 0%;
+    height:1px;
+    background: #011b67;
+    -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+    transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+  }
+  .pointBtn:hover::after {
+    width:100%;
+  }
+  .pointBtn:hover{
+    border-left:1px solid #011b67;
+    border-right:1px solid #011b67;
+  }
+
+
+section.pageWrap .form__container{
+    display: none;
+    position: fixed;
+    left:0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+}
+section.pageWrap .form__container > div{
+    background-color: #fff;
+    width:500px;
+    height: 450px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    padding:20px 30px;
+}
+form.form{
+
+}
+form.form > div label{
+    display: block;
+    margin-top:20px; 
+    margin-bottom:5px;
+}
+form.form > div input[type='text']{
+    width: 100%;
+    border:0;
+    border-bottom:1px solid #000;
+    height: 40px;
+    opacity: 0.3;
+}
+form.form > div textarea{
+    border:0;
+    width: 100%;
+    height: 100px;
+    opacity: 0.3;
+    padding: 5px 0 ;
+    border-bottom:1px solid #000
+}
+form.form > div textarea:hover{
+    opacity: 1;
+    
+}
+form.form > div input[type='text']:focus{
+    opacity: 1;
+}
+section.pageWrap .form__container.on{
+    display: block;
+}
+
+.discussions__pagination {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+.discussions__pagination button{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    border:1px solid #011b67;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.2s;
+}
+.discussions__pagination button:hover{
+    background-color: #011b67;
+    color:#fff;
+
+
+}
+.form__submit #submit{
+    border:1px solid #011b67; 
+    width:90px;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:40px auto 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.form__submit #submit:hover{
+    background-color:#011b67 ;
+    color:#fff;
+}
+
+.answerBox{
+    display: none;
+    align-items: flex-start;
+    padding: 20px 20px 20px 50px;
+    border-top:2px solid rgba(1,27,103,0.05);
+    background-color: #e6e6e6;
+}
+
+.answerBox > img{
+    width:60px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right:30px;
+    
+}
+ul.discussions__container li.on .answerBox{
+    display: flex;
+}
+
+
+
+
+
+
