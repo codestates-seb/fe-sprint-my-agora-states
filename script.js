@@ -53,21 +53,78 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// 페이지네이션을 위한 버튼 만들기
+let pagenation = document.querySelector('.pagenation')
+let go_before = document.createElement('div')
+go_before.classList.add('pagenumber')
+go_before.textContent = '이전'
+  pagenation.append(go_before)
+
+for(let i = 0; i < Math.ceil(agoraStatesDiscussions.length / 10); i++){
+  let pageNum = document.createElement('div')
+  pageNum.classList.add('pagenumber')
+  pageNum.textContent = i+1
+  pagenation.append(pageNum)
+}
+
+let go_next = document.createElement('div')
+go_next.classList.add('pagenumber')
+go_next.textContent = '다음'
+pagenation.append(go_next)
+
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
+const render = (element, first, last) => {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = first; i < last; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
 
+
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul, 0, 10);
+render(ul,0, 10);
+
+// 페이지네이션을 위해 버튼 클릭시 나타낼 페이지를 설정
+let pagenumber = document.querySelectorAll('.pagenumber')
+let num = 0
+pagenumber[0].onclick = () =>{
+  if(num !== 0){
+    num -= 10
+  }
+  render(ul, num, num+10)
+}
+pagenumber[1].onclick = () =>{
+  num = 0
+  render(ul, num, num+10)
+}
+pagenumber[2].onclick = () =>{
+  num = 10
+  render(ul, num, num+10)
+}
+pagenumber[3].onclick = () =>{
+  num = 20
+  render(ul, num, num+10)
+}
+pagenumber[4].onclick = () =>{
+  num = 30
+  render(ul, num, num+10)
+}
+pagenumber[5].onclick = () =>{
+  num = 40
+  render(ul, num, num+10)
+}
+pagenumber[6].onclick = () =>{
+  if(num !== 40){
+    num += 10
+  }
+  render(ul, num, num+10)
+}
 
 // 모달 켜고 끄기
 let question_btn = document.querySelector('#question_btn')
@@ -130,7 +187,8 @@ form.addEventListener('submit', (event) => {
 
   // 배열에 새로운 객체를 넣고 렌더링
   agoraStatesDiscussions.unshift(question_obj)
-  render(ul);
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(agoraStatesDiscussions));
+  render(ul,0, 10);
 })
 
 // 제출 버튼을 눌렀을 때, 정보가 제대로 입력되었는지 확인

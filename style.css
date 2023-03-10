@@ -115,6 +115,7 @@ header{
 /* discussion을 담고 있는 박스 */
 .discussion__container {
     display: flex;
+    justify-content: space-between;
     border: 1px solid black;
     width:540px;
     list-style-type: none;
@@ -123,8 +124,6 @@ header{
 /* 아바타 아이콘을 담고 있는 박스 */
 .discussion__avatar--wrapper{
     border: 1px solid red;
-    flex-grow: 1;
-    width:10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,7 +140,6 @@ header{
 .discussion__content{
     border: 1px solid red;
     flex-grow: 1;
-    width:80%;
 }
 
 /* discussion 제목 */
@@ -160,13 +158,12 @@ header{
 /* 답변 여부 */
 .discussion__answered{
     border: 1px solid red;
-    flex-grow: 1;
-    width:10%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* 페이지네이션 */
 .pagenation{
     display: flex;
     flex-direction: row;
