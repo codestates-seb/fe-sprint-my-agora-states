@@ -1,1 +1,182 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* Discussion 컴포넌트
+모든 요소에 border-box를 적용합니다.
+<li> 요소의 기본 스타일인 점을 보이지 않게 합니다.
+Discussion 컴포넌트 전체의 폭을 540px로 만드세요.*/
+
+/* 왼쪽 아바타
+아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요.
+아바타 사진의 너비를 48px로 설정하세요.
+아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
+
+/* 중간 Discussion 콘텐츠
+Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다.
+저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다.
+오른쪽 체크 표시
+체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다.
+ */
+
+
+
+ * { box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #525252;
+}
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(
+        to bottom,
+        rgb(255, 191, 169, 0.8),
+        rgb(255, 235, 180, 0.8)
+    ), 
+    url(./img/pattern.png);
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+
+/* form container */
+h1{
+    text-align: center;
+    font-weight: 900;
+    font-size: 60px;
+    
+    color: transparent;
+    -webkit-text-stroke: 1.5px #e37b7b;
+}
+
+.form__container{
+    padding: 20px;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(51, 51, 51,0.5);
+    width: 80%;
+    height: 80vh;
+    min-width: 20rem;
+}
+
+.form__input--wrapper > div{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+input#name, input#title{
+    margin: 0 20px;
+    height: 2rem;
+    background-color:transparent;
+    border: 1px solid #db8e8e;
+    border-radius: 5px;
+    border-style: dotted;
+    outline: none;
+    resize: none;
+}
+
+label{
+    margin-left: 25px;
+    color: #FFACAC;
+}
+#story{
+    margin: 0 20px;
+    height: 10rem;
+    background-color:transparent;
+    border: 1px solid #db8e8e;
+    border-radius: 4px;
+    border-style: dotted;
+    outline: none;
+    resize: none;
+}
+
+#submitted{
+    float: right;
+    background-color:#FFACAC;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px 1px rgb(223, 196, 196);
+    color: #fff0f0;
+}
+
+#submitted:hover{
+    background-color: #ffbbbb;
+    cursor: pointer;
+}
+#submitted:active{
+    box-shadow: 1px 1px 0 rgba(117, 117, 117, 0.5);
+    position: relative;
+    top:2px;
+}
+
+/* Discussion container */
+section.discussion__wrapper{
+    padding: 30px;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(51, 51, 51,0.5);
+    height: 80vh;
+    width: 80%;
+    min-width: 20rem;
+    overflow: overlay;}
+
+.discussion__container{
+    margin: 10px;
+    display: flex;
+    justify-content:space-between;
+}
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img.discussion__avatar--image{
+    width: 48px;
+    border-radius: 50%;
+}
+
+div.discussion__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 15px;
+    width: 80%;
+    flex-grow: 1;
+}
+
+div .discussion__title{
+    text-align: left;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: #373737;
+    font-weight: 500;
+}
+
+div .discussion__information{
+    text-align: right;
+    font-size: 12px;
+}
+
+div.discussion__answered{
+    display: flex;
+    align-items: center; 
+}
