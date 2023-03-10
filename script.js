@@ -12,7 +12,6 @@ const presetAvatarMenu = document.querySelector(
   "li.avatar-select-menu__preset"
 );
 const presetAvatarSrc = "src/images/mokokos/mokoko0";
-const btnLoadAvatar = document.querySelector(".btn-load-avatar");
 const btnClearAvatar = document.querySelector(".btn-clear-avatar");
 const btnClearLocal = document.querySelector(".btn-clear-local");
 // input form
@@ -23,6 +22,8 @@ const btnSubmit = document.querySelector("#questionSubmit");
 // dialog
 const btnOpenForm = document.querySelector("#btn-open-form");
 const dialog = document.querySelector("#dialog");
+const textbox = document.querySelector(".form__textbox");
+const btnClose = document.querySelector("#btn-close");
 
 // local storage
 const localStorageDiscussions =
@@ -161,6 +162,10 @@ const convertToDiscussion = (obj) => {
     p.textContent = "✅";
     li.append(p);
     li.append(discussionAnswered);
+  } else {
+    const p = document.createElement("p");
+    p.textContent = "☑️";
+    li.append(p);
   }
   return li;
 };
@@ -181,15 +186,19 @@ const render = (element) => {
 btnOpenForm.addEventListener("click", function () {
   dialog.showModal();
 });
+textbox.addEventListener("click", function () {
+  const story = document.querySelector("#story");
+  story.click();
+});
+btnClose.addEventListener("click", function (event) {
+  event.preventDefault();
+  dialog.close();
+});
 myAvatar.addEventListener("click", function () {
   const avatarSelectMenu = document.querySelector(".avatar-select-menu");
   avatarSelectMenu.classList.toggle("hide");
 });
 
-btnLoadAvatar.addEventListener("click", function () {
-  const inputLoadAvatar = document.querySelector("#load-Avatar");
-  inputLoadAvatar.click();
-});
 btnClearAvatar.addEventListener("click", function () {
   myAvatar.src = "./src/images/defaultAvatar.png";
 });
