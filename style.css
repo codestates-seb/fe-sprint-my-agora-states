@@ -1,1 +1,216 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css");
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Climate+Crisis&family=Rubik+Mono+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+a, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    padding: 16px;
+    border-bottom: 1px solid;
+    margin-bottom: 12px;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 28pt;
+    letter-spacing: 2px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, transparent, transparent 16.6667%, #fff 16.6667%),
+      linear-gradient(to right, #ccc, #ccc 16.6667%, #fff 16.6667%);
+    background-size: 6px 6px;
+  
+}
+
+main {
+    margin: 12px 0;
+    padding: 24px;
+    border: 1px solid;
+    background-color: white;
+}
+
+.form__container {
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    /* background-color: lightblue; */
+    border: 2px solid;
+
+    position: fixed;
+    right: 50%;
+    top: 50%;
+    transform: translate(200%,-50%);
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    font-family: 'Pretendard Variable';
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.form__title {
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    border-bottom: 1px solid;
+    padding: 8px 12px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    padding: 8px 12px;
+}
+
+.form__input--wrapper > div{
+    flex: 1;
+    margin: 4px 8px;
+}
+.form__input--wrapper > div > input{
+    width: 350px;
+    height: 25px;
+    margin-top: 4px;
+    font-family: 'Pretendard Variable';
+    font-size: 13px;
+}
+#story {
+    width: 350px;
+    height: 130px;
+    margin-top: 4px;
+
+    font-family: 'Pretendard Variable';
+    font-size: 13px;
+    resize: none;
+}
+
+.form__submit > input {
+    width: 125px;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+}
+.form__submit > input:hover {
+    border: none;
+    border-radius: 100px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.floating {
+    position: fixed;
+    right: 64px;
+    bottom: 64px;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+.floating :hover {
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    transform: rotate(45deg);
+}
+.material-symbols-outlined {
+    line-height: 75px;
+    font-size: 46px;
+}
+
+
+.discussion__container {
+    width: 640px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.discussion__avatar--wrapper {
+    /* flex: 1; */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.discussion__content {
+    /* flex: 6; */
+    flex-grow: 1;
+    padding: 0 12px;
+}
+.discussion__title {
+    padding: 2px 0;
+    font-family: 'Pretendard Variable';
+    font-size: 20px;
+    font-weight: 500;
+}
+.discussion__information {
+    padding: 2px 0;
+    padding-left: 4px;
+    font-family: 'Pretendard Variable';
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.discussion__answered {
+    /* flex: 1; */
+    flex-shrink: 0;
+    width: 75px;
+    height: 25px;
+    border: 1px solid #1ADA5E;
+    background-color: #8fdbaa ;
+    color: white;
+    border-radius: 50px;
+    font-family: 'Pretendard Variable';
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 25px;
+    margin: 4px;
+    margin-left: 12px;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.black {
+    background-color: black;
+    color: white;
+}
