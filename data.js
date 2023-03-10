@@ -802,4 +802,5 @@ const agoraStatesDiscussions = [
     ...discussion,
     bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
   }
+
 })
