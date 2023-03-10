@@ -1,6 +1,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+// function1: convertToDiscussion()
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -51,6 +52,7 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// function2: render()
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   // for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -74,6 +76,7 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// function3: form 부분 새로 추가되는 질문 등록해보자.
 // submit 했을때 추가되는 함수를 만들어보자.
 // 일단 addEventListner에 때려박자
 // 먼저 form을 선택해
