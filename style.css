@@ -1,1 +1,146 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: silver;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: #363636;
+}
+
+.hide {
+    display: none;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.blur {
+    backdrop-filter: blur(50px);
+}
+
+.form__container {
+    flex-direction: column;
+    position: fixed;
+    top:5%;
+    left:10%;
+    width: 80vw;
+    height: 90vh;
+    background-color: white;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.form {
+    margin-top: 50px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input.submitBtn {
+    width: 68px;
+    height: 34px;
+    border: 0px;
+    border-radius: 4px;
+    background-color: #000000;
+    color: whitesmoke;
+}
+
+li.discussion__container {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    padding: 8px;
+    height: 150px;
+    margin: 16px 0;
+    background-color: snow;
+    border-radius: 20px;
+}
+
+
+div.discussion__avatar--wrapper {
+    flex: 1 0 15%;
+}
+div.discussion__content {
+    flex: 1 0 80%;
+}
+div.discussion__answered {
+    flex: 1 0 5%;
+}
+
+.discussion__wrapper {
+    width: 540px;
+}
+
+.discussion__avatar--image {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.write-question {
+    margin-top: 14px;
+    height: 50px;
+    width: 200px; 
+    font-size: 18px;
+}
+
+.write-input {
+    width: 40vw;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin: 8px;
+}
+
+.storyText {
+    width: 40vw;
+    height: 30vh;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin: 8px;
+    align-self: right;
+}
+
+.btnContainer {
+    text-align:right;
+    padding: 20px;
+}
+
+.close {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 1px solid lightgrey;
+    background-color: white;
+    color: grey;
+}

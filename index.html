@@ -15,26 +15,12 @@
 <body>
   <main>
     <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
+    <section>
+      <div>
+        <button class="write-question">
+          👶❔ Write question
+        </button>
+      </div>
     </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
@@ -48,9 +34,35 @@
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>💬</p></div>
         </li>
       </ul>
+    </section>
+    <section class="form__container hide">
+      <div class="btnContainer">
+        <button class="close">
+          ✖
+        </button>
+      </div>
+      <form action="" method="get" class="form">
+        <div class="form__input--wrapper">
+          <div class="form__input--name">
+            <label for="name">이      름: </label>
+            <input class="write-input" type="text" name="name" id="name" required>
+          </div>
+          <div class="form__input--title">
+            <label for="title">제      목: </label>
+            <input class="write-input" type="text" name="title" id="title" required>
+          </div>
+          <div class="form__textbox">
+            <label for="story">내      용: </label>
+            <textarea class="storyText" id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+          </div>
+        </div>
+        <div class="form__submit">
+          <input class="submitBtn" type="submit" value="submit">
+        </div>
+      </form>
     </section>
   </main>
 </body>
