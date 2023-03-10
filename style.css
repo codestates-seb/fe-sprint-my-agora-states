@@ -42,7 +42,7 @@ img{
     border-radius: 50%;
 }
 
-.pagination{
+.pagination-numbers{
     display: flex;
     justify-content: center;
     align-items: center;

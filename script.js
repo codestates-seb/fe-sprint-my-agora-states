@@ -36,7 +36,7 @@ discussionContent.append(discussionTitle, discussionInformation);
 
 
 const checked = document.createElement("p");
-checked.textContent = obj.answer ? "🙄" : "✅";
+checked.textContent = obj.answer ? "✅" : "🙄";
 discussionAnswered.append(checked);
 
 li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -59,9 +59,9 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 //localstorage있는 것 더해주기
-if(window.localStorage.length >1){
+if(window.localStorage.length >0){
 
-  for(let i = 0; i<window.localStorage.length-1; i++){
+  for(let i = 0; i<window.localStorage.length; i++){
     let newDatas = window.localStorage.getItem(`newData${i}`);
     let Obj = JSON.parse(newDatas);
     agoraStatesDiscussions.unshift(Obj);
@@ -94,7 +94,7 @@ ul.prepend(convertToDiscussion(obj));
 //local에 저장
 const newObj = JSON.stringify(obj);
 let len = window.localStorage.length;
-window.localStorage.setItem(`newData${len-1}`, newObj);
+window.localStorage.setItem(`newData${len}`, newObj);
 
 
 //초기화
@@ -105,4 +105,5 @@ displayQuestion.value = '';
 
 );
 
+//pagination
 
