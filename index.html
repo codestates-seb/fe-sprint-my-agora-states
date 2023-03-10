@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <!-- <link rel="stylesheet" href="reset.css"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -16,19 +17,20 @@
 <body>
   <main>
     <h1>My Agora States</h1>
-    <section class="form__container">
+    <section class="form__container hide">
+      <div class="form__title black"> New Topic</div>
       <form action="" method="get" class="form" onsubmit="return false" onkeydown="return event.key != 'Enter';">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">Enter your name: <br></label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
+            <label for="title">Enter your title: <br></label>
             <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">Your question: <br></label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
@@ -57,6 +59,12 @@
         <!-- 데이터 표시되는 곳 -->
       </ul>
     </section>
+
+    <!-- 질문 추가 플로팅버튼 -->
+    <div class="floating"> <span class="material-symbols-outlined">
+      add
+      </span></div>
+    <!-- 페이지네이션 버튼 -->
     <section class="buttons">
       <button> ◀</button>
       <button> 1</button>
