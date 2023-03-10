@@ -103,6 +103,7 @@ popupSubmitBtn.addEventListener("click", function () {
         alert("내용을 입력해주세요.");
     } else {
         askAnythingPopup.classList.add("hide");
+        window.location.reload();
     }
 });
 
