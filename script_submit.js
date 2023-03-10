@@ -33,7 +33,8 @@ function newDiscussionObj (name, title, question) {
   this.avatarUrl = 'https://upload.wikimedia.org/wikipedia/commons/0/0c/%EB%A7%8C%EB%91%90.jpg';
 }
 
-let newDiscussArr = storageItems; // 새 오브젝트를 담을 배열. 이거를 localStorage에 전달할 것임
+// 새 오브젝트를 담을 배열. 이거를 localStorage에 전달할 것임
+let newDiscussArr = (storageItems) ? storageItems : []; 
 // 페이지에 렌더
 function submitNewDiscuss() {
   const newdiscussName = document.querySelector('#name').value;
