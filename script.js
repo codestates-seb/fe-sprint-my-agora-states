@@ -1,11 +1,8 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-// 페이지 네이션, 디스커션 유지
-// + 시간순 나열, notice 는 고정 + 검색(제목 , 저자)
-// 랜덤 아바타 이미지 
+// // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 
+// // data > notice + others 분리
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-// data > notice + others 분리
+// //notice discussion 나열
 const convertToNotice = (obj) =>{
   const li = document.createElement("li");
   li.className = "discussion__container_li";
@@ -43,9 +40,7 @@ const convertToNotice = (obj) =>{
   discussionTitleA.textContent =  obj.title;
   discussionTitle.append(discussionTitleA);
 
-  //li > div , avatarWrapper , discussionContent, discussionAnswered
-  // const avatarWrapper = document.createElement("div");
-  // avatarWrapper.className = "discussion__avatar--wrapper";
+  
   
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -59,6 +54,11 @@ const convertToNotice = (obj) =>{
   li_container.append(userInfoSection, discussionSection);
  
   li.append(li_container);
+
+  // 변경 전
+  //li > div , avatarWrapper , discussionContent, discussionAnswered
+  // const avatarWrapper = document.createElement("div");
+  // avatarWrapper.className = "discussion__avatar--wrapper";
 
   //avatarWrapper > avartarImg(src, alt)
   // const avartarImg = document.createElement("img");
@@ -96,16 +96,12 @@ const convertToNotice = (obj) =>{
   return li;
 
 }
+// others discussion 나열
 const convertToDiscussion = (obj) => {
 
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
   li.id = obj.id;
-
-  // li > div.UserInfo + div.discussionSection  (.discussion_container {display:flex; flex-direction:column;})
-  // div.UserInfo > avatarWrapper + discussionInfo 
-  // div.discussionSection > discussionContent(discussionTitle + discussionTitleA) + discussionAnswered
-
 
   const userInfoSection = document.createElement("div");
   userInfoSection.setAttribute('class', 'user_info_section');
@@ -128,9 +124,6 @@ const convertToDiscussion = (obj) => {
   const discussionSection = document.createElement("div");
   discussionSection.setAttribute('class', 'discussion_section');
   
-   // discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
-  //  discussionContent.append(discussionTitle);
-  // const discussion
   const discussionTitle = document.createElement("div");
   discussionTitle.setAttribute("class", "discussion_title");
   const discussionTitleA = document.createElement("a");
@@ -152,6 +145,15 @@ const convertToDiscussion = (obj) => {
  li_container.append(userInfoSection, discussionSection);
 
  li.append(li_container);
+
+//  변경 전
+  // li > div.UserInfo + div.discussionSection  (.discussion_container {display:flex; flex-direction:column;})
+  // div.UserInfo > avatarWrapper + discussionInfo 
+  // div.discussionSection > discussionContent(discussionTitle + discussionTitleA) + discussionAnswered
+
+  // discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  //  discussionContent.append(discussionTitle);
+  // const discussion
 
   //li > avatarWrapper , discussionContent, discussionAnswered
   // const avatarWrapper = document.createElement("div");
@@ -195,12 +197,11 @@ const convertToDiscussion = (obj) => {
  
   return li;
 };
-
-
 // discussion 추가
 
 const discussionForm = document.querySelector('.form');
 
+//로컬 스토리지 데이터 받아오기
 const localDiscussion = () => {
   //localstorage에 저장된 local_discussion 을 얻어옴
   const savedDiscussion = localStorage.getItem("local__discussion"); 
@@ -211,11 +212,14 @@ const localDiscussion = () => {
     return JSON.parse(savedDiscussion);
    } //JSON 문자열을 js 객체로 반환
 };
+
+// 로컬 스토리지에 데이터 저장하기
 const savedLocalDiscussion = (value) => {
   //value 값 = js 값 을 JSON 문자열로 반환
   localStorage.setItem("local__discussion", JSON.stringify(value));
 }
 
+// submit 이벤트 리스너
 const submitDiscussion = (event) => {
   const newDiscussion = {
     id : localDiscussion().length + 1,
@@ -245,31 +249,6 @@ discussionForm.addEventListener('submit', (event) => {
   setToggleIcon();
   
 });
-// discussion 추가
-// const form= document.querySelector('.form__container');
-// let elInputUserName = document.querySelector('#name');
-// let elInputTitle = document.querySelector('#title');
-// let elInputTextBox = document.querySelector('#story');
-
-// form.addEventListener('submit', function(e) {
-//   e.preventDefault();
-
-//   const newDiscussion = {
-//     createdAt : new Date().toLocaleString(),
-//     title : elInputTitle.value,
-//     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
-//     author : elInputUserName.value,
-//     answer : null,
-//     bodyHTML : elInputTextBox.value,
-//     avatarUrl : 'https://velog.velcdn.com/images/jeongjwon/profile/b4c71781-8b27-4f09-bb22-400d72d0e8cc/image.png'
-//   };
-  
-  
-//  agoraStatesDiscussions.unshift(newDiscussion);
-//  const newArr = convertToDiscussion(newDiscussion);
-//  ul.prepend(newArr);
-// });
-
 
 
 
@@ -281,6 +260,7 @@ const paginationBtns = document.querySelector('#pagination-numbers');
 const paginationLimit = 10;
 let currentPage;
 
+// 페이지 버튼 만들기
 const makePaginationBtn = (index) => {
   const paginationBtn = document.createElement("button");
   paginationBtn.setAttribute('class','pagination-number');
@@ -291,6 +271,8 @@ const makePaginationBtn = (index) => {
   paginationBtns.append(paginationBtn);
   
 }
+
+// discussion 을 돌면서 페이지 버튼을 동적을 생성하면서 discussion 분류
 const getPaginationBtns = () => {
   paginationBtns.innerHTML = "";
   const {noticeDiscussions, othersDiscussions} = seperateDiscussion();
@@ -300,6 +282,8 @@ const getPaginationBtns = () => {
   }
   return {noticeDiscussions, othersDiscussions};
 }
+
+// 현재 페이지, 배열의 범위 알아오기
 const setCurrentPage = (pageNum) => {
   currentPage = pageNum;//현재페이지 설정
 
@@ -312,6 +296,8 @@ const setCurrentPage = (pageNum) => {
   return {prevRange, curRange};
 
 }
+
+//현재 페이지 표시하기 - active class 추가
 const setActivePage = () => {
   document.querySelectorAll(".pagination-number").forEach((button) => {
     button.classList.remove("active");
@@ -321,6 +307,7 @@ const setActivePage = () => {
     }
   });
 };
+
 //notice + others 분류하기
 const seperateDiscussion = () => {
   let localDiscussion = JSON.parse(localStorage.getItem("local__discussion"));
@@ -333,8 +320,24 @@ const seperateDiscussion = () => {
     othersDiscussions : allDiscussions.filter((e) => e.author !== 'kimploo')
   };
 }
+//이전, 다음 페이지 버튼 설정
+const handlePageSetting = () => {
+  pageCount = paginationBtns.querySelectorAll("button").length;
 
+  if (currentPage === 1) {
+    disableButton(prevBtn);
+  } else {
+    enableButton(prevBtn);
+  }
 
+  if (pageCount === currentPage) {
+    disableButton(nextBtn);
+  } else {
+    enableButton(nextBtn);
+  }
+}
+
+//렌더링
 const rendering = (num) => {
   
     const { noticeDiscussions, othersDiscussions } = getPaginationBtns();
@@ -354,8 +357,8 @@ const rendering = (num) => {
       if(pageIndex){
         button.addEventListener('click', () =>{
           const {prevRange, curRange} = setCurrentPage(pageIndex);
-         
           render(noticeDiscussions, othersDiscussions, prevRange, curRange);
+          moveToBottom();
         });
       }
     });  
@@ -380,109 +383,86 @@ const render = (noticeDiscussions, othersDiscussions, prevRange, curRange)=>{ //
   return;
 };
 
-window.addEventListener('load', ()=>{
-  rendering(1);
-  setActivePage();
-  setToggleIcon();
-})
-
-//Toggle click
+//disable 활성화
 const disableButton = (button) => {
   button.classList.add("disabled");
 }
+//enable 활성화
 const enableButton = (button) => {
   button.classList.remove("disabled");
 }
 
+window.addEventListener('load', ()=>{
+  rendering(1);
+  setActivePage();
+  moveToBottom();
+})
+
+
+//토글 기능 - 클릭 이벤트 시 discussion을 펼쳤다가 접기
 const toggleOpenBtn = document.querySelector('.toggleOpen');
 const toggleCloseBtn = document.querySelector('.toggleClose');
 
-// toggleOpenBtn.addEventListener('click',function(){
-//   toggleOpenBtn.classList.add("disabled");
-//   toggleCloseBtn.classList.remove("disabled");
- 
-//   const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
-//   for(let i = 0 ; i < noticeLiel.length; i++){
-//     noticeLiel[i].classList.add("disabled");
-//   }
-// });
-toggleCloseBtn.addEventListener('click',function(){
+toggleOpenBtn.addEventListener('click', () =>{
+  disableButton(toggleOpenBtn);
+  enableButton(toggleCloseBtn);
+  const noticeEl = document.querySelectorAll('.discussion__container_li');
+  noticeEl.forEach((e)=>{
 
-  toggleCloseBtn.classList.add("disabled");
-  toggleOpenBtn.classList.remove("disabled");
-  const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
-  for(let i = 0 ; i < noticeLiel.length; i++){
-    noticeLiel[i].classList.remove("disabled");
-  }
+    disableButton(e);
+  })
+});
+toggleCloseBtn.addEventListener('click', () => {
+  disableButton(toggleCloseBtn);
+  enableButton(toggleOpenBtn);
+
+  const noticeEl = document.querySelectorAll('.discussion__container_li');
+  noticeEl.forEach((e)=>{
+    enableButton(e);
+  })
 });
 
-const setToggleIcon = () => {
-
-  const toggleBtns = document.querySelectorAll('.toggleBtn');
-
-  toggleBtns[0].addEventListener('click', ()=>{
-    toggleBtns[0].classList.add("disabled");
-    toggleBtns[1].classList.remove("disabled");
-
-    const noticeEl = document.querySelectorAll('.discussion__container_li');
-    noticeEl.forEach((e)=>{
-      e.classList.add("disabled");
-    })
-  });
-
-
-  // toggleBtns.forEach((button) => {
-  //   //openBtn
-
-  //   button.addEventListener('click', ()=>{
-  //     if(button.classList.contains("disabled")){
-  //       butto
-  //     }
-  //     console.log(button[0]);
-  //     button[0].classList.add("disabled");
-  //     button[1].classList.remove("disabled");
-  //     const noticeLiel =  document.querySelectorAll(".discussions__container")[0].children;
-  //     for(let i = 0 ; i < noticeLiel.length; i++){
-  //       noticeLiel[i].classList.add("disabled");
-  //     }
-  //   })
-  // })
-  // const noticeElements = documents.querySelectorAll('.discussions_container')[0].children;
-
-  // noticeElements.forEach((e) => {
-  //   e
-  // })
-
-}
-setToggleIcon();
-
+//이전 버튼 이벤트 리스너
 prevBtn.addEventListener('click', () =>{
   rendering(currentPage - 1);
-  setToggleIcon();
+  moveToBottom();
+  
 });
-
+//다음 버튼 이벤트 리스너
 nextBtn.addEventListener('click', () => {
   rendering(currentPage + 1);
+  moveToBottom();
 });
 
 
+const topBtn = document.querySelector('.topBtn');
+//스크롤 감지하여 topBtn display 조절
+const checkScroll = () => {
+  let pageYOffset = window.pageYOffset;
+  if(pageYOffset !== 0){
 
-
-const handlePageSetting = () => {
-  pageCount = paginationBtns.querySelectorAll("button").length;
-
-  if (currentPage === 1) {
-    disableButton(prevBtn);
-  } else {
-    enableButton(prevBtn);
-  }
-
-  if (pageCount === currentPage) {
-    disableButton(nextBtn);
-  } else {
-    enableButton(nextBtn);
+    topBtn.classList.remove('disabled');
+  }else{
+    topBtn.classList.add('disabled');
   }
 }
+//위로 내려가기
+const moveToTop = () => {
+  if(window.pageYOffset > 0){
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+}
+//아래로 내려가기
+const moveToBottom = () => {
+  window.scrollTo(0,document.body.scrollHeight, 'smooth');
+  
+}
+
+//마우스 scroll 이벤트 리스너
+window.addEventListener('scroll', checkScroll);
+
+//top 버튼 이벤트 리스너
+topBtn.addEventListener('click', moveToTop);
 
 //filter
 // const filter = (num) => {
@@ -506,23 +486,3 @@ const handlePageSetting = () => {
   
 //   filter(1);
 // });
-
-
-const topBtn = document.querySelector('.topBtn');
-
-const checkScroll = () => {
-  let pageYOffset = window.pageYOffset;
-  if(pageYOffset !== 0){
-
-    topBtn.classList.remove('disabled');
-  }else{
-    topBtn.classList.add('disabled');
-  }
-}
-const moveToTop = () => {
-  if(window.pageYOffset > 0){
-    window.scrollTo({top:0, behavior:"smooth"});
-  }
-}
-window.addEventListener('scroll', checkScroll);
-topBtn.addEventListener('click', moveToTop);
