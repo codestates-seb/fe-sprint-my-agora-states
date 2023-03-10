@@ -77,7 +77,7 @@ const inputName = document.querySelector("input#name");
 const inputTitle = document.querySelector("input#title");
 const inputQuestion = document.querySelector("#story");
 
-submit.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   let today = new Date();
   let year = today.getFullYear();
@@ -100,7 +100,11 @@ submit.addEventListener("click", (event) => {
   };
   agoraStatesDiscussions.unshift(obj);
   const content = convertToDiscussion(obj);
+ 
   ul.prepend(content);
+  inputName.value = "";
+  inputTitle.value  = "";
+  inputQuestion.value = "";
 });
 
 
