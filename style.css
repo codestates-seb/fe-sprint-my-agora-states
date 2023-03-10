@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Inter:wght@500;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -238,6 +239,7 @@ textarea {
 .discussion__information {
   display: flex;
   justify-content: start;
+  color: gray;
 }
 
 .discussion__answered {
@@ -313,8 +315,8 @@ textarea {
   border-radius: 15px;
   display: none;
   cursor: auto;
-  padding: 50px;
   z-index: 100;
+  padding: 30px;
 }
 
 .modal-author,
@@ -344,6 +346,8 @@ textarea {
 
 .modal-question,
 .helper-answer {
+  width: 100%;
+  word-wrap: break-word;
   font-size: 1.5rem;
   margin-bottom: 100px;
   text-align: left;
@@ -472,7 +476,7 @@ footer a {
   align-items: center;
   text-align: center;
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 1rem;
   opacity: 0.3;
   border-radius: 40px;
   cursor: pointer;
