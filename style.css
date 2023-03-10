@@ -1,1 +1,274 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* font-size: 16px; */
+}
+
+body {
+    /* border: 1px solid blue; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+main {
+    /* border: 1px solid yellowgreen; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 580px;
+    /* height: 1000px; */
+    border-radius: 35px;
+    box-shadow: 8px 8px 40px rgba(143, 143, 150, 0.55),
+               -10px -10px 30px rgb(255, 255, 255, .8);
+}
+
+.inner-container {
+    width: 100%;
+    height: 100%;
+    background: #f5f5f6;
+
+    border-radius: 35px;
+    box-shadow: inset -12px -12px 16px rgb(174, 174, 192, 0.32),
+            inset 14px 14px 12px rgba(255, 255, 255);
+
+    padding: 0 22px 10px 22px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.contents {
+    position: relative;
+    /* border: 1px solid red; */
+    width: 100%;
+    font-size: 25px;
+}
+
+.contents h2 {
+    color: rgb(193, 193, 193);
+    position: absolute;
+    padding-top: 15px;
+    transform: translate(38%);
+}
+
+.contents h2:nth-child(1) {
+
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(193, 193, 193);
+}
+
+.contents h2:nth-child(2) {
+    color: #FFF8E1;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  
+    50% {
+      clip-path: polygon(
+        0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
+
+.form__container {
+    /* border: 1px solid purple; */
+    text-align: center;
+    width: 540px;
+}
+
+.form__input--wrapper {
+    /* border: 1px solid black; */
+    padding-top: 10%; 
+    width: 100%;
+}
+
+.form__input--name {
+    margin-top: 2%;
+    /* border: 1px solid red; */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    padding: 3px 0px;
+    color: rgb(161, 161, 161);
+    text-shadow: 1px 1px 2px rgba(255, 248, 225, 0.7);
+}
+
+#name, #title, #story {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+    background: #ffffff;
+    /* border:none; */
+    background: rgba(255, 248, 224, 0.29);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.9px);
+    -webkit-backdrop-filter: blur(3.9px);
+    border: 1px solid rgba(255, 248, 224, 0.95);
+}
+
+#name, #title {
+    width: 50%;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.form__input--title {
+    /* border: 1px solid blue; */
+    color: rgb(161, 161, 161);
+    text-shadow: 1px 1px 2px rgba(255, 248, 225, 0.7);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    padding: 3px 0px;
+}
+
+.form__textbox {
+    /* border: 1px solid red; */
+    color: rgb(161, 161, 161);
+    text-shadow: 1px 1px 2px rgba(255, 248, 225, 0.7);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    padding: 3px 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+#story {
+    text-align: center;
+    justify-content: center;
+    margin-top: 5px;
+    color: rgb(77, 77, 77);
+    /* border: 1px solid red; */
+    height: 100px;
+}
+
+.form__submit {
+    /* border: 1px solid rgb(255, 76, 106); */
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: right;
+    padding-right:2px;
+    height: 25px;
+}
+
+#submit {
+    border: 2px solid rgba(161, 161, 161, 0.282);
+    border-radius: 3px;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 248, 225, 0.42);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid hsl(46, 100%, 94%);
+    color: rgb(77, 77, 77);
+    cursor: pointer;
+    /* border:none; */
+}
+
+#submit:hover {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid hsl(46, 100%, 94%);
+    color: rgb(77, 77, 77);
+    background: rgba(255, 255, 255, 0.163);
+}
+
+section.discussion__wrapper {
+    /* border: 1px solid green; */
+}
+
+li.discussion__container {
+    border: 1px solid black;
+    width: 540px;
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    border-radius: 8px;
+    margin: 5px 0px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.9px);
+    -webkit-backdrop-filter: blur(3.9px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+a {
+    color: rgb(87, 87, 87);
+    font-size: 15px;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    padding: 3px;
+}
+
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+h3.discussion__title {
+    text-align: left;
+}
+
+div.discussion__information {
+    text-align: right;
+}
+
+div.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 5px;
+}
+
+img {
+    border-radius: 50%;
+    width: 48px;
+    border: none;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.222);
+}
+ 
