@@ -58,8 +58,10 @@ const rerender = () => {
   return;
 };
 const countQ = (length) => {
-  $cntQ.textContent = `총 ${length}개의 질문을 수집했습니다.`;
+  $cntQ.textContent = `${length}개의 `;
 };
+
+const $bounce = document.querySelectorAll(".bounce");
 //submit 제출버튼 클릭
 const formSubmit = (e) => {
   let isFormValid = $form.checkValidity();
@@ -71,6 +73,14 @@ const formSubmit = (e) => {
   //local 저장
   localStore(questionToObject());
   rerender($ul);
+  $inputTitle.value = "";
+  $inputName.value = "";
+  $inputTextbox.value = "";
+  $bounce.forEach((el) => {
+    el.classList.remove("bounce");
+    el.offsetWidth;
+    el.classList.add("bounce");
+  });
 };
 
 $BtnSubmit.addEventListener("click", formSubmit);

@@ -38,7 +38,9 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  background-color: rgba(233, 233, 233, 0.212);
 }
 
 .video__container {
@@ -46,7 +48,7 @@ main {
 }
 
 video {
-  width: 100%;
+  width: 100vw;
   height: 600px;
   object-fit: cover;
 }
@@ -80,24 +82,9 @@ textarea {
   height: 200px;
   resize: none;
   padding: 5px;
-  border: 1px solid rgba(134, 134, 134, 0.25);
+  border: 3px solid white;
   font-size: 1rem;
-}
-
-.state {
-  width: 100%;
-  height: 100px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.state h3 {
-  font-size: 2.5rem;
-  font-weight: 900;
-  text-decoration: underline;
-  text-underline-offset: 10px;
+  background-color: #ffd456;
 }
 
 .wrapping {
@@ -107,7 +94,6 @@ textarea {
 }
 
 .onewoo {
-  border: 1px solid red;
   position: relative;
   display: flex;
   margin-bottom: 50px;
@@ -115,11 +101,12 @@ textarea {
 
 .form__container {
   height: 100%;
-  border: 1px solid green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #ffd456;
+  position: relative;
 }
 
 .form__container p {
@@ -141,18 +128,18 @@ textarea {
   height: 40px;
   padding: 3px;
   border: none;
-  border-bottom: 1px solid rgba(134, 134, 134, 0.25);
+  border-bottom: 3px solid white;
   font-size: 1rem;
   margin-bottom: 20px;
+  background-color: #ffd456;
 }
 
 .form__submit input {
   width: 200px;
   height: 50px;
-  background-color: #8c28cd;
-  color: white;
-  border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffd456;
+  color: black;
+  border: 3px solid white;
   cursor: pointer;
 }
 
@@ -163,14 +150,36 @@ textarea {
   justify-content: center;
   align-items: center;
   font-size: 20px;
+
+  transition: all 500ms ease;
+}
+
+.form input::placeholder,
+#story::placeholder {
+  color: black;
+}
+
+.form input,
+#story {
+  transition: all 500ms ease;
+}
+
+.form input:focus,
+#story:focus {
+  transform: scale(1.05);
+  outline: none;
+}
+
+.Btn__submit:hover {
+  transform: scale(1.1);
 }
 
 .discussion__wrapper {
-  border: 1px solid blue;
-
   display: flex;
   justify-content: center;
+  scroll-behavior: smooth;
   overflow-y: scroll;
+  background-color: white;
 }
 
 .discussion__wrapper::-webkit-scrollbar {
@@ -182,7 +191,7 @@ textarea {
   box-shadow: inset 0px 0px 5px rgb(233, 200, 255);
 }
 .discussion__wrapper::-webkit-scrollbar-track {
-  background-color: rgba(112, 112, 112, 0.25);
+  background-color: rgba(207, 207, 207, 0.25);
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px white;
 }
@@ -223,7 +232,7 @@ textarea {
 }
 
 .discussion__title:hover {
-  background-color: #bb7ee434;
+  background-color: #ffd5569d;
 }
 
 .discussion__information {
@@ -237,10 +246,41 @@ textarea {
   flex-grow: 1;
 
   margin-right: 10px;
+  user-select: none;
 }
 
 .discussion__answered div {
   font-size: 2rem;
+}
+
+.Btn-scroll {
+  border: 3px solid #8c28cd;
+  position: absolute;
+  bottom: 0;
+  right: -80px;
+  filter: drop-shadow(5px 5px 0px rgba(138, 138, 138, 0.212));
+}
+
+.Btn-scroll-top,
+.Btn-scroll-bottom {
+  width: 60px;
+  height: 60px;
+  color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Btn-scroll-top:hover,
+.Btn-scroll-bottom:hover {
+  border: inset 4px solid transparent;
+  background-color: #8c28cd;
+  opacity: 1;
+  color: white;
 }
 
 .modal {
@@ -252,9 +292,11 @@ textarea {
   background: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   display: none;
+  z-index: 5;
 }
 
-.modal.show {
+.modal.show,
+.modal_body.show {
   display: block;
 }
 
@@ -265,15 +307,14 @@ textarea {
   transform: translate(-50%, -50%);
 
   width: 500px;
-  height: 700px;
 
   padding: 20px;
   background-color: white;
   border-radius: 15px;
-
-  z-index: 10;
+  display: none;
   cursor: auto;
   padding: 50px;
+  z-index: 100;
 }
 
 .modal-author,
@@ -308,6 +349,11 @@ textarea {
   text-align: left;
 }
 
+.line {
+  border-top: 1px solid #8c28cd;
+  padding-top: 10px;
+  width: 100%;
+}
 .helper-title {
   font-weight: 900;
   font-size: 2rem;
@@ -327,7 +373,7 @@ textarea {
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
   height: 100px;
   background-color: #8c28cd;
   color: white;
@@ -350,6 +396,82 @@ footer p:first-of-type {
   margin-bottom: 10px;
 }
 
+.state {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .count-Q {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.state span {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.state {
   user-select: none;
+}
+
+.bounce {
+  text-transform: uppercase;
+  animation: waviy 1s;
+  animation-delay: calc(0.1s * var(--i));
+  animation-iteration-count: 2;
+}
+
+@keyframes waviy {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+
+.hide-list {
+  display: none;
+}
+
+.filtering {
+  display: flex;
+
+  margin-bottom: 30px;
+  border: 4px solid #ffd456;
+  border-radius: 42px;
+  background-color: transparent;
+  filter: drop-shadow(-5px 5px 0px rgba(138, 138, 138, 0.212));
+}
+
+.all-list,
+.only-cry {
+  width: 100px;
+  height: 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+  opacity: 0.3;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.all-list:hover,
+.only-cry:hover {
+  opacity: 0.8;
+}
+
+.all-list.clicked,
+.only-cry.clicked {
+  background-color: #ffd456;
+  opacity: 1;
 }
