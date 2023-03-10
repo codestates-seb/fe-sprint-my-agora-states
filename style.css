@@ -1,1 +1,289 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Rubik+Iso&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* .bg-wrapper {
+  position: relative;
+}
+
+.bg-wrapper:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-image: url(pngegg.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+section {
+  position: relative;
+} */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > h1 {
+  font-size: 2.5rem;
+  font-family: "Lobster", cursive;
+  color: rgb(10, 10, 83);
+}
+
+.codestates-logo {
+  flex-basis: 10%;
+}
+
+#codestates-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#codestates-image {
+  width: 8rem;
+  border-radius: 1px;
+}
+
+.discussion__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.discussion__wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  width: 400px;
+  height: 300px;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.2s ease-in-out;
+}
+.discussion__content:hover {
+  border: 2px solid rgba(19, 19, 186, 0.585);
+  transform: scale(1.05);
+}
+
+.question-section {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 15%;
+}
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.user-name {
+  font-size: 0.7rem;
+}
+
+.discussion__title {
+  margin: 20px 15px;
+  flex-basis: 75%;
+}
+
+.discussion__title > a {
+  color: black;
+  text-decoration: none;
+}
+
+.discussion__answered {
+  margin: 0;
+  flex-basis: 10%;
+}
+
+.answer-section {
+  margin: 0;
+}
+
+.text-answer {
+  padding: 5px 30px;
+}
+
+.discussion__information {
+  margin: 5px;
+  margin-top: 20px;
+  margin-right: 30px;
+  text-align: right;
+}
+
+.form__container {
+  z-index: 1;
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.form {
+  margin: 10% auto;
+  padding: 20px;
+
+  background-color: rgba(236, 185, 185, 0.89);
+  width: 50%;
+  height: 70vh;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.form__input--wrapper {
+  width: 100%;
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form__input--name {
+  flex-basis: 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.form__input--name > input {
+  margin: 0 21px;
+  width: 50%;
+  height: 30px;
+  font-size: 1.3rem;
+}
+.form__input--name > button {
+  font-size: 3rem;
+  height: 30px;
+  border: none;
+  background: none;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.form__input--title {
+  flex-basis: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.form__input--title > input {
+  margin: 10px auto;
+  width: 90%;
+  height: 50px;
+  font-size: 2rem;
+}
+
+.form__textbox {
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.form__textbox > textarea {
+  margin: auto;
+  width: 90%;
+  height: 100%;
+  font-size: 1.2rem;
+}
+
+.form__submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-button {
+  width: 85%;
+  height: 8vh;
+  background-color: rgba(239, 135, 135, 0.89);
+  color: white;
+  font-size: 2.5rem;
+  border-radius: 45px;
+  cursor: pointer;
+}
+.form-button:hover {
+  background-color: rgba(234, 149, 149, 0.89);
+}
+
+.askBtn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: rgba(128, 128, 128, 0.441) solid 1px;
+}
+.askBtn {
+  width: 10%;
+  height: 40px;
+  font-size: 1.3rem;
+  border: 1px rgba(128, 128, 128, 0.326) solid;
+  border-radius: 40px;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+  margin: 20px 0;
+}
+.askBtn:hover {
+  background-color: rgba(161, 159, 159, 0.429);
+  transform: scale(1.05);
+}
+
+header {
+  background-color: white;
+  z-index: 1;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.to-the-top {
+  background-color: rgb(255, 255, 255);
+  border: 1px rgba(128, 128, 128, 0.326) solid;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.to-the-top:hover {
+  background-color: rgba(146, 142, 142, 0.573);
+  transform: scale(1.05);
+}
