@@ -1,6 +1,8 @@
 ## 배포 링크
+https://jiye-7.github.io/fe-sprint-my-agora-states/
 
 ### 배포 시연 화면
+![시연화면](https://user-images.githubusercontent.com/62678492/224197175-6e95c38b-9776-4fca-8e82-d7d27493954f.gif)
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -15,8 +17,8 @@
   - [v] `section.form__container` 요소에 새로운 아고라 스테이츠 질문을 추가할 수 있는 입력 폼을 제작합니다. 형식은 자유입니다.
   - [v] 아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
   - [v] `agoraStatesDiscussions(discussions)` 배열에 추가한 데이터가 실제 쌓여야 합니다.
-- [ ] Github Page 배포
-  - [ ] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
+- [v] Github Page 배포
+  - [v] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
 
 ## Advanced Challenge Self Checklist
 
