@@ -29,11 +29,11 @@ const convertToDiscussion = (obj) => {
   
 
   const discussionInfo = document.createElement("div");
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}` // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
-   discussionContent.append(discussionTitle, discussionInfo);
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}` // 날짜 표현 형식이 여러개가 있는데 이걸 제일 많이  쓴다
+  discussionContent.append(discussionTitle, discussionInfo);
 
   const checked = document.createElement("p");
-  checked.textContent = obj.answer ? "☑" : "☒";
+  checked.textContent = obj.answer ? "✓" : "✗";
   discussionAnswered.append(checked);
 
 

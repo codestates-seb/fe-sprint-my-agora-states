@@ -8,11 +8,6 @@
 a{
     text-decoration: none;
 }
-div.site{
-    color: white;
-    text-align: right;
-}
-
 video {
     position: fixed;
     top: 0;
@@ -27,17 +22,15 @@ h1{
     text-align: center;
     margin-top: 30px;
     color: rgb(237, 227, 227);
-    font-size: 3em;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 4em;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     text-shadow:2px 2px 4px #e29ef0; 
 }
 img{
     border-radius: 50%;
+    width: 70px;
 }
-main{
-    align-items: center;
-    margin: 0 auto;
-}
+
 .form__container{
     margin: 0 auto;
     text-align: center;
@@ -47,30 +40,29 @@ main{
     height: 300px;
     border-radius: 20px;
     margin-top: 30px;
-    padding-top: 5px;
-    align-items: center;
-    color: beige;
-    
+    color: beige;   
 }
 input[type=text]{
     width: 100%;
     border-radius: 13px;
-    margin: 5px 0;
-    outline: none;
-    padding: 7px;
+    margin: 6px 0;
+    /* outline: none; */
+    padding: 5px;
     background-color: rgba(245, 245, 220, 0.31);
     color: white;
     font-weight: bold;
+    font-size: 18px;
 }
 .form__textbox textarea{
     width: 100%;
     border-radius: 13px;
-    margin: 8px 0;
-    outline: none;
+    margin: 5px 0;
+    /* outline: none; */
     padding: 7px;
     background-color: rgba(245, 245, 220, 0.31);  
     color: white;
     font-weight: bold;
+    font-size: 17px;
 }
 .form__submit input[type="submit"] {
     text-align: center;
@@ -84,17 +76,12 @@ input[type=text]{
 }
 
 
-li{
-    list-style-type: none;
-}
-
-
-
 /*
 section.form__container {
     background-color: rgba(245, 245, 220, 0.31);
     border-radius: 20px;
 }*/
+
 .discussion__answered {
     padding-top: 39px;
     font-size: 20px;
@@ -113,15 +100,18 @@ section.form__container {
     margin : 10px;
     padding: 20px;
 }
-.discussion__avatar--image {
+/* .discussion__avatar--image {
     width: 70px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     margin: 5px;
-}
+} */
 .discussion__content{
-    display: block;
+    /* display: block; */
+    padding-top: 30px;
+    color: aliceblue;
+    font-size: 15px;
 }
 .discussion__content >:nth-child(1){
  width: 440px;
@@ -132,21 +122,22 @@ section.form__container {
 .discussion__content >:nth-child(2){
     height:30px;
     text-align: right;
+    margin-top: 30px;
 }
 li {
     list-style-type: none;
 }
-section.discussion__wrapper{
+/* section.discussion__wrapper{
     display: flex;
     flex:4;
     width: 578px;
     justify-content: center;
     align-items:center;
     margin: 0 auto;
-}
-ul {
+} */
+/* ul {
     padding: 0px;
-}
+} */
 li.discussion__container {
     background-color: rgba(245, 245, 220, 0.11);
 
@@ -174,17 +165,19 @@ section {
 }
 
 
-.discussion__information {
-    padding-top: 10px;
-    font-size: 14px;
+div.discussion__information{
     color: rgb(225, 218, 205);
+
 }
 
-img {
-    width: 70px;
-    border-radius: 100%;
-}
 .checked{
     width: 30px;
     opacity: 0.8;
 }
+
+#site{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
