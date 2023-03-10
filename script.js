@@ -25,13 +25,12 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement('h2');
   discussionTitle.className = 'discussion__title';
   const discussionLink = document.createElement('a');
-  discussionLink.style.textDecoration = 'none'
-  discussionLink.style.color = 'black'
   discussionLink.href = obj.url;
   discussionLink.target = '_blank';
   discussionLink.innerHTML = obj.title;
   discussionTitle.appendChild(discussionLink);
   const discussionDate = document.createElement('div');
+  discussionDate.className = 'discussion__information';
   discussionDate.innerHTML = obj.createdAt
   discussionContent.appendChild(discussionTitle);
   discussionContent.appendChild(discussionDate);

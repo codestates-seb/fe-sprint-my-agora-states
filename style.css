@@ -3,13 +3,23 @@
     box-sizing: border-box;
 }
 
+
+/* main을 가운데 위치시키기 */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .discussion__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 540px;
-    border: 1px solid green;
     margin: 5px;
+
+    background: rgb(144, 195, 144);
+    border-radius: 10px;
 }
 
 ul {
@@ -19,6 +29,7 @@ ul {
 .discussion__avatar--wrapper {
     display: flex;
     align-items: center;
+    margin: 5px;
 }
 
 .discussion__avatar--image {
@@ -29,18 +40,45 @@ ul {
 .discussion__content {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-left: 5px;
+    width: 400px;
+    background-color: green;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .discussion__title {
     margin-bottom: 5px;
     margin-top: 0px;
     color: black;
+    font-size: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__title>a {
+    color: black;
+    text-decoration: none;
+    word-break: keep-all;
+    target: _blank;
+}
+
+.discussion__title>a:hover {
+    /* color: pink; */
+    text-decoration: underline;
+}
+
+.discussion__information {
+    align-self: flex-end;
 }
 
 .discussion__answered {
     display: flex;
     align-items: center;
     margin-left: auto;
+    margin-right: 15px;
+    font-size: 20px;
 }
