@@ -48,18 +48,75 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  ul.innerHTML = "";
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+// 페이지네이션
+const ul = document.querySelector(".discussions__container");
+const nav = document.querySelector("nav__container");
+let currentPage = 1;
+let itemsInPage = 10;
+
+const renderDisplay = (wrapper, page, rows_page) => {
+  if (localStorage.getItem("discussionStorage") !== null) {
+    agoraStatesDiscussions = JSON.parse(
+      localStorage.getItem("discussionStorage")
+    );
+  }
+
+  wrapper.innerHTML = "";
+  page--; //page를 0으로 만들어서 반복문에 사용하기좋게함
+
+  let start = page * rows_page; // 선택한 페이지의 제일 처음요소
+  let end = start + rows_page; // 한 페이지에 들어갈 수 있는 아이템개수만큼
+  let paginated_items = agoraStatesDiscussions.slice(start, end);
+
+  for (let i = 0; i < paginated_items.length; i++) {
+    wrapper.append(convertToDiscussion(paginated_items[i]));
   }
   return;
 };
 
+// 페이지 버튼
+function setupPagination(wrapper, rows_page) {
+  // wrapper.innerHTML = "";
+
+  let page_count = Math.ceil(agoraStatesDiscussions.length / rows_page);
+  for (let i = 1; i < page_count + 1; i++) {
+    let btn = paginationBtn(i);
+    // wrapper.appendChild(btn);
+  }
+}
+function paginationBtn(page) {
+  let num = document.createElement("p");
+  num.textContent = page;
+  let button = createEl("button", "nav_btn");
+  button.append(num);
+
+  if (currentPage === page) {
+    button.classList.add("active");
+  }
+  button.addEventListener("click", () => {
+    currentPage = page;
+    renderDisplay(ul, currentPage, itemsInPage);
+
+    let current_btn = document.querySelector(".nav_btn.active");
+    current_btn.classList.remove("active");
+    button.classList.add("active");
+  });
+  return button;
+}
+
+renderDisplay(ul, currentPage, itemsInPage);
+setupPagination(nav, itemsInPage);
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// const render = (element) => {
+//   ul.innerHTML = "";
+//   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+//     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+//   }
+//   return;
+// };
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// render(ul);
 // ul.append(li);
 
 // 제출 시간
@@ -82,13 +139,15 @@ function getDate() {
   return `${year}-${month}-${day}T${hour}:${minute}:${second}Z`;
 }
 
+const author = document.querySelector("#name");
+const title = document.querySelector("#title");
+const question = document.querySelector("#story");
 // 새로운 질문 추가
 function submitDiscussion() {
   let discussionObject = {};
-  const author = document.querySelector("#name");
-  const title = document.querySelector("#title");
   let date = getDate();
   // console.log(date);
+  discussionObject["bodyHTML"] = question.value;
   discussionObject["createdAt"] = date;
   discussionObject["title"] = title.value;
   discussionObject["url"] = `./images/${Math.ceil(Math.random() * 7)}.jpg`;
@@ -101,13 +160,22 @@ function submitDiscussion() {
 }
 
 // 제출 버튼
-const submitBtn = document.querySelector("input[type='submit']");
-submitBtn.addEventListener("click", (e) => {
+const submitForm = document.querySelector("form.form");
+submitForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let newDiscussion = submitDiscussion();
   agoraStatesDiscussions.unshift(newDiscussion);
-  render(ul);
+  localStorage.setItem(
+    "discussionStorage",
+    JSON.stringify(agoraStatesDiscussions)
+  );
+  currentPage = 1;
+  renderDisplay(ul, currentPage, itemsInPage);
+  setupPagination(nav, itemsInPage);
+  author.value = "";
+  title.value = "";
+  question.value = "";
 });
 
 // 질문시작버튼

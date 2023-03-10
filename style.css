@@ -57,6 +57,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 
 .form__container {
@@ -176,7 +177,8 @@ input[type="submit"]:hover {
 }
 .discussion__avatar--image {
   width: 50px;
-  border-radius: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .discussion__content {
@@ -195,4 +197,96 @@ input[type="submit"]:hover {
 .discussion__information {
   font-size: 0.8rem;
   text-align: end;
+  color: #854007;
+}
+.discussion__answered {
+  display: flex;
+  font-size: 2rem;
+  color: rgb(231, 141, 141);
+  flex-direction: column;
+  justify-content: center;
+  width: 50px;
+  margin-left: 10pxs;
+}
+.true {
+  color: rgb(155, 235, 155);
+}
+
+.cover__container {
+  width: 580px;
+  height: 200px;
+  background-color: #eeceb4;
+  position: absolute;
+  border-radius: 15px 15px 0 0;
+  color: #be8c63;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.5s;
+}
+.hide__button {
+  width: 220px;
+  height: 60px;
+  background-color: #efe2d1;
+  border-radius: 15px;
+  transition: all 0.2s;
+}
+.hide__button:hover {
+  background-color: #be8c63;
+  color: #efe2d1;
+  border: 2px solid #efe2d1;
+}
+.cover__text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-shadow: 5px 3px 0 #efe2d1;
+  transition: all 0.2s ease;
+}
+.cover__text:hover {
+  text-shadow: 0 0 0 #efe2d1;
+}
+.hide {
+  display: none;
+}
+.nav__wrapper {
+  width: 580px;
+  height: 40px;
+  color: #b7ada0;
+  font-weight: 600;
+  background-color: #854007;
+  display: flex;
+  align-items: center;
+}
+
+.nav__container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.nav_btn {
+  width: 25px;
+  height: 100%;
+  margin: 0 3px;
+  border: 1px solid #ab978a;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.nav_btn.active {
+  color: #b7ada0;
+  background-color: #b7ada0;
+}
+
+.nav_btn:hover {
+  color: #ab978a;
+  background-color: #ab978a;
 }
