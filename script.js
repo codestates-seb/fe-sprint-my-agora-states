@@ -41,9 +41,9 @@ const convertToDiscussion = (obj) => {
   contentAnswered.className = "discussion__answered"
   discussionAnswered.append(contentAnswered)
   if( obj.answer === null ){
-    contentAnswered.textContent = "⭕️"
+    contentAnswered.textContent = "✔️"
   }else{
-    contentAnswered.textContent = "❌"
+    contentAnswered.textContent = "✏️"
   }
 //date
   contentInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString("ko-KR")}`
@@ -96,6 +96,9 @@ form.addEventListener("submit", (e) => {
 agoraStatesDiscussions.unshift(obj)
 const newDiscussion = convertToDiscussion(obj) //위 디스커션 추가 함수 적용
 ul.prepend(newDiscussion)
+submitTitle.value = ""
+submitName.value = ""
+submitStory.value = "" 
 })
 
 
@@ -106,3 +109,22 @@ ul.prepend(newDiscussion)
 // }
 
 // h2.addEventListener('hover', handleHover)
+
+
+
+// 모달 열기
+function modalOpen() {
+  document.querySelector('.modal_wrap').style.display = 'block';
+  document.querySelector('.modal_background').style.display = 'block';
+}
+
+// 모달 끄기
+function modalClose() {
+  document.querySelector('.modal_wrap').style.display = 'none';
+  document.querySelector('.modal_background').style.display = 'none';
+}
+
+
+//버튼 클릭리스너 달기
+document.querySelector('#modal_btn').addEventListener('click', modalOpen);
+document.querySelector('.modal_close').addEventListener('click', modalClose);
