@@ -1,0 +1,59 @@
+.search__div {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1)),
+    url("https://images.pexels.com/photos/13283879/pexels-photo-13283879.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load");
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.modalBtn {
+  border: none;
+  margin-bottom: 20px;
+  padding: 5px 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  color: #f5f6fa;
+  cursor: pointer;
+  font-size: 28px;
+}
+.modalBtn:hover {
+  box-shadow: inset 3px 6px 7px 1px rgba(0, 0, 0, 1);
+  scale: 0.9;
+}
+.search__box {
+  position: relative;
+}
+.search__box > input {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: white;
+  font-weight: 600;
+}
+
+.search__box > input::placeholder {
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.search__box > input:focus {
+  border: 3px solid #70a1ff;
+}
+.search__box > button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}

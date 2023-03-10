@@ -1,0 +1,77 @@
+/*
+<i class="fa-solid fa-angle-right"></i>
+<i class="fa-solid fa-angle-left"></i>
+*/
+
+@keyframes turn {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.discussions__container {
+  padding: 1em 0;
+  list-style: none;
+}
+
+.discussion__container {
+  display: flex;
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.discussion__avatar--wrapper {
+  padding: 0px 10px;
+  flex-basis: 10%;
+}
+.discussion__avatar--image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.discussion__content {
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+}
+.discussion__title {
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.discussion__title > a {
+  text-decoration: none;
+  color: blakc;
+  transition: 0.2s ease-in-out;
+}
+
+.discussion__information {
+  font-size: 10px;
+  opacity: 0.7;
+}
+.discussion__answered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 10%;
+}
+.fa-heart {
+  color: #ff4757;
+  cursor: pointer;
+}
+.fa-heart > a {
+  font-size: 12px;
+  text-align: center;
+}
+
+.fa-heart:hover {
+  animation: turn 1.5s ease-in-out infinite;
+}

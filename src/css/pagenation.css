@@ -1,0 +1,46 @@
+.discussion__wrapper {
+  min-height: 300px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.not__search {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.buttons {
+  position: relative;
+  padding: 1rem 0;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  color: #333;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.button.active,
+.button:hover {
+  color: #1f975d;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.prev {
+  position: absolute;
+  left: -2.5rem;
+}
+
+.next {
+  position: absolute;
+  right: -2.5rem;
+}

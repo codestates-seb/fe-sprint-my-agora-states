@@ -1,0 +1,90 @@
+.background {
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.popup-wrap {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f5f6fa;
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.popup-head {
+  width: 100%;
+  padding: 10px 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.fa-x {
+  position: absolute;
+  right: 110px;
+  top: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.fa-x:hover {
+  color: red;
+}
+
+.popup-body {
+  padding: 0px 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.submit_question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.submit_question > input,
+.submit_question > textarea {
+  padding: 10px 20px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 3px 6px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.popup-foot {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.popup-foot > button {
+  flex-basis: 40%;
+  border: none;
+  padding: 10px 0px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.popup-foot > button:hover {
+  box-shadow: inset 5px 10px 10px 1px rgba(220, 221, 225, 0.6);
+}
+
+.hide {
+  display: none;
+}
+.fa-x {
+  cursor: pointer;
+}

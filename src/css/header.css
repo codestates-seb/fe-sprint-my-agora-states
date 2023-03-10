@@ -1,0 +1,31 @@
+header {
+  z-index: 2;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 5px 30px;
+}
+
+header > h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+header > nav > ul {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.refresh:hover {
+  color: #70a1ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
