@@ -5,6 +5,7 @@ div,
 span,
 applet,
 object,
+input,
 iframe,
 h1,
 h2,
@@ -174,11 +175,11 @@ main {
   align-items: center;
   
 }
-
+input:focus {outline: none;}
 
 
 .form__input--wrapper {
-  width: 100%;
+  width: 90%;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -188,12 +189,12 @@ main {
 
 }
 .form__input--name {
-  width: 100%;
+  width: 90%;
   margin-top: 10px;
   
 }
 .form__input--title {
-  width: 100%;
+  width: 90%;
   
 }
 .form__textbox {
@@ -202,7 +203,7 @@ main {
 }
 
 input[type="text"] {
-  width: 80%;
+  width: 90%;
   border-radius: 15px;
   background-color: antiquewhite  ;
   transition: all 0.2s;
@@ -221,13 +222,11 @@ textarea {
   background-color: antiquewhite;
   border-radius: 15px;
   text-align: center;
-
-  transition: all 0.2s;
+outline: 0;
 }
 
-
 .form__submit {
-  width: 20%;
+  width: 15%;
   font-size: 1.8rem;
   font-weight: 600;
   display: flex;
@@ -239,7 +238,7 @@ input[type="submit"] {
   width: 100%;
   border: none;
   border-radius: 15px;
-  background-color: #EDF1D6;
+  background-color: #C7E8CA;
   
 }
 input[type="submit"]:hover {
@@ -314,7 +313,7 @@ a {
   text-decoration: none;
 }
 
-a:hover{
+.discussion__title>a:hover{
   color: brown;
   text-decoration:underline
 }
@@ -341,4 +340,76 @@ background-color: #ab978a !important;
 }
 .page__btn:hover{  
     background-color: #ab978a !important;
+}
+
+.btn_gotop {
+  width: 60px;
+  height:60px;
+	display:none;
+	position:fixed;
+	bottom:30px;
+	right:30px;
+	z-index:999;
+	outline:none;
+	color:#333;
+	cursor:pointer;
+	border-radius:100%;
+}
+
+.btn_music{
+  width: 60px;
+  height:60px;
+  display: flex;
+  position:fixed;
+
+  align-items: center;
+  justify-content: center;
+  font-weight:bolder;
+	position:fixed;
+	bottom:100px;
+	right:30px;
+	z-index:999;
+	outline:none;
+  border:0;
+  background-color: #ff8086;
+	color:#333;
+	cursor:pointer;
+	border-radius:100%;
+  text-align: center;
+
+}
+.btn_music>img{
+  width: 70%;
+  height: 70%;
+  overflow:visible
+}
+a> img{
+  width: 100%;
+  height: 100%;
+}
+
+
+.welcome{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5D9C59;
+
+}
+
+.hidden{
+  display: none !important;
+
+}
+
+.welcome > button{
+  font-size: 40px;
+  text-align: center;
+border: 0;
+width: 100%;
+height: 10%;
+background-color: #5D9C59;
+
 }

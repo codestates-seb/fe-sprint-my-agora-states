@@ -6,17 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="sakura.css" />
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+
   </head>
 
   <body>
-    <main>
-      <section class="form__container">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(window).load(function () {
+    $('body').sakura();
+});
+</script>
+<audio src="./in-the-wood-110108.mp3" id="music"></audio>
+
+<div class="welcome">
+  <button id="welcome-button">아고라 스테이츠에 오신 것을 환영합니다.</button>
+</div>
+
+    <main style="display: none;">
+      <section class="form__container ">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
             <div class="form__input--name">
@@ -65,7 +81,12 @@
 </footer>
 
 </main>
+<button class="btn_music" > BGM</button>
+<a href="#" class="btn_gotop" style="display: none;"><img src="https://cdn.imweb.me/upload/S202202107ba62658f68bf/e3e3e7a738894.png"> 
+</a>
   </body>
   <script src="data.js"></script>
   <script src="script.js"></script>
+  <script src="sakura.js"></script>
+
 </html>
