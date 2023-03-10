@@ -92,22 +92,21 @@ function search(){
   // console.log(code);
   let discussionContainer = document.querySelectorAll('.discussion__container');
   let discussionTitle = document.getElementsByClassName('discussion__title');
-  let exContainer = document.querySelector('#exContainer');
   
   for (let i=0; i<agoraStatesDiscussions.length; i++){
-    //타이틀이 아닌 곳에서도 includes체크 하므로 원인파악 필요
-    if(agoraStatesDiscussions[i].title.includes(code) === true){
-      discussionContainer[i].style.display = 'flex'
+    if(agoraStatesDiscussions[i].title.includes(code)){
+      discussionContainer[i+1].style.display = 'flex'
+      console.log(i, code);
 
     } else {
-      discussionContainer[i].style.display = 'none';
+      discussionContainer[i+1].style.display = 'none';
     }
   }
 
   if(discussionTitle[0].firstChild.textContent.includes(code)){
-    exContainer.style.display = 'flex';
+    discussionContainer[0].style.display = 'flex';
   } else {
-    exContainer.style.display = 'none';
+    discussionContainer[0].style.display = 'none';
   }
 }
 
