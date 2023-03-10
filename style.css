@@ -2,21 +2,111 @@
 * {
   box-sizing: border-box;
   padding: 0;
+  margin: 0;
 }
-
-main {
+body {
+  background-color: rgb(246, 231, 170);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  overflow-y: scroll;
+  width: 80%;
+  height: 540px;
+  border: 2px solid black;
+  background-color: whitesmoke;
+  border-radius: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h1 {
+  font-family: "Tilt Prism", cursive;
+  font-size: 3em;
+  text-align: center;
+  margin: 30px 0;
+}
+.form {
+  height: 100%;
+}
+.form input {
+  border: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 5px;
+  width: 400px;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__submit input {
+  background-color: white;
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 0 rgb(0, 0, 0, 0.5);
+}
+textarea:hover,
+input:hover {
+  border: #ffa500 2px solid;
+}
+.form__submit input:hover {
+  background-color: darkgray;
+  border: 1px solid black;
+}
+
+.form__submit input:active {
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 3px;
+}
+.form__container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #6495ed;
+  width: 540px;
+  height: 100%;
 }
 a {
   text-decoration: none;
   color: black;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bolder;
 }
+textarea {
+  width: 400px;
+  height: 200px;
+  border: none;
+  resize: none;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
 li {
   list-style: none;
 }
+
 .discussion__wrapper {
   width: 540px;
 }
@@ -24,6 +114,14 @@ li {
 li.discussion__container {
   display: flex;
   justify-content: space-between;
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+li:hover {
+  box-shadow: 2px 4px 1px rgb(118, 118, 118);
 }
 div.discussion__content {
   width: 80%;
@@ -46,4 +144,55 @@ img.discussion__avatar--image {
 div.discussion__answered {
   display: flex;
   align-items: center;
+}
+
+footer {
+  margin: 20px 0px;
+  width: 540px;
+}
+.url-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.your-class,
+.help-center {
+  border-radius: 20px;
+  border: 2px solid black;
+  padding: 10px;
+  box-shadow: 0 5px 0 black;
+  background-color: white;
+}
+
+.your-class:hover,
+.help-center:hover {
+  background-color: darkgray;
+}
+.your-class:active,
+.help-center:active {
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 3px;
+}
+footer a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+p {
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 1018px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+
+  ul.discussions__container:first-child {
+    margin-top: 10px;
+  }
 }
