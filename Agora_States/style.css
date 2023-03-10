@@ -43,7 +43,7 @@ nav {
     justify-content: space-between;
     text-align: center;
     padding: 20px;
-    background-color: #50b9ff7a;
+    background-color: #a1d7fa7a;
     box-shadow: 0 0 30px 10px rgba(19, 110, 185, 0.568);
 }
 
@@ -56,16 +56,24 @@ nav {
     padding:  10px 20px;
     margin: 0 10px;
     width: 170px;
+    height: 60px;
+    text-align: center;
     border-radius: 10px;
     text-shadow: 3px 3px rgb(0, 134, 196);
     box-shadow: 0 0 20px 10px rgb(133, 190, 255);
-    background-color: rgb(103, 199, 255);
-    transition: 1s;
+    background-color: #a1d7fa7a;
+    transition: 0.3s;
     font-size: xx-large;
 }
 
 .nav-link > div:hover {
     background-color: rgb(177, 226, 255);
+}
+
+
+.nav-link > div:active {
+    transform: rotate(1turn);
+    /* transform: scale(0.9, 0.9); */
 }
 
 .left-nav {
