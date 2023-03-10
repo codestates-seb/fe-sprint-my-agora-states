@@ -303,6 +303,11 @@ main {
 .discussion__title {
   font-size: 15px;
   font-weight: 600;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
 }
 
 .discussion__title a {
