@@ -16,52 +16,71 @@
   <body>
     <header>
       <h1>My Agora States or Logo</h1>
+      <input id="load-Avatar" type="file" class="hide" />
       <div class="header__avatar">
         <div class="avatar-block">
+          <input type="button" class="btn" id="btn-open-form" value="글쓰기" />
           <img id="myAvatar" src="" alt="no" />
         </div>
         <div class="avatar-select-menu">
           <ul class="avatar-select-menu__list">
             <li class="avatar-select-menu__preset"></li>
             <li class="avatar-select-menu__load">
-              <input id="load-Avatar" type="file" />
+              <div class="setting-buttons">
+                <input
+                  type="button"
+                  class="btn-load-avatar btn-setting"
+                  value="아바타 선택"
+                />
+                <input
+                  type="button"
+                  class="btn-clear-avatar btn-setting"
+                  value="아바타 초기화"
+                />
+                <input
+                  type="button"
+                  class="btn-clear-local btn-setting"
+                  value="로컬 저장소 초기화"
+                />
+              </div>
             </li>
           </ul>
         </div>
       </div>
     </header>
     <main>
-      <button id="button">show modal</button>
-      <dialog id="dialog">
-        <section class="form__container">
-          <form action="" method="get" class="form">
-            <div class="form__input--wrapper">
-              <div class="form__input--name">
-                <label for="name">작성자</label>
-                <input type="text" name="name" id="name" required />
+      <div class="form-modal">
+        <dialog id="dialog">
+          <section class="form__container">
+            <form action="" method="get" class="form">
+              <div class="form__input--wrapper">
+                <div class="form__input--name">
+                  <label for="name">작성자</label>
+                  <input type="text" name="name" id="name" required />
+                </div>
+                <div class="form__input--title">
+                  <label for="title">제목</label>
+                  <input type="text" name="title" id="title" required />
+                </div>
+                <div class="form__textbox">
+                  <div
+                    contenteditable="true"
+                    id="story"
+                    name="story"
+                    required
+                  ></div>
+                </div>
               </div>
-              <div class="form__input--title">
-                <label for="title">제목</label>
-                <input type="text" name="title" id="title" required />
+              <div class="form__submit">
+                <input type="submit" value="submit" id="questionSubmit" />
               </div>
-              <div class="form__textbox">
-                <div
-                  contenteditable="true"
-                  id="story"
-                  name="story"
-                  required
-                ></div>
-              </div>
-            </div>
-            <div class="form__submit">
-              <input type="submit" value="submit" id="questionSubmit" />
-            </div>
+            </form>
+          </section>
+          <form method="dialog">
+            <button value="close">닫기</button>
           </form>
-        </section>
-        <form method="dialog">
-          <button value="close">닫기</button>
-        </form>
-      </dialog>
+        </dialog>
+      </div>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
           <li class="discussion__container">
@@ -81,11 +100,10 @@
                 >
               </h2>
               <div class="discussion__information">
-                kimploo / 2022-04-22T14:08:33Z
+                kimploo / 2022년 4월 22일
               </div>
             </div>
-            <p>✅</p>
-            <div class="discussion__answered"></div>
+            <div class="discussion__answered"><p>✅</p></div>
           </li>
         </ul>
       </section>

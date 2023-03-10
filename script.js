@@ -1,5 +1,5 @@
 // avatar
-const imgAvatar = document.querySelector("#myAvatar");
+const myAvatar = document.querySelector("#myAvatar");
 const defaultAvatarSrc =
   "avatar" in localStorage
     ? localStorage.getItem("avatar")
@@ -8,13 +8,16 @@ const presetAvatarMenu = document.querySelector(
   "li.avatar-select-menu__preset"
 );
 const presetAvatarSrc = "src/images/mokokos/mokoko0";
+const btnLoadAvatar = document.querySelector(".btn-load-avatar");
+const btnClearAvatar = document.querySelector(".btn-clear-avatar");
+const btnClearLocal = document.querySelector(".btn-clear-local");
 // input form
 const inputName = document.querySelector("#name");
 const inputTitle = document.querySelector("#title");
 const divQuestion = document.querySelector("#story");
 const btnSubmit = document.querySelector("#questionSubmit");
 // dialog
-const button = document.querySelector("#button");
+const btnOpenForm = document.querySelector("#btn-open-form");
 const dialog = document.querySelector("#dialog");
 
 // local storage
@@ -36,7 +39,7 @@ const loadPresetAvatar = () => {
     img.classList.add("avatar-preset");
     presetAvatarMenu.append(img);
     img.addEventListener("click", function (event) {
-      imgAvatar.src = event.target.currentSrc;
+      myAvatar.src = event.target.currentSrc;
       localStorage.setItem("avatar", event.target.currentSrc);
     });
   }
@@ -76,7 +79,7 @@ const onBtnSubmitClick = (event) => {
   // 하나라도 null이면 진행하지 않음
   if (discussion.author && discussion.title && discussion.bodyHTML) {
     discussion.createdAt = new Date();
-    discussion.avatarUrl = imgAvatar.currentSrc;
+    discussion.avatarUrl = myAvatar.currentSrc;
     addDiscussion(discussion);
     updateLocalStorage(discussion);
     return;
@@ -90,7 +93,7 @@ const onBtnSubmitClick = (event) => {
 const addDiscussion = (obj) => {
   const discussions = document.querySelector("ul.discussions__container");
   const li = convertToDiscussion(obj);
-  discussions.insertBefore(li, discussions.children[0]);
+  discussions.prepend(li);
   agoraStatesDiscussions.push(obj);
 };
 
@@ -101,7 +104,7 @@ const fillAvatarWrapper = (obj) => {
   const avatar = document.createElement("img");
   avatar.classList.add("discussion__avatar--image");
   avatar.src = obj.avatarUrl ? obj.avatarUrl : defaultAvatarSrc;
-  avatarWrapper.appendChild(avatar);
+  avatarWrapper.append(avatar);
   return avatarWrapper;
 };
 
@@ -120,9 +123,9 @@ const fillDiscussionContent = (obj) => {
   const now = customDate(dateToObject(obj.createdAt));
   divInfo.textContent = `${obj.author} / ${now}`;
 
-  h2Title.appendChild(aLink);
-  discussionContent.appendChild(h2Title);
-  discussionContent.appendChild(divInfo);
+  h2Title.append(aLink);
+  discussionContent.append(h2Title);
+  discussionContent.append(divInfo);
   return discussionContent;
 };
 
@@ -134,8 +137,8 @@ const fillDiscussionAnswered = (obj) => {
   // children
   const avatarWrapper = fillAvatarWrapper(obj);
   const discussionContent = fillDiscussionContent(obj);
-  discussionAnswered.appendChild(avatarWrapper);
-  discussionAnswered.appendChild(discussionContent);
+  discussionAnswered.append(avatarWrapper);
+  discussionAnswered.append(discussionContent);
   return discussionAnswered;
 };
 
@@ -171,17 +174,27 @@ const render = (element) => {
   return;
 };
 
-imgAvatar.addEventListener("click", function () {
+btnOpenForm.addEventListener("click", function () {
+  dialog.showModal();
+});
+myAvatar.addEventListener("click", function () {
+  const avatarSelectMenu = document.querySelector(".avatar-select-menu");
+  avatarSelectMenu.classList.toggle("hide");
+});
+
+btnLoadAvatar.addEventListener("click", function () {
   const inputLoadAvatar = document.querySelector("#load-Avatar");
   inputLoadAvatar.click();
 });
-btnSubmit.addEventListener("click", onBtnSubmitClick);
-button.addEventListener("click", () => {
-  dialog.showModal();
+btnClearAvatar.addEventListener("click", function () {
+  myAvatar.src = "./src/images/defaultAvatar.png";
 });
+btnClearLocal.addEventListener("click", () => localStorage.clear());
+btnSubmit.addEventListener("click", onBtnSubmitClick);
+
 // avatar preset 불러오기
 loadPresetAvatar();
-imgAvatar.src = defaultAvatarSrc;
+myAvatar.src = defaultAvatarSrc;
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
