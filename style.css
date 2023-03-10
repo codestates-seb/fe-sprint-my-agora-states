@@ -21,40 +21,77 @@ Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다.
  * { box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
 }
-
-ul > li{
+main{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 540px;
-    list-style: none;
-}
-
-.discussion__avatar--wrapper{
-    display: flex;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
 }
 
-.discussion__avatar--image{
+/* form */
+
+
+/* 질문 */
+/* section.discussion__wrapper{
+
+} */
+
+ul.discussions__container{
+    position: absolute;    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    padding: 20px;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(51, 51, 51,0.5);
+    width: 500px;
+    height: 400px;
+    max-width: 600px;
+    overflow: scroll;
+}
+
+.discussion__container{
+    margin: 10px;
+    display: flex;
+    justify-content:space-between;
+    width : 420px;
+    height: 80px;
+}
+
+div.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img.discussion__avatar--image{
     width: 48px;
     border-radius: 50%;
 }
 
-.discussion__content{
+div.discussion__content{
     display: flex;
     flex-direction: column;
-    align-content: space-around;
+    justify-content: space-evenly;
     width: 80%;
-    
-}
-.discussion__information{
-    display: flex;
-    justify-content: right;
+    /* flex-grow: 1; */
 }
 
+div .discussion__title{
+    text-align: left;
+    font-size: 16px;
+}
 
-.discussion__answered{
+div .discussion__information{
+    text-align: right;
+    font-size: 12px;
+}
+
+div.discussion__answered{
     display: flex;
     align-items: center; 
 }
