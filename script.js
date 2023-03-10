@@ -106,3 +106,18 @@ form.addEventListener("submit", function (e) {
   ul.prepend(newLi);
   form.reset();
 });
+
+// 뭔가를 눌렀을때 튀어나오게 하는 모달창을 만들어보자
+const thinkerbell = document.querySelector("#thinkerbell");
+const modal = document.querySelector(".modal");
+const modalClose = document.querySelector(".modal__close__button");
+const body = document.querySelector("body");
+
+thinkerbell.addEventListener("click", function () {
+  modal.classList.remove("hide");
+  body.classList.add(".background-blur");
+
+  modalClose.addEventListener("click", function () {
+    modal.classList.add("hide");
+  });
+});

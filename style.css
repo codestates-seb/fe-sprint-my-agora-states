@@ -181,3 +181,61 @@ h1 {
   justify-self: center;
   align-self: center;
 }
+
+/* thinkerbell */
+#thinkerbell {
+  width: 70px;
+  position: fixed;
+  top: 5%;
+  right: 9%;
+  transition: transform 0.2s; /* Animation */
+}
+
+#thinkerbell:hover {
+  transform: scale(
+    1.5
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  cursor: pointer;
+}
+
+#thinkerbell:active {
+  transform: scale(1);
+}
+
+/* modal window */
+.modal {
+  padding: 20px;
+
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  border: 1px solid black;
+  border-radius: 10px;
+  /* z-index: 10px; */
+  background-color: white;
+  width: 340px;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__close__button {
+  width: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+/* background overlay 왜안되니ㅠ */
+.overlay {
+  position: fixed;
+  /* opacity: 0.3; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
