@@ -1,1 +1,213 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: borderbox;
+    font-family: 'KIMM_Bold';
+    }
+@font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-style: normal;
+}
+
+/**/
+main {
+  background: linear-gradient(318deg, orange 50%, rgb(238, 196, 118) 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titleAndQuestion{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.titleAndQuestion div{
+  background: linear-gradient(178deg, #ffffff 10%, silver 50%);
+  box-shadow: 0px 10px 0px 0px #a7a7a7;
+  border-radius: 20%;
+}
+
+.openBtn{
+  background: linear-gradient(178deg, #ff8686 10%, #d62727 50%);
+  box-shadow: 0px 10px 0px 0px #8a1414;
+  border: none;
+  flex-grow: 1;
+  font-size: 200%;
+  padding: 100px 100px;
+  margin: 40px;
+  border-radius: 100%;
+}
+
+.openBtn:hover{   /*버튼구역의 기본버튼 오버*/
+    background-color: #fa420b;
+}
+.openBtn:active{  /*버튼구역의 기본버튼 클릭시*/
+    background-color: #fa420b;
+    box-shadow: none;
+    margin: 50px 40px 30px 40px;
+}
+
+
+
+
+.discussion__wrapper{
+    /*질문상자 목록*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width:60vw;
+    height: 85vh;
+    background-color: rgb(249 249 249 / 75%);
+    padding: 20px;
+    margin-right: 30px;
+    border-radius: 3%;
+}
+
+
+.discussion__container{  
+    /*질문 상자 목록*/
+    display: flex;
+    width:60vw;
+    height:8vh
+}
+
+.discussion__avatar--wrapper{
+    /*이미지 영역*/
+}
+.discussion__avatar--image {
+    /*이미지*/
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__content{
+    /*중앙 글 영역*/
+    font-size: x-small;
+    padding: 0px 0px 10px 15px /*상우하좌*/;
+    flex-grow: 1;
+    width: 30vw; 
+}
+.discussion__answered {
+    /*체크박스 영역*/
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    
+}
+
+.pageNation {
+    /*페이지네이션*/
+    
+}
+/*날먹구역*/
+/**/
+/**/
+button {
+    background-color: #F9B514;
+    padding: 5px 10px;
+    margin: 0px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .modalBox {
+    position: absolute;
+    background-color: #ffffff;
+    width: 400px;
+    height: 300px;
+    border-radius: 8%;
+    padding: 20px;
+  }
+  .modalBox .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+
+  }
+  textarea {
+    width: 100%;
+    height: 170px;
+    border: 3px solid orange;
+    resize: none;
+  }
+  textarea:focus{
+    outline:2px solid orange;;
+  }
+  input {
+    width: 100%;
+    border: 3px solid orange;
+    resize: none;
+  }
+  input:focus{
+    outline:2px solid orange;;
+  }
+
+  .modal_2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    .bg_2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modalBox_2{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 60vw;
+    height: 90vh; 
+    padding: 20px;
+    overflow: hidden;
+    overflow-y: auto;
+    border-radius: 5%;
+  }
+  .modalBox_2::-webkit-scrollbar{
+    width: 10px;
+    color: #8a1414;
+  }
+  .questionArea *{
+    list-style: none;
+    flex-direction: column;
+  }
+  .answerArea *{
+    list-style: none;
+    flex-direction: column;
+    background-color: #c6c3c3 ;
+  }
+
+  .hidden {
+    display: none;
+  }
