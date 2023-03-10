@@ -1,1 +1,288 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* reset */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fad0c9;
+}
+
+ul {
+  list-style: none;
+}
+
+/* style */
+
+/* 헤더 설정 */
+header {
+  background-color: #6e6e6d;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  font-family: "Gugi", cursive;
+  color: #fad0c9;
+  font-size: 30px;
+  font-family: "Staatliches", cursive;
+  font-style: italic;
+  text-shadow: 5px 5px #616160, 8px 8px #363635, 11px 11px #212121,
+    14px 14px #080808;
+  text-decoration: overline;
+  text-decoration-style: wavy;
+  z-index: 2;
+}
+/* 헤더 코드스테이츠 로고 크기 조정 */
+.titleImg {
+  margin: 0px 50px;
+  width: 100px;
+  height: 50%;
+  position: relative;
+}
+/* 헤더 깃헙, 헬프센터 크기조정 */
+.titleIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0;
+  line-height: 0;
+  object-fit: cover;
+}
+
+.inIcon {
+  margin: 10px;
+  width: 48px;
+  height: 48px;
+}
+/* 메인 속성 */
+main {
+  font-family: "Gugi", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+}
+/* 모달창 버튼 만들기 */
+.questionBtn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+  margin: 50px;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(to left, #212121, #616160, #616160, #212121);
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: #fad0c9;
+  background: #6e6e6d;
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.questionBtn:hover {
+  filter: brightness(110%);
+}
+
+.questionBtn:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.questionBtn:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.questionBtn:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.questionBtn:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.questionBtn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 모달 설정 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* 모달창 만들기 */
+.form__container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 300px;
+  padding: 40px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 103px;
+  background: #595959;
+  box-shadow: 9px 9px 18px #4c4c4c, -9px -9px 18px #666666;
+}
+
+.close {
+  position: absolute;
+  top: 9%;
+  right: 13%;
+  transform: translate(40%, -40%);
+  background-color: transparent;
+  color: #fad0c9;
+  border: none;
+}
+
+.modalInput {
+  margin: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  max-width: 120px;
+  padding: 10px 20px;
+  font-size: 8px;
+  border-radius: 9999px;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  color: #fad0c9;
+}
+
+#story {
+  margin: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  width: 300px;
+  height: 100px;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 15px;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  color: #fad0c9;
+}
+
+.submit {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.9rem 2rem;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 500px;
+  overflow: hidden;
+  background: #66ff66;
+  color: #595959;
+}
+
+/* 모달 배경설정 */
+.modalOverlay {
+  background-color: rgba(1, 1, 1, 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hiddenModal {
+  display: none;
+}
+
+/* discussion 조정 */
+section.discussion__wrapper {
+  width: 540px;
+}
+
+section .discussion__container {
+  padding: 10px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 103px;
+  background: #fad0c9;
+  box-shadow: 31px 31px 72px #d5b1ab, -31px -31px 72px #ffefe7;
+}
+section .discussion__avatar--wrapper {
+  /* img 태그의 여백 제거 */
+  font-size: 0;
+  line-height: 0;
+}
+
+section .discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+section .discussion__content {
+  width: 80%;
+}
+
+section .discussion__title {
+  /* margin: 10px 0; */
+  margin: 0;
+  font-size: medium;
+}
+
+section .discussion__information {
+  margin-top: 10px;
+}
+
+section .discussion__answered p {
+  font-size: 25px;
+}
