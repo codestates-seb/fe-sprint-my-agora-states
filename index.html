@@ -1,44 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agora States</title>
+    <!-- ------------------------------ reset css ------------------------------ -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
-    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+    <!-- ----------------------------- pretendard ------------------------------ -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.6/static/pretendard.css"
+      integrity="sha512-IjPRngqxme31T3qawYHBWWWg6X+UXc8xNdNqYf1eVDuxHoFGELPYvxld4wBu+2uM716XiTS72VIoGB0ywrYoTg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+      integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
 
-<body>
-  <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+  <body>
+    <main>
+      <header class="header">
+        <a href="#" class="home">
+          <img src="./images/2023-03-10-11-44-46.png" alt="" />
+          <h1>Agora States</h1>
+        </a>
+      </header>
+      <div class="greeting">
+        <h1>안녕하세요</h1>
+        <h1>도움이 필요하신가요? 🚀 아고라 스테이츠에 질문해보세요! 💬</h1>
+      </div>
+      <section class="form__container">
+        <form action="" method="get" class="form">
+          <div class="form__input--wrapper">
+            <div class="form__input--name">
+              <label for="name"></label>
+              <input type="text" name="name" id="name" required placeholder="작성자 이름을 입력해주세요" />
+            </div>
+            <div class="form__input--title">
+              <label for="title"> </label>
+              <input type="text" name="title" id="title" required placeholder="제목을 입력해주세요" />
+            </div>
+            <div class="form__textbox">
+              <label for="story"> </label>
+              <textarea id="story" name="story" placeholder="여기에 질문할 내용을 적어주세요 :)" required></textarea>
+            </div>
           </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
+          <div class="form__submit">
+            <input type="submit" value="질문하기🙋🏻" />
           </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
+        </form>
+      </section>
+      <section class="discussion__wrapper">
+        <h2>아고라 스테이츠에 올라온 질문에 답변해주세요! ✍🏻</h2>
+        <ul class="discussions__container">
+          <!-- <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
             <img class="discussion__avatar--image"
               src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
@@ -49,12 +78,11 @@
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
-  </main>
-</body>
-<script src="data.js"></script>
-<script src="script.js"></script>
-
+        </li> -->
+        </ul>
+      </section>
+    </main>
+  </body>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </html>
