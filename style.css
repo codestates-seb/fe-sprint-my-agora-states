@@ -1,1 +1,280 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #D6E6F2;
+}
+
+/* 상단 메뉴 */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width:100%;
+}
+
+/*이미지 박스*/
+.img_container {
+    width: 10%;
+}
+
+#codestates_logo {
+    width: 100%;
+}
+
+.menu_container {
+    display: inline-block;
+    font-size: 0.7em;
+    width: 15%;
+    text-align: right;
+    padding: 20px;
+}
+
+.menu_container a {
+    margin: 0px 5px;
+    color: rgb(124, 124, 124);
+    text-decoration-line: none;
+}
+
+.menu_container a:visited {
+    color: rgb(124, 124, 124);
+}
+
+#modal{
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+/* 모달 창 배경 */
+#modal.modal_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    /* 나중에 flex로 바꿔줌 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* 모달 창 */
+#modal .form {
+    background: white;
+    width: 600px;
+    height: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: black 1px solid;
+    font-weight: lighter;
+}
+
+/*입력창*/
+#modal .form input{
+    border: 2px solid #769FCD;
+    border-radius: 10px;
+    margin : 10px 0px;
+    width:300px;
+    height:50px;
+    padding:0px 10px;
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+/*질문 입력 창*/
+#modal .form textarea{
+    border: 2px solid #769FCD;
+    border-radius: 10px;
+    margin : 10px 0px;
+    width:300px;
+    height:200px;
+    padding:10px;
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+#modal .form input:focus, #modal .form textarea:focus{
+    outline: #769FCD 2px solid;
+    background-color: #D6E6F2;
+}
+
+/*경고창*/
+#alert {
+    color: red;
+    display: none;
+}
+
+/* 닫기 버튼 */
+#modal .form .modal_close {
+    padding: 0px 0px 20px 590px;
+    font-size: 1.5em;
+}
+
+/*질문 등록 버튼*/
+#modal .form #submit_button{
+    border : 0px;
+    background-color: #769FCD;
+    border-radius: 10px;
+    color:white;
+    font-size: 1.3em;
+}
+
+/* 질문 등록 섹션 */
+.enter_discussion {
+    width: 100%;
+    background-color: #769FCD;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'SBAggroB';
+    margin-bottom: 30px;
+}
+
+#highlight{
+    color:rgb(186, 241, 82);
+}
+
+.enter_discussion p:first-child {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.enter_discussion h1 {
+    font-size: 5em;
+    margin: 5px 0px;
+    text-shadow: 0px 0px 10px;
+}
+
+/*질문 등록 버튼*/
+.enter_discussion button {
+    margin: 10px 10px 50px 10px;
+    width: 500px;
+    height: 80px;
+    border: 0px;
+    border-radius: 20px;
+    background-color: rgb(186, 241, 82);
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    font-family: 'SBAggroB';
+}
+
+.enter_discussion button:hover {
+    background-color: rgb(155, 214, 45);
+}
+
+/* discussion을 담고 있는 박스 */
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    border: 4px solid #B9D7EA;
+    width: 540px;
+    list-style-type: none;
+    margin: 10px 0px;
+    background-color: #F7FBFC;
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+/* 아바타 아이콘을 담고 있는 박스 */
+.discussion__avatar--wrapper {
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 아바타 아이콘 */
+.discussion__avatar--image {
+    border-radius: 100%;
+    width: 48px;
+}
+
+.discussion__wrapper ul{
+    padding-left: 0px;
+}
+
+/* discussion 내용을 담고 있는 박스 */
+.discussion__content {
+    border-left: 1px solid #B9D7EA;
+    border-right: 1px solid #B9D7EA;
+    flex-grow: 1;
+    padding: 10px 20px;
+}
+
+/* discussion 제목 */
+.discussion__title {
+    font-size: 1em;
+}
+
+.discussion__title a {
+    color: #769FCD;
+}
+
+.discussion__title a:visited {
+    font-size: 1em;
+    color: #769FCD;
+}
+
+/* discussion 작성자와 작성시간 */
+.discussion__information {
+    text-align: right;
+    font-size: 0.8em;
+}
+
+/* 답변 여부 */
+.discussion__answered {
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+/* 페이지네이션 */
+.pagenation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagenumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    border: 3px solid #B9D7EA;
+    text-align: center;
+    margin: 20px 0px;
+    background-color: #F7FBFC;
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+.focus {
+    font-size: 1.2em;
+    color: #769FCD;
+    font-weight: bold;
+    border:3px solid #769FCD;
+}
