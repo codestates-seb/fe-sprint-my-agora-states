@@ -1,1 +1,172 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+/* 브라우저 초기화 */
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://www.gettyimagesbank.com/view/electric-city-bus-charging-hotel-parking-at-the-charger-station-with-a-plug-in-cable-electric-buses-boost-tourism-business-with-clean-energy-vector-illustration/1472071924?utm_source=google&utm_medium=cpc&utm_campaign=GIB&ACE_REF=adwords_g&ACE_KW=%EA%B2%8C%ED%8B%B0%EC%9D%B4%EB%AF%B8%EC%A7%80&gclid=EAIaIQobChMI54D36fLQ_QIVkq2WCh0cDwPCEAAYASAAEgK2r_D_BwE&st=illustrations&q=&mh=1&si=3091587&gSearchL=eNpNkjtuBEEIRO_ieAOg-dX6Rk4t-fxmBnp6s1wnVFD8ft8ZeH-xBoeuZfEqFAqGaCPcaDWyh-SFDDgBN2bFYY2ZDmqEma-NsB31tNZebqEH_bZgpliTFhZkbbzCVrtFqPo0qRB0hWp25RSr1p4K5Ss3ijlwpTmM3XGi6a-fP5arL5ODevBDkA86HfxIWwftCPjghyAOziZJHN7IvBeFSBlMEyWe2ZhnfWBk9sSOcO4L-SpNj6moPfisz1lptl7SiWLJ1HXRnKUmymO0kfsspYXss4g-Tda96UGVviaJ8vTLFtNZVQXuaM1bxcbY6rLzGgSJdrO6_O4sy7ctlFIxYxJq6kZlyZ44ZNUkE02d4esfFu9HVNpfAkoZQYLH-ErrP2PLWk-71f2MR8DkQQ_mk2az1MLkpzOiXczrnF_f_2HbuLc.&totalPage=274580&rows=80&rowNum=1&totalImgCnt=21966350');
+    background-repeat:no-repeat;
+    background-size: cover;
+}  
+
+.form__input--title > label {
+    word-spacing : 7px
+}
+
+.form__input--name > label {
+    word-spacing : 3px
+}
+
+h2 {
+    font-family: 'Nanum Brush Script', cursive;
+    color: #99bcda;
+}
+section.form__container {
+    background-color: rgba(82, 213, 245, 0.5);
+    border-radius: 20px;
+}
+.discussion__answered {
+    padding-top: 39px;
+    font-size: 20px;
+    margin: 5px;
+    color: #FFF9CA;
+
+}
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 578px;
+    height: 150px;
+    font-size : 10px;
+    border-radius: 19px;
+    margin : 10px;
+    padding: 20px;
+}
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.discussion__content{
+    display: block;
+}
+.discussion__content >:nth-child(1){
+ width: 440px;
+ text-align: left;
+ margin-top: 0;
+}
+.discussion__content >:nth-child(2){
+    height:30px;
+    text-align: right;
+}
+li {
+    list-style-type: none;
+}
+section.discussion__wrapper{
+    display: flex;
+    flex:4;
+    width: 578px;
+    justify-content: center;
+    align-items:center;
+}
+ul {
+    padding: 0px;
+}
+li.discussion__container {
+    background-color: rgba(0, 165, 231, 0.5);
+}
+a:link {
+    color: white;
+    font-family: 'Dongle', sans-serif;
+    font-size: 22px;
+}
+a:visited {
+    color: rgb(0, 0, 0);
+}
+
+/* 폼 디자인 */
+h1 {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    color: #99bcda;
+    font-size: 40pt;
+}
+h3 {
+    text-align: center;
+    color: #99bcda;
+    margin-bottom: 20px;
+}
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    display: flex;
+
+    width: 500px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+#story {
+    width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.form__input--wrapper {
+    margin: 5px;
+
+}
+.form__input--wrapper input {
+    width:300px;
+    height: 30px;
+    font-size:1.2rem;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #0078AA;
+}
+.form__submit {
+    flex:1;
+    margin:3px;
+
+}
+.form__submit input {
+    width: 448px;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-left: 25px;
+    margin-right: 0px;
+    border: 2px solid black;
+}
+textarea {
+    margin : 5px;
+}
+
+.discussion__information {
+    padding-top: 10px;
+    font-size: 14px;
+    color: #FFF9CA;
+}
+
+img {
+    width: 48px;
+    border-radius: 100%;
+}
