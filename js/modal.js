@@ -25,17 +25,19 @@ const helper_author = document.querySelector(".helper-writer");
 const helper_answer = document.querySelector(".helper-answer");
 
 const modal = (e) => {
+  console.log(1);
   const clickQ = findQ(e);
-  modal_author.textContent = clickQ.author;
-  modal_title.textContent = clickQ.title;
-  modal_question.textContent = clickQ.url;
+  console.log(clickQ.answer);
   if (!!clickQ.answer === !!null) {
     helper_author.textContent = "";
     helper_answer.textContent = "아직 답변이 없어요";
   } else {
-    helper_author.textContent = clickQ.answer.author;
-    helper_answer.textContent = clickQ.answer.url;
+    window.location.href = clickQ.answer.url;
+    return;
   }
+  modal_author.textContent = clickQ.author;
+  modal_title.textContent = clickQ.title;
+  modal_question.textContent = clickQ.url;
   //modal 보이기
   $modal.classList.add("show");
   $modal_body.classList.add("show");
