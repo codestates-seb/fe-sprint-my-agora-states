@@ -25,9 +25,7 @@ const helper_author = document.querySelector(".helper-writer");
 const helper_answer = document.querySelector(".helper-answer");
 
 const modal = (e) => {
-  console.log(1);
   const clickQ = findQ(e);
-  console.log(clickQ.answer);
   if (!!clickQ.answer === !!null) {
     helper_author.textContent = "";
     helper_answer.textContent = "아직 답변이 없어요";
