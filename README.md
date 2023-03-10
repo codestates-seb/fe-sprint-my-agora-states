@@ -1,6 +1,10 @@
+# ★ https://waypil.github.io/fe-sprint-my-agora-states/ ★
+
 ## 배포 시연 화면
 
 ![ezgif-5-41fe775fba](https://user-images.githubusercontent.com/65957855/224230349-cc41ee00-b34b-4b5b-ba46-135dea2cddf1.gif)
+
+![ezgif-5-35ce596a8e](https://user-images.githubusercontent.com/65957855/224231797-5ef2780b-c4f8-4353-a48a-e2a80531e574.gif)
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -58,3 +62,4 @@
 -   세로 스크롤이 필요 없도록 개선
 -   입력한 질문에 대한 답변을 달 수 있도록 개선
 -   입력한 질문/답변이 DB에 저장되도록 개선
+-   반응형 웹 (모바일 웹) 지원
