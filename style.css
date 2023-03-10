@@ -107,11 +107,14 @@ ul {
 }
 
 .form {
-    background-color: green;
     padding: 10px;
     border-radius: 3px;
     display: flex;
     flex-direction: column;
+    background: rgb(26, 26, 27);
+    border-radius: 3px;
+    border: 1px solid rgb(45, 46, 47);
+    color: white;
 }
 
 
