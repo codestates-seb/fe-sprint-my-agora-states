@@ -14,7 +14,7 @@ const appendToStorage = (name, data) => {
   let prevData = localStorage.getItem('newStory');
   if (prevData) {
     const prevArr = JSON.parse(prevData);
-    localStorage.setItem(name, JSON.stringify([data, ...prevArr]));
+    localStorage.setItem(name, JSON.stringify([...prevArr, data]));
   } else {
     localStorage.setItem(name, JSON.stringify([data]));
   }

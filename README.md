@@ -44,8 +44,8 @@ https://hyeincha.github.io/fe-sprint-my-agora-states/
 
 자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
 
-- []
-- []
+- [x] 유저가 새로 작성한 게시글의 경우 본문 내용도 같이 렌더링
+- [x] 코드스테이츠/유어클래스 사이트로 이동 가능한 navigation bar 구현
 - []
 
 ### 배포 시연 화면

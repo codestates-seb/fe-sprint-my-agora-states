@@ -3,7 +3,9 @@ const newAsk = localStorage.getItem('newStory');
 
 if (newAsk) {
   const newAskArr = JSON.parse(newAsk);
+  console.log('newAsk', newAskArr);
   for (let ask of newAskArr) {
+    ask.bodyHTML = ask.bodyHTML.replaceAll('\n', '<br>');
     agoraStatesDiscussions.unshift(ask);
   }
 }
@@ -32,7 +34,7 @@ const convertToDiscussion = (obj) => {
 
   const contents = document.createElement('p');
   contents.className = 'discussion__detail';
-  contents.textContent = obj.bodyHTML;
+  contents.innerHTML = obj.bodyHTML;
 
   const avatarWrapper = document.createElement('div');
   avatarWrapper.className = 'discussion__avatar--wrapper';
