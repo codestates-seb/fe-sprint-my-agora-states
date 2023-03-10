@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: beige;
+}
+
 
 /* main을 가운데 위치시키기 */
 main {
@@ -16,10 +20,16 @@ main {
     flex-direction: row;
     justify-content: space-between;
     width: 540px;
-    margin: 5px;
+    margin: 10px;
 
     background: rgb(144, 195, 144);
     border-radius: 10px;
+
+}
+
+li.discussion__container {
+    opacity: 0;
+    transition: all 1s;
 }
 
 ul {
@@ -29,7 +39,7 @@ ul {
 .discussion__avatar--wrapper {
     display: flex;
     align-items: center;
-    margin: 5px;
+    margin: 10px;
 }
 
 .discussion__avatar--image {
@@ -43,8 +53,8 @@ ul {
     align-items: flex-start;
     margin-left: 5px;
     width: 400px;
-    background-color: green;
-    margin: 5px;
+
+    margin: 5px 10px 5px 10px;
     padding: 5px;
     border-radius: 10px;
 }
