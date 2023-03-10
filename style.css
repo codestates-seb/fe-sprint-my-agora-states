@@ -129,7 +129,9 @@ label.search_container_label > input {
 
 
 /* section */
-
+div.notice_discussion_container > h2 , div.others_discussion_container > h2{
+    font-size: 1.1em;
+}
 
 /* ul  */
 h2{
@@ -159,20 +161,48 @@ ul>li{
     box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
     background-color: white;
 } */
-
-div.li_container{
+/* 변경 전 */
+/* div.li_container{ 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* width: 540px; */
-    width: 33rem;
+    width: 33rem; 
     height: 5rem;
     padding: 0.5rem;
     box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
     background-color: white;
     border-radius: 8px;
+} */
+/* 변경 후 */
+div.li_container, div.discussion__container_li{  
+    display: flex;
+    flex-direction: column;
+    width : 33rem;
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    border-radius: 8px;
 }
-
+div.user_info_section,div.discussion_section{
+    display: flex;
+    align-items:center;
+    padding: 0.2rem;
+}
+div.discussion_section{
+    padding-left: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+div.discussion_title{
+    font-size: 1em;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* div.discussion_section > div.discussionTitle{
+    flex : 0 0 0 ;
+} */
 /* discussion__container 내 왼쪽 */
 div.discussion__avatar--wrapper{
     display:flex;
@@ -183,7 +213,8 @@ div.discussion__avatar--wrapper{
 }
 div.discussion__avatar--wrapper > img{
     border-radius: 50%;
-    width: 48px;
+    /* width: 48px; */
+    width: 2rem;
 }
 
 /* discussion__container 내 가운데 */
@@ -262,6 +293,7 @@ nav.pagination-container > button, div#pagination-numbers > button {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 

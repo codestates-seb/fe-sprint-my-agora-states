@@ -10,24 +10,32 @@ const convertToNotice = (obj) =>{
   const li = document.createElement("li");
   li.className = "discussion__container_li";
   li.id = obj.id;
+ 
+  //li > div.userInfoSection + div.discussionSection
+  //div.userInfoSection > avatarWrapper(avatarImg) + discussionInfo(author/date)
+  //div.discussionSection > discussionContent(discussionTitle(discussionTitleA))
+  const userInfoSection = document.createElement("div");
+  userInfoSection.setAttribute('class', 'user_info_section');
 
-  //li > div , avatarWrapper , discussionContent, discussionAnswered
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
- 
-  //avatarWrapper > avartarImg(src, alt)
-  const avartarImg = document.createElement("img");
-  avartarImg.className = "discussion__avatar--wrapper--img";
-  avartarImg.setAttribute("src", obj.avatarUrl);
-  avartarImg.setAttribute("alt", obj.author);
-  avatarWrapper.append(avartarImg);
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--wrapper--img";
+  avatarImg.setAttribute("src", obj.avatarUrl);
+  avatarImg.setAttribute("alt", obj.author);
+  avatarWrapper.append(avatarImg);
 
-  //discussionContent > disscussion_title(h2>a), discussion__information
-  const discussionTitle = document.createElement("h2");
+  const discussionInfo = document.createElement("div");
+  discussionInfo.setAttribute("class", "discussion__information");
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
+
+  userInfoSection.append(avatarWrapper, discussionInfo);
+
+
+  const discussionSection = document.createElement("div");
+  discussionSection.setAttribute('class', 'discussion_section');
+
+  const discussionTitle = document.createElement("div");
   discussionTitle.setAttribute("class", "discussion_title");
   const discussionTitleA = document.createElement("a");
   discussionTitleA.setAttribute("href", obj.url);
@@ -35,23 +43,56 @@ const convertToNotice = (obj) =>{
   discussionTitleA.textContent =  obj.title;
   discussionTitle.append(discussionTitleA);
 
-  //discussion__information
-  const discussionInfo = document.createElement("div");
-  discussionInfo.setAttribute("class", "discussion__information");
-  // discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
-  discussionContent.append(discussionTitle, discussionInfo);
-
-  //discussionAnswered > p
-  const answerChecked = document.createElement("p");
-  answerChecked.innerHTML = obj.answer === null ? '' : `<button><i class="fa-regular fa-comment"></i><span>${obj.answer.length}</span></button`;
-  discussionAnswered.append(answerChecked);
-
+  //li > div , avatarWrapper , discussionContent, discussionAnswered
+  // const avatarWrapper = document.createElement("div");
+  // avatarWrapper.className = "discussion__avatar--wrapper";
+  
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+  discussionAnswered.innerHTML = obj.answer === null ? 
+  '' : `<button><i class="fa-regular fa-comment"></i><span>${obj.answer.length}</span></button`;
+  
+  discussionSection.append(discussionTitle,discussionAnswered );
+  
   const li_container = document.createElement("div");
   li_container.setAttribute("class", "li_container");
-  li_container.append(avatarWrapper, discussionContent, discussionAnswered);
-  
+  li_container.append(userInfoSection, discussionSection);
+ 
   li.append(li_container);
+
+  //avatarWrapper > avartarImg(src, alt)
+  // const avartarImg = document.createElement("img");
+  // avartarImg.className = "discussion__avatar--wrapper--img";
+  // avartarImg.setAttribute("src", obj.avatarUrl);
+  // avartarImg.setAttribute("alt", obj.author);
+  // avatarWrapper.append(avartarImg);
+
+  //discussionContent > disscussion_title(h2>a), discussion__information
+  // const discussionTitle = document.createElement("h2");
+  // discussionTitle.setAttribute("class", "discussion_title");
+  // const discussionTitleA = document.createElement("a");
+  // discussionTitleA.setAttribute("href", obj.url);
+  // discussionTitleA.setAttribute("class", "noticeA");
+  // discussionTitleA.textContent =  obj.title;
+  // discussionTitle.append(discussionTitleA);
+
+  //discussion__information
+  // const discussionInfo = document.createElement("div");
+  // discussionInfo.setAttribute("class", "discussion__information");
+  // // discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  // discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
+  // discussionContent.append(discussionTitle, discussionInfo);
+
+  //discussionAnswered > p
+  // const answerAnswered = document.createElement("p");
+  // answerAnswered.innerHTML = obj.answer === null ? '' : `<button><i class="fa-regular fa-comment"></i><span>${obj.answer.length}</span></button`;
+  // discussionAnswered.append(answerChecked);
+
+  // const li_container = document.createElement("div");
+  // li_container.setAttribute("class", "li_container");
+  // li_container.append(avatarWrapper, discussionContent, discussionAnswered);
+  
+  // li.append(li_container);
   return li;
 
 }
@@ -61,45 +102,96 @@ const convertToDiscussion = (obj) => {
   li.className = "discussion__container"; // 클래스 이름 지정
   li.id = obj.id;
 
-  //li > avatarWrapper , discussionContent, discussionAnswered
+  // li > div.UserInfo + div.discussionSection  (.discussion_container {display:flex; flex-direction:column;})
+  // div.UserInfo > avatarWrapper + discussionInfo 
+  // div.discussionSection > discussionContent(discussionTitle + discussionTitleA) + discussionAnswered
+
+
+  const userInfoSection = document.createElement("div");
+  userInfoSection.setAttribute('class', 'user_info_section');
+
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
- 
-  //avatarWrapper > avartarImg(src, alt)
   const avartarImg = document.createElement("img");
   avartarImg.className = "discussion__avatar--wrapper--img";
   avartarImg.setAttribute("src", obj.avatarUrl);
   avartarImg.setAttribute("alt", obj.author);
   avatarWrapper.append(avartarImg);
 
-  //discussionContent > disscussion_title(h2>a), discussion__information
-  const discussionTitle = document.createElement("h2");
+  const discussionInfo = document.createElement("div");
+  discussionInfo.setAttribute("class", "discussion__information");
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
+
+  userInfoSection.append(avatarWrapper, discussionInfo);
+
+
+  const discussionSection = document.createElement("div");
+  discussionSection.setAttribute('class', 'discussion_section');
+  
+   // discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  //  discussionContent.append(discussionTitle);
+  // const discussion
+  const discussionTitle = document.createElement("div");
   discussionTitle.setAttribute("class", "discussion_title");
   const discussionTitleA = document.createElement("a");
   discussionTitleA.setAttribute("href", obj.url);
   discussionTitleA.setAttribute("class", "othersA");
   discussionTitleA.textContent =  obj.title;
   discussionTitle.append(discussionTitleA);
+ 
+ 
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+  discussionAnswered.innerHTML = obj.answer === null ? 
+  `<button><i class="fa-regular fa-comment"></i></button><span>0</span>` : `<button><i class="fa-solid fa-comment"></i></button><span>${[obj.answer].length}</span>`;
+
+ discussionSection.append(discussionTitle,discussionAnswered );
+
+ const li_container = document.createElement("div");
+ li_container.setAttribute("class", "li_container");
+ li_container.append(userInfoSection, discussionSection);
+
+ li.append(li_container);
+
+  //li > avatarWrapper , discussionContent, discussionAnswered
+  // const avatarWrapper = document.createElement("div");
+  // avatarWrapper.className = "discussion__avatar--wrapper";
+  // const discussionContent = document.createElement("div");
+  // discussionContent.className = "discussion__content";
+  // const discussionAnswered = document.createElement("div");
+  // discussionAnswered.className = "discussion__answered";
+ 
+  // //avatarWrapper > avartarImg(src, alt)
+  // const avartarImg = document.createElement("img");
+  // avartarImg.className = "discussion__avatar--wrapper--img";
+  // avartarImg.setAttribute("src", obj.avatarUrl);
+  // avartarImg.setAttribute("alt", obj.author);
+  // avatarWrapper.append(avartarImg);
+
+  //discussionContent > disscussion_title(h2>a), discussion__information
+  // const discussionTitle = document.createElement("h2");
+  // discussionTitle.setAttribute("class", "discussion_title");
+  // const discussionTitleA = document.createElement("a");
+  // discussionTitleA.setAttribute("href", obj.url);
+  // discussionTitleA.setAttribute("class", "othersA");
+  // discussionTitleA.textContent =  obj.title;
+  // discussionTitle.append(discussionTitleA);
 
   //discussion__information
-  const discussionInfo = document.createElement("div");
-  discussionInfo.setAttribute("class", "discussion__information");
-  // discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
-  discussionContent.append(discussionTitle, discussionInfo);
+  // const discussionInfo = document.createElement("div");
+  // discussionInfo.setAttribute("class", "discussion__information");
+  // // discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  // discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`; //현지시각 반영
+  // discussionContent.append(discussionTitle, discussionInfo);
 
   //discussionAnswered 
-  discussionAnswered.innerHTML = obj.answer === null ? `<button><i class="fa-regular fa-comment"></i></button><span>0</span>` : `<button><i class="fa-solid fa-comment"></i></button><span>${[obj.answer].length}</span>`;
+  // discussionAnswered.innerHTML = obj.answer === null ? `<button><i class="fa-regular fa-comment"></i></button><span>0</span>` : `<button><i class="fa-solid fa-comment"></i></button><span>${[obj.answer].length}</span>`;
  
-  const li_container = document.createElement("div");
-  li_container.setAttribute("class", "li_container");
-  li_container.append(avatarWrapper, discussionContent, discussionAnswered);
+  // const li_container = document.createElement("div");
+  // li_container.setAttribute("class", "li_container");
+  // li_container.append(avatarWrapper, discussionContent, discussionAnswered);
  
-  li.append(li_container);
+  // li.append(li_container);
  
   return li;
 };
@@ -392,6 +484,7 @@ const handlePageSetting = () => {
   }
 }
 
+//filter
 // const filter = (num) => {
 //   const inputSearchText = document.querySelector('#input_search_text');
 //   console.log(inputSearchText);
@@ -420,7 +513,7 @@ const topBtn = document.querySelector('.topBtn');
 const checkScroll = () => {
   let pageYOffset = window.pageYOffset;
   if(pageYOffset !== 0){
-    console.log(pageYOffset);
+
     topBtn.classList.remove('disabled');
   }else{
     topBtn.classList.add('disabled');
