@@ -21,16 +21,18 @@ video {
 h1{
     text-align: center;
     margin-top: 30px;
-    color: rgb(237, 227, 227);
+    color: rgba(255, 255, 255, 0.811);
     font-size: 4em;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    text-shadow:2px 2px 4px #e29ef0; 
+    text-shadow:5px 5px 5px #ffffffac ; 
 }
 img{
     border-radius: 50%;
     width: 70px;
 }
-
+/* section.form__container{
+    position: fixed;
+} */
 .form__container{
     margin: 0 auto;
     text-align: center;
@@ -41,6 +43,7 @@ img{
     border-radius: 20px;
     margin-top: 30px;
     color: beige;   
+    
 }
 input[type=text]{
     width: 100%;
@@ -99,6 +102,7 @@ section.form__container {
     border-radius: 19px;
     margin : 10px;
     padding: 20px;
+    
 }
 /* .discussion__avatar--image {
     width: 70px;
@@ -110,7 +114,7 @@ section.form__container {
 .discussion__content{
     /* display: block; */
     padding-top: 30px;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     font-size: 15px;
 }
 .discussion__content >:nth-child(1){
