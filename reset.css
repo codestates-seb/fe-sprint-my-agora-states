@@ -33,3 +33,10 @@ h2,
 h3 h4 {
   margin: 0;
 }
+
+textarea,
+textarea:focus,
+input,
+input:focus {
+  border: none;
+}

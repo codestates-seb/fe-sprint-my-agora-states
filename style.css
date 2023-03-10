@@ -20,7 +20,7 @@ main {
   border-bottom: 1px solid var(--coz-purple-300);
   box-shadow: -4px 4px 2px -2px var(--coz-purple-300);
   transition: all var(--animation-duration) ease-in-out;
-  z-index: 999;
+  z-index: 2;
 }
 
 #navbar.navbar--dark {
@@ -235,3 +235,139 @@ main {
   .pagination__current {
   color: var(--coz-purple-500);
 }
+
+/* form 모달관련 */
+.dim {
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+}
+
+.form__modal {
+  display: none;
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: var(--coz-blue-10);
+  box-shadow: 0px 0px 10px var(--coz-purple-500);
+  z-index: 999;
+}
+
+.form__modal .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #222; */
+}
+
+.form__modal .form .form__header {
+  padding: 10px;
+  color: var(--coz-purple-500);
+}
+
+.form__modal .form .form__input--wrapper {
+  width: 100%;
+  /* border: 1px solid salmon; */
+}
+
+.form__modal .form .form__input--wrapper div {
+  /* border: 1px solid salmon; */
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: var(--coz-purple-500);
+  font-weight: 600;
+}
+
+.form__modal .form .form__input--wrapper div .form__input--label {
+  display: block;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.form__modal form .form__input--wrapper div input {
+  border-radius: 5px;
+  width: 200px;
+  border: none;
+}
+
+.form__modal form .form__input--wrapper div textarea {
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+}
+
+.form__modal form .form__submit input {
+  background-color: var(--coz-purple-600);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.form__modal form .form__submit input:hover {
+  opacity: 0.8;
+}
+
+.form__modal .form__btn--close {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  width: 14px;
+  height: 14px;
+  /* background-color: rgb(242, 106, 92); */
+  background-color: #ff5d5b;
+  border: 1px solid #cf544d;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.form__modal .form__btn--close::before,
+.form__modal .form__btn--close::after {
+  content: '';
+  width: 1px;
+  height: 70%;
+  background-color: #222;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+
+.form__modal .form__btn--close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.form__modal .form__btn--close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.form__modal .form__btn--close:hover::before,
+.form__modal .form__btn--close:hover::after {
+  top: 50%;
+  opacity: 1;
+}
+
+/* .form__modal .form__btn--close button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #222;
+}
+ */

@@ -64,10 +64,12 @@ const answerButton = ({ answer }) => {
 // 디스커션 추가
 const addDiscussionHandler = (e) => {
   e.preventDefault();
+  // console.log(e.target);
+
   const author = e.target[0].value;
   const title = e.target[1].value;
   const bodyHTML = e.target[2].value;
-  const createdAt = new Date().toLocaleTimeString();
+  const createdAt = new Date();
   const answer = null;
   const avatarUrl = 'https://avatars.githubusercontent.com/u/87750478?s=64&v=4';
 
@@ -83,26 +85,21 @@ const addDiscussionHandler = (e) => {
   };
 
   agoraStatesDiscussions.unshift(newdiscussion);
-  ul.prepend(convertToDiscussion(newdiscussion));
+  // ul.prepend(convertToDiscussion(newdiscussion));
+  render(ul);
+  pagination();
 };
 
 // Advanced Challenge - Pagenation
 let currentPage = 1;
-const totalCount = agoraStatesDiscussions.length;
-const pageCount = 5; // 1 그룹에 5개씩
+
 const limit = 10; // 한 페이지 당 보여줄 discussion
 
 const elDiscussionPagination = $('.discussion__pagination');
 
 const pagination = () => {
+  const totalCount = agoraStatesDiscussions.length;
   let totalPage = Math.ceil(totalCount / limit);
-  // let pageGroup = Math.ceil(currentPage / pageCount);
-  // let lastNumber = pageGroup * pageCount; // 마지막 페이지 넘버
-  // let firstNumber = lastNumber - (pageCount - 1);
-
-  // if (lastNumber > totalPage) {
-  //   lastNumber = totalPage;
-  // }
 
   let html = `
   <button class='pagination__prev' data-fn='prev'><</button>
@@ -137,7 +134,6 @@ const render = (element, startIndex = 0) => {
   element.innerHTML = '';
   for (let i = startIndex; i < startIndex + 10; i += 1) {
     if (i >= agoraStatesDiscussions.length) break;
-    console.log(i);
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
 
@@ -164,7 +160,6 @@ const ul = $('ul.discussions__container');
 const elFormContainer = $('.form__container');
 const formHeight = elFormContainer.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-  console.log(1 - window.scrollY / formHeight);
   let opacity = 1 - window.scrollY / formHeight;
   elFormContainer.style.opacity = opacity;
 
@@ -178,34 +173,26 @@ document.addEventListener('scroll', () => {
 const elDiscussionForm = $('.form');
 elDiscussionForm.addEventListener('submit', addDiscussionHandler);
 
-const initData = `
-<li class="discussion__container">
-  <div class="discussion__avatar--wrapper">
-    <img
-      class="discussion__avatar--image"
-      src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-      alt="avatar of kimploo"
-    />
-  </div>
-  <div class="discussion__content">
-    <h2 class="discussion__title">
-      <a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">
-        [notice] 좋은 질문하는 법
-      </a>
-    </h2>
-    <div class="discussion__information">kimploo / ${
-      new Date('2022-04-22T14:08:33Z').toLocaleTimeString
-    }</div>
-  </div>
-  <div class="discussion__answered">
-    <div class="discussion__answered--state done">
-      <span class="elipse"></span>
-      <span class="text">답변완료</span>
-    </div>
-  </div>
-</li>
-`;
-
-ul.innerHTML = initData;
+// init
 render(ul);
 pagination();
+
+// modal 요소
+const elFormModal = $('.form__modal');
+const elFormModalCloseBtn = $('.form__btn--close');
+const elFormModalSubmit = $('.form__modal .form');
+const dim = $('.dim');
+newDiscussionBtn.addEventListener('click', () => {
+  dim.style.display = 'block';
+  elFormModal.style.display = 'block';
+});
+elFormModalCloseBtn.addEventListener('click', () => {
+  dim.style.display = 'none';
+  elFormModal.style.display = 'none';
+});
+elFormModalSubmit.addEventListener('submit', (event) => {
+  dim.style.display = 'none';
+  elFormModal.style.display = 'none';
+
+  addDiscussionHandler(event);
+});
