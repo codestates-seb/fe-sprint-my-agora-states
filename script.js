@@ -11,13 +11,15 @@ const feedDetail = document.querySelector("#feedDetail");
 const feedDetailPreviousBtn = document.querySelector(
   ".feedDetail__previousBtn"
 );
-const feedDetailContent = document.querySelector(".feedDetail__content");
+const feedDetailAnswer = document.querySelector(".answer__content");
 const userImg = document.querySelector(".userImg");
 const userName = document.querySelector(".userName");
 const uploadDate = document.querySelector(".uploadDate");
 const formHeaderText = document.querySelector(".form__header_text");
 const feedDetailBellBtn = document.querySelector(".feedDetail__bellBtn");
-const feedDetailQuestion = document.querySelector(".feedDetail__question");
+const feedDetailQuestion = document.querySelector(".question__content");
+const questionTitle = document.querySelector(".question__title");
+const answerTitle = document.querySelector(".answer__title");
 
 // 시간 변환 함수
 const timeConvert = function (time) {
@@ -44,17 +46,23 @@ submitBtn.addEventListener("click", () => {
 const converToForm = () => {};
 //디테일 렌더 함수
 const convertToDetail = (obj) => {
+  //초기화
+  feedDetailQuestion.innerHTML = "";
+  feedDetailAnswer.innerHTML = "";
+  answerTitle.innerText = "";
+  //적용
   userImg.src = obj.avatarUrl;
   userImg.alt = "avatar of " + obj.author;
   userName.innerText = obj.author;
   uploadDate.innerText = timeConvert(obj.createdAt);
+  questionTitle.innerText = obj.title;
+  feedDetailQuestion.innerHTML = obj.bodyHTML;
   // 사이드 폼 변경
   formHeaderText.innerHTML = "답변하기";
-  // 없는답변 처리
+  // 답변 처리
   if (obj.answer === null) return;
-  // 질문생성한거도 innerHtml 넣으면 올리기
-  feedDetailQuestion.innerHTML = obj.bodyHTML;
-  feedDetailContent.innerHTML = obj.answer.bodyHTML;
+  answerTitle.innerText = `${obj.answer.author}님의 답변입니다.`;
+  feedDetailAnswer.innerHTML = obj.answer.bodyHTML;
 };
 //디테일 페이지 이동
 const enterDetailPage = (obj) => {
@@ -175,7 +183,7 @@ const convertToDiscussion = (obj) => {
     discussionAnswerBtn.src = "./check_icon.png";
   }
   discussionAnswerBtn.addEventListener("click", () => {
-    // 누르면 상세페이지로
+    enterDetailPage(obj);
   });
   discussionBtnWrapper.append(discussionDeleteBtn, discussionAnswerBtn);
 
@@ -240,6 +248,7 @@ const createQuestion = function () {
     url: "",
     author: inputName.value,
     answer: null,
+    // textarea 변환 공부
     bodyHTML: `<p dir="auto">${inputStory.value}</p>`,
     avatarUrl:
       "https://i.pinimg.com/736x/e2/b7/da/e2b7da6bc749ba2d7ebdfda28fac6009.jpg",

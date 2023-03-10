@@ -62,14 +62,27 @@
                     <p class="uploadDate"></p>
                   </div>
                 </div>
-                <div>질문</div>
-                <div class="feedDetail__question">
-                  <!-- 디테일 질문 렌더 -->
-                </div>
-                <div>답변</div>
                 <div class="feedDetail__content">
-                  <!-- 디테일 렌더 -->
+                  <div class="feedDetail__question">
+                    <div class="question__title--wrapper">
+                      <h6>Q.</h6>
+                      <h6 class="question__title"></h6>
+                    </div>
+                    <div class="question__content">
+                      <!-- 질문 렌더링 -->
+                    </div>
+                  </div>
+                  <div class="feedDetail__answer">
+                    <div class="answer__title--wrapper">
+                      <h6>A.</h6>
+                      <h6 class="answer__title"></h6>
+                    </div>
+                    <div class="answer__content">
+                      <!-- 답변 렌더링 -->
+                    </div>
+                  </div>
                 </div>
+                <nav class="feedDetail__reaction"></nav>
               </div>
             </section>
         </div>
@@ -86,7 +99,7 @@
                 <input type="text" name="name" id="name" required />
               </div>
               <div class="form__input--title">
-                <h4>QUESTION NAME</h4>
+                <h4>QUESTION TITLE</h4>
                 <input type="text" name="title" id="title" required />
               </div>
               <div class="form__textbox">
