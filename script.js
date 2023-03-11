@@ -6,7 +6,7 @@ if(localStorage.getItem('data') === null){
 localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions))};
 
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+//convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   //agoraStatesDiscussions[i]
   // li 요소 생성
