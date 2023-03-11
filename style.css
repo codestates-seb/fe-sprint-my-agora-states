@@ -196,7 +196,6 @@ main {
     flex-direction: column;
     overflow: hidden auto;
     height: 100%;
-    cursor: ns-resize;
     padding-top: 20px;
 }
 .feedDetail .feedDetail__content--wrapper::-webkit-scrollbar{
@@ -227,9 +226,11 @@ main {
 .feedDetail .feedDetail__answer {
     display: flex;
     flex-direction: column;
+}
+.feedDetail .feedDetail__answer li {
     padding-bottom: 30px;
-    border-bottom: 1px solid rgb(235, 235, 235);
     margin-bottom: 40px;
+    border-bottom: 1px solid rgb(235, 235, 235);
 }
 .feedDetail .feedDetail__content hr {
     margin-bottom: 2px;

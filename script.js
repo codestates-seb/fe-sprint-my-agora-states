@@ -18,17 +18,52 @@ const formHeaderText = document.querySelector(".form__header_text");
 const feedDetailBellBtn = document.querySelector(".feedDetail__bellBtn");
 const feedDetailQuestion = document.querySelector(".question__content");
 const questionTitle = document.querySelector(".question__title");
-
-// 질문 배열
+const formInputnameTitle = document.querySelector(".form__input--nameTitle");
+const formInputTitle = document.querySelector(".form__input--title");
+const formStoryTitle = document.querySelector(".form__story--title");
+// 변수
 const discussionsArray = [];
-let = isDetailPage = false;
+let isDetailPage = false;
+let discussionId = "";
+let currentPage = 1;
+
+// 시간 변환 함수
+const timeConvert = function (time) {
+  return new Date(time).toLocaleString();
+};
+
+// 공백체크 함수
+const blankCheck = function () {
+  if (isDetailPage) {
+    return inputName.value === "" || inputStory.value === "";
+  } else {
+    return (
+      inputName.value === "" ||
+      inputTitle.value === "" ||
+      inputStory.value === ""
+    );
+  }
+};
+
+// 답변obj 생성
+const createAnswer = () => {
+  const newAnswer = {
+    id: new Date(),
+    createdAt: new Date().toLocaleString(),
+    url: "",
+    author: inputName.value,
+    bodyHTML: `<p dir="auto">${inputStory.value}</p>`,
+    avatarUrl:
+      "https://i.pinimg.com/736x/e2/b7/da/e2b7da6bc749ba2d7ebdfda28fac6009.jpg",
+  };
+  return newAnswer;
+};
 
 // 로컬스토리지 연동
 let localData = JSON.parse(localStorage.getItem("discussionsDB"));
 if (localData !== null) {
   discussionsArray.push(...localData);
 } else {
-  // reduce가 더 좋음
   agoraStatesDiscussions.forEach((discussion) => {
     const copyObj = { ...discussion };
     copyObj.answer = copyObj.answer === null ? [] : [copyObj.answer];
@@ -37,33 +72,7 @@ if (localData !== null) {
   localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
 }
 
-// 폼 초기화 함수
-const formReset = function () {
-  inputName.value = "";
-  inputTitle.value = "";
-  inputStory.value = "";
-};
-
-// 시간 변환 함수
-const timeConvert = function (time) {
-  return new Date(time).toLocaleString();
-};
-
-//폼전송 이벤트
-submitBtn.addEventListener("click", () => {
-  const isBlank = blankCheck();
-  if (!isBlank && !isDetailPage) {
-    discussionsArray.unshift(createQuestion());
-    formReset();
-    localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
-
-    currentPage = 1;
-    totalPage = Math.ceil(discussionsArray.length / 10);
-    render(ul);
-  } else if (!isBlank && isDetailPage) {
-    console.log("a");
-  }
-});
+let totalPage = Math.ceil(discussionsArray.length / 10);
 
 // 디테일 페이지 ----------------------------------------------------
 
@@ -87,8 +96,6 @@ const convertToDetail = (obj) => {
   uploadDate.innerText = timeConvert(obj.createdAt);
   questionTitle.innerText = obj.title;
   feedDetailQuestion.innerHTML = obj.bodyHTML;
-  // 사이드 폼 변경
-  formHeaderText.innerHTML = "답변하기";
   // 답변 처리
   if (0 < obj.answer.length) {
     obj.answer.forEach((element) => {
@@ -111,32 +118,64 @@ const convertToDetail = (obj) => {
     });
   }
 };
+
+// 폼 초기화 함수
+const formReset = function () {
+  inputName.value = "";
+  inputStory.value = "";
+  inputTitle.value = "";
+};
+//폼전송 이벤트
+submitBtn.addEventListener("click", () => {
+  const isBlank = blankCheck();
+  if (!isBlank && !isDetailPage) {
+    discussionsArray.unshift(createQuestion());
+    formReset();
+    localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
+
+    currentPage = 1;
+    totalPage = Math.ceil(discussionsArray.length / 10);
+    render(ul);
+  } else if (!isBlank && isDetailPage) {
+    const findIndex = discussionsArray.findIndex((x) => x.id === discussionId);
+    discussionsArray[findIndex].answer.push(createAnswer());
+    convertToDetail(discussionsArray[findIndex]);
+  }
+});
+
 //디테일 페이지 이동
 const enterDetailPage = (obj) => {
+  formHeaderText.innerHTML = "답변하기";
+  formInputnameTitle.innerText = "ANSWERER";
+  formStoryTitle.innerText = "ANSWER CONTENT";
+  discussionId = obj.id;
   formReset();
   isDetailPage = true;
   nav.classList.add("hidden");
+  formInputTitle.classList.add("hidden");
   feedsContents.classList.add("hidden");
   feedDetail.classList.remove("hidden");
+  inputStory.style.height = "200px";
   convertToDetail(obj);
 };
 // 이전 페이지 이동
 feedDetailPreviousBtn.addEventListener("click", () => {
+  inputStory.style.height = "100px";
+  formHeaderText.innerHTML = "질문하기";
+  formInputnameTitle.innerText = "QUESTIONER";
+  formStoryTitle.innerText = "QUESTION CONTENT";
+  discussionId = "";
   formReset();
   isDetailPage = false;
+  formInputTitle.classList.remove("hidden");
   nav.classList.remove("hidden");
   feedsContents.classList.remove("hidden");
   feedDetail.classList.add("hidden");
-  formHeaderText.innerHTML = "질문하기";
 });
 // 알림 버튼
 feedDetailBellBtn.addEventListener("click", () => {
   alert("띠링띠링");
 });
-
-// 페이지 네이션
-let currentPage = 1;
-let totalPage = Math.ceil(discussionsArray.length / 10);
 
 // 요소 삭제 함수
 const deleteDiscussion = function (id) {
@@ -259,19 +298,6 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 render(ul);
 
-// 공백체크 함수
-const blankCheck = function () {
-  if (
-    inputName.value === "" ||
-    inputTitle.value === "" ||
-    inputStory.value === ""
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 // 질문 객체 생성
 const createQuestion = function () {
   const newObj = {
@@ -280,8 +306,7 @@ const createQuestion = function () {
     title: inputTitle.value,
     url: "",
     author: inputName.value,
-    answer: null,
-    answerArray: [],
+    answer: [],
     // textarea 변환 공부
     bodyHTML: `<p dir="auto">${inputStory.value}</p>`,
     avatarUrl:
