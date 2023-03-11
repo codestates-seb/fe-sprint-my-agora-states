@@ -136,7 +136,7 @@ const pageCount = Math.ceil(rowsCount / rowsPerPage); //(전체 목록 수)/(페
 const pageNumbers = document.querySelector("#page_numbers");
 
 //페이지 숫자 화면에 생성
-for (let i = 1; i < pageCount; i++) {
+for (let i = 1; i <= pageCount; i++) {
   pageNumbers.innerHTML += `<li class='list'><a class='pg_num' href"">${i}</a></li>`;
 }
 
