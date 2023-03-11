@@ -140,6 +140,8 @@ submitBtn.addEventListener("click", () => {
     const findIndex = discussionsArray.findIndex((x) => x.id === discussionId);
     discussionsArray[findIndex].answer.push(createAnswer());
     convertToDetail(discussionsArray[findIndex]);
+    formReset();
+    localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
   }
 });
 
