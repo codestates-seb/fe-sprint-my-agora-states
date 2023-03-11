@@ -158,6 +158,7 @@ main {
     display: flex;
     height: 100%;
     border-left: 1px solid  #888;
+    border-right: 1px solid  #888;
     position: relative;
     font-size: 14px;
     font-weight: 300;
@@ -179,13 +180,12 @@ main {
     border-radius: 50%;
 }
 
-.form__submit, .discussion__btn {
+.form__submit,.discussion__btn {
     display: block;
     width: 80px;
     flex-shrink: 0;
     height: 100%;
     cursor: pointer;
-    border-left: 1px solid  #888;
     filter: invert(100%);
     background-repeat: no-repeat;
     background-position: center;
@@ -214,7 +214,6 @@ main {
     font-size: 14px;
     font-weight: 300;
     padding: 0 20px;
-    border: none;
     align-items: center;
     flex-shrink: 1;
     min-width: 0;
@@ -342,10 +341,15 @@ height: 100%;
     .form__input--title {
         padding: 0;
         width: 300px;
+        border-right: 1px solid #888;
     }
 
     .form__input--name {
         padding: 0;
+        border: none;
+    }
+
+    .form__submit,.discussion__btn {
         border: none;
     }
 
@@ -361,6 +365,8 @@ height: 100%;
         display: flex;
         align-items: center;
         width: 290px;
+        height: 100%;
+        border-right: 1px solid #888;
     }
 
     .discussion__list a {
