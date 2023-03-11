@@ -27,7 +27,8 @@ const convertToDiscussion = (obj) => {
   const TitleAchor = document.createElement('a');
   TitleAchor.href = obj.url;
   TitleAchor.textContent = obj.title;
-  discussionContent.append(TitleAchor);
+  contentTitle.append(TitleAchor);
+  discussionContent.append(contentTitle);
   // 글쓴이 날짜 만들기 
   const contentInfo = document.createElement('div');
   contentInfo.className = "discussion__information";
@@ -63,7 +64,6 @@ form.addEventListener('submit',(event) => {
     title : title.value ,
     url : "https://github.com/codestates-seb/agora-states-fe/discussions/44",
     author : author.value,
-    answer : null,
     bodyHTML : question.value,
     avatarUrl : "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4"
   }
