@@ -1,1 +1,119 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    margin:0px,0px;
+    border:none;
+    background-color: #EDF1D6;
+}
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.discussion__wrapper{
+    width:50vw;
+}
+.discussions__container{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:#40513B;
+    color:black;
+}
+li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:50vw;
+    height:17vh;
+    border: 5px blanchedalmond solid;
+    
+}
+.discussion__avatar--wrapper{
+    display: flex;
+    align-items: center;
+    margin:0px 20px;
+}
+.discussion__answered{
+    display: flex;
+    align-items: center;
+    margin:0px 20px;
+}
+.discussion__content {
+    flex-grow: 1;
+}
+ul {
+    padding-inline-start: 0px;
+}
+.form__container{
+    margin-top: 50px;
+    width:35vw;
+    height:38vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    background-color:#9DC08B;
+    border-radius:5%;
+    box-shadow: 10px 10px #609966;
+    margin-bottom: 40px;
+    font-family: 'Asap', sans-serif;
+}
+h1{
+    margin-top: 55px;
+    margin-bottom: -20px;
+    font-size: 50px;
+    font-family: 'Asap', sans-serif;
+}
+.form__input--wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+input#name {
+    width: 17vw;
+    margin:10px 0px;
+}
+input#title{
+    width: 18vw;
+    margin:10px 0px;
+}
+textarea#story{
+    width:30vw;
+    height:10vh;
+}
+.button:hover {
+    color: rgba(255, 255, 255, 0.85);
+	box-shadow: #361500 0 80px 0px 2px inset;
+}
+
+.button {
+	text-decoration: none;
+	border-radius: 4px;
+    padding: 10px 10px;
+    color: #361500;
+	box-shadow: #361500 0 0px 0px 2px inset;
+    font-size: 30px;
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+
+}
+.form__submit {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.discussion__information{
+    text-align: end;
+}
