@@ -301,7 +301,7 @@ height: 100%;
 
     ::placeholder {
         color: #999;
-        font-size: 20px; /* placeholder 색상을 변경하려면 여기에 원하는 색상 코드를 입력하세요. */
+        font-size: 14px; /* placeholder 색상을 변경하려면 여기에 원하는 색상 코드를 입력하세요. */
      }
 
     .main_container {
@@ -328,6 +328,14 @@ height: 100%;
     .title {
         margin-top: 40px;
         font-size: 100px;
+    }
+
+    .form__submit {
+        background-size: 30%;
+    }
+
+    .discussion__btn {
+        background-size: 25%;
     }
 
     .form__input--wrapper {
