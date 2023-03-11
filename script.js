@@ -49,6 +49,8 @@ const convertToDiscussion = (obj) => {
 };
 
 const ul = document.querySelector(".discussions__container");
+
+// 로컬스토리지;
 if (localStorage.getItem("discussionStorage") !== null) {
   agoraStatesDiscussions = JSON.parse(
     localStorage.getItem("discussionStorage")
@@ -56,9 +58,11 @@ if (localStorage.getItem("discussionStorage") !== null) {
 }
 
 //agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+let renderStart = 0;
+let renderEnd = 5;
 const render = (element) => {
   ul.innerHTML = "";
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = renderStart; i < renderEnd; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -131,3 +135,89 @@ const askBtn = document.querySelector(".hide__button");
 askBtn.addEventListener("click", () => {
   cover.classList.add("hide");
 });
+
+// 페이지네이션
+// const btnDiv=document.querySelector(".nav__container");
+// 페이지 갯수 구하기
+let rows_page = 5;
+let pageTotal = Math.ceil(agoraStatesDiscussions.length / rows_page);
+let currentPage = 1;
+let group = Math.ceil(currentPage / rows_page);
+let lastNum = group * 5;
+if (lastNum > pageTotal) {
+  lastNum = pageTotal;
+}
+let firstNum = lastNum - 4 ? currentPage : 1;
+// 179번. 숫자들 써있는 버튼을 클릭시 게시물보여짐
+function godDaeun(event) {
+  console.log(event.currentTarget);
+  let btnNum = event.currentTarget.textContent;
+  renderStart = (btnNum - 1) * 5;
+  renderEnd =
+    renderStart + 5 > agoraStatesDiscussions.length
+      ? agoraStatesDiscussions.length // renderStart보다 작으면 더 렌더링 할필요없으니 length까지만 렌더링 시키면된다.
+      : renderStart + 5;
+  ul.innerHTML = "";
+  console.log("firstNum" + firstNum);
+  console.log("renderStart" + renderStart);
+  console.log("lastNum" + lastNum);
+  console.log("renderEnd" + renderEnd);
+  render(ul);
+}
+function addBtn() {
+  const $div = createEl("div", "nav__container");
+  const $prevBtn = createEl("button", "prevBtn");
+  $prevBtn.addEventListener("click", clickPrevBtn);
+  $prevBtn.textContent = "이전";
+  $div.append($prevBtn);
+  const $nextBtn = createEl("button", "nextBtn");
+  $nextBtn.addEventListener("click", clickNextBtn);
+  $nextBtn.textContent = "다은";
+  for (let i = firstNum; i <= lastNum; i++) {
+    const btn = createEl("button", "pageBtn");
+    btn.textContent = `${i}`;
+    btn.addEventListener("click", godDaeun);
+    $div.append(btn);
+  }
+  $div.append($nextBtn);
+  return $div;
+}
+const navWrap = document.querySelector(".nav__wrapper");
+navWrap.append(addBtn());
+
+const nextBtn = document.querySelector(".nextBtn");
+function clickNextBtn(event) {
+  console.log(event.currentTarget.previousElementSibling);
+  let nextNum = event.currentTarget.previousElementSibling.textContent;
+  if (nextNum >= pageTotal) {
+    //event.currentTarget.previousElementSibling.textContent는 event.currentTarget의 앞에있는 요소의textContent
+    return;
+  }
+  currentPage = lastNum + 1;
+  // currentpage는 1 / 6 / 11 순으로 돈다
+  group = Math.ceil(currentPage / rows_page);
+  lastNum = group * 5;
+  if (lastNum > pageTotal) {
+    lastNum = pageTotal;
+  }
+  firstNum = currentPage;
+  navWrap.innerHTML = "";
+  navWrap.appendChild(addBtn());
+}
+
+const prevBtn = document.querySelector(".prevBtn");
+function clickPrevBtn(event) {
+  const prevNum = event.currentTarget.nextElementSibling.textContent;
+  if (prevNum === "1") {
+    return;
+  }
+  currentPage = prevNum - 5;
+  group = Math.ceil(currentPage / rows_page);
+  lastNum = group * 5;
+  if (lastNum > pageTotal) {
+    lastNum = pageTotal;
+  }
+  firstNum = lastNum - 4 ? currentPage : 1;
+  navWrap.innerHTML = "";
+  navWrap.appendChild(addBtn());
+}
