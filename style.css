@@ -1,23 +1,39 @@
 *{
     
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: blanchedalmond;
 }
-
+a{
+    text-decoration: none;
+    color: inherit;
+}
 li{
     list-style: none;
 }
+h1{
+    width: 280px;
+    border-radius: 10px;
+    background-color: rgb(213, 84, 84);
+}
 
 .discussion__container{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 540px;
+    margin-left: 130px;
+    width: 700px;
+    margin-bottom: 20px;
+    background-color: rgb(240, 230, 215);
+    background-clip: content-box;
+    border-radius: 10px;
 }
 .discussion__avatar--image{
     border-radius: 50%;
@@ -25,11 +41,53 @@ li{
     display: flex;
     align-items: center;
 }
-.discussion__content{
-    display: block;
-}
-section.discussion__wrapper{
+
+.discussion__wrapper{
+    margin-top: 100px;
     display: flex;
+    
     align-items: center;
     text-align: center;
+    
+    
+}
+.discussion__content{
+    display: flex;
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+
+.discussion__information{
+    text-align: right;
+}
+/* 헤더 부분 꾸미기 */
+
+.form__container{
+    position: relative;
+    z-index: 1;
+    width: 1000px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: brown;
+    
+}
+.form__input--wrapper{
+    margin-left: -70px;
+    padding-top: 100px;
+    text-align: center;
+}
+.form__submit{
+    margin-left: 600px;
+    margin-top: 120px;
+}
+
+
+.back__img{
+position: absolute;
+margin-left: 250px;
+z-index: -1;
 }
