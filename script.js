@@ -87,6 +87,8 @@ form.addEventListener('submit', (event) => {
 inputName.value = inputTitle.value = inputQuesiton.value = '';
 });
 
+// 페이지네이션 이전,다음 기능 구현
+
 let limit = 10,
     page = 1;
 
@@ -107,28 +109,36 @@ const getPageStartEnd = (limit, page) => {
   return {pageStart, pageEnd};
 };
 
-const buttons = document.querySelector(".buttons");
-buttons.children[0].addEnvertListener("click", () => {
+const buttons = document.querySelector("section.buttons");
+
+buttons.firstElementChild.addEventListener("click", () => {
   if (page > 1) {
     page = page - 1;
   }
   const {pageStart, pageEnd} = getPageStartEnd(limit, page);
   render(ul, pageStart, pageEnd);
-})
+});
 
-buttons.children[1].addEnvertListener("click", () => {
+buttons.lastElementChild.addEventListener("click", () => {
   if (limit * page < agoraStatesDiscussions.length - 1) {
     page = page + 1;
   }
   const {pageStart, pageEnd} = getPageStartEnd(limit, page);
   render(ul, pageStart, pageEnd);
-})
+});
 
-// const itemList = document.querySelectorAll('li.discussion__Container')
+// 페이지네이션 (1,2,3,..) 기능 구현
 
-// const itemPerPage = 10;
-// let currentPage = 1;
-// const totalPages = Math.ceil(itemList.length/itemPerPage);
+const totalItems = agoraStatesDiscussions.length;
+const totalPages = Math.ceil(Number(totalItems)/Number(limit));
+
+const paginationContainer = document.querySelector('.numberingButtons');
+
+for (let i = 1; i <= totalPages; i++) {
+const paginationItem = document.createElement('button');
+paginationItem.textContent = i;
+paginationContainer.appendChild(paginationItem);
+}
 
 // const pagination = document.querySelector('.paginaton');
 
