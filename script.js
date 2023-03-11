@@ -45,7 +45,29 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+//
+//
+//modal
 const form = document.querySelector("form.form");
+const formDialog = document.querySelector(".form__container");
+const openForm = document.querySelector("#open__form");
+openForm.addEventListener("click", () => {
+  formDialog.showModal();
+});
+
+//close 버튼 클릭시 모달 닫기
+const closeForm = document.querySelector("#form_close");
+closeForm.addEventListener("click", () => {
+  formDialog.close();
+});
+//모달 바깥 클릭시 모달 닫기
+formDialog.addEventListener("click", (event) => {
+  console.log(event.target.nodeName);
+  if (event.target.nodeName === "DIALOG") {
+    formDialog.close();
+  }
+});
+
 //submit하면 동작할 함수
 form.addEventListener("submit", (event) => {
   const title = document.querySelector("input#title");
