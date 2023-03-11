@@ -28,7 +28,7 @@ const convertToDiscussion = (obj) => {
   const avaterImg = document.createElement('img')
   avaterImg.className = 'discussion__avatar--image';
   avaterImg.src = obj['avatarUrl'];
-  avaterImg.art = obj['author'];
+  avaterImg.art = "avatar of" + obj['author'];
   avatarWrapper.append(avaterImg);
 
   const answerCheck = document.createElement('img');
@@ -45,16 +45,20 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const render = (element, from, to) => {
+  console.log(from. to);
+  if (!from && !to) {
+    from = 0;
+    to = agoraStatesDiscussions.length -1;
+  }
+
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i++) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  return;
 };
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
 
 // 디스커션 추가 기능 구현
 
@@ -81,11 +85,46 @@ form.addEventListener('submit', (event) => {
   ul.prepend(convertToDiscussion(newdiscussion));
 
 inputName.value = inputTitle.value = inputQuesiton.value = '';
+});
+
+let limit = 10,
+    page = 1;
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul, 0, limit);
+
+const getPageStartEnd = (limit, page) => {
+  const length = agoraStatesDiscussions.length -1;
+  let pageStart = Number(page -1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if (page <= 0) {
+    pageStart = 0;
+  }
+  if (pageEnd >= length) {
+    pageEnd = length;
+  }
+  return {pageStart, pageEnd};
+};
+
+const buttons = document.querySelector(".buttons");
+buttons.children[0].addEnvertListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
+  }
+  const {pageStart, pageEnd} = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
 })
 
-// 페이지네이션 기능 구현 실패
+buttons.children[1].addEnvertListener("click", () => {
+  if (limit * page < agoraStatesDiscussions.length - 1) {
+    page = page + 1;
+  }
+  const {pageStart, pageEnd} = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+})
 
-// const itemList = document.querySelectorAll('li.discussionContainer')
+// const itemList = document.querySelectorAll('li.discussion__Container')
 
 // const itemPerPage = 10;
 // let currentPage = 1;
@@ -136,27 +175,3 @@ inputName.value = inputTitle.value = inputQuesiton.value = '';
 //     showPageItems(parseInt(button.textContent));
 //   });
 // })
-
-
-
-
-
-// const prevButton = document.querySelector('.prev');
-// const nextButton = document.querySelector('.next');
-
-
-// function createNewPageButton() {
-//   const newButton = document.createElement('button');
-//   newButton.className ='page';
-//   newButton.innerText = totalPages + 1;
-//   pagination.insertBefore(newButton, nextButton);
-
-//   newButton.addEventListener('click', () => {
-//     currentPage = parseInt(newButton.innerText);
-//     showData();
-//     updateActivePage();
-//   })
-// }
-
-// // 총 게시물 숫자가 현재 만들어져 있는 페이지에서 보여줄 수 있는 수를 넘어가면
-// // 새로운 페이지 생성
