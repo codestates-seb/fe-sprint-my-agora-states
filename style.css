@@ -309,13 +309,34 @@ height: 100%;
         border: none;
     }
 
-
     .circle {
         display: none;
     }
 
+    nav{
+        display: none;  
+    }
+
     main {
+        margin: 0;
         padding: 0;
+    }
+
+    .main_title {
+        padding: 130px 0 90px 0;
+    }
+
+    .title {
+        margin-top: 40px;
+        font-size: 100px;
+    }
+
+    .form__input--wrapper {
+        position: fixed;
+        border-bottom: 1px solid #888;
+        width: 100%;
+        background-color: #222;
+        z-index: 999;
     }
 
     .form__input--title {
@@ -331,7 +352,7 @@ height: 100%;
     .discussion__list {
         position: relative;
         padding: 0;
-        height: 90px;
+        height: 80px;
     }
 
     .discussion__title {
@@ -369,8 +390,7 @@ height: 100%;
     }
 
     .discussion__btn {
-        width: 90px;
-       
+        width: 80px;
     }
 
     #name{
