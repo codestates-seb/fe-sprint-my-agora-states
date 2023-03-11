@@ -157,7 +157,6 @@ main {
     padding-left: 60px;
     display: flex;
     height: 100%;
-    border-right: 1px solid  #888;
     border-left: 1px solid  #888;
     position: relative;
     font-size: 14px;
@@ -201,49 +200,38 @@ main {
     background-size: 40%;
 }
 
-.discussion__btn {
-    background-image: url(https://pixlok.com/wp-content/uploads/2021/07/Close-Free-Icon-9w8s.png);
-    background-size: 30%;
-
-    mix-blend-mode: difference;
-}
 
 .discussion__list {
     display: flex;
     height: 80px;
-    justify-content: space-between;
     border-bottom: 1px solid  #888;
     align-items: center;
 }
 
-.discussion__information {
-    color: #999;
-    line-height: 1.5rem;
-}
-
-.discussion__title {
-    display: block;
+.discussion__list .discussion__title {
+    display: flex;
+    flex-grow: 1;
     font-size: 14px;
     font-weight: 300;
-    white-space: nowrap;
-    overflow: hidden;
-    padding-left: 50px;
-    border-right: 1px solid #888;
-    height: 100%;
-    display: flex;
+    padding: 0 20px;
+    border: none;
     align-items: center;
-    width: 100%;
+    flex-shrink: 1;
+    min-width: 0;
 }
 
-.discussion__title a {
-    display: block;
-    width: 100%;
-    height: 100%;
+.discussion__list .discussion__title a {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     mix-blend-mode: difference;
+    padding: 0;
 }
 
 .discussion__name {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     height: 100%;
     border-right: 1px solid  #888;
@@ -251,11 +239,9 @@ main {
     padding-left: 60px;
     padding-right: 40px;
     position: relative;
-    justify-content: flex-end;
     font-size: 14px;
     font-weight: 300;
     color: #999;
-    white-space: nowrap;
 }
 
 .discussion__name::before {
@@ -269,11 +255,17 @@ main {
     border-radius: 50%;
 }
 
+.discussion__btn {
+    background-image: url(https://pixlok.com/wp-content/uploads/2021/07/Close-Free-Icon-9w8s.png);
+    background-size: 30%;
+    mix-blend-mode: difference;
+}
+
+
 #submit{
 width: 100%;
 height: 100%;
 }
-
 .circle {
     width: 100px;
     height: 100px;
@@ -304,4 +296,93 @@ height: 100%;
     mix-blend-mode: difference;
     transition: height 0.2s ease-in-out;
     pointer-events: none;
+}
+
+@media(max-width: 720px){
+
+    ::placeholder {
+        color: #999;
+        font-size: 20px; /* placeholder 색상을 변경하려면 여기에 원하는 색상 코드를 입력하세요. */
+     }
+
+    .main_container {
+        border: none;
+    }
+
+
+    .circle {
+        display: none;
+    }
+
+    main {
+        padding: 0;
+    }
+
+    .form__input--title {
+        padding: 0;
+        width: 300px;
+    }
+
+    .form__input--name {
+        padding: 0;
+        border: none;
+    }
+
+    .discussion__list {
+        position: relative;
+        padding: 0;
+        height: 90px;
+    }
+
+    .discussion__title {
+        padding-left: 30px;
+        padding-right: 30px;
+        display: flex;
+        align-items: center;
+        width: 290px;
+    }
+
+    .discussion__list a {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        font-size: 20px;
+        padding: 0;
+        border: none;
+        height: fit-content;
+    }
+
+    .discussion__name {
+        position: absolute;
+        border: none;
+        top: 15px;
+        left: 0;
+        padding-left: 30px;
+        font-size: 15px;
+        display: none;
+    }
+
+    .discussion__name::before {
+        display: none;
+    }
+
+    .discussion__btn {
+        width: 90px;
+       
+    }
+
+    #name{
+        display: none;
+    }
+
+    .form__input--title {
+       padding-left: 20px;
+    }
+
+    .form__input--name::before {
+        display: none;  
+    }
+
 }

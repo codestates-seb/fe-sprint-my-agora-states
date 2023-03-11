@@ -1,10 +1,9 @@
 const ul = document.querySelector("ul.discussions__container");
 
-
 //처음실행시에만 기존데이터 가져오도록(로컬스토리지에 데이터가 있으면 실행되면 안됨)
-if(localStorage.getItem('data') === null){
-localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions))};
-
+if (localStorage.getItem("data") === null) {
+  localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
+}
 
 //convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -13,14 +12,21 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li");
   li.classList.add("discussion__list");
 
+  // discussion__title 요소 생성
+  const titleWrapper = document.createElement("div");
+  titleWrapper.classList.add("discussion__title");
+
   // a 요소 생성
   const aElement = document.createElement("a");
   aElement.href = obj.url;
   aElement.classList.add("discussion__title");
   aElement.textContent = obj.title;
 
-  // a 요소를 li 요소의 자식으로 추가
-  li.appendChild(aElement);
+  //a요소를 discussion__title의 자식으로 추가
+  titleWrapper.appendChild(aElement);
+
+  // discussion__title의 요소를 li 요소의 자식으로 추가
+  li.appendChild(titleWrapper);
 
   // div 요소 생성
   const discussionName = document.createElement("div");
@@ -60,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
   localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
   render(ul);
 });*/
-
 
 //2. 폼 제출 시 데이터 출력
 const $form = document.querySelector(".form");
