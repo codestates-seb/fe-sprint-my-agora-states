@@ -1,46 +1,48 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // JavaScript 코드 실행
-  localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
+const ul = document.querySelector("ul.discussions__container");
+
+
+//처음실행시에만 기존데이터 가져오도록(로컬스토리지에 데이터가 있으면 실행되면 안됨)
+if(localStorage.getItem('data') === null){
+localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions))};
 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   //agoraStatesDiscussions[i]
- // li 요소 생성
-const li = document.createElement("li");
-li.classList.add("discussion__list");
+  // li 요소 생성
+  const li = document.createElement("li");
+  li.classList.add("discussion__list");
 
-// a 요소 생성
-const aElement = document.createElement("a");
-aElement.href = obj.url;
-aElement.classList.add("discussion__title");
-aElement.textContent = obj.title;
+  // a 요소 생성
+  const aElement = document.createElement("a");
+  aElement.href = obj.url;
+  aElement.classList.add("discussion__title");
+  aElement.textContent = obj.title;
 
-// a 요소를 li 요소의 자식으로 추가
-li.appendChild(aElement);
+  // a 요소를 li 요소의 자식으로 추가
+  li.appendChild(aElement);
 
-// div 요소 생성
-const discussionName = document.createElement("div");
-discussionName.classList.add("discussion__name");
-discussionName.textContent = obj.author;
+  // div 요소 생성
+  const discussionName = document.createElement("div");
+  discussionName.classList.add("discussion__name");
+  discussionName.textContent = obj.author;
 
-// div 요소 추가
-li.appendChild(discussionName);
+  // div 요소 추가
+  li.appendChild(discussionName);
 
-// div 요소 생성
-const discussionBtn = document.createElement("div");
-discussionBtn.classList.add("discussion__btn");
+  // div 요소 생성
+  const discussionBtn = document.createElement("div");
+  discussionBtn.classList.add("discussion__btn");
 
-// div 요소 추가
-li.appendChild(discussionBtn);
+  // div 요소 추가
+  li.appendChild(discussionBtn);
 
-// 생성된 요소를 적절한 위치에 추가
-const parentElement = document.querySelector(".discussions__container");
-parentElement.appendChild(li);
+  // 생성된 요소를 적절한 위치에 추가
+  const parentElement = document.querySelector(".discussions__container");
+  parentElement.appendChild(li);
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   let localdata = JSON.parse(localStorage.getItem("data"));
 
@@ -50,10 +52,14 @@ const render = (element) => {
   return;
 };
 
-const ul = document.querySelector("ul.discussions__container");
 render(ul);
-});
 
+/*
+document.addEventListener("DOMContentLoaded", function () {
+  // 처음 실행시 데이터 가져오기
+  localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
+  render(ul);
+});*/
 
 
 //2. 폼 제출 시 데이터 출력
@@ -75,7 +81,7 @@ $form.addEventListener("submit", (e) => {
   localdata.unshift(newdata); //가져온 로컬 데이터에 새로운 데이터 추가해주기 (currentdata는 배열형태)
   localStorage.setItem("data", JSON.stringify(localdata)); //추가된 로컬데이터 다시 등록해주기
 
-  ul.prepend(convertToDiscussion(localdata[0])); //추가된 데이터 렌더해주기
+  ul.prepend(convertToDiscussion(localdata[0])); //추가된 데이터 렌더해주기  ul undifined, 로컬에 데이터는 들어옴.
 
   document.querySelector("#title").value = "";
   document.querySelector("#name").value = "";
