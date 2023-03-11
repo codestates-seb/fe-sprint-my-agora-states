@@ -185,3 +185,31 @@ div.discussion__information{
     margin: 30px;
 }
 
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    text-align: center;
+    width: 50px;
+    border-radius: 20px;
+    height: 30px;
+    background-color: rgba(245, 245, 220, 0);
+    color: rgb(147, 26, 74);
+    font-weight: bold;
+    border: 1px white;
+    color: white;
+    font-size: 18px;
+  
+}
+button:hover{
+    color: rgb(203, 155, 163);
+}
+
+.clear{
+   width: 60px;
+   height: 40px;
+   
+}
