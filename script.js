@@ -142,7 +142,7 @@ buttons.children[0].addEventListener("click", () => {
   render(ul, pageStart, pageEnd);
 });
 
-buttons.children[1].addEventListener("click", () => {
+buttons.children[2].addEventListener("click", () => {
   if (limit * page < data.length - 1) {
     page = page + 1;
   }
@@ -150,7 +150,7 @@ buttons.children[1].addEventListener("click", () => {
   render(ul, pageStart, pageEnd);
 });
 
-buttons.children[2].addEventListener("click", () => {
+buttons.children[1].addEventListener("click", () => {
   localStorage.removeItem("agoraStatesDiscussions");
   data = agoraStatesDiscussions.slice();
   limit = 5;
