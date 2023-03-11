@@ -45,7 +45,7 @@
               </button>
             </nav>
             <!-- 피드 상세페이지 -->
-            <section id="feedDetail" class="hidden">
+            <section class="feedDetail hidden">
               <div class="feedDetail__header">
                 <button class="feedDetail__previousBtn">
                   <img src="./previous_icon.png"/>
@@ -72,15 +72,8 @@
                       <!-- 질문 렌더링 -->
                     </div>
                   </div>
-                  <div class="feedDetail__answer">
-                    <div class="answer__title--wrapper">
-                      <h6>A.</h6>
-                      <h6 class="answer__title"></h6>
-                    </div>
-                    <div class="answer__content">
-                      <!-- 답변 렌더링 -->
-                    </div>
-                  </div>
+                  <ul class="feedDetail__answer">
+                  </ul>
                 </div>
                 <nav class="feedDetail__reaction"></nav>
               </div>
@@ -95,7 +88,7 @@
             </div>
             <div class="form__input--wrapper">
               <div class="form__input--name">
-                <h4>QUESTIONER</h4>
+                <h4 class="Writer">QUESTIONER</h4>
                 <input type="text" name="name" id="name" required />
               </div>
               <div class="form__input--title">

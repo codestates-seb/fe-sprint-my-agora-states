@@ -7,11 +7,10 @@ const submitBtn = document.querySelector("#submitBtn");
 const deleteBtn = document.querySelector(".discussion__deleteBtn");
 const nav = document.querySelector("#nav");
 const feedsContents = document.querySelector(".feeds__contents");
-const feedDetail = document.querySelector("#feedDetail");
+const feedDetail = document.querySelector(".feedDetail");
 const feedDetailPreviousBtn = document.querySelector(
   ".feedDetail__previousBtn"
 );
-const feedDetailAnswer = document.querySelector(".answer__content");
 const userImg = document.querySelector(".userImg");
 const userName = document.querySelector(".userName");
 const uploadDate = document.querySelector(".uploadDate");
@@ -19,7 +18,31 @@ const formHeaderText = document.querySelector(".form__header_text");
 const feedDetailBellBtn = document.querySelector(".feedDetail__bellBtn");
 const feedDetailQuestion = document.querySelector(".question__content");
 const questionTitle = document.querySelector(".question__title");
-const answerTitle = document.querySelector(".answer__title");
+
+// 질문 배열
+const discussionsArray = [];
+let = isDetailPage = false;
+
+// 로컬스토리지 연동
+let localData = JSON.parse(localStorage.getItem("discussionsDB"));
+if (localData !== null) {
+  discussionsArray.push(...localData);
+} else {
+  // reduce가 더 좋음
+  agoraStatesDiscussions.forEach((discussion) => {
+    const copyObj = { ...discussion };
+    copyObj.answer = copyObj.answer === null ? [] : [copyObj.answer];
+    discussionsArray.push(copyObj);
+  });
+  localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
+}
+
+// 폼 초기화 함수
+const formReset = function () {
+  inputName.value = "";
+  inputTitle.value = "";
+  inputStory.value = "";
+};
 
 // 시간 변환 함수
 const timeConvert = function (time) {
@@ -29,7 +52,7 @@ const timeConvert = function (time) {
 //폼전송 이벤트
 submitBtn.addEventListener("click", () => {
   const isBlank = blankCheck();
-  if (!isBlank) {
+  if (!isBlank && !isDetailPage) {
     discussionsArray.unshift(createQuestion());
     formReset();
     localStorage.setItem("discussionsDB", JSON.stringify(discussionsArray));
@@ -37,19 +60,26 @@ submitBtn.addEventListener("click", () => {
     currentPage = 1;
     totalPage = Math.ceil(discussionsArray.length / 10);
     render(ul);
+  } else if (!isBlank && isDetailPage) {
+    console.log("a");
   }
 });
 
 // 디테일 페이지 ----------------------------------------------------
+
+const feedDetailAnswer = document.querySelector(".feedDetail__answer");
 
 // 사이드 폼 변환
 const converToForm = () => {};
 //디테일 렌더 함수
 const convertToDetail = (obj) => {
   //초기화
-  feedDetailQuestion.innerHTML = "";
-  feedDetailAnswer.innerHTML = "";
-  answerTitle.innerText = "";
+  while (feedDetailAnswer.firstChild) {
+    feedDetailAnswer.removeChild(feedDetailAnswer.firstChild);
+  }
+  while (feedDetailAnswer.firstChild) {
+    feedDetailAnswer.removeChild(feedDetailAnswer.firstChild);
+  }
   //적용
   userImg.src = obj.avatarUrl;
   userImg.alt = "avatar of " + obj.author;
@@ -60,20 +90,40 @@ const convertToDetail = (obj) => {
   // 사이드 폼 변경
   formHeaderText.innerHTML = "답변하기";
   // 답변 처리
-  if (obj.answer === null) return;
-  answerTitle.innerText = `${obj.answer.author}님의 답변입니다.`;
-  feedDetailAnswer.innerHTML = obj.answer.bodyHTML;
+  if (0 < obj.answer.length) {
+    obj.answer.forEach((element) => {
+      const li = document.createElement("li");
+      li.className = "feedDetail__answer--container";
+      const answerTitleWrapper = document.createElement("div");
+      answerTitleWrapper.className = "answer__title--wrapper";
+      const h6 = document.createElement("h6");
+      h6.innerText = "A.";
+      const answerTitle = document.createElement("h6");
+      answerTitle.className = "answer__title";
+      answerTitle.innerText = `${element.author}님의 답변입니다.`;
+      const answerContent = document.createElement("answer__content");
+      answerTitleWrapper.append(h6, answerTitle);
+      answerContent.className = "answer__content";
+      answerContent.innerHTML = element.bodyHTML;
+
+      li.append(answerTitleWrapper, answerContent);
+      feedDetailAnswer.appendChild(li);
+    });
+  }
 };
 //디테일 페이지 이동
 const enterDetailPage = (obj) => {
+  formReset();
+  isDetailPage = true;
   nav.classList.add("hidden");
   feedsContents.classList.add("hidden");
   feedDetail.classList.remove("hidden");
-  // 디테일 페이지 렌더
   convertToDetail(obj);
 };
 // 이전 페이지 이동
 feedDetailPreviousBtn.addEventListener("click", () => {
+  formReset();
+  isDetailPage = false;
   nav.classList.remove("hidden");
   feedsContents.classList.remove("hidden");
   feedDetail.classList.add("hidden");
@@ -84,16 +134,6 @@ feedDetailBellBtn.addEventListener("click", () => {
   alert("띠링띠링");
 });
 
-// 질문 배열
-const discussionsArray = [];
-// 로컬스토리지 연동
-let localData = JSON.parse(localStorage.getItem("discussionsDB"));
-if (localData !== null) {
-  discussionsArray.push(...localData);
-} else {
-  localStorage.setItem("discussionsDB", JSON.stringify(agoraStatesDiscussions));
-  discussionsArray.push(...agoraStatesDiscussions);
-}
 // 페이지 네이션
 let currentPage = 1;
 let totalPage = Math.ceil(discussionsArray.length / 10);
@@ -177,10 +217,10 @@ const convertToDiscussion = (obj) => {
   });
   const discussionAnswerBtn = document.createElement("img");
   discussionAnswerBtn.className = "discussion__answerBtn";
-  if (obj.answer === null) {
-    discussionAnswerBtn.src = "./edit_icon.png";
-  } else {
+  if (0 < obj.answer.length) {
     discussionAnswerBtn.src = "./check_icon.png";
+  } else {
+    discussionAnswerBtn.src = "./edit_icon.png";
   }
   discussionAnswerBtn.addEventListener("click", () => {
     enterDetailPage(obj);
@@ -232,13 +272,6 @@ const blankCheck = function () {
   }
 };
 
-// 폼 초기화 함수
-const formReset = function () {
-  inputName.value = "";
-  inputTitle.value = "";
-  inputStory.value = "";
-};
-
 // 질문 객체 생성
 const createQuestion = function () {
   const newObj = {
@@ -248,6 +281,7 @@ const createQuestion = function () {
     url: "",
     author: inputName.value,
     answer: null,
+    answerArray: [],
     // textarea 변환 공부
     bodyHTML: `<p dir="auto">${inputStory.value}</p>`,
     avatarUrl:
