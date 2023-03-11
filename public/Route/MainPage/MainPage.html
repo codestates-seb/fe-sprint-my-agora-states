@@ -9,9 +9,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="./MainPage.css">
-    <link rel="stylesheet" href="../../Components/Header/Header.css">
-    <link rel="stylesheet" href="../../Components/Footer/Footer.css">
+    <link rel="stylesheet" href="../../Route/MainPage/MainPage.css">
     <link rel="stylesheet" href="../../Components/RecentQuestion/RecentQuestion.css">
     <link rel="stylesheet" href="../../global-style.css">
     <title>Agora-States</title>
@@ -59,7 +57,7 @@
         </section>
 
         <section class="menu-container">
-            <div class="grid-item"><a href="../MainBoard/MainBoard.html?category=전체질문">전체 질문</a></div>
+            <div class="grid-item"><a href="/board?category=전체질문&page=1">전체 질문</a></div>
             <div class="grid-item">급해요 급해!</div>
             <div class="grid-item">라이브 세션 질문</div>
             <div class="grid-item">핫 토픽</div>
@@ -68,7 +66,7 @@
         </section>
 
         <section class="mini-board-container">
-            <div class="grid-item">
+            <div class="mini-board-left grid-item">
                 <label>최근 올라온 질문</label>
                 <div class="recent-question-container">
                     <ul class="recent-question-list">
@@ -94,7 +92,12 @@
         </section>
 
         <section class="how-to-use">
-
+            <p>아고라 스테이츠 이용 전 꿀팁 가이드 💡✨</p>
+            <ul>
+                <li>어떤 질문이 좋은 질문일까요? 알아보기 쉬운 질문 작성법을 알려드릴게요.</li>
+                <li>이용 전 알아야 할 아고라 스테이츠 기본 규칙에 대해 알아보세요 :)</li>
+                <li>내가 알고있는 걸 쉽게 풀어 설명하는 게 어려우신가요? 그 방법을 알려드릴게요.</li>
+            </ul>
         </section>
     </div>
 
@@ -102,8 +105,9 @@
     <footer id="Footer"></footer>
 
     <script src="../../data.js"></script>
-    <script src="./MainPage.js"></script>
+    <script src="../../Route/MainPage/MainPage.js"></script>
     <script src="../../Components/RecentQuestion/RecentQuestion.js"></script>
+
     <script src="https://kit.fontawesome.com/f48d1cc008.js" crossorigin="anonymous"></script>
 </body>
 </html>

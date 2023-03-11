@@ -17,12 +17,12 @@
     display: inline-block;
     color: var(--color-text);
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
 }
 
 .board-info {
     width: 100%;
-    height: 120px;
+    height: 140px;
     border: 1px solid var(--color-box-border);
     border-radius: 15px;
     color: var(--color-text);
@@ -33,12 +33,20 @@
     position: relative;
 }
 
+.board-info-textbox p {
+    font-size: 1.1rem;
+}
+
+.list-info div{
+    display: inline;
+}
+
 /* Board List */
 
 .board-list-container {
     width: 100%;
     height: auto;
-    margin-top: 50px;
+    margin-top: 60px;
     border: 1px solid var(--color-box-border);
     border-radius: 15px;
 }
@@ -50,9 +58,14 @@
     border-bottom: solid 1px var(--color-box-border);
 }
 
+
+/* Discussions */
+
 .discussion__container {
-    border: 1px solid green;
-    padding: 10px;
+    height: fit-content;
+    /* border: 1px solid green; */
+    border-bottom: 1px solid var(--color-footer-border);
+    padding: 15px 20px;
     display: flex;
 }
 
@@ -61,12 +74,13 @@
 }
 
 .discussion__avatar--wrapper img {
-    height: 50px;
+    height: 60px;
+    border-radius: 70%;
 }
 
 .discussion__content {
     width: 100%;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     margin-left: 15px;
     color: var(--color-text);
     display: flex;
@@ -75,22 +89,56 @@
 }
 
 .discussion__title {
-    width: 479px;
-    font-size: 1.1rem;
+    width: 100%;
+    font-size: 1.25rem;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.discussion__title:hover {
+    text-decoration: underline;
+}
+
 .discussion__info {
-    border: solid 1px purple;
+    /* border: solid 1px purple; */
     display: flex;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-top: 5px;
 }
 
 .discussion__author {
-    margin-right: 20px;
+    margin-right: 13px;
 }
 
 .discussion__date {
     color: var(--color-date-text);
+}
+
+
+/* Pagination */
+
+.pagination {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.pagination a {
+    color: var(--color-text);
+    padding: 8px 13px;
+    border-radius: 4px;
+    margin: 0 4px;
+    transition: box-shadow 0.2s;
+}
+
+.pagination a.active {
+    background-color: var(--color-pagination-bg);
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    box-shadow: inset 0 0 2px 1px #dddddd2f;
+}
+
+.page-number {
+    display: inline;
 }

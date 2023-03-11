@@ -1,27 +1,25 @@
 label {
     color: var(--color-text);
     font-weight: 600;
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     margin-left: 2%;
 }
 
 .recent-question-container, .hotTopic-container {
+    width: 100%;
     height: auto;
-    margin-top: 10px;
+    margin-top: 12px;
     border: solid 1px var(--color-box-border);
     border-radius: 15px;
     display: grid;
     grid-template-columns: 1fr;
 }
 
-.recent-question-container {
-    width: 570px;
-    margin-right: 30px;
-}
-
 .mini__discussion__container {
+    width: 100%;
     border-bottom: 1px solid var(--color-footer-border);
-    padding: 10px;
+    padding: 12px;
+    padding-left: 15px;
     display: flex;
 }
 
@@ -31,11 +29,12 @@ label {
 
 .mini__discussion__avatar--wrapper img {
     height: 50px;
+    border-radius: 70%;
 }
 
 .discussion__content {
     width: 90%;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     margin-left: 15px;
     color: var(--color-text);
     display: flex;
@@ -44,14 +43,18 @@ label {
 }
 
 .mini__discussion__title {
-    width: 479px;
+    width: 100%;
     font-size: 1.1rem;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.mini__discussion__title:hover {
+    text-decoration: underline;
+}
+
 .discussion__info {
-    border: solid 1px purple;
+    /* border: solid 1px purple; */
     display: flex;
     font-size: 0.9rem;
 }
@@ -67,4 +70,6 @@ label {
 .more-link {
     color: var(--color-text);
     text-align: right;
+    margin: 5px 0;
+    margin-right: 15px;
 }

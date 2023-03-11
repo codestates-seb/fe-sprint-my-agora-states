@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="RecentQuestion.css">
+    <link rel="stylesheet" href="../../Components/RecentQuestion/RecentQuestion.css">
     <link rel="stylesheet" href="../../global-style.css">
 </head>
 <body>
-    <label>최근 올라온 질문</label>
-    <div class="recent-question-container">
-        <ul class="recent-question-list">
-
-        </ul>
-    </div>
-
-    <script src="../../data.js"></script>
-    <script src="RecentQuestion.js"></script>
+    <section class="mini-board-container">
+        <div class="grid-item">
+            <label>최근 올라온 질문</label>
+            <div class="recent-question-container">
+                <ul class="recent-question-list">
+                </ul>
+                <a class="more-link">더 알아보기 ></a>
+            </div>
+        </div>
+        <div class="mini-board-right grid-item">
+            <div class="grid-item">
+                <label>이번주 HOT 토픽! 가장 많은 사람들이 고민한 질문이에요.</label>
+                <div class="hotTopic-container">
+                    <ul class="hotTopic-list">
+                    </ul>
+                    <a class="more-link">더 알아보기 ></a>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div>
+                    머리풀기용 간단 질문 & 퀴즈
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

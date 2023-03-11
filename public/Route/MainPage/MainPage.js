@@ -7,7 +7,4 @@ async function importPage(target) {
 
 importPage('Header');
 importPage('Footer');
-// importPage('Profile');
 // importPage('RecentQuestion');
-// importPage('HotTopic');
-// importPage('MiniQuestion');
