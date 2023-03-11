@@ -2,127 +2,131 @@
 
 * {
   box-sizing: border-box;
-  font-size: 1vw;
-  width: 70vw;
-  border: 0.1vw solid gray;
+  font-size: 0.8vw;
   margin: 0.1vw auto;
-  padding: 0;
+  padding: 0.1vw;
+  /* border: 0.1vw solid gray; */
 }
 
+body {
+  background-image: url(./image/배경.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
 main {
-  width: 65vw;
+  width: 80vw;
+  height: 60vw;
+  border-radius: 3vw;
+  background-color: rgba(251, 211, 219, 0.5);
+  box-shadow: 0 0 1vw 0.1vw rgb(244, 185, 196);
 }
 
 h1 {
-  width: 60vw;
-  height: 3vw;
-  margin: 0.5vw auto;
-  padding: 0.2vw 1vw;
-  font-size: 2vw;
+  width: 40vw;
+  height: 2.5vw;
+  border-radius: 3vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 1vw 0.1vw rgb(244, 185, 196);
+  margin: 1vw auto;
+  padding: 0.1vw;
+  text-align: center;
+  font-size: 1.5vw;
+  font-weight: bold;
 }
 
-section {
-  width: 60vw;
-}
-
-form {
-  width: 55vw;
+content {
+  display: flex;
+  width: 70vw;
 }
 
 .form__input--wrapper {
-  width: 50vw;
+  width: 25vw;
+  border-radius: 3vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 1vw 0.1vw rgb(244, 185, 196);
 }
 
-.form__input--name {
-  display: flex;
-  flex-direction: column;
-  width: 45vw;
-}
-
-.form__input--title {
-  display: flex;
-  flex-direction: column;
-  width: 45vw;
-}
-
+.form__input--name,
+.form__input--title,
 .form__textbox {
   display: flex;
   flex-direction: column;
-  width: 45vw;
+  margin: 1.5vw auto;
 }
 
-.form__submit {
-  width: 50vw;
-}
-
-label {
-  text-align: center;
-  width: 7.5vw;
-  border: solid rgb(76, 76, 409);
-  background: rgb(211, 211, 555);
-  margin: 0.2vw auto;
-  padding: 0.2vw;
-}
-
-input {
+label,
+.submit_button {
   display: block;
+  width: 10vw;
+  border-radius: 3vw;
+  background-color: rgba(251, 211, 219, 0.5);
+  box-shadow: 0 0 1vw 0.1vw rgb(244, 185, 196);
+  margin: 0.1vw auto 0.5vw;
   text-align: center;
-  width: 35vw;
-  margin: 0.2vw auto;
-  padding: 0.2vw;
+  font-weight: bold;
+  font-size: 1vw;
+}
+
+input,
+textarea {
+  width: 20vw;
+  border: 0.1vw none gray;
+  border-radius: 3vw;
+  background-color: rgba(251, 211, 219, 0.5);
+  box-shadow: inset 0 0 1vw 0.1vw rgb(244, 185, 196);
+  margin: 0.1vw auto;
+  padding: 0.5vw;
+  text-align: center;
 }
 
 textarea {
-  text-align: center;
-  width: 40vw;
-  height: 10vw;
-  margin: 0.2vw auto;
-  padding: 0.2vw;
+  height: 15vw;
+  padding: 0.5vw 2vw;
 }
 
-ul {
-  width: 55vw;
+.discussion__container {
+  width: 42.5vw;
+  border-radius: 3vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 1vw 0.1vw rgb(244, 185, 196);
+  margin: 0.1vw auto 1vw;
+}
+
+.discussion__avatar--image {
+  display: block;
+  width: 5vw;
+  border-radius: 3vw;
+  background-color: rgba(251, 211, 219);
+  box-shadow: 0 0 1vw 0.1vw rgb(244, 185, 196);
+  margin: 1vw auto;
+}
+
+.discussion__content {
+  display: block;
+  width: 37.5vw;
+  border-radius: 3vw;
+  background-color: rgba(251, 211, 219, 0.5);
+  box-shadow: inset 0 0 1vw 0.1vw rgb(244, 185, 196);
+  padding: 0.5vw 2vw;
+}
+
+a {
+  font-size: 1vw;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+p {
+  width: 2vw;
+  border-radius: 3vw;
+  background-color: rgba(251, 211, 219, 0.5);
+  box-shadow: inset 0 0 1vw 0.1vw rgb(244, 185, 196);
+  text-align: center;
+  margin: 0.1vw auto 1vw;
 }
 
 li {
   list-style: none;
-  width: 50vw;
-}
-
-.discussion__avatar--wrapper {
-  width: 4vw;
-}
-
-img {
-  display: block;
-  width: 3vw;
-  border-radius: 70%;
-  padding: 0.1vw;
-}
-
-.discussion__content {
-  width: 45vw;
-}
-
-h2 {
-  font-size: 2vw;
-  width: 40vw;
-  margin: 0.1vw auto;
-}
-
-div {
-  width: 40vw;
-}
-
-.discussion__answered {
-  text-align: center;
-  width: 45vw;
-}
-
-p {
-  width: 35vw;
-}
-
-div.discussion__content > div {
-  text-align: right;
 }
