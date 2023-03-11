@@ -153,7 +153,7 @@ buttons.children[1].addEventListener("click", () => {
 buttons.children[2].addEventListener("click", () => {
   localStorage.removeItem("agoraStatesDiscussions");
   data = agoraStatesDiscussions.slice();
-  limit = 10;
+  limit = 5;
   page = 1;
   render(ul, 0, limit);
 });
