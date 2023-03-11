@@ -150,7 +150,7 @@ if (lastNum > pageTotal) {
 let firstNum = lastNum - 4 ? currentPage : 1;
 // 179번. 숫자들 써있는 버튼을 클릭시 게시물보여짐
 function godDaeun(event) {
-  console.log(event.currentTarget);
+  // console.log(event.currentTarget);
   let btnNum = event.currentTarget.textContent;
   renderStart = (btnNum - 1) * 5;
   renderEnd =
@@ -187,7 +187,7 @@ navWrap.append(addBtn());
 
 const nextBtn = document.querySelector(".nextBtn");
 function clickNextBtn(event) {
-  console.log(event.currentTarget.previousElementSibling);
+  // console.log(event.currentTarget.previousElementSibling);
   let nextNum = event.currentTarget.previousElementSibling.textContent;
   if (nextNum >= pageTotal) {
     //event.currentTarget.previousElementSibling.textContent는 event.currentTarget의 앞에있는 요소의textContent
