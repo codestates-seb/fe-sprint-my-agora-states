@@ -129,6 +129,8 @@ buttons.lastElementChild.addEventListener("click", () => {
 
 // 페이지네이션 (1,2,3,..) 기능 구현
 
+
+// 페이지네이션 1,2,3,.. UI 구현
 const totalItems = agoraStatesDiscussions.length;
 const totalPages = Math.ceil(Number(totalItems)/Number(limit));
 
