@@ -36,8 +36,6 @@ const convertToDiscussion = (obj) => {
     time = "";
   }
 
-  // author와 time을 info 변수에 저장
-
   // 전구 그림  img 태그 생성 (on/off)
   const on = document.createElement("img");
   on.src = "./img/cartoon-1294877_640.png";
