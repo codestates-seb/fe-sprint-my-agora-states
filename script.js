@@ -1,5 +1,13 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+//
 console.log(agoraStatesDiscussions);
+let data;
+const dataFromLocalStorage = localStorage.getItem('agoraStatesDiscussions');
+if (dataFromLocalStorage){
+  data = JSON.parse(dataFromLocalStorage);
+}else {
+  data = agoraStatesDiscussions.slice();
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -44,6 +52,23 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// data 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element, from, to) => {
+  console.log(from, to);
+  if (!form && !to) {
+    from = 0;
+    to = data.length -1;
+  }
+  // 다 지우고 배열에 잇는내용 보여줌
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
+    element.append(convertToDiscussion(data[i]));
+  }
+  return;
+}
+
 
 //submit 이벤트
 const form = document.querySelector('form.form');
@@ -78,19 +103,60 @@ form.addEventListener('submit',(event) => {
   title.value = "";
   author.value ="";
   story.value = "";
+
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+
+//렌더링
+render(ul, 0, limit);
 })
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+
+//페이지네이션
+let limit = 5;
+page = 1;
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+render(ul, 0, limit);
+
+const getPageStartEnd = (limit, page) => {
+  const len = data.length - 1;
+  let pageStart = Number(page - 1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if (page <= 0) {
+    pageStart = 0;
+  }
+  if (pageEnd >= len) {
+    pageEnd = len;
+  }
+  return { pageStart, pageEnd };
+};
+//button
+const buttons = document.querySelector(".buttons");
+buttons.children[0].addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[1].addEventListener("click", () => {
+  if (limit * page < data.length - 1) {
+    page = page + 1;
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[2].addEventListener("click", () => {
+  localStorage.removeItem("agoraStatesDiscussions");
+  data = agoraStatesDiscussions.slice();
+  limit = 10;
+  page = 1;
+  render(ul, 0, limit);
+});
 
 
 
