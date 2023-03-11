@@ -6,6 +6,10 @@ categoryTitle.textContent = category;
 
 // 페이지 번호 가져오기
 let pagenum = parseInt(urlParams.get('page'));
+let rowStart = pagenum*15-14;
+let rowEnd = pagenum*15;
+if(rowEnd > agoraStatesDiscussions.length) rowEnd = agoraStatesDiscussions.length;
+
 
 //게시판 글 불러오기
 const convertToDiscussion = (obj) => {
@@ -49,7 +53,7 @@ const convertToDiscussion = (obj) => {
 };
 
 const render = (element) => {
-  for (let i = 0; i < 15; i += 1) {
+  for (let i = rowStart-1; i <= rowEnd-1; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -59,7 +63,7 @@ const boardList = document.querySelector("ul.board-list");
 render(boardList);
 
 
-// 오늘 업로드 된 글 개수
+// 오늘 업로드 된 글 개수 & 게시판 총 글 개수
 const today = new Date();
 let cnt = 0;
 agoraStatesDiscussions.every((discussion) => {
@@ -68,10 +72,11 @@ agoraStatesDiscussions.every((discussion) => {
   } else return false;
 })
 
-// 게시판 총 글 개수
 const total = agoraStatesDiscussions.length;
 const todayInfoText = document.querySelector('.today-cnt');
 todayInfoText.textContent = cnt;
+const nowPostCnt = document.querySelector('.now-cnt');
+nowPostCnt.textContent = pagenum*15;
 const totalPostCnt = document.querySelector('.total-cnt');
 totalPostCnt.textContent = total;
 
@@ -80,32 +85,51 @@ const pageNumberBox = document.querySelector('.page-number');
 
 const addPageNum = (i) => {
   const page = document.createElement('a');
-  page.href = `../../board?category=${category}&page=${i}`;
+  page.href = `/board?category=${category}&page=${i}`;
   page.textContent = i;
+  if(i === pagenum) page.className = 'active';
   pageNumberBox.append(page);
 }
 
-let rowStart = 0, rowEnd = 0;
 let nowPageNum = pagenum;
 let pageCount = 0;
 let tmp = 0, startpage =1, endpage = 10;
 
-if(total % 15 === 0) pageCount = total / 15;
-else pageCount = total/15 + 1;
+if(total % 15 === 0) pageCount = parseInt(total / 15);
+else pageCount = parseInt(total/15) + 1;
 
-tmp = (nowPageNum -1) % 15;
+tmp = (nowPageNum -1) % 10;
 startpage = nowPageNum - tmp;
-endpage = startpage + 14;
+endpage = startpage + 9;
 if(endpage > pageCount) endpage = pageCount;
 
-if(pageCount < 10) {
-  for(let i=startpage; i<=endpage; i++){
-    addPageNum(i);
-  }
+let prevBtn = document.querySelector('.prev');
+let nextBtn = document.querySelector('.next');
+
+if(pagenum > 10) {
+  prevBtn.href = `/board?category=${category}&page=${startpage-10}`;
+} else prevBtn.href = `/board?category=${category}&page=1`;
+
+if(pagenum <= pageCount-9) {
+  nextBtn.href = `/board?category=${category}&page=${startpage+10}`;
+} else nextBtn.href = `/board?category=${category}&page=${endpage}`;
+
+for(let i=startpage; i<=endpage; i++){
+  addPageNum(i);
 }
 
 pageNumberBox.childNodes.forEach((a)=>{
   a.addEventListener("click", (e) => {
-    e.target.className = "active";
+    pageNumberBox.childNodes.forEach((a)=>{
+      e.target.classList.remove('active');
+    })
   })
 })
+
+prevBtn.addEventListener("click", (e) => {
+  if(pagenum === 1) e.preventDefault();
+});
+
+nextBtn.addEventListener("click", (e) => {
+  if(pagenum === pageCount) e.preventDefault();
+});
