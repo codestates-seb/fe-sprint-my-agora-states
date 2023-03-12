@@ -1,0 +1,204 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    margin-left: 10px;
+}
+
+.main__head {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* margin-top: 100px; */
+    padding-top: 100px;
+    /* background-color: #ffb4b4; */
+    /* opacity: 0.9; */
+    background-image: url('KakaoTalk_Image_2023-03-11-23-32-12.png');
+    background-size: contain;
+}
+.heading {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+    /* align-items: center; */
+}
+
+.main-img {
+    width: 48px;
+    height: 50px;
+    padding-bottom: 0px;
+    background-color: white;
+}
+
+.h1 {
+    font-size: 50px;
+    display: flex;
+    color: #452ddd;
+    background-color: white;
+}
+
+.form__container {
+    margin-top: 50px;
+    background-color: #001b68;
+    border-radius: 10px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 5px 0px 5px;
+    color: white;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    color: white;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: end;
+    height: 30px;
+    padding-right: 5px;
+}
+
+.submitBtn {
+    font-size: 40px;
+    color: #001b68;
+}
+
+.notice__wrapper {
+    flex: 0 0 30%;
+    background-color: rgba(95, 70, 255, 0.9);
+    opacity: 0.9;
+    /* background-image: url('KakaoTalk_Image_2023-03-11-23-32-12.png'); */
+    /* background-size: contain; */
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* align-items: center; */
+}
+
+.notices__container {
+    /* opacity: ; */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.notice__container {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    background-color: rgba(229, 227, 227, 0.722);
+    opacity: 0.9;
+    margin-top: 10px;
+    margin-bottom: 5px;
+ }
+
+.discussion__wrapper {
+    flex: 0 0 30%;
+    background-color: rgba(95, 70, 255, 0.9);
+    opacity: 0.9;
+    /* background-image: url('KakaoTalk_Image_2023-03-11-23-32-12.png'); */
+    /* background-size: contain; */
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discussions__container {
+    /* opacity: ; */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    background-color: rgba(229, 227, 227, 0.722);
+    opacity: 0.9;
+    margin-top: 10px;
+    margin-bottom: 5px;
+ }
+
+.discussion__avatar--wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 70px;
+    /* height: 48px; */
+}
+
+.discussion__content {
+    width: 450px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* white-space: normal; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+}
+
+.discussion__title {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* color: #bad7e9; */
+    padding-left: 10px;
+}
+
+.discussion__title a{
+    color: #452ddd;
+}
+
+.discussion__title a:hover {
+    background-color: rgba(255, 255, 255, 0.389);
+    color: #001b68;
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
+
+.pagination {
+    display: inline-block;
+    /* align-self: flex-end; */
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.pagination a:hover {
+    background-color: tomato;
+    color: white;
+}
