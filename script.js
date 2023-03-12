@@ -79,28 +79,15 @@ if (!localStorage.getItem("localDiscussionArray")) {
   saveDataLocalStorage("localDiscussionArray", agoraStatesDiscussions);
 }
 
-//로컬 스토리지에서 불러와 렌더링
-let ul = document.querySelector("ul.discussions__container");
-const render = (element) => {
-  let arr = loadDataLocalStorage("localDiscussionArray");
-  for (let i = 0; i < arr.length; i += 1) {
-    element.append(convertToDiscussion(arr[i]));
-  }
-  return;
-};
-
-render(ul);
-
 //질문 추가하기 구현
 const form = document.querySelector("form");
+let loadedLocalArr = loadDataLocalStorage("localDiscussionArray");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(e);
   let nameInput = e.target[0].value;
   let titleInput = e.target[1].value;
   let storyInput = e.target[2].value;
-  let loadedLocalArr = loadDataLocalStorage("localDiscussionArray");
 
   const randomNum = Math.floor(Math.random() * 10 + 1);
   //로컬스토리지에 데이터 추가하기
@@ -116,11 +103,8 @@ form.addEventListener("submit", (e) => {
   });
   saveDataLocalStorage("localDiscussionArray", loadedLocalArr);
 
-  ul.innerHTML = "";
-  render(ul);
-  rows = document.querySelectorAll(".discussion__container");
-  displayPage(0);
-
+  ul.replaceChildren();
+  render(ul, 0);
   //폼 제출하면 내용 지우기
   document.querySelector("#name").value = "";
   document.querySelector("#title").value = "";
@@ -129,53 +113,56 @@ form.addEventListener("submit", (e) => {
 
 //페이지네이션 구현
 
-const rowsPerPage = 10;
-let rows = document.querySelectorAll(".discussion__container");
-const rowsCount = rows.length;
-const pageCount = Math.ceil(rowsCount / rowsPerPage); //(전체 목록 수)/(페이지당 목록 수)
-const pageNumbers = document.querySelector("#page_numbers");
-
 //페이지 숫자 화면에 생성
-for (let i = 1; i <= pageCount; i++) {
-  pageNumbers.innerHTML += `<li class='list'><a class='pg_num' href"">${i}</a></li>`;
-}
+const listsPerPage = 10;
+const pageNumbers = document.querySelector("#page_numbers");
+const ul = document.querySelector("ul.discussions__container");
+let currentPage = 0;
+let dataLength;
+let pageCount;
+let numberBtn;
 
-const numberBtn = pageNumbers.querySelectorAll(".pg_num");
+const makePageNum = function () {
+  pageNumbers.replaceChildren();
+  for (let i = 1; i < pageCount + 1; i++) {
+    pageNumbers.innerHTML += `<li class='list'><a class='pg_num' href"">${i}</a></li>`;
+  }
+  numberBtn = document.querySelectorAll(".pg_num");
+  numberBtn[0].classList.add("active");
+};
 
-//클릭 이벤트(현재 페이지가 어디인지 숫자 스타일로 보여주고 그 페이지의 질문 목록을 화면에 표시)
-numberBtn.forEach((item, idx) => {
-  item.addEventListener("click", (e) => {
-    e.preventDefault();
-    //현재 페이지 번호에만 스타일링: 먼저 활성화 상태를 전부 지운다
+//클릭 이벤트 발생시
+pageNumbers.addEventListener("click", (e) => {
+  if (e.target.className === "pg_num") {
+    let idx = parseInt(e.target.textContent) - 1;
+    currentPage = idx;
+    render(ul, currentPage);
     for (nb of numberBtn) {
       nb.classList.remove("active");
     }
     //클릭하면 해당 버튼만 활성화된다
-    e.target.classList.add("active");
-    //화면에 목록 표시
-    displayPage(idx);
-  });
+    numberBtn[idx].classList.add("active");
+  }
 });
 
-document.querySelector(".pg_num").classList.add("active");
+//렌더 함수
+const render = (element, page) => {
+  ul.replaceChildren();
+  dataLength = loadedLocalArr.length;
+  pageCount = Math.ceil(dataLength / listsPerPage);
+  let start = page * listsPerPage;
+  let end =
+    page === pageCount - 1
+      ? start + (dataLength % listsPerPage)
+      : start + listsPerPage;
+  console.log(start, end);
 
-//화면에 목록 표시
-function displayPage(idx) {
-  let start = idx * rowsPerPage;
-  let end = start + rowsPerPage;
-  let rowsArray = [...rows];
-
-  //전부 화면에서 감추기
-  for (ra of rowsArray) {
-    ra.className = "discussion__container hide";
+  for (let i = start; i < end; i += 1) {
+    element.append(convertToDiscussion(loadedLocalArr[i]));
   }
+  makePageNum();
+  return;
+};
 
-  //표시할 목록만 띄우기
-  let newRows = rowsArray.slice(start, end);
-  for (nr of newRows) {
-    nr.className = "discussion__container";
-  }
-  console.log(newRows);
-}
-//처음에 1페이지 표시
-displayPage(0);
+render(ul, 0);
+numberBtn[0].classList.add("active");
