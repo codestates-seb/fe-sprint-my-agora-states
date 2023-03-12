@@ -23,8 +23,7 @@ const convertToDiscussion = (obj) => {
   const titleAnchor = document.createElement("a");
   titleAnchor.href = obj.url;
   titleAnchor.textContent = obj.title;
-  contentTitle.append(titleAnchor) 
-
+  contentTitle.append(titleAnchor);
   const contentInfo = document.createElement("div");
   contentInfo.className = 'discussion__information';
   contentInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
