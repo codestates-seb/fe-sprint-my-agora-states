@@ -23,7 +23,7 @@ h1 {
 
 .form__container {
   font-family: "Climate Crisis", cursive;
-
+  margin: auto;
   width: 540px;
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@ h1 {
 
 button {
   width: 100px;
-  height: 45px;
+  height: 50px;
 
   background-color: var(--button);
   border: 2px solid var(--border);
