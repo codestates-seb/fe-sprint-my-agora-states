@@ -1,1 +1,323 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0px ;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+body {
+
+    font-family: 'NanumSquareNeo-Variable';
+    background-color: #ffeab1;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.agora-container{
+    margin: 50px;
+    width: 600px;
+    padding: 15px;
+    border: 5px solid 01e462;
+    border-radius: 37px;
+    background: #ECF2FF;
+    box-shadow:  8px 8px 4px #a183c2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header {
+    margin: 0 ;
+    width: 100%;
+    text-align: center;
+}
+
+
+input {
+    outline:none;
+    color: rgb(122, 122, 122);
+}
+textarea {
+    outline:none;
+    color:rgb(122, 122, 122);
+    
+}
+
+#name {   
+    width:540px;
+    height:40px;
+    font-size:16px;
+    border-radius:17px;
+    padding : 15px;
+    margin-bottom: 5px;
+    border: none;
+    font-family: 'NanumSquareNeo-Variable';
+    border-radius: 37px;
+    background: #FFF4D2;
+    box-shadow:  6px 6px 10px #ffeab1;
+    
+
+}
+
+input::placeholder {
+    color: #d8b3ff;
+    font-style: italic;
+  }
+
+  textarea::placeholder {
+    color: #d8b3ff;
+    font-style: italic;
+  }
+
+
+
+#title {
+    width:540px;
+    margin-bottom: 5px;
+    height:40px;
+    font-size:16px;
+    border-radius:17px;
+    padding : 15px;
+    border: none;
+    background-color: #e5fdd1;
+    font-family: 'NanumSquareNeo-Variable';
+    border-radius: 37px;
+    background: #FFF4D2;
+    box-shadow:  6px 6px 10px #ffeab1;
+
+}
+
+#story {
+    width: 540px;
+    height:100px;
+    font-size:16px;
+    padding : 15px;
+    border: none;
+    font-family: 'NanumSquareNeo-Variable';
+    border-radius: 37px;
+    background: #FFF4D2;
+    box-shadow:  6px 6px 10px #ffeab1;
+}
+
+#submit {
+    font-family: 'NanumSquareNeo-Variable';
+    width:130px;
+    font-size: 16px;
+    border-radius: 20px;
+    color: #FFF4D2;
+    border: none;
+    background-color: #d4acff;
+    box-shadow:  6px 6px 12px #d2bde9,
+                 -6px -6px 12px #ffffff;
+    height: 40px;
+}
+
+#submit:active {
+    margin-top: 3px;
+    margin-left: 3px;
+    box-shadow: none;
+}
+
+#title:focus {
+    animation-name: background-focus;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+#name:focus {
+    animation-name: background-focus;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+textarea:focus {
+    animation-name: background-focus;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes background-focus {
+    from {
+        background-color: #FFF4D2;
+    }
+    to {
+        background-color: #fffbee;
+    }
+}
+
+
+
+
+
+
+h1 {
+    padding: 10px;
+    font-size: 50px;
+    color: #d4acff;
+    font-weight:bolder;
+    font-family: 'NanumSquareNeo-Variable';
+    border-radius: 37px;
+    font-weight:900;
+    font-style: italic;
+    text-shadow: 5px 5px #FFF4D2;
+    letter-spacing: 4px;
+    
+}
+
+.form__submit{
+    margin-bottom: 15px;
+    text-align: center;
+    
+}
+
+
+.form__input--wrapper {
+
+    display: flex;
+    height: 230px;
+    flex-direction: column;
+    justify-content: space-around ;
+    align-items:center;
+    
+
+}
+
+
+
+
+/* .scroll{
+    height:400px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+  
+}
+.scroll::-webkit-scrollbar {
+    display: none;
+  } */
+
+
+
+  .discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul.discussions__container{
+    text-align: center;
+}
+
+
+li.discussion__container { /* 질문 디스커션  */
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    width: 540px; 
+    height: auto;
+    margin-bottom: 5px;
+    border-bottom: 5px solid #E3DFFD;
+    border-right: 5px solid #E3DFFD;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+
+div.discussion__content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 2px;
+    padding: 0px 10px;
+
+}
+
+img.discussion__avatar--image { /* 사진 css */
+    width:48px;
+    border-radius: 70%;
+  
+    box-shadow:  3px 3px 5px #E3DFFD;
+    
+}
+
+
+
+div.discussion__avatar--wrapper {  /* 사진의 부모요소  */
+    display: flex;
+    align-items: center; /* 아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록  */
+}
+
+
+
+
+
+h2.discussion__title {
+    text-align: left;
+    margin-bottom: 10px;
+
+    
+}
+
+
+div.discussion__information {
+    text-align: right;
+    font-size: 10px;
+    font-weight: bolder;
+    color: rgb(122, 122, 122);
+}
+
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+
+}
+
+a {
+    font-size: 14px;
+    color:rgb(122, 122, 122);
+}
+
+
+.color {
+    color: rgb(252, 109, 109);
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    
+}
+
+section.buttons {
+    display: flex;
+  }
+  
+section.buttons > button {
+    flex: 1 0 0;
+    font-family:'NanumSquareNeo-Variable';
+    border: 0;
+    border-radius: 100px;
+    padding: 6px;
+    margin: 0 0.5rem;
+    background-color: #FFF4D2;
+    color :#d4acff
+
+  }
