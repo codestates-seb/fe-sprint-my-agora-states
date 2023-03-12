@@ -111,6 +111,17 @@ buttons.lastElementChild.addEventListener("click", () => {
   render(ul, pageStart, pageEnd);
 });
 
+// local storage reset 버튼 구현
+
+const resetButton = document.querySelector('section.localStorage_reset');
+resetButton.addEventListener('click', () => {
+  localStorage.removeItem('agoraStatesDiscussions');
+  data = agoraStatesDiscussions.slice();
+  limit = 10;
+  page = 1;
+  render(ul, 0, limit);
+})
+
 // 페이지네이션 (1,2,3,..) 기능 구현
 
 const totalItems = agoraStatesDiscussions.length;
