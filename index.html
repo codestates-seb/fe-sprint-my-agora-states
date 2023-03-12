@@ -1,60 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agora States</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+      integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
-    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
-  <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+  <body>
+    <header id="header">
+      <div class="header__wrapper">
+        <div class="header__container">
+          <img src="./logo.png" />
+          <div class="header__user">
+            <h2 class="header__user--id">라이언 하르트</h2>
+            <img src="./ryan.jpg"/>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
+      </div>
+    </header>
+    <main>
+      <div class="main__container">
+        <!-- 피드 -->
+        <div id="feeds">
+            <section class="feeds__contents">
+              <ul class="discussions__container"></ul>
+            </section>
+            <nav id="nav">
+              <button class="nav__previousPage">
+                <img src="./previous_icon.png"/>
+              </button>
+              <ul class="nav__btns"></ul>
+              <button class="nav__nextPage">
+                <img src="./next_icon.png"/>
+              </button>
+            </nav>
+            <!-- 피드 상세페이지 -->
+            <section class="feedDetail hidden">
+              <div class="feedDetail__header">
+                <button class="feedDetail__previousBtn">
+                  <img src="./previous_icon.png"/>
+                </button>
+                <button class="feedDetail__bellBtn">
+                  <img src="./bell_icon.png"/>
+                </button>
+              </div>
+              <div class="feedDetail__content--wrapper">
+                <div class="feedDetail__user">
+                  <img class="userImg"/>
+                  <div class="userInfo">
+                    <h5 class="userName"></h5>
+                    <p class="uploadDate"></p>
+                  </div>
+                </div>
+                <div class="feedDetail__content">
+                  <div class="feedDetail__question">
+                    <div class="question__title--wrapper">
+                      <h6>Q.</h6>
+                      <h6 class="question__title"></h6>
+                    </div>
+                    <div class="question__content">
+                      <!-- 질문 렌더링 -->
+                    </div>
+                  </div>
+                  <ul class="feedDetail__answer">
+                  </ul>
+                </div>
+                <nav class="feedDetail__reaction"></nav>
+              </div>
+            </section>
         </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
-  </main>
-</body>
-<script src="data.js"></script>
-<script src="script.js"></script>
-
+        <!-- 사이드 폼 -->
+        <aside id="form">
+          <form action="" method="get" class="form">
+            <div class="form__header">
+              <h2 class="form__header_text">질문하기</h2>
+              <img src="./info_icon.png"/>
+            </div>
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <h4 class="form__input--nameTitle">QUESTIONER</h4>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form__input--title">
+                <h4>QUESTION TITLE</h4>
+                <input type="text" name="title" id="title" required />
+              </div>
+              <div class="form__textbox">
+                <h4 class="form__story--title">QUESTION CONTENT</h4>
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder="내용을 작성하세요"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="form__submit--wrapper">
+              <button type="button" id="submitBtn">SUBMIT</button>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </main>
+  </body>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </html>
