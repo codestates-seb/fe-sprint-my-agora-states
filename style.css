@@ -5,12 +5,7 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: 'Dovemayo_gothic';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 @font-face {
     font-family: 'NanumSquareNeo-Variable';
@@ -46,8 +41,7 @@ main {
     box-shadow:  8px 8px 4px #a183c2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 header {
@@ -64,6 +58,7 @@ input {
 textarea {
     outline:none;
     color:rgb(122, 122, 122);
+    
 }
 
 #name {   
@@ -198,18 +193,15 @@ h1 {
     height: 230px;
     flex-direction: column;
     justify-content: space-around ;
-    align-items:start;
+    align-items:center;
     
 
 }
 
-.discussion__wrapper {
-    height:430px;
-    overflow: hidden;
 
 
-} 
-.scroll{
+
+/* .scroll{
     height:400px;
     overflow-y: scroll;
     margin-bottom: 20px;
@@ -217,11 +209,15 @@ h1 {
 }
 .scroll::-webkit-scrollbar {
     display: none;
-  }
+  } */
 
 
 
-
+  .discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 ul.discussions__container{
     text-align: center;
@@ -239,9 +235,6 @@ li.discussion__container { /* 질문 디스커션  */
     border-right: 5px solid #E3DFFD;
     border-radius: 20px;
     padding: 10px;
-
-
-
 
 }
 
@@ -262,9 +255,10 @@ img.discussion__avatar--image { /* 사진 css */
     border-radius: 70%;
   
     box-shadow:  3px 3px 5px #E3DFFD;
-
     
 }
+
+
 
 div.discussion__avatar--wrapper {  /* 사진의 부모요소  */
     display: flex;
@@ -281,6 +275,7 @@ h2.discussion__title {
 
     
 }
+
 
 div.discussion__information {
     text-align: right;
@@ -310,3 +305,19 @@ a {
     font-size: 26px;
     
 }
+
+section.buttons {
+    display: flex;
+  }
+  
+section.buttons > button {
+    flex: 1 0 0;
+    font-family:'NanumSquareNeo-Variable';
+    border: 0;
+    border-radius: 100px;
+    padding: 6px;
+    margin: 0 0.5rem;
+    background-color: #FFF4D2;
+    color :#d4acff
+
+  }

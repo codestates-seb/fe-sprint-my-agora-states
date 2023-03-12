@@ -1,5 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+let data;
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -58,6 +65,85 @@ const convertToDiscussion = (obj) => {
 
 };
 
+
+
+
+
+// 답변 유무 함수
+const answerCheck = (obj) => {
+  
+  return obj.answer === null; // 답변이 없는가 ?
+};
+
+
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element, from, to) => {
+  console.log(from , to) ;
+  if (!from && !to) {
+    from = 0;
+    to = data.length- 1;
+  }
+  // 다 지우고 배열에 있는 내용 다 보여주기 
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  for (let i = from; i < to; i += 1) {
+    element.append(convertToDiscussion(data[i]));
+  }
+  return ;
+};
+
+
+
+//페이지네이션을 위한 변수
+let limit = 4,
+  page = 1;
+
+// ul 요소에 data 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul, 0, limit);
+
+
+
+const getPageStartEnd = (limit, page) => {
+  const len = data.length -1;
+  let pageStart = Number(page-1) * Number(limit);
+  let pageEnd = Number(pageStart) + Number(limit);
+  if(page <=0){
+    pageStat = 0;
+  } 
+  if(pageEnd >= len) {
+    pageEnd = len;
+  }
+  return {pageStart, pageEnd}; // page 시작과 끝을 리턴
+};
+
+const buttons = document.querySelector('.buttons');
+// <- 이전 버튼을 클릭했을때 
+buttons.children[0].addEventListener("click", ()=> {
+  if (page > 1){ //페이지가 1보다 큰 페이지라면 (1이 제일 첫번째 페이지)
+    page = page-1; // 이전 페이지로 넘어가 주세요 
+  }
+  const { pageStart, pageEnd } = getPageStartEnd(limit, page); // 다음으로 넘어간 페이지로 시작 끝 점을 다시 선언
+  render(ul, pageStart, pageEnd);  // 해당 페이지 data배열의 모든 요소를 화면에 렌더링
+});
+// -> 다음 페이지 버튼을 클릭 했을 때
+buttons.children[1].addEventListener("click", () => {
+  if(limit*page <data.length-1) {  // 데이터의 총 개수보다 limit*page 수가 적다면 다음페이지를 추가 생성 ..?
+    page = page+1
+  }
+  const{pageStart, pageEnd} = getPageStartEnd(limit, page);
+  render(ul, pageStart, pageEnd);
+});
+
+buttons.children[2].addEventListener("click", () => {
+  localStorage.removeItem("agoraStatesDiscussions");
+  data = agoraStatesDiscussions.slice();
+  limit = 4;
+  page = 1;
+  render(ul, 0, limit);
+});
+
 //submit 버튼 눌렀을 때의 함수
 const form = document.querySelector("form.form");
 const title = document.querySelector("input#title");
@@ -82,36 +168,20 @@ form.addEventListener('submit', (event) => {
     },
     bodyHTML:story.value,
     avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+      "chen.png",
   };
-  ul.prepend(convertToDiscussion(newDicussion));
+  data.unshift(newDicussion);
+  // ul.prepend(convertToDiscussion(newDicussion));
+
+
+
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+
+  render(ul, 0, limit);
+
   title.value = "";
   author.value = "";
   story.value = "";
-
 });
 
-
-
-
-
-
-// 답변 유무 함수
-const answerCheck = (obj) => {
-  
-  return obj.answer === null; // 답변이 없는가 ?
-};
-
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return ;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
 
