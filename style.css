@@ -1,1 +1,313 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a:link {
+  color: black;
+}
+a:visited {
+  color: gray;
+}
+a {
+  font-family: "Tilt Warp", cursive;
+}
+.text__container{
+  display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.Header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: black;
+  height: 70px;
+  width: 300px;
+  border: 1px solid white;
+  background: #fff;
+  border-radius: 10px;
+  font-size: xx-large;
+  margin-left: 30px;
+  /* position: fixed; */
+}
+.eng_title {
+  display: block;
+  font-size: 34px;
+  line-height: 37px;
+  letter-spacing: -0.025em;
+  color: #000;
+  /* margin-left: 120px; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  
+}
+.korea_title {
+  display: block;
+  margin-top: 21px;
+  font-size: 92px;
+  font-weight: 800;
+  line-height: 105px;
+  letter-spacing: -0.025em;
+  color: #000;
+  /* margin-left: 120px; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.discussion__wrapper {
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+  background: #fff;
+
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.discussions__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.discussion__container {
+  width: 540px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  background: #e7e3e3;
+  box-shadow: inset 15px 15px 30px #f4f4f4, inset -15px -15px 30px #ffffff;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+/* 사진 */
+.discussion__avatar--wrapper {
+  padding-top: 20px;
+  margin-left: 30px;
+}
+.discussion__avatar--image {
+  display: inline-block;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* object-fit이미지의 가로세로 비율을 유지하면서, 이미지가 보여질 틀 내부에 가득 채우도록 한다. 
+https://velog.io/@lively_siwon/CSS-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AC%EC%9D%B4%EC%A6%88-%EB%A7%9E%EC%B6%94%EA%B8%B0-object-fit*/
+
+/* title, information*/
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.discussion__title {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding-right: 50px;
+  padding-top: 20px;
+  flex: 3;
+  text-align: left;
+}
+.discussion__information {
+  display: inline-block;
+  flex: 1;
+  text-align: right;
+}
+/* checkbox */
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  font-size: xx-large;
+  margin-right: 10px;
+}
+
+.form__container {
+  display: flex;
+  height: 500px;
+  width: 600px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 100%;
+  border: 1px solid white;
+  background: #ffeab1;
+}
+.form {
+  margin-left: 80px;
+}
+.modal_position{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal {
+  /* display: inline-block; */
+  width: 1800px;
+  border-radius: 40px;
+  background: #222;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 67px;
+  letter-spacing: -0.025em;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  /* margin-left: 120px; */
+}
+
+.hide {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+}
+.black_bg {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.form__container {
+  width: 600px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 7px;
+  position: absolute;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 28%;
+  background-color: black;
+  opacity: 1;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.form_input_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 96px;
+  padding-bottom: 150px;
+  position: relative;
+}
+.form__input--wrapper .tit {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  color: #111;
+  text-align: center;
+  line-height: normal;
+  position: relative;
+  top: 20px;
+}
+.form__input--wrapper .input-box {
+  width: 70%;
+  margin-top: 30px;
+  position: relative;
+  top: 30px;
+}
+.form__container input {
+  display: block;
+  width: 420px;
+  padding: 18px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.025em;
+  color: #000;
+}
+.form__container .form {
+  width: 80%;
+}
+
+.form__input--name,
+.form__input--title {
+  width: 80px;
+  height: 50px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.form__container textarea {
+  display: block;
+  width: 125.5%;
+  height: 300px;
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.025em;
+  color: #000;
+  flex: 4;
+}
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__submit input {
+  background: black;
+  color: #fff;
+  display: inline-block;
+  width: 120px;
+  border-radius: 40px;
+  background: #222;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.025em;
+  position: relative;
+  top: -90px;
+  cursor: pointer;
+}
+
+.form__submit input:hover {
+  background: white;
+  color: #000;
+  border: 1px solid black;
+}
+.hide {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+}
+
+.black_bg {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
