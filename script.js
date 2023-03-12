@@ -155,7 +155,6 @@ const render = (element, page) => {
     page === pageCount - 1
       ? start + (dataLength % listsPerPage)
       : start + listsPerPage;
-  console.log(start, end);
 
   for (let i = start; i < end; i += 1) {
     element.append(convertToDiscussion(loadedLocalArr[i]));
