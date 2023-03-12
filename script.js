@@ -1,5 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
+let data;
+const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions");
+if (dataFromLocalStorage) {
+  data = JSON.parse(dataFromLocalStorage);
+} else {
+  data = agoraStatesDiscussions.slice();
+}
 
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -16,9 +23,9 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   // avatar 이미지
-  const avatarImg = document.createElement('img');
+  const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarImg.alt = "avatar of " + obj.author;
   avatarImg.className = "discussion__avatar--image"
   avatarWrapper.append(avatarImg);
 
@@ -30,22 +37,19 @@ const convertToDiscussion = (obj) => {
   title.append(titleUrl);
   titleUrl.textContent = obj.title;
   
-  const information = document.createElement('div');
+  const information = document.createElement("div");
   // new.Data 현재 날짜, 표기법 변경하기
   information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleDateString()}`;
   information.className = "discussion__information";
   discussionContent.append(title, information);
 
   // 답변여부, 삼항연산자 써보기
-  const answered = document.createElement('p')
+  const answered = document.createElement("p")
   if(obj.answer === null) {
     answered.textContent = "🤐"
   } else
   answered.textContent = "😘"
   discussionAnswered.append(answered);
-
-  
-  
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -63,27 +67,35 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-const form = document.querySelector('form.form');
-const newDiscussionTitle = document.querySelector('input#title');
-const newDiscussionAuthor = document.querySelector('input#name');
-const newDiscussionStory = document.querySelector('textarea#story'); 
-form.addEventLostener('submit',(event) => {
-  //submit 하면 새로고침되어 Discution 날라감, 아래는 새로고침 안되게 막음
-  event.preventDefault();
-  //하나의 객체를 만들어서 ㅋconvertToDiscussion함수에 넣어서 ul에 append 해준다.
+
+const form = document.querySelector("form");
+const newDiscussionTitle = document.querySelector(".form__input--title > #title");
+const newDiscussionAuthor = document.querySelector(".form__input--name > #name");
+const newDiscussionStory = document.querySelector(".form__textbox > #story"); 
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); //submit 하면 새로고침되어 Discution 날라감, 아래는 새로고침 안되게 막음
+  //하나의 객체를 만들어서 convertToDiscussion함수에 넣어서 ul에 append 해준다.
   const newDiscussion = {
     // 데모데이터 참고
-    id: "uuid",
-    createdAt: new Date(),
+    id: "id",
+    createdAt: new Date().toLocaleDateString(),
     title: newDiscussionTitle.value,
+    url: null,
     author: newDiscussionAuthor.value,
-    answer: "",
+    answer: null,
     bodyHTML:newDiscussionStory.value,
+    avatarUrl:"https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
   };
   //append 시 뒤로 붙음 prepend 사용
-  ul.prepend.convertToDiscussion(newDiscussion)
+  ul.prepend(convertToDiscussion(newDiscussion));
   // 서브밋 후 값 없애기
-  title.value="";
-  author.value="";
-  story.value="";
-})
+  newDiscussionTitle.value="";
+  newDiscussionAuthor.value="";
+  newDiscussionStory.value="";
+
+  // 로컬스토리지에 저장
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+
+  // 렌더링
+  render(ul, 0, limit);
+});
