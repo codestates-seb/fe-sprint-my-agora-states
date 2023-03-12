@@ -17,33 +17,52 @@
   <body>
     <main>
       <div class="head">
-        <h1 class="home">Code States</h1>
-        <h2 class="room">My Agora States</h2>
+        <h1 class="home">
+          <a href="https://www.codestates.com/" target="_blank">Code States</a>
+        </h1>
+        <h2 class="room"><a href="#">My Agora States</a></h2>
       </div>
       <div class="contents">
         <section class="form__container">
           <form action="" method="get" class="form">
             <div class="form__input--wrapper">
-              <div class="form__input--name">
-                <label for="name">Enter your name: </label>
-                <input type="text" name="name" id="name" required />
-              </div>
-              <div class="form__input--title">
-                <label for="title">Enter your title: </label>
-                <input type="text" name="title" id="title" required />
+              <div class="form__input--info--wrapper">
+                <div class="form__input--name">
+                  <label for="name"></label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="이름"
+                    required
+                  />
+                </div>
+                <div class="form__input--title">
+                  <label for="title"></label>
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="제목"
+                    required
+                  />
+                </div>
               </div>
               <div class="form__textbox">
-                <label for="story">Your question: </label>
+                <label for="story"></label>
                 <textarea
                   id="story"
                   name="story"
-                  placeholder="질문을 작성하세요"
+                  placeholder="질문"
                   required
                 ></textarea>
               </div>
             </div>
             <div class="form__submit">
               <input class="form__submit" type="submit" value="질문하기" />
+              <section class="localStorage_reset">
+                <button class="resetButton">리셋</button>
+              </section>
             </div>
           </form>
         </section>
@@ -70,10 +89,7 @@
                   </div>
                 </div>
                 <div class="discussion__answered">
-                  <img
-                    src="https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png"
-                    class="answerCheck"
-                  />
+                  <img src="" class="answerCheck" />
                 </div>
               </li>
             </ul>
@@ -82,9 +98,6 @@
             <button>prev</button>
             <div class="numberingButtons"></div>
             <button>next</button>
-          </section>
-          <section class="localStorage_reset">
-            <button>reset</button>
           </section>
         </div>
       </div>

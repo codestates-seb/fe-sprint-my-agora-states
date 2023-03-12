@@ -45,11 +45,9 @@ const convertToDiscussion = (obj) => {
   const answerCheck = document.createElement("img");
   answerCheck.className = "answerCheck";
   if (obj["answer"]) {
-    answerCheck.src =
-      "https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png";
+    answerCheck.src = "https://cdn-icons-png.flaticon.com/512/8526/8526739.png";
   } else {
-    answerCheck.src =
-      "https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061131_1280.png";
+    answerCheck.src = "https://cdn-icons-png.flaticon.com/512/8526/8526752.png";
   }
   discussionAnswered.append(answerCheck);
 
