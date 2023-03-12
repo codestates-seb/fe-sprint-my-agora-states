@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../Route/MainPage/MainPage.css">
+    <link rel="stylesheet" href="../../Components/RecentQuestion/RecentQuestion.css">
+    <link rel="stylesheet" href="../../global-style.css">
+    <title>Agora-States</title>
+</head>
+<body>
+    <header id="Header"></header>
+
+    <div class="contents-area">
+        <section class="intro-container">
+            <div class="grid-item">
+                <div class="intro-codestates w3-display-middle">
+                    <img src="../../images/full-logo.png" class="intro-img">
+                    <div class="intro-content">
+                        <div class="intro-title grid-item">
+                            우리들의 소중한 질문 공간,</br>여기는 아고라 스테이츠 입니다.
+                        </div>
+                        <div class="intro-text grid-item">
+                            내가 알고있는 지식을 공유하고, 처음 보는 질문에 대해 같이 고민해봐요. 함께 고민하며 나아가는 과정을 통해...
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="profile-container w3-display-middle">
+                    <div class="profile-info">
+                        <img src="../../images/profile.png" class="grid-item">
+                        <div class="info-view">
+                            <div class="info-title">Kim-DaHam 님의 아고라 <img src="../../images/grade-icon.png" class="grade-img"></div>
+                            <div class="info-email-grade">times7749@naver.comㅤ<a href="">나의 등급 보기 ></a></div>
+                            <div class="tag-box">
+                                <div class="tag">SEB_FE_44</div>
+                                <div class="tag">JavaScript</div>
+                                <div class="tag">HTML/CSS</div>
+                                <div class="tag">React.js</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <input type="button" value="나의 질문 >">
+                        <input type="button" value="질문하기 >">
+                        <input type="button" value="나의 답변 >">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-container">
+            <div class="grid-item"><a href="/board?category=전체질문&page=1">전체 질문</a></div>
+            <div class="grid-item">급해요 급해!</div>
+            <div class="grid-item">라이브 세션 질문</div>
+            <div class="grid-item">핫 토픽</div>
+            <div class="grid-item">느긋한 질문</div>
+            <div class="grid-item">기타 문의</div>
+        </section>
+
+        <section class="mini-board-container">
+            <div class="mini-board-left grid-item">
+                <label>최근 올라온 질문</label>
+                <div class="recent-question-container">
+                    <ul class="recent-question-list">
+                    </ul>
+                    <a class="more-link">더 알아보기 ></a>
+                </div>
+            </div>
+            <div class="mini-board-right grid-item">
+                <div class="grid-item">
+                    <label>이번주 HOT 토픽! 가장 많은 사람들이 고민한 질문이에요.</label>
+                    <div class="hotTopic-container">
+                        <ul class="hotTopic-list">
+                        </ul>
+                        <a class="more-link">더 알아보기 ></a>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div>
+                        머리풀기용 간단 질문 & 퀴즈
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-to-use">
+            <p>아고라 스테이츠 이용 전 꿀팁 가이드 💡✨</p>
+            <ul>
+                <li>어떤 질문이 좋은 질문일까요? 알아보기 쉬운 질문 작성법을 알려드릴게요.</li>
+                <li>이용 전 알아야 할 아고라 스테이츠 기본 규칙에 대해 알아보세요 :)</li>
+                <li>내가 알고있는 걸 쉽게 풀어 설명하는 게 어려우신가요? 그 방법을 알려드릴게요.</li>
+            </ul>
+        </section>
+    </div>
+
+
+    <footer id="Footer"></footer>
+
+    <script src="../../data.js"></script>
+    <script src="../../Route/MainPage/MainPage.js"></script>
+    <script src="../../Components/RecentQuestion/RecentQuestion.js"></script>
+
+    <script src="https://kit.fontawesome.com/f48d1cc008.js" crossorigin="anonymous"></script>
+</body>
+</html>

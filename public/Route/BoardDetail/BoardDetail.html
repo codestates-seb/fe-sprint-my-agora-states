@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../Components/Header/Header.css">
+    <link rel="stylesheet" href="../../Components/Footer/Footer.css">
+    <link rel="stylesheet" href="../../Route/BoardDetail/BoardDetail.css">
+    <link rel="stylesheet" href="./../../global-style.css">
+    <title>Agora-States</title>
+</head>
+<body>
+    <header id="Header"></header>
+
+    <div class="board-category">
+        <p class="category-name"></p>
+        <p class="discussion-title"></p>
+    </div>
+
+    <div class="contents-area">
+        <div class="discussion-container">
+            <div class="info-view"></div>
+            <div class="contents-view">
+                <div class="text-container"></div>
+                <div class="post-btn-container">
+                    <div class="like">😄 유익해요   3</div>
+                    <div class="comments">
+                        <i class="fa-solid fa-comment"></i>ㅤ
+                        <label class="comment-cnt"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="comment-line"></div>
+
+        <ul class="comments-list">
+            <li class="comment-container">
+                <div class="info-view"></div>
+                <div class="contents-view">
+                    <div class="text-container"></div>
+                    <div class="post-btn-container">
+                        <div class="like">😄 유익해요   3</div>
+                        <div class="comments">
+                            <i class="fa-solid fa-comment"></i>ㅤ
+                            <label class="comment-cnt"></label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="comment-line show"></div>
+        <div class="my-reply-container">
+            <img src="../../images/profile.png" alt="">
+            <form class="reply-form">
+                <div class="info-view">
+                    <div class="discussion__author">Kim-DaHam</div>
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="제목을 입력하세요">
+                    <textarea placeholder="내용을 입력하세요"></textarea>
+                </div>
+                <input type="button" value="답변하기" class="reply-btn">
+            </form>
+        </div>
+    </div>
+
+    <footer id="Footer"></footer>
+
+    <script src="../../data.js"></script>
+    <script src="../../Route/MainPage/MainPage.js"></script>
+    <script src="../../Route/BoardDetail/BoardDetail.js"></script>
+    <script src="https://kit.fontawesome.com/f48d1cc008.js" crossorigin="anonymous"></script>
+</body>
+</html>

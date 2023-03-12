@@ -1,0 +1,31 @@
+:root {
+  /* color */
+  --color-night-bg: #24292f;
+
+  --color-header-search-bg: #24292f;
+  --color-header-search-border: #57606a;
+
+  --color-text: #e0e0e0;
+  --color-date-text: #e0e0e0b0;
+
+  --color-box-border: #bebebe;
+  --color-border-default: #d0d7de;
+
+  --color-form-btn-bg:#2da44e;
+  --color-form-btn-border: rgba(27,31,36,0.15);
+
+  --color-btn-bg: #e0e0e0;
+  --color-pagination-bg: #e0e0e071;
+  --color-discussion-bg: #1c2125;
+  --color-info-bg: #393d41;
+
+  --color-tag-bg: #e0e0e0c9;
+  --color-tag-text: #333333;
+
+  --color-footer-border: #57606a;
+  /* boxShadow */
+  --15px: 0px 0px 15px 0px #00000026;
+  --7px: 0px 0px 7px 0px #00000040;
+  --big-box: 0px 3px 6px -4px #0000001f, 0px 6px 16px 0px #00000014,
+    0px 9px 28px 8px #0000000d;
+}

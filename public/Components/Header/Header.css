@@ -1,0 +1,52 @@
+.header-container {
+    width: 100vw;
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 0px 3px 15px 0px rgb(24, 24, 24);
+    padding: 0px 32px;
+}
+
+.header-contents {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.header-logo {
+    width: auto;
+    height: 43px;
+    margin-right: 15px;
+    float: left;
+    margin-top: 10px;
+}
+
+.header-search {
+    width: 270px;
+    height: 28px;
+    padding-left: 10px;
+    color: white;
+    background: var(--color-header-search-bg);
+    border: solid 1px var(--color-header-search-border);
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.header-search:focus {
+    width: 450px;
+    background-color: white;
+    outline: none;
+}
+
+.header-right-section {
+    float:right;
+}
+
+.header-bell {
+    margin-right: 15px;
+    color: white;
+}
+
+.header-profile {
+    width: 36px;
+    height: 36px;
+    border-radius: 70%;
+}
