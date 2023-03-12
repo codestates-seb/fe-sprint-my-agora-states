@@ -95,7 +95,7 @@ const render = (element, from, to) => {
 
 
 
-//페이지네이션을 위한 변수
+//페이지네이션을 위한 변수!
 let limit = 4,
   page = 1;
 
