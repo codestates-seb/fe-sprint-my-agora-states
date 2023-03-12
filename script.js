@@ -121,7 +121,6 @@ form.addEventListener("submit", (event) => {
   agoraStatesDiscussions.unshift(newDiscussion);
   const discussion = convertToDiscussion(newDiscussion);
   ul.prepend(discussion);
-
   document.querySelector(".form__container").classList.add("hide");
   $bg.style.display = "none";
   title.value = "";
