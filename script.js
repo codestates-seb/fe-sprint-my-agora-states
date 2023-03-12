@@ -107,7 +107,7 @@ const arrowUpBtn = document.querySelector(".arrow_up_btn");
 // submit을 클릭하면 자료를 가져온다
 
 form.addEventListener("submit", (event) => {
-  // event.preventDefault(); //서브밋 이벤트로 사용시 꼭 함께 사용해주어야함, submit 동작이 일어나면 자동으로 새로고침을 방지
+  event.preventDefault(); //서브밋 이벤트로 사용시 꼭 함께 사용해주어야함, submit 동작이 일어나면 자동으로 새로고침을 방지
   const newDiscussion = {
     id: "new id",
     createdAt: new Date().toISOString(),
@@ -123,9 +123,8 @@ form.addEventListener("submit", (event) => {
   ul.prepend(discussion);
 
   document.querySelector(".form__container").classList.add("hide");
-  $bg.style.display = 'none';
+  $bg.style.display = "none";
   title.value = "";
   author.value = "";
   story.value = "";
 });
-
