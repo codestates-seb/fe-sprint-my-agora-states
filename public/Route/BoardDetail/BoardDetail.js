@@ -14,10 +14,7 @@ const discussion = agoraStatesDiscussions.find(disc => disc.id === id);
 discussionTitle.textContent = 'ㅤ/ㅤ'+discussion.title;
 
 // 작성자 & 글 가져오기
-const convertToDiscussion = (obj) => {
-    const infoBox = document.querySelector('.info-view');
-    const textarea = document.querySelector('.discussion');
-
+const bringInfo = (obj, infoBox) => {
     const avatarWrapper = document.createElement("div");
     avatarWrapper.className = "discussion__avatar--wrapper";
     const avatarImg = document.createElement('img');
@@ -34,9 +31,46 @@ const convertToDiscussion = (obj) => {
     discussionDate.textContent = new Date(obj.createdAt).toDateString();
 
     infoBox.append(avatarWrapper, discussionAuthor, discussionDate);
+}
+
+const convertToDiscussion = (obj) => {
+    const infoBox = document.querySelector('.discussion-container .info-view');
+    const textarea = document.querySelector('.discussion');
+
+    bringInfo(obj, infoBox);
 
     const textContainer = document.querySelector('.text-container');
     textContainer.innerHTML = obj.bodyHTML;
+
+    const commentCount = document.querySelector('.comment-cnt');
+    commentCount.textContent = obj.answer.length;
+
+    const commentLine = document.querySelector('.comment-line');
+    if(obj.answer.length > 0) commentLine.classList.add('show');
 }
 
 convertToDiscussion(discussion);
+
+const convertToComments = (obj) => {
+    const commentsUL = document.querySelector('.comments-list');
+    const comment = document.querySelector('.comment-container');
+    const li = comment.cloneNode(true);
+    li.style.display='block';
+
+    const commentLine = document.createElement('div');
+    commentLine.className = 'comment-line';
+    commentLine.style.display = 'block';
+    commentsUL.append(commentLine);
+
+    const infoBox = li.querySelector('.info-view');
+    bringInfo(obj, infoBox);
+    li.querySelector('.text-container').innerHTML = obj.bodyHTML;
+
+    commentsUL.append(li);
+}
+
+if(discussion.answer) {
+    discussion.answer.map((answer) => {
+        convertToComments(answer);
+    })
+}

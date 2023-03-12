@@ -40,6 +40,8 @@
     height: fit-content;
     padding: 15px 23px;
     color: var(--color-text);
+    background-color: var(--color-info-bg);
+    border-radius: 10px 10px 0 0;
     border-bottom: solid 1px var(--color-box-border);
 }
 
@@ -65,7 +67,7 @@
     color: var(--color-date-text);
 }
 
-/* 질문 글 컨테이너*/
+/* 글 컨테이너*/
 
 .contents-view {
     padding: 30px;
@@ -95,4 +97,24 @@
 
 .comments {
     font-size: 1.2rem;
+}
+
+.comment-line {
+    display: none;
+    height: 40px;
+    margin: 0 30px;
+    border-left: solid var(--color-footer-border);
+}
+
+.show {
+    display: block;
+}
+
+
+/* 답변 목록 */
+
+.comment-container {
+    display: none;
+    border: 1px solid var(--color-box-border);
+    border-radius: 10px;
 }

@@ -52,7 +52,9 @@
     height: 50px;
     padding: 15px 23px;
     color: var(--color-text);
+    border-radius: 15px 15px 0 0;
     border-bottom: solid 1px var(--color-box-border);
+    background-color: var(--color-info-bg);
 }
 
 .list-info div{
