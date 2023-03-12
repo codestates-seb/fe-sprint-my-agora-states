@@ -9,6 +9,10 @@
   --color-date-text: #e0e0e0b0;
 
   --color-box-border: #bebebe;
+  --color-border-default: #d0d7de;
+
+  --color-form-btn-bg:#2da44e;
+  --color-form-btn-border: rgba(27,31,36,0.15);
 
   --color-btn-bg: #e0e0e0;
   --color-pagination-bg: #e0e0e071;
