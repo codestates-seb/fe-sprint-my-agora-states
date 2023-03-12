@@ -8,7 +8,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 ## 배포 링크
 
 Github Page 배포 링크를 아래 작성합니다.
-https://lhyjjg.github.io/fe-sprint-my-agora-states/
+> https://lhyjjg.github.io/fe-sprint-my-agora-states/
 
 ## Bare Minimum Requirement Self Checklist
 
@@ -55,10 +55,7 @@ https://lhyjjg.github.io/fe-sprint-my-agora-states/
 - []
 
 ### 배포 시연 화면
-
-아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
-
- ![image](https://s3.ap-northeast-2.amazonaws.com/urclass-images/NB0JkuHQnLg8X1woSRS84-1652915757557.gif)
+- 
  
 ### 가장 자랑하고 싶은 기능
 
