@@ -14,8 +14,10 @@ a:visited {
 a {
   font-family: "Tilt Warp", cursive;
 }
-.main_container{
+.text__container{
   display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 .Header {
   display: flex;
@@ -29,7 +31,7 @@ a {
   border-radius: 10px;
   font-size: xx-large;
   margin-left: 30px;
-  position: fixed;
+  /* position: fixed; */
 }
 .eng_title {
   display: block;
@@ -37,7 +39,11 @@ a {
   line-height: 37px;
   letter-spacing: -0.025em;
   color: #000;
-  margin-left: 12px;
+  /* margin-left: 120px; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  
 }
 .korea_title {
   display: block;
@@ -47,6 +53,10 @@ a {
   line-height: 105px;
   letter-spacing: -0.025em;
   color: #000;
+  /* margin-left: 120px; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 .discussion__wrapper {
   display: flex;
@@ -134,9 +144,14 @@ https://velog.io/@lively_siwon/CSS-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AC%EC%9D%B
 .form {
   margin-left: 80px;
 }
+.modal_position{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .modal {
-  display: inline-block;
-  width: 180px;
+  /* display: inline-block; */
+  width: 1800px;
   border-radius: 40px;
   background: #222;
   font-size: 21px;
@@ -146,6 +161,7 @@ https://velog.io/@lively_siwon/CSS-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AC%EC%9D%B
   color: #fff;
   text-align: center;
   cursor: pointer;
+  /* margin-left: 120px; */
 }
 
 .hide {

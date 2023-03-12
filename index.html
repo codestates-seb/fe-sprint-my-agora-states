@@ -28,36 +28,36 @@
         <span class = "eng_title">Explain Like Im 5!</span>
         <strong><span class = "korea_title">5살인 것처럼 질문해도</span></strong>
         <strong><span class = "korea_title">5살처럼 설명해 줘!</span></strong>
-        <button class="modal">5살처럼 질문하기</button>
+        <div class="modal_position"><button class="modal">5살처럼 질문하기</button></div>
       </div>
     </div>
   
         <!-- Input form -->
-        <div class="black_bg" style="display: none;"></div>
+        <div class="black_bg" style="display: hidden;"></div>
         <section class="form__container hide">
           <form action method="get" class="form">
             <div class="form__input--wrapper">
               <h2 class="tit">질문하기</h2>
               <div class="input-box">
                 <div class="form__input--name">
-                  <label for="author">Name </label>
+                  <!-- <label for="author">Name </label> -->
                   <input type="text" name="author" id="author" placeholder="이름을 입력해주세요" required>
                 </div>
                 <div class="form__input--title">
-                  <label for="title">Title </label>
+                  <!-- <label for="title">Title </label> -->
                   <input type="text" name="title" id="title" placeholder="질문 제목을 입력해주세요" required>
                 </div>
                 <div class="form__textbox">
-                  <label for="story">Question </label>
+                  <!-- <label for="story">Question </label> -->
                   <textarea id="story" name="story" placeholder="질문을 작성해주세요" required></textarea>
                 </div>
               </div>
             </div>
-          <div class="form__submit">
-            <input type="submit" value="작성완료">
-          </div>
-        </form>
-      </section>
+            <div class="form__submit">
+              <input class="form__submit" type="submit" value="작성완료">
+            </div>
+          </form>
+        </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
