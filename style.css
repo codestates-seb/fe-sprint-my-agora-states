@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* button{
+button{
 	background: inherit ;
 	border:none;
 	box-shadow:none;
@@ -13,7 +13,7 @@
 	padding:0;
 	overflow:visible;
 	cursor:pointer;
-} */
+} 
 /* Header */
 header {
   background-color: white;
@@ -61,13 +61,13 @@ header ul.menu li a:hover {
   opacity: 1;
   transition: 0.5s;
 }
-/* .header-modal {
+.header-modal {
     color:#fff;
     background-color: #2464FB;
     width: 6rem;
     height: 2.5rem;
     border-radius: 0.4rem;
-} */
+} 
 
 
 
@@ -85,27 +85,125 @@ main > h1 {
   align-items: center;
   justify-content: center;
 }
-.form__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-.form__container > form {
-  width: 50%;
-  height: 18rem;
-  margin-top: 50px;
-  cursor: pointer;
-  transition: .2s;
 
-  border-radius: 1rem;
-  background-color:#fff;
+
+
+/* Modal 영역 */
+#modal {
+  display: flex;
+
+}
+
+.form__container {
+  width: 37.5rem;
+  height: 47rem;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 1em;
+  box-shadow: 0px 0px 30px 0px #00000020;
+  display:flex;
+  flex-direction: column;
+  visibility: hidden;
+  transition: transform 0.3s, top 0.3s;
+}
+.modal_open {
+  visibility: visible ;
+  top: 50% ;
+  position:fixed;
+  z-index: 10;
+}
+/* .half_black {
+  background-color: #000;
+  opacity: 0.5;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 2;
+} */
+.scroll_hidden {
+  overflow-y: hidden;
+}
+
+.form__header {
+  display: flex;
+  height: 10%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 1rem;
+}
+
+.btn-close {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.btn-close > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.form {
+  display: flex;
+  padding: 0 2.5rem 2rem;
+  flex-direction: column;
+
+}
+.form__input--wrapper p {
+  /* text-align: center; */
   margin-bottom: 2rem;
-  padding: 2rem;
+  font-size: 2rem;
+  font-weight:600;
+  line-height: 2.5rem;;
+}
+.form__input--wrapper div {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  
+  margin-top: 2rem;
+}
+.form__input--wrapper div > label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #7D8596;
+}
+.form__input--wrapper div > input {
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e7e7e7;
+  padding: 0.8rem;
+}
+.form__input--wrapper div > textarea {
+  height: 260px;
+  border-radius: 0.5rem;
+  border: 1px solid #e7e7e7;
+  padding: 0.8rem;
+}
+
+input::placeholder {
+  color: #d0d0d0;
+}
+textarea::placeholder {
+  color: #d0d0d0;
+}
+.form__submit {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.form__submit > input{
+  margin-top: 2rem;
+  width: 8rem;
+  height: 3rem;
+  color: white;
+  background-color: #2464FB;
+  font-size: 1rem;
+  font-weight:600;
+  border: 0;
+  border-radius: 0.6rem;
+  cursor: pointer;
 }
 
 /* data 영역 */

@@ -21,35 +21,42 @@
       <ul class="menu">
         <li><a href="https://www.codestates.com" class="info-menu">CodeStates</a></li>
         <li><a href="https://urclass.codestates.com/" class="info-menu">UR-Class</a></li>
-      <!--  <button class = "header-modal"  onclick="openPopup()">질문하기</button> -->
+      <button class = "header-modal"  onclick="openPopup()">질문하기</button>
       </ul>
     </div>
   </header>
 
+  <section>
+    <div class="form__container"  id = "modal">
+        <div class="form__header">
+          <p></p>
+          <button class="btn-close" onclick="closePopup()"><img src="./close_FILL0_wght400_GRAD0_opsz48.png""></button>
+        </div>
+        <form action="" method="get" class="form max-w">
+          <div class="form__input--wrapper">
+            <p>질문을 작성해주세요</p>
+            <div class="form__input--name">
+              <label for="name">Name </label>
+              <input type="text" name="name" id="name" placeholder="이름을 입력해주세요" required>
+            </div>
+            <div class="form__input--title">
+              <label for="name">Title </label>
+              <input type="text" name="name" id="name" placeholder="질문의 제목을 입력해주세요" required>
+            </div>
+            <div class="form__textbox">
+              <label for="story">Question Content </label>
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            </div>
+          </div>
+          <div class="form__submit">
+            <input type="submit" value="등록하기">
+          </div>
+        </form>
+    </div>
+<!--     <div class="half_black hide"></div> -->
+</section>
   <main>
 
-    <section class="form__container">
-
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Name: </label>
-            <input type="text" placeholder="이름을 입력하세요." name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Title: </label>
-            <input type="text" placeholder="제목을 입력하세요." name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Question: </label>
-            <textarea id="story" placeholder="내용을 입력하세요." name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
 
 
     
