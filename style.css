@@ -1,1 +1,422 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+input[type="text"] {
+    caret-color: transparent;
+  }
+
+
+@font-face {
+    font-family: 'migra';
+    src: url('Migra-Extralight.otf') format('opentype');
+}
+
+::placeholder {
+    color: #999; /* placeholder 색상을 변경하려면 여기에 원하는 색상 코드를 입력하세요. */
+  }
+
+ 
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form, figure, figcaption {margin:0; padding:0;}
+
+/* a 링크 초기화 */
+a {color: inherit; text-decoration: inherit;}
+
+/* 폰트 초기화 */
+body, input, textarea, select, button, table {font-family:  'Noto Sans KR', sans-serif, 'Roboto', sans-serif, 'Nanum Gothic', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #ffffff; font-size: 16px; line-height: 1.5;}
+
+/* 폰트 스타일 초기화 (기울임) */
+em, address {font-style: normal;}
+
+/* 블릿기호 초기화 */
+ul, li, ol {list-style: none;}
+
+/* 제목 태그 초기화 */
+h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: inherit;}
+
+/* 버튼 초기화 */
+button {border: none;}
+
+/* 인풋 초기화 */
+input,textarea {
+    background-color: inherit;
+    outline: none;
+    border: inherit;
+}
+
+textarea {
+    resize: none;
+}
+
+body {
+    background-color: #222;
+}
+
+.nav {
+    border-bottom: 1px solid #888;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 9999;
+    background-color: #222;
+}
+
+.nav .menu {
+    position: absolute;
+    top: 27px;
+    right: 80px;
+    width: 30px;
+    height: 30px;
+    background-image: url(https://cdn4.iconfinder.com/data/icons/simplicity-1/48/menu-512.png);
+    background-size: cover;
+    filter: invert(100%);
+}
+
+main {
+ padding: 0 100px 0 100px;
+ margin-top: 80px;
+}
+
+.main_container {
+    border-left: 1px solid  #888;
+    border-right: 1px solid  #888;
+    height: 100%;
+}
+
+.main_title {
+    font-family: migra;
+    font-size: 8rem;
+    letter-spacing: 0.2rem;
+    line-height: 0.8;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    padding: 100px 0;
+    border-top: 1px solid #888;
+    border-bottom: 1px solid  #888;
+    position: relative;
+}
+
+.main_title:hover::before{
+    height: 100%;
+}
+
+.main_title::before {
+   content: '';
+    width: 100%; 
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    mix-blend-mode: difference;
+    transition: height 0.2s ease-in-out;
+}
+
+.main_title .title {
+    animation: move 20s linear infinite;
+    mix-blend-mode: difference;
+}
+
+@keyframes move {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-500%);
+    }
+  }
+
+.form input {
+    border: none;
+}
+
+.form__input--wrapper {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__input--title {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#title {
+    width: 100%;
+}
+
+.form__input--name {
+    padding-left: 60px;
+    display: flex;
+    height: 100%;
+    border-left: 1px solid  #888;
+    border-right: 1px solid  #888;
+    position: relative;
+    font-size: 14px;
+    font-weight: 300;
+    color: #888;
+}
+
+#name, #title {
+    font-weight: 300;
+}
+
+.form__input--name::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 40px;
+    background-color: #999;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.form__submit,.discussion__btn {
+    display: block;
+    width: 80px;
+    flex-shrink: 0;
+    height: 100%;
+    cursor: pointer;
+    filter: invert(100%);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#submit {
+    cursor: pointer;
+}
+
+.form__submit {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2223/2223596.png);
+    background-size: 40%;
+}
+
+
+.discussion__list {
+    display: flex;
+    height: 80px;
+    border-bottom: 1px solid  #888;
+    align-items: center;
+}
+
+.discussion__list .discussion__title {
+    display: flex;
+    flex-grow: 1;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 20px;
+    align-items: center;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.discussion__list .discussion__title a {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    mix-blend-mode: difference;
+    padding: 0;
+}
+
+.discussion__name {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    height: 100%;
+    border-right: 1px solid  #888;
+    border-left: 1px solid  #888;
+    padding-left: 60px;
+    padding-right: 40px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 300;
+    color: #999;
+}
+
+.discussion__name::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 40px;
+    background-color: #999;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.discussion__btn {
+    background-image: url(https://pixlok.com/wp-content/uploads/2021/07/Close-Free-Icon-9w8s.png);
+    background-size: 30%;
+    mix-blend-mode: difference;
+}
+
+
+#submit{
+width: 100%;
+height: 100%;
+}
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+.discussions__container li{
+    position: relative;
+}
+
+
+.discussions__container li:hover::before{
+    height: 100%;
+}
+
+.discussions__container li::before {
+   content: '';
+    width: 100%; 
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    mix-blend-mode: difference;
+    transition: height 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+@media(max-width: 720px){
+
+    ::placeholder {
+        color: #999;
+        font-size: 14px; /* placeholder 색상을 변경하려면 여기에 원하는 색상 코드를 입력하세요. */
+     }
+
+    .main_container {
+        border: none;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    nav{
+        display: none;  
+    }
+
+    main {
+        margin: 0;
+        padding: 0;
+    }
+
+    .main_title {
+        padding: 130px 0 90px 0;
+    }
+
+    .title {
+        margin-top: 40px;
+        font-size: 100px;
+    }
+
+    .form__submit {
+        background-size: 30%;
+    }
+
+    .discussion__btn {
+        background-size: 25%;
+    }
+
+    .form__input--wrapper {
+        position: fixed;
+        border-bottom: 1px solid #888;
+        width: 100%;
+        background-color: #222;
+        z-index: 999;
+    }
+
+    .form__input--title {
+        padding: 0;
+        width: 300px;
+        border-right: 1px solid #888;
+    }
+
+    .form__input--name {
+        padding: 0;
+        border: none;
+    }
+
+    .form__submit,.discussion__btn {
+        border: none;
+    }
+
+    .discussion__list {
+        position: relative;
+        padding: 0;
+        height: 80px;
+    }
+
+    .discussion__title {
+        padding-left: 30px;
+        padding-right: 30px;
+        display: flex;
+        align-items: center;
+        width: 290px;
+        height: 100%;
+        border-right: 1px solid #888;
+    }
+
+    .discussion__list a {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        font-size: 20px;
+        padding: 0;
+        border: none;
+        height: fit-content;
+    }
+
+    .discussion__name {
+        position: absolute;
+        border: none;
+        top: 15px;
+        left: 0;
+        padding-left: 30px;
+        font-size: 15px;
+        display: none;
+    }
+
+    .discussion__name::before {
+        display: none;
+    }
+
+    .discussion__btn {
+        width: 80px;
+    }
+
+    #name{
+        display: none;
+    }
+
+    .form__input--title {
+       padding-left: 20px;
+    }
+
+    .form__input--name::before {
+        display: none;  
+    }
+
+}
