@@ -1,5 +1,7 @@
 :root {
   /* color */
+  --color-night-bg: #24292f;
+
   --color-header-search-bg: #24292f;
   --color-header-search-border: #57606a;
 
@@ -10,6 +12,7 @@
 
   --color-btn-bg: #e0e0e0;
   --color-pagination-bg: #e0e0e071;
+  --color-discussion-bg: #1c2125;
 
   --color-tag-bg: #e0e0e0c9;
   --color-tag-text: #333333;

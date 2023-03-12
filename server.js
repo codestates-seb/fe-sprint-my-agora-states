@@ -12,6 +12,10 @@ app.get("/board", (req, res)=>{
     res.sendFile(__dirname + '/public/Route/MainBoard/MainBoard.html');
 })
 
+app.get("/disc", (req, res)=>{
+    res.sendFile(__dirname + '/public/Route/BoardDetail/BoardDetail.html');
+})
+
 // app.use('/', mainPage);
 // app.use('/board', mainBoard);
 

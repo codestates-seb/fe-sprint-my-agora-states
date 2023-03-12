@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: #24292f;
+    background-color: var(--color-night-bg);
 }
 
 li {

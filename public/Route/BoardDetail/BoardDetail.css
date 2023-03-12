@@ -1,0 +1,98 @@
+.contents-area {
+    width: 60%;
+    margin: 0 auto;
+    padding: 45px 0;
+}
+
+.board-category {
+    height: 100px;
+    line-height: 100px;
+    border-bottom: solid 1px var(--color-footer-border);
+    padding-left: 60px;
+}
+
+.board-category p {
+    width: fit-content;
+    vertical-align: bottom;
+    display: inline-block;
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 1.9rem;
+    display: inline-block;
+}
+
+.board-category a:hover {
+    text-decoration: underline;
+}
+
+
+/* 질문 작성자 정보 */
+
+.discussion-container {
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+    border: 1px solid var(--color-box-border);
+    border-radius: 10px;
+}
+
+.info-view  {
+    height: fit-content;
+    padding: 15px 23px;
+    color: var(--color-text);
+    border-bottom: solid 1px var(--color-box-border);
+}
+
+.info-view div{
+    display: inline;
+}
+
+.discussion__avatar--wrapper {
+    width: fit-content;
+    margin-right: 13px;
+}
+
+.discussion__avatar--wrapper img {
+    height: 50px;
+    border-radius: 70%;
+}
+
+.discussion__author {
+    margin-right: 13px;
+}
+
+.discussion__date {
+    color: var(--color-date-text);
+}
+
+/* 질문 글 컨테이너*/
+
+.contents-view {
+    padding: 30px;
+    border-radius: 10px;
+    /* border: solid red; */
+    color: var(--color-text);
+    background-color: var(--color-discussion-bg);
+}
+
+.text-container {
+    margin: 25px 50px;
+    margin-bottom: 70px;
+    /* border: solid pink; */
+    font-size: 1.2rem;
+}
+
+.post-btn-container {
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    /* border: solid purple; */
+}
+
+.like {
+    font-size: 1.25rem;
+}
+
+.comments {
+    font-size: 1.2rem;
+}

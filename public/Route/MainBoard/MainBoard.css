@@ -1,5 +1,5 @@
 .contents-area {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
     padding: 45px 0;
 }
@@ -37,9 +37,6 @@
     font-size: 1.1rem;
 }
 
-.list-info div{
-    display: inline;
-}
 
 /* Board List */
 
@@ -58,6 +55,9 @@
     border-bottom: solid 1px var(--color-box-border);
 }
 
+.list-info div{
+    display: inline;
+}
 
 /* Discussions */
 

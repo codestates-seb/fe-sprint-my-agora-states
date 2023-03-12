@@ -28,7 +28,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionTitle = document.createElement('a');
   discussionTitle.className = "discussion__title";
-  discussionTitle.href = `/disc?id=${obj.id}`;
+  discussionTitle.href = `/disc?category=${category}&id=${obj.id}`;
   discussionTitle.textContent = obj.title;
 
   const discussionSummary = document.createElement('div');

@@ -4,14 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="MainPage.css">
+    <link rel="stylesheet" href="../../Components/Header/Header.css">
+    <link rel="stylesheet" href="../../Components/Footer/Footer.css">
+    <link rel="stylesheet" href="../../Route/BoardDetail/BoardDetail.css">
+    <link rel="stylesheet" href="./../../global-style.css">
     <title>Agora-States</title>
 </head>
 <body>
+    <header id="Header"></header>
 
+    <div class="board-category">
+        <p class="category-name"></p>
+        <p class="discussion-title"></p>
+    </div>
+
+    <div class="contents-area">
+        <div class="discussion-container">
+            <div class="info-view"></div>
+            <div class="contents-view">
+                <div class="text-container"></div>
+                <div class="post-btn-container">
+                    <div class="like">😄 유익해요   3</div>
+                    <div class="comments">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="Footer"></footer>
 
     <script src="../../data.js"></script>
-    <script src="./MainPage.js"></script>
+    <script src="../../Route/MainPage/MainPage.js"></script>
+    <script src="../../Route/BoardDetail/BoardDetail.js"></script>
 </body>
 </html>
