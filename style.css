@@ -1,1 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+*{
+    font-family: 'Jua', sans-serif;
+}
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+ul{
+    margin:0;
+    padding:0;
+}
+body{
+    height:100vh;
+    background-image: url("./img/geeks-2894621.jpg");
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+main{
+    display:flex;
+    justify-content: right;
+    height:90vh;
+    margin-top:50px;
+}
+.mainitem{
+    background-color: white;
+    opacity: 0.7;
+}
+.mainitem:not(.form__container){
+    opacity:0.7;
+}
+.left{
+    width:30%;
+    border-right:10px dashed black;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.maintitle{
+    text-align: center;
+    font-size:60px;
+}
+.form__container{
+    opacity: 1;
+    border:none;
+    width:70%;
+    height:40%;
+    border-radius: 20px;
+    padding:0 30px;
+    box-shadow:4px 8px 8px 8px hsl(0deg 0% 0% / 0.38);
+}
+
+.form{
+    height:100%;
+}
+.form__input--wrapper{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+}
+.form__input--name input,
+.form__input--title input{
+    border:none;
+    border-bottom:3px solid black;
+    width:250px;
+    height:50px;
+    font-size:20px;
+}
+.form__input--name label,
+.form__input--title label,
+.form__textbox label{
+    font-size:20px;
+}
+.form__submit{
+    display: flex;
+    justify-content: center;
+}
+.form__submit input{
+    border:none;
+    background-color: aquamarine;
+    width:100px;
+    height:50px;
+    font-size:20px;
+
+}
+.right{
+    width:30%;
+    overflow:scroll;
+}
+.discussion__container{
+    display:flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width:540px;
+    margin:0 auto;
+}
+.discussion__avatar--wrapper{
+    display: flex;
+    align-items: center;
+    flex:1;
+}
+.discussion__content{
+    flex:4;
+}
+
+.discussion__avatar--wrapper img{
+    width:48px;
+    border-radius: 30px;
+}
+.discussion__answered{
+    display:flex;
+    align-items: center;
+    font-size:30px;
+    flex:1;
+}
+.discussion__answered.ok{
+    color:green;
+}
+.discussion__information{
+    text-align:right;
+}
+
+
+
+/* pagenation */
+.pagination{
+    display: flex;
+    background-color: white;
+    opacity: 0.7;
+    width:5%;
+    align-items: center;
+    justify-content: center;
+}
+.pageul{
+    width:100%;
+}
+.page{
+    text-align:center;
+    list-style: none;
+}
