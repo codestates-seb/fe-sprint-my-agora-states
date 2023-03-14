@@ -7,38 +7,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-  <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
+  <!-- Header -->
+  <header>
+    <div class="inner">
+      <h1><a href="/" class="site-name">DJ's Agora States</a></h1>
+      <ul class="menu">
+        <li><a href="https://www.codestates.com" class="info-menu">CodeStates</a></li>
+        <li><a href="https://urclass.codestates.com/" class="info-menu">UR-Class</a></li>
+      <button class = "header-modal"  onclick="openPopup()">질문하기</button>
+      </ul>
+    </div>
+  </header>
+  
+  
+
+  
+
+  <section>
+    <div class="form__container"  id = "modal">
+        <div class="form__header">
+          <p></p>
+          <button class="btn-close" onclick="closePopup()"><img src="./close_FILL0_wght400_GRAD0_opsz48.png""></button>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
+        <form action="" method="get" class="form max-w">
+          <div class="form__input--wrapper">
+            <p>질문을 작성해주세요</p>
+            <div class="form__input--name">
+              <label for="name">Name </label>
+              <input type="text" name="name" id="name" placeholder="이름을 입력해주세요" required>
+            </div>
+            <div class="form__input--title">
+              <label for="name">Title </label>
+              <input type="text" name="name" id="name" placeholder="질문의 제목을 입력해주세요" required>
+            </div>
+            <div class="form__textbox">
+              <label for="story">Question Content </label>
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            </div>
+          </div>
+          <div class="form__submit">
+            <input type="submit" value="등록하기">
+          </div>
+        </form>
+    </div>
+<!--     <div class="half_black hide"></div> -->
+</section>
+
+  <main>    
+    
     <section class="discussion__wrapper">
       <ul class="discussions__container">
-        <li class="discussion__container">
+        <!-- <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
             <img class="discussion__avatar--image"
               src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
@@ -49,7 +75,7 @@
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
-        </li>
+        </li> -->
       </ul>
     </section>
   </main>
