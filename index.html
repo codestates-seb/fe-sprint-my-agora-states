@@ -1,60 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agora States</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+      integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/020fd663eb.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
-    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
-  <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+  <body>
+    <header>
+      <h2>CodeStates</h2>
+      <div>
+        <button
+          class="btn_option"
+          type="button"
+          onclick="location.href='https://www.codestates.com/?gclid=Cj0KCQiApKagBhC1ARIsAFc7Mc40GoDJMhBJgZS865YmkeIZk7tqNDIUeHi_YNQf4XStk4s5_974cL0aAgMoEALw_wcB'"
+        >
+          홈페이지
+        </button>
+        <button class="btn_lonin btn_option">로그인</button>
+        <button id="btn_profile" class="btn_option hide"></button>
+        <div id="modal_login" class="modal hide">
+          <!-- 모달 컨텐츠 -->
+          <div id="login_content">
+            <div>
+              <span id="btn_modal_close" class="close">&times;</span>
+            </div>
+            <form action="" method="get" id="form_login" class="form">
+              <input
+                id="login_id"
+                class="input_login"
+                type="text"
+                placeholder="아이디를 입력하세요"
+              />
+              <input
+                id="login_password"
+                class="input_login"
+                type="password"
+                placeholder="비밀번호를 입력하세요"
+              />
+              <input
+                id="btn_login_submit"
+                class="submit"
+                type="submit"
+                value="로그인"
+              />
+            </form>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
+      </div>
+    </header>
+    <main>
+      <section class="form__container">
+        <section id="intro">
+          <h1>Agora-States</h1>
+          <p>여러 사람들과 이야기하며 경험을 늘려나가세요!!</p>
+          <!-- 모달오픈 버튼 -->
+          <button id="myBtn">질문하기</button>
+          <!--비로그인 상태에서 질문을 작성하려는 경우 로그인 모달로 이동하는 모달-->
+          <div id="modal_toLogin" class="modal hide">
+            <div class="modal-content toLogin">
+              <div>
+                <span class="close closeModal">&times;</span>
+              </div>
+              <div id="content_question_nonLogin">
+                <p>질문을 등록하시려면 로그인이 필요합니다.</p>
+                <button class="btn_lonin">로그인하기</button>
+              </div>
+            </div>
           </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+          <!--질문 모달 -->
+          <div id="myModal" class="modal hide">
+            <!-- 모달 컨텐츠 -->
+            <div id="modal_question" class="modal-content toQuestion">
+              <div>
+                <span class="close closeModal">&times;</span>
+              </div>
+              <form action="" method="get" id="form_question">
+                <div class="form__input--wrapper">
+                  <div class="form__input--title">
+                    <input
+                      type="text"
+                      name="title"
+                      id="title"
+                      class="question"
+                      required
+                      placeholder="제목을 입력하세요"
+                    />
+                  </div>
+                  <div class="form__textbox">
+                    <textarea
+                      id="story"
+                      class="question questionContent"
+                      name="story"
+                      placeholder="질문을 작성하세요"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="form__submit">
+                  <input
+                    id="btn_quesiton_submit"
+                    class="submit"
+                    disabled
+                    type="submit"
+                    value="제출하기"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
-  </main>
-</body>
-<script src="data.js"></script>
-<script src="script.js"></script>
-
+        </section>
+      </section>
+      <section class="discussion__wrapper">
+        <ul class="discussions__container"></ul>
+      </section>
+      <ection class="pagination">
+        <ul class="page-item"></ul>
+      </ection>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </html>
