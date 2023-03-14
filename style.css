@@ -1,1 +1,130 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  /* 모든 요소에 border-box를 적용합니다. */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  /* 전체 박스 영역 보기 */
+  /* border: 0.5px solid black; */
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #FBF8F1;
+}
+
+section {
+  width: 540px;
+}
+
+h1 {
+  color: #6E85B7;
+  font-weight: 700;
+}
+
+div > label {
+  font-weight: 700;
+}
+
+li.discussion__container {
+  display: flex; /* flex 주면 li 점 사라짐 */
+  /* 아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
+  align-items: center;
+  /* Discussion 컴포넌트 전체의 폭을 540px로 만드세요. */
+  width: 540px;
+  height: 100px;
+  border: 3px solid #6E85B7;
+  border-radius: 20px;
+  margin: 2px 0 2px 0;
+  padding: 3px;
+}
+
+/* 왼쪽 아바타 */
+/* 아바타 사진을 인스타그램 프로필 사진처럼 동그랗게 표현하세요.
+아바타 사진의 너비를 48px로 설정하세요. */
+div.discussion__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 0 3px 0 3px;
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+/* 중간 Discussion 콘텐츠
+Discussion 제목과 저자, 생성일간에 간격을 충분히 줍니다.
+저자, 생성일을 함께 작성하고, 오른쪽 정렬하여 오른쪽에 붙입니다.
+오른쪽 체크 표시
+체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬합니다. */
+
+div.discussion__title {
+  text-align: left;
+}
+
+div.discussion__information {
+  text-align: right;
+}
+
+div.discussion__answered {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.discussion__content {
+  width: 75%;
+  height: 100px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+div.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80vh;
+}
+div.form__submit {
+  display: flex;
+  justify-content: center;
+  width: 20vh;
+}
+
+.form__container {
+  background-color: #6E85B7;
+  border-radius: 10px;
+  color: #FBF8F1;
+}
+.form__submit {
+  height: 50px;
+}
+
+#name, #title, #story {
+  width: 100%;
+}
+.form__submit > input {
+  width: 90%;
+  background-color: rgb(154, 154, 154);
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
