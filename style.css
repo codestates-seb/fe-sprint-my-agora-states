@@ -55,12 +55,13 @@ header > h2 {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 25vw;
-  min-height: 250px;
+  height: 30vw;
+  min-height: 400px;
 }
 #intro > h1 {
   font-size: 50px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 60px;
 }
 #intro > p {
   font-size: 20px;
@@ -96,8 +97,7 @@ header > h2 {
   background-color: #cccccc;
   color: #666666;
 }
-
-main {
+form main {
   margin-top: 64px;
   display: flex;
   flex-direction: column;
@@ -160,6 +160,7 @@ img {
 a {
   text-decoration-line: none;
 }
+content_question_nonLogin
 .discussion__content {
   margin: 0 16px;
   flex-grow: 1;
@@ -228,16 +229,28 @@ h3 > a {
 .modal-content {
   background-color: #fefefe;
   margin: 7% auto;
-  padding: 20px 40px 40px 40px;
-  width: 40vw;
+  padding: 10px 20px 20px 20px;
+  width: 25vw;
   max-width: 500px;
-  min-width: 600px;
   border-radius: 20px;
+}
+.modal-content {
+  background-color: #fefefe;
+  padding: 10px 20px 20px 20px;
+  width: 25vw;
+  max-width: 500px;
+  border-radius: 20px;
+}
+.toQuestion {
+  margin: 7% auto;
+}
+.toLogin {
+  margin: 23% auto;
 }
 .modal-content > div {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .close {
   color: #aaa;
@@ -265,4 +278,26 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+#content_question_nonLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#content_question_nonLogin > p {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+#content_question_nonLogin > button {
+  border: 0;
+  font-size: 15px;
+  height: 62px;
+  border-radius: 10px;
+  color: white;
+  background-color: #7064ff;
+}
+#content_question_nonLogin > button:hover {
+  font-weight: bold;
+  background-color: #5b51cb;
 }

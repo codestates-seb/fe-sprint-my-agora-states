@@ -29,17 +29,33 @@
         >
           홈페이지
         </button>
-        <button id="btn_lonin" class="btn_option">로그인</button>
+        <button class="btn_lonin btn_option">로그인</button>
+        <button id="btn_profile" class="btn_option hide"></button>
         <div id="modal_login" class="modal hide">
           <!-- 모달 컨텐츠 -->
           <div id="login_content">
             <div>
               <span id="btn_modal_close" class="close">&times;</span>
             </div>
-            <form action="" method="get" class="form">
-              <input id="login_id" class="input_login" type="text" placeholder="아이디를 입력하세요">
-              <input id="login_password" class="input_login" type="password" placeholder="비밀번호를 입력하세요">
-              <input id="btn_login_submit"class="submit" type="submit" value="로그인">
+            <form action="" method="get" id="form_login" class="form">
+              <input
+                id="login_id"
+                class="input_login"
+                type="text"
+                placeholder="아이디를 입력하세요"
+              />
+              <input
+                id="login_password"
+                class="input_login"
+                type="password"
+                placeholder="비밀번호를 입력하세요"
+              />
+              <input
+                id="btn_login_submit"
+                class="submit"
+                type="submit"
+                value="로그인"
+              />
             </form>
           </div>
         </div>
@@ -52,25 +68,27 @@
           <p>여러 사람들과 이야기하며 경험을 늘려나가세요!!</p>
           <!-- 모달오픈 버튼 -->
           <button id="myBtn">질문하기</button>
-          <!-- 모달 -->
+          <!--비로그인 상태에서 질문을 작성하려는 경우 로그인 모달로 이동하는 모달-->
+          <div id="modal_toLogin" class="modal hide">
+            <div class="modal-content toLogin">
+              <div>
+                <span class="close closeModal">&times;</span>
+              </div>
+              <div id="content_question_nonLogin">
+                <p>질문을 등록하시려면 로그인이 필요합니다.</p>
+                <button class="btn_lonin">로그인하기</button>
+              </div>
+            </div>
+          </div>
+          <!--질문 모달 -->
           <div id="myModal" class="modal hide">
             <!-- 모달 컨텐츠 -->
-            <div class="modal-content">
+            <div id="modal_question" class="modal-content toQuestion">
               <div>
-                <span id="closeModal" class="close">&times;</span>
+                <span class="close closeModal">&times;</span>
               </div>
-              <form action="" method="get" class="form">
+              <form action="" method="get" id="form_question">
                 <div class="form__input--wrapper">
-                  <div class="form__input--name">
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      class="question"
-                      required
-                      placeholder="이름을 입력하세요"
-                    />
-                  </div>
                   <div class="form__input--title">
                     <input
                       type="text"
@@ -92,7 +110,13 @@
                   </div>
                 </div>
                 <div class="form__submit">
-                  <input class="submit" disabled type="submit" value="제출하기" />
+                  <input
+                    id="btn_quesiton_submit"
+                    class="submit"
+                    disabled
+                    type="submit"
+                    value="제출하기"
+                  />
                 </div>
               </form>
             </div>

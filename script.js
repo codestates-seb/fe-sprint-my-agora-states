@@ -1,25 +1,30 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
 let nickname;
+const loginBtn = document.querySelectorAll(".btn_lonin");
+const profileBtn = document.querySelector("#btn_profile");
 //로그인 모달
-const loginBtn = document.querySelector("#btn_lonin");
+const loginForm = document.querySelector("#form_login");
 const loginModal = document.querySelector("#modal_login");
 const closeModalBtn_login = document.querySelector("#btn_modal_close");
 const idInput = document.querySelector("#login_id");
-const passwordInput = document.querySelector("#login_password")
-const submitBtn_login = document.querySelector("#btn_login_submit")
-//모달창
+const passwordInput = document.querySelector("#login_password");
+const submitBtn_login = document.querySelector("#btn_login_submit");
+//질문추가 모달창 조작
 const modal = document.querySelector("#myModal");
+const modalContent = document.querySelector(".modal-content");
 const btnOpenModal = document.querySelector("#myBtn");
-const btnCloseModal = document.querySelector("#closeModal");
+const btnCloseModal = document.querySelectorAll(".closeModal");
+//비로그인 상태에서 질문추가 버튼 클릭시 모달창 내용
+const question_nonLogin = document.querySelector("#content_question_nonLogin");
+const nonLoginModal = document.querySelector("#modal_toLogin");
 //질문추가요소
-const inputName = document.querySelector("#name");
+const form = document.querySelector("#form_question");
 const questionTitle = document.querySelector("#title");
 const questionContent = document.querySelector("#story");
-const btnSubmit = document.querySelector("#submit");
+const btnSubmit = document.querySelector("#btn_quesiton_submit");
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-const form = document.querySelector(".form");
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -88,8 +93,12 @@ const render = (element) => {
 };
 
 render(ul);
-//
-loginBtn.onclick = function () {
+//로그인 모달 컨트롤
+loginBtn[0].onclick = function () {
+  loginModal.classList.remove("hide");
+};
+loginBtn[1].onclick = function () {
+  nonLoginModal.classList.add("hide");
   loginModal.classList.remove("hide");
 };
 closeModalBtn_login.onclick = function () {
@@ -102,15 +111,32 @@ window.onclick = function (event) {
 };
 
 const resetInput = () => {
-  inputName.value = "";
   questionTitle.value = "";
   questionContent.value = "";
 };
-//모달창 조절
+//질문추가 모달창 조절
+
 btnOpenModal.onclick = function () {
-  modal.classList.remove("hide");
+  //로그인시와 비로그인시에 따라 모달창이 달라짐
+  if (nickname) {
+    btnSubmit.disabled = true;
+    modal.classList.remove("hide");
+    nonLoginModal.classList.add("hide");
+    // modalContent.classList.add("toQuestion");
+    // modalContent.classList.remove("toLogin");
+  } else {
+    modal.classList.add("hide");
+    nonLoginModal.classList.remove("hide");
+    // modalContent.classList.remove("toQuestion");
+    // modalContent.classList.add("toLogin");
+    // question_nonLogin.classList.remove("hide");
+  }
 };
-btnCloseModal.onclick = function () {
+btnCloseModal[0].onclick = function () {
+  resetInput();
+  nonLoginModal.classList.add("hide");
+};
+btnCloseModal[1].onclick = function () {
   resetInput();
   modal.classList.add("hide");
 };
@@ -122,17 +148,12 @@ window.onclick = function (event) {
 };
 //버튼 활성화 상태 조절
 const btnState = () => {
-  if (
-    inputName.value.length === 0 ||
-    questionTitle.value.length === 0 ||
-    questionContent.value.length === 0
-  ) {
+  if (questionTitle.value.length === 0 || questionContent.value.length === 0) {
     btnSubmit.disabled = true;
   } else {
     btnSubmit.disabled = false;
   }
 };
-inputName.onkeyup = btnState;
 questionTitle.onkeyup = btnState;
 questionContent.onkeyup = btnState;
 //새로운 discussion을 추가
@@ -141,7 +162,7 @@ form.addEventListener("submit", (event) => {
   const newDiscusstion = {
     createdAt: new Date(),
     title: questionTitle.value,
-    author: inputName.value,
+    author: nickname,
     bodyHTML: questionContent.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/87750478?s=64&v=4",
   };
@@ -149,12 +170,15 @@ form.addEventListener("submit", (event) => {
   modal.classList.add("hide");
   resetInput();
 });
-submitBtn_login.addEventListener(
-  ("submit",
-  (event) => {
-    event.preventDefault();
-    nickname = idInput.value;
-    loginModal.classList.add("hide");
-    idInput.value = ""
-  })
-);
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  nickname = idInput.value;
+  profileBtn.classList.remove("hide");
+  profileBtn.innerHTML = nickname;
+  loginBtn[0].classList.add("hide");
+  loginModal.classList.add("hide");
+  idInput.value = "";
+});
+if (nickname) {
+}
+profileBtn.addEventListener("click", (event) => {});
