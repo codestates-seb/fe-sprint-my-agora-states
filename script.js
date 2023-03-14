@@ -1,5 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+const storageData = localStorage.getItem('agoraStatesDiscussions');
+const storageDataArray = JSON.parse(storageData);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -8,7 +9,7 @@ const convertToDiscussion = (obj) => {
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
+  const discussionContent = document.createElement("div");  
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
@@ -41,7 +42,7 @@ const convertToDiscussion = (obj) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 // 페이징
-let totalpage = Math.ceil(agoraStatesDiscussions.length / 10); //총 페이지 수
+let totalpage = Math.ceil(storageDataArray.length / 10); //총 페이지 수
 
 // 총 페이지 수 렌더링
 const pageul = document.querySelector("ul.pageul");
@@ -68,21 +69,30 @@ const render = (element, index) => {
     element.removeChild(element.firstChild);
   }
   for (let i = index * 10; i <= index * 10 + 9; i += 1) {
-    if (i == agoraStatesDiscussions.length) {
+    if (i == storageDataArray.length) {
       //최종 게시글까지 렌더링 차례가 되면 for문중지
       break;
     }
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    element.append(convertToDiscussion(storageDataArray[i]));
   }
   return;
 };
 
 render(ul, 0);
 
-// 객체에 추가해주기
+// 객체에 추가해주기 with localStorage
+// localStorage
+// 1. 기존 data를 localStorage에 저장
+// 저장 이전에 기존에 localstorage에 값이 있는지부터 확인.
+if(storageData===null){ // 만약 localStorage에 값이 없다면 그때 값 추가.
+  const arrString = JSON.stringify(agoraStatesDiscussions);
+  window.localStorage.setItem('agoraStatesDiscussions',arrString);
+}
+
+
 const form = document.querySelector(".form");
 form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  //e.preventDefault();
   let name = document.querySelector("#name");
   let namevalue = name.value;
   let title = document.querySelector("#title");
@@ -109,9 +119,20 @@ form.addEventListener("submit", function (e) {
       "https://avatars.githubusercontent.com/u/55401378?s=64&u=9ef138579365bd13856792f624c418cf760453f3&v=4",
   };
 
-  agoraStatesDiscussions.push(newobj);
+  //agoraStatesDiscussions.push(newobj);
+  // 2. localStorage의 value값을 가져옴+push로 값 추가
+  let prevData = JSON.parse(localStorage.getItem('agoraStatesDiscussions'));
+  prevData.push(newobj);
+
+  // 3. 추가된 data를 문자열로 바꾼 뒤 다시 localStorage에 등록
+  localStorage.setItem('agoraStatesDiscussions', JSON.stringify(prevData));
+  
   name.value = "";
   title.value = "";
   story.value = "";
   alert("등록 완료되었습니다");
+  
 });
+
+
+
