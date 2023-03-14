@@ -287,3 +287,12 @@ li div {
   flex-grow:0.3;
   margin-top: 1.5rem;
 }
+
+/* pagenation 버튼 */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}

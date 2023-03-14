@@ -90,10 +90,13 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+ // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 
-render(ul);
+render(ul); 
+
+
+
 
 const form = document.querySelector("form.form");
 const inputName = document.querySelector("div.form__input--name > input");
@@ -110,18 +113,17 @@ form.addEventListener("submit", (event) => {
 
   //데이터 추가
   const newQuestion = {
-    id: "unique id",
+    id: "D_kwDOHOApLM4APjIj",
     createdAt: new Date().toISOString(),
-    title: title.value,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
-    author: author.value,
+    title: inputTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/44",
+    author: inputName.value,
     answer: null,
-    bodyHTML: textbox.value,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
-  };
+    bodyHTML: txtQuestion.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
+  }
   //데이터 ul 첫번째에 집어넣기
-  data.unshift(newQuestion);
+  agoraStatesDiscussions.unshift(newQuestion);
 
   // 선택한 요소 내부의 시작부분에 삽입하기
   ul.prepend(convertToDiscussion(newQuestion));
