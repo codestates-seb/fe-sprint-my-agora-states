@@ -3,10 +3,10 @@
   font-size: 0.8vw;
   margin: 0.1vw auto;
   padding: 0.1vw;
-  /* border: 0.1vw solid gray; */
+  border: 0.1vw solid gray;
 }
 
-body {
+/* body {
   background-image: url(./image/프로필.png);
   background-size: 100vw;
 }
@@ -130,4 +130,4 @@ p {
 
 li {
   list-style: none;
-}
+} */

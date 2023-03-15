@@ -1,61 +1,120 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+class DiscussionList {
+  data;
+  numberOfPage;
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
-  //   //질문 리트스 >> 생성
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
-  //아바타 프로필 >> 생성
-  const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
-  //아바타 프로필_사진 >> 생성
-  const avatarImg = document.createElement("img");
-  avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = "avatar of " + obj.author;
-  // 아바타 프로필>> 추가
-  avatarWrapper.append(avatarImg);
-
-  //게시글 >> 생성
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  //게시글_제목 >> 생성
-  const discussionTitle = document.createElement("h2");
-  discussionTitle.className = "discussion__title";
-  const discussionAnchor = document.createElement("a");
-  discussionAnchor.href = obj.url;
-  discussionAnchor.textContent = obj.title;
-  //게시글_작성자/날짜 >> 생성
-  const discussionInfo = document.createElement("div");
-  discussionInfo.className = "discussion__information";
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
-  //게시글 >> 추가
-  discussionContent.append(discussionTitle, discussionInfo);
-  discussionTitle.append(discussionAnchor);
-
-  //답변 여부 >> 생성
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
-  const checked = document.createElement("p");
-  checked.textContent = obj.answer ? "🌸" : "🌱";
-  // 답변 여부 >> 추가
-  discussionAnswered.append(checked);
-
-  //객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
-  return li;
-};
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  constructor(discussions) {
+    this.data = discussions ?? [];
+    this.#updateNumberOfPage();
   }
-  return;
-};
 
-// // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+  addDiscussion(discussion) {
+    this.data.unshift(discussion);
+    this.#updateNumberOfPage();
+  }
+
+  #updateNumberOfPage() {
+    this.numberOfPage =
+      this.data.length % 10 == 0 ? this.data.length / 10 : this.data.length / 10 + 1;
+  }
+}
+
+class DiscussionForm {
+  name;
+  title;
+  story;
+
+  constructor(name, title, story) {
+    this.name = name ?? "";
+    this.title = title ?? "";
+    this.story = story ?? "";
+  }
+
+  init() {
+    this.name = "";
+    this.title = "";
+    this.story = "";
+  }
+
+  onChange(e) {
+    if (["name", "title", "story"].includes(e.target.name)) {
+      this[e.target.name] = e.target.value;
+    }
+  }
+
+  convertToDiscussion() {
+    return {
+      id: "",
+      createdAt: `${new Date()}`,
+      title: this.title,
+      url: "",
+      author: this.name,
+      answer: null,
+      bodyHTML: this.story,
+    };
+  }
+}
+
+class DiscussionComponent {
+  constructor(discussions, name, title, story) {
+    this.discussionForm = new DiscussionForm(name, title, story);
+    this.discussionList = new DiscussionList(discussions);
+  }
+
+  #init(e) {
+    this.discussionForm.init();
+    if (e.target.tagName == "FORM") {
+      const $form = e.target;
+      $form.querySelector("input[name=name]").value = "";
+      $form.querySelector("input[name=title]").value = "";
+      $form.querySelector("textarea[name=story]").value = "";
+    }
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.discussionList.addDiscussion(this.discussionForm.convertToDiscussion());
+    this.#init(e);
+    this.render(1);
+  }
+
+  render(page) {
+    const $ul = document.querySelector("ul.discussions__container");
+    $ul.innerHTML = this.discussionList.data
+      .slice(10 * (page - 1), 10 * page)
+      .map((discussion) => {
+        return `
+          <li class="discussion__container">
+            <div class="discussion__avatar--wrapper">
+              <img
+                class="discussion__avatar—image"
+                src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+                alt="avatar of kimploo"
+              />
+            </div>
+            <div class="discussion__content">
+              <h2 class="discussion__title">
+                <a
+                  href="#"
+                  >${discussion.title}</a
+                >
+              </h2>
+              <div class="discussion__information">
+                ${discussion.author} / ${discussion.createdAt}
+              </div>
+            </div>
+            <div class="discussion__answered"><p>☑</p></div>
+          </li>
+        `;
+      })
+      .join();
+
+    const $page = document.querySelector("div.pagenation__container");
+    $page.innerHTML = "";
+    for (let i = 1; i <= this.discussionList.numberOfPage; i++) {
+      $page.innerHTML += `<button onclick="discussionPage.render(${i})">${i}</button>`;
+    }
+  }
+}
+
+const discussionPage = new DiscussionComponent(agoraStatesDiscussions);
+discussionPage.render(1);
