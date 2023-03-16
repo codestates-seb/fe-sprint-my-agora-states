@@ -68,7 +68,6 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // 모달 창
-
 const createModalForm = document.querySelector(".form__container");
 
 const btnOpenPopup = document.querySelector(".create-btn");
@@ -87,29 +86,7 @@ createModalForm.addEventListener("click", (e) => {
   }
 });
 
-// 답변완료 버튼 클릭 (모달)
-
-// const answerModalForm = document.querySelector(".form__container--answer");
-// const answeredBtn = document.querySelector(".answered-btn");
-
-// answeredBtn.addEventListener("click", (e) => {
-//   console.log(e.target);
-//   answerModalForm.style.display = "block";
-//   body.style.overflow = "hidden";
-// });
-
-// answerModalForm.addEventListener("click", (e) => {
-//   const evTarget = e.target;
-
-//   console.log(evTarget);
-//   if (evTarget.classList.contains("form__container--answer")) {
-//     answerModalForm.style.display = "none";
-//     body.style.overflow = "scroll";
-//   }
-// });
-
 // 내 질문 남기기
-
 const submitForm = document.querySelector(".form");
 
 submitForm.addEventListener("submit", (e) => {
@@ -125,7 +102,7 @@ submitForm.addEventListener("submit", (e) => {
   createdDiscussion.author = author;
   createdDiscussion.title = title;
   createdDiscussion.avatarUrl =
-    "https://pixabay.com/get/g11738ef7570b499a0d470655f857a9dd5cccf78862b6b49f2510977d9fada7218a8b35445f14cb9419eb9c808c66a6c3c950acc7dcf99b6eb16c85f332f157e67b79a99ff44daa4a34f4c89229fb0f4f_640.jpg";
+    "https://images.unsplash.com/photo-1535464053056-cc294d1c5946?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
   createdDiscussion.createdAt = createdAt;
   createdDiscussion.answer = null;
 
