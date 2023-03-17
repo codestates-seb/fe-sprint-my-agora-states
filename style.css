@@ -6,6 +6,7 @@
     display: grid;
     justify-items: center;
     font-family: 'Hahmlet', serif;    
+    
 }
 
 body {
@@ -14,7 +15,7 @@ body {
     background-size: cover;
 }
 
-script, title {
+script, title, style, .answer__hidden {
     display: none;
 }
 
@@ -78,11 +79,13 @@ ul {
 }
 
 .discussion__container {
-    display: grid;
-    grid-template-columns: 48px 13fr 1fr;
+    display: flex;
+    /* grid-template-columns: 48px 13fr 1fr;
     align-items: center;
-    justify-items: start;
-    column-gap: 10px;
+    justify-items: start; */
+    /* column-gap: 10px; */
+    justify-content: space-between;
+    align-items: center;
     width: 540px;
     border: 2px solid rgba(65, 65, 65, 0.164);
     border-radius: 5px;
@@ -93,6 +96,8 @@ ul {
 }
 
 .discussion__content {
+    flex: 1;
+    margin: 0px 10px;
     display: grid;
     justify-items: start;
 }
@@ -112,7 +117,7 @@ ul {
 }
 
 .discussion__information {
-    justify-self: end;
+    place-self: end;
 }
 
 .discussion__pages {
