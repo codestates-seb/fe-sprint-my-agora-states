@@ -175,7 +175,7 @@ const renderPage = (currentData) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element, currentData) => {
-  for (let i = pageCount * (currentPage - 1); i < pageCount * currentPage; i += 1) {
+  for (let i = dataPerPage * (currentPage - 1); i < dataPerPage * currentPage; i += 1) {
     if (currentData[i]) element.append(convertToDiscussion(currentData[i]));
   }
   return;
