@@ -5,6 +5,9 @@ localStorage.setItem("filter-likes", JSON.stringify(false));
 let discussions = [];
 let likes = [];
 
+const pageList = document.querySelector(".pages__container");
+discussions = JSON.parse(localStorage.getItem("discussions"));
+
 function saveDiscussion() {
   localStorage.setItem("discussions", JSON.stringify(discussions));
 }
@@ -89,32 +92,96 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element, currentData) => {
-  for (let i = 0; i < currentData.length; i += 1) {
-    element.append(convertToDiscussion(currentData[i]));
-  }
-  return;
-};
-
-discussions = JSON.parse(localStorage.getItem("discussions"));
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul, discussions);
-
 const button = document.querySelector(".discussion__likes");
 button.addEventListener("click", (event) => {
   event.preventDefault();
   if (JSON.parse(localStorage.getItem("filter-likes"))) {
+    pageList.innerHTML = "";
     ul.innerHTML = "";
     render(ul, discussions);
+    renderPage(discussions);
     localStorage.setItem("filter-likes", JSON.stringify(false));
   } else {
+    pageList.innerHTML = "";
     ul.innerHTML = "";
     discussions = JSON.parse(localStorage.getItem("discussions"));
     likes = discussions.filter((discussion) => discussion.like);
     render(ul, likes);
+    renderPage(likes);
     localStorage.setItem("filter-likes", JSON.stringify(true));
   }
 });
+
+const pageCount = 5;
+const dataPerPage = 6;
+const defaultPage = 1;
+let currentPage = 1;
+let totalData, totalPage, currentpageGroup, lastNumber, firstNumber, next, prev;
+
+const renderPage = (currentData) => {
+  totalData = currentData.length;
+  totalPage = Math.ceil(totalData / dataPerPage) > 0 ? Math.ceil(totalData / dataPerPage) : defaultPage;
+  currentpageGroup = Math.ceil(currentPage / pageCount);
+  lastNumber = pageCount * currentpageGroup > totalPage ? totalPage : pageCount * currentpageGroup;
+  firstNumber = lastNumber >= pageCount ? lastNumber - pageCount + 1 : defaultPage;
+  next = lastNumber + 1;
+  prev = firstNumber - 1;
+
+  const goToPrevGroup = document.createElement("li");
+  goToPrevGroup.className = "page__button";
+  goToPrevGroup.textContent = "◀︎";
+  goToPrevGroup.addEventListener("click", (event) => {
+    if (prev < 1) return;
+    event.preventDefault();
+    currentPage = prev;
+    pageList.innerHTML = "";
+    ul.innerHTML = "";
+    render(ul, currentData);
+    renderPage(currentData);
+  });
+  pageList.append(goToPrevGroup);
+
+  for (let number = firstNumber; number <= lastNumber; number++) {
+    const li = document.createElement("li");
+    li.className = "page__button";
+    li.textContent = number;
+    if (number === currentPage) li.classList.add("currentPage");
+    li.addEventListener("click", (event) => {
+      console.log("click");
+      event.preventDefault();
+      currentPage = Number(event.target.textContent);
+      pageList.innerHTML = "";
+      ul.innerHTML = "";
+      render(ul, currentData);
+      renderPage(currentData);
+    });
+    pageList.append(li);
+  }
+
+  const goToNextGroup = document.createElement("li");
+  goToNextGroup.className = "page__button";
+  goToNextGroup.textContent = "►";
+  goToNextGroup.addEventListener("click", (event) => {
+    if (next > totalPage) return;
+    event.preventDefault();
+    currentPage = next;
+    pageList.innerHTML = "";
+    ul.innerHTML = "";
+    render(ul, currentData);
+    renderPage(currentData);
+  });
+  pageList.append(goToNextGroup);
+};
+
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element, currentData) => {
+  for (let i = pageCount * (currentPage - 1); i < pageCount * currentPage; i += 1) {
+    if (currentData[i]) element.append(convertToDiscussion(currentData[i]));
+  }
+  return;
+};
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul, discussions);
+renderPage(discussions);

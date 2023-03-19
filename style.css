@@ -189,3 +189,21 @@ li.discussion__container {
 .not-clickable {
   pointer-events: none;
 }
+
+.pages__container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.page__button {
+  list-style: none;
+  padding: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: var(--gray);
+}
+
+.currentPage {
+  color: var(--black);
+}
