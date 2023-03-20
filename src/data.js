@@ -20,7 +20,6 @@ const agoraStatesDiscussions = [
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   },
 
-  
   {
     id: "D_kwDOHOApLM4APjIj",
     createdAt: "2022-05-15T23:57:43Z",
@@ -34,7 +33,6 @@ const agoraStatesDiscussions = [
     avatarUrl:
       "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
   },
-
 
   {
     id: "D_kwDOHOApLM4APi4R",
@@ -222,7 +220,6 @@ const agoraStatesDiscussions = [
       "https://avatars.githubusercontent.com/u/90553688?s=64&u=3c4e4dc2053d4977ac12b9cfc2667582f986d3d8&v=4",
   },
 
-  
   {
     id: "D_kwDOHOApLM4APfZU",
     createdAt: "2022-05-09T07:21:42Z",
@@ -981,24 +978,23 @@ const agoraStatesDiscussions = [
     avatarUrl:
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   },
-
-  
-
-  
-].map(discussion => {
+].map((discussion) => {
   if (discussion.answer) {
     return {
       ...discussion,
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
         ...discussion.answer,
-        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
-      }
-    }
+        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML),
+      },
+    };
   }
 
   return {
     ...discussion,
-    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
-  }
-})
+    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
+  };
+});
+
+
+module.exports = agoraStatesDiscussions;

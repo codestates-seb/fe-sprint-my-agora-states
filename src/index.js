@@ -1,4 +1,24 @@
+// 1. 빌드 후 돔 조작이 안 되는 문제
 
+/**
+ * html 상에서 미리 <script> 태그로 index.js를 불러오고 있었기 때문에
+ * 빌드 후에 불러오는 것과 충돌 발생.
+ */
+
+// 2. 빌드 시 src 이미지가 안 따라오는 문제
+
+/**
+ * index.js에서 require로 임포트해놓으면 해결됨.
+ * 근데 html 상에서 불러오는 경로는 따로 바뀌지 않아서, 미리 assets 폴더를 가리키게 해뒀음.
+ * 
+ */
+
+
+const agoraStatesDiscussions = require('./data.js');
+
+// 로컬 스토리지에 이미 자료가 있어서 require로 안 불러와도 뜨던 거였음
+require('./style.css');
+require('./jerry.png'); // 여기서 require로 불러와야 파일이 따라감 -> 안 해줘도 됨. html 파일 확인
 
 let data; // (1) 앞으로 사용할 데이터. 변수 선언
 
@@ -19,20 +39,8 @@ toggleFormButton.addEventListener('click', () => {
 });
 // formContainer 나왔다 사라졌다 하게. 끝
 
-// const date = new Date();
-
-// const year = date.getFullYear();
-// const month = ('0' + (date.getMonth() + 1)).slice(-2);
-// const day = ('0' + date.getDate()).slice(-2);
-// const dateStr = year + '-' + month + '-' + day;
-
-// const hours = ('0' + date.getHours()).slice(-2);
-// const minutes = ('0' + date.getMinutes()).slice(-2);
-// const timeStr = hours + ':' + minutes;
-
 
 const convertToDiscussion = (obj) => {
-
 
     const dateString = obj.createdAt.slice(0, 10);
     let timeString = new Date(obj.createdAt).toLocaleTimeString([], { hour12: false }).slice(0,5);
@@ -140,7 +148,6 @@ const buttons = document.querySelector(".buttons");
 const maxContent = 10;
 const maxButton = 5;
 // const numOfContent = data.length;
-
 // const maxPage = Math.ceil(data.length / maxContent);
 let page = 1;
 

@@ -1,0 +1,29 @@
+{
+  "name": "fe-sprint-my-agora-states",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hajongon/fe-sprint-my-agora-states.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hajongon/fe-sprint-my-agora-states/issues"
+  },
+  "homepage": "https://github.com/hajongon/fe-sprint-my-agora-states#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  }
+}
