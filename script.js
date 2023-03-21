@@ -92,18 +92,23 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+const PAGE_COUNT = 5;
+const DATA_PER_PAGE = 6;
+const DEFAULT_PAGE = 1;
+let currentPage = DEFAULT_PAGE;
+let totalData, totalPage, currentpageGroup, lastNumber, firstNumber, next, prev;
+
 const button = document.querySelector(".discussion__likes");
 button.addEventListener("click", (event) => {
   event.preventDefault();
+  pageList.innerHTML = "";
+  ul.innerHTML = "";
+  currentPage = DEFAULT_PAGE;
   if (JSON.parse(localStorage.getItem("filter-likes"))) {
-    pageList.innerHTML = "";
-    ul.innerHTML = "";
     render(ul, discussions);
     renderPage(discussions);
     localStorage.setItem("filter-likes", JSON.stringify(false));
   } else {
-    pageList.innerHTML = "";
-    ul.innerHTML = "";
     discussions = JSON.parse(localStorage.getItem("discussions"));
     likes = discussions.filter((discussion) => discussion.like);
     render(ul, likes);
@@ -112,18 +117,12 @@ button.addEventListener("click", (event) => {
   }
 });
 
-const pageCount = 5;
-const dataPerPage = 6;
-const defaultPage = 1;
-let currentPage = 1;
-let totalData, totalPage, currentpageGroup, lastNumber, firstNumber, next, prev;
-
 const renderPage = (currentData) => {
   totalData = currentData.length;
-  totalPage = Math.ceil(totalData / dataPerPage) > 0 ? Math.ceil(totalData / dataPerPage) : defaultPage;
-  currentpageGroup = Math.ceil(currentPage / pageCount);
-  lastNumber = pageCount * currentpageGroup > totalPage ? totalPage : pageCount * currentpageGroup;
-  firstNumber = lastNumber >= pageCount ? lastNumber - pageCount + 1 : defaultPage;
+  totalPage = Math.ceil(totalData / DATA_PER_PAGE) > 0 ? Math.ceil(totalData / DATA_PER_PAGE) : DEFAULT_PAGE;
+  currentpageGroup = Math.ceil(currentPage / PAGE_COUNT);
+  lastNumber = PAGE_COUNT * currentpageGroup > totalPage ? totalPage : PAGE_COUNT * currentpageGroup;
+  firstNumber = lastNumber >= PAGE_COUNT ? lastNumber - PAGE_COUNT + 1 : DEFAULT_PAGE;
   next = lastNumber + 1;
   prev = firstNumber - 1;
 
@@ -175,7 +174,7 @@ const renderPage = (currentData) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element, currentData) => {
-  for (let i = dataPerPage * (currentPage - 1); i < dataPerPage * currentPage; i += 1) {
+  for (let i = DATA_PER_PAGE * (currentPage - 1); i < DATA_PER_PAGE * currentPage; i += 1) {
     if (currentData[i]) element.append(convertToDiscussion(currentData[i]));
   }
   return;
