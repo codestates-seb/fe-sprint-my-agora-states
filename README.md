@@ -29,3 +29,7 @@
 # 배포 링크
 
 https://jhsung23.github.io/fe-sprint-my-agora-states/
+
+# License
+
+<a href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a>
