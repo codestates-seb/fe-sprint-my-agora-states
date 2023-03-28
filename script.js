@@ -120,7 +120,7 @@ form.addEventListener("submit", addList = (event) =>{
 })
 //질문작성 시 리스트에 추가해주는거 구현 끝
 
-//날먹 존
+//날먹 
 const open = (event) => {
     document.querySelector(".modal").classList.remove("hidden");
 }
@@ -129,7 +129,7 @@ const close = () => {
 }
 document.querySelector(".openBtn").addEventListener("click", open);
 document.querySelector(".bg").addEventListener("click", close);
-//날먹 존 끝
+//날먹  끝
 
 //모달 2 만들기 구역 시작
 //1. 버튼을 누르면 버튼의 아이디로 객체를 찾는다.
