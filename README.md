@@ -7,7 +7,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 ## 배포 링크
 
 https://scarlett0js.github.io/fe-sprint-my-agora-states/
-(css, js 파일 안 불러와 지는거 수정중)
+(Intro Page css 무너짐 수정중)
 
 ## Bare Minimum Requirement Self Checklist
 
