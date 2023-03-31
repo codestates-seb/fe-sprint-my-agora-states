@@ -17,7 +17,7 @@ const convertToDiscussion = (obj) => {
   // 1. 이미지
   const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = "avatar of " + obj.author;
+  avatarImg.alt = `avatar of ${obj.author}`;
   avatarWrapper.append(avatarImg);
 
   // 2. 제목
@@ -26,9 +26,9 @@ const convertToDiscussion = (obj) => {
   contentLink.href = obj.url;
   contentLink.textContent = obj.title;
   contentTitle.append(contentLink);
-  discussionContent.append(contentLink);
+  discussionContent.append(contentTitle);
 
-  // 3. 정보
+  // 3. 정보 (작성자, 날짜)
   const contentInformation = document.createElement("div");
   contentInformation.className = "discussion__information";
   contentInformation.textContent = `${obj.author} / ${new Date(
@@ -57,11 +57,11 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-// 이벤트 리스너
+// 질문 등록
 const form = document.querySelector(".form");
-const userName = document.querySelector(".form__input--name >input");
-const newTitle = document.querySelector(".form__input--title > input");
-const newTextbox = document.querySelector(".form__textbox > textarea");
+const userName = document.querySelector(".form__input--name input");
+const newTitle = document.querySelector(".form__input--title input");
+const newTextbox = document.querySelector(".form__textbox textarea");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -76,6 +76,7 @@ form.addEventListener("submit", (e) => {
     bodyHTML: newTextbox.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/79903256?s=64&v=4",
   };
+
   agoraStatesDiscussions.unshift(obj);
   ul.prepend(convertToDiscussion(obj));
 
