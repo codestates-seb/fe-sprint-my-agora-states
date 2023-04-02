@@ -3,7 +3,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Raleway', sans-serif;
+    color: white;
+    
 }
 a{
     text-decoration: none;
@@ -16,11 +17,11 @@ video {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-  }
+}
 
 h1{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
     color: rgba(255, 255, 255, 0.811);
     font-size: 4em;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -30,16 +31,22 @@ img{
     border-radius: 50%;
     width: 70px;
 }
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
 /* section.form__container{
     position: fixed;
 } */
 .form__container{
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    background: rgba(255, 255, 255, 0.225);
     text-align: center;
     width: 540px;
-    display: flex;
+    height: 540px;
     justify-content: center;
-    height: 300px;
     border-radius: 20px;
     margin-top: 30px;
     color: beige;   
@@ -54,7 +61,13 @@ input[type=text]{
     background-color: rgba(245, 245, 220, 0.31);
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
+}
+.form__input--wrapper{
+    font-size: 25px;
+    font-family: 'Alkatra', cursive;
+font-family: 'Hi Melody', cursive;
+
 }
 .form__textbox textarea{
     width: 100%;
@@ -98,10 +111,11 @@ section.form__container {
     align-items: center;
     width: 578px;
     height: 150px;
-    font-size : 10px;
     border-radius: 19px;
     margin : 10px;
     padding: 20px;
+    font-family: 'Hi Melody', cursive;
+    color: white;
     
 }
 /* .discussion__avatar--image {
@@ -114,31 +128,32 @@ section.form__container {
 .discussion__content{
     /* display: block; */
     padding-top: 30px;
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 15px;
 }
 .discussion__content >:nth-child(1){
- width: 440px;
- text-align: left;
- margin-top: 0;
- margin-left: 5px;
+    width: 440px;
+    text-align: left;
+    margin-top: 0;
+    margin-left: 5px;
+    color: white;
+
 }
 .discussion__content >:nth-child(2){
     height:30px;
     text-align: right;
     margin-top: 30px;
+    color: white;
+
 }
 li {
     list-style-type: none;
 }
-/* section.discussion__wrapper{
-    display: flex;
-    flex:4;
-    width: 578px;
-    justify-content: center;
-    align-items:center;
-    margin: 0 auto;
-} */
+section.discussion__wrapper{
+    margin-top: 40px;
+    color: white;
+
+}
 /* ul {
     padding: 0px;
 } */
@@ -152,12 +167,14 @@ li.discussion__container:hover{
 }
 a:link {
     color: white;
-    font-family: 'Dongle', sans-serif;
-    font-size: 22px;
+    font-family: 'Alkatra', cursive;
+    font-family: 'Hi Melody', cursive;    
+    font-size: 20px;
 }
-a:visited {
+/* a:visited {
     color: rgb(30, 17, 42);
-}
+} */
+
 
 
 
@@ -183,13 +200,12 @@ div.discussion__information{
     display: flex;
     justify-content: space-between;
     margin: 30px;
+    margin-top: 20px;
+}
+#site a{
+    font-size: 30px;
 }
 
-.buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 button{
     text-align: center;
@@ -200,16 +216,16 @@ button{
     color: rgb(147, 26, 74);
     font-weight: bold;
     border: 1px white;
-    color: white;
-    font-size: 18px;
-  
+        color: white;
+        font-size: 18px;
+
 }
 button:hover{
     color: rgb(203, 155, 163);
 }
 
 .clear{
-   width: 60px;
-   height: 40px;
-   
+width: 60px;
+height: 40px;
+
 }
