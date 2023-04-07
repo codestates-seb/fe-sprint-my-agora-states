@@ -1,0 +1,201 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --primary: #5e7c96;
+  --secondary: #DA7F8F;
+  --form-surface: #f6eed8;
+  --visited: #E1E5EA;
+  --link: #A7BBC7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+    font-size: 100%; /* 1 */
+    vertical-align: baseline; /* 3 */
+    line-height: normal;
+    *vertical-align: middle; /* 3 */
+}
+
+body {
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  padding: 5vh 0;
+  border-radius: 5px;
+}
+
+ul.discussions__container {
+  max-height: 75vh;
+  overflow: auto;
+}
+
+main > * {
+  padding: 0.5rem;
+}
+
+main > h1 {
+  text-align: center;
+  color: var(--primary);
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+h2 > a {
+  color: var(--link);
+}
+
+h2 > a:visited {
+  color: var(--visited);
+}
+
+h2 > a:hover {
+  color: var(--secondary);
+}
+
+form.form {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--form-surface);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--primary);
+}
+
+div.form__input--wrapper {
+  flex: 8 0 auto;
+  padding: 0 0.5rem;
+}
+
+div.form__input--name,
+div.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+  padding-top: 0.2rem;
+}
+
+div.form__input--name > label,
+div.form__input--title > label {
+  border: 0;
+  width: 100px;
+  flex: 4 0 0;
+}
+
+div.form__input--name > input,
+div.form__input--title > input {
+  border: 0;
+  flex: 6 0 0;
+}
+
+div.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+div.form__textbox > label,
+div.form__textbox > textarea {
+  padding-top: 0.2rem;
+  border: 0;
+}
+
+div.form__submit {
+  display: flex;
+  flex: 2 0 auto;
+}
+
+div.form__submit > input {
+  border: 0;
+  color: var(--primary);
+  background-color: var(--background);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  flex: 1 0 0;
+}
+
+div.form__submit > input:hover,
+div.form__submit > input:active {
+  color: var(--background);
+  background-color: var(--secondary);
+}
+
+li.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  background-color: var(--surface);
+  border-radius: 5px;
+  list-style-type: none;
+}
+
+li.discussion__container > div {
+  /* padding: 0.5rem; */
+}
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+}
+
+div.discussion__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1 0 0;
+  padding: 0.5rem;
+}
+
+h2.discussion__title {
+  padding-top: 0.5rem;
+}
+
+div.discussion__information {
+  padding: 1rem 0.5rem 0 0.5rem;
+  text-align: right;
+  color: var(--primary);
+}
+
+div.discussion__answered {
+  flex: 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: var(--primary);
+}
+
+section.buttons {
+  display: flex;
+}
+
+section.buttons > button {
+  background-color: var(--surface);
+  flex: 1 0 0;
+  border: 0;
+  margin: 0 0.5rem;
+}
