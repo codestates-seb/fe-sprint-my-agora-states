@@ -34,8 +34,8 @@ https://jiye-7.github.io/fe-sprint-my-agora-states/
   - [ ] LocalStorage에 대해서 스스로 학습하고, 새롭게 추가하는 Discussion이 페이지를 새로고침해도 유지되도록 제작합니다.
 
 ### My Own Self Checklist
-
-- [v] 새로운 디스커션 추가할 때 모달창을 띄워서 입력
+- [v] dummy data로 렌더한 코드를 server에 fetch로 요청을 보내 받아온 응답값으로 리팩토링
+- [v] 모달창 적용, 새로운 디스커션 추가할 때 모달창을 띄워서 입력
 - [v] 모달창에 있는 input 값들의 유효성이 통과 되었을 때 submit 할 수 있도록 처리
 - [v] createAt의 데이터 형식을 변환하는 함수를 만들어서 적용
 
