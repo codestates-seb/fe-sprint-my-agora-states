@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+AC00-D7A3;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Cabin Sketch';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/cabinsketch/v19/QGYpz_kZZAGCONcK2A4bGOj8mNhN.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic */
+@font-face {
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/neucha/v17/q5uGsou0JOdh94bfuQltOxU.woff2) format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/neucha/v17/q5uGsou0JOdh94bfvQlt.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    font-family: 'KyoboHand';
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+    background-image: url('../image/sketch_bg2.jpg');
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-width: 60rem;
+}
+
+li.discussion__container {
+    display: flex;
+    width: 420px;
+    height: 140px;
+    justify-content: space-between;
+    border-radius: 1rem;
+    padding: 20px;
+    min-width: 60rem;
+}
+
+/* flex 쓰면 centering이 쉽기 때문에 wrapper로 감싸줌 */
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper>img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+
+div.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+h3.discussion__title {
+    text-align: left;
+}
+
+.discussion__title>p {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: KyoboHand;
+}
+
+div.discussion__information {
+    font-size: small;
+    text-align: right;
+}
+
+div.discussion__answered {
+    display: flex;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card-header > img {
+    width: 150px;
+}
+
+.p-nation {
+    padding: 30px 0px;
+}
+
+.navbar {
+    font-family: "Cabin Sketch", cursive;
+    font-size: large;
+}
