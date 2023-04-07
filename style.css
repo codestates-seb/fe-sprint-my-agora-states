@@ -217,10 +217,12 @@ ul {
   justify-content: space-between;
 }
 
-.pagination-container button.active{
+.pagination-container button.active {
   background-color: #eee;
 }
 
 .discussion__container.hidden {
   display: none;
 }
+
+/* test용주석 */
