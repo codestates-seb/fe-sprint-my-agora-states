@@ -76,17 +76,77 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+// 서버와 연결 http://localhost:4000/discussions
+fetch('http://localhost:4000/discussions')
+  .then((res) => res.json())
+  .then((data) => {
+    const agoraStatesDiscussionsNew = data;
+    /* 23.04.07 추가 */
+    let agoraData;
+    // localStorage 정보 가져오기
+    const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions"); 
+    if (dataFromLocalStorage) {
+      // localStorage js언어로 가져오기
+      agoraData = JSON.parse(dataFromLocalStorage)
+    } else {
+      // localStorage 없으면 원본 저장하기
+      agoraData = agoraStatesDiscussionsNew.slice();
+    }
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+    // agoraStatesDiscussionsNew 배열의 모든 데이터를 화면에 렌더링
+    // agoraData 배열의 모든 데이터를 화면에 렌더링
+    const render = (element) => {
+      // 다 지우고 배열에 있는 내용 다 보여주기
+      while (element.firstChild) {
+        element.removeChild(element.firstChild);
+      }
+      for (let i = 0; i < agoraData.length; i += 1) {
+        element.append(convertToDiscussion(agoraData[i]));
+      }
+      return;
+    };
+    // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+    const ul = document.querySelector("ul.discussions__container");
+    render(ul);
+
+
+    //submit 할 경우
+    function agoraSubmit(event) {
+      event.preventDefault();
+
+      const title = titInput.value;
+      const author = nameInput.value;
+      const bodyHTML = questionInput.value;
+
+      //객체 생성
+      let creatObj = {
+        id: "unique id",
+        createdAt: new Date(),
+        title: title,
+        url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
+        author: author,
+        answer: null,
+        bodyHTML: bodyHTML,
+        avatarUrl:
+          "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+      }
+
+      agoraData.unshift(creatObj);
+      localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraData));
+      render(ul);
+
+      //submit 이후 입력 값 초기화
+      nameInput.value = "";
+      titInput.value = "";
+      questionInput.value = "";
+
+      //입력 후 클릭 시 팝업창 사라지게
+      agoraFormCont.classList.add("hide");
+    };
+
+    agoraForm.addEventListener("submit", agoraSubmit);
+  })
+
 
 
 //질문하기 버튼 클릭 시 팝업 창 보이기
@@ -100,55 +160,3 @@ function showForm() {
   })
 }
 showBtn.addEventListener("click", showForm);
-
-
-function saveAgora(){
-  localStorage.setItem('AGORA_KEY', JSON.stringify(agoraStatesDiscussions));
-}
-
-const savedAgora = localStorage.getItem('AGORA_KEY');
-
-function paintAgora(){
-  const paintAgora = JSON.parse('AGORA_KEY');
-  agoraStatesDiscussions = paintAgora;
-}
-
-
-//submit 할 경우
-function agoraSubmit(event) {
-  event.preventDefault();
-  
-  const title = titInput.value;
-  const author = nameInput.value;
-  const bodyHTML = questionInput.value;
-
-  //객체 생성
-  let creatObj = {
-    id: "id",
-    createdAt: new Date(),
-    title: title,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
-    author: author,
-    answer: null,
-    bodyHTML: bodyHTML,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
-  }
-  
-  agoraStatesDiscussions.unshift({ ...creatObj });
-  const discussion = convertToDiscussion(creatObj);
-
-  ul.prepend(discussion);
-
-  //submit 이후 입력 값 초기화
-  nameInput.value = "";
-  titInput.value = "";
-  questionInput.value = "";
-
-  //입력 후 클릭 시 팝업창 사라지게
-  agoraFormCont.classList.add("hide");
-  saveAgora();
-  paintAgora();
-};
-
-agoraForm.addEventListener("submit", agoraSubmit);
