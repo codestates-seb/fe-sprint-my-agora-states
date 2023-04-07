@@ -43,6 +43,7 @@ const convertToDiscussion = (obj) => {
   off.src = "./img/idea-305335_640.png";
   on.className = "light_bulb";
   off.className = "light_bulb";
+
   // 응답 있을 시 전구가 켜지도록 구현
   const response = obj.answer?.bodyHTML;
   response ? discussionAnswered.append(on) : discussionAnswered.append(off);
@@ -72,33 +73,41 @@ const form = document.querySelector("form.form");
 const title = document.querySelector("input#title");
 const author = document.querySelector("input#name");
 const story = document.querySelector("textarea#story");
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  // 하나의 객체를 만들어서, cd함수에 넣어서 li로 만든 다음 ul요소에 append
-  const newDiscussion = {
-    id: Math.random(),
-    createdAt: new Date(),
-    title: title.value,
-    url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
-    author: author.value,
-    answer: null,
-    bodyHTML: story?.value,
-    avatarUrl: "./img/bg.jpeg",
-  };
-  ul.prepend(convertToDiscussion(newDiscussion));
-  title.value = "";
-  author.value = "";
-  story.value = "";
-});
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+// fetch 해온 데이터를 대신 띄워줌.
+fetch("http://localhost:4000/discussions/")
+  .then((res) => res.json())
+  .then((json) => {
+    console.log("여기는 서버 두둥", json);
+    agoraStatesDiscussions = json;
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      // 하나의 객체를 만들어서, cd함수에 넣어서 li로 만든 다음 ul요소에 append
+      const newDiscussion = {
+        id: Math.random(),
+        createdAt: new Date(),
+        title: title.value,
+        url: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
+        author: author.value,
+        answer: null,
+        bodyHTML: story?.value,
+        avatarUrl: "./img/bg.jpeg",
+      };
+      ul.prepend(convertToDiscussion(newDiscussion));
+      title.value = "";
+      author.value = "";
+      story.value = "";
+    });
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+    // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+    const render = (element) => {
+      for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+        element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+      }
+      return;
+    };
+
+    // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+    const ul = document.querySelector("ul.discussions__container");
+    render(ul);
+  });
