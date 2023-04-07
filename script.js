@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 window.onload = function() {
   // const urlParams = new URL(location.href).searchParams;
@@ -142,7 +142,7 @@ const addLocalstorage = () => {
   const getDiscussArr = JSON.parse(getDiscussString);
   const ul = document.querySelector("ul.discussions__container");
   
-  console.log(getDiscussArr);
+  // console.log(getDiscussArr);
   for(let i=0;i<getDiscussArr.length;i++) {
     ul.prepend(convertToDiscussion(getDiscussArr[i]));
   }
