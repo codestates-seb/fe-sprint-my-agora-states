@@ -6,41 +6,41 @@
   border: 0.1vw solid gray;
 }
 
-/* body {
+body {
   background-image: url(./image/프로필.png);
   background-size: 100vw;
 }
 
 main {
-  width: 60vw;
-  border-radius: 3vw;
+  width: 60rem;
+  border-radius: 3rem;
   background-color: rgba(251, 211, 219, 0.3);
-  box-shadow: 0 0 1vw 0.1vw rgb(244, 185, 196);
+  box-shadow: 0 0 1rem 0.1rem rgb(244, 185, 196);
 }
 
 h1 {
-  width: 40vw;
-  height: 3vw;
-  border-radius: 3vw;
+  width: 40rem;
+  height: 3rem;
+  border-radius: 3rem;
   background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: inset 0 0 0.5vw 0.1vw rgb(244, 185, 196);
-  margin: 1vw auto;
-  padding: 0.1vw;
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 1rem auto;
+  padding: 0.1rem;
   text-align: center;
-  font-size: 2vw;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 content {
   display: flex;
-  width: 60vw;
+  width: 60rem;
 }
 
 .form__input--wrapper {
-  width: 20vw;
-  border-radius: 3vw;
+  width: 20rem;
+  border-radius: 3rem;
   background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 0.5vw 0.1vw rgb(244, 185, 196);
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
 }
 
 .form__input--name,
@@ -48,71 +48,73 @@ content {
 .form__textbox {
   display: flex;
   flex-direction: column;
-  margin: 1vw auto;
+  margin: 1rem auto;
 }
 
 label,
 .submit_button {
   display: block;
-  width: 10vw;
-  border-radius: 3vw;
+  width: 10rem;
+  border-radius: 3rem;
   background-color: rgba(251, 211, 219, 0.5);
-  box-shadow: 0 0 0.5vw 0.1vw rgb(244, 185, 196);
-  margin: 0.1vw auto 0.5vw;
+  box-shadow: 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 0.1rem auto 0.5rem;
   text-align: center;
   font-weight: bold;
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 .submit_button {
-  margin: 0.5vw auto;
+  margin: 0.5rem auto;
 }
 
 input,
 textarea {
-  width: 17.5vw;
-  border: 0.1vw none gray;
-  border-radius: 3vw;
+  width: 17.5rem;
+  border: 0.1rem none gray;
+  border-radius: 3rem;
   background-color: rgba(251, 211, 219, 0.3);
-  box-shadow: inset 0 0 0.5vw 0.1vw rgb(244, 185, 196);
-  margin: 0.1vw auto;
-  padding: 0.3vw;
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 0.1rem auto;
+  padding: 0.3rem;
   text-align: center;
+  display: block;
 }
 
 textarea {
-  height: 15vw;
-  padding: 0.3vw 2vw;
+  height: 15rem;
+  padding: 0.3rem 2rem;
 }
 
 .discussion__container {
-  width: 30vw;
-  border-radius: 3vw;
+  width: 30rem;
+  border-radius: 3rem;
   background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 0.5vw 0.1vw rgb(244, 185, 196);
-  margin: 0.1vw auto 0.5vw;
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 0.1rem auto 0.5rem;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
 }
 
 .discussion__avatar--image {
-  display: block;
-  width: 5vw;
-  border-radius: 3vw;
+  width: 5rem;
   background-color: rgba(251, 211, 219);
-  box-shadow: 0 0 1vw 0.1vw rgb(244, 185, 196);
-  margin: 0.1vw auto;
+  box-shadow: 0 0 1rem 0.1rem rgb(244, 185, 196);
 }
 
 .discussion__content {
   display: block;
-  width: 27.5vw;
-  border-radius: 3vw;
+  width: 27.5rem;
+  border-radius: 3rem;
   background-color: rgba(251, 211, 219, 0.3);
-  box-shadow: inset 0 0 0.5vw 0.1vw rgb(244, 185, 196);
-  padding: 0 2vw;
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  padding: 0 2rem;
 }
 
 a {
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 .discussion__information {
@@ -120,14 +122,14 @@ a {
 }
 
 p {
-  width: 2vw;
-  border-radius: 3vw;
+  width: 2rem;
+  border-radius: 3rem;
   background-color: rgba(251, 211, 219, 0.5);
-  box-shadow: inset 0 0 1vw 0.1vw rgb(244, 185, 196);
+  box-shadow: inset 0 0 1rem 0.1rem rgb(244, 185, 196);
   text-align: center;
-  margin: 0.1vw auto;
+  margin: 0.1rem auto;
 }
 
 li {
   list-style: none;
-} */
+}
