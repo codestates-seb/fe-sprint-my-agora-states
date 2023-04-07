@@ -260,6 +260,10 @@ main {
   border-radius: 50%;
 }
 
+.arrow_up_btn:hover {
+  cursor: pointer;
+}
+
 /*
   media query
 */
