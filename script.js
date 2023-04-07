@@ -19,6 +19,13 @@
  * LocalStorage
  * [ ] 새롭게 추가하는 Discussion이 페이지를 새로고침해도 유지되어야 함
  */
+let discussions = [];
+
+// 비동기 함수 호출 시 주의, render 함수에서 getData가 실행되는 것을 기다려주지 않음.
+/* const getData = async () => {
+  const discussionData = await getDiscussions();
+  discussions = [...discussionData];
+}; */
 
 /** navigation */
 const navWrapper = document.querySelector('.nav__wrapper');
@@ -83,10 +90,14 @@ const convertToDiscussion = (obj) => {
  * discussion 배열의 모든 데이터를 화면에 렌더링하는 함수
  * */
 const render = (element) => {
-  for (let i = 0; i < discussions.length; i += 1) {
-    element.append(convertToDiscussion(discussions[i]));
-  }
-  return;
+  getDiscussions()
+    .then((res) => {
+      discussions = [...res];
+      for (let discussion of discussions) {
+        element.append(convertToDiscussion(discussion));
+      }
+    })
+    .catch((err) => alert('데이터가 없습니다.'));
 };
 
 /**
