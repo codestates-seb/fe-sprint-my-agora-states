@@ -32,12 +32,16 @@ main {
 }
 
 h1 {
+  position: absolute;
+  top: 0;
   margin: 30px;
   font-size: 55px;
 }
 
 .form__container {
-  width: 100%;
+  width: inherit;
+  position: absolute;
+  top: 140px;
 }
 
 .form__input--wrapper > div {
@@ -120,7 +124,23 @@ button {
 }
 
 .discussions__wrapper {
-  width: 100%;
+  position: absolute;
+  top: 455px;
+  width: inherit;
+  height: calc(100vh - 455px);
+  padding-bottom: 20px;
+}
+
+.discussions__container__wrapper {
+  height: calc(100% - 39px);
+  padding-bottom: 20px;
+}
+
+ul.discussions__container {
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 li.discussion__container {
@@ -131,6 +151,11 @@ li.discussion__container {
   padding: 10px 20px;
   background-color: aliceblue;
   margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+li.discussion__container:last-child {
+  margin-bottom: 0;
 }
 
 .discussion__avatar--image {
@@ -193,7 +218,6 @@ li.discussion__container {
 .pages__container {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
 }
 
 .page__button {
