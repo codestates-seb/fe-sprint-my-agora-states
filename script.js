@@ -4,6 +4,7 @@ localStorage.setItem("filter-likes", JSON.stringify(false));
 
 let discussions = [];
 let likes = [];
+const DATA_PER_PAGE = 6;
 
 const pageList = document.querySelector(".pages__container");
 discussions = JSON.parse(localStorage.getItem("discussions"));
@@ -19,6 +20,7 @@ const title = document.querySelector("#title");
 const story = document.querySelector("#story");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  const lis = ul.getElementsByTagName("li");
   const newDiscussion = {
     id: Date.now(),
     createdAt: new Date().toISOString(),
@@ -29,6 +31,7 @@ form.addEventListener("submit", (event) => {
     answer: null,
     like: false,
   };
+  lis[DATA_PER_PAGE - 1].remove();
   ul.prepend(convertToDiscussion(newDiscussion));
   discussions.unshift(newDiscussion);
   saveDiscussion();
@@ -93,7 +96,6 @@ const convertToDiscussion = (obj) => {
 };
 
 const PAGE_COUNT = 5;
-const DATA_PER_PAGE = 6;
 const DEFAULT_PAGE = 1;
 let currentPage = DEFAULT_PAGE;
 let totalData, totalPage, currentpageGroup, lastNumber, firstNumber, next, prev;
