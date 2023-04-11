@@ -89,13 +89,9 @@ const render = (element) => {
 */
 
 
-
-
 const dataFromLocalStorage = localStorage.getItem("agoraStatesDiscussions") //더미데이터를 웹 스토리지인 로컬스토리지에 저장
 const ul = document.querySelector("ul.discussions__container")
-//230411삭제
 //ul.append(li)
-
 
 
 if(dataFromLocalStorage){ //만약 더미데이터에서 가져올거라면
@@ -151,11 +147,9 @@ buttons.children[2].addEventListener("click", () => {
 })
 
 /*
-
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
 */
 
 
@@ -165,15 +159,10 @@ const submitName = document.querySelector('#name')
 const submitTitle = document.querySelector('#title')
 const submitStory = document.querySelector('#story')
 
-// form.addEventListener("submit", function(e){
-//   e.preventDefault() //이벤트객체의 기존의 기능을 차단하겠다 써밋의 리다이렉션을 막아줌
-//   console.log(form.name.value)
-//   console.log(form.title.value)
-//   console.log(form.story.value)
-// })
+
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault()
+  e.preventDefault()   //이벤트객체의 기존의 기능을 차단하겠다 써밋의 리다이렉션을 막아줌
   const obj = {
     id : "unique id",
     createdAt: new Date().toISOString(),
@@ -192,15 +181,6 @@ submitTitle.value = ""
 submitName.value = ""
 submitStory.value = "" 
 })
-
-
-// const h2 = document.getElementsByTagName('h2')
-
-// const handleHover = function(){
-//   h2.style.color = 'red'
-// }
-
-// h2.addEventListener('hover', handleHover)
 
 
 

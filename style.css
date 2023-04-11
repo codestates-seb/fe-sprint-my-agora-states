@@ -156,15 +156,19 @@ textarea {
     border-radius: 50px;
 }
 
+.buttons {
+    align-items: right;
+    display: flex;
+    flex: 100%;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 50px;
+}
 
 footer {
     margin-top: 10px;
     color: gray;
 }
-
-
-
-
 
 
 .modal_wrap {
