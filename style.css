@@ -1,1 +1,267 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:800');
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	/*font-size: 100%;
+	font: inherit;*/
+	vertical-align: baseline;
+} 
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1659878997289-b9ab5a0663b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav {
+    width: 100%;
+    height: 70px;
+    padding: 0px 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    transition: all 0.2s ease 0s;
+    box-sizing: border-box;
+}
+nav a {
+    display : flex;
+    align-items : center;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+nav a img {
+    width: 104px;
+}
+nav a button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    transition: color 0.3s ease 0s, background-color;
+}
+main {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    height: 80vh;
+    padding: 30px;
+    margin-top:70px;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.2);
+    box-shadow:  5px 5px 32px #d6d6d6,
+                -5px -5px 32px #ffffff;
+
+}
+
+section.form__container {
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+section.form__container .form__wrapper {
+    width: 100%;
+}
+
+section.form__container h1.form__title{
+    color: white;
+    font-size: 50px;
+    line-height: 50px;
+}
+section.form__container form.form{
+    margin-top:30px;
+}
+section.form__container form.form input {
+    width: 100%;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255,0.2);
+    height: 30px;
+    border-radius: 10px;
+    padding: 25px 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: white;
+    margin-top:5px;
+}
+section.form__container form.form input::placeholder{
+    color: white;
+}
+section.form__container form.form textarea{
+    width: 100%;
+    height: 100px;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255,0.2);
+    border-radius: 10px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: white;
+    margin-top:5px;
+}
+section.form__container form.form textarea::placeholder{
+    color: white;
+    font-weight: 700;
+}
+section.form__container form.form .form__submit {
+    margin-top: 2px;
+}
+section.form__container form.form .form__submit input {
+    margin-top: 0;
+    padding: 15px 0 35px;
+    background-color: blue;
+    cursor: pointer;
+}
+
+
+section.discussion__wrapper,ul,li,div {
+    box-sizing: border-box;
+}
+section.discussion__wrapper {
+    width: 570px;
+    overflow: scroll;
+    /* position: relative; */
+}
+section.discussion__wrapper .range {
+    /* position: sticky; */
+    position: absolute;
+    top: 6px;
+    right: 46px;
+}
+section.discussion__wrapper ul > li {
+    box-sizing: border-box;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 30px;
+    background-color: rgba(255,255,255,0.8);
+}
+/* 질문 내용 */
+section.discussion__wrapper ul > li > div.discussion__avatar--wrapper {
+    flex: 1 0 10%;
+}
+section.discussion__wrapper ul li div.discussion__avatar--wrapper img {
+    border-radius: 70%;
+    width: 48px;
+    margin-bottom: 10px;
+}
+
+section.discussion__wrapper ul > li > div.discussion__content {
+    flex: 1 0 70%;
+}
+section.discussion__wrapper ul > li > div.discussion__content a {
+    color: black;
+    text-decoration: none;
+    font-family: "Nanum Gothic";
+    font-size: 28px;
+    line-height: 28px;
+}
+section.discussion__wrapper ul > li > div.discussion__content > div.discussion__information {
+    text-align: right;
+    margin-top: 8px;
+    font-family: math;
+}
+
+section.discussion__wrapper ul > li > div.discussion__answered {
+    flex: 1 0 10%;
+    text-align: right;
+    padding-right: 12px;
+}
+
+/* 답변 내용 */
+section.discussion__wrapper ul > li > div.exit {
+    margin-top: 30px;
+    flex: 1 0 100%;
+    display: flex;
+}
+section.discussion__wrapper ul > li > div.exit div.answer__isAnswer--wrapper{
+    flex: 1 0 3%; /*5*/
+    padding-top:12px;
+}
+section.discussion__wrapper ul > li > div.exit div.answer__isAnswer--wrapper img{
+    transform: rotate(180deg);
+    margin-left: 6px;
+}
+
+section.discussion__wrapper ul > li > div.exit div.answer__avatar--wrapper{
+    flex: 1 0 10%; /*15*/
+}
+section.discussion__wrapper ul > li > div.exit div.answer__avatar--wrapper img{
+    border-radius: 70%;
+    width: 48px;
+}
+
+section.discussion__wrapper ul > li div.exit a.answer__link{
+    text-decoration: none;
+    color: black;
+    width: 400px;
+    overflow: scroll;
+}
+
+section.discussion__wrapper ul > li div.exit a.answer__link div.answer__content{
+    flex: 1 0 87%; /*80*/
+    padding-bottom: 10px;
+}
+section.discussion__wrapper ul > li div.exit a.answer__link div.answer__content p{
+    
+}
+section.discussion__wrapper ul > li div.exit a.answer__link div.answer__content div.answer__information{
+    text-align: right;
+    margin-top:15px;
+    font-family: math;
+}
+
+.agorastates {
+    width: 160px;
+    height: 62px;
+    padding-left: 20px;
+    background-color: white;
+    border-radius: 30px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow:  5px 5px 15px #ffffff,
+                -5px -5px 15px #ffffff;
+}
+.agorastates a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: space-between;
+    color:black;
+}
+.agorastates a p{
+    font-family: "Nanum Gothic"; 
+    font-weight: 800;
+    font-size: 18px;
+}
+.agorastates a img {
+    width: 62px;
+}
