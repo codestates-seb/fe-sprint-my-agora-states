@@ -1,5 +1,3 @@
-# fe-sprint-my-agora-states
-
 ## 배포 링크
 
 https://myungju030.github.io/fe-sprint-my-agora-states/
