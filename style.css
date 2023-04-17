@@ -1,1 +1,135 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-size: 0.8vw;
+  margin: 0.1vw auto;
+  padding: 0.1vw;
+  border: 0.1vw solid gray;
+}
+
+body {
+  background-image: url(./image/프로필.png);
+  background-size: 100vw;
+}
+
+main {
+  width: 60rem;
+  border-radius: 3rem;
+  background-color: rgba(251, 211, 219, 0.3);
+  box-shadow: 0 0 1rem 0.1rem rgb(244, 185, 196);
+}
+
+h1 {
+  width: 40rem;
+  height: 3rem;
+  border-radius: 3rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 1rem auto;
+  padding: 0.1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+content {
+  display: flex;
+  width: 60rem;
+}
+
+.form__input--wrapper {
+  width: 20rem;
+  border-radius: 3rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+}
+
+label,
+.submit_button {
+  display: block;
+  width: 10rem;
+  border-radius: 3rem;
+  background-color: rgba(251, 211, 219, 0.5);
+  box-shadow: 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 0.1rem auto 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.submit_button {
+  margin: 0.5rem auto;
+}
+
+input,
+textarea {
+  width: 17.5rem;
+  border: 0.1rem none gray;
+  border-radius: 3rem;
+  background-color: rgba(251, 211, 219, 0.3);
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 0.1rem auto;
+  padding: 0.3rem;
+  text-align: center;
+  display: block;
+}
+
+textarea {
+  height: 15rem;
+  padding: 0.3rem 2rem;
+}
+
+.discussion__container {
+  width: 30rem;
+  border-radius: 3rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  margin: 0.1rem auto 0.5rem;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+}
+
+.discussion__avatar--image {
+  width: 5rem;
+  background-color: rgba(251, 211, 219);
+  box-shadow: 0 0 1rem 0.1rem rgb(244, 185, 196);
+}
+
+.discussion__content {
+  display: block;
+  width: 27.5rem;
+  border-radius: 3rem;
+  background-color: rgba(251, 211, 219, 0.3);
+  box-shadow: inset 0 0 0.5rem 0.1rem rgb(244, 185, 196);
+  padding: 0 2rem;
+}
+
+a {
+  font-size: 1rem;
+}
+
+.discussion__information {
+  text-align: right;
+}
+
+p {
+  width: 2rem;
+  border-radius: 3rem;
+  background-color: rgba(251, 211, 219, 0.5);
+  box-shadow: inset 0 0 1rem 0.1rem rgb(244, 185, 196);
+  text-align: center;
+  margin: 0.1rem auto;
+}
+
+li {
+  list-style: none;
+}
