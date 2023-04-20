@@ -1,6 +1,4 @@
-# fe-sprint-my-agora-states
-
-# Description
+# fe-sprint-my-agora-states Description
 
 Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스테이츠를 만듭니다.
 
