@@ -34,8 +34,8 @@ $('.btn_gotop').click(function(){
 	return false;
 });
 
-
-const convertToDiscussion = (obj) => {
+//본문
+const convertToDiscussion = (obj) => {//디스커션 생성파트
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -90,10 +90,10 @@ let maxItem = 10;
 
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element,currentPage,maxItem) => {
-  if(localStorage.getItem("localdata") !== null){
-  agoraStatesDiscussions = JSON.parse(localStorage.getItem("localdata"));
-  }
+const render =async (element,currentPage,maxItem) => {
+  
+  let endpoint = `http://localhost:4000/discussions/`
+  let agoraStatesDiscussions = await fetch(endpoint).then((response) => response.json());
   element.innerHTML = "";
   currentPage--;
 
@@ -143,39 +143,20 @@ NewPage(page, maxItem);
 //입력 폼에서 받은 데이터를 agoraStatesDiscussions에 저장
 
 const form = document.querySelector("form.form");
-form.addEventListener("submit",  (event) => {
+form.addEventListener("submit",  async (event) => {
   event.preventDefault();
 
     const InputName = document.querySelector("#name");
     const InputTitle = document.querySelector("#title");
     const InputStory = document.querySelector("#story");
-    const seq = "guest" + (
-        Math.floor(Math.random() * 10000) + 10000
-    )
-        .toString()
-        .substring(1);
-    const date = new Date();
-    const time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() +
-            "-" + date.getDay() + "T" + date.getHours() + ":" + date.getMinutes() + "z";
-
+    
         let tempobject = {
-            id: seq,
-            createdAt: time,
             title: InputTitle.value,
-            url: "https://github.com/codestates-seb/agora-states-fe/discussions ",
             author: InputName.value,
-            answer: null,
             bodyHTML: InputStory.value,
-            avatarUrl: "https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-%" +
-                    "EB%82%A8%EC%84%B1-%EC%95%84%EB%B0%94%ED%83%80-%ED%94%84%EB%A1%9C%ED%95%84-%EC%" +
-                    "82%AC%EC%A7%84-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%95%84%EB%B0%" +
-                    "94%ED%83%80-%EA%B2%8C%EC%8A%A4%ED%8A%B8-%EC%95%84%EB%B0%94%ED%83%80-%EB%8B%A8%" +
-                    "EC%88%9C%ED%9E%88-%EC%9D%B8%EA%B0%84%EC%9D%98-%EB%A8%B8%EB%A6%AC-%EB%B2%A1%ED%" +
-                    "84%B0-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%A0%88%EC%9D%B4-%EC%85%98-%ED%9D" +
-                    "%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90.jpg"
         }
-        agoraStatesDiscussions.unshift(tempobject);
-        localStorage.setItem("localdata", JSON.stringify(agoraStatesDiscussions));
+        agoraStatesDiscussions=await fetch(`http://localhost:4000/discussions/`,{ method: 'POST',
+        body: JSON.stringify(tempobject)}).then((response) => response.json());
         currentPage = 1;
         render(ul, currentPage, maxItem);
         NewPage(page, maxItem)
