@@ -1,1 +1,213 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.menuandmain {
+    display: flex;
+}
+
+.menu--wrapper {
+background-color: rgb(250, 243, 208);
+flex:1;
+display: flex;
+flex-direction: column;
+}
+
+.menu {
+    color: gray;
+    padding: 10px 10px;
+    margin-top: 2px;
+    margin-left: 6px;
+    width: 100px;
+}
+
+.menu:hover{
+    color: rgb(107, 79, 107);
+    cursor: pointer;
+}
+
+main {
+
+    flex: 8;
+    padding: 20px 20px;   /* ???*/
+    /* margin: 0 */
+    /*position: relative*/
+    font-size: 1em;
+    line-height: 1.7;
+    letter-spacing: .2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-image: linear-gradient(
+        to bottom,
+        rgba(69, 44, 221, 0.3),
+        rgba(255, 255, 255, 0)
+      ),
+      url('./images/background.png');
+  }
+
+img {
+    border-radius: 50px;
+    width: 48px;
+    margin-right: 20px;
+    /* max-width: 100%;
+    display: block; */
+}
+
+.discussion__wrapper {
+    width: 540px;
+}
+
+.discussion__avatar--wrapper {
+    /* margin-top: 2%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discussion__container {
+    font-size: 12px;
+    display: flex;
+    flex: 1
+    /* justify-content: space-between; */
+    /* width: 540px; */
+}
+
+.discussion__content {
+    flex:5
+}
+
+.discussion__information {
+    text-align: right;
+}
+.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* float: right */
+}
+
+section {
+    padding: 10px;
+    margin: 10px;
+}
+
+.form__container {
+    color: gray;
+    padding: 10px;
+    margin: 10px;
+    background-color: transparent
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+h1 {
+    flex-grow: 90;
+    margin: 10px 10px;
+    height: 40px;
+    justify-content: left;
+    color: rgb(130, 101, 158);
+}
+
+.login {
+    margin: 10px 10px;
+    flex-grow: 1;
+    font-size: 28px;
+    justify-content: center;
+    color: rgb(130, 101, 158);
+}                      
+
+.discussion__title {
+    margin-top: 10px;
+}
+
+input {
+    display: flex;
+    flex: 100%;
+    color: gray;
+    padding: 3px;
+    margin: 3px;
+    background: transparent;
+}
+
+textarea {
+    display: flex;
+    flex: 100%;
+    width: 430px;
+    color: gray;
+    padding: 3px;
+    margin: 3px;
+    background: transparent;
+}
+
+.button {
+    align-items: right;
+    display: flex;
+    flex: 100%;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 50px;
+}
+
+.buttons {
+    align-items: right;
+    display: flex;
+    flex: 100%;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 50px;
+}
+
+footer {
+    margin-top: 10px;
+    color: gray;
+}
+
+
+.modal_wrap {
+    display: none;
+    width: 500px;
+    height: 320px;
+    position: absolute;
+    border: 1px solid gray;
+    top:50%;
+    left: 50%;
+    margin: -250px 0 0 -250px;
+    background:#eee;
+    z-index: 2;
+}
+.modal_background {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0,0, 0.5);
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+.modal_close {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.modal_wrap .text {
+    margin-top: 40px;
+    margin-left: 5px;
+}
+
+.modal_close .closeImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
