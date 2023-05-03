@@ -2,18 +2,18 @@ let i = 0;
 let count = 0;
 
 let submitBox = document.querySelector("#submitbox");
-let abcd = {};
+let str = {};
 
 submitBox.onclick = function () {
   let masterName = document.querySelector(".inputbox_name");
   let masterTitle = document.querySelector(".inputbox_title");
   let masterQuestion = document.querySelector(".inputbox_question");
 
-  abcd.author = masterName.value;
-  abcd.title = masterTitle.value;
-  abcd.bodyHTML = masterQuestion.value;
-  agoraStatesDiscussions.unshift(abcd);
-  abcd = {};
+  str.author = masterName.value;
+  str.title = masterTitle.value;
+  str.bodyHTML = masterQuestion.value;
+  agoraStatesDiscussions.unshift(str);
+  str = {};
   const tweets = document.querySelectorAll(".discussion__container");
   tweets.forEach(function (tweet) {
     tweet.remove();
@@ -42,19 +42,18 @@ const convertToDiscussion = (obj) => {
   discussionTitleAtag.href = agoraStatesDiscussions[i].url;
   discussionTitle.append(discussionTitleAtag);
   discussionTitleAtag.textContent = agoraStatesDiscussions[i].title;
-  const discussionImpormaiton = document.createElement("div");
-  discussionImpormaiton.className = "discussion__information";
-  discussionImpormaiton.textContent =
-    agoraStatesDiscussions[i].author +
-    " / " +
-    agoraStatesDiscussions[i].createdAt;
-  discussionContent.append(discussionTitle, discussionImpormaiton);
+  const discussionInfo = document.createElement("div");
+  discussionInfo.textContent = `${
+    agoraStatesDiscussions[i].author
+  } / ${new Date(agoraStatesDiscussions[i].createdAt).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInfo);
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
   const checkBox = document.createElement("input");
-  checkBox.className = "abc";
+  checkBox.className = "check";
   checkBox.type = "checkbox";
   discussionAnswered.append(checkBox);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
