@@ -4,17 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <title>YongMin's Agora States</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="data.js"></script>
+    <script defer src="script.js"></script>
 </head>
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <header>YongMin's Agora States</header>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
@@ -36,7 +39,7 @@
         </div>
       </form>
     </section>
-    <section class="discussion__wrapper">
+    <nav class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
@@ -51,10 +54,9 @@
           <div class="discussion__answered"><p>☑</p></div>
         </li>
       </ul>
-    </section>
+    </nav>
   </main>
 </body>
-<script src="data.js"></script>
-<script src="script.js"></script>
+
 
 </html>
