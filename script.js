@@ -14,10 +14,27 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of '+obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const titleEl = document.createElement('h2');
+  const titleLink = document.createElement('a');
+  titleLink.href = obj.url;
+  titleEl.textContent = obj.title;
+  titleEl.append(titleLink);
+  discussionContent.append(titleEl);
 
+  const discussionInfo = document.createElement('div');
+  discussionInfo.textContent = obj.author + ' / ' + Date(obj.createdAt).toLocaleString('ko-KR');
+  discussionContent.append(discussionInfo);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const discussionChecked = document.createElement('p');
+  discussionChecked.textContent = obj.answer ? '☑' : '☒';
+  discussionAnswered.append(discussionChecked);
+
+  li.append(avatarWrapper, discussionContent, discussionAnswered); // 단일 요소 하나를 생성하는 애
   return li;
 };
 
