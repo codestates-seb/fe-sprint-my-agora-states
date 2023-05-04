@@ -1,5 +1,7 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
 /** color template 
 #fff3e2
 #ffe5ca
@@ -15,6 +17,7 @@
 
 body {
 	background-color: #fff3e2;
+	font-family: 'Nanum Myeongjo', serif;
 	height: 100vh;
 }
 
@@ -155,6 +158,7 @@ main > h1 {
 .discussion__container .discussion__avatar--wrapper img {
 	border-radius: 50%;
 	border: 4px solid #e74646;
+	width: 70px;
 }
 
 .discussion__container .discussion__content {
