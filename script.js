@@ -1,9 +1,6 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  const { author, title, avatarUrl, url, bodyHTML, answer, createdAt } = obj;
+  const { id, author, title, avatarUrl, bodyHTML, answer, createdAt } = obj;
   const li = document.createElement('li'); // li 요소 생성
   li.className = 'discussion__container'; // 클래스 이름 지정
 
@@ -25,7 +22,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.appendChild(discussionIsAnswered);
   discussionTitle.className = 'discussion__title';
   const discussionTitleLink = document.createElement('a');
-  discussionTitleLink.href = url;
+  discussionTitleLink.href = 'javascript:void(0)';
   discussionTitleLink.textContent = title;
   const discussionInformation = document.createElement('div');
   discussionInformation.className = 'discussion__information';
@@ -49,6 +46,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  element.innerHTML = '';
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -58,3 +56,43 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
+
+// 게시글 등록
+const submitBtnEl = document.querySelector('input[type="submit"]');
+const authorEl = document.getElementById('author');
+const titleEl = document.getElementById('title');
+const textareaEl = document.getElementById('story');
+
+submitBtnEl.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (authorEl.value === '') {
+    alert('작성자를 입력해주세요.');
+    return;
+  }
+  if (titleEl.value === '') {
+    alert('제목을 입력해주세요.');
+    return;
+  }
+  if (textareaEl.value === '') {
+    alert('내용을 입력해주세요.');
+    return;
+  }
+  postDiscussion(authorEl.value, titleEl.value, textareaEl.value);
+  titleEl.value = '';
+  textareaEl.value = '';
+  alert('질문이 등록되었습니다.');
+});
+
+const postDiscussion = (author, title, body) => {
+  const newDiscussion = {
+    author,
+    title,
+    avatarUrl: 'https://avatars.githubusercontent.com/u/60064471?v=4',
+    url: 'javascript:void(0)',
+    bodyHTML: body,
+    answer: undefined,
+    createdAt: new Date(),
+  };
+  agoraStatesDiscussions.unshift(newDiscussion);
+  render(ul);
+};

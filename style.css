@@ -117,12 +117,12 @@ main h1 {
   justify-content: space-between;
   align-items: center;
 }
-#name,
+#author,
 #title {
   padding: 0.5rem 1rem;
   height: 1.5rem;
 }
-#name {
+#author {
   width: 6rem;
 }
 #title {
