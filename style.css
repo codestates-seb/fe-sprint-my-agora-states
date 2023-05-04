@@ -33,12 +33,14 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
 }
 
 /* form container section */
 .form__input--wrapper {
+  width: 90vw;
+  height: 30vh;
   border-radius: 20px;
   padding: 1rem;
   padding-right: 2rem;
@@ -117,6 +119,8 @@ h1 {
   width: 540px;
   margin: 20px 0;
   overflow: hidden;
+  border: 1px solid #f2f3f5;
+  border-radius: 10px;
 }
 
 .discussion__avatar--wrapper {
