@@ -24,8 +24,8 @@ submitBox.onclick = function () {
 };
 
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  const li = document.createElement("li");
+  li.className = "discussion__container";
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
