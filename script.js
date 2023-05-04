@@ -15,7 +15,7 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
-
+//hello world
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
