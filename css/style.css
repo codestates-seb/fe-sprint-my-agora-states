@@ -259,7 +259,7 @@ body.dark .pageButton {
 }
 
 body.dark .pageButton__prev,
-.pageButton__next {
+body.dark .pageButton__next {
   color: #9eaff1;
 }
 
@@ -281,7 +281,7 @@ body.dark .pageButton__prev,
 }
 
 body.dark .pageButton__first,
-.pageButton__last {
+body.dark .pageButton__last {
   color: #ae9cf5;
 }
 
