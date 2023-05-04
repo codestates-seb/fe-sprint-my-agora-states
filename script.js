@@ -53,46 +53,44 @@ render(ul);
 // 일단 초기 스타일링 전 모습 완료
 
 // 폼에 입력하면 그 정보를 받아와야 함: 버튼 클릭에서도 사용해야함. 폼 가지고 오기
-const form = document.querySelector("form");
-const title = form.querySelector(".form__input--title > input");
-const author = form.querySelector(".form__input--name > input");
-const discussionText = form.querySelector(".form__textbox > input");
-
-console.log(title.value)
-console.log(author.value)
-console.log(discussionText.value)
 // 사용자가 인풋에 입력을 하고 제출 버튼을 누르면 -> 일단 작성자, 제목만 수집, 아바타는 기본 아바타 이미지 주기
 // li 항목으로 생성해서
 // 가장 첫번째 항목으로 추가하고 / HTML에 렌더링하기
 // 리스트를 전부 다 계속 새로고침해서 렌더링하게 하는 건 좀 문제가 있음.
 
 // 랜덤한 id생성하는 방법(이건 나중에 직접 작성해보기: 지금은 gpt)
-function generateRandomId() {
-  const chars =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let randomId = "";
-  for (let i = 0; i < 10; i++) {
-    randomId += chars[Math.floor(Math.random() * chars.length)];
-  }
-};
+// function generateRandomId() {
+//   const chars =
+//     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+//   let randomId = "";
+//   for (let i = 0; i < 10; i++) {
+//     randomId += chars[Math.floor(Math.random() * chars.length)];
+//   }
+// }
+
+const form = document.querySelector('.form');
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
+  const title = document.querySelector("form > #title").value;
+  const author = document.querySelector("form > #name").value;
+  const discussionText = document.querySelector("form > #story").value;
+
   const obj = {
-    id: generateRandomId(),
-    createdAt: new Date(),
-    title: title.value,
+    id: 'test',
+    createdAt: new Date().toLocaleString('ko-KR'),
+    title: title,
     url: "images/quesiton.png",
-    author: author.value,
+    author: author,
     answer: {},
-    bodyHTML: discussionText.value,
-    avatarUrl: "",
+    bodyHTML: discussionText,
+    avatarUrl: "images/question.png",
   };
-  console.log(obj);
+  
   agoraStatesDiscussions.unshift(obj);
+
   const itemLi = convertToDiscussion(obj);
-  // render(itemLi);
-  // 위에처럼 하면 결국 어레이 다 돌고 로드하잖아. 그냥 html에 삽입해주는 방식으로 해야 할듯.
   ul.prepend(itemLi);
 });
 
