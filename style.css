@@ -6,7 +6,7 @@
 }
 
 body {
-  width: px;
+  width: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,6 +36,7 @@ h1 {
 }
 
 .form__input--wrapper {
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,6 +125,7 @@ h1 {
 
 #submitbox {
   margin-left: 93px;
+  margin-bottom: 5px;
 }
 
 #paginationbox {
