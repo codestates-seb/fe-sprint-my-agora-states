@@ -25,7 +25,7 @@ textarea {
 }
 
 body {
-  padding: 2rem 0;
+  padding: 3rem 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +39,7 @@ h1 {
 
 /* form container section */
 .form__input--wrapper {
-  width: 90vw;
+  width: 1fr;
   height: 30vh;
   border-radius: 20px;
   padding: 1rem;
@@ -114,37 +114,88 @@ h1 {
 }
 
 /* discussion wrapper section */
-.discussion__container {
+.discussions__container {
   display: grid;
-  grid-template-columns: 2fr 12fr 1fr;
-  width: 540px;
-  margin: 20px 0;
-  overflow: hidden;
-  border: 1px solid #f2f3f5;
-  border-radius: 10px;
+  grid-template-columns: 1fr;
+}
+.discussion__container {
+  background-color: #313338;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  gap: 0.1rem;
+  grid-template-areas:
+    "tag img"
+    "title img"
+    "answer img";
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
 }
 
-.discussion__avatar--wrapper {
-  display: flex;
-  align-items: center;
+.discussion__tags {
+  grid-area: tag;
 }
-.discussion__avatar--image {
-  border-radius: 50%;
-  width: 48px;
+.discussion__tags > span {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-color: #1e1f22;
 }
 
 .discussion__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-area: title;
+  display: grid;
 }
 
-.discussion__information {
-  text-align: end;
+.discussion__title {
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  width: 60vw;
+  margin: 0.5rem 0;
+}
+
+.discussion__main {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.discussion__author {
+  font-weight: 800;
+  margin-right: 0.5rem;
+}
+
+.discussion_story {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  width: 60vw;
+  color: #adb2b9;
 }
 
 .discussion__answered {
+  grid-area: answer;
+  align-self: end;
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  font-size: 1.1rem;
+}
+.discussion__comments {
+  margin-right: 1rem;
+  letter-spacing: 0.4rem;
+}
+
+.discussion__avatar--wrapper {
+  grid-area: img;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+}
+.discussion__avatar--image {
+  width: 40%;
 }
