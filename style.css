@@ -5,6 +5,7 @@ html {
   --color-black: #000000;
   --color-white: #ffffff;
   --color-lightgray: #bbbbbb;
+  --color-gray: #888888;
   --color-main: #111111;
   --color-section: #222222;
   --color-input: #333333;
@@ -64,14 +65,14 @@ textarea {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-white);
   text-decoration: none;
 }
 a:hover {
-  color: var(--color-white);
+  color: var(--color-lightgray);
 }
 a:active {
-  color: var(--color-primary-dark);
+  color: var(--color-gray);
 }
 
 /* Main */
@@ -173,6 +174,12 @@ main h1 {
 .discussion__container .discussion__content h2 .discussion__is-answered {
   color: var(--color-lightgray);
   font-size: 1.2rem;
+}
+.discussion__container
+  .discussion__content
+  h2
+  .discussion__is-answered.answered {
+  color: var(--color-primary);
 }
 .discussion__container .discussion__information {
   color: var(--color-lightgray);

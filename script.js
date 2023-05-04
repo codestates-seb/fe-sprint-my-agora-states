@@ -18,7 +18,9 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = 'discussion__content';
   const discussionTitle = document.createElement('h2');
   const discussionIsAnswered = document.createElement('span');
-  discussionIsAnswered.className = 'discussion__is-answered';
+  discussionIsAnswered.className = answer
+    ? 'discussion__is-answered answered'
+    : 'discussion__is-answered';
   discussionIsAnswered.textContent = answer ? '[답변완료] ' : '[미해결] ';
   discussionTitle.appendChild(discussionIsAnswered);
   discussionTitle.className = 'discussion__title';
