@@ -34,7 +34,8 @@ const convertToDiscussion = (obj) => {
 
   // 3. discussionAnswered 적용
   const answerCheck = document.createElement("p");
-  answerCheck.textContent = "☑";
+  if (obj.answer !== null) answerCheck.textContent = "☑";
+  else answerCheck.textContent = "none";
   discussionAnswered.append(answerCheck);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
