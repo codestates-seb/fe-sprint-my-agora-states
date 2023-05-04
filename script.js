@@ -21,6 +21,18 @@ const convertToDiscussion = (obj) => {
   avatarImg.classList.add("discussion__avatar--image");
   avatarWrapper.append(avatarImg);
 
+  // 2. discussionContet 적용
+  // 2-1 title
+  const title = document.createElement("h2");
+  title.textContent = agoraStatesDiscussions[0].title;
+  title.classList.add("discussion__title");
+  discussionContent.append(title);
+  // 2-2 information
+  const information = document.createElement("div");
+  information.textContent = `${agoraStatesDiscussions[0].author} / ${agoraStatesDiscussions[0].createdAt}`;
+  information.classList.add("discussion__information");
+  discussionContent.append(information);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
