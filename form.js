@@ -37,6 +37,7 @@ class IDGenerator {
 }
 
 function handleFormEvent(event) {
+  event.preventDefault();
   // 입력받은 값을 오브젝트에 저장
   // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, )
 
@@ -78,14 +79,20 @@ function handleFormEvent(event) {
     bodyHTML: bodyHTML.value,
     avatarUrl,
   };
-  agoraStatesDiscussions.unshift(item);
+  agoraStatesDiscussions.push(item);
   title.value = "";
   author.value = "";
   bodyHTML.value = "";
-  remove_children(ul);
-  render(ul);
-
-  event.preventDefault();
+  reRender(ul);
 }
 
 form.addEventListener("submit", handleFormEvent);
+const reRender = (element) => {
+  element.prepend(
+    convertToDiscussion(
+      agoraStatesDiscussions[agoraStatesDiscussions.length - 1]
+    )
+  );
+
+  return;
+};
