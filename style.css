@@ -44,7 +44,6 @@ div.form__submit{
 }
 
 #name, #title, #story{
-    margin-bottom: 8px;
     float: right;
     width: 70%;
 }
