@@ -1,40 +1,84 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
-	box-sizing: border-box;
-    font: inherit;
-    color: inherit;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
 }
 
 html {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	height: 100%;
-    margin: 0; 
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-image: url("images/agora.jpg");
+  background-size: 100% auto; /* 가로는 꽉 차게, 세로는 원본 비율대로 */
+  background-repeat: no-repeat;
+  background-position: center bottom 40%;
 }
 
 button {
-	background: none;
-    border: 0;
-    cursor: pointer;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 :root {
-	overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-img, picture, video, canvas, svg {
-	display: block;
-    max-width:100%;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-ul ol {
-	list-style: none;
+ul {
+  list-style: none;
+  padding-left: 0;
 }
 
+main {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+h1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+textarea {
+  width: 80%;
+  height: 60%;
+  resize: none;
+}
+
+.form__container {
+  height: 70vh;
+}
+
+.discussion__wrapper {
+  height: 70vh;
+  overflow: auto;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
