@@ -143,10 +143,12 @@ main h1 {
 }
 
 /* Discussion */
+.discussion__wrapper {
+  margin-bottom: 0;
+}
 .discussions__container {
   height: 25rem;
   padding-right: 1rem;
-  border-radius: 1rem;
   overflow: scroll;
 }
 .discussion__container {
