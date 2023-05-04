@@ -45,7 +45,9 @@ const convertToDiscussion = (obj) => {
   const discussionInfo = document.createElement("div");
   discussionInfo.textContent = `${
     agoraStatesDiscussions[i].author
-  } / ${new Date(agoraStatesDiscussions[i].createdAt).toLocaleTimeString()}`;
+  } / ${new Date(
+    agoraStatesDiscussions[i].createdAt || Date.now()
+  ).toLocaleTimeString()}`;
   discussionContent.append(discussionTitle, discussionInfo);
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
