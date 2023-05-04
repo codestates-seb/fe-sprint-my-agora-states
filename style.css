@@ -2,17 +2,121 @@
 
 * {
   box-sizing: border-box;
+  color: #f2f3f5;
 }
 
 li {
   list-style: none;
 }
 
+input {
+  border: none;
+  background-color: #313338;
+}
+
+input[type="submit"] {
+  background-color: #454c95;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: #313338;
+}
+
+body {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282a2e;
+}
+
+h1 {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+/* form container section */
+.form__input--wrapper {
+  border-radius: 20px;
+  padding: 1rem;
+  padding-right: 2rem;
+  display: grid;
+  background-color: #313338;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2fr 6fr 1fr;
+  grid-template-areas:
+    "title title"
+    "main main"
+    "name post";
+}
+
+.form__input--title {
+  grid-area: title;
+  padding-bottom: 1rem;
+}
+
+.form__input--title > input {
+  width: 100%;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.form__input--title > input:focus {
+  outline: none;
+}
+
+.form__textbox {
+  grid-area: main;
+  padding-bottom: 1rem;
+}
+
+.form__textbox > textarea {
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.form__textbox > textarea:focus {
+  outline: none;
+}
+
+.form__input--name {
+  grid-area: name;
+}
+
+.form__input--name > input {
+  height: 100%;
+  font-size: 1.2rem;
+}
+
+.form__input--name > input:focus {
+  outline: none;
+}
+
+.form__submit {
+  grid-area: post;
+  justify-self: end;
+  width: 70px;
+}
+
+.form__submit > input {
+  font-size: 1.2rem;
+  border-radius: 20px;
+  padding: 2px 16px;
+  height: 36px;
+  cursor: pointer;
+}
+
+/* discussion wrapper section */
 .discussion__container {
   display: grid;
   grid-template-columns: 2fr 12fr 1fr;
   width: 540px;
   margin: 20px 0;
+  overflow: hidden;
 }
 
 .discussion__avatar--wrapper {
