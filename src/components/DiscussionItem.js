@@ -32,6 +32,13 @@ export default class DiscussionItem extends Component {
     const discussionRemoveButton = document.createElement('i');
     discussionRemoveButton.className = 'fa-solid fa-trash';
     discussionRemove.appendChild(discussionRemoveButton);
+    discussionRemove.addEventListener('click', () => {
+      const isDelete = confirm('정말 삭제하시겠습니까?');
+      if (isDelete) {
+        this.el.remove();
+        alert('삭제되었습니다.');
+      }
+    });
 
     this.el.appendChild(avatarWrapper);
     this.el.appendChild(discussionContent);
