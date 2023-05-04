@@ -14,7 +14,8 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
+avatarWrapper.value = agoraStatesDiscussions.avararUrl;
+console.log(avatarWrapper.value)
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
