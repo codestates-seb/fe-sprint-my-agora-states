@@ -23,11 +23,11 @@ const convertToDiscussion = (obj) => {
   const titleLink = document.createElement('a');
   titleLink.href = obj.url;
   titleEl.textContent = obj.title;
-  titleEl.append(titleLink);
-  discussionContent.append(titleEl);
+  titleLink.append(titleEl);
+  discussionContent.append(titleLink);
 
   const discussionInfo = document.createElement('div');
-  discussionInfo.textContent = obj.author + ' / ' + Date(obj.createdAt).toLocaleString('ko-KR');
+  discussionInfo.textContent = obj.author + ' / ' + obj.createdAt;
   discussionContent.append(discussionInfo);
 
   const discussionChecked = document.createElement('p');
