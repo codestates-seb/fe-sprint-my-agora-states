@@ -46,7 +46,7 @@ h1 {
   padding-right: 2rem;
   display: grid;
   background-color: #313338;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 3fr 1fr;
   grid-template-rows: 2fr 6fr 1fr;
   grid-template-areas:
     "title title"
@@ -91,6 +91,7 @@ h1 {
 
 .form__input--name > input {
   height: 100%;
+  width: 100%;
   font-size: 1.2rem;
 }
 
