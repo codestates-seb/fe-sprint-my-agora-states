@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -48,21 +48,16 @@ const render = (element) => {
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-const firstLi = ul.firstChild;
 render(ul);
-
-console.log(firstLi);
 
 // 일단 초기 스타일링 전 모습 완료
 
 // 폼에 입력하면 그 정보를 받아와야 함: 버튼 클릭에서도 사용해야함. 폼 가지고 오기
 const form = document.querySelector("form");
-
 const title = form.querySelector(".form__input--title > input");
 const author = form.querySelector(".form__input--name > input");
 const discussionText = form.querySelector(".form__textbox > input");
- 
-console.log(firstLi.value)
+
 console.log(title.value)
 console.log(author.value)
 console.log(discussionText.value)
@@ -87,7 +82,7 @@ form.addEventListener("submit", (event) => {
     id: generateRandomId(),
     createdAt: new Date(),
     title: title.value,
-    url: "DEFAULT",
+    url: "images/quesiton.png",
     author: author.value,
     answer: {},
     bodyHTML: discussionText.value,
@@ -98,6 +93,6 @@ form.addEventListener("submit", (event) => {
   const itemLi = convertToDiscussion(obj);
   // render(itemLi);
   // 위에처럼 하면 결국 어레이 다 돌고 로드하잖아. 그냥 html에 삽입해주는 방식으로 해야 할듯.
-  ul.insertBefore(itemLi, firstLi);
+  ul.prepend(itemLi);
 });
 
