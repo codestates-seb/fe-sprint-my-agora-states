@@ -149,25 +149,46 @@ main h1 {
   background-color: var(--color-section);
 }
 .discussion__container .discussion__avatar--wrapper {
+  width: 5.5rem;
+  height: 5.5rem;
   overflow: hidden;
   box-shadow: 0 0 0.2rem 0.2rem var(--color-primary);
   border-radius: 50%;
+}
+.discussion__container .discussion__avatar--image {
+  width: 100%;
+  height: 100%;
 }
 .discussion__container .discussion__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 32rem;
+  width: 30rem;
   height: 100%;
 }
 .discussion__container .discussion__content h2 {
-  font-size: 2rem;
+  word-break: keep-all;
+  font-size: 1.8rem;
+}
+.discussion__container .discussion__content h2 .discussion__is-answered {
+  color: var(--color-lightgray);
+  font-size: 1.2rem;
 }
 .discussion__container .discussion__information {
   color: var(--color-lightgray);
   font-size: 1.2rem;
   text-align: right;
 }
-.discussion__container .discussion__answered p {
-  font-size: 1.5rem;
+.discussion__container .discussion__remove {
+  color: var(--color-lightgray);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.discussion__container .discussion__remove:hover {
+  color: var(--color-white);
+  transform: scale(1.2);
+}
+.discussion__container .discussion__remove:active {
+  color: var(--color-input-focus);
 }
