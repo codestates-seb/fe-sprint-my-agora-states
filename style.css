@@ -43,4 +43,5 @@ li {
   flex-grow: 1;
   display: flex;
   align-items: center;
+  padding-left: 10px;
 }

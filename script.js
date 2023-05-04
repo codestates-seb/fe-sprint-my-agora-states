@@ -12,24 +12,23 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   // 1. avatarWrapper 적용
   const avatarImg = document.createElement("img");
-  avatarImg.src = agoraStatesDiscussions[0].avatarUrl;
-  avatarImg.alt = `avatar of ${agoraStatesDiscussions[0].author}`;
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = `avatar of ${obj.author}`;
   avatarImg.classList.add("discussion__avatar--image");
   avatarWrapper.append(avatarImg);
 
   // 2. discussionContet 적용
   // 2-1 title
   const title = document.createElement("h2");
-  title.textContent = agoraStatesDiscussions[0].title;
+  title.textContent = obj.title;
   title.classList.add("discussion__title");
   discussionContent.append(title);
   // 2-2 information
   const information = document.createElement("div");
-  information.textContent = `${agoraStatesDiscussions[0].author} / ${agoraStatesDiscussions[0].createdAt}`;
+  information.textContent = `${obj.author} / ${agoraStatesDiscussions[0].createdAt}`;
   information.classList.add("discussion__information");
   discussionContent.append(information);
 
