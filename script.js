@@ -1,27 +1,52 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  const li = document.createElement("li");
+  li.className = "discussion__container";
 
-  const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
+  const 첫번째 = document.createElement("div");
+  첫번째.className = "첫번째";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const 첫번째첫번째 = document.createElement("div");
+  첫번째첫번째.className = "첫번째첫번째";
+  const 아바타 = document.createElement("img");
+  아바타.className = "아바타";
+  아바타.src = obj.avatarUrl;
+  const 어써 = document.createElement("span");
+  어써.className = "어써";
+  어써.textContent = obj.author;
+  첫번째첫번째.append(아바타, 어써);
 
+  const 첫번째두번째 = document.createElement("div");
+  첫번째두번째.className = "첫번째두번째";
+  const 컨텐트 = document.createElement("div");
+  컨텐트.className = "컨텐트";
+  컨텐트.textContent = obj.title;
+  const 날짜 = document.createElement("span");
+  날짜.className = "날짜";
+  날짜.textContent = `${new Date(obj.createdAt).toLocaleString()}`;
+  첫번째두번째.append(컨텐트, 날짜);
 
+  첫번째.append(첫번째첫번째, 첫번째두번째);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const 엔써 = document.createElement("div");
+  엔써.className = "엔써";
+  엔써.textContent = "답변보기";
+
+  li.append(엔써, 첫번째);
+
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const scrollButton = document.querySelector(".scroll");
+scrollButton.addEventListener("click", function () {
+  let body = document.querySelector("body");
+  window.scroll({
+    behavior: "smooth",
+    top: body.offsetTop,
+  });
+});
+
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
@@ -29,6 +54,5 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
+const ul = document.querySelector(".유엘");
 render(ul);
