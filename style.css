@@ -11,6 +11,11 @@ html {
   --color-input: #333333;
   --color-input-focus: #555555;
 }
+html.fixed {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
 
 body {
   box-sizing: border-box;
@@ -138,6 +143,12 @@ main h1 {
 }
 
 /* Discussion */
+.discussions__container {
+  height: 25rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  overflow: scroll;
+}
 .discussion__container {
   display: flex;
   flex-direction: row;
