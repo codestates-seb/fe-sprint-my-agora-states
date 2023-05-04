@@ -1,1 +1,343 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+
+/*commcon*/
+:root {
+  --main-color: #2B44FF;
+  --blue-100: #E7E9FF;
+  --blue-500: #1f37e6;
+  --white: #fff;
+  --black: #000;
+  --gray-f2: #f2f2f2;
+  --gray-f8: #f8f8f8;
+  --gray-cd: #cdcdcd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'GmarketSans', 'notosanskr', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+input,
+textarea {
+  border: 0;
+  border-radius: 20px;
+  font-size: 1rem;
+  padding: 20px 20px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.answer-yes,
+.answer-no {
+  font-size: 0.75rem;
+  padding: 8px 10px;
+  border-radius: 50px;
+}
+
+.answer-no {
+  color: var(--gray-cd);
+  background-color: var(--gray-f2);
+}
+
+.answer-yes {
+  color: var(--blue-500);
+  background-color: var(--blue-100);
+}
+
+.hide {
+  display: none;
+}
+
+.txt-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+
+.blue-btn {
+  background-color: var(--main-color);
+  color: var(--white);
+  border-radius: 50px 50px 0 50px;
+  padding: 20px;
+  font-size: 1.2rem;
+  width: 426px;
+  transition: all 0.3s;
+}
+
+.blue-btn:hover,
+.blue-btn:focus {
+  background-color: var(--blue-500);
+}
+
+.arrow-btn {
+  position: relative;
+}
+
+.arrow-btn::after {
+  content: '';
+  position: absolute;
+  background-image: url('./img/arrow-01.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+  right: 15%;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all 0.3s;
+}
+
+.arrow-btn:hover::after {
+  right: 10%;
+}
+
+.close-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+  background-color: transparent;
+}
+
+.close-btn::after,
+.close-btn::before {
+  background-color: var(--black);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-btn::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+}
+
+.close-btn::before {
+  content: '';
+  width: 3px;
+  height: 100%;
+}
+
+/*style start*/
+.discussion__header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 110px 0;
+  overflow: hidden;
+}
+
+.discussion__header img {
+  position: absolute;
+  z-index: -1;
+  bottom: -30px;
+}
+
+.discussion__header img.left-img {
+  left: 5%;
+}
+
+.discussion__header img.right-img {
+  right: 5%;
+}
+
+.discussion__header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.discussion__header p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+
+.discussion__wrapper {
+  background-color: var(--gray-f8);
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.discussion__wrapper ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 99.2rem;
+  max-width: 100%;
+  gap: 20px;
+  padding: 0 60px;
+}
+
+.discussion__wrapper ul li {
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.discussions__container .discussion__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.discussion__avatar--wrapper img {
+  border-radius: 50px;
+  width: 70px;
+}
+
+.discussion__content {
+  flex: 1;
+  padding: 10px;
+  width: 100%;
+}
+
+.discussion__content h3.discussion__title {
+  margin-bottom: 10px;
+}
+
+.discussion__content h3.discussion__title a {
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 400;
+  padding-right: 30px;
+}
+
+.discussion__content .discussion__information {
+  color: var(--gray-cd);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.discussion__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form__container {
+  position: fixed;
+  background-color: var(--white);
+  border-radius: 30px;
+  width: 600px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form__container form.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__input--wrapper {
+  width: 100%;
+}
+
+.form__container input,
+.form__container textarea {
+  background: var(--gray-f8);
+  width: 100%;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+}
+
+.form__container input:focus,
+.form__container textarea:focus {
+  background-color: var(--gray-f2);
+}
+
+.form__container textarea {
+  height: 200px;
+}
+
+.form__container .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 760px) {
+  .discussion__header {
+    padding: 60px 0;
+  }
+
+  .discussion__header img {
+    display: none;
+  }
+
+  .discussion__header .blue-btn {
+    width: 90%;
+  }
+  .form__container .header {
+    margin-bottom: 30px;
+  }
+
+  .form__submit {
+    width: 100%;
+  }
+  
+  .form__container .blue-btn {
+    width: 100%;
+  }
+
+  .form__container {
+    width: 100%;
+    height: 100vh;
+    box-shadow: none;
+  }
+
+  .discussion__wrapper ul {
+    padding: 0 20px;
+  }
+
+  .discussions__container .discussion__container {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
