@@ -2,27 +2,6 @@
 
 const form = document.querySelector("form");
 
-function remove_children(parent) {
-  while (parent.firstChild) {
-    parent.firstChild.remove();
-  }
-}
-
-function getTime(date) {
-  const y = date.getFullYear();
-  const m = date.getMonth() + 1;
-  const d = date.getDate();
-  const h = date.getHours();
-  const minute = date.getMinutes();
-  const s = date.getSeconds();
-  return `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(
-    2,
-    "0"
-  )}T${String(h).padStart(2, "0")}:${String(minute).padStart(2, "0")}:${String(
-    s
-  ).padStart(2, "0")}Z`;
-}
-
 class IDGenerator {
   #count = 0;
   getID() {
@@ -48,7 +27,7 @@ function handleFormEvent(event) {
 
   // 시간
   const date = new Date();
-  const createdAt = getTime(date);
+  const createdAt = timeFormater(date);
 
   // 제목
   let title = target.querySelector(".form__input--title > input");

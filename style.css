@@ -165,16 +165,16 @@ h1 {
 }
 
 .discussion__author {
-  font-weight: 800;
+  font-weight: 700;
   margin-right: 0.5rem;
 }
 
-.discussion_story {
+.discussion__story {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-break: break-all;
-  width: 60vw;
+  width: 50vw;
   color: #adb2b9;
 }
 
@@ -197,5 +197,6 @@ h1 {
   align-items: start;
 }
 .discussion__avatar--image {
-  width: 40%;
+  width: 50%;
+  border-radius: 1rem;
 }
