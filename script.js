@@ -33,6 +33,8 @@ const convertToDiscussion = (obj) => {
   information.classList.add("discussion__information");
   discussionContent.append(information);
 
+  // 3. discussionAnswered 적용
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
