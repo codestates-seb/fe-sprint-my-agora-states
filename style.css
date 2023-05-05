@@ -1,4 +1,5 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
 * { 
     margin: 0;
     padding: 0;
@@ -6,9 +7,9 @@
 }
 
 main{
-    width: 100%;
     height: 90%;
     padding: 8px;
+    background-color: #FFEBEB;
 }
 
 header{
@@ -16,31 +17,74 @@ header{
     text-align-last: center;
     font-size: xx-large;
     font-weight: bold;
-    width: 100%;
     height: 10%;
 }
 
-section.form__container{
-    width: 100%;
-    height: 40%;
-    text-align: center;
-}
-
-form.form{
+/*  */
+.form__container{
     display: flex;
-    flex-flow: column;
+    justify-content: center;
     align-items: center;
-    width: 100%;
 }
-div.form__input--wrapper{
-    width: 50%;
-    height: 80%;
-    text-align: left;
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.form__input--name, .form__input--title, .form__textbox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.form__submit{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.form__submit > input{
+    width: 70%;
+    background-color: #6DA9E4;
+    border: none;
+    clip-path: polygon(50% 100%, 100% 35%, 70% 35%, 70% 0%, 30% 0%, 30% 35%, 0% 35%);
+}
+/*  */
+
+#flexP {
+    height: 50%;
+    display: flex;
+    justify-content: center;
 }
 
-div.form__submit{
+#contentBox{
+    display: none;
+    transition: 3s;
+}
+
+iframe{
     width: 50%;
-    display: inline-grid;
+    height: 100%;
+    object-fit: contain;
+    transition: 3s;
+}
+
+section.discussion__wrapper{
+    width: 50%;
+    height: 50%;
+}
+
+li.discussion__container{
+    margin: 8px 0px;
+    font-size: x-small;
+    background-color: #6DA9E4;
+    display: flex;
+    justify-content: space-between;
 }
 
 #name, #title, #story{
@@ -48,14 +92,16 @@ div.form__submit{
     width: 70%;
 }
 
+.discussion__answered{
+    font-size: xx-large;
+}
 
+a{
+    color: black;
+    text-decoration: none;
+}
 
-
-
-
-
-
-ul{
-    overflow: hidden;
-    overflow-y: scroll;
+img{
+    width: 64px;
+    height: 64px;
 }

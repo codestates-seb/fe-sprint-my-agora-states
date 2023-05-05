@@ -13,24 +13,26 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  avatarWrapper.innerHTML=
-    `<img class="discussion__avatar--image"
-    src="${obj.avatarUrl}"
-    alt="avatar of ${obj.author}">`
-  
-  discussionContent.innerHTML=
-    `<h2 class="discussion__title"><a href="${obj.url}">${obj.title}</a></h2>
-    <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>`
+  const formSubmit = document.querySelector("submit")
 
-  if(obj.answer === null){
-    discussionAnswered.innerHTML=
-    `<p>🤍</p>`
-  }
-  else{
-    discussionAnswered.innerHTML=
-    `<p>💗</p>`
-  }
+  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+    if(obj.answer === null){
+
+      discussionAnswered.innerHTML=
+      `<p>🤍</p>`;
+    }
+    else{
+      avatarWrapper.innerHTML=
+      `<img class="discussion__avatar--image"
+      src="${obj.avatarUrl}"
+      alt="avatar of ${obj.author}">`;
+      discussionAnswered.innerHTML=
+      `<p>💗</p>`;
+    }
+
+  discussionContent.innerHTML=
+    `<h2 class="discussion__title"><a href="${obj.url}" target="contentBox">${obj.title}</a></h2>
+    <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>` // author의 아바타 이미지는 왜 없는지..?
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
