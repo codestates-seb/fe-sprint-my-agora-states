@@ -3,14 +3,16 @@ import DiscussionItem from './components/DiscussionItem.js';
 // Discussion 렌더링
 const discussion = document.querySelector('ul.discussions__container');
 const renderDiscussion = () => {
+  const fragment = document.createDocumentFragment();
   discussion.innerHTML = '';
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     const discussionItem = new DiscussionItem({
       className: 'discussion__container',
       props: agoraStatesDiscussions[i],
     }).el;
-    discussion.appendChild(discussionItem);
+    fragment.appendChild(discussionItem);
   }
+  discussion.appendChild(fragment);
   return;
 };
 
