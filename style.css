@@ -18,7 +18,7 @@ li {
     list-style-type: none;
 }
 .discussions__container {
-    width: 50rem;
+    width: 52rem;
 }
 
 .discussion__container {
@@ -27,6 +27,8 @@ li {
     display: flex;
     flex-direction: row;
     /* align-items: center; */
+    margin:1rem;
+    padding:1rem;
 }
 
 .discussion__avatar--wrapper {
