@@ -1,9 +1,18 @@
+@font-face {
+	/* ‘글꼴(폰트)로 도스샘물체(leedheo 제작)를 사용하였습니다’  */
+	font-family: "DOSMyungjo";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSMyungjo.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	border: 1px solid black;
+	font-size: 62.5%;
 }
 /* 모드 변경 토글 버튼  */
 .toggle__btn {
@@ -11,6 +20,7 @@
 }
 
 body {
+	font-family: "DOSMyungjo";
 	width: 100vh;
 	height: 100vh;
 	background-color: white;
