@@ -1,6 +1,6 @@
-// form 처리 js
-// TODO:  검색 기능
-
+const formContainer = document.querySelector(".form__container");
+const searchContainer = document.querySelector(".search__container");
+const formClose = document.querySelector(".form__close--symbol");
 const form = document.querySelector("form");
 
 class IDGenerator {
@@ -54,8 +54,6 @@ function handleFormEvent(event) {
     if (event.srcElement[i].checked) tags.push(event.srcElement[i].value);
   }
 
-  console.log(tags);
-
   // 객체화
   const item = {
     id,
@@ -81,13 +79,21 @@ function handleFormEvent(event) {
   reRender(ul);
 }
 
+function closeForm(event) {
+  console.dir(event.target);
+  formContainer.classList.add("hidden");
+  searchContainer.classList.remove("hidden");
+}
+
 form.addEventListener("submit", handleFormEvent);
+
+formClose.addEventListener("click", closeForm);
+
 const reRender = (element) => {
   element.prepend(
     convertToDiscussion(
       agoraStatesDiscussions[agoraStatesDiscussions.length - 1]
     )
   );
-
   return;
 };

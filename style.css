@@ -72,6 +72,10 @@ h1 {
   flex-grow: 1;
 }
 
+.search--input:focus {
+  outline: none;
+}
+
 .search--create {
   cursor: pointer;
   font-size: 1.4rem;
@@ -96,13 +100,23 @@ h1 {
   padding-right: 2rem;
   display: grid;
   background-color: #313338;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 60px 8fr 3fr;
   grid-template-rows: 2fr 6fr 2fr 1fr;
   grid-template-areas:
-    "title title"
-    "main main"
-    "tag tag"
-    "name post";
+    "symbol title title"
+    ". main main"
+    ". tag tag"
+    ". name post";
+}
+
+.form__close--symbol {
+  grid-area: symbol;
+  font-size: 30px;
+  cursor: pointer;
+  color: #adb2b9;
+}
+.form__close--symbol:hover {
+  color: #f2f3f5;
 }
 
 .form__input--title {

@@ -1,6 +1,3 @@
-const formContainer = document.querySelector(".form__container");
-const searchContainer = document.querySelector(".search__container");
-
 const searchInput = document.querySelector(".search--input");
 const createBtn = document.querySelector(".search--create");
 

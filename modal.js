@@ -4,7 +4,7 @@ const modalOverlay = document.querySelector(".modal__overlay");
 
 const discussions = document.querySelectorAll(".discussion__container");
 const modal = document.querySelector("#modal");
-const close = document.querySelector(".modal__close");
+const modalClose = document.querySelector(".modal__close");
 
 const modalTag = document.querySelector(".modal__tag");
 const modalTitleText = document.querySelector(".modal__title > h2");
@@ -78,6 +78,6 @@ discussions.forEach((discussion) => {
   discussion.addEventListener("click", openModal);
 });
 
-close.addEventListener("click", closeModal);
+modalClose.addEventListener("click", closeModal);
 
 modalOverlay.addEventListener("click", handleOverlayClick);
