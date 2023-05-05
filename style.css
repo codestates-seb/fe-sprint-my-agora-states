@@ -276,12 +276,15 @@ hr {
 .modal__content__header {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .modal__avatar--wrapper {
   width: 54px;
+  margin-right: 0.5rem;
 }
 .modal__avatar--wrapper > img {
   width: 54px;
+  border-radius: 1rem;
 }
 .modal__author--name {
   font-size: 1.5rem;
