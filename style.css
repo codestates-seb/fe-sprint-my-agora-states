@@ -1,37 +1,65 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-.discussion__container {
+/* 모든 요소에 border-box */
+* {
     box-sizing: border-box;
-    width: 540px;
+}
+h1 {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
-
-.discussion__avatar--image {
-    border-radius: 50px;
-    width: 48px;
+/* 폼 중앙으로 */
+.form__container {
+    display: flex;
+    justify-content: center;
 }
-
-.discussion__avatar--wrapper {
-    box-sizing: border-box;
+.form__textbox {
     display: flex;
     align-items: center;
 }
-
-.discussion__content {
+/* 중앙으로 오게 하기 */
+body {
     display: flex;
-    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussions__container{
+    padding : 0px;
+}
+/* 컴포넌트 폭 540px */
+.discussion__container {
+    display: flex;
+    width: 540px;
+    justify-content: space-between;
+
     
 }
-
-.discussion__information {
+/* 컴포넌트  중앙에 오게하기 */
+.discussion__avatar--wrapper {
     display: flex;
-    box-sizing: border-box;
-    align-items: flex-end;
-}
-
-.discussion__answered {
-    display: flex;
-    box-sizing: border-box;
     align-items: center;
 }
+/* 사진 너비 48px,동그랗게 표시 */
+img {
+    display: flex;
+    width: 48px;
+    border-radius: 50%;
+}
+/* discussion 간격 */
+.discussion__content {
+    display: flex;
+}
+.discussion__content >:nth-child(1) {
+    display: flex;
+    text-align: left;
+    margin-top: 0px;
+    padding-left: 10px;
+    font-size: 15px;
+}
 
+/* 저자 생성일 오른쪽 */
+.discussion__content >:nth-child(2) {
+    display: flex;
+    text-align: right;
+    align-items: flex-end;
+}

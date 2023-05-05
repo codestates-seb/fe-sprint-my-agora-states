@@ -36,8 +36,8 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(discussionInfo);
 
   //체크표시
-  const discussionAnswer = document.createElement('div')
-  discussionAnswer.textContent = obj.answer ? "☑︎" : "☒";;
+  const discussionAnswer = document.createElement('p')
+  discussionAnswer.textContent = obj.answer ? "☑︎" : "☒";
   discussionAnswered.append(discussionAnswer);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
