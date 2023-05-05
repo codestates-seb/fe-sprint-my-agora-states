@@ -61,14 +61,19 @@ h1 {
   width: 100px;
   height: 100px;
 
-  /* font-family: "WooridaumR"; */
-  /* font-weight: bolder; */
+  font-family: "WooridaumR";
+  font-weight: bolder;
   font-size: 1.1rem;
 
   /* background-color: #774bf1; */
   /* box-shadow: 2px 2px 2px rgb(0, 0, 0); */
-  transition-duration: 0.1s;
+  /* transition-duration: 0.1s; */
   /* color: white; */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 /* 디스커션 */
@@ -97,6 +102,11 @@ h1 {
 }
 
 .discussion__content > :nth-child(1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
   width: 440px;
 }
 .discussion__content > :nth-child(2) {
@@ -107,24 +117,4 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* 스크롤바 */
-/* ::-webkit-scrollbar {
-  width: 26px; /* 스크롤바의 너비 */
-/* } */
-
-::-webkit-scrollbar-thumb {
-  height: 20%; /* 스크롤바의 길이 */
-  background: #eabde6; /* 스크롤바의 색상 */
-  background-image: url("img/scroll.png");
-  background-position: center; /* 이미지 정중앙 */
-  background-size: contain;
-  border: 4px solid rgba(255, 255, 255, 0.5);
-  margin: 0px -4px 0px 0px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.5); /*스크롤바 뒷 배경 색상*/
-  margin: -4px -4px -4px 0px;
 }
