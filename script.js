@@ -29,14 +29,16 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.className = "discussion__avatar--wrapper";
 
   // tag 있으면 적용, 없으면 '기타'로 적용
-  const tag = document.createElement("span");
-  tag.className = "tag";
-  if (agoraStatesDiscussions.tag) {
-    for (i of agoraStatesDiscussions.tag) {
+  if (obj.tags) {
+    for (i of obj.tags) {
+      const tag = document.createElement("span");
+      tag.className = "tag";
       tag.textContent = i;
       discussionTags.append(tag);
     }
   } else {
+    const tag = document.createElement("span");
+    tag.className = "tag";
     tag.textContent = "기타";
     discussionTags.append(tag);
   }
