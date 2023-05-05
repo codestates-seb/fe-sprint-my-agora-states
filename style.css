@@ -75,7 +75,7 @@ h1 {
 
 .form {
   background-color: rgba(1, 1, 1, 0.7);
-  box-shadow:3px 3px 5px 2px;
+  box-shadow: 3px 3px 5px 2px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1.6rem 1.6rem 1.6rem 7rem 1.6rem;
@@ -201,8 +201,56 @@ h1 {
   background: rgba(256, 256, 256, 0.5); /* 스크롤바 썸네일 호버 배경색 */
 }
 
-
 /* 모바일 기기 너비 시작 점: 820px(아이패드 미니) */
-@media screen and (max-width:51rem) {
+@media screen and (max-width: 51rem) {
+  /* h2타이틀 사이즈 조정, 배경 이미지 조정 */
+  body {
+    background-image: url("images/agora.jpg");
+    background-size: auto 100%; /* 가로는 꽉 차게, 세로는 원본 비율대로 */
+    background-repeat: no-repeat;
+    background-position: center bottom 40%;
+  }
 
+  main {
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto;
+    /* grid-gap: 1rem; */
+  }
+
+  h1 {
+    margin-top: 4rem;
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+  }
+
+  /* 폼이랑 리스트 다시 */
+  .form__container {
+    height: auto;
+    width: 100%;
+    /* padding: 1rem; */
+  }
+
+  .form {
+    background-color: rgba(1, 1, 1, 0.7);
+    box-shadow: 3px 3px 5px 2px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-rows: 1.6rem 1.6rem 1.6rem 3rem 1.6rem;
+    padding: 1rem;
+    grid-gap: 0.7rem;
+  }
+
+  .form label {
+    font-weight: 400;
+  }
+
+  .discussion__wrapper {
+    overflow: auto;
+    grid-row-start: 3;
+  }
 }
