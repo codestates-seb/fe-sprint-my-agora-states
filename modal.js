@@ -6,7 +6,7 @@ function handleDiscussionClick(event) {
   const targetData = agoraStatesDiscussions.find((x) => x.id === id);
 
   const modalTitle = document.querySelector(".modal__title > h2");
-  const modalContent = document.querySelector(".modal__content");
+  const modalContent = document.querySelector(".modal__story");
   modalTitle.textContent = targetData.title;
   modalContent.innerHTML = targetData.bodyHTML;
 

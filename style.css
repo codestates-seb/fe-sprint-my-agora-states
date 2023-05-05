@@ -143,7 +143,7 @@ h1 {
 .discussion__tags {
   grid-area: tag;
 }
-.discussion__tags > span {
+.tag {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border-radius: 20px;
@@ -228,6 +228,7 @@ h1 {
 }
 
 .modal__window {
+  position: fixed;
   background-color: #282a2e;
   box-shadow: 0 8px 32px 0 #282a2e;
   border-radius: 1rem;
@@ -236,4 +237,59 @@ h1 {
   width: 60vw;
   height: 80vh;
   padding: 2rem;
+}
+
+.modal__close {
+  position: absolute;
+  font-stretch: extra-condensed;
+  right: 3%;
+  top: 3%;
+}
+.modal__close > span {
+  font-size: 50px;
+  color: #949ba4;
+}
+
+.modal__close > span:hover {
+  color: #f2f3f5;
+  cursor: pointer;
+}
+
+.symbol {
+  font-size: 3rem;
+}
+
+.modal__title > h2 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+.modal__content__header {
+  display: flex;
+  align-items: center;
+}
+.modal__avatar--wrapper {
+  width: 54px;
+}
+.modal__avatar--wrapper > img {
+  width: 54px;
+}
+.modal__author--name {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+.modal__record__time {
+  color: #949ba4;
+  font-size: 1rem;
+}
+
+.modal__story {
+  font-size: 1.3rem;
+}
+.modal__story > p {
+  margin: 1rem 0;
 }

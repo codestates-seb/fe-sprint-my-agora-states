@@ -30,6 +30,7 @@ const convertToDiscussion = (obj) => {
 
   // tag 있으면 적용, 없으면 '기타'로 적용
   const tag = document.createElement("span");
+  tag.className = "tag";
   if (agoraStatesDiscussions.tag) {
     for (i of agoraStatesDiscussions.tag) {
       tag.textContent = i;
