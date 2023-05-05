@@ -1,1 +1,316 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/*
+  nav, banner 
+*/
+.nav__wrapper {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  background-color: var(--white);
+}
+
+.nav__wrapper.bg-change {
+  background-color: #dba39a;
+}
+
+.nav_container {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem;
+}
+
+.nav_container li {
+  font-weight: bold;
+}
+
+.ask_question {
+  cursor: pointer;
+  border: none;
+}
+
+.ask_question.link {
+  background-color: #dba39a;
+  padding: 1rem 1rem 0.8rem;
+  border-radius: 8px;
+  color: var(--white);
+}
+
+.ask_question.link.bg-change {
+  background-color: var(--white);
+  color: var(--coz-orange-700);
+}
+
+.banner__wrapper {
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('./images/banner-img.png');
+  width: 1400px;
+  height: 400px;
+}
+
+.banner__wrapper {
+  font-size: large;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.banner__wrapper .ask_question {
+  margin-top: 2.2em;
+}
+
+.banner__title {
+  font-size: 70px;
+  line-height: 250px;
+  color: var(--coz-blue-500);
+}
+
+.banner__wrapper button {
+  padding: 0.7rem 1rem;
+  color: var(--white);
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: var(--coz-blue-500);
+}
+
+.banner__wrapper button:hover {
+  background-color: var(--coz-blue-700);
+}
+
+/*
+  modal 
+*/
+.form__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-background {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bluish-gray-900);
+  opacity: 70%;
+}
+
+.modal {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 1.5rem;
+  background-color: var(--bluish-gray-100);
+  border-radius: 10px;
+}
+
+.close {
+  float: right;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
+  color: var(--coz-blue-500);
+}
+
+.modal p {
+  margin: 2rem 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.modal p > span {
+  font-size: 1.4rem;
+}
+
+.form__input--wrapper div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem 1.3rem 2rem;
+}
+
+.form__input--wrapper label {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.form__input--wrapper input {
+  width: 320px;
+}
+
+.form__input--wrapper div:nth-child(3) textarea {
+  resize: none;
+  height: 170px;
+}
+
+.form__submit {
+  text-align: center;
+  margin: 1.3rem 0 2rem 0;
+}
+
+.form__submit input {
+  width: 140px;
+  font-weight: bold;
+}
+
+.form-valid {
+  cursor: pointer;
+  color: var(--white);
+  font-weight: bold;
+  background-color: var(--coz-blue-700);
+}
+
+.hide {
+  display: none;
+}
+
+/*
+  main, Discussions 
+*/
+main {
+  padding: 2rem 1rem;
+  background-color: var(--coz-purple-50);
+}
+
+.discussion__wrapper {
+  display: flex;
+}
+
+.discussions__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.discussion__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0.5rem 1rem 0.8rem 0rem;
+  background-color: var(--coz-purple-100);
+  padding: 2rem 2.1rem;
+  border-radius: 10px;
+}
+
+.discussion__avatar--image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.discussion__answered {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.answered {
+  color: var(--coz-purple-600);
+  background-color: var(--coz-purple-300);
+  padding: 0.5rem;
+  border-radius: 7px;
+}
+
+.hold-on {
+  color: var(--peach-500);
+  background-color: var(--peach-200);
+  padding: 0.5rem;
+  border-radius: 7px;
+}
+
+.discussion__title {
+  margin: 1rem 0rem 2rem 0.5rem;
+}
+
+.discussion__information {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-weight: bold;
+  color: var(--bluish-gray-500);
+}
+
+/*
+  Arrow Up Button 
+*/
+.arrow_up_btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: antiquewhite;
+  padding: 0.8rem 0.6rem 0.8rem 1.3rem;
+  border-radius: 50%;
+}
+
+.arrow_up_btn:hover {
+  cursor: pointer;
+}
+
+/*
+  media query
+*/
+@media (max-width: 1400px) {
+  .banner__wrapper {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('./images/banner-img.png');
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .banner__wrapper {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('./images/banner-img.png');
+    width: 100%;
+  }
+}
+@media (min-width: 1000px) {
+  .banner__title {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 999px) {
+  .banner__wrapper {
+    padding-top: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('./images/banner-img.png');
+    width: 100%;
+  }
+  .banner__title {
+    line-height: 200px;
+  }
+}
+
+@media (max-width: 699px) {
+  .banner__wrapper {
+    padding-top: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('./images/banner-img.png');
+    width: 100%;
+  }
+  .banner__title {
+    line-height: 80px;
+    margin-top: 50px;
+  }
+}
