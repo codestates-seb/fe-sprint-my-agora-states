@@ -15,18 +15,21 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image"
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
   avatarWrapper.append(avatarImg);
 
   const titleEl = document.createElement("h2");
   const titleLink = document.createElement("a");
+  titleEl.className = "discussion__title";
   titleLink.href = obj.url;
   titleEl.textContent = obj.title;
   titleLink.append(titleEl);
   discussionContent.append(titleLink);
 
   const discussionInfo = document.createElement("div");
+  discussionInfo.className = "discussion__information";
   discussionInfo.textContent = obj.author + " / " + obj.createdAt;
   discussionContent.append(discussionInfo);
 
@@ -81,7 +84,7 @@ form.addEventListener("submit", (event) => {
     id: 'test',
     createdAt: new Date().toLocaleString('ko-KR'),
     title: title,
-    url: "images/quesiton.png",
+    url: "images/question.png",
     author: author,
     answer: {},
     bodyHTML: discussionText,
@@ -89,8 +92,11 @@ form.addEventListener("submit", (event) => {
   };
   
   agoraStatesDiscussions.unshift(obj);
+  console.log(agoraStatesDiscussions);
 
   const itemLi = convertToDiscussion(obj);
   ul.prepend(itemLi);
+
+  form.reset();
 });
 
