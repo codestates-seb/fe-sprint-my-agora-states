@@ -1,1 +1,19 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+}
+/* 모드 변경 토글 버튼  
+.toggle__btn {
+	display: none;
+}
+*/
+body {
+	width: 100vh;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
