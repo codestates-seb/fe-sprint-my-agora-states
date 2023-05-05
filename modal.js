@@ -1,7 +1,9 @@
 const discussions = document.querySelectorAll(".discussion__container");
 const modal = document.querySelector("#modal");
+const close = document.querySelector(".modal__close");
 
-function handleDiscussionClick(event) {
+// 스크롤 비활성화
+const openModal = (event) => {
   const id = event.currentTarget.dataset.id;
   const targetData = agoraStatesDiscussions.find((x) => x.id === id);
 
@@ -11,19 +13,17 @@ function handleDiscussionClick(event) {
   modalContent.innerHTML = targetData.bodyHTML;
 
   modal.classList.remove("hidden");
-  openModal();
-}
-
-discussions.forEach((discussion) => {
-  discussion.addEventListener("click", handleDiscussionClick);
-});
-
-// 스크롤 비활성화
-const openModal = (e) => {
   document.body.style.overflow = "hidden";
 };
 
 // 스크롤 활성화
 const closeModal = (e) => {
+  modal.classList.add("hidden");
   document.body.style.overflow = "unset";
 };
+
+discussions.forEach((discussion) => {
+  discussion.addEventListener("click", openModal);
+});
+
+close.addEventListener("click", closeModal);
