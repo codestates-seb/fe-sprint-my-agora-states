@@ -62,3 +62,26 @@ li {
 .discussion__answered > p {
     font-size: 3rem;
 }
+
+.discussion__detail--container {
+    position:fixed;
+    /* text-align: center; */
+    top:5%;
+    width:max-content;
+    min-width: 30rem;
+    max-width: 80%;
+    z-index: 1;
+    height: 90%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    background-color: rgb(122, 122, 122);
+    padding: 3rem;
+}
+
+.hide {
+    display: none;
+}
+.exit-button {
+    width:3rem;
+    height:2rem;
+}

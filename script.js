@@ -17,7 +17,7 @@ const convertToDiscussion = (obj) => {
   const avatarImg = document.createElement("img")
   avatarImg.classList.add("discussion__avatar--image")
   avatarImg.setAttribute('src', `${obj.avatarUrl}`)
-  avatarImg.setAttribute('alt',`avatar of ${obj.author}`)
+  avatarImg.setAttribute('alt', `avatar of ${obj.author}`)
   avatarWrapper.appendChild(avatarImg)
 
   const discussionTitle = document.createElement('h2')
@@ -25,20 +25,40 @@ const convertToDiscussion = (obj) => {
   const titleLink = document.createElement('a')
   // titleLink.setAttribute('href', `${obj.url}`)
   titleLink.textContent = obj.title
+
+  const discussionDetail = document.createElement('div')
+  discussionDetail.classList.add('discussion__detail--container')
+  discussionDetail.classList.add('hide')
+  const button = document.createElement('button')
+  button.onclick = () => {
+    discussionDetail.classList.add('hide')
+  }
+  button.textContent = 'exit'
+  button.classList.add("exit-button")
+  discussionDetail.innerHTML = obj.bodyHTML
+  discussionDetail.appendChild(button)
+
+  document.body.appendChild(discussionDetail)
+  
+  titleLink.onclick = () => {
+    discussionDetail.classList.remove('hide')
+  }
+
+
   discussionTitle.appendChild(titleLink)
   discussionContent.appendChild(discussionTitle)
-  
+
   const discussionInformation = document.createElement('div')
   discussionInformation.classList.add('discussion__information')
   discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
   discussionContent.appendChild(discussionInformation)
-  
+
   const discussionBody = document.createElement('div')
   discussionBody.innerHTML = obj.bodyHTML
   // discussionContent.appendChild(discussionBody)
 
   discussionAnswered.classList.add('center-single-content')
-  if(obj.answer){
+  if (obj.answer) {
     const p = document.createElement('p')
     p.textContent = '☑'
     p.onclick = () => {
@@ -48,7 +68,7 @@ const convertToDiscussion = (obj) => {
     }
     discussionAnswered.appendChild(p)
   }
-  
+
   /*
   answer:
   { id: 'DC_kwDOHOApLM4AKg6M', 
