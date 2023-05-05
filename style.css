@@ -29,9 +29,6 @@ section.form__container {
     border: 1px solid purple;
 }
 
-section.discussion__wrapper {
-}
-
 ul {
     border: 1px solid green;
 }
@@ -49,20 +46,27 @@ li {
 
 .discussion__avatar--wrapper {
     border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
     width: 48px;
     border-radius: 50%;
-    display: block;
-    margin: 0 auto;
 }
 
 .discussion__content {
     flex-grow: 1;
 }
 
-.discussion__title {}
+h2 {
+    font-size: 15px;
+}
+
+.discussion__information {
+    text-align: right;
+}
 
 .discussion__answered {
     display: flex;
