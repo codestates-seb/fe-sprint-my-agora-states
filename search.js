@@ -1,28 +1,32 @@
 const searchInput = document.querySelector(".search--input");
+const createBtn = document.querySelector(".search--create");
 
 function handleSearch(event) {
-  const container = document.querySelector(".discussions__search__container");
   const titles = document.querySelectorAll(".discussion__title");
-  const stories = document.querySelectorAll(".discussion__story");
   const authors = document.querySelectorAll(".discussion__author");
 
-  while (container.firstChild) {
-    container.firstChild.remove();
-  }
   const searchKey = event.target.value;
-  if (searchKey === "") {
-    render(ul);
-    return;
-  }
-  const discussions = ul.childNodes;
-  console.dir(discussions);
 
-  for (i of titles) {
-    if (i.textContent.toUpperCase().includes(searchKey.toUpperCase())) {
-      container.append(i.closest("li"));
+  for (let i = 0; i < ul.childNodes.length; i++) {
+    const titleCheck = titles[i].textContent
+      .toUpperCase()
+      .replace(/ /g, "")
+      .includes(searchKey.toUpperCase().replace(/ /g, ""));
+
+    const authorCheck = authors[i].textContent
+      .toUpperCase()
+      .replace(/ /g, "")
+      .includes(searchKey.toUpperCase().replace(/ /g, ""));
+
+    if (titleCheck || authorCheck) {
+      titles[i].closest("li").classList.remove("hidden");
+    } else {
+      titles[i].closest("li").classList.add("hidden");
     }
   }
-  render(container);
 }
 
+function handleClickCreateBtn(event) {}
+
 searchInput.addEventListener("keyup", handleSearch);
+createBtn.addEventListener("click", handleClickCreateBtn);

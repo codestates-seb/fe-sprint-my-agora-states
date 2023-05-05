@@ -9,13 +9,10 @@ li {
   list-style: none;
 }
 
-.none {
+.hidden {
   display: none !important;
 }
 
-.hidden {
-  visibility: hidden;
-}
 input {
   border: none;
   background-color: #313338;
@@ -41,6 +38,10 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #282a2e;
+}
+
+main {
+  width: 90vw;
 }
 
 h1 {
