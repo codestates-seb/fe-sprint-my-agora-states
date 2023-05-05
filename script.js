@@ -94,6 +94,10 @@ document.querySelector('#story').addEventListener('input',function (){
   newObj.bodyHTML = document.querySelector("#story").value
 })
 
+// document.querySelector('#image').addEventListener('input',function (){
+//   newObj.avatarUrl = document.querySelector("#image").value
+// })
+
 document.querySelector('.form__submit').addEventListener('click',function (){
   newObj.createdAt = `${time.getFullYear()}-${time.getMonth()}-${time.getDate()}T${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}Z`
   if(localStorage.getItem('key') != undefined) {
