@@ -26,14 +26,26 @@ const convertToDiscussion = (obj) => {
   url.textContent = obj.title;
   title.appendChild(url);
 
-  //id와 날짜 데이터
+  //답변수, id, 날짜 데이터
   const information = document.createElement('div');
   information.className = 'discussion__information';
   information.textContent = obj.author+' / '+obj.createdAt;
   
   //답변완료여부
-  const answered = document.createElement('p');
+  const answered = document.createElement('button');
+  answered.className = 'discussion__answered--checkBtn';
   obj.answer!==null?answered.textContent = '✅':'';
+
+  //답변완료 여부 선택 시 answer 정보 출력
+  answered.addEventListener('click',function(){
+    console.log(obj.answer['bodyHTML']);
+    const answer__author = document.querySelector('.answer__content--author');
+    answer__author.textContent = `작성자 : ${obj.answer['author']}`;
+    const answer__bodyHtml = document.querySelector('.answer__content--bodyHtml');
+    answer__bodyHtml.innerHTML = obj.answer['bodyHTML'];
+    const answer = document.querySelector('.answer');
+    answer.classList.remove('hide');
+  })
 
   avatarWrapper.appendChild(avatar);
   discussionContent.appendChild(title);
