@@ -50,7 +50,7 @@ const postDiscussion = (author, title, body) => {
     url: 'javascript:void(0)',
     bodyHTML: body,
     answer: undefined,
-    createdAt: new Date(),
+    createdAt: new Date().toISOString(),
   };
   agoraStatesDiscussions.unshift(newDiscussion);
   renderDiscussion();
