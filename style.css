@@ -2,29 +2,99 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #B9EDDD;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 800px;
+    margin-top: 80px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #F0FFC2;
 }
 
 h1 {
     display: flex;
     justify-content: center;
+    margin: 30px 0; 
 }
 
 form {
     display: flex;
+    flex-direction: column;
 }
 
 .form__container {
     display: flex;
-    justify-content: center;
+    width: 760px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #FFE4C0;
 }
 
 .form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
 
+.form__input--wrapper2 {
+    display: flex;
+}
+
+.form__input--name > input {
+    width: 170px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.form__input--title > input {
+    width: 560px;
+    padding: 5px;
 }
 
 .form__textbox {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
+}
+
+.form__textbox > textarea {
+    overflow-y: auto;
+    resize: none;
+    width: 740px;
+    height: 100px;
+    padding: 10px;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: end;
+}
+
+.form__submit > input {
+    width: 100px;
+    height: 30px;
+    background-color: #FFBBBB;
+    border-style: none;
+    border-radius: 2px;
+    -webkit-transition: color 0.5s, background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.form__submit > input:hover {
+    cursor: pointer;
+    background-color: #ffbbbba8;
+    color: rgba(0, 0, 0, 0.733);
 }
 
 .discussion__wrapper {
@@ -35,8 +105,57 @@ form {
 .discussions__container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 760px;
 }
 
 .discussion__container {
     display: flex;
+    justify-content: space-between;
+    width: 760px;
+    background-color: #FFE4C0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.discussion__avatar--wrapper{
+}
+
+.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+    padding: 0 20px;
+
+}
+
+.discussion__content h2 {
+    font-size: 20px;
+}
+
+.discussion__content > div {
+    display: flex;
+    justify-content: end;
+    font-size: 12px;
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__answered > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
 }
