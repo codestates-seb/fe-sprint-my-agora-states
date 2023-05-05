@@ -205,6 +205,7 @@ h1 {
 @media screen and (max-width: 51rem) {
   /* h2타이틀 사이즈 조정, 배경 이미지 조정 */
   body {
+    display: flex;
     background-image: url("images/agora.jpg");
     background-size: auto 100%; /* 가로는 꽉 차게, 세로는 원본 비율대로 */
     background-repeat: no-repeat;
@@ -212,7 +213,7 @@ h1 {
   }
 
   main {
-    width: 70%;
+    width: 90%;
     display: grid;
     grid-template-columns: auto;
     /* grid-gap: 1rem; */
