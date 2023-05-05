@@ -19,10 +19,9 @@ class IDGenerator {
 function handleFormEvent(event) {
   event.preventDefault();
   // 입력받은 값을 오브젝트에 저장
-  // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, )
+  // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, 태그 )
 
   const target = event.target;
-  console.log(event);
 
   // id
   const id = new IDGenerator().getID();
@@ -49,6 +48,14 @@ function handleFormEvent(event) {
   // 작성자 사진
   const avatarUrl = null;
 
+  // 태그
+  const tags = [];
+  for (let i = 0; i < event.srcElement.length; i++) {
+    if (event.srcElement[i].checked) tags.push(event.srcElement[i].value);
+  }
+
+  console.log(tags);
+
   // 객체화
   const item = {
     id,
@@ -59,11 +66,18 @@ function handleFormEvent(event) {
     answer,
     bodyHTML: bodyHTML.value,
     avatarUrl,
+    tags,
   };
   agoraStatesDiscussions.push(item);
+
+  // form 초기화
   title.value = "";
   author.value = "";
   bodyHTML.value = "";
+  for (let i = 0; i < event.srcElement.length; i++) {
+    if (event.srcElement[i].checked) event.srcElement[i].checked = false;
+  }
+
   reRender(ul);
 }
 
