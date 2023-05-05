@@ -23,16 +23,14 @@ const convertToDiscussion = (obj) => {
   const disTitel = document.createElement("h2");
   disTitel.className = "discussion__title";
   const titleSrc = document.createElement("a");
-  titleSrc.href = obj.url;
+  titleSrc.href = "Story.html?id=${obj.url}";
   titleSrc.textContent = obj.title;
 
   titleSrc.addEventListener("click", (event) => {
     event.preventDefault(); // 기본 동작(링크 이동) 취소
 
-    // 새 페이지 열기
     const newWindow = window.open("", "_blank");
 
-    // 새 페이지에 formTextbox 내용 추가
     const newDoc = newWindow.document;
     const newContent = newDoc.createElement("div");
     newContent.innerHTML = obj.bodyHTML;
@@ -54,7 +52,6 @@ const convertToDiscussion = (obj) => {
   discussionContent.append(disTitel, disInfo);
 
   const checked = document.createElement("p");
-  checked.className = "discussion__answered";
   checked.textContent = obj.answer !== null ? "☑︎" : "☒";
   discussionAnswered.append(checked);
 

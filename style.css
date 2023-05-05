@@ -82,6 +82,7 @@ textarea {
   margin-bottom: 0;
   height: 10rem;
   width: 90%;
+  resize:none;
 }
 textarea:focus {
   outline: none;
