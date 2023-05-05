@@ -1,17 +1,20 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
+/* 모든 요소에 적용 */
 * { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 배경 */
 main{
     height: 90%;
     padding: 8px;
     background-color: #FFEBEB;
 }
 
+/* 최상단 헤더 */
 header{
     margin: 8px;
     text-align-last: center;
@@ -20,11 +23,12 @@ header{
     height: 10%;
 }
 
-/*  */
+/* 질문 등록 박스 */
 .form__container{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 30%;
 }
 .form{
     display: flex;
@@ -52,33 +56,41 @@ header{
     width: 70%;
     background-color: #6DA9E4;
     border: none;
+    transition: 1s;
     clip-path: polygon(50% 100%, 100% 35%, 70% 35%, 70% 0%, 30% 0%, 30% 35%, 0% 35%);
 }
-/*  */
+.form__submit > input:hover{
+    transition: 1s;
+    transform: translateY(10px) scale(1.5);
+}
+#name, #title, #story{
+    float: right;
+    width: 70%;
+}
 
+/* 질문 목록 / 선택된 질문 내용 */
 #flexP {
-    height: 50%;
     display: flex;
     justify-content: center;
-}
-
-#contentBox{
-    display: none;
     transition: 3s;
+    height: 60%;
 }
-
 iframe{
+    display: none;
+    transition: 5s;
+}
+#flexP:hover iframe{
+    display: block;
     width: 50%;
     height: 100%;
     object-fit: contain;
-    transition: 3s;
+    transition: 5s;
 }
-
-section.discussion__wrapper{
+.discussion__wrapper{
     width: 50%;
-    height: 50%;
+    height:100%;
+    transition: 5s;
 }
-
 li.discussion__container{
     margin: 8px 0px;
     font-size: x-small;
@@ -86,12 +98,6 @@ li.discussion__container{
     display: flex;
     justify-content: space-between;
 }
-
-#name, #title, #story{
-    float: right;
-    width: 70%;
-}
-
 .discussion__answered{
     font-size: xx-large;
 }
