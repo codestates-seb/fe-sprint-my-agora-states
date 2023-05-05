@@ -2,7 +2,6 @@ const discussions = document.querySelectorAll(".discussion__container");
 const modal = document.querySelector("#modal");
 const close = document.querySelector(".modal__close");
 
-// 스크롤 비활성화
 const openModal = (event) => {
   const id = event.currentTarget.dataset.id;
   const targetData = agoraStatesDiscussions.find((x) => x.id === id);
@@ -16,7 +15,6 @@ const openModal = (event) => {
   document.body.style.overflow = "hidden";
 };
 
-// 스크롤 활성화
 const closeModal = (e) => {
   modal.classList.add("hidden");
   document.body.style.overflow = "unset";

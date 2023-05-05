@@ -165,8 +165,13 @@ h1 {
   margin: 0.5rem 0;
 }
 
-.discussion__title:hover {
+.discussion__container {
   cursor: pointer;
+}
+
+.discussion__container:hover h2,
+.discussion__container:hover .discussion__story,
+.discussion__container:hover .discussion__author {
   color: #5361f9;
 }
 
@@ -208,7 +213,7 @@ h1 {
   align-items: start;
 }
 .discussion__avatar--image {
-  width: 50%;
+  width: 30%;
   border-radius: 1rem;
 }
 
