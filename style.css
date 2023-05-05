@@ -132,10 +132,6 @@ h1 {
   height: 60vh;
   overflow: auto;
 }
-/* 단일 디스커션 컨테이너 3개 플박*/
-/* 아바타 사진 사이즈 조절해야 함(래퍼 원형으로 사진 들어가게) -> 모바일에서는 없애기 */
-/* 컨텐트, 세로 플박*/
-/* 앤서드 사이즈 조정 */
 
 .discussion__container {
   display: flex;
@@ -203,4 +199,10 @@ h1 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(256, 256, 256, 0.5); /* 스크롤바 썸네일 호버 배경색 */
+}
+
+
+/* 모바일 기기 너비 시작 점: 820px(아이패드 미니) */
+@media screen and (max-width:51rem) {
+
 }
