@@ -111,6 +111,7 @@ const convertToDiscussion = (obj) => {
     discussionAnswered,
     avatarWrapper
   );
+  li.dataset.id = obj.id;
   return li;
 };
 
