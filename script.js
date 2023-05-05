@@ -105,7 +105,7 @@ document.querySelector('#story').addEventListener('input',function (){
 // })
 
 document.querySelector('.form__submit').addEventListener('click',function (){
-  newObj.createdAt = `${time.getFullYear()}-${time.getMonth()+1햐}-${time.getDate()}T${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}Z`
+  newObj.createdAt = `${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()}T${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}Z`
   if(localStorage.getItem('key') != undefined) {
     let old_arr = JSON.parse(localStorage.getItem('key'))
     old_arr.push(newObj)
