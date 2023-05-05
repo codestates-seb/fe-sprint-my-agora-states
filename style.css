@@ -72,6 +72,7 @@ li {
     border-bottom:1px solid black;
     border-radius: 15px;   
     display: flex;
+    flex-wrap: wrap;
 }
 
 .discussion__avatar--wrapper {

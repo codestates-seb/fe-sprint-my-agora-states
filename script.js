@@ -61,7 +61,13 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = (page-1)*10; i < page*10; i += 1) {
-    agoraStatesDiscussions[i] == undefined ? 1 : element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    if(agoraStatesDiscussions[i] != undefined) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+      if(agoraStatesDiscussions[i].answer != undefined) {
+
+      }
+    } 
+    
   }
   return;
 };
@@ -99,7 +105,7 @@ document.querySelector('#story').addEventListener('input',function (){
 // })
 
 document.querySelector('.form__submit').addEventListener('click',function (){
-  newObj.createdAt = `${time.getFullYear()}-${time.getMonth()}-${time.getDate()}T${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}Z`
+  newObj.createdAt = `${time.getFullYear()}-${time.getMonth()+1햐}-${time.getDate()}T${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}Z`
   if(localStorage.getItem('key') != undefined) {
     let old_arr = JSON.parse(localStorage.getItem('key'))
     old_arr.push(newObj)
@@ -109,12 +115,22 @@ document.querySelector('.form__submit').addEventListener('click',function (){
   }
 })
 
-document.querySelector('.page__prev').addEventListener('click',function (){
+document.querySelectorAll('.page__prev')[0].addEventListener('click',function (){
   min_page == page ? page : page-=1;
   localStorage.setItem('page',page)
 })
 
-document.querySelector('.page__next').addEventListener('click',function (){
+document.querySelectorAll('.page__next')[0].addEventListener('click',function (){
+  max_page == page ? page : page+=1;
+  localStorage.setItem('page',page)
+})
+
+document.querySelectorAll('.page__prev')[1].addEventListener('click',function (){
+  min_page == page ? page : page-=1;
+  localStorage.setItem('page',page)
+})
+
+document.querySelectorAll('.page__next')[1].addEventListener('click',function (){
   max_page == page ? page : page+=1;
   localStorage.setItem('page',page)
 })
