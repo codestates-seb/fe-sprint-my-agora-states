@@ -1,3 +1,7 @@
+// TODO: 답변 보여주기
+
+const modalOverlay = document.querySelector(".modal__overlay");
+
 const discussions = document.querySelectorAll(".discussion__container");
 const modal = document.querySelector("#modal");
 const close = document.querySelector(".modal__close");
@@ -10,7 +14,10 @@ const modalAvatar = document.querySelector(".modal__avatar--wrapper");
 const modalAuthor = document.querySelector(".modal__author--name");
 const modalRecordTime = document.querySelector(".modal__record__time");
 
+let isOpen = false;
+
 const openModal = (event) => {
+  isOpen = true;
   const id = event.currentTarget.dataset.id;
   const targetData = agoraStatesDiscussions.find((x) => x.id === id);
 
@@ -50,18 +57,27 @@ const openModal = (event) => {
 };
 
 const closeModal = (e) => {
-  while (modalTag.firstChild) {
-    modalTag.firstChild.remove();
+  if (isOpen) {
+    isOpen = false;
+    while (modalTag.firstChild) {
+      modalTag.firstChild.remove();
+    }
+    while (modalAvatar.firstChild) {
+      modalAvatar.firstChild.remove();
+    }
+    modal.classList.add("hidden");
+    document.body.style.overflow = "unset";
   }
-  while (modalAvatar.firstChild) {
-    modalAvatar.firstChild.remove();
-  }
-  modal.classList.add("hidden");
-  document.body.style.overflow = "unset";
 };
+
+function handleOverlayClick(event) {
+  if (event.currentTarget === event.target) closeModal();
+}
 
 discussions.forEach((discussion) => {
   discussion.addEventListener("click", openModal);
 });
 
 close.addEventListener("click", closeModal);
+
+modalOverlay.addEventListener("click", handleOverlayClick);
