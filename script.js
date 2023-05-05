@@ -23,7 +23,7 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement('h2')
   discussionTitle.classList.add('discussion__title')
   const titleLink = document.createElement('a')
-  titleLink.setAttribute('href', `${obj.url}`)
+  // titleLink.setAttribute('href', `${obj.url}`)
   titleLink.textContent = obj.title
   discussionTitle.appendChild(titleLink)
   discussionContent.appendChild(discussionTitle)
