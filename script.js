@@ -12,14 +12,31 @@ const convertToDiscussion = function (obj) {
 
 	const discussionAnswered = document.createElement("div");
 	discussionAnswered.className = "discussion__answered";
+	discussionAnswered.textContent = "답변!";
 
 	// TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
-	// data.js에서 avatarUrl를 가져오고 avatarWrapper에 추가.
+	// data.js에서 받은 유저 정보 추가
 	const userImage = document.createElement("img");
 	userImage.classList.add("discussion__avatar--image");
 	avatarWrapper.append(userImage);
 	userImage.src = obj.avatarUrl;
+
+	// discussion__content에 제목과 깃허브 url 추가
+	const discussionContentH2 = document.createElement("h2");
+	discussionContentH2.classList.add("discussion__title");
+	discussionContent.append(discussionContentH2);
+
+	const discussionTitle = document.createElement("a");
+	discussionContentH2.append(discussionTitle);
+	discussionTitle.href = obj.url;
+	discussionTitle.textContent = obj.title;
+
+	// 질문작성자와 작성 시간
+	const discussionInfo = document.createElement("div");
+	discussionContent.append(discussionInfo);
+	discussionInfo.classList.add("discussion__information");
+	discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
 
 	li.append(avatarWrapper, discussionContent, discussionAnswered);
 	return li;
