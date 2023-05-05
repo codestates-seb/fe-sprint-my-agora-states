@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import AvatarWrapper from './AvatarWrapper.js';
 import DiscussionContent from './DiscussionContent.js';
+import DiscussionDetail from './DiscussionDetail.js';
 
 export default class DiscussionItem extends Component {
   constructor({ className, props }) {
@@ -20,12 +21,24 @@ export default class DiscussionItem extends Component {
     const discussionContent = new DiscussionContent({
       className: 'discussion__content',
       props: {
+        id,
         title,
         author,
+        avatarUrl,
         createdAt,
         answer,
+        bodyHTML,
       },
     }).el;
+    const discussionTitleLink =
+      discussionContent.querySelector('.discussion__title');
+    discussionTitleLink.addEventListener('click', () => {
+      const discussionDetail = new DiscussionDetail({
+        className: 'discussion-detail__wrapper',
+        props: this.props,
+      });
+      document.body.appendChild(discussionDetail.el);
+    });
 
     const discussionRemove = document.createElement('div');
     discussionRemove.className = 'discussion__remove';

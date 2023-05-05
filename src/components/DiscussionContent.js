@@ -1,4 +1,5 @@
 import Component from './Component.js';
+import DiscussionDetail from './DiscussionDetail.js';
 
 export default class DiscussionContent extends Component {
   constructor({ className = '', props = {} }) {
@@ -28,14 +29,13 @@ export default class DiscussionContent extends Component {
     discussionIsAnswered.textContent = answer ? '[답변완료] ' : '[미해결] ';
     discussionTitle.appendChild(discussionIsAnswered);
     discussionTitle.className = 'discussion__title';
-    const discussionTitleLink = document.createElement('a');
-    discussionTitleLink.href = 'javascript:void(0)';
-    discussionTitleLink.textContent = title;
+    const discussionTitleText = document.createElement('span');
+    discussionTitleText.textContent = title;
 
     const discussionInformation = document.createElement('div');
     discussionInformation.className = 'discussion__information';
-    discussionInformation.textContent = `${author} / ${localeCreatedAt}`;
-    discussionTitle.appendChild(discussionTitleLink);
+    discussionInformation.innerHTML = `<span>${author}</span> / ${localeCreatedAt}`;
+    discussionTitle.appendChild(discussionTitleText);
     this.el.appendChild(discussionTitle);
     this.el.appendChild(discussionInformation);
   }

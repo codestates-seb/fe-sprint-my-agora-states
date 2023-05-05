@@ -45,14 +45,16 @@ submitBtnEl.addEventListener('click', (e) => {
 });
 
 const postDiscussion = (author, title, body) => {
+  const date = new Date();
   const newDiscussion = {
-    author,
+    id: author + date,
+    createdAt: date.toISOString(),
     title,
-    avatarUrl: 'https://avatars.githubusercontent.com/u/60064471?v=4',
     url: 'javascript:void(0)',
+    author,
+    answer: null,
     bodyHTML: body,
-    answer: undefined,
-    createdAt: new Date().toISOString(),
+    avatarUrl: 'https://avatars.githubusercontent.com/u/60064471?v=4',
   };
   agoraStatesDiscussions.unshift(newDiscussion);
   renderDiscussion();
