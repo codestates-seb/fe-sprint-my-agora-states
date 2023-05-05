@@ -46,17 +46,18 @@ h1 {
 /* form container section */
 .form__input--wrapper {
   width: 1fr;
-  height: 30vh;
+  height: 40vh;
   border-radius: 20px;
   padding: 1rem;
   padding-right: 2rem;
   display: grid;
   background-color: #313338;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 2fr 6fr 1fr;
+  grid-template-rows: 2fr 6fr 2fr 1fr;
   grid-template-areas:
     "title title"
     "main main"
+    "tag tag"
     "name post";
 }
 
@@ -77,7 +78,6 @@ h1 {
 
 .form__textbox {
   grid-area: main;
-  padding-bottom: 1rem;
 }
 
 .form__textbox > textarea {
@@ -89,6 +89,36 @@ h1 {
 
 .form__textbox > textarea:focus {
   outline: none;
+}
+
+.form__input--tags {
+  grid-area: tag;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-color: #1e1f22;
+}
+
+.form__input--tags input {
+  display: none;
+}
+
+.form__input--tags input:checked + label {
+  border: 2px solid #454c95;
+  background: transparent;
+}
+
+.form__input--tags .tag:hover {
+  cursor: pointer;
 }
 
 .form__input--name {
@@ -142,12 +172,6 @@ h1 {
 
 .discussion__tags {
   grid-area: tag;
-}
-.tag {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 20px;
-  background-color: #1e1f22;
 }
 
 .discussion__content {

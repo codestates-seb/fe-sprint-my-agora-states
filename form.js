@@ -22,6 +22,7 @@ function handleFormEvent(event) {
   // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, )
 
   const target = event.target;
+  console.log(event);
 
   // id
   const id = new IDGenerator().getID();
