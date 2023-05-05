@@ -1,3 +1,6 @@
+const formContainer = document.querySelector(".form__container");
+const searchContainer = document.querySelector(".search__container");
+
 const searchInput = document.querySelector(".search--input");
 const createBtn = document.querySelector(".search--create");
 
@@ -26,7 +29,10 @@ function handleSearch(event) {
   }
 }
 
-function handleClickCreateBtn(event) {}
+function handleClickCreateBtn(event) {
+  formContainer.classList.remove("hidden");
+  searchContainer.classList.add("hidden");
+}
 
 searchInput.addEventListener("keyup", handleSearch);
 createBtn.addEventListener("click", handleClickCreateBtn);

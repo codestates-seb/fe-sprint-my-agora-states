@@ -87,9 +87,6 @@ h1 {
 }
 
 /* form section */
-.form__container {
-  display: none;
-}
 
 .form__input--wrapper {
   width: 1fr;
