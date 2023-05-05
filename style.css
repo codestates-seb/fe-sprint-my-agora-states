@@ -10,6 +10,7 @@ body {
   justify-content: center;
 }
 
+/* 입력창 */
 h1 {
   display: flex;
   justify-content: center;
@@ -70,6 +71,7 @@ h1 {
   /* color: white; */
 }
 
+/* 디스커션 */
 .discussion__wrapper {
   width: 540px;
 }
@@ -105,4 +107,24 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* 스크롤바 */
+/* ::-webkit-scrollbar {
+  width: 26px; /* 스크롤바의 너비 */
+/* } */
+
+::-webkit-scrollbar-thumb {
+  height: 20%; /* 스크롤바의 길이 */
+  background: #eabde6; /* 스크롤바의 색상 */
+  background-image: url("img/scroll.png");
+  background-position: center; /* 이미지 정중앙 */
+  background-size: contain;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  margin: 0px -4px 0px 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5); /*스크롤바 뒷 배경 색상*/
+  margin: -4px -4px -4px 0px;
 }
