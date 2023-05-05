@@ -6,7 +6,6 @@
 li {
     list-style: none;
     width: 540px;
-    border: 1px solid black;
 }
 
 .discussion__container { 
@@ -14,21 +13,22 @@ li {
     justify-content: space-between;
 }
 
-.discussion__avatar--wrapper{
-    flex-grow: 20;
+.discussion__avatar--wrapper {
     display: flex;
-    width: 20px;
+    width: 60px;
     flex-direction: column;
     justify-content: center;
 }
 
 .discussion__avatar--image {
     border-radius: 50%;
+    width: 60px;
+    height: 60px;
 }
 
 .discussion__content {
     flex-grow: 80;
-    padding: 5px;
+    padding: 5px 15px;
 }
 
 .discussion__information {
