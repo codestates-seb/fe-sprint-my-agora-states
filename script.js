@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -13,9 +10,39 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
+
+  const title = document.createElement("h2");
+  title.className = "discussion__title";
+  const titleText = document.createElement("a");
+  titleText.href = obj.url;
+  titleText.innerText = obj.title;
+  discussionContent.append(title);
+  title.append(titleText);
+
+  const information = document.createElement("div");
+  information.className = "discussion__information";
+  information.innerText = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(information);
+
+  const answer = document.createElement("p");
+  answer.innerText = isAnswer(obj.answer);
+  discussionAnswered.append(answer);
+
+  function isAnswer(answer) {
+    if (answer !== null) {
+      return "✅";
+    } else {
+      return "❌";
+    }
+  }
+
   return li;
 };
 
