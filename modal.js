@@ -2,42 +2,60 @@ const discussions = document.querySelectorAll(".discussion__container");
 const modal = document.querySelector("#modal");
 const close = document.querySelector(".modal__close");
 
+const modalTag = document.querySelector(".modal__tag");
+const modalTitleText = document.querySelector(".modal__title > h2");
+const modalContent = document.querySelector(".modal__story");
+const modalAvatar = document.querySelector(".modal__avatar--wrapper");
+
+const modalAuthor = document.querySelector(".modal__author--name");
+const modalRecordTime = document.querySelector(".modal__record__time");
+
 const openModal = (event) => {
   const id = event.currentTarget.dataset.id;
   const targetData = agoraStatesDiscussions.find((x) => x.id === id);
 
-  const modalTitle = document.querySelector(".modal__title > h2");
-  modalTitle.textContent = targetData.title;
+  modalTitleText.textContent = targetData.title;
 
-  const modalContent = document.querySelector(".modal__story");
   modalContent.innerHTML = targetData.bodyHTML;
 
-  const modalAvatar = document.querySelector(".modal__avatar--wrapper");
-  while (modalAvatar.firstChild) {
-    modalAvatar.firstChild.remove();
-  }
   const avatarImg = document.createElement("img");
   avatarImg.src = targetData.avatarUrl;
   avatarImg.alt = `avatar of ${targetData.author}`;
   modalAvatar.append(avatarImg);
 
-  const modalAuthor = document.querySelector(".modal__author--name");
   modalAuthor.textContent = targetData.author;
 
-  const modalRecordTime = document.querySelector(".modal__record__time");
   const time = targetData.createdAt;
-  console.log(time);
   modalRecordTime.textContent = `${Number(time.slice(0, 4))}년 ${Number(
     time.slice(5, 7)
   )}월 ${Number(time.slice(8, 10))}일  ${Number(
     time.slice(11, 13)
   )}:${time.slice(14, 16)}`;
 
+  // tag 있으면 적용, 없으면 '기타'로 적용
+  const tag = document.createElement("span");
+  tag.className = "tag";
+  if (agoraStatesDiscussions.tag) {
+    for (i of agoraStatesDiscussions.tag) {
+      tag.textContent = i;
+      modalTag.append(tag);
+    }
+  } else {
+    tag.textContent = "기타";
+    modalTag.append(tag);
+  }
+
   modal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
 };
 
 const closeModal = (e) => {
+  while (modalTag.firstChild) {
+    modalTag.firstChild.remove();
+  }
+  while (modalAvatar.firstChild) {
+    modalAvatar.firstChild.remove();
+  }
   modal.classList.add("hidden");
   document.body.style.overflow = "unset";
 };
