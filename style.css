@@ -4,8 +4,26 @@
     padding: 0;
     margin: 0;
 }
+html,body{
+    width: 100%;
+}
+body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
 main{
-    width: 540px;
+    padding: 0 10vw;
+}
+main h1{
+    padding: 5vw 0;
+    text-align: center;
+}
+.discussions__container {
+    row-gap: 30px;
+    display: flex;
+    flex-direction: column;
 }
 .discussion__container {
     list-style: none;
@@ -30,7 +48,37 @@ main{
     width: 48px;
     border-radius: 50%;
 }
-.discussion__information {
+.discussion__information,.discussion__time {
     text-align: right;
     margin-top: 5px;
 }
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    /* position: absolute;
+    bottom: 0; */
+    justify-content: center;
+  }
+  .pagination-number,
+  .pagination-button{
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+  }
+  .pagination-number:hover,
+  .pagination-button:not(.disabled):hover {
+    background: #fff;
+  }
+  .pagination-number.active {
+    color: #fff;
+    background: #0085b6;
+  }
+  .hidden{
+    display: none;
+  }
