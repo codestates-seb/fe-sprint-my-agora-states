@@ -7,14 +7,13 @@ const convertToDiscussion = (obj) => {
   li.className = "discussion__container"; // 클래스 이름 지정
 
   const avatarWrapper = document.createElement("div");
-  avatarWrapper.className = "discussion__avatar--wrapper";
+  avatarWrapper.className = "discussion__avatar--wrapper"; // 이미지 박스 생성
   const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
+  discussionContent.className = "discussion__content"; // 콘텐츠 박스 생성
   const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
+  discussionAnswered.className = "discussion__answered"; // 답변 완료 박스 생성
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
 
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
