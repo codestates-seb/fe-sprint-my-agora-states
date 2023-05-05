@@ -26,8 +26,14 @@ const convertToDiscussion = (obj) => {
   avatearImg.alt = `avatar of ${obj.author}`;
   avatarWrapper.appendChild(avatearImg);
 
-  //discussionContent - h2 > a (title) 추가
-  const discussionTitle = document.createElement("h2");
+  //discussionContent - h3 > author
+  const discuccionAuthor = document.createElement("h3");
+  discuccionAuthor.className = "discussio__athor";
+  discuccionAuthor.textContent = obj.author;
+  discussionContent.appendChild(discuccionAuthor);
+
+  //discussionContent - h4 > a (title) 추가
+  const discussionTitle = document.createElement("h4");
   discussionTitle.className = "discussion__title";
   const titleA = document.createElement("a");
   titleA.href = obj.url;
@@ -39,13 +45,19 @@ const convertToDiscussion = (obj) => {
   //discussionContent - div(discuccion information) 추가
   const discuccionInformation = document.createElement("div");
   discuccionInformation.className = "discussion__information";
-  discuccionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
+
+  const discuccionTime = document.createElement("p");
+  discuccionTime.textContent = `${obj.createdAt}`;
+  discuccionInformation.appendChild(discuccionTime);
   discussionContent.appendChild(discuccionInformation);
 
   //discussionAnswered - p 추가
   const discussionAnsweredP = document.createElement("p");
-  discussionAnsweredP.textContent = "☑";
   if (obj.answer !== null) {
+    discussionAnsweredP.textContent = "✅";
+    discussionAnswered.appendChild(discussionAnsweredP);
+  } else {
+    discussionAnsweredP.textContent = "❎";
     discussionAnswered.appendChild(discussionAnsweredP);
   }
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -69,6 +81,7 @@ render(ul);
 //discusion추가 기능
 const formQuestionSubmitDiv = document.querySelector(".form");
 
+//submit handler -> 질문 제출시 로컬에 저장하고 화면에 출력
 function handleSubmit(event) {
   //submit때문에 페이지가 다시 렌더링 되는 것은 방지
   // event.preventDefault();
@@ -81,14 +94,24 @@ function handleSubmit(event) {
   );
 
   //현재시간
-  let today = new Date().toISOString();
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = ("0" + (today.getMonth() + 1)).slice(-2);
+  let day = ("0" + today.getDate()).slice(-2);
 
+  let dateString = year + "-" + month + "-" + day;
+
+  let hours = ("0" + today.getHours()).slice(-2);
+  let minutes = ("0" + today.getMinutes()).slice(-2);
+  let seconds = ("0" + today.getSeconds()).slice(-2);
+
+  let timeString = hours + ":" + minutes + ":" + seconds;
   const newQuestion = {
     author: `${name.value}`,
     avatarUrl: "./person.png",
     title: `${title.value}`,
     bodyHTML: `${question.value}`,
-    createdAt: `${today}`,
+    createdAt: `${dateString} ${timeString}`,
     answer: null,
   };
 
