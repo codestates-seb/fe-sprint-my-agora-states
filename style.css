@@ -1,1 +1,94 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: rgb(145, 127, 179);
+}
+
+main h1 {
+    background-color: rgb(229, 190, 236);
+    width: 540px;
+    padding: 20px;
+}
+
+form {
+    background-color: rgb(253, 226, 243);
+    width: 540px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.discussion__wrapper {
+    width: 540px;
+    padding: 20px;
+    background-color: rgb(253, 226, 243);
+}
+
+li {
+    list-style-type: none;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+    width: 48px;
+    float: left;
+}
+
+.discussions__container {
+    padding: 0;
+}
+
+.discussion__container {
+    display: flex;
+    border: 3px red solid;
+    padding: 20px;
+}
+
+.discussion__content {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 10px;
+}
+
+.discussion__title {
+    margin: 0;
+}
+
+.discussion__information {
+    float: right;
+}
+
+.discussion__answered p {
+    font-size: 40px;
+    margin: 0;
+}
+
+.form__input--wrapper>div {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.form__input--wrapper>div label {
+    width: 120px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.form__input--wrapper>div input {
+    flex-grow: 3;
+}
+
+.form__input--wrapper>div textarea {
+    flex-grow: 3;
+}
+
+.form__submit input {
+    width: 120px;
+    height: 30px;
+}
+
+textarea {
+    resize: vertical;
+}
