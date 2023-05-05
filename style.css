@@ -5,15 +5,26 @@
 	padding: 0;
 	border: 1px solid black;
 }
-/* 모드 변경 토글 버튼  
+/* 모드 변경 토글 버튼  */
 .toggle__btn {
 	display: none;
 }
-*/
+
 body {
 	width: 100vh;
 	height: 100vh;
+	background-color: white;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+main {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(249, 172, 210, 0.989);
+}
+
+section {
+	background-color: beige;
 }
