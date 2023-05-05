@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f4faa262c0.js"
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -22,6 +22,11 @@
   <body>
     <main>
       <h1>🏛️ 아고라-스테이츠</h1>
+      <section class="search__container">
+        <i class="search--symbol fa-solid fa-magnifying-glass fa-rotate-90"></i>
+        <input class="search--input" type="text" placeholder="포스트 검색" />
+        <button class="search--create">새 포스트</button>
+      </section>
       <section class="form__container">
         <form action="" method="" class="form">
           <div class="form__input--wrapper">
@@ -100,10 +105,10 @@
       <section id="modal" class="hidden modal__overlay">
         <div class="modal__window">
           <div class="modal__close">
-            <span class="material-symbols-outlined"> close </span>
+            <i class="modal__close--symbol fa-solid fa-xmark"></i>
           </div>
           <div class="modal__title">
-            <span class="symbol material-symbols-outlined"> help </span>
+            <i class="modal__title--symbol fa-regular fa-comment"></i>
             <h2></h2>
             <div class="modal__tag"></div>
           </div>

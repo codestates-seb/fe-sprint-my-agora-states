@@ -1,5 +1,5 @@
 // form 처리 js
-// TODO: tag 등록, 검색 기능
+// TODO:  검색 기능
 
 const form = document.querySelector("form");
 
