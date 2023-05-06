@@ -1,7 +1,16 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
+/* 웹 폰투 출처 눈누 폰트명 교보문고의 네 번째 손글씨 교보손글씨 2022 김혜남 */
+@font-face {
+    font-family: 'KyoboHandwriting2022khn';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KyoboHandwriting2022khn.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* 모든 요소에 적용 */
 * { 
+    font-family: 'KyoboHandwriting2022khn';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,16 +20,18 @@
 main{
     height: 90%;
     padding: 8px;
-    background-color: #FFEBEB;
+    background-color: #FFF4D2;
 }
 
 /* 최상단 헤더 */
 header{
-    margin: 8px;
+    padding: 8px;
     text-align-last: center;
     font-size: xx-large;
     font-weight: bold;
     height: 10%;
+    background-color: #E5D1FA;
+    clip-path: polygon(0 0, 100% 0, 75% 50%, 100% 100%, 0 100%, 25% 50%);
 }
 
 /* 질문 등록 박스 */
@@ -28,7 +39,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30%;
+    height: 45%;
+    background-color: #E5D1FA;
 }
 .form{
     display: flex;
@@ -36,6 +48,7 @@ header{
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background-color: #ECF2FF;
 }
 .form__input--wrapper{
     display: flex;
@@ -53,53 +66,57 @@ header{
     align-items: center;
 }
 .form__submit > input{
-    width: 70%;
-    background-color: #6DA9E4;
+    width: 100%;
+    background-color: #FFF4D2;
     border: none;
-    transition: 1s;
+    transition: 0.5s;
     clip-path: polygon(50% 100%, 100% 35%, 70% 35%, 70% 0%, 30% 0%, 30% 35%, 0% 35%);
 }
 .form__submit > input:hover{
-    transition: 1s;
+    transition: 0.5s;
     transform: translateY(10px) scale(1.5);
 }
 #name, #title, #story{
     float: right;
-    width: 70%;
 }
 
 /* 질문 목록 / 선택된 질문 내용 */
 #flexP {
     display: flex;
     justify-content: center;
-    transition: 3s;
-    height: 60%;
+    transition: 1s;
+    height: 45%;
 }
 iframe{
     display: none;
-    transition: 5s;
+    transition: 1s;
 }
 #flexP:hover iframe{
     display: block;
     width: 50%;
     height: 100%;
     object-fit: contain;
-    transition: 5s;
+    transition: 1s;
 }
 .discussion__wrapper{
+    padding: 8px;
     width: 50%;
     height:100%;
-    transition: 5s;
+    transition: 1s;
+    background-color: #E5D1FA;
 }
 li.discussion__container{
     margin: 8px 0px;
+    padding: 8px;
     font-size: x-small;
-    background-color: #6DA9E4;
+    background-color: #ECF2FF;
     display: flex;
     justify-content: space-between;
+    transition: 1s;
 }
 .discussion__answered{
     font-size: xx-large;
+    transition: 1s;
 }
 
 a{
