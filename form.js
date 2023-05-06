@@ -51,7 +51,7 @@ function handleFormEvent(event) {
   // 내용
 
   // 작성자 사진
-  const avatarUrl = null;
+  const avatarUrl = `https://velog.velcdn.com/images/gksqls020/profile/cb03d8e1-57b8-4ec5-8471-55925ba8f8d8/image.png`;
 
   // 태그
   const tags = [];
