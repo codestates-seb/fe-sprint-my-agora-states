@@ -33,13 +33,13 @@ const convertToDiscussion = (obj) => {
   button.onclick = () => {
     discussionDetail.classList.add('hide')
   }
-  button.textContent = 'exit'
+  button.textContent = 'X'
   button.classList.add("exit-button")
   discussionDetail.innerHTML = obj.bodyHTML
-  discussionDetail.appendChild(button)
+  discussionDetail.prepend(button)
 
   document.body.appendChild(discussionDetail)
-  
+
   titleLink.onclick = () => {
     discussionDetail.classList.remove('hide')
   }
