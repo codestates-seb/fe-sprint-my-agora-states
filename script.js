@@ -64,12 +64,52 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+function addPageNation(number) {
+  const pageList = document.querySelector(".page__list");
+  const p = document.createElement("p");
+  p.className = `p${number}`;
+  p.textContent = `${number}`;
+
+  if (number === 1) {
+    p.style.color = "red";
+  }
+  pageList.appendChild(p);
+}
+
+//현재 페이지
+let currentPage = 1;
+
+//페이지 개수 (기본 1)
+let pageCount = 1;
+
+//배열 데이터 개수
+const listCount = agoraStatesDiscussions.length;
+
+//페이지 개수 설정 (10개 단위)
+if (listCount < 10) {
+  pageCount = 1;
+} else {
+  if (listCount % 10 === 0) {
+    pageCount = listCount / 10;
+  } else {
+    pageCount = listCount / 10 + 1;
+  }
+}
+
+//페이지 네이션 추가
+for (let i = 1; i <= pageCount; i++) {
+  addPageNation(i);
+}
+// agoraStatesDiscussions 배열의 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  //렌더할 때마다 로컬에 아이템도 같이 배열에 추가하기
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  ///10개만 렌더링
+  let start = (currentPage - 1) * 10;
+  let end = currentPage * 10;
+  if (currentPage * 10 > listCount) {
+    end = listCount;
+  }
+  for (let i = start; i < end; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-    // console.log(agoraStatesDiscussions[i]);
   }
   return;
 };
@@ -133,3 +173,39 @@ function handleSubmit(event) {
 }
 
 formQuestionSubmitDiv.addEventListener("submit", handleSubmit);
+
+//pageNation
+const pageDownButton = document.querySelector(".page__down");
+function pageDowner() {
+  if (currentPage === 1) {
+    console.log("첫 번째 페이지 입니다.");
+  } else {
+    currentPage--;
+    const beforepageCheckStyle = document.querySelector(`.p${currentPage + 1}`);
+    const currentpageCheckStyle = document.querySelector(`.p${currentPage}`);
+
+    ul.textContent = "";
+    render(ul);
+    console.log(currentPage);
+    beforepageCheckStyle.style.color = "black";
+    currentpageCheckStyle.style.color = "red";
+  }
+}
+pageDownButton.addEventListener("click", pageDowner);
+
+const pageUpButton = document.querySelector(".page__up");
+function pageUpper() {
+  if (currentPage === pageCount) {
+    console.log("마지막 페이지 입니다.");
+  } else {
+    currentPage++;
+    const beforepageCheckStyle = document.querySelector(`.p${currentPage - 1}`);
+    const currentpageCheckStyle = document.querySelector(`.p${currentPage}`);
+    ul.textContent = "";
+    render(ul);
+    console.log(currentPage);
+    beforepageCheckStyle.style.color = "black";
+    currentpageCheckStyle.style.color = "red";
+  }
+}
+pageUpButton.addEventListener("click", pageUpper);

@@ -83,7 +83,7 @@ main section.form__container form .form__submit input {
 section.discussion__wrapper {
   margin-top: 10px;
   border-radius: 10px;
-  padding: 0 15px;
+  padding: 15px;
   background-color: rgb(184, 207, 182);
 }
 ul.discussions__container {
@@ -141,4 +141,30 @@ ul.discussions__container img {
   height: 64px;
   border-radius: 20px;
   margin: 0 10px;
+}
+
+main section.page__container {
+  margin-top: 10px;
+}
+main section.page__container .pages {
+  justify-content: center;
+  display: flex;
+}
+main section.page__container .pages .page__list {
+  display: flex;
+  width: 200px;
+}
+main section.page__container .pages .page__list p {
+  margin: auto;
+  font-size: 20px;
+  padding: 10px;
+}
+main section.page__container .pages button {
+  border: none;
+  background-color: rgb(228, 245, 226);
+  font-size: 32px;
+}
+
+main section.page__container .pages button:hover {
+  font-weight: bold;
 }
