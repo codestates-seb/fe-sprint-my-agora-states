@@ -190,6 +190,13 @@ main h1 {
   padding-right: 1rem;
   overflow: scroll;
 }
+.discussions__container > p {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: var(--color-lightgray);
+}
 .discussion__container {
   display: flex;
   flex-direction: row;
@@ -219,6 +226,33 @@ main h1 {
 }
 .discussion__container .discussion__remove:active {
   color: var(--color-input-focus);
+}
+
+/* Discussion Pagination */
+.discussion__wrapper .pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.pagination .pagination__page {
+  color: var(--color-gray);
+  font-size: 1.5rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.pagination .pagination__page:hover {
+  color: var(--color-lightgray);
+}
+.pagination .pagination__page.pagination__page--active {
+  color: var(--color-white);
+  font-size: 1.8rem;
+  font-weight: bolder;
+}
+.pagination .pagination__page.pagination__page--move {
+  font-weight: bolder;
 }
 
 /* Discussion detail */

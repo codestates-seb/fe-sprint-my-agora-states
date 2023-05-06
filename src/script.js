@@ -1,11 +1,41 @@
 import DiscussionItem from './components/DiscussionItem.js';
 
+// const agoraStatesDiscussions = [];
+
+// 페이지 정보
+const pageStore = {
+  _currentPage: 1,
+  _totalPage: 1,
+  perPage: 10,
+  setCurrentPage(page) {
+    this._currentPage = page;
+  },
+  getCurrentPage() {
+    return this._currentPage;
+  },
+  setTotalPage(length) {
+    this._totalPage = Math.ceil(length / this.perPage);
+  },
+  getTotalPage() {
+    return this._totalPage;
+  },
+};
+
 // Discussion 렌더링
 const discussion = document.querySelector('ul.discussions__container');
 const renderDiscussion = () => {
+  if (agoraStatesDiscussions.length === 0) {
+    discussion.innerHTML = '<p>등록된 질문이 없습니다.</p>';
+    return;
+  }
   const fragment = document.createDocumentFragment();
   discussion.innerHTML = '';
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  const startIndex = (pageStore.getCurrentPage() - 1) * pageStore.perPage;
+  const endIndex = pageStore.getCurrentPage() * pageStore.perPage;
+  for (let i = startIndex; i < endIndex; i += 1) {
+    if (i >= agoraStatesDiscussions.length) {
+      break;
+    }
     const discussionItem = new DiscussionItem({
       className: 'discussion__container',
       props: agoraStatesDiscussions[i],
@@ -15,8 +45,6 @@ const renderDiscussion = () => {
   discussion.appendChild(fragment);
   return;
 };
-
-renderDiscussion();
 
 // 게시글 등록
 const submitBtnEl = document.querySelector('input[type="submit"]');
@@ -59,3 +87,58 @@ const postDiscussion = (author, title, body) => {
   agoraStatesDiscussions.unshift(newDiscussion);
   renderDiscussion();
 };
+
+// 페이지네이션
+const pagination = document.querySelector('.pagination');
+const renderPagination = () => {
+  pagination.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  // 이전 페이지 이동 버튼
+  if (pageStore.getCurrentPage() !== 1) {
+    const prevPage = document.createElement('li');
+    prevPage.textContent = '〈';
+    prevPage.className = 'pagination__page pagination__page--move';
+    prevPage.addEventListener('click', () => {
+      pageStore.setCurrentPage(pageStore.getCurrentPage() - 1);
+      renderPagination();
+      renderDiscussion();
+    });
+    fragment.appendChild(prevPage);
+  }
+
+  // 페이지 버튼
+  for (let i = 1; i <= pageStore.getTotalPage(); i += 1) {
+    const page = document.createElement('li');
+    page.className = 'pagination__page';
+    page.textContent = i;
+    if (i === pageStore.getCurrentPage()) {
+      page.classList.add('pagination__page--active');
+    }
+    page.addEventListener('click', () => {
+      pageStore.setCurrentPage(i);
+      renderPagination();
+      renderDiscussion();
+    });
+    fragment.appendChild(page);
+  }
+
+  // 다음 페이지 이동 버튼
+  if (pageStore.getCurrentPage() !== pageStore.getTotalPage()) {
+    const nextPage = document.createElement('li');
+    nextPage.textContent = '〉';
+    nextPage.className = 'pagination__page pagination__page--move';
+    nextPage.addEventListener('click', () => {
+      pageStore.setCurrentPage(pageStore.getCurrentPage() + 1);
+      renderPagination();
+      renderDiscussion();
+    });
+    fragment.appendChild(nextPage);
+  }
+
+  pagination.appendChild(fragment);
+};
+
+// 최초 렌더링
+pageStore.setTotalPage(agoraStatesDiscussions.length);
+renderPagination();
+renderDiscussion();
