@@ -1,13 +1,69 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-* {
-  box-sizing: border-box;
+body {
   margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background-color: #f9f9f9;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
   padding: 0;
 }
 
-body {
+img {
+  width: 100%;
+}
+
+a {
+  color: black;
+}
+
+button {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgb(93, 184, 40, 1);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+button:hover {
+  background-color: rgb(118, 240, 116, 1);
+}
+
+button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+textarea {
+  resize: none;
+}
+
+.pagination-button {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
+  gap: 15px;
 }
 
 /* 입력창 */
@@ -27,7 +83,8 @@ h1 {
 }
 
 .form__container {
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 10px;
   margin-bottom: 30px;
 }
 
@@ -39,7 +96,7 @@ h1 {
 }
 
 .form__input--title > label {
-  margin-right: 20px;
+  margin-right: 20.5px;
 }
 #title {
   width: 180px;
@@ -53,68 +110,135 @@ h1 {
 }
 
 .form__submit input {
-  margin-top: 3px;
-  margin-right: 15px;
-
   cursor: pointer;
 
   width: 100px;
   height: 100px;
 
-  font-family: "WooridaumR";
-  font-weight: bolder;
-  font-size: 1.1rem;
-
-  /* background-color: #774bf1; */
-  /* box-shadow: 2px 2px 2px rgb(0, 0, 0); */
-  /* transition-duration: 0.1s; */
-  /* color: white; */
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgb(93, 184, 40, 1);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.form__submit input:hover {
+  background-color: rgb(118, 240, 116, 1);
 }
 
 /* 디스커션 */
-.discussion__wrapper {
-  width: 540px;
+li {
+  display: flex;
+  flex-direction: column;
+}
+
+.contentArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.buttonArea {
+  display: flex;
+  justify-content: center;
 }
 
 .discussion__container {
+  border: 2px solid black;
+  border-radius: 14px;
+  padding: 10px 10px 18px;
+  margin: 20px 0;
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
-  margin-top: 10px;
-  padding: 13px;
+  gap: 10px 12px;
 }
 
-.discussion__avatar--wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
+.discussion__wrapper .discussion__avatar--wrapper {
+  font-size: 0;
+  line-height: 0;
 }
 
-.discussion__avatar--image {
-  width: 48px;
+.discussion__wrapper .discussion__avatar--image {
   border-radius: 50%;
+  width: 48px;
 }
 
-.discussion__content > :nth-child(1) {
+.discussion__wrapper .discussion__title {
+  margin: 0;
+}
+
+.discussion__wrapper .discussion__title a {
+  font-size: 18px;
   display: -webkit-box;
+
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 440px;
-}
-.discussion__content > :nth-child(2) {
-  text-align: right;
 }
 
-.discussion__answered {
+.discussion__wrapper .discussion__information {
+  text-align: end;
+  margin-top: 10px;
+}
+
+.discussion__wrapper .discussion__answered p {
+  font-size: 25px;
+}
+
+.discussion__wrapper .discussion__answer__content {
+  display: none;
+  padding: 0 10px;
+}
+
+.discussion__wrapper .discussion__answer__content-show {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.discussion__wrapper .discussion__question__date {
+  text-align: start;
+}
+
+.discussion__wrapper .discussion__question__description,
+.discussion__answer__description {
+  border: 4px solid #d3d1ff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.discussion__wrapper .discussion__answer__title {
+  margin: 20px 0;
+}
+
+.discussion__wrapper .discussion__answer__information {
+  display: flex;
   align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+.discussion__wrapper img.discussion__answer__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+}
+
+.discussion__question__title,
+.discussion__answer__title {
+  border: 4px solid #adaaff;
+  border-radius: 14px;
+  padding: 10px;
 }

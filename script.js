@@ -7,6 +7,12 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+  const buttonArea = document.createElement("div");
+  buttonArea.className = "buttonArea";
+
+  const contentArea = document.createElement("div");
+  contentArea.className = "contentArea";
+
   // avatar
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -18,7 +24,6 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  console.log(obj);
   const avatarImg = document.createElement("img");
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = "avatar of " + obj.author;
@@ -48,34 +53,56 @@ const convertToDiscussion = (obj) => {
   answered.append(answeredCheck);
   discussionAnswered.append(answered);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  // 자세히 보기 버튼과 콘텐츠 영역
+  const discussionAnswerContent = document.createElement("div");
+  discussionAnswerContent.className = "discussion__answer__content";
+
+  const discussionAnswerButton = document.createElement("button");
+  discussionAnswerButton.className = "discussion__answer__button";
+  discussionAnswerButton.textContent = "자세히 보기";
+
+  contentArea.append(
+    avatarWrapper,
+    discussionContent,
+    discussionAnswered,
+    discussionAnswerContent
+  );
+
+  buttonArea.append(discussionAnswerButton);
+
+  li.append(contentArea, buttonArea);
 
   return li;
 };
 
-let discussionAnswerButtons = document.querySelectorAll(
-  ".discussion__answer__button"
-);
-let discussionAnswerContents = document.querySelectorAll(
-  ".discussion__answer__content"
-);
-
-discussionAnswerButtons.forEach((button, i) =>
-  button.addEventListener("click", function () {
-    if (discussionAnswerContents[i].classList[1] === "show") {
-      discussionAnswerContents[i].classList.remove("show");
-      discussionAnswerButtons[i].textContent = "자세히 보기";
-    } else {
-      discussionAnswerContents[i].classList.add("show");
-      discussionAnswerButtons[i].textContent = "닫기";
-    }
-  })
-);
-
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  const pageCount = Math.ceil(agoraStatesDiscussions.length / 10);
+  const container = document.querySelector(".pagination-button");
+  let currentPage = window.sessionStorage.getItem("currentPage")
+    ? window.sessionStorage.getItem("currentPage")
+    : 1;
+
+  for (let i = 1; i < pageCount + 1; i++) {
+    const button = document.createElement("button");
+    button.className = `page-button-${i}`;
+    button.textContent = i;
+    container.append(button);
+
+    button.addEventListener("click", () => {
+      console.log(button.textContent);
+      window.sessionStorage.setItem("currentPage", i); // reload로 인한 초기화를 방지 위해서 setItem 사용
+      window.location.href = `${window.location.origin}${window.location.pathname}?pageNo=${i}`; // end point를 바꿔서 새로고침을 함
+      window;
+    });
+  }
+
+  const startIndex = (currentPage - 1) * 10;
+  const endIndex = startIndex + 10;
+
+  for (let j = startIndex; j < endIndex; j += 1) {
+    console.log(agoraStatesDiscussions[j]);
+    element.append(convertToDiscussion(agoraStatesDiscussions[j]));
   }
   return;
 };
@@ -92,13 +119,13 @@ const render = (element) => {
 // 그래서 count도 localStorage에 넣어준 것(이때 count++이 아니라 ++count로!)
 // count가 들어감에 따라 discussion만 바라보는 것이 아니므로 -1로 count를 제외한 localStorage의 길이를 가져왔다
 
-console.log(window.localStorage.length);
+// console.log(window.localStorage.length);
 if (window.localStorage.length) {
   for (let i = 0; i < window.localStorage.length - 1; i++) {
     // count 값을 뺴주기 위해서 -1 처리
     const discussionString = window.localStorage.getItem(`discussion${i}`);
     const discussionObj = JSON.parse(discussionString);
-    ul.prepend(convertToDiscussion(discussionObj));
+    agoraStatesDiscussions.unshift(discussionObj);
   }
 }
 
