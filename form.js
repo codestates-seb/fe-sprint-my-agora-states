@@ -24,7 +24,6 @@ class IDGenerator {
 }
 
 function handleFormEvent(event) {
-  console.log("in");
   event.preventDefault();
   // 입력받은 값을 오브젝트에 저장
   // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, 태그 )
@@ -55,9 +54,11 @@ function handleFormEvent(event) {
 
   // 태그
   const tags = [];
+  console.dir(event.srcElement);
   for (let i = 0; i < event.srcElement.length; i++) {
     if (event.srcElement[i].checked) tags.push(event.srcElement[i].value);
   }
+  if (tags.length === 0) tags.push("기타");
 
   // 객체화
   const item = {
