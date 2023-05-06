@@ -60,6 +60,48 @@ const render = (element) => {
   return;
 };
 
+//Local storage function
+const renderlocalStorage = (element) => {
+  const objLocalData = JSON.parse(localStorage.getItem("agoraDatas"));
+  if (objLocalData) {
+    for (let i = 0; i < objLocalData.length; i++) {
+      element.prepend(convertToDiscussion(objLocalData[i]));
+    }
+  }
+  return;
+};
+
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+renderlocalStorage(ul);
+
+const form = document.querySelector('.form');
+const formName = document.querySelector('#name');
+const formTitle = document.querySelector('#title');
+const formStory = document.querySelector('#story');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const newDiscussion = {
+    id: "",
+    createdAt: new Date().toLocaleDateString(),
+    title: formTitle.value,
+    url: 'https://github.com/codestates-seb/agora-states-fe/discussions/45',
+    author: formName.value,
+    answer: null,
+    bodyHTML: formStory.value,
+    avatarUrl: 'https://i.natgeofe.com/k/7bfcf2d2-542e-44f0-962a-c36f2efa98a5/heart.jpg'
+  };
+
+  let objData = [];
+  if (localStorage.length > 0) {
+    localStorage.setItem('agoraDatas', JSON.stringify(objData));
+
+    agoraStatesDiscussions.unshift(newDiscussion);
+    ul.prepend(convertToDiscussion(newDiscussion));
+
+    form.reset();
+  }
+});
