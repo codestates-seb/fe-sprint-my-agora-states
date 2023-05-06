@@ -176,11 +176,16 @@ submitBtn.addEventListener('click', (e) => {
 	discussionInfo.className = 'discussion__information';
 	//current date upon submission
 	const currentDate = new Date();
-	const year = currentDate.getFullYear();
-	const month = currentDate.getMonth() + 1;
-	const date = currentDate.getDate();
-	const time = currentDate.toLocaleTimeString();
-	discussionInfo.textContent = `${nameValue} ${year}-${month}-${date} ${time}`;
+	const year = currentDate.getUTCFullYear();
+	const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0');
+	const day = String(currentDate.getUTCDate()).padStart(2, '0');
+	const hours = String(currentDate.getUTCHours()).padStart(2, '0');
+	const minutes = String(currentDate.getUTCMinutes()).padStart(2, '0');
+	const seconds = String(currentDate.getUTCSeconds()).padStart(2, '0');
+	discussionInfo.textContent = ` ${nameValue} / ${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+	// console.log(isoDate); // output: 2023-05-06T00:00:00Z (depending on the current time in your timezone)
+
+	// discussionInfo.textContent = `${nameValue} / ${isoDate}`;
 
 	//! checkedButton generate
 	const answeredBtn = document.createElement('div');
