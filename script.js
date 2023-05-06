@@ -33,7 +33,9 @@ const convertToDiscussion = (obj) => {
 
   const contentInfo = document.createElement("div");
   contentInfo.className = "discussion__information";
-  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  contentInfo.textContent = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleString("ko-KR")}`;
   discussionContent.append(contentInfo);
 
   // 답변 여부에 따른 체크박스 유무
@@ -45,16 +47,6 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
-// 내가 작성한 질문 반영
-// const myDiscussion = {
-//   title: "제목",
-//   author: "작성자",
-//   avatarUrl: "",
-//   url: "게시물 URL",
-//   createdAt: "",
-//   answer: false,
-// };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
