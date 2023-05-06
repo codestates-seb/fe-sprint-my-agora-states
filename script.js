@@ -14,12 +14,47 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // 아바타
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = `avatar of ${obj.author}`;
+  avatarWrapper.append(avatarImg);
 
+  // 컨텐츠 제목, 타이틀, 정보
+  const discussionTitle = document.createElement("h2");
+  discussionTitle.className = "discussion__title";
+  discussionContent.append(discussionTitle);
 
+  const titleAnchor = document.createElement("a");
+  titleAnchor.href = obj.url;
+  titleAnchor.textContent = obj.title;
+  discussionTitle.append(titleAnchor);
 
+  const contentInfo = document.createElement("div");
+  contentInfo.className = "discussion__information";
+  contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(contentInfo);
+
+  // 답변 여부에 따른 체크박스 유무
+  const isAnswered = document.createElement("p");
+  isAnswered.textContent = obj.answer ? "☑" : "◻︎";
+  discussionAnswered.append(isAnswered);
+
+  // 할당
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+// 내가 작성한 질문 반영
+// const myDiscussion = {
+//   title: "제목",
+//   author: "작성자",
+//   avatarUrl: "",
+//   url: "게시물 URL",
+//   createdAt: "",
+//   answer: false,
+// };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
