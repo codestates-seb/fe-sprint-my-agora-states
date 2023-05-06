@@ -1,1 +1,228 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top {
+  background-color: #fffeff;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+}
+
+.bottom {
+  background-color: #f8f6f8;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  font-size: 50px;
+  font-family: "Cedarville Cursive", cursive;
+}
+
+.form__container {
+  padding: 1rem;
+  border-radius: 50px;
+  /* background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
+  height: 230px;
+  width: 440px;
+  display: flex;
+  justify-content: center;
+}
+
+form.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  margin-top: 1rem;
+}
+
+label {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+.form__textbox {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#title {
+  margin-left: 1.4rem;
+  border-radius: 10px;
+  height: 20px;
+}
+
+#name {
+  margin-left: 0.2rem;
+  border-radius: 10px;
+  height: 20px;
+}
+
+#story {
+  margin-left: 1rem;
+  width: 220px;
+  height: 100px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#submit {
+  cursor: pointer;
+  background-color: #c92275;
+  border: none;
+  width: 200px;
+  height: 40px;
+  border-radius: 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 14px;
+  color: white;
+  margin-top: 1.7rem;
+}
+
+.discussion__wrapper {
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+/* discussions ul */
+.discussions__container {
+  width: 540px;
+}
+
+/* discussion li*/
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fffeff;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+
+  /* border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
+}
+
+/* avatar image wrapper div */
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* avatar image */
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 60px;
+}
+
+/* discussion content wrapper */
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+  /* flex: 1 0 0; */
+  flex-grow: 1; /* space-between 했을때, 남는 공간을 이 content wrapper 가 다 차지하게 됨 */
+}
+
+/* discussion content h2 */
+.discussion__title {
+  /* flex-basis: 77%; */
+  padding-top: 0.5rem;
+  /* font-size: 20px; */
+}
+
+/* discussion information */
+.discussion__information {
+  text-align: right;
+  /* align-self: flex-end; */
+  font-size: 13px;
+  padding: 1rem 0.5rem 0 0.5rem;
+  color: grey;
+}
+
+/* checkbox */
+.discussion__answered {
+  align-self: center;
+  /* flex-basis: 5%; */
+  text-align: right;
+  padding: 1rem;
+  font-size: 25px;
+}
+
+/* pagination */
+
+.pagination-container {
+  width: 200px;
+}
+
+.pagination-container button {
+  border: none;
+  background-color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 2rem;
+}
+
+.pagination-numbers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination-container button.active {
+  background-color: #eee;
+}
+
+.discussion__container.hidden {
+  display: none;
+}
+
+/* test용주석 */
