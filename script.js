@@ -12,13 +12,24 @@ const convertToDiscussion = (obj) => {
   discussionContent.className = "discussion__content";
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
+  
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-avatarWrapper.value = agoraStatesDiscussions.avararUrl;
-console.log(avatarWrapper.value)
-
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
+  const avatarImage = document.createElement("div");
+  avatarImage.className = "discussion__avatar--image";
+  avatarWrapper.append(avatarImage); //avatar wrapper에 image div 추가 ((유저명을 여기 쓸지 고민))
+
+  const discussionTitle = document.createElement("div");
+  discussionTitle.className = "discussion__title";
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionContent.append(discussionTitle, discussionInformation); //discussionContent에 제목, 저자명, 시간 div 추가
+
+//디스커션에 대답이 달린 것을 어떻게 표현할지? 
+
+
   return li;
 };
 
