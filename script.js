@@ -48,6 +48,29 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// form에 입력된 정보를 출력
+const discussion = [];
+const form = document.querySelector(".form");
+const author = document.querySelector("#name");
+const title = document.querySelector("#title");
+const story = document.querySelector("#story");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const newDiscussion = {
+    id: "",
+    createdAt: Date().toLocaleString("ko-KR"),
+    title: title.value,
+    url: "",
+    author: author.value,
+    avatarUrl: "icon.png",
+    bodyHTML: story.value,
+    answer: null,
+  };
+  ul.prepend(convertToDiscussion(newDiscussion));
+  discussion.unshift(newDiscussion);
+});
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
