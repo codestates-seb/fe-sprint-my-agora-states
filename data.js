@@ -1,3 +1,5 @@
+
+
 const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
@@ -787,14 +789,18 @@ const agoraStatesDiscussions = [
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   },
 ].map(discussion => {
+  let answers = []
   if (discussion.answer) {
+    answers.push(discussion.answer)
+
     return {
       ...discussion,
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
         ...discussion.answer,
         bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
-      }
+      },
+      answers: answers
     }
   }
 

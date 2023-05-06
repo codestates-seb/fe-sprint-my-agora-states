@@ -7,16 +7,74 @@ const prevButton = document.getElementById("prev-button");
 const paginationLimit = 10;
 const ul = document.querySelector("ul.discussions__container");
 const formBtn = document.getElementById('form_button')
+const inputName = document.getElementById('form_name')
+const inputTitle = document.getElementById('form_title')
+const inputStory = document.getElementById('form_story')
 let currentPage = 1;
+let submitChk1 = false;
+let submitChk2 = false;
+let submitChk3 = false;
 let listItems,pageCount;
+const nameFailMsg = document.querySelector(".name-fail-msg")
+const titleFailMsg = document.querySelector(".title-fail-msg")
+const storyFailMsg = document.querySelector(".story-fail-msg")
+
+inputName.onkeyup = () => {
+  if(isMoreThan1Length(inputName.value)){
+    submitChk1 = true
+    nameFailMsg.classList.add("hidden")
+  }else{
+    submitChk1 = false
+    nameFailMsg.classList.remove("hidden")
+  }
+  formBtnDisabledChk();
+}
+
+inputTitle.onkeyup = () => {
+  if(isMoreThan1Length(inputTitle.value)){
+    submitChk2 = true
+    titleFailMsg.classList.add("hidden")
+    formBtnDisabledChk()
+  }else{
+    submitChk2 = false
+    titleFailMsg.classList.remove("hidden")
+  }
+  formBtnDisabledChk();
+}
+
+inputStory.onkeyup = () => {
+  if(isMoreThan1Length(inputStory.value)){
+    submitChk3 = true
+    storyFailMsg.classList.add("hidden")
+    formBtnDisabledChk()
+  }else{
+    submitChk3 = false
+    storyFailMsg.classList.remove("hidden")
+  }
+  formBtnDisabledChk();
+}
+
+function isMoreThan1Length(value) {
+  return value.length >= 1
+}
+
+function formBtnDisabledChk(){
+  if(submitChk1&&submitChk2&&submitChk3){
+    formBtn.removeAttribute("disabled")
+    formBtn.classList.remove("submitDisabled")
+  }else{
+    formBtn.setAttribute("disabled",true)
+    formBtn.classList.add("submitDisabled")
+  }
+}
 
 /**
  * 질문 작성, 배열 추가
  */
 formBtn.onclick = () => {
-  const formTitle = document.getElementById('form_title').value
-  const formName = document.getElementById('form_name').value
-  const formStory = document.getElementById('form_story').value
+  const formTitle = inputTitle.value
+  const formName = inputName.value
+  const formStory = inputStory.value
 
   const myObj = {
     id: self.crypto.randomUUID(),
@@ -27,13 +85,21 @@ formBtn.onclick = () => {
     answer: null,
     bodyHTML: formStory,
     avatarUrl:
-      "https://avatars.githubusercontent.com/u/30585624?s=400&v=4"
+      "https://avatars.githubusercontent.com/u/99641988?s=64&v=4"
   }
 
   const arr = localStorageGet()
   arr.push(myObj)
   localStorageSet(arr);
   init();
+  
+  inputName.value = ""
+  inputTitle.value = ""
+  inputStory.value = ""
+  submitChk1 = false
+  submitChk2 = false
+  submitChk3 = false
+  formBtnDisabledChk()
 }
 
 /**
@@ -49,17 +115,35 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
-  const discussionAnswered = document.createElement("div");
-  discussionAnswered.className = "discussion__answered";
+  
 
-  //아바타 이미지 추가
+  //아바타 이미지, 작성자 추가
+  const avatarDiv = document.createElement("div");
   const avatarImg = document.createElement("img");
   avatarImg.setAttribute('src',obj.avatarUrl)
   avatarImg.setAttribute('alt',`avatar of ${obj.author}`)
   avatarImg.classList.add('discussion__avatar--image')
-  avatarWrapper.append(avatarImg)
 
-  //제목,링크 추가
+  //답변 상태 추가
+  const authorSpan = document.createElement("span");
+  authorSpan.textContent = obj.author
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+
+  if(obj.answer === null){
+    discussionAnswered.textContent = "미답변"
+    discussionAnswered.classList.add("notAnswer")
+  }else{
+    discussionAnswered.textContent =  obj.answers.length
+    discussionAnswered.classList.add("answered");
+  }
+  
+  avatarDiv.append(avatarImg)
+  avatarDiv.append(authorSpan)
+  avatarWrapper.append(avatarDiv)
+  avatarWrapper.append(discussionAnswered)
+  
+  //제목 추가
   const discussionTitle = document.createElement("h2");
   const discussionTitleLink = document.createElement("a");
 
@@ -68,27 +152,16 @@ const convertToDiscussion = (obj) => {
   discussionTitle.appendChild(discussionTitleLink)
   discussionContent.appendChild(discussionTitle)
 
-  //작성자 이름 추가
-  const discussionInfo = document.createElement("div");
-  discussionInfo.classList.add('discussion__information');
-  discussionInfo.textContent = obj.author
-
   //작성 시간 추가
   const discussionTime = document.createElement("div");
-  const discussionTime2 = document.createElement("div");
   discussionTime.classList.add('discussion__time');
-  discussionTime2.classList.add('discussion__time');
 
   const newDate = convertDate(obj.createdAt)
   const newTime = newDate.toLocaleTimeString("ko-KR").split(":")
-  discussionTime.textContent = newDate.toLocaleDateString("ko-KR")
-  discussionTime2.textContent = newTime[0]+ ":" +newTime[1]
-
-  discussionContent.appendChild(discussionInfo)
+  discussionTime.textContent = `${newDate.toLocaleDateString("ko-KR")}\b\b${newTime[0]}:${newTime[1]}`
   discussionContent.appendChild(discussionTime)
-  discussionContent.appendChild(discussionTime2)
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(avatarWrapper, discussionContent);
   return li;
 };
 
@@ -121,6 +194,7 @@ const render = (element) => {
   element.innerHTML = '';
   
   let localStorageArr = localStorageGet()
+  console.log(localStorageArr)
   for (let i = 0; i < localStorageArr.length; i += 1) {
     element.append(convertToDiscussion(localStorageArr[i]));
   }
@@ -273,11 +347,10 @@ function init(){
   setCurrentPageOnClick();
 }
 
-// 로컬스토리지에 저장된 배열이 없을 시 추가
+// 로컬스토리지에 저장된 배열이 없을 시 추가, init실행
 window.onload = () =>{
   if(window.localStorage.getItem("arr") === null){
     localStorageSet(agoraStatesDiscussions);
   }
+  init();
 }
-
-init();
