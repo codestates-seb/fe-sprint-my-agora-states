@@ -1,5 +1,3 @@
-// TODO: 답변 보여주기
-
 const modalOverlay = document.querySelector(".modal__overlay");
 
 const discussions = document.querySelectorAll(".discussion__container");

@@ -196,15 +196,21 @@ h1 {
 .form__submit {
   grid-area: post;
   justify-self: end;
-  width: 70px;
 }
 
-.form__submit > input {
+.form__submit > button {
+  background-color: #5361f9;
   font-size: 1.2rem;
+  border: none;
   border-radius: 20px;
-  padding: 2px 16px;
+  padding: 2px 24px;
   height: 36px;
   cursor: pointer;
+}
+
+.form__submit > button:disabled {
+  background-color: #4752c4;
+  cursor: not-allowed;
 }
 
 /* discussion wrapper section */
