@@ -1,5 +1,4 @@
-console.log(agoraStatesDiscussions[0]);
-
+// 리스트에 요소 추가
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li");
   li.className = "discussion__container";
@@ -46,6 +45,8 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+// Data Rendering
+
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
@@ -56,10 +57,90 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-
-
 // Modal Focusing
-const modal = document.querySelector('#staticBackdrop');
-modal.addEventListener('shown.bs.modal', () => {
+
+const myModal = document.querySelector('#staticBackdrop');
+myModal.addEventListener('shown.bs.modal', () => {
   document.querySelector('#name').focus();
+});
+
+// Form Handling
+
+const nameInput = document.querySelector('#name');
+const titleInput = document.querySelector('#title');
+const storyInput = document.querySelector('#story');
+const formBtns = document.querySelectorAll('.modal-dialog button');
+const submitBtn = document.querySelector('.form__submit');
+
+// Check Input Validation
+
+const checkSubmitValid = () => {
+  return (nameInput.value !== '' && titleInput.value !== '' && storyInput.value !== '');
+}
+
+// Manage Submit Button Activation state
+
+const toggleSubmitBtn = () => {
+  if (checkSubmitValid()) {
+    submitBtn.removeAttribute('disabled');
+  } else {
+    submitBtn.setAttribute('disabled', '');
+  }
+}
+
+nameInput.onkeyup = toggleSubmitBtn;
+titleInput.onkeyup = toggleSubmitBtn;
+storyInput.onkeyup = toggleSubmitBtn;
+
+// Submit Event Handler
+
+submitBtn.addEventListener('click', () => {
+  const inputData = {
+    "author": nameInput.value,
+    "avatarUrl": "https://blog.kakaocdn.net/dn/c3vWTf/btqUuNfnDsf/VQMbJlQW4ywjeI8cUE91OK/img.jpg",
+    "title": titleInput.value,
+    "url": "https://github.com/codestates-seb/fe-sprint-my-agora-states",
+    "createdAt": new Date(),
+  };
+  agoraStatesDiscussions.unshift(inputData);
+  Swal.fire({
+    position: 'top',
+    icon: 'success',
+    title: '질문이 등록되었습니다.',
+    showConfirmButton: false,
+    timer: 1500,
+    customClass: {
+      popup: 'my-sweetalert2-popup-class',
+    }
+  });
+
+  ul.insertBefore(convertToDiscussion(agoraStatesDiscussions[0]), ul.firstChild);
+});
+
+// Form Reset
+const formReset = () => {
+  nameInput.value = '';
+  titleInput.value = '';
+  storyInput.value = '';
+}
+
+formBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    formReset();
+  });
+});
+
+// Popup
+
+document.querySelector('h1').addEventListener('click', () => {
+  Swal.fire({
+    position: 'top',
+    icon: 'success',
+    title: '질문이 등록되었습니다.',
+    showConfirmButton: false,
+    timer: 1500,
+    customClass: {
+      popup: 'my-sweetalert2-popup-class',
+    }
+  });
 });
