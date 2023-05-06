@@ -1,4 +1,5 @@
-// TODO:  이미지 업로드, local storage, 코드 리팩토링,
+// TODO:  페이지네이션, 답변 등록, 이미지 업로드,코드 리팩토링,
+const ul = document.querySelector("ul.discussions__container");
 
 // data에 시간 포매터
 function timeFormater(date) {
@@ -122,15 +123,22 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  const discussionData = JSON.parse(localStorage.getItem("data"));
   while (element.firstChild) {
     element.firstChild.remove();
   }
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < discussionData.length; i += 1) {
+    element.append(convertToDiscussion(discussionData[i]));
   }
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// local storage에 초기 데이터 저장
+const savedData = localStorage.getItem("data");
+if (savedData === null) {
+  localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
+  render(ul);
+} else {
+  // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+  render(ul);
+}

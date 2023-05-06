@@ -54,7 +54,6 @@ function handleFormEvent(event) {
 
   // 태그
   const tags = [];
-  console.dir(event.srcElement);
   for (let i = 0; i < event.srcElement.length; i++) {
     if (event.srcElement[i].checked) tags.push(event.srcElement[i].value);
   }
@@ -72,7 +71,9 @@ function handleFormEvent(event) {
     avatarUrl,
     tags,
   };
-  agoraStatesDiscussions.push(item);
+  const prevData = JSON.parse(localStorage.getItem("data"));
+  prevData.unshift(item);
+  localStorage.setItem("data", JSON.stringify(prevData));
 
   // form 초기화
   title.value = "";
@@ -85,7 +86,6 @@ function handleFormEvent(event) {
   // 다시 검색으로 창 전환
   formContainer.classList.add("hidden");
   searchContainer.classList.remove("hidden");
-
   reRender(ul);
 }
 
@@ -95,11 +95,8 @@ function closeForm(event) {
 }
 
 const reRender = (element) => {
-  element.prepend(
-    convertToDiscussion(
-      agoraStatesDiscussions[agoraStatesDiscussions.length - 1]
-    )
-  );
+  const prevData = JSON.parse(localStorage.getItem("data"));
+  element.prepend(convertToDiscussion(prevData[0]));
   return;
 };
 

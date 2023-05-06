@@ -59,26 +59,32 @@ const showContent = (targetData) => {
 };
 
 const showAnswer = (targetData) => {
-  console.log(targetData);
-  console.log(modalAnswer);
+  if (targetData === null || answerAuthor.textContent === "") {
+    return false;
+  } else {
+    // 답변 아바타 이미지 적용
+    answerAvatar.append(modalAvatarFormat(targetData));
 
-  // 답변 아바타 이미지 적용
-  answerAvatar.append(modalAvatarFormat(targetData));
+    // 답변 작성자
+    answerAuthor.textContent = targetData.author;
 
-  // 답변 작성자
-  answerAuthor.textContent = targetData.author;
+    // 답변 시간
+    answerTime.textContent = modalTimeFormat(targetData.createdAt);
 
-  // 답변 시간
-  answerTime.textContent = modalTimeFormat(targetData.createdAt);
+    // 답변 내용
+    answerStory.innerHTML = targetData.bodyHTML;
 
-  // 답변 내용
-  answerStory.innerHTML = targetData.bodyHTML;
+    return true;
+  }
 };
 
 const openModal = (event) => {
   isOpen = true;
   const id = event.currentTarget.dataset.id;
-  const targetData = agoraStatesDiscussions.find((x) => x.id === id);
+
+  const prevData = JSON.parse(localStorage.getItem("data"));
+
+  const targetData = prevData.find((x) => x.id === id);
 
   // 작성 글 보여주기
   showContent(targetData);
@@ -95,7 +101,7 @@ const openModal = (event) => {
 const closeModal = (event) => {
   if (isOpen) {
     isOpen = false;
-    answerAvatar.firstChild.remove();
+    if (showAnswer()) answerAvatar.firstChild.remove();
     while (modalTag.firstChild) {
       modalTag.firstChild.remove();
     }
