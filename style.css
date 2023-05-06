@@ -150,6 +150,7 @@ h1 {
 }
 
 .form__input--tags {
+  margin-bottom: 1rem;
   grid-area: tag;
   display: flex;
   justify-content: start;
@@ -181,6 +182,9 @@ h1 {
 
 .form__input--name {
   grid-area: name;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .form__input--name > input {
@@ -193,6 +197,11 @@ h1 {
   outline: none;
 }
 
+.form__input--name > p {
+  font-size: 1.2rem;
+  color: rgb(206, 90, 90);
+}
+
 .form__submit {
   grid-area: post;
   justify-self: end;
@@ -203,14 +212,17 @@ h1 {
   font-size: 1.2rem;
   border: none;
   border-radius: 20px;
-  padding: 2px 24px;
-  height: 36px;
+  padding: 8px 24px;
+  height: 1fr;
   cursor: pointer;
 }
 
 .form__submit > button:disabled {
-  background-color: #4752c4;
+  background-color: #4b53aa !important;
   cursor: not-allowed;
+}
+.form__submit > button:hover {
+  background-color: #5c67e0;
 }
 
 /* discussion wrapper section */

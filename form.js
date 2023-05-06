@@ -3,6 +3,13 @@ const searchContainer = document.querySelector(".search__container");
 const formClose = document.querySelector(".form__close--symbol");
 const form = document.querySelector("form");
 
+const title = document.querySelector(".form__input--title > input");
+const author = document.querySelector(".form__input--name > input");
+const bodyHTML = document.querySelector("#story");
+const submitBtn = document.querySelector(".form__submit > button");
+
+const p = document.querySelector(".form__input--name > p");
+
 class IDGenerator {
   #count = 0;
   getID() {
@@ -17,6 +24,7 @@ class IDGenerator {
 }
 
 function handleFormEvent(event) {
+  console.log("in");
   event.preventDefault();
   // 입력받은 값을 오브젝트에 저장
   // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, 태그 )
@@ -31,19 +39,16 @@ function handleFormEvent(event) {
   const createdAt = timeFormater(date);
 
   // 제목
-  let title = target.querySelector(".form__input--title > input");
 
   // url
   const url = "null";
 
   // 작성자
-  const author = target.querySelector(".form__input--name > input");
 
   // 답변
   const answer = null;
 
   // 내용
-  const bodyHTML = target.querySelector("#story");
 
   // 작성자 사진
   const avatarUrl = null;
@@ -85,10 +90,6 @@ function closeForm(event) {
   searchContainer.classList.remove("hidden");
 }
 
-form.addEventListener("submit", handleFormEvent);
-
-formClose.addEventListener("click", closeForm);
-
 const reRender = (element) => {
   element.prepend(
     convertToDiscussion(
@@ -97,3 +98,57 @@ const reRender = (element) => {
   );
   return;
 };
+
+function titleValidator() {
+  if (title.value !== "".trim()) {
+    return true;
+  }
+  return false;
+}
+
+function storyValidator() {
+  if (bodyHTML.value !== "".trim()) {
+    return true;
+  }
+  return false;
+}
+
+function authorValidator() {
+  if (author.value !== "".trim()) {
+    return true;
+  }
+  return false;
+}
+
+function formValidator() {
+  if (!titleValidator()) {
+    p.textContent = "제목을 입력하세요.";
+    p.classList.remove("hidden");
+    submitBtn.disabled = true;
+    return false;
+  }
+
+  if (!storyValidator()) {
+    p.textContent = "내용을 작성해 주세요.";
+    p.classList.remove("hidden");
+    submitBtn.disabled = true;
+    return false;
+  }
+  if (!authorValidator()) {
+    p.textContent = "닉네임을 작성해 주세요.";
+    p.classList.remove("hidden");
+    submitBtn.disabled = true;
+    return false;
+  }
+  p.classList.add("hidden");
+  p.textContent = "";
+  submitBtn.disabled = false;
+}
+
+form.addEventListener("submit", handleFormEvent);
+
+formClose.addEventListener("click", closeForm);
+
+title.addEventListener("keyup", formValidator);
+bodyHTML.addEventListener("keyup", formValidator);
+author.addEventListener("keyup", formValidator);
