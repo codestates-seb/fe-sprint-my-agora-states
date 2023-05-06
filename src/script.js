@@ -1,6 +1,31 @@
 import DiscussionItem from './components/DiscussionItem.js';
 
-// const agoraStatesDiscussions = [];
+window.localStorage.getItem('discussions') === null &&
+  window.localStorage.setItem('discussions', JSON.stringify(discussions));
+
+const getLocalDiscussions = () => {
+  const localDiscussions = window.localStorage.getItem('discussions');
+  return JSON.parse(localDiscussions);
+};
+
+const addDiscussion = (discussion) => {
+  const localDiscussions = getLocalDiscussions();
+  localDiscussions.unshift(discussion);
+  window.localStorage.setItem('discussions', JSON.stringify(localDiscussions));
+};
+const deleteDiscussion = (id) => {
+  const localDiscussions = getLocalDiscussions();
+  const newDiscussions = localDiscussions.filter(
+    (discussion) => discussion.id !== id
+  );
+  window.localStorage.setItem('discussions', JSON.stringify(newDiscussions));
+};
+
+let discussions = getLocalDiscussions();
+
+const syncDiscussion = () => {
+  discussions = getLocalDiscussions();
+};
 
 // 페이지 정보
 const pageStore = {
@@ -24,7 +49,7 @@ const pageStore = {
 // Discussion 렌더링
 const discussion = document.querySelector('ul.discussions__container');
 const renderDiscussion = () => {
-  if (agoraStatesDiscussions.length === 0) {
+  if (discussions.length === 0) {
     discussion.innerHTML = '<p>등록된 질문이 없습니다.</p>';
     return;
   }
@@ -33,12 +58,12 @@ const renderDiscussion = () => {
   const startIndex = (pageStore.getCurrentPage() - 1) * pageStore.perPage;
   const endIndex = pageStore.getCurrentPage() * pageStore.perPage;
   for (let i = startIndex; i < endIndex; i += 1) {
-    if (i >= agoraStatesDiscussions.length) {
+    if (i >= discussions.length) {
       break;
     }
     const discussionItem = new DiscussionItem({
       className: 'discussion__container',
-      props: agoraStatesDiscussions[i],
+      props: discussions[i],
     }).el;
     fragment.appendChild(discussionItem);
   }
@@ -84,7 +109,8 @@ const postDiscussion = (author, title, body) => {
     bodyHTML: body,
     avatarUrl: 'https://avatars.githubusercontent.com/u/60064471?v=4',
   };
-  agoraStatesDiscussions.unshift(newDiscussion);
+  addDiscussion(newDiscussion);
+  syncDiscussion();
   renderDiscussion();
 };
 
@@ -134,11 +160,10 @@ const renderPagination = () => {
     });
     fragment.appendChild(nextPage);
   }
-
   pagination.appendChild(fragment);
 };
 
 // 최초 렌더링
-pageStore.setTotalPage(agoraStatesDiscussions.length);
+pageStore.setTotalPage(discussions.length);
 renderPagination();
 renderDiscussion();
