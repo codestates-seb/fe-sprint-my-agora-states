@@ -2,6 +2,7 @@ import Component from './Component.js';
 import AvatarWrapper from './AvatarWrapper.js';
 import DiscussionContent from './DiscussionContent.js';
 import DiscussionDetail from './DiscussionDetail.js';
+import { deleteDiscussion } from '../util/discussion.js';
 
 export default class DiscussionItem extends Component {
   constructor({ className, props }) {
@@ -48,6 +49,7 @@ export default class DiscussionItem extends Component {
     discussionRemove.addEventListener('click', () => {
       const isDelete = confirm('정말 삭제하시겠습니까?');
       if (isDelete) {
+        deleteDiscussion(id);
         this.el.remove();
         alert('삭제되었습니다.');
       }
