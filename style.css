@@ -1,1 +1,196 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header_logo{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.header_text {
+  font-size:small;
+}
+
+
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vw;
+}
+
+.main_container {
+  display: flex;
+  justify-content: center;
+  min-width: 610px;
+  min-height: 300px;
+}
+
+
+.firsth1{
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+
+.main_container_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_text{
+  font-size: 35px;
+}
+
+#ask{
+  margin-top: 10px;
+  border-radius: 20px;
+  height: 30px;
+  width: 100px;
+}
+
+
+
+
+
+.form_container {
+  margin-top: 40px;
+  display: none;
+}
+
+.two2 {
+  display: flex;
+  justify-content:last baseline;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_input_info {
+  display: flex;
+  flex-direction: column;
+  min-width: 610px;
+  min-height: 200px;
+  margin-top: 10px;
+}
+
+#name {
+  flex: 1;
+  margin-bottom: 5px;
+}
+
+#title {
+  flex:1;
+  margin-bottom: 5px;
+}
+
+#text_story {
+  flex:1;
+}
+
+#sumbit_button {
+  display: flex;
+  margin-top: 10px;
+  border-radius: 20px;
+  height: 30px;
+  width: 100px;
+  justify-content: center;
+}
+
+
+
+
+
+.discussion__wrapper {
+  margin-top: 60px;
+  height: 800px;
+  width: 640px;
+}
+.three3{
+  display: flex;
+  justify-content: baseline;
+}
+
+.discussions__container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+li {
+  display: flex;
+  margin-bottom: 5px;
+  flex-direction: column;
+  border-bottom: 1px solid gray;
+}
+
+.discussion__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.discussion__avatar--image {
+  width: 36px;
+  border-radius: 20px;
+}
+
+.discussion__content__info {
+  display: flex;
+}
+
+.discussion__content {
+  min-height: 60px;
+  width: 640px;
+}
+
+.discussion__content a {
+  font-size: 17px;
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.pagination--container {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pagination__button--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.page-button {
+  font-size: 13px;
+  line-height: 200%;
+  padding: 0 10px;
+}
+
+.page-number-button {
+  margin: 10px;
+  font-size: 15px;
+}
