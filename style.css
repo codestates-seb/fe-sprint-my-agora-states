@@ -58,6 +58,15 @@ label{
     
 }
 
+div.pagination{
+    display: flex;
+    justify-content: space-between;
+    
+}
+div.page-btns{
+    font-size: 20px;
+}
+
 div.form__textbox{
     display: flex;
     justify-content: space-between;
