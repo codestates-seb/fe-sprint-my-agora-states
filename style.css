@@ -6,13 +6,16 @@
 	font-weight: normal;
 	font-style: normal;
 }
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+	--main-gray: rgb(196, 196, 196);
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	border: 1px solid black;
-	font-size: 62.5%;
+
+	/*  font-size: 62.5%;*/
 }
 /* 모드 변경 토글 버튼  */
 .toggle__btn {
@@ -23,18 +26,20 @@ body {
 	font-family: "DOSMyungjo";
 	width: 100vh;
 	height: 100vh;
-	background-color: white;
+	background-color: var(--main-gray);
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	margin: 0 auto;
 }
 
 main {
-	width: 100%;
-	height: 100%;
-	background-color: rgba(249, 172, 210, 0.989);
+	width: 540px;
+	height: 90%;
+	border: 5px solid black;
+	background-color: white;
 }
 
 section {
-	background-color: beige;
+	background-color: var(--main-gray);
 }
