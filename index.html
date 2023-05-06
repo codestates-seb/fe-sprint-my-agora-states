@@ -8,6 +8,7 @@
   <title>My Agora States</title>
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/loader.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -24,22 +25,19 @@
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
             <div class="form__input--name">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required>
+              <input type="text" name="name" id="name" placeholder="이름을 작성하세요" required>
             </div>
             <div class="form__input--title">
-              <label for="title">Enter your title: </label>
-              <input type="text" name="title" id="title" required>
+              <input type="text" name="title" id="title" placeholder="질문 제목을 작성하세요" required>
             </div>
             <div class="form__textbox">
-              <label for="story">Your question: </label>
-              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+              <textarea id="story" name="story" placeholder="질문 내용을 작성하세요" required></textarea>
             </div>
           </div>
-          <div class="form__submit">
-            <input type="submit" value="submit">
-          </div>
         </form>
+        <div class="submit_btn">
+          등록하기
+        </div>
       </div>
     </div>
 
@@ -51,6 +49,7 @@
     </div>
 
   </main>
+  <div class="loader">Loading...</div>
   <div class=" scroll"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
       class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
       <path fill-rule="evenodd"

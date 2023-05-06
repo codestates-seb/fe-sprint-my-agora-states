@@ -1,58 +1,111 @@
-console.log(agoraStatesDiscussions);
-
+// 이전 스크롤 위치를 기억하는 것을 무효화하기
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
 const convertToDiscussion = (obj) => {
+  // <li class="discussion__container">
+  //   <div class="answer">답변보기</div>
+  //   <div class="discussion__content">
+  //     <div class="avatar__container">
+  //       <img class="avatar" src="">
+  //         <span class="author">dubipy</span>
+  //     </div>
+  //     <div class="content__container">
+  //       <div class="content">koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다</div>
+  //       <span class="date">2022. 5. 16. 오전 10:02:17</span>
+  //     </div>
+  //   </div>
+  // </li>
   const li = document.createElement("li");
   li.className = "discussion__container";
 
-  const 첫번째 = document.createElement("div");
-  첫번째.className = "첫번째";
+  const discussionContent = document.createElement("div");
+  discussionContent.className = "discussion__content";
 
-  const 첫번째첫번째 = document.createElement("div");
-  첫번째첫번째.className = "첫번째첫번째";
-  const 아바타 = document.createElement("img");
-  아바타.className = "아바타";
-  아바타.src = obj.avatarUrl;
-  const 어써 = document.createElement("span");
-  어써.className = "어써";
-  어써.textContent = obj.author;
-  첫번째첫번째.append(아바타, 어써);
+  const avatarContainer = document.createElement("div");
+  avatarContainer.className = "avatar__container";
+  const avatar = document.createElement("img");
+  avatar.className = "avatar";
+  avatar.src = obj.avatarUrl;
+  const author = document.createElement("span");
+  author.className = "author";
+  author.textContent = obj.author;
+  avatarContainer.append(avatar, author);
 
-  const 첫번째두번째 = document.createElement("div");
-  첫번째두번째.className = "첫번째두번째";
-  const 컨텐트 = document.createElement("div");
-  컨텐트.className = "컨텐트";
-  컨텐트.textContent = obj.title;
-  const 날짜 = document.createElement("span");
-  날짜.className = "날짜";
-  날짜.textContent = `${new Date(obj.createdAt).toLocaleString()}`;
-  첫번째두번째.append(컨텐트, 날짜);
+  const contentContainer = document.createElement("div");
+  contentContainer.className = "content__container";
+  const content = document.createElement("div");
+  content.className = "content";
+  content.textContent = obj.title;
+  const date = document.createElement("span");
+  date.className = "date";
+  date.textContent = `${new Date(obj.createdAt).toLocaleString()}`;
+  contentContainer.append(content, date);
 
-  첫번째.append(첫번째첫번째, 첫번째두번째);
+  discussionContent.append(avatarContainer, contentContainer);
 
-  const 엔써 = document.createElement("div");
-  엔써.className = "엔써";
-  엔써.textContent = "답변보기";
+  const viewAnswer = document.createElement("div");
+  viewAnswer.className = "answer";
+  viewAnswer.textContent = "답변보기";
 
-  li.append(엔써, 첫번째);
-
+  li.append(viewAnswer, discussionContent);
   return li;
 };
 
+const discussionsPerLoad = 10;
+let start = 0;
+let loading = false; // 데이터를 가져오는 중인지 여부를 나타내는 변수
+
+const getData = (start, limit) => {
+  return agoraStatesDiscussions.slice(start, start + limit);
+};
+
+let discussions = getData(start, discussionsPerLoad);
+
+const appendData = (element, data) => {
+  for (let i = 0; i < data.length; i += 1) {
+    element.append(convertToDiscussion(data[i]));
+  }
+};
+
+const ul = document.querySelector(".유엘");
+appendData(ul, discussions);
+
+let body = document.querySelector("body");
+
+// 인피니티 스크롤
+window.addEventListener("scroll", function () {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+  // 데이터를 가져오는 중이거나 모든 데이터를 다 가져왔으면 더 이상 작업을 하지 않습니다.
+  if (loading || start >= agoraStatesDiscussions.length) {
+    return;
+  }
+
+  if (scrollTop + clientHeight >= scrollHeight) {
+    const loader = document.querySelector(".loader");
+    loader.style.display = "block";
+    loading = true;
+    setTimeout(() => {
+      loader.style.display = "none";
+      if (agoraStatesDiscussions.length - start < 10) {
+        start += discussionsPerLoad;
+      } else {
+        start += discussionsPerLoad;
+      }
+      console.log(start);
+      discussions = getData(start, discussionsPerLoad);
+      appendData(ul, discussions);
+      loading = false;
+    }, 1000);
+  }
+});
+
+// 최상단으로 이동하기
 const scrollButton = document.querySelector(".scroll");
 scrollButton.addEventListener("click", function () {
-  let body = document.querySelector("body");
   window.scroll({
     behavior: "smooth",
     top: body.offsetTop,
   });
 });
-
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-const ul = document.querySelector(".유엘");
-render(ul);
