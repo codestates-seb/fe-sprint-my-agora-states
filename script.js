@@ -42,9 +42,9 @@ const convertToDiscussion = (obj) => {
   const contentAnswered = document.createElement('p');
   contentAnswered.className = 'discussion__answered';
   if (obj.answer === null) {
-    contentAnswered.textContent = "ok";
+    contentAnswered.textContent = "✔";
   } else {
-    contentAnswered.textContent = "no";
+    contentAnswered.textContent = "✘";
   }
   discussionAnswered.append(contentAnswered);
 

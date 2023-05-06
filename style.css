@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(68, 142, 240);
+  background: linear-gradient(90deg,orange, violet);
 }  
 
 .form__input--title > label {
@@ -29,7 +29,7 @@ h2 {
   color: black;
 }
 section.form__container {
-  background-color: rgb(152, 154, 154);
+  background-color: rgb(255,230,154);
   border-radius: 20px;
 }
 .discussion__answered {
@@ -37,7 +37,6 @@ section.form__container {
   font-size: 20px;
   margin: 5px;
   color: black;
-
 }
 .discussion__container {
   display: flex;
@@ -83,10 +82,10 @@ ul {
   padding: 0px;
 }
 li.discussion__container {
-  background-color: rgb(152,154,154);
+  background-color: white;
 }
 a:link {
-  color: white;
+  color: black;
   font-family: 'Dongle', sans-serif;
   font-size: 22px;
 }
@@ -99,7 +98,8 @@ h1 {
   margin-top: 70px;
   margin-bottom: 20px;
   color: white;
-  font-size: 40pt;
+  font-size: 60px;
+  text-shadow: 2px 2px 2px black;
 }
 section {
   display:flex;
@@ -120,6 +120,8 @@ form {
   width: 500px;
   border-radius: 10px;
   padding: 10px;
+  font-size: 20px;
+  color: grey;
 }
 .form__input--wrapper {
   margin: 5px;
@@ -151,9 +153,9 @@ textarea {
 }
 
 .discussion__information {
-  padding-top: 10px;
-  font-size: 14px;
-  color: #FFF9CA;
+  padding-top: 40px;
+  font-size: 12px;
+  color: black;
 }
 
 img {
