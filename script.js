@@ -1,4 +1,4 @@
-// TODO: 답변 보여주기, 이미지 업로드, local storage, 코드 리팩토링,
+// TODO:  이미지 업로드, local storage, 코드 리팩토링,
 
 // data에 시간 포매터
 function timeFormater(date) {

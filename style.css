@@ -394,11 +394,20 @@ hr {
 }
 .modal__author--name {
   font-size: 1.5rem;
-  margin-right: 0.5rem;
+  margin-right: 0.3rem;
 }
 .modal__record__time {
   color: #949ba4;
   font-size: 1rem;
+}
+
+.modal__author--tag {
+  margin-right: 0.5rem;
+  background-color: #c1c5f1;
+  color: #434db8;
+  padding: 0.3rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
 }
 
 .modal__story {
@@ -406,4 +415,10 @@ hr {
 }
 .modal__story > p {
   margin: 1rem 0;
+}
+
+.modal__line {
+  height: 0.5rem;
+  background-color: #494b50;
+  margin: 1.5rem 0;
 }
