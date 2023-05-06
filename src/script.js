@@ -1,28 +1,11 @@
 import DiscussionItem from './components/DiscussionItem.js';
+import { getLocalDiscussions, addDiscussion } from './util/discussion.js';
 
 window.localStorage.getItem('discussions') === null &&
   window.localStorage.setItem(
     'discussions',
     JSON.stringify(agoraStatesDiscussions)
   );
-
-const getLocalDiscussions = () => {
-  const localDiscussions = window.localStorage.getItem('discussions');
-  return JSON.parse(localDiscussions);
-};
-
-const addDiscussion = (discussion) => {
-  const localDiscussions = getLocalDiscussions();
-  localDiscussions.unshift(discussion);
-  window.localStorage.setItem('discussions', JSON.stringify(localDiscussions));
-};
-const deleteDiscussion = (id) => {
-  const localDiscussions = getLocalDiscussions();
-  const newDiscussions = localDiscussions.filter(
-    (discussion) => discussion.id !== id
-  );
-  window.localStorage.setItem('discussions', JSON.stringify(newDiscussions));
-};
 
 let discussions = getLocalDiscussions();
 
