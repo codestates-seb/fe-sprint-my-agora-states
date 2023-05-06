@@ -1,10 +1,9 @@
 const searchInput = document.querySelector(".search--input");
 const createBtn = document.querySelector(".search--create");
+const titles = document.querySelectorAll(".discussion__title");
+const authors = document.querySelectorAll(".discussion__author");
 
 function handleSearch(event) {
-  const titles = document.querySelectorAll(".discussion__title");
-  const authors = document.querySelectorAll(".discussion__author");
-
   const searchKey = event.target.value;
 
   for (let i = 0; i < ul.childNodes.length; i++) {
@@ -26,10 +25,18 @@ function handleSearch(event) {
   }
 }
 
-function handleClickCreateBtn(event) {
+function changeContainer() {
+  // 다시 모든 discussions 보여줌
+  for (let i = 0; i < ul.childNodes.length; i++) {
+    titles[i].closest("li").classList.remove("hidden");
+  }
+  // 검색 key 초기화
+  searchInput.value = "";
+
+  // 화면 전환
   formContainer.classList.remove("hidden");
   searchContainer.classList.add("hidden");
 }
 
 searchInput.addEventListener("keyup", handleSearch);
-createBtn.addEventListener("click", handleClickCreateBtn);
+createBtn.addEventListener("click", changeContainer);

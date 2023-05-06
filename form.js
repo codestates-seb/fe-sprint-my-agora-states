@@ -81,11 +81,14 @@ function handleFormEvent(event) {
     if (event.srcElement[i].checked) event.srcElement[i].checked = false;
   }
 
+  // 다시 검색으로 창 전환
+  formContainer.classList.add("hidden");
+  searchContainer.classList.remove("hidden");
+
   reRender(ul);
 }
 
 function closeForm(event) {
-  console.dir(event.target);
   formContainer.classList.add("hidden");
   searchContainer.classList.remove("hidden");
 }

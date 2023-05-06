@@ -1,4 +1,4 @@
-// TODO: form 포스트 조건 충족되면 css 변경, 답변 보여주기, 이미지 업로드, local storage, 코드 리팩토링,
+// TODO: 답변 보여주기, 이미지 업로드, local storage, 코드 리팩토링,
 
 // data에 시간 포매터
 function timeFormater(date) {
