@@ -1,1 +1,46 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    letter-spacing: -0.02em;
+}
+
+clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.discusson__wrapper {
+    width: 540px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1f2d3d;
+    line-height: 1.25;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    line-height: 1.45;
+}
+
+.discussion__information {
+    font-size: 16px;
+    color: gray;
+    line-height: 1.5;
+}
+
+.discussion__avatar--image,
+.discussion__content,
+.discussion__answered {
+    float: left;
+}
