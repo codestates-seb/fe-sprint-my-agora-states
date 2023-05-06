@@ -1,7 +1,16 @@
+@font-face {
+    font-family: "nanumSquare";
+    src: url("assets/fonts/NanumSquareR.ttf");
+}
+@font-face {
+    font-family: "nanumFlower";
+    src: url("assets/fonts/nanumFlower.ttf");
+}
 /*공통*/
 * {
     box-sizing: border-box;
-  }
+    font-family: "nanumSquare";
+}
 html {
     height: 100%;
 }
@@ -12,6 +21,9 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-image: url('assets/images/cityNight.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
 }
 button {
     border-style : none;
@@ -22,6 +34,12 @@ ul {
     margin: 0;
     padding: 10px;
 }
+a {
+    color: rgb(253, 255, 223);
+}
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
 
 /*질문*/
 /*질문 전체영역, question:65%, answer:35%임*/
@@ -29,11 +47,31 @@ ul {
     width: 60%;
     min-width: 500px;
     max-width: 1000px;
+    height: 100%;
+    background-image: url('assets/images/cityNight.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 /*.question 영역의 h1 태그*/
 .question__title {
     margin: 10px;
     text-align: center;
+    color: white;
+    font-family: "nanumFlower";
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+#title_gif1, #title_gif2 {
+    width: 50px;
+    height: 45px;
+    border-radius: 30px;
+    opacity: 0.3;
 }
 
 /*질문 목록*/
@@ -42,11 +80,23 @@ ul {
     overflow: auto;
     height: 100%;
 }
+.discussion__wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+.discussion__wrapper::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+    width: 5px;
+}
+.discussion__wrapper::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
 /*li 태그*/
 .discussion__container {
-    margin: 0px 5px 10px 0px;
-    padding: 10px 20px 10px 20px;
-    background-color: rgb(215, 215, 215);
+    margin: 3px 5px 15px 3px;
+    padding: 15px 25px 15px 25px;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 2px 2px 1px 0.5px rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     width: 100%;
     display: flex;
@@ -74,12 +124,16 @@ ul {
 /*li의 h2 태그*/
 .discussion__title {
     margin:0px 0px 5px 5px;
+    font-weight:bold;
+    color: white;
 }
+
 /*li의 (하단 작은 글씨) information 태그*/
 .discussion__information {
     display: flex;
     flex-direction: row;
     justify-content: end;
+    color: white;
 }
 /*li의 체크모양 버튼을 감싸고 있는 div 태그*/
 .discussion__answered {
@@ -94,12 +148,15 @@ ul {
 /*질문 입력*/
 /*입력창을 감싸고 있는 section 태그, submit 버튼 포함*/
 .form__container {
-    width: 100%;
+    width: 80%;
 }
 /*입력창을 감싸고 있는 section 태그 내의 form 태그, submit 버튼 포함*/
 .form {
-    padding: 10px;
-    background-color: rgb(210, 210, 210);
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 1px 1px 20px 1px rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -130,8 +187,15 @@ ul {
 }
 /*이름, 제목, 질문내용의 input 태그*/
 .input_tag {
-    height: 1.5rem;
+    padding: 5px;
+    height: 2rem;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-style: groove;
+    border-color: rgba(255, 255, 255, 1);
+    color: white;
+    border-radius: 10px;
+    
 }
 /*이름, 제목, 질문내용의 label 태그*/
 .input_label {
@@ -139,10 +203,16 @@ ul {
     display: inline-block;
     width: 4.5rem;
     text-align: right;
+    color: white;
+    font-family: 'nanumFlower';
+    font-size: 1.2rem;
 }
 /*질문내용 input 태그*/
 #story {
     height: 4rem;
+}
+#story::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 /*제출 input 태그를 감싸고 있는 div 태그*/
 .form__submit {
@@ -156,23 +226,44 @@ ul {
 /*제출 input submit button 태그*/
 .form__submit--button {
     width: 100%;
-    height: 100%;
+    max-width: 5rem;
+    height: 3rem;
+    margin: 10px 3px;
+    border-radius: 25px;
+    font-family: "nanumFlower";
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
 }
 
 /*답변*/
 .answer {
     width: 40%;
-    margin: 10px 10px;
+    margin: 10px 25px 10px 10px;
 }
 /*답변 제목 태그*/
 .answer__title {
     margin: 10px;
     text-align: center;
-    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "nanumFlower";
+}
+.answer__title--text {
+    color: white;
+    font-family: "nanumFlower";
+    width: 90%;
 }
 .answer__container {
     width: 100%;
     margin: 10px;
+}
+/*답변 선택 질문 제목*/
+.answer__questionTitle {
+    color: white;
+    
 }
 /*답변 전체 감춤*/
 .answer.hide {
@@ -181,5 +272,20 @@ ul {
 /*답변 닫기 버튼*/
 .answer__title--closeBtn {
     background-color: rgba(0, 0, 0, 0);
+    color: white;
     font-size: 30px;
+    font-family: "nanumFlower";
+}
+/*답변 작성자*/
+.answer__content--author {
+    color: rgb(147, 225, 255);
+}
+/*답변 내용*/
+.answer__content--bodyHtml {
+    margin: 15px 0px 0px 0px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    font-size: 18px;
 }

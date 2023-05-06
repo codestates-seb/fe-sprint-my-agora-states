@@ -36,6 +36,9 @@ const convertToDiscussion = (obj) => {
   answered.className = 'discussion__answered--checkBtn';
   obj.answer!==null?answered.textContent = '✅':'';
 
+  //답변 전체
+  const answer = document.querySelector('.answer');
+
   //답변완료 여부 선택 시 answer 정보 출력
   answered.addEventListener('click',function(){
     console.log(obj.answer['bodyHTML']);
@@ -43,9 +46,16 @@ const convertToDiscussion = (obj) => {
     answer__author.textContent = `작성자 : ${obj.answer['author']}`;
     const answer__bodyHtml = document.querySelector('.answer__content--bodyHtml');
     answer__bodyHtml.innerHTML = obj.answer['bodyHTML'];
-    const answer = document.querySelector('.answer');
+    const answer__questionTitle = document.querySelector('.answer__questionTitle');
+    answer__questionTitle.textContent = `Q. ${obj.title}`;
     answer.classList.remove('hide');
   })
+
+  //answer의 ❌ 버튼 누르면 answer hide
+  const answer__closeBtn = document.querySelector('.answer__title--closeBtn');
+  answer__closeBtn.addEventListener('click',() => {
+      answer.classList.add('hide');
+    })
 
   avatarWrapper.appendChild(avatar);
   discussionContent.appendChild(title);
