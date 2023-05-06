@@ -1,7 +1,10 @@
 import DiscussionItem from './components/DiscussionItem.js';
 
 window.localStorage.getItem('discussions') === null &&
-  window.localStorage.setItem('discussions', JSON.stringify(discussions));
+  window.localStorage.setItem(
+    'discussions',
+    JSON.stringify(agoraStatesDiscussions)
+  );
 
 const getLocalDiscussions = () => {
   const localDiscussions = window.localStorage.getItem('discussions');
