@@ -39,7 +39,7 @@ const convertToDiscussion = (obj) => {
 
   const avatarAnswered = document.createElement('p');
   if (obj.answer !== null){
-    avatarAnswered.textContent = '☑';
+    avatarAnswered.textContent = '✔';
   } else {
     avatarAnswered.textContent = '✘';
   }
@@ -50,8 +50,31 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// 페이지네이션 추가
+const onePageMax = 10;
+let currentPage = 1;
+
 const render = (element) => {
-  for (let i = agoraStatesDiscussions.length - 1; i >= 0; i -= 1) {
+  const contentStartIndex = (currentPage - 1) * onePageMax;
+  const contentEndIndex = contentStartIndex + onePageMax;
+  const totalPage = Math.ceil(agoraStatesDiscussions.length / onePageMax);
+
+  const numbering = document.querySelector(".numbering");
+  numbering.innerHTML = ""; // 렌더된 숫자 초기화
+  for(let i = 1; i <= totalPage; i++){
+    const PageNum = document.createElement('a');
+    PageNum.className = "page_num";
+    PageNum.textContent = i;
+
+    PageNum.addEventListener('click', () => {
+      currentPage = i;
+      render(element);
+    });
+    numbering.append(PageNum);
+  }
+
+  element.innerHTML = ""; // 렌더된 글 초기화
+  for (let i = contentStartIndex; i < contentEndIndex && i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -113,6 +136,7 @@ function newQA(event) {
   const avatarUrl = "https://avatars.githubusercontent.com/u/86960007?s=64&u=4863a873d78f406d658e8a50d9b91f3045006920&v=4";
   const newObj = {id, createdAt, title, url, author, answer, bodyHTML, avatarUrl}
   
+  // 질문 작성 검사
   if(!title){
     fail_elTitle.classList.remove('hide');
     fail_elAuthor.classList.add('hide');
@@ -126,7 +150,7 @@ function newQA(event) {
     fail_elAuthor.classList.add('hide');
     fail_elBodyHTML.classList.remove('hide');
   } else if(title && author && bodyHTML) {
-    agoraStatesDiscussions.push(newObj);
+    agoraStatesDiscussions.unshift(newObj);
     fail_elTitle.classList.add('hide');
     fail_elAuthor.classList.add('hide');
     fail_elBodyHTML.classList.add('hide');
@@ -138,5 +162,4 @@ function newQA(event) {
     alert("알수없는 오류가 발생하였습니다.");
   }
 }
-
 elSubmitButton.addEventListener("click", newQA);

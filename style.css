@@ -110,6 +110,7 @@ form {
 
 .discussion__wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -128,9 +129,6 @@ form {
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
-}
-
-.discussion__avatar--wrapper{
 }
 
 .discussion__avatar--wrapper > img {
@@ -169,4 +167,29 @@ form {
     justify-content: center;
     align-items: center;
     width: 60px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+.numbering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
