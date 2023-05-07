@@ -3,7 +3,15 @@
 * {
     box-sizing: border-box;
 }
+
+main {
+    border-radius: 30px;
+    background-color: #FEF2F4;
+}
+/* My Agora States 폼 만들기 */
+
 h1 {
+    color: #D14D72;
     display: flex;
     justify-content: center;
 }
@@ -11,6 +19,13 @@ h1 {
 .form__container {
     display: flex;
     justify-content: center;
+}
+
+.form {
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #D14D72;
 }
 .form__textbox {
     display: flex;
@@ -31,8 +46,6 @@ body {
     display: flex;
     width: 540px;
     justify-content: space-between;
-
-    
 }
 /* 컴포넌트  중앙에 오게하기 */
 .discussion__avatar--wrapper {
@@ -48,18 +61,16 @@ img {
 /* discussion 간격 */
 .discussion__content {
     display: flex;
-}
-.discussion__content >:nth-child(1) {
-    display: flex;
-    text-align: left;
-    margin-top: 0px;
-    padding-left: 10px;
-    font-size: 15px;
+    flex-direction: column;
+    width: 450px;
 }
 
-/* 저자 생성일 오른쪽 */
+.discussion__content >:nth-child(1){
+    text-align: left;
+    padding-left : 5px;
+}
+
 .discussion__content >:nth-child(2) {
-    display: flex;
     text-align: right;
-    align-items: flex-end;
+    
 }

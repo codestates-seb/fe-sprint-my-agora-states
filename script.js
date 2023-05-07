@@ -22,7 +22,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg);
 
   //질문 내용 가져오기
-  const discussionTitle = document.createElement('h2');
+  const discussionTitle = document.createElement('div');
   const discussionLink = document.createElement('a');
   //a 요소 안에 있는 텍스트와 링크여서 discussionLink 변수를 써줌
   discussionLink.textContent = obj.title;
@@ -32,7 +32,7 @@ const convertToDiscussion = (obj) => {
 
   //인포가져오기
   const discussionInfo = document.createElement('div');
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`;
   discussionContent.append(discussionInfo);
 
   //체크표시
