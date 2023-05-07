@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration-line: none;
 }
 
 body {
@@ -16,7 +17,7 @@ main {
     flex-direction: column;
     justify-content: center;
     width: 800px;
-    margin-top: 80px;
+    margin: 80px 0;
     padding: 20px;
     border-radius: 5px;
     background-color: #F0FFC2;
@@ -79,6 +80,16 @@ form {
 .form__submit {
     display: flex;
     justify-content: end;
+    align-items: center;
+}
+
+.form__submit > div {
+    color: red;
+    margin-right: 10px;
+}
+
+.hide {
+    display: none;
 }
 
 .form__submit > input {

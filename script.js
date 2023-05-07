@@ -86,6 +86,9 @@ let elSubmitButton = document.querySelector("#submit_button");
 let elTitle = document.querySelector("#title");
 let elAuthor = document.querySelector("#name");
 let elBodyHTML = document.querySelector("#story");
+let fail_elTitle = document.querySelector(".Fail-title-message");
+let fail_elAuthor = document.querySelector(".Fail-name-message");
+let fail_elBodyHTML = document.querySelector(".Fail-content-message");
 
 // 새로 추가된 배열만 랜더
 const renderNewDiscussion = (obj, element) => {
@@ -105,8 +108,31 @@ function newQA(event) {
   const bodyHTML = elBodyHTML.value;
   const avatarUrl = "https://avatars.githubusercontent.com/u/86960007?s=64&u=4863a873d78f406d658e8a50d9b91f3045006920&v=4";
   const newObj = {id, createdAt, title, url, author, answer, bodyHTML, avatarUrl}
-  agoraStatesDiscussions.push(newObj);
-  renderNewDiscussion(newObj, ul);
+  
+  if(!title){
+    fail_elTitle.classList.remove('hide');
+    fail_elAuthor.classList.add('hide');
+    fail_elBodyHTML.classList.add('hide');
+  } else if (title && !author) {
+    fail_elTitle.classList.add('hide');
+    fail_elAuthor.classList.remove('hide');
+    fail_elBodyHTML.classList.add('hide');
+  } else if (title && author && !bodyHTML) {
+    fail_elTitle.classList.add('hide');
+    fail_elAuthor.classList.add('hide');
+    fail_elBodyHTML.classList.remove('hide');
+  } else if(title && author && bodyHTML) {
+    agoraStatesDiscussions.push(newObj);
+    fail_elTitle.classList.add('hide');
+    fail_elAuthor.classList.add('hide');
+    fail_elBodyHTML.classList.add('hide');
+    renderNewDiscussion(newObj, ul);
+    elTitle.value = "";
+    elAuthor.value = "";
+    elBodyHTML.value = "";
+  } else {
+    alert("알수없는 오류가 발생하였습니다.");
+  }
 }
 
 elSubmitButton.addEventListener("click", newQA);
