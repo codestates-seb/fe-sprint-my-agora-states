@@ -90,7 +90,7 @@ body.dark .page_title {
 }
 
 body.dark .form__container {
-  background: #9ab6fb;
+  background: #5f7cc7;
   background: linear-gradient(99.66deg, #5f7cc7 11.33%, #7362b9 90.25%);
   box-shadow: 0px 0.25rem 0.5rem rgba(157, 132, 211, 0.5);
 }
@@ -153,6 +153,63 @@ body.dark .form__submit input {
 .discussion__wrapper {
   width: 33.75rem;
   margin: 0 auto;
+}
+
+.discussion__filters {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.discussion__filters li {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.625rem 1rem;
+  border-radius: 1.3rem;
+  color: #ffffff;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.discussion__filters li:hover {
+  transform: scale(1.08);
+}
+
+.discusson__filter--all {
+  background: #9ab6fb;
+  background: linear-gradient(99.66deg, #9ab6fb 11.33%, #af9df7 90.25%);
+  box-shadow: 0px 0.25rem 0.25rem rgba(124, 98, 180, 0.2);
+}
+
+body.dark .discusson__filter--all {
+  background: #5f7cc7;
+  background: linear-gradient(99.66deg, #5f7cc7 11.33%, #7362b9 90.25%);
+  box-shadow: 0px 0.25rem 0.5rem rgba(173, 134, 252, 0.3);
+}
+
+.discusson__filter--unchecked {
+  background: #ffa3b3;
+  background: linear-gradient(99.66deg, #ffa3b3 11.33%, #fabf8f 90.25%);
+  box-shadow: 0px 0.25rem 0.25rem rgba(161, 96, 53, 0.2);
+}
+
+body.dark .discusson__filter--unchecked {
+  background: #ffa3b3;
+  background: linear-gradient(99.66deg, #d66e7f 11.33%, #e79b5d 90.25%);
+  box-shadow: 0px 0.25rem 0.25rem rgba(255, 210, 179, 0.3);
+}
+
+.discusson__filter--checked {
+  background: #98dba1;
+  background: linear-gradient(99.66deg, #98dba1 11.33%, #97cae2 90.25%);
+  box-shadow: 0px 0.25rem 0.25rem rgba(83, 126, 83, 0.2);
+}
+
+body.dark .discusson__filter--checked {
+  background: #98dba1;
+  background: linear-gradient(99.66deg, #5eb86a 11.33%, #609fbd 90.25%);
+  box-shadow: 0px 0.25rem 0.25rem rgba(153, 241, 153, 0.3);
 }
 
 .discussions__container {
@@ -281,7 +338,7 @@ body.dark .pageButton__next {
 .pageButton__last {
   width: 2rem;
   height: 2rem;
-  margin-top: -0.125px;
+  margin-top: -0.125rem;
   color: #8a6dff;
   font-size: 0.75rem;
 }
