@@ -1,45 +1,171 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
-.discussion__container {
-    width: 540px;
-    display: flex;
-    border-bottom: 1px solid rgba(95, 0, 128, 0.4);
-    
-}
-.discussion__container:empty {
-    border : none;
-}
-.discussion__avatar--image {
-    width : 46px;
-    height : 46px;
-    border-radius : 50%;
-}
-  
-.discussion__avatar--wrapper {
-    display : flex;
-    align-items: center;
-    margin-right : 1rem;
-}
-
-.discussion__content  {
-    padding : 16px;
-}
-
-.discussion__answered {
-    display: flex;
-    align-items: center;   
-    margin-left: auto;
-    font-size: 60px;
+main {
+  display: flex;
+  justify-content: center;
 }
 
 p {
-    margin : 0;
+  margin: 0;
 }
-.discussion__information {}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.discussion__container {
+  width: 540px;
+  display: flex;
+  border-bottom: 1px solid rgba(95, 0, 128, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__container:empty {
+  border: none;
+}
+.discussion__avatar--image {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.discussion__content {
+  padding: 16px;
+}
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-size: 60px;
+}
+
+/* //사이드바 메뉴아이콘 이미지
+.menu label::before {
+  content: "\e5d2";
+}
+.menu li:nth-child(1) a::before {
+  content: "\e746";
+}
+.menu li:nth-child(2) a::before {
+  content: "\f88d";
+}
+.menu li:nth-child(3) a::before {
+  content: "\e9ba"; 
+}*/
+
+#expand-menu {
+  /* 체크박스 폼 요소 감춤 */
+  display: none;
+}
+#expand-menu + label {
+  display: block;
+  width: 60px;
+  height: 40px;
+  position: fixed;
+  cursor: pointer;
+  align-items: center;
+}
+#expand-menu + label span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  border-radius: 30px;
+  background-color: #000;
+  transition: all 0.35s;
+}
+
+#expand-menu + label span:nth-child(1) {
+  top: 0;
+}
+#expand-menu + label span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+#expand-menu + label span:nth-child(3) {
+  bottom: 0;
+}
+
+#expand-menu:checked + label {
+  z-index: 2;
+}
+
+#expand-menu:checked + label span {
+  background-color: #000000;
+}
+
+#expand-menu:checked + label span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+#expand-menu:checked + label span:nth-child(2) {
+  opacity: 0;
+}
+#expand-menu:checked + label span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+.sidebar {
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  border-right: 1px solid rgba(95, 0, 128, 0.4);
+  position: fixed;
+  top: 0;
+  left: -300px;
+  z-index: 1;
+  transition: all 0.35s;
+}
+
+.sidebar ul {
+  text-align: center;
+  padding-left: 0px;
+}
+
+#expand-menu:checked + label + div {
+  left: 0;
+}
+
+ul {
+  padding-top: 80px; /* ul 요소를 아래로 내림 */
+}
+
+.item div {
+  font-size: 18px; /* 글자 크기를 18px로 변경 */
+  color: #000; /* 글자 색상을 빨간색으로 변경 */
+  margin-bottom: 40px;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  background-color: #fff;
+  color: #5f0080;
+}
+
+.logo {
+  align-items: center;
+  position: absolute;
+  font-size: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
