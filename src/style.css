@@ -236,6 +236,10 @@ main h1 {
   align-items: flex-end;
   gap: 0.5rem;
   margin-top: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .pagination .pagination__page {
   color: var(--color-gray);
@@ -251,8 +255,17 @@ main h1 {
   font-size: 1.8rem;
   font-weight: bolder;
 }
-.pagination .pagination__page.pagination__page--move {
-  font-weight: bolder;
+.pagination .pagination__move {
+  color: var(--color-section);
+  margin: 0 1rem;
+  font-size: 1.5rem;
+}
+.pagination .pagination__move.pagination__move--active {
+  color: var(--color-lightgray);
+  cursor: pointer;
+}
+.pagination .pagination__move.pagination__move--active:hover {
+  color: var(--color-white);
 }
 
 /* Discussion detail */

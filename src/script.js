@@ -128,17 +128,17 @@ const renderPagination = () => {
   paginationEl.innerHTML = '';
   const fragmentEl = document.createDocumentFragment();
   // 이전 페이지 이동 버튼
+  const prevPageEl = document.createElement('li');
+  prevPageEl.className = 'pagination__move fa-solid fa-circle-left';
   if (pageStore.getCurrentPage() !== 1) {
-    const prevPageEl = document.createElement('li');
-    prevPageEl.textContent = '〈';
-    prevPageEl.className = 'pagination__page pagination__page--move';
+    prevPageEl.classList.add('pagination__move--active');
     prevPageEl.addEventListener('click', () => {
       pageStore.setCurrentPage(pageStore.getCurrentPage() - 1);
       renderPagination();
       renderDiscussion(discussionStore.getData());
     });
-    fragmentEl.appendChild(prevPageEl);
   }
+  fragmentEl.appendChild(prevPageEl);
 
   // 페이지 버튼
   for (let i = 1; i <= pageStore.getTotalPage(); i += 1) {
@@ -157,17 +157,18 @@ const renderPagination = () => {
   }
 
   // 다음 페이지 이동 버튼
+  const nextPageEl = document.createElement('li');
+  nextPageEl.className = 'pagination__move fa-solid fa-circle-right';
   if (pageStore.getCurrentPage() !== pageStore.getTotalPage()) {
-    const nextPageEl = document.createElement('li');
-    nextPageEl.textContent = '〉';
-    nextPageEl.className = 'pagination__page pagination__page--move';
+    nextPageEl.classList.add('pagination__move--active');
     nextPageEl.addEventListener('click', () => {
       pageStore.setCurrentPage(pageStore.getCurrentPage() + 1);
       renderPagination();
       renderDiscussion(discussionStore.getData());
     });
-    fragmentEl.appendChild(nextPageEl);
   }
+  fragmentEl.appendChild(nextPageEl);
+
   paginationEl.appendChild(fragmentEl);
 };
 
