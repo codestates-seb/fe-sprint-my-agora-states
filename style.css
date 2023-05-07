@@ -1,1 +1,83 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 색상선정 */
+:root{
+    --discussionC: #F7ECDE;
+    --discussionW: #E9DAC1;
+    --h1Color: #54BAB9;
+    --backgound: #FBF8F1;
+}
+
+/* 전체속성 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 서체적용 */
+body{
+    font-family: NanumBarunpen;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: var(--h1Color);
+}
+
+/* 이름/제목/질문란 */
+div.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: var(--discussionW);
+}
+
+/* submit 버튼란 */
+div.form__submit{
+    display: flex;
+    background-color: #54BAB9;
+    border: none;
+    color:#E9DAC1;
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+/* 디스커션 내용란 */
+li.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 500px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    list-style-type: circle;
+    border-radius: 10px;
+    background-color: var(--discussionC);
+    
+}
+
+/* 아바타 이미지 */
+div.discussion__avatar--wrapper>img{
+    width: 60px;
+    border-radius: 100%;
+}
+
+
+/* 웹폰트 주소 */
+@font-face {
+    font-family: 'NanumBarunpen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
