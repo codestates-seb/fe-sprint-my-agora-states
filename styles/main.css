@@ -1,7 +1,7 @@
 .discussions__container {
   width: 767px;
   height: auto;
-  margin: 400px auto;
+  margin: 400px auto auto auto;
   padding-top: 20px;
 }
 
