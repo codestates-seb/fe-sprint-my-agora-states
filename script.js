@@ -38,6 +38,7 @@ const convertToDiscussion = (obj) => {
 
 
   const avatarAnswered = document.createElement('p');
+  avatarAnswered.textContent = '☑';
   discussionAnswered.append(avatarAnswered);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -46,7 +47,7 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = agoraStatesDiscussions.length - 1; i >= 0; i -= 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
@@ -57,3 +58,55 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 convertToDiscussion(agoraStatesDiscussions);
+
+// 글을 작성한 현재 시간
+function CurrentTime() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const date = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  let AmPmHours = hours;
+  console.log(hours)
+
+  const AmPm = AmPmHours >= 12 ? '오후' : '오전';
+  AmPmHours %= 12;
+  AmPmHours = AmPmHours ? AmPmHours : 12;
+
+  const currentTime = `${year}-${month}-${date} ${AmPm} ${AmPmHours}:${minutes}:${seconds}`;
+  return currentTime;
+}
+
+
+
+let elSubmitButton = document.querySelector("#submit_button");
+let elTitle = document.querySelector("#title");
+let elAuthor = document.querySelector("#name");
+let elBodyHTML = document.querySelector("#story");
+
+// 새로 추가된 배열만 랜더
+const renderNewDiscussion = (obj, element) => {
+  const discussion = convertToDiscussion(obj);
+  element.prepend(discussion);
+};
+
+// 컨텐츠를 agoraStatesDiscussions 배열에 추가
+function newQA(event) {
+  event.preventDefault(); // 폼 제출 기본 동작 방지
+  const id = "D_kwDOHOApLM4APY9u";
+  const createdAt = CurrentTime();
+  const title = elTitle.value;
+  const url = "https://github.com/codestates-seb/agora-states-fe/discussions/"
+  const author = elAuthor.value
+  const answer = null;
+  const bodyHTML = elBodyHTML.value;
+  const avatarUrl = "https://avatars.githubusercontent.com/u/86960007?s=64&u=4863a873d78f406d658e8a50d9b91f3045006920&v=4";
+  const newObj = {id, createdAt, title, url, author, answer, bodyHTML, avatarUrl}
+  agoraStatesDiscussions.push(newObj);
+  renderNewDiscussion(newObj, ul);
+}
+
+elSubmitButton.addEventListener("click", newQA);

@@ -18,21 +18,23 @@
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
+          <div class="form__input--wrapper2">
+            <div class="form__input--name">
+              <input type="text" name="name" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form__input--title">
+              <input type="text" name="title" id="title" placeholder="Enter your title" required>
+            </div>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <textarea id="story" name="story" placeholder="Enter your question" required></textarea>
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <div class="Fail-name-message hide">이름을 입력하세요.</div>
+          <div class="Fail-title-message hide">제목을 입력하세요.</div>
+          <div class="Fail-content-message hide">내용을 입력하세요.</div>
+          <input type="submit" id="submit_button" value="submit">
         </div>
       </form>
     </section>
