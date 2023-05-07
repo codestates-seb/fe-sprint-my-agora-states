@@ -103,19 +103,31 @@ const createPageBtns = (currentPage, totalPage) => {
   return pageBtnsHtml;
 };
 
-const render = ({ discussions, currentPage, totalPage }) => {
+const render = ({ discussions, currentPage, currentFilter }) => {
   $discussionsContainer.append($pageBtnsContainer);
 
   $ul.innerHTML = '';
   $pageBtnsContainer.innerHTML = '';
 
-  discussions
+  const filteredDiscussions =
+    currentFilter === 'unchecked'
+      ? discussions.filter(({ answer }) => !answer)
+      : currentFilter === 'checked'
+      ? discussions.filter(({ answer }) => answer)
+      : discussions;
+
+  filteredDiscussions
     .slice((currentPage - 1) * 10, currentPage * 10)
     .forEach((discussion) => {
       $ul.append(convertToDiscussion(discussion));
     });
 
-  $pageBtnsContainer.innerHTML = createPageBtns(+currentPage, totalPage);
+  const filteredTotalPage = Math.ceil(filteredDiscussions.length / 10);
+
+  $pageBtnsContainer.innerHTML = createPageBtns(
+    +currentPage,
+    filteredTotalPage
+  );
 };
 
 const showSuccessMsg = (isSuccess) => {
@@ -131,11 +143,9 @@ const showSuccessMsg = (isSuccess) => {
       document.body.removeChild($successMsg);
     }, 4000);
   }
-
-  return false;
 };
 
-const changeMode = (currentMode) =>
+const renderMode = (currentMode) =>
   document.body.classList.toggle('dark', currentMode === 'dark');
 
-export { render, showSuccessMsg, changeMode };
+export { render, showSuccessMsg, renderMode };
