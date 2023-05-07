@@ -12,9 +12,10 @@
   background-color: unset;
   list-style-type: none;
 }
+
 body {
   background-color: #c06c84;
-  background: linear-gradient(90deg, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
+  background: linear-gradient(to right, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +29,9 @@ h1 {
 
 h2 {
   font-size: 20px;
+  background: linear-gradient(to right, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 main {
@@ -57,13 +61,11 @@ main {
 .hide {
   display: none;
 }
-
 .form__container,
 .discussion__container {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
 }
-
 .form__input {
   display: flex;
   flex-direction: column;
@@ -79,14 +81,12 @@ main {
   height: 180px;
   resize: vertical;
 }
-
 #answer {
   background-color: white;
   border-radius: 10px;
   height: 120px;
   resize: vertical;
 }
-
 #submit {
   height: 35px;
   background-color: #355c7d;
@@ -98,12 +98,18 @@ main {
 .discussion__content > header {
   display: flex;
 }
-
 .discussion__answered {
   width: 30px;
 }
 
-.discussion__answered > p {
+.discussion__delete {
+  width: 60px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.discussion__answered > p,
+.discussion__delete > p {
   font-size: 20px;
   text-align: center;
 }
