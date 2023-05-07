@@ -1,4 +1,6 @@
+
 // 리스트에 요소 추가
+
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li");
   li.className = "discussion__container";
@@ -24,8 +26,10 @@ const convertToDiscussion = (obj) => {
 
   // 질문 정보
   const questionInfo = document.createElement('div');
+  const newDate = new Date(obj.createdAt);
+  const localDateString = newDate.toLocaleString();
   questionInfo.className = 'discussion__information';
-  questionInfo.textContent = obj.author + ' / ' + obj.createdAt;
+  questionInfo.textContent = obj.author + ' / ' + localDateString;
   discussionContent.append(questionInfo);
 
   // 답변 여부 설정
@@ -47,15 +51,55 @@ const convertToDiscussion = (obj) => {
 
 // Data Rendering
 
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+const ul = document.querySelector("ul.discussions__container");
+let currentPage = 1;
+const perPageEl = 10;
+const totlaPage = document.querySelector('#totalPages');
+
+const render = (element, currentPage) => {
+  totlaPage.textContent = Math.ceil(agoraStatesDiscussions.length / perPageEl);
+  const startIndex = (currentPage - 1) * perPageEl;
+  const endIndex = startIndex + perPageEl;
+  for (let i = startIndex; i < endIndex && i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  return;
 };
 
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+// First Page Rendering
+
+render(ul, currentPage);
+
+const clearPage = (element) => {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+};
+
+// Render Next Page
+
+const nextPageBtn = document.querySelector('#nextPageBtn');
+nextPageBtn.addEventListener('click', () => {
+  if (currentPage < Math.ceil(agoraStatesDiscussions.length / perPageEl)) {
+    currentPage += 1;
+    document.querySelector('#currentPage').textContent = currentPage;
+    clearPage(ul);
+    render(ul, currentPage);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+});
+
+// Render Previous Page
+
+const prevPageBtn = document.querySelector('#prevPageBtn');
+prevPageBtn.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    document.querySelector('#currentPage').textContent = currentPage;
+    clearPage(ul);
+    render(ul, currentPage);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+});
 
 // Modal Focusing
 
@@ -103,21 +147,13 @@ submitBtn.addEventListener('click', () => {
     "createdAt": new Date(),
   };
   agoraStatesDiscussions.unshift(inputData);
-  Swal.fire({
-    position: 'top',
-    icon: 'success',
-    title: '질문이 등록되었습니다.',
-    showConfirmButton: false,
-    timer: 1500,
-    customClass: {
-      popup: 'my-sweetalert2-popup-class',
-    }
-  });
-
   ul.insertBefore(convertToDiscussion(agoraStatesDiscussions[0]), ul.firstChild);
+  clearPage(ul);
+  render(ul, currentPage);
 });
 
 // Form Reset
+
 const formReset = () => {
   nameInput.value = '';
   titleInput.value = '';
@@ -127,20 +163,5 @@ const formReset = () => {
 formBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     formReset();
-  });
-});
-
-// Popup
-
-document.querySelector('h1').addEventListener('click', () => {
-  Swal.fire({
-    position: 'top',
-    icon: 'success',
-    title: '질문이 등록되었습니다.',
-    showConfirmButton: false,
-    timer: 1500,
-    customClass: {
-      popup: 'my-sweetalert2-popup-class',
-    }
   });
 });

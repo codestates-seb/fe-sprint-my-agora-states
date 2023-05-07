@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
 li {
   list-style: none;
 }
@@ -28,15 +35,15 @@ header {
 /* Header Contents */
 
 .header-contents {
-  width: 90%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 1.4rem 0;
 
-  /* @media (max-width: 1024px) {
-    width: 90%;
-  } */
+  @media (max-width: 1024px) {
+    width: 85%;
+  }
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -72,7 +79,6 @@ header button:active {
   display: flex;
   justify-content: center;
   height: 100%;
-  /* position: relative; */
 }
 
 .header-image img {
@@ -80,6 +86,7 @@ header button:active {
 }
 
 /* Main */
+
 main {
   width: 100vw;
   display: flex;
@@ -140,25 +147,15 @@ main {
   border-radius: 10px;
 }
 
-/* Popup */
-
-.my-sweetalert2-popup-class {
-  font-size: 0.5rem;
-  font-weight: 700;
-  color: rgb(70, 70, 70);
-  background-color: rgb(235, 235, 235);
-  width: 50%;
-}
-
 /* Discussions */
 
 .discussion__wrapper {
   width: 70%;
 
-  @media (max-width: 1100px) {
-    width: 80%;
+  @media (max-width: 1024px) {
+    width: 85%;
   }
-  @media (max-width: 850px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 }
@@ -227,4 +224,22 @@ main {
   color: black;
   display: flex;
   align-items: center;
+}
+
+/* Pagination */
+
+.pagination {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination button {
+  margin: 0 2rem;
+  font-size: 0.6rem;
+}
+
+.pagination span {
+  margin: 0 0.3rem;
+  font-size: 0.8rem;
 }
