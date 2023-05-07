@@ -49,7 +49,7 @@ html {
   font-family: "Sunflower", sans-serif;
 }
 body {
-  background: url("/img/bg.jpg");
+  background: url("../img/bg.jpg");
   background-size: cover;
   background-position: unset;
 }
