@@ -1,8 +1,9 @@
 import {
   fetchState,
   addDiscussion,
-  changePage,
   completeSubmit,
+  changePage,
+  changeFilter,
   changeModeState,
 } from './state.js';
 
@@ -10,6 +11,7 @@ const $form = document.querySelector('.form');
 const $idInput = document.querySelector('#name');
 const $titleInput = document.querySelector('#title');
 const $discussionContainer = document.querySelector('.discussion__wrapper');
+const $discussionFilters = document.querySelector('.discussion__filters');
 const $toggleButton = document.querySelector('.toggleButton');
 const $goToTopButton = document.querySelector('.goToTopButton');
 
@@ -90,6 +92,9 @@ $toggleButton.addEventListener('click', () => {
 
   changeModeState(currentMode);
 });
+
+$discussionFilters.addEventListener('click', (e) => 
+  changeFilter(e.target.dataset.filter));
 
 window.addEventListener(
   'scroll',
