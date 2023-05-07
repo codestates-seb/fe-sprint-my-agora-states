@@ -9,6 +9,22 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 [👉 배포 웹 사이트 이동](https://nalsae.github.io/fe-sprint-my-agora-states/)
 
 ## 📑 폴더 구조
+```
+├─ .eslintrc.js
+├─ .prettierrc.js
+├─ css
+│  └─ style.css
+├─ img
+│  ├─ arrow_top.png
+│  ├─ checked.png
+│  └─ unchecked.png
+├─ index.html
+└─ js
+   ├─ app.js
+   ├─ data.js
+   ├─ render.js
+   └─ state.js
+```
 
 ## 📌 Bare Minimum Requirement Self Checklist
 
@@ -45,7 +61,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 ### 📌 My Own Self Checklist
 
 - [x] 관심사의 분리
-  - [x] MVP 패턴에서 착안하여 목적에 따라 js 파일을 모듈화합니다.
+  - [x] MVC 패턴에서 착안하여 목적에 따라 js 파일을 모듈화합니다.
     - [x] app.js에는 이벤트 등록처럼 controller로서 호출할 메서드를 정의합니다.
     - [x] render.js에는 view로서 화면 렌더링에 관련된 메서드를 정의합니다.
     - [x] state.js에는 model로서 사용자의 상호작용에 따라 상태를 조작하는 메서드를 정의합니다.
@@ -76,6 +92,6 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 ✔ 상단 이동 버튼
 ![gototop](https://user-images.githubusercontent.com/101828759/236224597-d0ba8c51-1ae5-4f9e-a170-3c5846513c5e.gif)
 
-### 🔹 가장 자랑하고 싶은 기능
+### 👍 가장 자랑하고 싶은 기능
 
 > localStorage를 사용하는 김에 색상 모드 전환 기능을 추가적으로 구현해 보았습니다. toggle 버튼 UI도 마음에 들고 기능도 잘 구현된 것 같아서 만족스럽습니다 😊
