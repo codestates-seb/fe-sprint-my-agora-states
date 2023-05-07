@@ -19,11 +19,12 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 │  ├─ checked.png
 │  └─ unchecked.png
 ├─ index.html
-└─ js
-   ├─ app.js
-   ├─ data.js
-   ├─ render.js
-   └─ state.js
+├─ js
+│  ├─ app.js
+│  ├─ render.js
+│  └─ state.js
+└─ model
+   └─ data.js
 ```
 
 ## 📌 Bare Minimum Requirement Self Checklist
@@ -68,13 +69,20 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 - [x] 성공 메시지 출력 기능
   - [x] submit 이벤트 발생 시 페이지 상단에 고정되어 4초간 나타났다가 사라지는 성공 메시지를 렌더링합니다.
   - [x] 성공 메시지가 사라질 때 단순히 CSS로만 사라지는 것이 아니라 DOM Tree 상에서도 제거되어야 합니다.
-- [x] Dark mode 전환 기능
+- [x] 색상 모드 전환 기능
+  - [x] 초기에는 사용자가 미리 지정한 OS의 색상 모드를 토대로 렌더링합니다.
   - [x] toggle 버튼을 클릭할 때마다 Light mode 또는 Dark mode로 전환합니다.
-  - [x] 새로고침을 하더라도 이전의 mode 값을 기억하여 유지합니다.
+  - [x] 새로고침을 하더라도 이전의 색상 모드 값을 기억하여 유지합니다.
 - [x] Go to top 버튼 구현
   - [x] scroll 이벤트를 캐치하여 scroll 좌표의 Y 값이 일정 이상인 경우 Go to top 버튼을 나타나게 합니다.
   - [x] lodash 라이브러리의 throttle을 이용하여 너무 많이 발생하는 스크롤 이벤트를 제한합니다.
   - [x] Go to top 버튼을 클릭하면 페이지 최상단으로 부드럽게 이동하도록 구현합니다.
+- [x] 질문자의 프로필 이미지 변경 기능
+  - [x] 사용자가 입력한 GitHub 아이디에 따라 프로필 이미지의 URL을 변경합니다.
+  - [x] 만약 존재하지 않는 GitHub 아이디일 경우 프로필 이미지의 alt 속성을 명시합니다.
+- [x] 답변 필터 기능
+  - [x] 사용자가 클릭한 필터에 따라 질문 목록을 다시 렌더링하여 보여줍니다.
+  - [x] 필터를 클릭하면 각 질문 목록의 첫 페이지로 이동합니다.
 
 ### 📌 배포 시연 화면
 
