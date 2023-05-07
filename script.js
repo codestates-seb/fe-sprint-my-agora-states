@@ -7,6 +7,10 @@ btn_submit.addEventListener('click',function(e){
   let inputName = document.querySelector('#name');
   let inputTitle = document.querySelector('#title');
   let inputStory = document.querySelector('#story');
+
+  if(inputName.value.length===0 || inputTitle.value.length===0 || inputStory.value.length===0) {
+    return;
+  }
   let today = new Date();
   let todayFormat = today.getFullYear() + '년 ' + (today.getMonth()+1) + '월 '+ today.getDate() + '일 ' + today.getHours() + '시' + today.getMinutes()+'분';
   
