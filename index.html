@@ -23,7 +23,6 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
   </head>
-
   <body class="hide">
     <main>
       <h1 class="page_title">My Agora States</h1>
@@ -65,8 +64,16 @@
           </form>
         </section>
       </div>
-
       <section class="discussion__wrapper">
+        <ul class="discussion__filters">
+          <li class="discusson__filter--all" data-filter="all">전체 보기</li>
+          <li class="discusson__filter--unchecked" data-filter="unchecked">
+            답변 미완료
+          </li>
+          <li class="discusson__filter--checked" data-filter="checked">
+            답변 완료
+          </li>
+        </ul>
         <ul class="discussions__container"></ul>
       </section>
     </main>
@@ -83,6 +90,6 @@
     </div>
     <button class="goToTopButton moveDownAndHide"></button>
   </body>
-  <script type="module" src="js/data.js"></script>
+  <script type="module" src="model/data.js"></script>
   <script type="module" src="js/app.js"></script>
 </html>
