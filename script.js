@@ -6,6 +6,7 @@ btn_submit.addEventListener('click',function(e){
   //console.log(document.querySelector('#name').value)
   let inputName = document.querySelector('#name');
   let inputTitle = document.querySelector('#title');
+  let inputStory = document.querySelector('#story');
   let today = new Date();
   let todayFormat = today.getFullYear() + '년 ' + (today.getMonth()+1) + '월 '+ today.getDate() + '일 ' + today.getHours() + '시' + today.getMinutes()+'분';
   
@@ -37,6 +38,11 @@ btn_submit.addEventListener('click',function(e){
   discussionContentInformation.className='discussion__information';
   discussionContentInformation.textContent=`${inputName.value} / ${todayFormat}`;
   discussionContent.appendChild(discussionContentInformation);
+
+  //input value 초기화
+  inputName.value='';
+  inputTitle.value='';
+  inputStory.value='';
 });
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
