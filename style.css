@@ -1,1 +1,141 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(./istockphoto-1328689113-170667a.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.wrapper {
+  display: flex;
+  margin-top: 30px;
+}
+.pagination {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+main {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.form__container {
+  background-color: rgb(209, 227, 243);
+  box-shadow: 10px 20px 40px #7d7a7a;
+  border-radius: 20px;
+  margin-top: 30px;
+  padding: 50px 50px;
+}
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+.submit {
+  font-size: 30px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border-style: none;
+  color: #3e3e3e;
+  margin-top: 20px;
+  font-weight: 600;
+}
+.page__prev {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border-style: none;
+  margin-right: 25px;
+}
+
+.page__next {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border-style: none;
+  margin-left: 25px;
+}
+.page__next:hover {
+  background-color: black;
+  color: aliceblue;
+}
+.submit:hover {
+  background-color: black;
+  color: aliceblue;
+}
+.page__prev:hover {
+  background-color: black;
+  color: aliceblue;
+}
+.page__state__now {
+  margin-top: 5px;
+  font-size: 25px;
+  font-weight: 550;
+}
+
+#name {
+  width: 80%;
+  margin-bottom: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  margin-left: 10px;
+  padding-left: 20px;
+  outline: none;
+}
+#title {
+  width: 80%;
+  margin-bottom: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  margin-left: 10px;
+  padding-left: 20px;
+  outline: none;
+}
+
+#story {
+  width: 80%;
+  margin-bottom: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  margin-left: 55px;
+  height: 200px;
+  padding-left: 20px;
+  padding-top: 10px;
+  outline: none;
+}
+
+.discussion__wrapper {
+  background-color: rgb(209, 227, 243);
+  box-shadow: 10px 20px 30px #7d7a7a;
+  border-radius: 20px;
+  margin-top: 27px;
+  padding: 10px 100px;
+}
+.form__input--title {
+  font-weight: 600;
+}
+.question {
+  margin-top: 10px;
+  font-weight: 600;
+}
+.form__input--name {
+  font-weight: 600;
+}
