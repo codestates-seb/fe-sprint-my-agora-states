@@ -7,7 +7,7 @@ import {
 } from './state.js';
 
 const $form = document.querySelector('.form');
-const $nameInput = document.querySelector('#name');
+const $idInput = document.querySelector('#name');
 const $titleInput = document.querySelector('#title');
 const $discussionContainer = document.querySelector('.discussion__wrapper');
 const $toggleButton = document.querySelector('.toggleButton');
@@ -39,13 +39,13 @@ $form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const newDiscussion = {
-    id: null,
+    id: $idInput.value,
     createdAt: new Date().toLocaleString(),
     title: $titleInput.value,
     url: '#',
-    author: $nameInput.value,
+    author: $idInput.value,
     answer: null,
-    avatarUrl: 'https://avatars.githubusercontent.com/u/101828759?v=4',
+    avatarUrl: `https://github.com/${$idInput.value}.png`,
   };
 
   addDiscussion(newDiscussion);
