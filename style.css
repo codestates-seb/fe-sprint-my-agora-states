@@ -67,6 +67,7 @@ input::placeholder {
     flex-direction: row;
     align-items: center;
 }
+/* question 영역 h1 태그 내의 gif 이미지들*/
 #title_gif1, #title_gif2 {
     width: 50px;
     height: 45px;
@@ -80,6 +81,7 @@ input::placeholder {
     overflow: auto;
     height: 100%;
 }
+/*ul 태그의 스크롤바 디자인*/
 .discussion__wrapper::-webkit-scrollbar {
     width: 5px;
 }
@@ -241,6 +243,8 @@ input::placeholder {
 .answer {
     width: 40%;
     margin: 10px 25px 10px 10px;
+    display: flex;
+    flex-direction: column;
 }
 /*답변 제목 태그*/
 .answer__title {
@@ -263,7 +267,6 @@ input::placeholder {
 /*답변 선택 질문 제목*/
 .answer__questionTitle {
     color: white;
-    
 }
 /*답변 전체 감춤*/
 .answer.hide {
@@ -282,7 +285,7 @@ input::placeholder {
 }
 /*답변 내용*/
 .answer__content--bodyHtml {
-    margin: 15px 0px 0px 0px;
+    margin: 15px 0px 15px 0px;
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.8);
     color: rgb(0, 0, 0);

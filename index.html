@@ -18,7 +18,7 @@
       <img id='title_gif1'src="assets/images/light.gif"/>아고라스테이츠<img id='title_gif2'src="assets/images/light.gif"/></h1>
     <!-- 입력창 -->
     <section class="form__container">
-      <form action="" method="get" class="form">
+      <form action="" method="get" class="form" target="iframe1">
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label class="input_label" for="name">이름</label>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="form__submit">
-          <input class="form__submit--button" type="submit" value="등록">
+          <button class="form__submit--button">등록</button>
         </div>
       </form>
     </section>
@@ -71,11 +71,11 @@
         작성자 : 
       </div>
       <div class="answer__content--bodyHtml">
-        
       </div>
     </section>
   </main>
 </body>
+<iframe id="iframe1" name="iframe1" style="display:none"></iframe>
 <script src="data.js"></script>
 <script src="script.js"></script>
 </html>
