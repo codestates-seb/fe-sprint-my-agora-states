@@ -45,6 +45,14 @@ select {
 html {
   box-sizing: border-box;
 }
+* {
+  font-family: "Sunflower", sans-serif;
+}
+body {
+  background: url("/img/bg.jpg");
+  background-size: cover;
+  background-position: unset;
+}
 *,
 :after,
 :before {
@@ -69,4 +77,21 @@ th {
 a {
   text-decoration: none;
   color: inherit;
+}
+pre {
+  white-space: pre-wrap;
+}
+ol {
+  padding-left: 20px;
+}
+code,
+#text {
+  word-break: break-word;
+}
+input,
+textarea {
+  outline: none;
+}
+a {
+  word-wrap: break-word;
 }

@@ -7,8 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
   <link rel="stylesheet" href="./styles/reset.css">
-  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/main.css">
   <link rel="stylesheet" href="./styles/loader.css">
+  <link rel="stylesheet" href="./styles/modal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -16,47 +21,116 @@
 
 <body>
 
-  <head>
-    <div class="상단박스">
+  <!-- header -->
+  <header>
+    <div class="questions__container">
       <h1 class="logo">
-        <img src="img/codestates-logo.png" alt="code states의 로고">
+        <img src="img/agorastates-logo.png" alt="agorastates-logo">
       </h1>
       <div class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
             <div class="form__input--name">
-              <input type="text" name="name" id="name" placeholder="이름을 작성하세요" required>
+              <input type="text" name="name" id="name" placeholder="이름을 작성하세요" required maxlength="15">
             </div>
             <div class="form__input--title">
-              <input type="text" name="title" id="title" placeholder="질문 제목을 작성하세요" required>
+              <input type="text" name="title" id="title" placeholder="질문 제목을 작성하세요" required maxlength="100">
             </div>
             <div class="form__textbox">
               <textarea id="story" name="story" placeholder="질문 내용을 작성하세요" required></textarea>
             </div>
           </div>
+          <button id="submit_btn">
+            질문하기
+          </button>
         </form>
-        <div class="submit_btn">
-          등록하기
-        </div>
       </div>
     </div>
+  </header>
 
-  </head>
+  <!-- main -->
   <main>
-    <div>
-      <ul class="유엘">
-      </ul>
-    </div>
-
+    <ul class="discussions__container">
+    </ul>
   </main>
+
+
+  <!-- question-modal -->
+  <div class="question-modal-container">
+    <div class="question-modal-content">
+      <div class="question-modal-header">
+        <h2 class="question-modal-title"></h2>
+        <span class="question-modal-close">×</span>
+      </div>
+      <div class="question-modal-body">
+        <p class="question-content"></p>
+      </div>
+      <div class="question-modal-footer">
+        <div>
+          <img class="question-avartar" alt="question-avartar">
+          <p class="question-author"></p>
+        </div>
+        <span class="question-date"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- answer-modal -->
+  <div class="answer-modal-container">
+    <div class="answer-modal-content">
+      <div class="answer-modal-header">
+        <h2 class="answer-modal-title"></h2>
+        <span class="answer-modal-close">×</span>
+      </div>
+      <div class="answer-modal-body">
+        <p class="answer-content"></p>
+      </div>
+      <div class="answer-modal-footer">
+        <div>
+          <img class="answer-avartar" alt="answer-avartar">
+          <p class="answer-author"></p>
+        </div>
+        <span class="answer-date"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- loading -->
   <div class="loader">Loading...</div>
-  <div class=" scroll"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-      class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
-      <path fill-rule="evenodd"
+
+  <!-- scroll-up svg -->
+  <div class=" scroll-up">
+    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-up-circle"
+      viewBox="0 0 16 16">
+      <defs>
+        <linearGradient id="myGradient" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#fbfcb9ff" />
+          <stop offset="50%" stop-color="#ffcdf3ff" />
+          <stop offset="100%" stop-color="#65d3ffff" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#myGradient)" fill-rule="evenodd"
         d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
-    </svg></div>
+    </svg>
+  </div>
+
+  <!-- scroll-down svg -->
+  <div class=" scroll-down">
+    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+      <defs>
+        <linearGradient id="myGradient" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#65d3ffff" />
+          <stop offset="50%" stop-color="#ffcdf3ff" />
+          <stop offset="100%" stop-color="#fbfcb9ff" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#myGradient)" fill-rule="evenodd"
+        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+    </svg>
+  </div>
 </body>
+
 <script src="data.js"></script>
-<script src="script.js"></script>
+<script src="index.js"></script>
 
 </html>
