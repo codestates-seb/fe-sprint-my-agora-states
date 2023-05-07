@@ -10,7 +10,6 @@
  }  /*가운데로 몰기 */
 .form__container{
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -31,7 +30,6 @@ h1 {
   background-color: rgb(206, 217, 244);
   width: 540px;
 }
-
 .form__input--wrapper label,
 .form__input--wrapper input,
 .form__input--wrapper textarea {
@@ -68,8 +66,10 @@ h1 {
 
 /* 중간 Discussion 콘텐츠 */
 .discussion__container {
+  box-sizing: border-box; 
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: 16px 0;
   font-size: 15px;
@@ -89,7 +89,7 @@ h1 {
   align-items: center;
 }
 .discussion__answered p {
-  margin: 0; 
+  margin: 0 10px; 
 }
 /* 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬 */
 .discussion__answered {
@@ -98,6 +98,9 @@ h1 {
   align-items: center;
   justify-content: flex-end;
   margin: 20px; 
+}
+div.discussion__content{
+  flex: 1 0 0;
 }
 a {
   color: black;

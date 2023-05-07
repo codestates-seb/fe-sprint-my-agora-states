@@ -38,6 +38,16 @@ const convertToDiscussion = (obj) => {
   contentInfo.textContent = obj.author + " / " + writeDate;
   discussionContent.append(contentInfo);
 
+  const answerCheck = document.createElement('div');
+    const answerCheckBox = document.createElement('img');
+    const getAnswer = document.querySelector('img.answeredImg');
+    const answerCheckP = document.createElement('p');
+    answerCheckBox.className = 'answeredImg';
+    answerCheck.className = 'discussion__answered';
+    answerCheckP.textContent = obj.answer ? "☑" : "x";
+    answerCheck.append(answerCheckP);
+    discussionAnswered.append(answerCheck);
+
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
@@ -54,7 +64,36 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-const form = document.querySelector('form.form');
-const title = document.querySelector('input#title')
-const writer = document.querySelector('input#name')
-const story = document.querySelector('textarea#story')
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log('submit 이벤트 발생했다!!')
+  console.log(author.value, title.value, textbox.value)
+
+  const obj = {
+    id: "unique id",
+    createdAt: new Date().toISOString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+  };
+
+  // agoraStatesDiscussions 객체 추가
+  agoraStatesDiscussions.unshift(obj);
+
+  // 화면 다 지우고 
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+
+  // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
+  render(ul);
+})
