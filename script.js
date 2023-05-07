@@ -38,7 +38,11 @@ const convertToDiscussion = (obj) => {
 
 
   const avatarAnswered = document.createElement('p');
-  avatarAnswered.textContent = '☑';
+  if (obj.answer !== null){
+    avatarAnswered.textContent = '☑';
+  } else {
+    avatarAnswered.textContent = '✘';
+  }
   discussionAnswered.append(avatarAnswered);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
