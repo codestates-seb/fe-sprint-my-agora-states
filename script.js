@@ -12,7 +12,7 @@ const convertToDiscussion = function (obj) {
 
 	const discussionAnswered = document.createElement("div");
 	discussionAnswered.className = "discussion__answered";
-	discussionAnswered.textContent = "답변!";
+	discussionAnswered.textContent = "✎";
 
 	// TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
