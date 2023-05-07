@@ -28,8 +28,10 @@ const pageStore = {
   getCurrentPage() {
     return this._currentPage;
   },
-  setTotalPage(length) {
-    this._totalPage = Math.ceil(length / this.perPage);
+  updateTotalPage() {
+    this._totalPage = Math.ceil(
+      discussionStore.getData().length / this.perPage
+    );
   },
   getTotalPage() {
     return this._totalPage;
@@ -42,6 +44,7 @@ const discussionsContainerEl = document.querySelector(
 );
 
 const renderDiscussion = (discussions) => {
+  discussionsContainerEl.scrollTop = 0;
   if (discussions.length === 0) {
     discussionsContainerEl.innerHTML = '<p>등록된 질문이 없습니다.</p>';
     return;
@@ -68,7 +71,9 @@ const renderDiscussion = (discussions) => {
       if (isDelete) {
         deleteLocalDiscussion(discussions[i].id);
         discussionStore.updateData();
+        pageStore.updateTotalPage();
         renderDiscussion(discussionStore.getData());
+        renderPagination();
         alert('삭제되었습니다.');
       }
     });
@@ -119,7 +124,10 @@ const postDiscussion = (author, title, body) => {
   };
   addLocalDiscussion(newDiscussion);
   discussionStore.updateData();
+  pageStore.updateTotalPage();
+  pageStore.setCurrentPage(1);
   renderDiscussion(discussionStore.getData());
+  renderPagination();
 };
 
 // 페이지네이션
@@ -174,6 +182,7 @@ const renderPagination = () => {
 
 // 최초 렌더링
 resetLocalDiscussions();
-pageStore.setTotalPage(discussionStore.getData().length);
-renderPagination();
+discussionStore.updateData();
+pageStore.updateTotalPage();
 renderDiscussion(discussionStore.getData());
+renderPagination();
