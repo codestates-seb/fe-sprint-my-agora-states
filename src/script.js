@@ -1,16 +1,20 @@
 import DiscussionItem from './components/DiscussionItem.js';
-import { getLocalDiscussions, addDiscussion } from './util/discussion.js';
+import {
+  resetLocalDiscussions,
+  getLocalDiscussions,
+  addLocalDiscussion,
+  deleteLocalDiscussion,
+} from './model/localDiscussion.js';
 
-window.localStorage.getItem('discussions') === null &&
-  window.localStorage.setItem(
-    'discussions',
-    JSON.stringify(agoraStatesDiscussions)
-  );
-
-let discussions = getLocalDiscussions();
-
-const syncDiscussion = () => {
-  discussions = getLocalDiscussions();
+// 디스커션 정보
+const discussionStore = {
+  _data: getLocalDiscussions(),
+  getData() {
+    return this._data;
+  },
+  updateData() {
+    this._data = getLocalDiscussions();
+  },
 };
 
 // 페이지 정보
@@ -33,27 +37,45 @@ const pageStore = {
 };
 
 // Discussion 렌더링
-const discussion = document.querySelector('ul.discussions__container');
-const renderDiscussion = () => {
+const discussionsContainerEl = document.querySelector(
+  'ul.discussions__container'
+);
+
+const renderDiscussion = (discussions) => {
   if (discussions.length === 0) {
-    discussion.innerHTML = '<p>등록된 질문이 없습니다.</p>';
+    discussionsContainerEl.innerHTML = '<p>등록된 질문이 없습니다.</p>';
     return;
   }
-  const fragment = document.createDocumentFragment();
-  discussion.innerHTML = '';
+  const fragmentEl = document.createDocumentFragment();
+  discussionsContainerEl.innerHTML = '';
   const startIndex = (pageStore.getCurrentPage() - 1) * pageStore.perPage;
   const endIndex = pageStore.getCurrentPage() * pageStore.perPage;
+
   for (let i = startIndex; i < endIndex; i += 1) {
     if (i >= discussions.length) {
       break;
     }
-    const discussionItem = new DiscussionItem({
+    const discussionItemEl = new DiscussionItem({
       className: 'discussion__container',
       props: discussions[i],
     }).el;
-    fragment.appendChild(discussionItem);
+
+    const discussionRemoveEl = discussionItemEl.querySelector(
+      '.discussion__remove'
+    );
+    discussionRemoveEl.addEventListener('click', () => {
+      const isDelete = confirm('정말 삭제하시겠습니까?');
+      if (isDelete) {
+        deleteLocalDiscussion(discussions[i].id);
+        discussionStore.updateData();
+        renderDiscussion(discussionStore.getData());
+        alert('삭제되었습니다.');
+      }
+    });
+
+    fragmentEl.appendChild(discussionItemEl);
   }
-  discussion.appendChild(fragment);
+  discussionsContainerEl.appendChild(fragmentEl);
   return;
 };
 
@@ -84,10 +106,10 @@ submitBtnEl.addEventListener('click', (e) => {
 });
 
 const postDiscussion = (author, title, body) => {
-  const date = new Date();
+  const date = new Date().toISOString();
   const newDiscussion = {
     id: author + date,
-    createdAt: date.toISOString(),
+    createdAt: date,
     title,
     url: 'javascript:void(0)',
     author,
@@ -95,61 +117,62 @@ const postDiscussion = (author, title, body) => {
     bodyHTML: body,
     avatarUrl: 'https://avatars.githubusercontent.com/u/60064471?v=4',
   };
-  addDiscussion(newDiscussion);
-  syncDiscussion();
-  renderDiscussion();
+  addLocalDiscussion(newDiscussion);
+  discussionStore.updateData();
+  renderDiscussion(discussionStore.getData());
 };
 
 // 페이지네이션
-const pagination = document.querySelector('.pagination');
+const paginationEl = document.querySelector('.pagination');
 const renderPagination = () => {
-  pagination.innerHTML = '';
-  const fragment = document.createDocumentFragment();
+  paginationEl.innerHTML = '';
+  const fragmentEl = document.createDocumentFragment();
   // 이전 페이지 이동 버튼
   if (pageStore.getCurrentPage() !== 1) {
-    const prevPage = document.createElement('li');
-    prevPage.textContent = '〈';
-    prevPage.className = 'pagination__page pagination__page--move';
-    prevPage.addEventListener('click', () => {
+    const prevPageEl = document.createElement('li');
+    prevPageEl.textContent = '〈';
+    prevPageEl.className = 'pagination__page pagination__page--move';
+    prevPageEl.addEventListener('click', () => {
       pageStore.setCurrentPage(pageStore.getCurrentPage() - 1);
       renderPagination();
-      renderDiscussion();
+      renderDiscussion(discussionStore.getData());
     });
-    fragment.appendChild(prevPage);
+    fragmentEl.appendChild(prevPageEl);
   }
 
   // 페이지 버튼
   for (let i = 1; i <= pageStore.getTotalPage(); i += 1) {
-    const page = document.createElement('li');
-    page.className = 'pagination__page';
-    page.textContent = i;
+    const pageEl = document.createElement('li');
+    pageEl.className = 'pagination__page';
+    pageEl.textContent = i;
     if (i === pageStore.getCurrentPage()) {
-      page.classList.add('pagination__page--active');
+      pageEl.classList.add('pagination__page--active');
     }
-    page.addEventListener('click', () => {
+    pageEl.addEventListener('click', () => {
       pageStore.setCurrentPage(i);
       renderPagination();
-      renderDiscussion();
+      renderDiscussion(discussionStore.getData());
     });
-    fragment.appendChild(page);
+    fragmentEl.appendChild(pageEl);
   }
 
   // 다음 페이지 이동 버튼
   if (pageStore.getCurrentPage() !== pageStore.getTotalPage()) {
-    const nextPage = document.createElement('li');
-    nextPage.textContent = '〉';
-    nextPage.className = 'pagination__page pagination__page--move';
-    nextPage.addEventListener('click', () => {
+    const nextPageEl = document.createElement('li');
+    nextPageEl.textContent = '〉';
+    nextPageEl.className = 'pagination__page pagination__page--move';
+    nextPageEl.addEventListener('click', () => {
       pageStore.setCurrentPage(pageStore.getCurrentPage() + 1);
       renderPagination();
-      renderDiscussion();
+      renderDiscussion(discussionStore.getData());
     });
-    fragment.appendChild(nextPage);
+    fragmentEl.appendChild(nextPageEl);
   }
-  pagination.appendChild(fragment);
+  paginationEl.appendChild(fragmentEl);
 };
 
 // 최초 렌더링
-pageStore.setTotalPage(discussions.length);
+resetLocalDiscussions();
+pageStore.setTotalPage(discussionStore.getData().length);
 renderPagination();
-renderDiscussion();
+renderDiscussion(discussionStore.getData());

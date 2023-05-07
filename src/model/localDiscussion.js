@@ -1,14 +1,23 @@
+const resetLocalDiscussions = () => {
+  // 최초 1회 로컬 스토리지 초기화
+  window.localStorage.getItem('discussions') === null &&
+    window.localStorage.setItem(
+      'discussions',
+      JSON.stringify(agoraStatesDiscussions)
+    );
+};
+
 const getLocalDiscussions = () => {
   const localDiscussions = window.localStorage.getItem('discussions');
   return JSON.parse(localDiscussions);
 };
 
-const addDiscussion = (discussion) => {
+const addLocalDiscussion = (discussion) => {
   const localDiscussions = getLocalDiscussions();
   localDiscussions.unshift(discussion);
   window.localStorage.setItem('discussions', JSON.stringify(localDiscussions));
 };
-const deleteDiscussion = (id) => {
+const deleteLocalDiscussion = (id) => {
   const localDiscussions = getLocalDiscussions();
   const newDiscussions = localDiscussions.filter(
     (discussion) => discussion.id !== id
@@ -16,4 +25,9 @@ const deleteDiscussion = (id) => {
   window.localStorage.setItem('discussions', JSON.stringify(newDiscussions));
 };
 
-export { getLocalDiscussions, addDiscussion, deleteDiscussion };
+export {
+  resetLocalDiscussions,
+  getLocalDiscussions,
+  addLocalDiscussion,
+  deleteLocalDiscussion,
+};

@@ -1,5 +1,5 @@
 import Component from './Component.js';
-import DiscussionDetail from './DiscussionDetail.js';
+import { getLocaleDate } from '../utils.js';
 
 export default class DiscussionContent extends Component {
   constructor({ className = '', props = {} }) {
@@ -7,36 +7,27 @@ export default class DiscussionContent extends Component {
   }
   render() {
     const { title, author, createdAt, answer } = this.props;
-    const localeCreatedAt = new Date(Date.parse(createdAt)).toLocaleDateString(
-      'ko-KR',
-      {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        weekday: 'long',
-      }
-    );
+    const localeCreatedAt = getLocaleDate(createdAt);
 
     this.el.className = 'discussion__content';
 
-    const discussionTitle = document.createElement('h2');
-    const discussionIsAnswered = document.createElement('span');
-    discussionIsAnswered.className = answer
+    const discussionTitleEl = document.createElement('h2');
+    const discussionIsAnsweredEl = document.createElement('span');
+    discussionIsAnsweredEl.className = answer
       ? 'discussion__is-answered answered'
       : 'discussion__is-answered';
-    discussionIsAnswered.textContent = answer ? '[답변완료] ' : '[미해결] ';
-    discussionTitle.appendChild(discussionIsAnswered);
-    discussionTitle.className = 'discussion__title';
-    const discussionTitleText = document.createElement('span');
-    discussionTitleText.textContent = title;
+    discussionIsAnsweredEl.textContent = answer ? '[답변완료] ' : '[미해결] ';
+    discussionTitleEl.appendChild(discussionIsAnsweredEl);
+    discussionTitleEl.className = 'discussion__title';
+    const discussionTitleTextEl = document.createElement('span');
+    discussionTitleTextEl.textContent = title;
 
-    const discussionInformation = document.createElement('div');
-    discussionInformation.className = 'discussion__information';
-    discussionInformation.innerHTML = `<span>${author}</span> / ${localeCreatedAt}`;
-    discussionTitle.appendChild(discussionTitleText);
-    this.el.appendChild(discussionTitle);
-    this.el.appendChild(discussionInformation);
+    const discussionInformationEl = document.createElement('div');
+    discussionInformationEl.className = 'discussion__information';
+    discussionInformationEl.innerHTML = `<span>${author}</span> / ${localeCreatedAt}`;
+    discussionTitleEl.appendChild(discussionTitleTextEl);
+
+    this.el.appendChild(discussionTitleEl);
+    this.el.appendChild(discussionInformationEl);
   }
 }

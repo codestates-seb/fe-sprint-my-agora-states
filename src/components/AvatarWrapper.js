@@ -6,9 +6,9 @@ export default class AvatarWrapper extends Component {
   }
   render() {
     const { avatarUrl } = this.props;
-    const avatar = document.createElement('img');
-    avatar.className = 'discussion__avatar--image';
-    avatar.src = avatarUrl;
-    this.el.appendChild(avatar);
+    const avatarEl = document.createElement('img');
+    avatarEl.className = 'discussion__avatar--image';
+    avatarEl.src = avatarUrl;
+    this.el.appendChild(avatarEl);
   }
 }
