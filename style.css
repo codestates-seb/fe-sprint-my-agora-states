@@ -21,6 +21,20 @@ a {
   color: #000;
 }
 
+.sidebar ul {
+  padding-top: 150px;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  background-color: #fff;
+  color: #5f0080;
+  font-family: "Amatic SC", cursive;
+}
+
 .discussion__container {
   width: 540px;
   display: flex;
@@ -143,23 +157,10 @@ a {
   left: 0;
 }
 
-ul {
-  padding-top: 80px; /* ul 요소를 아래로 내림 */
-}
-
 .item div {
   font-size: 18px; /* 글자 크기를 18px로 변경 */
   color: #000; /* 글자 색상을 빨간색으로 변경 */
   margin-bottom: 40px;
-}
-
-nav {
-  display: flex;
-  width: 100%;
-  height: 100px;
-  align-items: center;
-  background-color: #fff;
-  color: #5f0080;
 }
 
 .logo {
@@ -168,4 +169,88 @@ nav {
   font-size: 40px;
   left: 50%;
   transform: translateX(-50%);
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1s0px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60px;
+}
+
+.form__input--name label,
+.form__input--title label,
+.form__textbox label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form__input--name input,
+.form__input--title input,
+.form__textbox textarea {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form__input--name input:focus,
+.form__input--title input:focus,
+.form__textbox textarea:focus {
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.form__submit input[type="submit"] {
+  background-color: #5f0080;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  width: 240px;
+}
+
+textarea {
+  width: 240px;
+  height: 150px;
+  resize: none;
 }

@@ -10,6 +10,12 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -20,11 +26,11 @@
 
   <body>
     <nav>
-      <div class="logo">My Agora States</div>
+      <div class="logo">SSOL gora States</div>
 
       <div class="menu">
         <input type="checkbox" id="expand-menu" name="expand-menu" />
-        <label for="expand-menu">
+        <label class="sidemenu-bt" for="expand-menu">
           <span></span>
           <span></span>
           <span></span>
@@ -32,45 +38,47 @@
         <div class="sidebar">
           <ul>
             <li>
-              <a href="#" class="item"><div>글쓰기</div></a>
+              <a class="item" id="askmodal"><div>글쓰기</div></a>
+              <div class="modal">
+                <section class="form__container">
+                  <form action="" method="get" class="form">
+                    <div class="form__input--wrapper">
+                      <div class="form__input--name">
+                        <label for="name">작성자 </label>
+                        <input type="text" name="name" id="name" required />
+                      </div>
+                      <div class="form__input--title">
+                        <label for="title">제목 </label>
+                        <input type="text" name="title" id="title" required />
+                      </div>
+                      <div class="form__textbox">
+                        <label for="story">질문 </label>
+                        <textarea
+                          id="story"
+                          name="story"
+                          placeholder="질문을 작성하세요"
+                          required
+                        ></textarea>
+                        <div class="form__submit">
+                          <input type="submit" value="글작성" />
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </section>
+              </div>
             </li>
             <li>
-              <a href="#" class="item"><div>작성한 글</div></a>
+              <a class="item"><div>작성한 글</div></a>
             </li>
             <li>
-              <a href="#" class="item"><div>로그아웃</div></a>
+              <a class="item"><div>로그아웃</div></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required />
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required />
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea
-              id="story"
-              name="story"
-              placeholder="질문을 작성하세요"
-              required
-            ></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit" />
-        </div>
-      </form>
-    </section>
     <main>
       <section class="discussion__wrapper">
         <ul class="discussions__container">
@@ -93,7 +101,9 @@
                 kimploo / 2022-04-22T14:08:33Z
               </div>
             </div>
-            <div class="discussion__answered"><p>☑</p></div>
+            <div class="discussion__answered discussion__answeryet">
+              <p>☑</p>
+            </div>
           </li>
         </ul>
       </section>
