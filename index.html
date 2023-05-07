@@ -6,55 +6,131 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/loader.css">
+  <link rel="stylesheet" href="./styles/modal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+
+  <!-- header -->
+  <header>
+    <div class="questions__container">
+      <h1 class="logo">
+        <img src="./img/agorastates-logo.png" alt="agorastates-logo">
+      </h1>
+      <div class="form__container">
+        <form action="" method="get" class="form">
+          <div class="form__input--wrapper">
+            <div class="form__input--name">
+              <input type="text" name="name" id="name" placeholder="이름을 작성하세요" required maxlength="15">
+            </div>
+            <div class="form__input--title">
+              <input type="text" name="title" id="title" placeholder="질문 제목을 작성하세요" required maxlength="100">
+            </div>
+            <div class="form__textbox">
+              <textarea id="story" name="story" placeholder="질문 내용을 작성하세요" required></textarea>
+            </div>
+          </div>
+          <button id="submit_btn">
+            질문하기
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- main -->
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
+    <ul class="discussions__container">
+    </ul>
   </main>
+
+
+  <!-- question-modal -->
+  <div class="question-modal-container">
+    <div class="question-modal-content">
+      <div class="question-modal-header">
+        <h2 class="question-modal-title"></h2>
+        <span class="question-modal-close">×</span>
+      </div>
+      <div class="question-modal-body">
+        <p class="question-content"></p>
+      </div>
+      <div class="question-modal-footer">
+        <div>
+          <img class="question-avartar" alt="question-avartar">
+          <p class="question-author"></p>
+        </div>
+        <span class="question-date"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- answer-modal -->
+  <div class="answer-modal-container">
+    <div class="answer-modal-content">
+      <div class="answer-modal-header">
+        <h2 class="answer-modal-title"></h2>
+        <span class="answer-modal-close">×</span>
+      </div>
+      <div class="answer-modal-body">
+        <p class="answer-content"></p>
+      </div>
+      <div class="answer-modal-footer">
+        <div>
+          <img class="answer-avartar" alt="answer-avartar">
+          <p class="answer-author"></p>
+        </div>
+        <span class="answer-date"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- loading -->
+  <div class="loader">Loading...</div>
+
+  <!-- scroll-up svg -->
+  <div class=" scroll-up">
+    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-up-circle"
+      viewBox="0 0 16 16">
+      <defs>
+        <linearGradient id="myGradient" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#fbfcb9ff" />
+          <stop offset="50%" stop-color="#ffcdf3ff" />
+          <stop offset="100%" stop-color="#65d3ffff" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#myGradient)" fill-rule="evenodd"
+        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+    </svg>
+  </div>
+
+  <!-- scroll-down svg -->
+  <div class=" scroll-down">
+    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+      <defs>
+        <linearGradient id="myGradient" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#65d3ffff" />
+          <stop offset="50%" stop-color="#ffcdf3ff" />
+          <stop offset="100%" stop-color="#fbfcb9ff" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#myGradient)" fill-rule="evenodd"
+        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+    </svg>
+  </div>
 </body>
+
 <script src="data.js"></script>
-<script src="script.js"></script>
+<script src="index.js"></script>
 
 </html>
