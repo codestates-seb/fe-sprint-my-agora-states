@@ -1,1 +1,106 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Noto Sans KR";
+  font-size: 15px;
+  color: black;
+  background-color: unset;
+  list-style-type: none;
+}
+
+body {
+  background-color: #c06c84;
+  background: linear-gradient(90deg, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: Black Han Sans;
+  color: white;
+  font-size: 32px;
+}
+
+main {
+  width: 600px;
+}
+
+.margin_h_10 {
+  margin: 10px 0;
+}
+
+.margin_h_20 {
+  margin: 20px 0;
+}
+
+.margitn_bottom_10 {
+  margin-bottom: 10px;
+}
+
+.margin_left_10 {
+  margin-left: 10px;
+}
+
+.margin_w_10 {
+  margin: 0 10px;
+}
+
+.padding_10 {
+  padding: 10px;
+}
+
+.padding_20 {
+  padding: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.form__container,
+.discussion__container {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+
+.form__input {
+  display: flex;
+  flex-direction: column;
+}
+
+#title {
+  height: 35px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#story {
+  background-color: white;
+  border-radius: 10px;
+  height: 200px;
+}
+
+#submit {
+  height: 35px;
+  background-color: #355c7d;
+  background: linear-gradient(90deg, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.discussion__content > header {
+  display: flex;
+}
+
+.discussion__answered {
+  width: 20px;
+  text-align: center;
+}
