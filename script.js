@@ -6,6 +6,55 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+
+  /* 디스커션 추가 */
+  const enterName = document.querySelector('#name');
+  const enterTitle = document.querySelector('#title');
+  const enterQuestion = document.querySelector('#story');
+  const dateNow = new Date();
+  const submitButton = document.querySelector('#submit');
+
+  // 배열에 넣을 새로운 object 설정
+  const newDiscussionObject = {
+    id: "",
+    createdAt: "",
+    title: "",
+    url: "",
+    author: "",
+    answer: {
+      id: "",
+      createdAt: "",
+      url: "",
+      author: "",
+      bodyHTML: '',
+      avatarUrl: "",
+    }
+  };
+
+  // newDiscussionObject에 데이터 추가하는 함수
+  // input 비어있지 않을 때 등록
+  const submitDiscussion = function (event) {
+    event.preventDefault(); // 새로고침 방지
+    if (enterName.value !== '' && enterTitle.value !== '' && enterQuestion.value !== '') {
+      newDiscussionObject.createdAt = dateNow.toLocaleString();
+      newDiscussionObject.title = enterTitle.value;
+      newDiscussionObject.author = enterName.value;
+      newDiscussionObject.answer.bodyHTML = enterQuestion.value;
+      agoraStatesDiscussions.unshift(newDiscussionObject);
+      let putInLi = convertToDiscussion(newDiscussionObject);
+      ul.prepend(putInLi) // 요소의 내용 앞에 콘텐츠를 추가하는 메서드
+      enterName.value = '';
+      enterTitle.value = '';
+      enterQuestion.value = '';
+      render(ul);
+    }
+  }
+
+  submitButton.addEventListener('click', submitDiscussion)
+
+
+
+ /* 콘텐츠 부분 */
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper"; // 이미지 박스 생성
   const discussionContent = document.createElement("div");
@@ -14,29 +63,33 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered"; // 답변 완료 박스 생성
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  const contentTitle = document.createElement('h2');
-  contentTitle.className = 'discussion__title';
-  discussionContent.append(contentTitle); // 타이틀
-
-  const contentTitleLink = document.createElement('a');
-  contentTitleLink.href = obj.url
-  contentTitleLink.textContent = obj.title;
-  contentTitle.append(contentTitleLink); // 타이틀 링크
-
+  /* 프로필 이미지 */
   const avatarImg = document.createElement('img');
   avatarImg.className = 'discussion__avatar-image';
   avatarImg.src = obj.avatarUrl;
   avatarImg.alt = 'avatar of' + obj.author;
-  avatarWrapper.append(avatarImg); // 이미지
+  avatarWrapper.append(avatarImg);
 
+  /* 타이틀 */
+  const contentTitle = document.createElement('h2');
+  contentTitle.className = 'discussion__title';
+  discussionContent.append(contentTitle);
+
+  const contentTitleLink = document.createElement('a');
+  contentTitleLink.href = obj.url
+  contentTitleLink.textContent = obj.title;
+  contentTitle.append(contentTitleLink);
+
+  /* 날짜 */
   const contentInfo = document.createElement('div');
   contentInfo.className = 'discussion__information';
   contentInfo.textContent = `${obj.author} / ${obj.createdAt}`;
-  discussionContent.append(contentInfo); // 날짜
+  discussionContent.append(contentInfo);
 
+  /* 답변 체크 */
   const answeredDoneCheck = document.createElement('p');
   answeredDoneCheck.textContent = `☑`
-  discussionAnswered.append(answeredDoneCheck) // 답변 완료 체크
+  discussionAnswered.append(answeredDoneCheck)
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
