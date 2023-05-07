@@ -1,10 +1,8 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 *{
     box-sizing: border-box;
  }
  
  li{
-    /* margin-bottom: 20px; */
     display: flex;
     list-style:none;
     padding: 20px;
@@ -14,10 +12,11 @@
     text-align: center;
     width: auto;
     height: auto;
+   display: flex;
  }
+
  .discussion__wrapper{
     display: flex;
- 
     justify-content: center; 
  }
  
@@ -61,3 +60,62 @@
  .clear{
     clear: both;
  }
+
+
+ /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+ h1{
+   color: #6E7172;
+   font-size: 30px;
+   margin-bottom: 40px;
+}
+
+label{
+   font-size: 20px;
+}
+
+form{
+   font-size: 18px;
+   color: #7B81BE;
+} 
+
+input[type=text]{
+   margin-top: 10px;
+   margin-bottom: 20px;
+   width: 440px;
+   height: 40px;
+   border: 0;
+   border-radius: 15px;
+   box-shadow: inset 2px 2px  5px #A6B4C8, 
+   inset -2px -2px  5px #FFFFFF;
+   padding-left: 10px;
+} 
+
+
+textarea{
+   margin-top: 10px;
+   width: 440px;
+   height: 200px;
+   border: 0;
+   box-shadow: inset 2px 2px  5px #A6B4C8, 
+   inset -2px -2px  5px #FFFFFF;
+   border-radius: 15px;
+   padding-left: 10px;
+   padding-top: 10px;
+} 
+
+input[type=submit]{
+   margin-top: 30px;
+   width: 450px;
+   height: 40px;
+   border: 0;
+   box-shadow: inset 2px 2px  5px #FFFFFF, 
+   inset -2px -2px  5px #A6B4C8;
+   border-radius: 15px;
+   color : #7B81BE; 
+} 
+
+
+.marginB{
+   margin-bottom: 10px;
+}
