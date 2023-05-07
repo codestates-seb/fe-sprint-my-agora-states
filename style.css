@@ -6,6 +6,7 @@ colorhunt, dribbble에서 적절한 색 조합, 디자인을 참고 */
     box-sizing: border-box;
     font-family: 'NeoDunggeunmoPro-Regular';
     text-align: center;
+    text-decoration: none;
 }
 
 body {
@@ -15,14 +16,18 @@ body {
     display: flex;
     background-color: #F6F1F1;
     justify-content: center;
+    align-items: center;
 }
 
 h1 {
     text-align: center;
 }
 
-li {
+ul {
     list-style: none;
+    padding-left: 0;
+    padding-inline-start: 0;
+    margin: 0;
 }
 
 .form__container {
@@ -33,7 +38,7 @@ li {
     border-radius: 10px;
     text-align: center;
     box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57);
-    margin-bottom: 35px;
+    margin: 0 auto;
 }
 
 .form {
@@ -69,33 +74,48 @@ li {
     margin: 0 auto;
 } */
 
-.discussion__wrapper {
-    width: 400px;
-    margin: 0 auto;
-    
-}
 
-.discussions__container {
+.discussions__wrapper {
     display: flex;
-    flex-flow: column wrap;
-    gap: 20px;
-}
-
-.discussion__wrapper {
-    display: flex;
+    justify-content: center;
     align-items: center;
+
+}
+
+.discussion__container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+    width: 400px;
+    margin: 20px;
+    gap: 10px;
     background-color: #AFD3E2;
     border-radius: 10px;
-    box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57)
+    box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57);
 }
+
 
 .discussion__avatar--image {
     width: 50px;
     border-radius: 100%;
-    
+    position: relative;
+    top: 20%;
+    left: 10%;
 }
 
-
+.discussion__title {
+    color: #099add;
+    font-size: 18px;
+}
+.discussion__information {
+    color:#555555;
+    font-size: 14px;
+}
+.discussion__answered {
+    display: flex;
+    align-items: center;
+}
 
 @font-face {
     font-family: 'NeoDunggeunmoPro-Regular';

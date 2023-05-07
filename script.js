@@ -16,15 +16,19 @@ const convertToDiscussion = (obj) => {
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+  const discussionContent = document.createElement("div");
+  discussionContent.className = "discussion__content";
+  const discussionAnswered = document.createElement("div");
+  discussionAnswered.className = "discussion__answered";
+
+// todo
+
   const avatarImage = document.createElement("img");
   avatarImage.className = "discussion__avatar--image";
   avatarImage.src = obj.avatarUrl;
   avatarImage.alt = `avatar of ${obj.author}`;
   avatarWrapper.append(avatarImage);
-  li.append(avatarWrapper);
 
-  const discussionContent = document.createElement("div");
-  discussionContent.className = "discussion__content";
   const discussionInfo = document.createElement('div');
   discussionInfo.className = 'discussion__information';
   discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
@@ -37,10 +41,8 @@ const convertToDiscussion = (obj) => {
   discussionTitle.append(titleLink)
   discussionContent.append(discussionTitle, discussionInfo)
 
-  const discussionAnswered = document.createElement("div");
   const discussion_ans = document.createElement('p');
-  discussion_ans.textContent = obj.answer != null ? '☑' : 'x';
-  discussionAnswered.className = "discussion__answered";
+  discussion_ans.textContent = obj.answer != null ? '🟢' : '🔴';
   discussionAnswered.append(discussion_ans);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -48,7 +50,7 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {z
+const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
@@ -58,3 +60,27 @@ const render = (element) => {z
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+const form = document.querySelector('form.form');
+const formTitle = form.querySelector(".form__input--title > input");
+const formAuthor = document.querySelector('.form__input--name > input');
+const formTextbox = form.querySelector(".form__textbox > textarea");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const obj = {
+    id: "hello",
+    createdAt: new Date(),
+    title: formTitle.value,
+    author: formAuthor.value,
+    answer: null,
+    bodyHTML: formTextbox.value,
+    avatarUrl: "myIcon.jpeg",
+  };
+  agoraStatesDiscussions.unshift(obj);
+  ul.prepend(convertToDiscussion(obj));
+  formAuthor.value = "";
+  formTitle.value = "";
+  formTextbox.value = "";
+});
