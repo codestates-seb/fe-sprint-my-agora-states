@@ -82,7 +82,7 @@ ul {
   padding: 0px;
 }
 li.discussion__container {
-  background-color: white;
+  background-color: rgb(253, 247, 175);
 }
 a:link {
   color: black;
@@ -121,7 +121,7 @@ form {
   border-radius: 10px;
   padding: 10px;
   font-size: 20px;
-  color: grey;
+  color: black;
 }
 .form__input--wrapper {
   margin: 5px;
@@ -133,7 +133,7 @@ form {
   font-size:1.2rem;
   margin: 5px;
   border-radius: 10px;
-  border: 2px solid #0078AA;
+  border: 2px solid black;
 }
 .form__submit {
   flex:1;
@@ -146,7 +146,7 @@ form {
   font-size: 15px;
   margin-left: 25px;
   margin-right: 0px;
-  border: 2px solid white;
+  border: 2px solid black;
 }
 textarea {
   margin : 5px;
