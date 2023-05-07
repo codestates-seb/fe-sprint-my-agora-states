@@ -36,9 +36,28 @@
                 <div class="discussion__delete"><p class="edit">✎</p><p class="delete">❌</p></div>
               </header>
               <div class="discussion__view hide">
-                <article class="discussion__story margin_h_10">어떻게 하면 좋은 질문을 할 수 있을까요?</article>
-                <textarea id="answer" class="padding_10 margin_h_10" name="story" placeholder="답변을 작성하세요" required></textarea>
-                <input type="answer__submit" id="submit" value="submit" />
+                <article class="discussion__story margin_h_10">어떻게 하면 좋은 질문을 할 수 있을까요?</article>                
+                <div class="edit__view hide">
+                  <form action="" method="get" class="form">
+                    <input type="text" name="edit__title" class="edit__title padding_10" value="[notice] 좋은 질문하는 법" required />
+                    <textarea class="edit__story padding_10 margin_h_10" name="edit__story" required>어떻게 하면 좋은 질문을 할 수 있을까요?</textarea>
+                    <input type="submit" class="edit__submit" value="edit" />
+                  </form>
+                </div>
+                <ul class="answer__container">
+                  <li class="answer__container">
+                    <div class="answer__delete"><p class="delete">❌</p></div>
+                    <div class="answer__content">어떻게하죠</div>
+                  </li>
+                  <li class="answer__container">
+                    <div class="answer__delete"><p class="delete">❌</p></div>
+                    <div class="answer__content">저도 궁금합니다</div>
+                  </li>
+                </ul>
+                <form action="" method="get" class="form">
+                  <textarea class="answer padding_10 margin_h_10" name="answer" placeholder="답변을 작성하세요" required></textarea>
+                  <input type="submit" class="answer__submit" value="submit" />
+                </form>
               </div>
             </div>
           </li>

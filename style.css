@@ -7,12 +7,11 @@
   padding: 0;
   border: 0;
   font-family: "Noto Sans KR";
-  font-size: 15px;
+  font-size: 14px;
   color: black;
   background-color: unset;
   list-style-type: none;
 }
-
 body {
   background-color: #c06c84;
   background: linear-gradient(to right, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
@@ -28,12 +27,11 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 16px;
   background: linear-gradient(to right, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 main {
   width: 600px;
 }
@@ -70,24 +68,26 @@ main {
   display: flex;
   flex-direction: column;
 }
-#title {
+
+#title,
+.edit__title {
   height: 35px;
   background-color: white;
   border-radius: 10px;
 }
-#story {
+
+#story,
+.edit__story,
+.answer {
   background-color: white;
   border-radius: 10px;
   height: 180px;
   resize: vertical;
 }
-#answer {
-  background-color: white;
-  border-radius: 10px;
-  height: 120px;
-  resize: vertical;
-}
-#submit {
+
+#submit,
+.edit__submit,
+.answer__submit {
   height: 35px;
   background-color: #355c7d;
   background: linear-gradient(90deg, #355c7d 0%, #6c5b7b 50%, #c06c84 100%);
@@ -95,10 +95,19 @@ main {
   text-align: center;
   color: white;
 }
+
 .discussion__content > header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.discussion__answered {
+
+li.answer__container {
+  display: flex;
+}
+
+.discussion__answered,
+.answer__delete {
   width: 30px;
 }
 
@@ -107,7 +116,6 @@ main {
   display: flex;
   justify-content: space-around;
 }
-
 .discussion__answered > p,
 .discussion__delete > p {
   font-size: 20px;
