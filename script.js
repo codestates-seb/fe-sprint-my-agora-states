@@ -76,8 +76,8 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 const form = document.querySelector('.form');
-const author = form.querySelector (".form_input_info > input");
-const title = form.querySelector(".form_input_info > input");
+const author = form.querySelector ("#name");
+const title = form.querySelector("#title");
 const textbox = form.querySelector (".form_input_info > textarea");
 
 form.addEventListener("submit", (event) => {
@@ -107,7 +107,7 @@ const nextButton = document.getElementById('button-next');
 const pageNumberWrapper = document.getElementById('page-number--wrapper');
 const DISCUSSIONS_PER_PAGE = 10;
 let currentPage = 1;
-let currentDiscussions = agoraStatesDiscussions;
+let currentDiscussions = agoraStatesDiscussions
 
 /**
  * 이전 페이지로 이동 버튼 클릭 시 발생할 이벤트
@@ -142,20 +142,18 @@ pageNumberWrapper.addEventListener('click', (e) => {
 });
 
 /**
- * 
- * /**
  * @param {number} - 이동할 페이지 번호
  */
 const movePageHilighting = (page) => {
-  const pageNumberButtons = document.querySelectorAll('.page-number-button');
+  const pageNumberButtons = document.querySelectorAll('.page-number--button');
 
   pageNumberButtons.forEach((button) => {
-    if (button.classList.contains('seleteid')) {
-      button.classList.remove('seleteid');
+    if (button.classList.contains('selected-page')) {
+      button.classList.remove('selected-page');
     }
   });
 
-  pageNumberButtons[page - 1].classList.add('seleteid');
+  pageNumberButtons[page - 1].classList.add('selected-page');
 };
 
 /**
@@ -172,10 +170,10 @@ const renderPageNumber = () => {
   pageNumberWrapper.innerHTML = '';
 
   for (let i = 1; i <= getPagesCount(); i++) {
-    pageNumberWrapper.innerHTML += `<span class="page-number-button"> ${i} </span>`;
+    pageNumberWrapper.innerHTML += `<span class="page-number--button"> ${i} </span>`;
   }
 
-  pageNumberWrapper.firstChild.classList.add('seleteid');
+  pageNumberWrapper.firstChild.classList.add('selected-page');
 };
 
 /**
@@ -198,23 +196,8 @@ const changePage = (page) => {
   ) {
     ul.append(convertToDiscussion(currentDiscussions[i]));
   }
-}
-
-const rander = (discussions = agoraStatesDiscussions, page = 1) => {
-  currentPage = page;
-  currentDiscussions = discussions;
-
-  if (currentDiscussions.length === 0) {
-    paginationContainer.className = 'hide';
-    nothingFiltered.classList.remove('hide');
-    return;
-  }
-  nothingFiltered.classList.add('hide');
-  paginationContainer.className = 'pagination--container';
-
-  renderPageNumber();
-  changePage(page);
-
-  return;
 };
-rander();
+
+// 초기화면 1번 page로 고정
+movePageHilighting(currentPage);
+changePage(currentPage);

@@ -34,7 +34,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vw;
+  height: 100%;
 }
 
 .main_container {
@@ -180,17 +180,25 @@ li {
 }
 
 .pagination__button--wrapper {
+  /* background-color: blue; */
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.page-button {
-  font-size: 13px;
-  line-height: 200%;
-  padding: 0 10px;
+  padding: 20px;
 }
 
-.page-number-button {
+.page-button {
+  font-size: 20px;
+  line-height: 200%;
+  padding: 0 10px;
+  color: var(--pale-font-color);
+}
+
+.page-number--button {
   margin: 10px;
-  font-size: 15px;
+  color: var(--pale-font-color);
+  font-size: 20px;
+}
+
+.selected-page {
+  color: var(--purple);
+  font-weight: 800;
 }
