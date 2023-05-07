@@ -141,6 +141,7 @@ label {
   color: #ffffff;
   background: linear-gradient(288.24deg, #728cf0 14.12%, #9176ff 82.73%);
   box-shadow: 0px 0.25rem 0.5rem rgba(90, 72, 129, 0.5);
+  cursor: pointer;
 }
 
 body.dark .form__submit input {
@@ -188,6 +189,7 @@ body.dark .discussion__container {
 .discussion__avatar--image {
   width: 3rem;
   border-radius: 50%;
+  font-size: 0.75rem;
 }
 
 .discussion__content {
