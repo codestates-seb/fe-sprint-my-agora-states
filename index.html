@@ -18,13 +18,13 @@
 		<main>
 			<div class="main-header">
 				<h1>My Agora States</h1>
-				<img src="img/enter.png" id="enter-key" alt="enter" />
+				<img src="img/keyboard.png" id="enter-key" alt="enter" />
 			</div>
 			<!-- 질문등록 form -->
 			<section class="form__container">
 				<form action="" method="get" class="form">
 					<div class="form__input--wrapper">
-						<div class="form__input--name">
+						<div class="form__input--name form__input-item">
 							<label for="name"></label>
 							<input
 								type="text"
@@ -34,17 +34,17 @@
 								placeholder="NAME"
 							/>
 						</div>
-						<div class="form__input--title">
+						<div class="form__input--title form__input-item">
 							<label for="title"></label>
 							<input
 								type="text"
 								name="title"
 								id="title"
 								required
-								placeholder="Title"
+								placeholder="TITLE"
 							/>
 						</div>
-						<div class="form__textbox">
+						<div class="form__textbox form__input-item">
 							<label for="story"></label>
 							<textarea
 								id="story"
@@ -59,6 +59,7 @@
 					</div>
 				</form>
 			</section>
+			<!-- 구분선 -->
 			<hr class="separated" />
 			<!-- 질문 리스트 -->
 			<section class="discussion__wrapper">
@@ -83,12 +84,12 @@
 								kimploo / 2022-04-22T14:08:33Z
 							</div>
 						</div>
-						<div class="discussion__answered"><p>답변!</p></div>
+						<div class="discussion__answered"><p>답변</p></div>
 					</li>
 				</ul>
 			</section>
 		</main>
 	</body>
-	<!--<script src="data.js"></script>
-	<script src="script.js"></script>-->
+	<script src="data.js"></script>
+	<script src="script.js"></script>
 </html>
