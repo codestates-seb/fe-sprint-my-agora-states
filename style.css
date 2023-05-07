@@ -1,1 +1,105 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 아고라스테이츠 질문 리스트가 중앙으로
+colorhunt, dribbble에서 적절한 색 조합, 디자인을 참고 */
+
+* {
+    box-sizing: border-box;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    text-align: center;
+}
+
+body {
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    background-color: #F6F1F1;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+.form__container {
+    width: 400px;
+    padding: 10px;
+    background-color: #146C94;
+    color: rgb(248, 252, 253);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57);
+    margin-bottom: 35px;
+}
+
+.form {
+    display: flex;
+    flex-flow: column wrap;
+    /* gap: 20px; */
+}
+
+.form__input--name {
+    margin-bottom: 10px;
+}
+.form__input--title {
+    margin-bottom: 10px;
+}
+.form__textbox {
+    margin-bottom: 10px;
+}
+
+#name,
+#title,
+#story {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+#story {
+    resize: none;
+}
+
+/* .form__submit {
+    margin: 0 auto;
+} */
+
+.discussion__wrapper {
+    width: 400px;
+    margin: 0 auto;
+    
+}
+
+.discussions__container {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px;
+}
+
+.discussion__wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #AFD3E2;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57)
+}
+
+.discussion__avatar--image {
+    width: 50px;
+    border-radius: 100%;
+    
+}
+
+
+
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
