@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    background-color: #E5E8EB;
  }
  
  li{
@@ -17,18 +18,18 @@
 
  .discussion__wrapper{
     display: flex;
-    justify-content: center; 
+    /* justify-content: center;  */
  }
  
  
  img{
     border-radius: 50%;
-    width: 68px;
+    width: 80px;
  }
  
  .discussion__avatar--wrapper{
     display: flex;
-    align-content: center; 
+    /* align-content: center;  */
  }
  
  
@@ -64,6 +65,18 @@
 
  /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 
+ /* 입력창 css */
+
+ .form__container{
+   margin-top: 20px;
+   margin-left: 30px;
+   width: 400px;
+   height: 700px;
+   border-radius: 15px;
+   box-shadow:  8px 8px  10px #A6B4C8, 
+   -8px -8px  10px #FFFFFF;
+ }
+
  h1{
    color: #6E7172;
    font-size: 30px;
@@ -82,7 +95,7 @@ form{
 input[type=text]{
    margin-top: 10px;
    margin-bottom: 20px;
-   width: 440px;
+   width: 360px;
    height: 40px;
    border: 0;
    border-radius: 15px;
@@ -94,7 +107,7 @@ input[type=text]{
 
 textarea{
    margin-top: 10px;
-   width: 440px;
+   width: 360px;
    height: 200px;
    border: 0;
    box-shadow: inset 2px 2px  5px #A6B4C8, 
@@ -106,16 +119,69 @@ textarea{
 
 input[type=submit]{
    margin-top: 30px;
-   width: 450px;
+   width: 360px;
    height: 40px;
    border: 0;
    box-shadow: inset 2px 2px  5px #FFFFFF, 
    inset -2px -2px  5px #A6B4C8;
    border-radius: 15px;
    color : #7B81BE; 
+   font-size: 18px;
 } 
 
 
 .marginB{
    margin-bottom: 10px;
+}
+
+/* 리스트 꾸미기 */
+
+.discussion__wrapper{
+   margin-left: 120px;
+   width: 800px;
+   margin-top: 20px;
+   border-radius: 15px;
+   box-shadow:  8px 8px  10px #A6B4C8, 
+   -8px -8px  10px #FFFFFF;
+
+}
+
+.img_boxShadow{
+   box-shadow:  4px 4px  6px #A6B4C8, 
+    -4px -4px  6px #FFFFFF;
+}
+
+a {
+   color: #6E7172;
+   font-size: 20px;
+   font-weight: 700;
+}
+
+.discussion__content{
+   margin-left: 30px;
+   width: 70%;
+   /* background-color: rebeccapurple; */
+
+}
+
+p{
+   width: 40px;
+   height: 40px;
+   /* background-color: #eee; */
+   border-radius: 50%;
+   box-shadow:  4px 4px  6px #A6B4C8, 
+   -4px -4px  6px #FFFFFF;
+   margin-left: 30px;
+   margin-top: 20px;
+   padding-top: 2px;
+   color: #6B92E5;
+   font-size: 30px;
+}
+
+.discussion__content{
+   text-align : left;
+}
+
+.discussion__information{
+   margin-top: 20px;
 }
