@@ -82,7 +82,8 @@ function newStory(event) {
     {id : inputName.value,
     title : inputTitle.value,
     avatarUrl : "images.jpeg",
-    bodyHTML : inputQuestion.value
+    bodyHTML : inputQuestion.value,
+    createAt : new Date()
   }
   );
   console.dir(agoraStatesDiscussions);
