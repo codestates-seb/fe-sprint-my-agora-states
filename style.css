@@ -4,9 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-}
-
 /* h1 {
     width: 540px;
     text-align: center;
@@ -37,9 +34,6 @@ label {
 
 }
 
-input {
-  
-}
 
 /* 입력란 */
 section.form__container {
@@ -76,7 +70,7 @@ div.form__input--name {
 div.form__input--name input {
   width: 230px;
   border: none;
-  font-size: ;
+  /*font-size: ;*/
 }
 
 div.form__input--title {
@@ -89,7 +83,7 @@ div.form__input--title {
 div.form__input--title input {
   width: 230px;
   border: none;
-  font-size: ;
+  /*font-size: ;*/
 }
 
 div.form__textbox {
@@ -102,7 +96,7 @@ div.form__textbox textarea {
   width: 400px;
   border: none;
   margin: auto 0 0 auto;
-  font-size: ;
+  /*font-size: ;*/
 }
 
 div.form__submit {
@@ -159,6 +153,7 @@ li.discussion__container {
   margin-bottom: 10px;
   padding: 5px;
   background-color:#f4ce96;
+  font-family: 'OTWelcomeRA';
 }
 
 .discussion__avatar--wrapper {
@@ -179,6 +174,7 @@ li.discussion__container {
 
 div.discussion__content {
   height: 40px;
+  
 }
 
 
@@ -197,7 +193,12 @@ div.discussion__content {
   text-align: center;
 }
 
-
+@font-face {
+  font-family: 'OTWelcomeRA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 
