@@ -195,7 +195,11 @@ submitBtn.addEventListener('click', (e) => {
 	answeredBtn.append(checkedBtn);
 
 	// ul appends li
-	discussionContainer.append(newDiscussion);
+	discussionContainer.insertBefore(
+		newDiscussion,
+		discussionContainer.firstChild
+	);
+
 	// li appends div
 	newDiscussion.append(avatarWrapper);
 	newDiscussion.append(discussionContent);
@@ -208,6 +212,26 @@ submitBtn.addEventListener('click', (e) => {
 	discussionContent.append(contentTitle);
 	discussionContent.append(discussionInfo);
 	contentTitle.append(contentLink);
+
+	//data.js
+	let exisitingArr = agoraStatesDiscussions;
+
+	let viewDate =
+		(discussionInfo.textContent = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`);
+
+	//generate random 2digits for the id
+	let generateLastDigit = Math.floor(Math.random() * 99) + 1;
+
+	//push the new inputted object into array
+	let discussionSubmit = {
+		id: `D_kwDOHOApLM4APfj${generateLastDigit}`,
+		createdAt: viewDate,
+		author: inputedName.value,
+		title: inputedTitle.value,
+	};
+
+	exisitingArr.push(discussionSubmit);
+	console.log(agoraStatesDiscussions);
 
 	form.reset();
 });
