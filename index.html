@@ -13,7 +13,6 @@
       referrerpolicy="no-referrer"
     ></script>
   </head>
-
   <body>
     <main>
       <h1 class="margin_h_20">Agora States</h1>
@@ -35,7 +34,11 @@
                   [notice] 좋은 질문하는 법
                 </h2>
               </header>
-              <article class="discussion__story hide">어떻게 하면 좋은 질문을 할 수 있을까요?</article>
+              <div class="discussion__view hide">
+                <article class="discussion__story margin_h_10">어떻게 하면 좋은 질문을 할 수 있을까요?</article>
+                <textarea id="answer" class="padding_10 margin_h_10" name="story" placeholder="답변을 작성하세요" required></textarea>
+                <input type="answer__submit" id="submit" value="submit" />
+              </div>
             </div>
           </li>
         </ul>
