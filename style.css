@@ -7,7 +7,7 @@ body {
 
 main {
   margin: auto;
-  width: 550px;
+  width: 600px;
 }
 
 main h1 {
@@ -60,7 +60,7 @@ main section.form__container form .form__input--wrapper {
 }
 .form__input--wrapper .form__textbox textarea {
   display: inline-block;
-  width: 420px;
+  width: 470px;
   height: 40px;
   margin: 10px;
 }
@@ -119,7 +119,7 @@ li.discussion__container .discussion__avatar--wrapper {
 }
 
 li.discussion__container .discussion__content {
-  width: 400px;
+  width: 450px;
   margin: 0 2px;
 }
 li.discussion__container .discussion__answered {
@@ -147,8 +147,11 @@ main section.page__container {
   margin-top: 10px;
 }
 main section.page__container .pages {
+  background-color: aliceblue;
   justify-content: center;
   display: flex;
+  border-radius: 15px;
+  margin-bottom: 10px;
 }
 main section.page__container .pages .page__list {
   display: flex;
@@ -159,9 +162,19 @@ main section.page__container .pages .page__list p {
   font-size: 20px;
   padding: 10px;
 }
+
+main section.page__container .pages .page__list p.current__page {
+  color: rgb(226, 152, 165);
+}
+
+main section.page__container .pages .page__list p:hover {
+  cursor: pointer;
+  font-weight: bolder;
+}
+
 main section.page__container .pages button {
   border: none;
-  background-color: rgb(228, 245, 226);
+  background-color: aliceblue;
   font-size: 32px;
 }
 

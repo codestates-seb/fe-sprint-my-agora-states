@@ -70,8 +70,10 @@ function addPageNation(number) {
   p.className = `p${number}`;
   p.textContent = `${number}`;
 
+  p.addEventListener("click", movePage);
+
   if (number === 1) {
-    p.style.color = "red";
+    p.classList.add("current__page");
   }
   pageList.appendChild(p);
 }
@@ -90,9 +92,9 @@ if (listCount < 10) {
   pageCount = 1;
 } else {
   if (listCount % 10 === 0) {
-    pageCount = listCount / 10;
+    pageCount = Math.floor(listCount / 10);
   } else {
-    pageCount = listCount / 10 + 1;
+    pageCount = Math.floor(listCount / 10) + 1;
   }
 }
 
@@ -181,14 +183,14 @@ function pageDowner() {
     console.log("첫 번째 페이지 입니다.");
   } else {
     currentPage--;
-    const beforepageCheckStyle = document.querySelector(`.p${currentPage + 1}`);
-    const currentpageCheckStyle = document.querySelector(`.p${currentPage}`);
+    const beforepageCheck = document.querySelector(`.p${currentPage + 1}`);
+    const currentpageCheck = document.querySelector(`.p${currentPage}`);
 
     ul.textContent = "";
     render(ul);
     console.log(currentPage);
-    beforepageCheckStyle.style.color = "black";
-    currentpageCheckStyle.style.color = "red";
+    beforepageCheck.classList.remove("current__page");
+    currentpageCheck.classList.add("current__page");
   }
 }
 pageDownButton.addEventListener("click", pageDowner);
@@ -199,13 +201,52 @@ function pageUpper() {
     console.log("마지막 페이지 입니다.");
   } else {
     currentPage++;
-    const beforepageCheckStyle = document.querySelector(`.p${currentPage - 1}`);
-    const currentpageCheckStyle = document.querySelector(`.p${currentPage}`);
+    const beforepageCheck = document.querySelector(`.p${currentPage - 1}`);
+    const currentpageCheck = document.querySelector(`.p${currentPage}`);
     ul.textContent = "";
     render(ul);
     console.log(currentPage);
-    beforepageCheckStyle.style.color = "black";
-    currentpageCheckStyle.style.color = "red";
+    beforepageCheck.classList.remove("current__page");
+    currentpageCheck.classList.add("current__page");
   }
 }
 pageUpButton.addEventListener("click", pageUpper);
+
+//pageNation 첫페이지, 마지막 페이지 이동
+const firstPageButton = document.querySelector(".page__first");
+function showFirstPage() {
+  const beforepageCheck = document.querySelector(`.p${currentPage}`);
+  const currentpageCheck = document.querySelector(`.p${1}`);
+  currentPage = 1;
+  ul.textContent = "";
+  render(ul);
+  beforepageCheck.classList.remove("current__page");
+  currentpageCheck.classList.add("current__page");
+}
+firstPageButton.addEventListener("click", showFirstPage);
+
+const lastPageButton = document.querySelector(".page__last");
+function showLastPage() {
+  const beforepageCheck = document.querySelector(`.p${currentPage}`);
+  const currentpageCheck = document.querySelector(`.p${pageCount}`);
+  currentPage = pageCount;
+  ul.textContent = "";
+  render(ul);
+  //current__page
+  beforepageCheck.classList.remove("current__page");
+  currentpageCheck.classList.add("current__page");
+}
+lastPageButton.addEventListener("click", showLastPage);
+
+function movePage(event) {
+  const clickPage = event.target.className;
+  console.log(clickPage);
+  const beforepageCheck = document.querySelector(`.p${currentPage}`);
+  const currentpageCheck = document.querySelector(`.${clickPage}`);
+  currentPage = parseInt(clickPage.slice(1));
+  ul.textContent = "";
+  render(ul);
+  console.log(currentPage);
+  beforepageCheck.classList.remove("current__page");
+  currentpageCheck.classList.add("current__page");
+}
