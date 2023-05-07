@@ -1,10 +1,11 @@
-import agoraStatesDiscussions from './data.js';
-import { render, showSuccessMsg, changeMode } from './render.js';
+import agoraStatesDiscussions from '../model/data.js';
+import { render, showSuccessMsg, renderMode } from './render.js';
 
 let state = {
   discussions: [],
-  currentPage: 0,
   totalPage: 0,
+  currentPage: 0,
+  currentFilter: 'all',
 };
 let isSuccess = false;
 let currentMode = 'light';
@@ -44,31 +45,43 @@ const addDiscussion = (newDiscussion) => {
   });
 };
 
+const completeSubmit = () => {
+  isSuccess = true;
+
+  showSuccessMsg(isSuccess);
+
+  isSuccess = false;
+};
+
 const changePage = (targetPage) => {
   const currentPage = targetPage === 'totalPage' ? state.totalPage : targetPage;
-  console.log(currentPage);
 
   setState({ ...state, currentPage });
 };
 
-const completeSubmit = () => {
-  isSuccess = true;
-
-  const newSuccessState = showSuccessMsg(isSuccess);
-
-  isSuccess = newSuccessState;
+const changeFilter = (targetFilter) => {
+  const currentPage = 1;
+  const totalPage =
+    targetFilter === 'unchecked'
+      ? Math.ceil(state.discussions.filter(({ answer }) => !answer).length / 10)
+      : targetFilter === 'checked'
+      ? Math.ceil(state.discussions.filter(({ answer }) => answer).length / 10)
+      : Math.ceil(JSON.parse(localStorage.getItem('state')).discussions.length / 10);
+    
+  setState({ ...state, currentFilter: targetFilter, currentPage, totalPage });
 };
 
 const changeModeState = (newMode) => {
   currentMode = newMode;
 
-  changeMode(currentMode);
+  renderMode(currentMode);
 };
 
 export {
   fetchState,
   addDiscussion,
-  changePage,
   completeSubmit,
+  changePage,
+  changeFilter,
   changeModeState,
 };
