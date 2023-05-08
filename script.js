@@ -1,7 +1,7 @@
-for (let i = 0; i < localStorage.length; i++){
-    ul.insertBefore(localStorage.getItem(`${i}`));
-    console.log(ul);
-} // 불러오기 실패
+// for (let i = 0; i < localStorage.length; i++){
+//     ul.insertBefore(localStorage.getItem(`${i}`));
+//     console.log(ul);
+// } // 불러오기 실패
 
 const convertToDiscussion = (obj,i) => {
   const li = document.createElement("li"); // li 요소 생성
