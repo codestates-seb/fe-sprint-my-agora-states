@@ -19,15 +19,15 @@
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">Enter your name </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
+            <label for="title">Enter your title </label>
             <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">Your question </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
@@ -52,6 +52,34 @@
         </li>
       </ul>
     </section>
+    <button type='button' id="modal_btn">➕</button>
+  <div class="modal_background"></div>
+  <div class="modal_wrap">
+    <div class="modal_close"><img class="closeImg" src="closeImg.png" alt="x버튼"></div>
+    <div class="text">
+      <section class="form__container">
+        <form action="" method="get" class="form">
+          <div class="form__input--wrapper">
+            <div class="form__input--name">
+              <label for="name">Enter your name </label>
+              <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form__input--title">
+              <label for="title">Enter your title </label>
+              <input type="text" name="title" id="title" required>
+            </div>
+            <div class="form__textbox">
+              <label for="story">Your question </label>
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            </div>
+          </div>
+          <div class="form__submit">
+            <input type="submit" value="submit">
+          </div>
+        </form>
+      </section>
+    </div>
+</div>
   </main>
 </body>
 <script src="data.js"></script>
