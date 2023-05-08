@@ -1,1 +1,151 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body{
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+
+/*  Form Style */
+.form{ 
+    height: 10rem;
+    width: 55rem;
+    background-color: rgb(222, 232, 234);
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px -15px rgba(0,0,0,1);
+}
+
+.form__input--wrapper{
+
+    padding: 10px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.form__input--name{
+    margin: 5px;
+
+}
+.form__input--title{
+    margin: 5px;
+}
+
+.form__textbox{
+    margin: 5px;
+}
+
+
+.form__input--name > input{
+    border:none;
+    border-radius: 5px;
+}
+
+.form__input--title > input{
+    border:none;
+    border-radius: 5px;
+    
+}
+.form__textbox > textarea {
+    border:none;
+    border-radius: 5px;
+    width: 532px;
+    height: 55.5px;
+    resize: none;
+    
+}
+
+
+
+/* Button  Style */
+
+.submitBtn{
+    text-decoration: none;
+    background-color: rgb(155, 199, 114);
+    box-shadow: 0 5px 18px -15px rgba(0,0,0,1);
+    width: 7rem;
+    height: 2rem;
+    border:none;
+    border-radius: 5px;
+
+}
+
+
+
+/* Content Container Style */
+
+.discussion__wrapper{
+    width: 55rem;
+    height: 50rem;
+    background-color: rgb(222, 232, 234);
+    box-shadow: 0 5px 18px -15px rgba(0,0,0,1);
+    border-radius: 5px;
+    margin:0 auto;
+    margin-top: 15px;
+}
+
+.discussions__container{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 3.3fr 3.3fr 3.5fr;
+
+}
+.discussion__container{
+    list-style:none;
+    width: 15rem;
+    height: 10rem;
+    background-color: rgb(252, 250, 248);
+    box-shadow: 0 5px 18px -15px rgba(0,0,0,1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.discussion__avatar--wrapper{
+    margin: 10px;   
+}
+.discussion__content{
+    font-size:12px;
+    font-weight: bold;
+}
+.contentBoxWrap{
+    padding-top: 15px;
+    width: 9rem;
+    height: 8rem;
+    background-color:  rgb(252, 250, 248);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+/* In Content Style */
+
+.discussion__information{
+    font-size: 10px;
+}
+
+.discussion__avatar--image{
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+}
+
+
+/* Pagination */
+
+
+.pagination{
+    width: 55rem;
+    height: 2rem;
+    background-color: rgb(222, 232, 234);
+    margin: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+
+
+}
