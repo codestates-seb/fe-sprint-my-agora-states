@@ -72,15 +72,15 @@ form.addEventListener("submit", (event) => {
   let title = elInputTitle.children[1].value;
   let text = elInputQuestion.children[1].value;
 
-  if (validName) {
+  if (!validName(author)) {
     alert("Your name must be longer more than 2 characters");
     return;
   }
-  if (validTitle) {
+  if (!validTitle(title)) {
     alert("Your title must be longer more than 5 characters");
     return;
   }
-  if (validText) {
+  if (!validText(text)) {
     alert("Your Question must be longer more than 10 characters");
     return;
   }
@@ -103,21 +103,21 @@ form.addEventListener("submit", (event) => {
 });
 
 // validation
-const validName = function () {
+const validName = function (author) {
   if (author.length >= 2) {
     return true;
   } else {
     return false;
   }
 };
-const validTitle = function () {
+const validTitle = function (title) {
   if (title.length >= 5) {
     return true;
   } else {
     return false;
   }
 };
-const validText = function () {
+const validText = function (text) {
   if (text.length >= 10) {
     return true;
   } else {
