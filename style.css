@@ -47,7 +47,10 @@ main { max-width: 540px; margin: 0 auto; border-radius: 30px; overflow: hidden; 
 .discussion__answered span.null { background-image: url('icon_x.png') }
 
 .discussion__answeredBox { background-color: #e8ecf9; margin-top: 10px; transition: height 0.5s; overflow: hidden; height: 0; }
+.discussion__questionTxt { padding: 10px 0; margin: 0 10px; border-bottom: 1px solid #cbcddc;}
 .discussion__answerTxt { padding: 10px; }
+.answerTit { display: block; font-weight: bold; margin: 10px 0 12px; font-size: 16px; color: #191c3b; }
+.answerTit:before { content: ""; display: inline-block; vertical-align: -1px; width: 2px; height: 14px; background-color: #4b75f4; margin-right: 7px; }
 
 .pagination { text-align: center; background-color: #fff; padding: 10px 0; }
 .pagination a { color: #000; }

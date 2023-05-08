@@ -51,15 +51,27 @@ const convertToDiscussion = (obj) => {
   // 답변내용 생성
   const answerContainer = document.createElement('div');
   answerContainer.className = "discussion__answeredBox";
+
   const elAnswer = document.createElement('div');
   elAnswer.className = "discussion__answerTxt";
-  answerContainer.append(elAnswer);
+  const elAnswerTit = document.createElement('div');
+  elAnswerTit.className = "answerTit";
+  elAnswerTit.textContent = '답변 내용'
+
+  const elQuestion = document.createElement('div');
+  elQuestion.className = "discussion__questionTxt";
 
   if(obj.answer !== null){
     elAnswer.innerHTML = obj.answer.bodyHTML;
   }else{
     elAnswer.innerHTML = '<p>등록된 답변이 없습니다 &#128546;</p>'
   }
+  if(obj.bodyHTML !== null){
+    elQuestion.innerHTML = obj.bodyHTML;
+  }
+
+  answerContainer.append(elQuestion, elAnswer);
+  elAnswer.prepend(elAnswerTit);
 
   li.append(discussionWrapper, answerContainer);
   return li;
