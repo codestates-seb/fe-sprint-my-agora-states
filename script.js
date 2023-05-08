@@ -1,51 +1,54 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 
 // agoraStatesDiscussions is data.js
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
-// //variable
+// 새로운 createElement 생성하고 , 클래스 이름 추가 함수 //
+// const createEl = (el) => (newEl = document.createElement(el));
+const createEl = (el, addCLass) => {
+	let newEl = document.createElement(el);
+	newEl.className = addCLass;
+	return newEl;
+};
+// append 재사용 함수
+const appendEl = (to, from) => to.append(from);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-	const li = document.createElement('li'); // li 요소 생성
-	li.className = 'discussion__container'; // 클래스 이름 지정
+	const li = createEl('li', 'discussion__container'); // li 요소 생성
 
 	//avatar
-	const avatarWrapper = document.createElement('div');
-	avatarWrapper.className = 'discussion__avatar--wrapper';
+	const avatarWrapper = createEl('div', 'discussion__avatar--wrapper');
 
-	const avatarImg = document.createElement('img');
-	avatarImg.className = 'discussion__avatar--image';
+	const avatarImg = createEl('img', 'discussion__avatar--image');
 	avatarImg.src = obj.avatarUrl;
 	avatarImg.alt = `avatar of` + obj.author;
-	avatarWrapper.append(avatarImg);
+	appendEl(avatarWrapper, avatarImg);
 
 	//content
-	const discussionContent = document.createElement('div');
-	discussionContent.className = 'discussion__content';
+	const discussionContent = createEl('div', 'discussion__content');
 
 	//content - title
-	const discussionTitle = document.createElement('h2');
-	discussionTitle.className = 'discussion__title';
-	const discussionLink = document.createElement('a');
+	const discussionTitle = createEl('h2', 'discussion__title');
+
+	const discussionLink = createEl('a');
 	discussionLink.href = obj.url;
 	discussionLink.textContent = obj.title;
-	discussionTitle.appendChild(discussionLink);
-	discussionContent.append(discussionTitle);
+
+	appendEl(discussionTitle, discussionLink);
+	appendEl(discussionContent, discussionTitle);
 
 	//content - user info
-	const discussionInfo = document.createElement('div');
-	discussionInfo.className = 'discussion__information';
+	const discussionInfo = createEl('div', 'discussion__information');
 	discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
-	discussionContent.append(discussionInfo);
+	appendEl(discussionContent, discussionInfo);
 
 	//submission
-	const discussionAnswered = document.createElement('div');
-	discussionAnswered.className = 'discussion__answered';
+	const discussionAnswered = createEl('div', 'discussion__answered');
 
-	const discussionAnsweredBox = document.createElement('p');
+	const discussionAnsweredBox = createEl('p');
 	discussionAnsweredBox.textContent = '☑';
-	discussionAnswered.append(discussionAnsweredBox);
+	appendEl(discussionAnswered, discussionAnsweredBox);
 
 	// TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
@@ -65,12 +68,20 @@ const render = (element) => {
 const ul = document.querySelector('ul.discussions__container');
 render(ul);
 
+// !----------여기서부터 form 생성 event--------
+
+//form submit 변수
 const submitBtn = document.querySelector('#submit');
 const inputedName = document.querySelector('#name');
 const inputedTitle = document.querySelector('#title');
 const inputedQuestion = document.querySelector('#story');
 const form = document.querySelector('form');
-const errMsg = document.querySelector('.error__msg');
+
+// <ul>
+const discussionContainer = document.querySelector('.discussions__container');
+
+// <li>
+const newDiscussion = createEl('li', 'discussion__container');
 
 //form submit 기능
 form.addEventListener('submit', (e) => {
@@ -81,43 +92,33 @@ form.addEventListener('submit', (e) => {
 	const titleValue = inputedTitle.value;
 	const questionValue = inputedQuestion.value;
 
-	// <ul>
-	const discussionContainer = document.querySelector('.discussions__container');
+	// avatar
+	const avatarWrapper = createEl('div', 'discussion__avatar--wrapper');
 
-	// <li>
-	const newDiscussion = document.createElement('li');
-	newDiscussion.className = 'discussion__container';
-
-	//! avatar
-	const avatarWrapper = document.createElement('div');
-	avatarWrapper.className = 'discussion__avatar--wrapper';
-	const avatarImage = document.createElement('img');
-	avatarImage.className = 'discussion__avatar--image';
+	const avatarImage = createEl('img', 'discussion__avatar--image');
 	avatarImage.src =
 		'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4';
 
-	//! title & question
-	const discussionContent = document.createElement('div');
-	discussionContent.className = 'discussion__content';
-	const contentTitle = document.createElement('h2');
-	contentTitle.className = 'discussion__title';
-	const contentLink = document.createElement('a');
-	contentLink.setAttribute(
-		'href',
-		'https://github.com/codestates-seb/agora-states-fe/discussions/6'
-	);
+	// title & question
+	const discussionContent = createEl('div', 'discussion__content');
+	const contentTitle = createEl('h2', 'discussion__title');
+	const contentLink = createEl('a');
+
+	contentLink.href =
+		'https://github.com/codestates-seb/agora-states-fe/discussions/6';
 	contentLink.textContent = `${titleValue}`;
 
-	//! user info discussion information
-	const discussionInfo = document.createElement('div');
-	discussionInfo.className = 'discussion__information';
+	// user info discussion information
+	const discussionInfo = createEl('div', 'discussion__information');
+
+	// 2022-04-22T14:08:33Z 포멧 변수
 	let newDate = new Date().toISOString();
 	discussionInfo.textContent = ` ${nameValue} / ${newDate}`;
 
-	//! checkedButton generate
-	const answeredBtn = document.createElement('div');
-	answeredBtn.className = 'discussion__answered';
-	const checkedBtn = document.createElement('p');
+	// Agoda Discussion 닫기 버튼
+	const answeredBtn = createEl('div', 'discussion__answered');
+
+	const checkedBtn = createEl('p');
 	checkedBtn.textContent = '☑';
 	answeredBtn.append(checkedBtn);
 
@@ -128,8 +129,8 @@ form.addEventListener('submit', (e) => {
 	);
 
 	// li appends div
-	newDiscussion.append(avatarWrapper);
-	newDiscussion.append(discussionContent);
+	appendEl(newDiscussion, avatarWrapper);
+	appendEl(newDiscussion, discussionContent);
 
 	newDiscussion.append(answeredBtn);
 	// div appends img
@@ -159,6 +160,9 @@ form.addEventListener('submit', (e) => {
 
 	exisitingArr.unshift(discussionSubmitted);
 	console.log(agoraStatesDiscussions);
+	console.log('aafter submit form  ', agoraStatesDiscussions.length);
 
 	form.reset();
 });
+
+console.log('before', agoraStatesDiscussions.length);
