@@ -1,1 +1,259 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Black Han Sans", sans-serif;
+  font-family: "Jua", sans-serif;
+  font-family: "League Gothic", sans-serif;
+  font-family: "Nanum Pen Script", cursive;
+  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Yeon Sung", cursive;
+  font-weight: bold;
+  color: #fdf9f9;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  background-image: url("/fe-sprint-my-agora-states/64.webp");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  padding: 45px;
+  list-style: none;
+}
+
+body li {
+  width: 500px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 0.5rem;
+  border-bottom: 1px solid;
+}
+
+body li:hover {
+  background: linear-gradient(45deg, #868bcf, #071f52);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main h1 {
+  position: absolute;
+  top: 0;
+  margin-top: 50px;
+  color: #e7e0e0;
+}
+
+main section {
+  margin: 0 20px;
+}
+
+
+/* 좌측 화면 */
+
+section .form {
+  width: 540px;
+  height: 550px;
+  background: linear-gradient(45deg, #868bcf, #071f52);
+  border: 2px solid #b6bae2;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form__input--wrapper {
+  width: 495px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  width: 300px;
+  height: 80px;
+  border: 2px solid #b6bae2;
+  border-radius: 16px;
+  font-size: 1rem;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.form__input--name input,
+.form__input--title input {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #e1e6e7;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #868bcf, #071f52);
+  padding: 10px 15px;
+  outline: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form__textbox {
+  width: 480px;
+  height: 120px;
+}
+
+.form__textbox textarea {
+  width: 400px;
+  height: 80px;
+  border: 1px solid #e1e6e7;
+  border-radius: 10px;
+  padding: 10px 15px;
+  outline: none;
+  resize: none;
+  background: linear-gradient(45deg, #868bcf, #071f52);
+}
+
+textarea::placeholder {
+  color: white;
+  margin-left: 10px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+}
+
+.form__submit input {
+  width: 125px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(30deg, #99bde9, #172c5a);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form__submit input:hover {
+  color: #e5e3e7;
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+/* 우측 컨테이너 */
+
+.discussion__wrapper {
+  width: 540px;
+  height: 650px;
+  background: rgba(53, 71, 133, 0.6);
+  border: 2px solid #b6bae2;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* 크기 넘어가면 스크롤바 생기게 */
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+/* 스크롤바 시작 */
+.discussion__wrapper::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.discussion__wrapper::-webkit-scrollbar-thumb {
+  height: 15%; /* 스크롤바의 길이 */
+  background: linear-gradient(45deg, #868bcf, #319194); /* 스크롤바의 색상 */
+  border-radius: 15px;
+}
+
+.discussion__wrapper::-webkit-scrollbar-button:vertical:start:decrement,
+.discussion__wrapper::-webkit-scrollbar-button:vertical:start:increment {
+  display: block;
+  height: 5px;
+}
+
+/* 만일 스크롤바 트랙 아래쪽도 여백 공간을 주고 싶다면 ... */
+.discussion__wrapper::-webkit-scrollbar-button:vertical:end:decrement {
+  display: block;
+  width: 10px;
+}
+
+/* 스크롤바 끝 */
+
+.discussions__container {
+  width: 540px;
+  /* height: 520px; */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--container);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+}
+
+.discussion__avatar--wrapper img,
+.discussion__avatar--image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--avatar);
+  margin-right: 10px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.discussion__content .discussion__title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.discussion__answered {
+  margin: 0 20px;
+}
+
+/* 페이지네이션 */
+.listPage {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+}
+.listPage li {
+  width: 500px;
+  height: 26px;
+  padding: 8px;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+}
+
+.listPage li:hover {
+  background-color: #307bdf;
+  border-radius: 15px;
+}
