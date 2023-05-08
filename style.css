@@ -1,1 +1,103 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body{
+    text-align: center;
+    background-color: #C0DBEA;
+}
+
+li.discussion__container{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  list-style-type: none;
+}
+
+ul{
+    background-color: rgb(138, 248, 248);
+    
+} */
+
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+    
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .form__input--name, .form__input--title {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .form__textbox textarea {
+    min-block-size: 100px;
+    width : 700px;
+    place-items: center;
+  }
+  
+  .form__submit input {
+    font-size: 1.5rem;
+    background-color: #22aee6;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .discussion__container {
+    display: flex;
+    padding: 32px;
+    background-color: #16e6d8;
+    margin-bottom: 5px;
+  }
+  
+  .discussion__avatar--wrapper {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .discussion__title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .discussion__information {
+    color: gray;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    align-items: start;
+  }
+  
+  .discussion__content{
+    text-align : start;
+    margin-left : 20px;
+  }
