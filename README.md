@@ -1,17 +1,7 @@
-# Description
-
-Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스테이츠를 만듭니다.
-
-- [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)에서 자신의 리포지토리로 fork후 과제 진행합니다.
-
 ## 배포 링크
-
-Github Page 배포 링크를 아래 작성합니다.
 
 https://k-impossible.github.io/fe-sprint-my-agora-states/
 ## Bare Minimum Requirement Self Checklist
-
-스스로 구현 완료한 부분까지 체크하여 제출합니다.
 
 - [✅] 디스커션 나열 기능
     - [✅] `script.js`를 수정하여 `agoraStatesDiscussions` 배열의 데이터를 나열할 수 있게 구현합니다.
@@ -32,8 +22,6 @@ https://k-impossible.github.io/fe-sprint-my-agora-states/
 
 ## Advanced Challenge Self Checklist
 
-스스로 구현 완료한 부분까지 체크하여 제출합니다.
-
 - [✅] 현지 시간 적용
     - [✅] 샘플 시간을 잘 변형하여, 현지 시간에 맞게 표현합니다. (ex. 오전 10:02:17)
 - [✅] 페이지네이션 기능
@@ -47,15 +35,10 @@ https://k-impossible.github.io/fe-sprint-my-agora-states/
 
 ### My Own Self Checklist
 
-자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
-
 - [✅] 유효성 검사
 - [✅] 미답변 질문 우선 정렬
 
-
 ### 배포 시연 화면
-
-아래 예시를 지우고, 자신의 과제 시연 화면을 추가합니다.
 
  ![image](https://github.com/k-impossible/fe-sprint-my-agora-states/blob/main/test.gif)
  
