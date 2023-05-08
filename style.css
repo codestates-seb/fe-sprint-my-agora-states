@@ -1,1 +1,127 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(234, 233, 233);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section.from__container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
+.from__input--wrapper {
+    margin: 5px;
+}
+
+section.discussion__wrapper {
+    width: 600px;
+    border: 1px solid rgb(220, 218, 218);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin: 1px;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+}
+
+div.discussion__content {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid rgb(185, 184, 184);
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 10px;
+    overflow: hidden;
+    opacity: 0.5;
+    background: rgb(234, 233, 233);
+    justify-content: space-between;
+    display: flex;
+}
+
+h1 {
+    color: rgb(157, 156, 156);
+    background-color: rgb(234, 233, 233);
+    text-align: center;
+}
+
+form.form {
+    padding: 15px;
+    border: 2px solid rgb(218, 218, 218);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.form__submit > input {
+    width: 400px;
+    height: 20px;
+}
+
+.form__submit {
+    
+}
+.form__input--name > label {
+    word-spacing : 7px;
+}
+
+.form__input--title > label {
+    word-spacing : 15.5px;
+}
+
+.form__textbox > label {
+    word-spacing : 7px;
+}
+
+li.discussion__container {
+    /* flex container display:flex */
+    display: flex;
+    /* flex direction: row; */
+    flex-direction: row;
+    /* 양 끝으로 붙이려면 */
+    justify-content: space-between;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    background-color: var(--surface);
+    border-radius: 5px;
+    /* li의 기본 속성 변경 */
+    list-style-type: none;
+    border: 1px solid rgb(185, 184, 184);
+    margin: 3;
+  }
+  
+  div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+  }
+  
+  div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+  }
+
+  :root {
+    --background: #faf8f4;
+    --surface: #ffffff;
+    --primary: #5e7c96;
+    --secondary: #DA7F8F;
+    --form-surface: #f6eed8;
+    --visited: #E1E5EA;
+    --link: #A7BBC7;
+  }
+  
