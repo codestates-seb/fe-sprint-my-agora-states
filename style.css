@@ -9,6 +9,11 @@ main {
     background-color: #FEF2F4;
 }
 /* My Agora States 폼 만들기 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 h1 {
     color: #D14D72;
@@ -22,30 +27,86 @@ h1 {
 }
 
 .form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     width: 400px;
     padding: 10px;
     border-radius: 20px;
     background-color: #D14D72;
+
 }
+
+.form__input--wrapper{
+    width: 300px;
+}
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+.form__input--name input {
+    border-radius: 5px;
+    border: none;
+}
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+.form__input--title input {
+    border-radius: 5px;
+    border: none;
+}
+
 .form__textbox {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 5px 0px;
 }
-/* 중앙으로 오게 하기 */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.form__textbox textarea {
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+
+
+.form__submit input {
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color:#FDF4F5;
+}
+.form__submit input:hover {
+    background-color: #FEF2F4;
+    color: #D14D72;
 }
 
 .discussions__container{
     padding : 0px;
 }
+
+.discussion_category {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
 /* 컴포넌트 폭 540px */
 .discussion__container {
     display: flex;
+    flex-direction: row;
     width: 540px;
     justify-content: space-between;
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 10px;
+    border : 3px solid #E8A0BF;
 }
 /* 컴포넌트  중앙에 오게하기 */
 .discussion__avatar--wrapper {
@@ -62,7 +123,7 @@ img {
 .discussion__content {
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 400px;
 }
 
 .discussion__content >:nth-child(1){
@@ -73,4 +134,9 @@ img {
 .discussion__content >:nth-child(2) {
     text-align: right;
     
+}
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    width: 40px;
 }
