@@ -1,1 +1,177 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/*TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+h1 {
+
+    text-align: center;
+    
+}
+
+
+body{
+    background-color: rgba(250, 249, 189, 0.473);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.form__input--title{
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    margin: 5px;
+}
+
+div.form__input--name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.form__submit{
+    display: flex;
+    justify-content: right;
+    margin: 15px;
+    
+}
+
+label{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#name{
+    width: 400px;
+}
+#title{
+    
+    width: 400px;
+}
+#story{
+
+    width: 400px;
+}
+#submit{
+    font-size: 15px;
+    background-color: rgb(248, 245, 87);
+    border: 2px solid orange;
+    border-radius: 12px;
+    padding: 5px 10px;
+    
+}
+
+div.pagination{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination button {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ddd;
+    color: #888;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* 페이지 번호 버튼 스타일 */
+  .page-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+  
+  .page-btns button {
+    margin: 0 20px;
+  }
+
+div.form__textbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__input--wrapper {
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid orange;
+    width: 540px;
+    
+}
+
+
+ul.discussions__container {
+    box-sizing: border-box;
+    padding: 15px;
+    width: 575px;
+    border-radius: 20px;
+    border: 2px solid orange;
+    
+}
+
+
+li.discussion__container{
+  
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+     
+}
+
+
+img{
+    width: 48px;
+    border-radius: 40px;
+      
+}
+.discussion__content{
+    display: flex ;
+    flex-direction: column;
+    width: 540px;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    border: 3px solid rgb(143, 235, 68);
+    
+}
+
+div.discussion__information{
+    flex-direction: column;
+    display: flex;   
+    font-size: small;
+    font-weight: 500;
+    text-align: end;
+    
+    
+        
+}
+p{
+    margin: 10px;
+    text-align: right;
+    font-size: 25px;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+
