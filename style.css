@@ -1,1 +1,118 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/*전역 설정 속성 따로 빼주기 */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+:root {
+    /* color */
+    --background: #FBFAFB;
+    --primary: #FCDE8C;
+    --title:#FF6701;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+}
+
+h1{
+    color: var(--title);
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+
+/* form */
+
+
+section.form__container {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--primary);
+}
+
+.form__container form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div.form__submit{
+    text-align: right;
+}
+
+.form__submit input{
+    width: 60px;
+    height: 90px;
+    background-color:#A77E43;
+    color: white;
+    font-size: medium;
+    border-radius: 10%;
+}
+
+.form__textbox textarea{
+    width: 275px;
+    margin: 5px;
+}
+
+/* discussion */
+
+.discussion__wraper{
+    margin-bottom: 0;
+}
+
+.discussions__container{
+    height: 28rem;
+}
+
+.discussion__answered{
+    padding-top:1.5rem;
+    font-size: 3rem;
+}
+
+li.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* user agent style sheet 삭제하기 */
+    list-style-type: none;
+    margin-top: 1rem;
+    background-color:rgb(210,210,210,0.2);
+    border: 1px solid lightgrey;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+div.discussion__avatar--wrapper > img{
+    width: 70px;
+    border-radius: 50%;
+}
+
+.discussion__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 30rem;
+    height: 100%;
+}
+
+.discussion__content h2{
+    font-size: 1.8rem;
+    color: var(--title);
+}
