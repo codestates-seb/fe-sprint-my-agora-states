@@ -50,7 +50,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionInformation = document.createElement('div')
   discussionInformation.classList.add('discussion__information')
-  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`
   discussionContent.appendChild(discussionInformation)
 
   const discussionBody = document.createElement('div')
@@ -137,6 +137,10 @@ form.addEventListener('submit', function(event){
     createdAt: `${new Date().toISOString()}`
   }
 
+  title.value = ''
+  name.value = ''
+  body.value = ''
+
   agoraStatesDiscussions.unshift(obj)
 
   // 화면 다 지우고 
@@ -146,6 +150,8 @@ form.addEventListener('submit', function(event){
 
   // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
   render(ul);
+
+
 
 })
 
