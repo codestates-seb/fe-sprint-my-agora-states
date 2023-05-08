@@ -101,3 +101,26 @@ form.addEventListener("submit", (event) => {
   }
   render(ul);
 });
+
+// validation
+const validName = function () {
+  if (author.length >= 2) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const validTitle = function () {
+  if (title.length >= 5) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const validText = function () {
+  if (text.length >= 10) {
+    return true;
+  } else {
+    return false;
+  }
+};
