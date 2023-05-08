@@ -48,7 +48,7 @@ h1 {
 .form__container {
     width: 23.75rem;
     padding: 2rem;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem;
     background: #ECF2FF;
     border-radius: 1.3rem;
     color: #4e4e4e;
@@ -142,4 +142,26 @@ div.discussion__avatar--wrapper {
     align-items: center;
     margin-right: 1rem;
     color: #885cb8;
+}
+
+/* 페이지네이션 */
+.listPage {
+    text-align: center;
+    align-items: center;
+    width: 33.75rem;
+    height: 26px;
+    margin-bottom: 2rem;
+}
+
+.listPage li {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.listPage li:hover {
+    color: #7eb6eb;
 }
