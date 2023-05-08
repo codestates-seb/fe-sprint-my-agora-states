@@ -69,6 +69,12 @@ const convertToDiscussion = (obj) => {
   
 };
 
+localStorage.setItem('agDs',JSON.stringify(agoraStatesDiscussions));
+
+let userData = JSON.parse(localStorage.getItem('agDs2'));
+
+console.dir(userData);
+
   const form = document.querySelector('form.form');
   form.addEventListener("submit" , (event) => {
     event.preventDefault();
@@ -76,19 +82,23 @@ const convertToDiscussion = (obj) => {
     const inputTitle = document.querySelector('#title');
     const inputQuestion = document.querySelector('#story');
 
-    agoraStatesDiscussions.unshift(
+    userData.unshift(
       {id : inputName.value,
       title : inputTitle.value,
       avatarUrl : "images.jpeg",
       bodyHTML : inputQuestion.value,
-      createAt : `${new Date()}`,
+      createdAt : new Date(),
       author : inputName.value
       }
     );
-    console.dir(agoraStatesDiscussions);
+    console.dir(userData);
   
-    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+    ul.prepend(convertToDiscussion(userData[0]));
+   
+    localStorage.setItem('agDs2',JSON.stringify(userData));
   })
+
+  
 
 // function newStory(event) {
   
@@ -120,8 +130,8 @@ console.dir(agoraStatesDiscussions)
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < userData.length; i += 1) {
+    element.append(convertToDiscussion(userData[i]));
   }
   return;
 };
