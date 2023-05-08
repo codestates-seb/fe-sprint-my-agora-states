@@ -1,1 +1,127 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #f9f5eb;
+    --text-color-1: #222;
+    --text-color-2: #002b5b;
+    --text-color-3: #f2f3f5;
+    --text-color-4: #c3baac;
+
+    --box-color-1: #e4dccf;
+    --box-color-2: #002b5b;
+
+    --button-color-1: #002b5b;
+    --button-color-2: transparent;
+    --button-hover-color: #002b5b;
+}
+
+:root.dark {
+    --bg-color: #282a2e;
+    --text-color-1: #f2f3f5;
+    --text-color-2: #f2f3f5;
+    --text-color-3: #f2f3f5;
+    --text-color-4: #57585a;
+
+    --box-color-1: #313338; 
+    --box-color-2: #232428;
+    
+    --button-color-1: transparent;
+    --button-color-2: #5a65ea;
+    --button-hover-color: #444ec2;
+}
+
+/* reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:62.5%; }
+body { overflow:hidden; width:100%; height:100vh; color:var(--text-color-1); font-size:1.6rem; font-family: 'Noto Sans KR', sans-serif; background-color:var(--bg-color) }
+h1, h2 { font-size:1.6rem; }
+ul li { list-style:none; }
+a { display:inline-block; color:var(--text-color-1); text-decoration:none; }
+button { all:unset; cursor:pointer; }
+img { width:100%; }
+label { display:block; }
+input { display:block; border:none; }
+input:focus { outline:none; }
+textarea { display:block; border:none; resize:none; }
+textarea:focus { outline:none; }
+
+/* common */
+button.textBtn { display:inline-block; padding:6px 20px; border:1px solid var(--button-color-1); background-color:var(--button-color-2); border-radius:30px; transition:all .2s ease; }
+button.textBtn:hover { color:var(--text-color-3); background-color:var(--button-hover-color); }
+.hidden { display:none !important; }
+
+/* layout */
+header { position:fixed; width:100%; height:60px; background-color:#ea5455; }
+header .header__inner { display:flex; justify-content:space-between; align-items:center; max-width:1920px; height:100%; padding:0 20px; margin:0 auto; }
+main { display:flex; width:100%; max-width:1920px; height:100%; margin:0 auto; padding:90px 20px 0; }
+nav { width:200px; }
+.contents__wrapper { display:flex; flex-direction:column; width:calc(100% - 200px); height:100%; }
+section.discussion__wrapper { display:flex; flex-direction:column; margin-top:10px; }
+
+/* style */
+/* header */
+.header__inner h1 { font-size:2.6rem; font-family: 'Kodchasan', sans-serif; } 
+.theme__container { padding-right:20px; }
+.theme__container #chkbox { display:none; }
+.theme__container label { cursor:pointer; color:var(--text-color-3); }
+
+/* nav */
+nav ul { margin-top:100px; }
+nav ul li { margin-bottom:8px; }
+nav ul li:hover, 
+nav ul li.active { color:#002b5b; font-weight:bold; }
+
+/* section form */
+.form__container .form__create { margin:0 10px; text-align:right; }
+.form__container .form__create .textBtn .fa-comment { margin-right:4px; } 
+
+.form__container .form { padding:10px; }
+.form__container .form.close { display:none; }
+.form__container .form .form__input--wrapper { margin-bottom:10px; }
+.form__container .form .form__submit { text-align:right; }
+
+.form__input--wrapper > div { margin-bottom:8px; }
+.form__input--wrapper > div > input { width:100%; padding:12px; border-bottom:1px solid #ddd; font-size:1.6rem; font-family: 'Kodchasan', sans-serif; }
+.form__input--wrapper > div > textarea { width:100%; height:150px; padding:12px; border-bottom:1px solid #ddd; font-family: 'Kodchasan', sans-serif; font-size:1.6rem; } 
+
+/* section discussion */
+.discussion__wrapper .discussions__container { overflow-y:auto; height:90%; padding:0 10px 12px; }
+.discussion__wrapper .discussions__container::-webkit-scrollbar { display:none; }
+
+.discussion__container { position:relative; display:flex; align-items:center; margin-top:8px; padding:50px 12px 12px; background-color:var(--box-color-1); border-radius:12px; transition:all .3s; cursor:pointer; }
+.discussion__container:hover { transform:translateY(-2px); box-shadow: -2px 2px 8px rgba(0,0,0,0.3); }
+
+.discussion__container .discussion__avatar--wrapper { width:60px; margin-right:12px; }
+.discussion__container .discussion__avatar--wrapper .discussion__avatar--image { border-radius:50%; }
+
+.discussion__container .discussion__content { width:calc(100% - 60px); }
+.discussion__container .discussion__content .discussion__information .discussion__author { display:inline-block; margin-right:8px; font-size:1.4rem; }
+.discussion__container .discussion__content .discussion__information .discussion__date { font-size:1.2rem; }
+
+.discussion__container .discussion__answered { position:absolute; top:12px; left:12px; }
+.discussion__container .discussion__answered p { padding:6px 12px; font-size:1.2rem; color:#f2f3f5; background-color:var(--box-color-2); border-radius:20px; }
+.discussion__container .discussion__answered p:before { content:""; display:inline-block; width:10px; height:10px; margin-right:6px; border-radius:50%; }
+.discussion__container .discussion__answered p.complete:before { background-color:#84af63; } 
+.discussion__container .discussion__answered p.inprogress:before { background-color:#f5cd6c; } 
+
+.discussion__container .discussion__delete { opacity:0; position:absolute; top:8px; right:16px; color:var(--text-color-2); transition:all 1s ease; }
+.discussion__container:hover .discussion__delete { opacity:1; }
+
+/* paginations */
+.pagination__container { height:40px; display:flex; justify-content:center; align-items:center; margin:12px 0; }
+.pagination__container .pagination { display:flex; }
+.pagination__container .pagination .pageNumbers { margin:0 8px; }
+.pagination__container .pagination .pageNumbers a { margin:0 6px; color:var(--text-color-4); font-size:1.8rem; }
+.pagination__container .pagination .pageNumbers a.active { color:var(--text-color-2); font-weight:bold; }
+.pagination__container .pagination button { display:inline-block; width:30px; height:30px; color:var(--text-color-2); border-radius:50%; text-align:center; transition:all .2s; }
+.pagination__container .pagination button:hover { color:var(--text-color-3); background-color:var(--button-hover-color); }
+.pagination__container .pagination button[disabled] { color:var(--text-color-4); background:none; cursor:default; }
+
+
+/* media query */
+@media screen and (max-width: 640px) {
+    .header__inner h1 { padding:0; text-align:center; }
+    nav { display:none; }
+    .contents__wrapper { width:100%; }
+}
