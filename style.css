@@ -1,1 +1,264 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-image: url("images/agora.jpg");
+  background-size: 100% auto; /* 가로는 꽉 차게, 세로는 원본 비율대로 */
+  background-repeat: no-repeat;
+  background-position: center bottom 40%;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  overflow-wrap: break-word;
+}
+
+/* img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+} */
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+h1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-top: 5rem;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: 60px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0px 0px 10px black;
+}
+
+.form__container {
+  height: 60vh;
+  padding: 1rem;
+}
+
+.form {
+  background-color: rgba(1, 1, 1, 0.7);
+  box-shadow: 3px 3px 5px 2px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1.6rem 1.6rem 1.6rem 7rem 1.6rem;
+  padding: 1rem;
+  grid-gap: 0.7rem;
+}
+
+.form label {
+  font-family: "Cinzel", serif;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  vertical-align: baseline;
+}
+
+.form label:nth-child(7) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+.form textarea {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+.form input:nth-child(4) {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.form input:nth-last-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  border: solid 2px whitesmoke;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  color: white;
+}
+
+.form input,
+.form textarea {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.discussion__wrapper {
+  height: 60vh;
+  overflow: auto;
+}
+
+.discussion__container {
+  display: flex;
+  background-color: rgba(1, 1, 1, 0.6);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.discussion__avatar--wrapper {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  /* padding-right: 1rem; */
+}
+
+.discussion__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 1rem;
+}
+
+.discussion__content h2 {
+  padding: 0;
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.discussion__content div {
+  font-family: "Cinzel", serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: white;
+}
+
+.discussion__answered p {
+  margin: 0;
+  color: white;
+}
+
+.discussion__avatar--image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem; /* 스크롤바 너비 */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(256, 256, 256, 0.3); /* 스크롤바 추적 영역 배경색 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(256, 256, 256, 0.2); /* 스크롤바 썸네일 배경색 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(256, 256, 256, 0.5); /* 스크롤바 썸네일 호버 배경색 */
+}
+
+/* 600에서 815까지는  */
+@media screen and (max-width: 37rem){
+ body {
+    display: flex;
+    background-image: url("images/agora.jpg");
+    background-size: auto 100%; /* 가로는 꽉 차게, 세로는 원본 비율대로 */
+    background-repeat: no-repeat;
+    background-position: center bottom 40%;
+  } 
+}
+
+/* 모바일 기기 너비 시작 점: 820px(아이패드 미니) */
+@media screen and (max-width: 51rem) {
+  /* h2타이틀 사이즈 조정, 배경 이미지 조정 */
+  body {
+    display: flex;
+  }
+
+  main {
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto;
+    /* grid-gap: 1rem; */
+  }
+
+  h1 {
+    margin-top: 4rem;
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+  }
+
+  /* 폼이랑 리스트 다시 */
+  .form__container {
+    height: auto;
+    width: 100%;
+    /* padding: 1rem; */
+  }
+
+  .form {
+    background-color: rgba(1, 1, 1, 0.7);
+    box-shadow: 3px 3px 5px 2px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-rows: 1.6rem 1.6rem 1.6rem 3rem 1.6rem;
+    padding: 1rem;
+    grid-gap: 0.7rem;
+  }
+
+  .form label {
+    font-weight: 400;
+  }
+
+  .discussion__wrapper {
+    overflow: auto;
+    grid-row-start: 3;
+  }
+}
