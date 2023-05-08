@@ -13,11 +13,30 @@
 </head>
 
 <body>
-  <main>
+  <header class="header">
+    <nav class="navbar">
+      <a href="https://urclass.codestates.com/" class="navbar__logo ll" target="_blank">유어클래스</a> 
+      <a class="navbar__link ll" href="https://help-urclass-codestates.zendesk.com/hc/ko" target="_blank">헬프센터</a>
+      <a class="navbar__link ll">안녕하세요 lsm0084님</a>
+      <img class='pro' src="https://cdn.discordapp.com/attachments/1104326739657773087/1104326800571629648/1619924286903.jpg">
+    </nav>
+    
+  </header>
+  <button id="toggleBtn" class="navbar__toggle">⤴️
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <button class="scroll-top-btn pp">⬆️</button>
+  <button class="moveBottomBtn pp lp">⬇️</button>
+  <div id="current-time"></div>
+
+
+  
+<main>
     <h1>My Agora States</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
+          <button id="btn-enlarge">확대/축소</button>
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
             <input type="text" name="name" id="name" required>
@@ -35,6 +54,7 @@
           <input type="submit" value="submit">
         </div>
       </form>
+      
     </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
@@ -48,7 +68,7 @@
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>Re:✅</p></div>
         </li>
       </ul>
     </section>
