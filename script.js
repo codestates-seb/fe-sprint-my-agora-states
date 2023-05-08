@@ -78,8 +78,8 @@ submitButton.addEventListener("submit" , function(event){
   }
   agoraStatesDiscussions.unshift(new_li);
   ul.insertBefore(convertToDiscussion(new_li),ul.firstChild);
-  console.log(dislist)
   dislist.push(new_li);
+  console.log(dislist);
   localStorage.setItem("discuss",JSON.stringify(dislist));
 });
 
@@ -92,6 +92,6 @@ window.onload = function() {
     agoraStatesDiscussions.unshift(storedD[i]);
     ul.insertBefore(convertToDiscussion(storedD[i]),ul.firstChild);
     }
-  }
+  };
   dislist = storedD;
 };
