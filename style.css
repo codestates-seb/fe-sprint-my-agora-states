@@ -1,1 +1,117 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+:root{
+    --background: rgb(246, 246, 255);
+    --surface: rgb(255, 255, 255);
+    --primary: rgb(62, 56, 125);
+}
+body{
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    background-color: var(--surface);
+    width: 540px;
+    border-radius: 10px;
+    list-style-type: none;
+}
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+  }
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+  }
+a {
+    font-size: 20px;
+    color: var(--primary);
+}
+.discussion__answered{
+    font-size: 30px !important;
+    margin-top: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    width: 370px;
+}
+
+#name, #title, #story {
+    height: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+#name:focus, #title:focus, #story:focus {
+    border: 2px solid var(--primary);
+}
+
+.form__submit {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    height: 100px;
+}
+input[type="submit"] {
+    background-color: transparent;
+    border: none;
+    color: var(--primary);
+    background-color: rgb(223, 223, 223);
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
