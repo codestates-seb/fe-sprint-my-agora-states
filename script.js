@@ -107,12 +107,12 @@ form.addEventListener ('submit', (event) => {
   //form.querySelector("div.form__textbox > textarea").value = "";
 
 
-  agoraStatesDiscussions.unshift(obj)
+  localData.unshift(obj)
 
   const discussion = convertToDiscussion(obj);
   ul.prepend(discussion);
 
-  saveDataLocalStorage(agoraStatesDiscussions);
+  saveDataLocalStorage(localData);
 
   //while (ul.firstChild) {ul.removeChild(ul.firstChild);}
 
