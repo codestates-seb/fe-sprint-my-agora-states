@@ -20,7 +20,6 @@ const convertToDiscussion = (obj) => {
   avatarImg.alt = 'avatar of ' + obj.author;
   avatarWrapper.append(avatarImg);
 
-
   const avatarContent = document.createElement('h2');
   avatarContent.className = "discussion__title";
   discussionContent.append(avatarContent);
@@ -36,12 +35,13 @@ const convertToDiscussion = (obj) => {
   avatarTitle.textContent = obj.title;
   avatarContent.append(avatarTitle);
 
-
   const avatarAnswered = document.createElement('p');
   if (obj.answer !== null){
     avatarAnswered.textContent = '✔';
+    avatarAnswered.classList = 'resolved'
   } else {
     avatarAnswered.textContent = '✘';
+    avatarAnswered.classList = 'unresolved'
   }
   discussionAnswered.append(avatarAnswered);
 
@@ -51,57 +51,60 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 // 페이지네이션
-const onePageMax = 10;
-let currentPage = 1;
 
 const render = (element) => {
-  const contentStartIndex = (currentPage - 1) * onePageMax;
-  const contentEndIndex = contentStartIndex + onePageMax;
-  element.innerHTML = "";
-  for (let i = contentStartIndex; i < contentEndIndex && i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  const onePageMax = 10;
+  let currentPage = 1;
+  
+  const renderContent = () => {
+    const contentStartIndex = (currentPage - 1) * onePageMax;
+    const contentEndIndex = contentStartIndex + onePageMax;
+    element.innerHTML = "";
+    for (let i = contentStartIndex; i < contentEndIndex && i < agoraStatesDiscussions.length; i += 1) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    }
+    return;
   }
-  return;
-};
+  renderContent();
 
-const numbering = document.querySelector(".numbering");
-const paging = () => {
-  const totalPage = Math.ceil(agoraStatesDiscussions.length / onePageMax);
-  numbering.innerHTML = "";
-  for(let i = 1; i <= totalPage; i++){
-    const PageNum = document.createElement('a');
-    PageNum.className = "page_num";
-    PageNum.textContent = i;
-
-    PageNum.addEventListener('click', () => {
-      currentPage = i;
-      render(ul);
+  const numbering = document.querySelector(".numbering");
+  const paging = () => {
+    const totalPage = Math.ceil(agoraStatesDiscussions.length / onePageMax);
+    numbering.innerHTML = "";
+    for(let i = 1; i <= totalPage; i++){
+      const PageNum = document.createElement('a');
+      PageNum.className = "page_num";
+      PageNum.textContent = i;
+  
+      PageNum.addEventListener('click', () => {
+        currentPage = i;
+        renderContent();
+      });
+      numbering.append(PageNum);
+    }
+  
+    const prev = document.querySelector(".prev_page")
+    prev.addEventListener('click', () => {
+      if(currentPage > 1){
+        currentPage -= 1;
+        renderContent();
+      }
     });
-    numbering.append(PageNum);
+  
+    const next = document.querySelector(".next_page")
+    next.addEventListener('click', () => {
+      if(currentPage < totalPage){
+        currentPage += 1;
+        renderContent();
+      }
+    });
   }
-
-  const prev = document.querySelector(".prev_page")
-  prev.addEventListener('click', () => {
-    if(currentPage > 1){
-      currentPage--;
-      render(ul);
-    }
-  });
-
-  const next = document.querySelector(".next_page")
-  next.addEventListener('click', () => {
-    if(currentPage < totalPage){
-      currentPage++;
-      render(ul);
-    }
-  });
-}
-paging(numbering)
+  paging(numbering)
+};
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
 convertToDiscussion(agoraStatesDiscussions);
 
 // 글을 작성한 현재 시간
@@ -113,7 +116,6 @@ function CurrentTime() {
   const hours = String(now.getHours()).padStart(2, '0');
   const minutes = String(now.getMinutes()).padStart(2, '0');
   const seconds = String(now.getSeconds()).padStart(2, '0');
-
   let AmPmHours = hours;
 
   const AmPm = AmPmHours >= 12 ? '오후' : '오전';
@@ -123,7 +125,6 @@ function CurrentTime() {
   const currentTime = `${year}-${month}-${date} ${AmPm} ${AmPmHours}:${minutes}:${seconds}`;
   return currentTime;
 }
-
 
 let elSubmitButton = document.querySelector("#submit_button");
 let elTitle = document.querySelector("#title");
@@ -189,5 +190,4 @@ function newQA(event) {
     }
   }
 }
-
 elSubmitButton.addEventListener("click", newQA);
