@@ -1,1 +1,193 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("Fuck\ Yeah\ Pixels!.gif");
+    background-size: cover;
+    background-position: center;
+  }
+
+main {
+    height: 100%;
+    margin-top: 20px;
+    background-color: #000000;
+    border-radius: 5px 5px;
+}
+
+.section_1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #6929F2;
+    border-radius: 5px 5px;
+}
+
+.question_display {
+    display: flex;
+}
+
+.question_1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.question_image {
+    max-width: 200px;
+    max-height: 143px;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#name {
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    width: 143px;
+    margin-left: 8px;
+    background-color: #729bf2;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.question_2 {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F2B807;
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+#story {
+    resize: none;
+    width: 850px;
+    height: 143px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    margin-top: 8px;
+    font-size: 15px;
+    color: rgb(206, 206, 206);
+}
+
+
+.question_3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#submit {
+    border: none;
+    border-radius: 5px;
+    height: 96px;
+    width: 90px;
+    background-color: #14D990;
+    margin-top: 8px;
+}
+
+#init {
+    border: none;
+    border-radius: 5px;
+    height: 96px;
+    width: 90px;
+    background-color: #F24968;
+}
+
+.discussion__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discussion__container {
+    display: flex;
+    
+    width:1100px;
+    margin-top: 8px;
+    background-color: #9B72F2;
+    border-radius: 5px;
+}
+
+.discussion__avatar--image {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.discussion__title {
+    margin-top: 5px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    height: 1px;
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    color: black;
+    overflow: auto;
+}
+
+li {
+    display: flex;
+    list-style: none;
+    color: black;
+    height: 100%;
+}
+
+li > .discussion__content {
+    height: 100%;
+  }
+
+.discussion__Question {
+    display: block;
+}
+
+a {
+    color: black;
+}
+
+::placeholder {
+    color: black;
+}
+
+#story::placeholder {
+    color: white;
+}

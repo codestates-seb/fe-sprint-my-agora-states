@@ -13,48 +13,54 @@
 </head>
 
 <body>
-  <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
-  </main>
+    <main>
+        <section class="section_1">
+            <h1>MY AGORA STATE</h1>
+        </section>
+
+        <section class="question_display">
+            <div class="question_1">
+                <img class="question_image"
+                src="https://avatars.githubusercontent.com/u/79903256?s=64&v=4"
+                alt="">
+                <input type="text" name="name" id="name" placeholder="이름입력" required>
+            </div>
+            <div class="question_2">
+                <input type="text" name="title" id="title" placeholder="제목" required>
+                <textarea id="story" name="story" placeholder="내용을 입력하세요..." required></textarea>
+            </div>
+            <div class="question_3">
+                <button id="submit">submit</button>
+                <button id="init">초기화</button>
+            </div>
+        </section>
+
+        <section class="discussion__wrapper">
+            <ul class="discussions__container">
+              <li class="discussion__container">
+                <div class="discussion__avatar--wrapper">
+                  <img class="discussion__avatar--image"
+                    src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+                    alt="avatar of kimploo">
+                </div>
+                <div class="discussion__content">
+                  <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+                  <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+                  <div class="discussion__Question">
+                  </div>
+                </div>
+                <div class="discussion__answered"><p>☑</p></div>
+              </li>
+              <!-- <li>
+                <div class="questionReal"> 
+                    <p>질문</p>
+                </div>
+              </li> -->
+            </ul>
+          </section>
+
+    </main>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
-
 </html>
