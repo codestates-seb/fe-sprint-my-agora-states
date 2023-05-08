@@ -1,1 +1,115 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: fantasy;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    max-width: 540px;
+    margin: 0 auto;
+    background-color: rgba(49, 175, 112, 0.658)
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.discussion__wrapper {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+    
+}
+
+.discussion__container {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    
+    
+}
+
+
+li {
+    list-style-type: none;  
+    background-color: aliceblue;
+    margin-bottom: 10px;
+    margin: 0 0 30px;
+    border: 4px solid;
+    border-radius: 20px;
+    max-width: 540px;
+    background-color: white;
+}
+
+
+
+
+.discussion__avatar--image {
+    border-radius : 50%;
+    
+}
+
+.discussion__content {
+    padding: 1%;
+}
+
+.discussion__answered {
+    margin-left: 100%;
+}
+
+
+
+.discussion__information {
+    text-align: start;
+}
+
+section.form__container {
+    margin: 0 0 30px;
+    border: 4px solid;
+    border-radius: 20px;
+    max-width: 540px;
+    background-color: white;
+}
+
+.form__container .form {
+    padding: 12px 18px;
+}
+
+.form__container .form__submit {
+    display: flex;
+    justify-content: center;
+    margin: 14px 0 10px;
+    width: 100%;
+  }
+
+.form__container input,
+.form__container textarea {
+    width: 100%;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+p {
+    text-align: right;
+    font-size: 30px;
+    margin: 10px;
+}
+
+img {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    border-radius: 50%;
+    size: 48%;
+}
