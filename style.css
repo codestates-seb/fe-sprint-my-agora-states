@@ -1,1 +1,196 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'DOSIyagiMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSIyagiMedium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'DOSIyagiMedium';
+
+}
+
+.back{
+    background: rgba(55, 126, 126, 1);
+}
+
+main {
+    width: 60%;
+    margin: 4rem 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maintop{
+    color: white;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    width: 100%;
+    height: 3rem;
+    align-items: center;
+}
+
+#main-title{
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+}
+
+.dark-font{
+    color: rgb(0, 0, 0);
+    width: 100%;
+}
+
+.form__submit{
+    display: flex;
+    justify-content: end;
+}
+
+#btn{
+    width: 9rem;
+    font-size: 1.1rem;
+    font-weight:300;
+    height: 2.2rem;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    margin-top: 0.5rem;
+    background-color: rgb(198, 198, 198);
+    border-radius: 4px;
+}
+
+.topback{
+    background-color: rgb(0, 0, 120);
+    border: 3px solid;
+    border-color: rgb(241, 241, 241);
+    box-shadow: 3px 0 3px black;
+}
+
+.inputback{
+    background-color: rgb(192, 192, 192);
+    border: 3px solid;
+    border-color: rgb(241, 241, 241);
+    box-shadow: 3px 0 3px black;
+}
+.mainback{
+    background-color: rgb(192, 192, 192);
+    border: 3px solid;
+    border-color: rgb(241, 241, 241);
+    box-shadow: 3px 3px 3px black;
+}
+
+.footback{
+    height: 2rem;
+    background-color: rgb(192, 192, 192);
+    border: 2px solid;
+    border-color: rgb(241, 241, 241);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.icon{
+    width: 2rem;
+    background-color: rgb(192, 192, 192);
+}
+.soundTime{
+    box-shadow: 0 0 4px inset rgb(138, 138, 138);
+    display: flex;
+    justify-content: center;
+    padding-left: 0.4rem;
+    align-items: center;
+    flex-direction: row;
+}
+.soundTime img{
+    height: 1.5rem;
+}
+.window{
+    width: 5rem;
+    padding-right: 0.5rem;
+    font-size: 0.9rem;
+}
+#time{
+    width: 7rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.program{
+    width: 18rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.agora{
+    border: 2px solid black;
+    box-shadow: 2px 2px 3px inset rgb(138, 138, 138);
+    background-color: rgb(192, 192, 192);
+}
+.agora-active{
+    border: 2px solid black;
+    box-shadow: 2px 0px 3px rgb(138, 138, 138);
+    background-color: rgb(202, 202, 202);
+}
+.notice{
+    text-align: center;
+}
+
+.noticeimage{
+    width: 8rem;
+}
+
+.discussion__avatar--wrapper{
+    width: 64px;
+    height: 64px;
+    margin: 0.5rem;
+    border-radius: 100px;
+
+}
+.discussion__container{
+    width: 100%;
+    border: 1px solid rgb(147, 147, 147);
+    box-shadow: 2px 2px 5px rgb(119, 119, 119);
+    background-color: rgb(158, 158, 158);
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 3px;
+    justify-content:first baseline;
+}
+
+.discussion__container{
+    display: flex;
+    flex-direction: row;
+}
+.discussions__container{
+    padding: 0;
+}
+.scroll{
+    height: 53.3vh;
+    overflow-y: scroll;
+}
+.ul li
+{
+    list-style-type: none;
+}
+
+.avatar_information{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.discussion__content{
+    flex: 1;
+}
+
+.button_box{
+    width: 100%;
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#blank{
+    height: 96.6vh;
+}
+.hide{
+    display: none;
+}
