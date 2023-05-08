@@ -6,6 +6,9 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+  const discussionWrapper = document.createElement("div");
+  discussionWrapper.className = "discussion__userbox";
+
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -25,15 +28,14 @@ const convertToDiscussion = (obj) => {
   const titleLink = document.createElement('h2');
   titleLink.className = "discussion__title";
   discussionContent.append(titleLink);
-  const titleLinkA = document.createElement('a');
+  const titleLinkA = document.createElement('strong');
   titleLink.append(titleLinkA);
-  titleLinkA.href = obj.url;
-  titleLinkA.target = '_blank';
   titleLinkA.textContent = obj.title;
 
   // 답변여부 아이콘 생성
   const icanswerCheck = document.createElement('span');
-  discussionAnswered.append(icanswerCheck)
+  discussionAnswered.append(icanswerCheck);
+  icanswerCheck.textContent = '답변';
   if(obj.answer === null){
     icanswerCheck.classList.add('null')
   }
@@ -44,21 +46,22 @@ const convertToDiscussion = (obj) => {
   createDate.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
   discussionContent.append(createDate);
 
+  discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
+
   // 답변내용 생성
-  // const elAnswer = document.createElement('div');
-  // elAnswer.className = "discussion__answeredBox";
-  // if(obj.answer !== null){
-  //   elAnswer.innerHTML = obj.answer.bodyHTML;
-  // }
+  const answerContainer = document.createElement('div');
+  answerContainer.className = "discussion__answeredBox";
+  const elAnswer = document.createElement('div');
+  elAnswer.className = "discussion__answerTxt";
+  answerContainer.append(elAnswer);
 
+  if(obj.answer !== null){
+    elAnswer.innerHTML = obj.answer.bodyHTML;
+  }else{
+    elAnswer.innerHTML = '<p>등록된 답변이 없습니다 &#128546;</p>'
+  }
 
-
-
-
-
-
-  // li.append(avatarWrapper, discussionContent, discussionAnswered, elAnswer);
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  li.append(discussionWrapper, answerContainer);
   return li;
 };
 
@@ -69,9 +72,6 @@ const render = (element) => {
   }
   return;
 };
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-
 
 let elInpName = document.querySelector('#name');
 let elInpTitle = document.querySelector('#title');
@@ -112,5 +112,46 @@ form.addEventListener("submit", (event) => {
   elInpQuestion.value = "";
 });
 
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// 답변 내용 슬라이드
+let btn = document.querySelectorAll('.discussion__userbox');
+let tarGetAll = document.querySelectorAll('.discussion__answeredBox');
+
+btn.forEach(el => {
+    el.addEventListener('click',function(){
+        let tarGet = this.nextElementSibling;
+        tarGet.style.height = 'auto';
+        let _He = tarGet.clientHeight;
+        tarGet.style.height = '0';
+
+        if(el.classList.contains('active')){
+            tarGet.style.height = _He +'px';
+            setTimeout(function() {
+                tarGet.style.height = '0';
+            }, 0);
+        } else {
+            setTimeout(function() {
+                tarGet.style.height = _He +'px';
+            }, 0);
+        }
+
+        btn.forEach(sEl => {
+            if(sEl !== el){
+                if(sEl.classList.contains('active')){
+                    sEl.click();
+                }
+            }
+        });
+
+        el.classList.toggle("active");
+    })
+});
+
+// 페이지네이션
+// const pageLength = document.querySelectorAll('.discussion__container').length;
+// const showPage = 5;
+// const maxPage = Math.ceil(pageLength / showPage);
+

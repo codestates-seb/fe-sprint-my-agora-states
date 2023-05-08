@@ -20,7 +20,7 @@
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" placeholder="이름" required>
+            <input type="text" name="name" id="name" placeholder="이름" autocomplete="off" required>
           </div>
           <div class="form__input--title">
             <label for="title">Enter your title: </label>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="form__submit">
-          <input type="submit" value="submit">
+          <button class="submit" type="submit">submit</button>
         </div>
       </form>
     </section>
@@ -50,6 +50,10 @@
           </div>
           <div class="discussion__answered"><span></span></div>
         </li> -->
+      </ul>
+
+      <ul class="pagination">
+        <li><a href="#">1</a></li>
       </ul>
     </section>
   </main>
