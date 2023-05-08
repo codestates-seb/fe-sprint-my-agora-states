@@ -23,6 +23,3 @@
 - [ ] 새 포스트 등록 시 이미지 업로드
 - [ ] 로그인, 회원가입
 - [ ] 답변 완료 체크
-
-
-## [Link](https://hanbinchoi.github.io/fe-sprint-my-agora-states/)
