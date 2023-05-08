@@ -97,7 +97,7 @@ h5 {
     background-color: transparent;
     font-family: 'paintthesky';
     color:rgba(151, 6, 37, 0.84);
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 .submit__but:hover{
@@ -105,7 +105,7 @@ h5 {
 }
 .submit__but:hover:after{
     content: attr(data-hover);
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .form__submit{
