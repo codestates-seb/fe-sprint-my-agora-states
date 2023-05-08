@@ -98,13 +98,13 @@ h1{
 }
 
 .form__submit {
- border-radius: 10px;
- background-color: #FFEAD2;
- width: 20%;
- margin: 5px 5px;
- display: flex;
- flex-direction: row;
- justify-content: center;
+    border-radius: 10px;
+    background-color: #FFEAD2;
+    width: 20%;
+    margin: 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .form__submit input{
@@ -128,27 +128,27 @@ h1{
 }
 
 .discussions__container{
-/* border: 1px solid red;*/
- font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
- width: 100%;
+    /* border: 1px solid red;*/
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
 }
 
 .discussion__container{
-   /*border: 1px solid rgb(2, 58, 46);*/
-   border-radius: 10px;
-   background-color: #f3eee99b;
-   margin: 10px 0px;
-   display: flex;
-   justify-content: flex-start;
-   list-style-type: none;
+    /*border: 1px solid rgb(2, 58, 46);*/
+    border-radius: 10px;
+    background-color: #f3eee99b;
+    margin: 10px 0px;
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
 }
 
 .discussion__avatar--wrapper{
-/*border: 1px solid purple;*/
-  width: 48px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
+    /*border: 1px solid purple;*/
+    width: 48px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .discussion__avatar--image{
@@ -157,23 +157,23 @@ h1{
 }
 
 .discussion__content{
-   /*border: 1px solid yellow;*/
+    /*border: 1px solid yellow;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex: 1 1 auto;
-
 }
 
 .discussion__title{
-  /*border: 1px solid orange;*/  
-  font-size: medium;  
- 
+    /*border: 1px solid orange;*/  
+    font-size: medium;  
 }
+
 .discussion__title a{
     color: #354676;
     font-weight: 600;
 }
+
 .discussion__title a:hover{
     cursor: pointer;
     color: #d07e20;
@@ -181,19 +181,110 @@ h1{
 }
 
 .discussion__information{
- /*border: 1px solid blue;*/
- color: #354676;
- text-align: end;   
+    /*border: 1px solid blue;*/
+    color: #354676;
+    text-align: end;   
 }
 
 .discussion__answered {
-   /*border: 1px solid green;*/
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   font-size: 30px;
+    /*border: 1px solid green;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30px;
+}
 
-   
+.pages{
+    /*border: 1px solid black;*/
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination{
+    /*border: 1px solid red;*/
+    list-style-type: none;
+    display:inline-block;
+    padding: 0%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagination li{
+    display: inline;
+    text-align: center;
+}
+
+.pagination a{
+    float: left;
+    display: block;
+    font-size: 18px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(4, 85, 105);
+    text-decoration: none;
+    padding: 5px 5px;
+    line-height: 1.5;
+}
+
+.pagination a.active{
+    cursor: default;
+    color: #864d0c;
+}
+
+.pagination a:active{
+    outline: none;
+}
+
+.first{
+    margin-right: 15px;
+}
+
+.first:hover{
+    color: #d07e20;
+}
+
+.last{
+    margin-left: 15px;
+}
+
+.last:hover{
+    color: #d07e20;
+}
+
+.left:hover{
+    color: #d07e20;
+}
+
+.right:hover{
+    color: #d07e20;
+}
+
+.modal .num{
+    /*border: 1px solid red;*/
+    margin-left: 3px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 100%;
+}   
+
+.modal .num:hover{
+    background-color: #d07e20;
+    color: #864d0c;
+}
+
+.modal .num.active{
+    background-color: #d07e20;
+    cursor: pointer;
+}
+
+.modal .num:active{
+    background-color: #d07e20;
+    cursor: pointer;
 }
 
 
