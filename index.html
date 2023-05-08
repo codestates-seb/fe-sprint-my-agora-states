@@ -36,47 +36,44 @@
           <span></span>
         </label>
         <div class="sidebar">
-          <ul>
-            <li>
-              <a class="item" id="askmodal"><div>글쓰기</div></a>
-              <div class="modal">
-                <section class="form__container">
-                  <form action="" method="get" class="form">
-                    <div class="form__input--wrapper">
-                      <div class="form__input--name">
-                        <label for="name">작성자 </label>
-                        <input type="text" name="name" id="name" required />
-                      </div>
-                      <div class="form__input--title">
-                        <label for="title">제목 </label>
-                        <input type="text" name="title" id="title" required />
-                      </div>
-                      <div class="form__textbox">
-                        <label for="story">질문 </label>
-                        <textarea
-                          id="story"
-                          name="story"
-                          placeholder="질문을 작성하세요"
-                          required
-                        ></textarea>
-                        <div class="form__submit">
-                          <input type="submit" value="글작성" />
-                        </div>
+          <div class="accordion">
+            <input type="checkbox" id="list01" />
+            <label for="list01"><p class="write">글쓰기</p></label>
+            <div>
+              <section class="form__container">
+                <form action="" method="get" class="form">
+                  <div class="form__input--wrapper">
+                    <div class="form__input--name">
+                      <label for="name">작성자 </label>
+                      <input type="text" name="name" id="name" required />
+                    </div>
+                    <div class="form__input--title">
+                      <label for="title">제목 </label>
+                      <input type="text" name="title" id="title" required />
+                    </div>
+                    <div class="form__textbox">
+                      <label for="story">질문 </label>
+                      <textarea
+                        id="story"
+                        name="story"
+                        placeholder="질문을 작성하세요"
+                        required
+                      ></textarea>
+                      <div class="form__submit">
+                        <input type="submit" value="글작성" />
                       </div>
                     </div>
-                  </form>
-                </section>
-              </div>
-            </li>
-            <li>
-              <a class="item"><div>작성한 글</div></a>
-            </li>
-            <li>
-              <a class="item"><div>로그아웃</div></a>
-            </li>
-          </ul>
-        </div>
-      </div>
+                  </div>
+                </form>
+              </section>
+            </div>
+            <input type="checkbox" id="list01" />
+            <label for="list01">작성한 글</label>
+            <div><p>ㅁㄴㅇㅁㄴㅇ</p></div>
+            <input type="checkbox" id="list01" />
+            <label for="list01">로그아웃</label>
+            <div>ㅁㄴㅇㅁㄴㅁㅁㅁㅁㅇ</div>
+          </div>
     </nav>
 
     <main>
