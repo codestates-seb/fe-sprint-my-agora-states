@@ -17,6 +17,7 @@ const convertToDiscussion = (obj) => {
 	const avatarImg = document.createElement('img');
 	avatarImg.className = 'discussion__avatar--image';
 	avatarImg.src = obj.avatarUrl;
+	avatarImg.alt = `avatar of` + obj.author;
 	avatarWrapper.append(avatarImg);
 
 	//content
@@ -27,7 +28,7 @@ const convertToDiscussion = (obj) => {
 	const discussionTitle = document.createElement('h2');
 	discussionTitle.className = 'discussion__title';
 	const discussionLink = document.createElement('a');
-	discussionLink.setAttribute('href', obj.url);
+	discussionLink.href = obj.url;
 	discussionLink.textContent = obj.title;
 	discussionTitle.appendChild(discussionLink);
 	discussionContent.append(discussionTitle);
@@ -100,7 +101,7 @@ inputedTitle.addEventListener('keyup', () => {
 		inputedTitle.classList = 'error';
 		errMsg.classList.remove('hide');
 		errMsg.textContent = 'Title is empty';
-	} else if (titleValue.length > 15) {
+	} else if (titleValue.length > 20) {
 		inputedTitle.classList = 'error';
 		errMsg.classList.remove('hide');
 		errMsg.textContent = 'Title is too long';
@@ -130,12 +131,34 @@ inputedQuestion.addEventListener('keyup', () => {
 	}
 });
 
-submitBtn.addEventListener('click', (e) => {
-	e.preventDefault();
+// form.addEventListener('submit', (e) => {
+// 	e.preventDefault();
 
-	console.log(inputedName.value);
-	console.log(inputedTitle.value);
-	console.log(inputedQuestion.value);
+// 	//object 생성
+// 	const obj = {
+// 		id: 'unique od',
+// 		createdAt: new Date().toISOString(),
+// 		title: inputedTitle.value,
+// 		url: 'https://github.com/codestates-seb/agora-states-fe/discussions',
+// 		author: inputedName.value,
+// 		answer: null,
+// 		bodyHTML: inputedQuestion.value,
+// 		avatarUrl: 'https://avatars.githubusercontent.com/u/87750478?s=64&v=4',
+// 	};
+
+// 	//agorastatesdiscussion 추가
+// 	agoraStatesDiscussions.unshift(obj);
+
+// 	while (ul.firstChild) {
+// 		ul.removeChild(ul.firstChild);
+// 	}
+
+// 	render(ul);
+// 	console.log(agoraStatesDiscussions.length);
+// });
+
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
 
 	//value variables
 	const nameValue = inputedName.value;
@@ -149,17 +172,15 @@ submitBtn.addEventListener('click', (e) => {
 	const newDiscussion = document.createElement('li');
 	newDiscussion.className = 'discussion__container';
 
-	// avatar
+	//! avatar
 	const avatarWrapper = document.createElement('div');
 	avatarWrapper.className = 'discussion__avatar--wrapper';
 	const avatarImage = document.createElement('img');
 	avatarImage.className = 'discussion__avatar--image';
-	avatarImage.setAttribute(
-		'src',
-		'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4'
-	);
+	avatarImage.src =
+		'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4';
 
-	//! user inputed discussion content
+	//! title & question
 	const discussionContent = document.createElement('div');
 	discussionContent.className = 'discussion__content';
 	const contentTitle = document.createElement('h2');
@@ -169,7 +190,7 @@ submitBtn.addEventListener('click', (e) => {
 		'href',
 		'https://github.com/codestates-seb/agora-states-fe/discussions/6'
 	);
-	contentLink.textContent = `[${titleValue}] ${questionValue}`;
+	contentLink.textContent = `${titleValue}`;
 
 	//! user info discussion information
 	const discussionInfo = document.createElement('div');
@@ -216,21 +237,21 @@ submitBtn.addEventListener('click', (e) => {
 	//data.js
 	let exisitingArr = agoraStatesDiscussions;
 
-	let viewDate =
-		(discussionInfo.textContent = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`);
-
-	//generate random 2digits for the id
+	// id : 마지막 2개 숫자 random 생성
 	let generateLastDigit = Math.floor(Math.random() * 99) + 1;
 
-	//push the new inputted object into array
-	let discussionSubmit = {
+	// 새로운 agoraStatesDiscussions obj 생성하고 추가하기
+	let discussionSubmitted = {
 		id: `D_kwDOHOApLM4APfj${generateLastDigit}`,
-		createdAt: viewDate,
-		author: inputedName.value,
-		title: inputedTitle.value,
+		createdAt: new Date().toISOString(),
+		title: titleValue,
+		url: 'https://github.com/codestates-seb/agora-states-fe/discussions/42',
+		author: nameValue,
+		answer: null,
+		bodyHTML: questionValue,
 	};
 
-	exisitingArr.push(discussionSubmit);
+	exisitingArr.unshift(discussionSubmitted);
 	console.log(agoraStatesDiscussions);
 
 	form.reset();
