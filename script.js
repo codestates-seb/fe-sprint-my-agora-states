@@ -110,7 +110,7 @@ form.addEventListener("submit", (event) => {
     url: "",
     author: author.value,
     bodyHTML: textbox.value,
-    avatarUrl: "/imgs/head_image.png"
+    avatarUrl: "./imgs/head_image.png"
   }
 
   agoraStatesDiscussions.unshift(newObj);
