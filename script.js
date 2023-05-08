@@ -43,39 +43,6 @@ const convertToDiscussion = (obj) => {
   // 글 내용
   let isClicked = false;
   li.addEventListener('click', () => {
-    // if (!isClicked) {
-    //   isClicked = true;
-    //   li.classList.add('clicked');
-    //   const questionDetail = document.createElement('div');
-    //   questionDetail.className = 'question__detail';
-    //   questionDetail.insertAdjacentHTML('beforeend', `
-    //   <div class="question__content">
-    //     ${obj.bodyHTML}
-    //   </div>
-    //   `);
-    //   if (obj.answer) {
-    //     questionDetail.insertAdjacentHTML('beforeend', `
-    //       <div class="answer__content">
-    //         ${obj.answer.bodyHTML}
-    //       </div>
-    //     `);
-    //   }
-    //   questionDetail.insertAdjacentHTML('beforeend', `
-    //     <div class="question__detail--close-button>
-    //       <button type="button">close</button>
-    //     </div>
-    //   `);
-
-    //   li.insertAdjacentElement('afterend', questionDetail);
-
-    //   document.querySelector('.question__detail--close-button').addEventListener('click', () => {
-    //     isClicked = false;
-    //     li.classList.remove('clicked');
-    //     const questionContent = li.nextElementSibling;
-    //     if (questionContent && questionContent.classList.contains('question__detail')) {
-    //       questionContent.remove();
-    //     }
-    //   })
     if (!isClicked) {
       isClicked = true;
       li.classList.add('clicked');
