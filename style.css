@@ -1,1 +1,216 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    padding-left: 20px;
+    width: 120px;
+    justify-content: center;
+}
+
+main{
+    text-align: left;
+    margin-bottom: 20px;
+    padding-top: 70px;
+    background-image: url(https://images.squarespace-cdn.com/content/v1/59537bd31b631bb146135910/1621570189474-FVM9ZTI715N761JGPNTV/networking.gif?format=1500w);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: 70px;
+    background-size: 850px 550px;
+    
+}
+
+.form__container{
+    margin-left: 10%;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form__input--name{
+    margin-top: 30px;
+}
+
+.fixed_menu{
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px #e1e1e1;
+    opacity: 80%;
+    position: fixed;
+}
+
+.fixed_menu_list {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding-right: 20px;
+    color: #646464;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 70px;
+    padding-bottom: 10px;
+    color: #3e3e3e;
+    font-size: 40px;
+}
+
+.discussion__title{
+   font-size: 12px;
+   color: #646464;
+   text-align: left;
+   font-family: 'GmarketSansMedium';
+}
+
+ul, li{ 
+   list-style: none;
+}
+
+.discussion__avatar--image{
+    border-radius: 50px;
+    width: 48px;
+}
+
+.discussions__container {
+    display: flex;
+    justify-content: center;
+    padding: 48px;
+    flex-wrap: wrap;
+  }
+
+.discussion__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 8px #e1e1e1;
+    align-items: center;
+    width: 20vw;
+    min-width: 300px;
+    max-width: 500px;
+    height: 200px;
+  }
+
+  .discussion__content > div {
+    display: flex;
+    justify-content: flex-start;
+    border-top: 0.5px solid #5d5d5d;
+    padding-top: 10px;
+  }
+  .discussion__content {
+  margin: 0 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.discussion__container:hover{
+    box-shadow: inset 0 0 10px #c5c5c5;
+}
+
+.discussion__information{
+    font-size: 6px;
+    text-align: left;
+    color: #c5c5c5;
+    margin-top: 5px;
+    font-family: 'GmarketSansMedium';
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+input[type=text] {
+    width: 400px;
+    height: 30px;
+    border-style: none;
+    border-bottom: 0.5px solid darkgray;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #5d5d5d;
+    font-family: 'GmarketSansMedium';
+}
+
+input::placeholder{
+    color: #c5c5c5;
+    font-family: 'Poppins', sans-serif;
+}
+input:focus {
+    outline: none;
+}
+
+#story{
+    border: none; 
+    border-bottom: 0.5px solid darkgray;
+    width: 400px;
+    height: 120px;
+    padding-top: 5px;
+    padding-left: 10px;
+    margin-bottom: 30px;
+    color: #5d5d5d;
+    font-family: 'GmarketSansMedium';
+    resize: none;
+}
+
+#story::placeholder{
+    color: #c5c5c5;
+    font-family: 'Poppins', sans-serif;
+}
+
+#story:focus {
+    outline: none;
+}
+
+input[type=submit] {
+    width: 100px;
+    height: 30px;
+    border-style: none;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    border: 1px solid rgb(82, 82, 82);
+    color: rgb(113, 113, 113);
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type=submit]:hover{
+    color: #2b2b2b;
+}
+
+.top:hover{
+    background-color: #ffffff;
+    color: #2b2b2b;
+    border: 0.5px solid darkgray;
+}
+
+.top{
+    width: 35px;
+    height: 35px;
+    font-size: 5px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    border-style: none;
+    color: #2b2b2b;
+}
+
+

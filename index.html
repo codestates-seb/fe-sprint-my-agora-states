@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -13,28 +16,41 @@
 </head>
 
 <body>
+  <nav class="fixed_menu">
+    <ul class="fixed_menu_list">
+    <li>
+      <a href="https://www.codestates.com/?gad=1&gclid=Cj0KCQjw9deiBhC1ARIsAHLjR2Be4P6FJDRxiO_mne-xLPAn6zIuJAB6Z3miX7zBTCPJMfKZ7IvhpBQaAlsIEALw_wcB" target="_blank"><img class="logo" src="https://www.codestates.com/assets/common/logo/codestates-ci.png" /></a>
+    </li>
+    <li>
+      <a class="urclass" href="https://urclass.codestates.com/" target="_blank">urclass</a>
+    </li>
+  </ul>
+  </nav>
   <main>
-    <h1>My Agora States</h1>
+    <button class="top">top</button>
+    <section id="intro">
     <section class="form__container">
+      <h1>My Agora States</h1>
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name"> </label>
+            <input type="text" name="name" id="name" placeholder = "name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
+            <label for="title"></label>
+            <input type="text" name="title" id="title" placeholder=" Title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            <label for="story"> </label>
+            <textarea id="story" name="story" placeholder="Write a question!" required></textarea>
           </div>
         </div>
         <div class="form__submit">
           <input type="submit" value="submit">
         </div>
       </form>
+    </section>
     </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
@@ -48,9 +64,10 @@
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered"><p>😉</p></div>
         </li>
       </ul>
+      </div>
     </section>
   </main>
 </body>
