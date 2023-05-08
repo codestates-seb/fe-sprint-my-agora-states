@@ -56,7 +56,14 @@ h1 {
   align-items: center;
 }
 #submit{
-  justify-content: center;
+  width: 200px;
+  height: 25px;
+  background-color: #E4F9F5;
+  border: 1px solid #E4F9F5;
+  border-radius: 20px;
+}
+#submit:active{
+  background-color: #00dcb4;
 }
 /*리스트*/
 .discussion__wrapper {

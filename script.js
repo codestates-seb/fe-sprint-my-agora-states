@@ -34,7 +34,7 @@ const convertToDiscussion = (obj) => {
 
   const ptag = document.createElement("p");
   if (obj.answer === null) {
-    ptag.textContent = "☐";
+    ptag.textContent = "☒";
   } else {
     ptag.textContent = "☑";
   }
@@ -58,14 +58,15 @@ render(ul);
 
 //데이터를 입력하여 저장하는 함수
 const submitButton = document.querySelector(".form");
+let dislist = [];
 submitButton.addEventListener("submit" , function(event){
   event.preventDefault();
   let name = document.querySelector("#name").value;
   let title_t = document.querySelector("#title").value;
   let story = document.querySelector("#story").value;
-  new_li = {
+  const new_li = {
     id: "D_kwDOHOApLM4APjJi",
-    createdAt: "2022-05-16T01:02:17Z",
+    createdAt: new Date((new Date()).getTime() + (1000*60*60*9)).toISOString(),
     title: title_t,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: name,
@@ -77,4 +78,19 @@ submitButton.addEventListener("submit" , function(event){
   }
   agoraStatesDiscussions.unshift(new_li);
   ul.insertBefore(convertToDiscussion(new_li),ul.firstChild);
+  dislist.push(new_li);
+  localStorage.setItem("discuss",JSON.stringify(dislist));
 });
+
+//로컬 스토리지 이용해 새로고침해도 데이터가 유지되도록 만들기
+window.onload = function() {
+  let storedD = JSON.parse(localStorage.getItem("discuss"));
+  console.log(storedD);
+  if(storedD){
+    for(let i = 0; i < storedD.length;i++){
+    agoraStatesDiscussions.unshift(storedD[i]);
+    ul.insertBefore(convertToDiscussion(storedD[i]),ul.firstChild);
+    }
+  }
+  dislist = storedD;
+};
