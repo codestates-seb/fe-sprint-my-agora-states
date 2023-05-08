@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // 0. 배열 불러오기
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -25,7 +22,17 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement('h2');
   discussionTitle.className = 'discussion__title';
   discussionTitle.textContent = obj.title;
+  // discussionTitle.innerHTML = `<a href="${obj.url}">${obj.title}</a>`
   discussionContent.append(discussionTitle);
+
+  // 질문과 답변 모음
+  function getBodyAndAnswer(id) {
+    const data = require('./data');
+    const qa = data.find(qa => qa.id === id);
+    const bodyHTML = qa.bodyHTML;
+    const answer = qa.answer.bodyHTML;
+    return { bodyHTML, answer };
+  }
 
   const discussionInfo = document.createElement('div');
   discussionInfo.className = 'discussion__information';
@@ -40,18 +47,6 @@ const convertToDiscussion = (obj) => {
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
 
 // 1. 새로운 값을 입력했을 때 배열 추가
 const form = document.querySelector('.form');
@@ -72,7 +67,10 @@ form.addEventListener('submit', (event) => {
     content: story,
   };
 
-  agoraStatesDiscussions.push(newDiscussion); // 새로운 데이터를 배열에 추가
+  // 로컬 스토리지에 값을 저장합니다.
+  localStorage.setItem('agoraStatesDiscussions', JSON.stringify([newDiscussion, ...JSON.parse(localStorage.getItem('agoraStatesDiscussions') || "[]")]));
+
+  agoraStatesDiscussions.unshift(newDiscussion); // 새로운 데이터를 배열에 추가
 
   // 화면에 렌더링
   const ul = document.querySelector("ul.discussions__container");
@@ -85,4 +83,100 @@ form.addEventListener('submit', (event) => {
   document.querySelector('#story').value = "";
 });
 
-// commit test
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const render = (element) => {
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
+
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
+render(ul);
+
+// 2. 페이지네이션
+// 페이지네이션 요소 불러오기
+const pagination = document.querySelector("#pagination");
+const firstPage = pagination.querySelector(".pageDivision:first-child");
+const prevPage = pagination.querySelector(".pageDivision:nth-child(2)");
+const currentPage = pagination.querySelector(".current-page");
+const nextPage = pagination.querySelector(".pageDivision:nth-child(4)");
+const lastPage = pagination.querySelector(".pageDivision:last-child");
+
+// 페이지네이션 정보 설정
+const discussionsPerPage = 10;
+const totalPages = Math.ceil(agoraStatesDiscussions.length / discussionsPerPage);
+let currentPageIndex = 1;
+
+// 페이지네이션 요소 업데이트
+const updatePagination = () => {
+  currentPage.textContent = currentPageIndex;
+
+  if (currentPageIndex === 1) {
+    firstPage.classList.add("disabled");
+    prevPage.classList.add("disabled");
+  } else {
+    firstPage.classList.remove("disabled");
+    prevPage.classList.remove("disabled");
+  }
+
+  if (currentPageIndex === totalPages) {
+    nextPage.classList.add("disabled");
+    lastPage.classList.add("disabled");
+  } else {
+    nextPage.classList.remove("disabled");
+    lastPage.classList.remove("disabled");
+  }
+};
+
+// 페이지 버튼 클릭 시 페이지 이동
+firstPage.addEventListener("click", () => {
+  if (currentPageIndex !== 1) {
+    currentPageIndex = 1;
+    updatePagination();
+    renderDiscussions();
+  }
+});
+
+prevPage.addEventListener("click", () => {
+  if (currentPageIndex !== 1) {
+    currentPageIndex -= 1;
+    updatePagination();
+    renderDiscussions();
+  }
+});
+
+nextPage.addEventListener("click", () => {
+  if (currentPageIndex !== totalPages) {
+    currentPageIndex += 1;
+    updatePagination();
+    renderDiscussions();
+  }
+});
+
+lastPage.addEventListener("click", () => {
+  if (currentPageIndex !== totalPages) {
+    currentPageIndex = totalPages;
+    updatePagination();
+    renderDiscussions();
+  }
+});
+
+// 페이지에 따라 토론 목록 렌더링
+const renderDiscussions = () => {
+  const startIndex = (currentPageIndex - 1) * discussionsPerPage;
+  const endIndex = startIndex + discussionsPerPage;
+  const discussions = agoraStatesDiscussions.slice(startIndex, endIndex);
+
+  const ul = document.querySelector("ul.discussions__container");
+  ul.innerHTML = "";
+
+  for (let i = 0; i < discussions.length; i += 1) {
+    ul.append(convertToDiscussion(discussions[i]));
+  }
+};
+
+// 초기화
+updatePagination();
+renderDiscussions();

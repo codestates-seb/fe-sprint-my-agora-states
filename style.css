@@ -4,30 +4,36 @@ main {
     flex-direction: column;
     min-height: 100vh;
     box-sizing: border-box;
-    background-color: rgb(145, 127, 179);
+    background-color: rgb(249, 249, 249);
 }
 
 main h1 {
-    background-color: rgb(229, 190, 236);
-    width: 540px;
+    background-color: rgb(250, 244, 183);
+    width: 700px;
     padding: 20px;
+    border: 3px solid rgb(179, 127, 145);
+    text-align: center;
 }
 
 form {
-    background-color: rgb(253, 226, 243);
-    width: 540px;
+    background-color: rgb(250, 244, 183);
+    width: 700px;
     padding: 20px;
     margin-bottom: 10px;
+    border: 2px solid rgb(179, 127, 145);
 }
 
 .discussion__wrapper {
-    width: 540px;
+    width: 700px;
     padding: 20px;
-    background-color: rgb(253, 226, 243);
+    background-color: rgb(250, 244, 183);
+    border: 2px solid rgb(179, 127, 145);
 }
 
 li {
     list-style-type: none;
+    background-color: rgb(249, 249, 249);
+    margin: 10px;
 }
 
 .discussion__avatar--image {
@@ -42,7 +48,7 @@ li {
 
 .discussion__container {
     display: flex;
-    border: 3px red solid;
+    border-radius: 10%;
     padding: 20px;
 }
 
@@ -71,9 +77,10 @@ li {
 }
 
 .form__input--wrapper>div label {
-    width: 120px;
+    width: 200px;
     text-align: right;
     margin-right: 5px;
+    font-size: 20px;
 }
 
 .form__input--wrapper>div input {
@@ -82,13 +89,56 @@ li {
 
 .form__input--wrapper>div textarea {
     flex-grow: 3;
+    resize: vertical;
 }
 
 .form__submit input {
-    width: 120px;
+    width: 100%;
     height: 30px;
+    background-color: rgb(205, 240, 234);
+    font-size: 20px;
 }
 
-textarea {
-    resize: vertical;
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pageDivision {
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.current-page {
+    background-color: #007bff;
+    color: #fff;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a:active {
+    color: green;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 120%;
 }
