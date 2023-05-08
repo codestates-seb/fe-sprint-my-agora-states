@@ -154,7 +154,7 @@ h2 {
 }
 
 .discussion__content > p {
-    display: none;
+    visibility:hidden
 }
 
 .discussion__information {
