@@ -13,6 +13,7 @@ submitBox.onclick = function () {
   str.author = masterName.value;
   str.title = masterTitle.value;
   str.bodyHTML = masterQuestion.value;
+  str.createdAt = new Date().getTime();
   agoraStatesDiscussions.unshift(str);
   str = {};
   const tweets = document.querySelectorAll(".discussion__container");
@@ -31,7 +32,7 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.className = "discussion__avatar--wrapper";
   const avatarImg = document.createElement("img");
   avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = agoraStatesDiscussions[i].avatarUrl;
+  avatarImg.src = obj.avatarUrl;
   avatarImg.width = "64";
   avatarImg.height = "64";
   avatarWrapper.append(avatarImg);
@@ -40,15 +41,15 @@ const convertToDiscussion = (obj) => {
   const discussionTitle = document.createElement("h5");
   discussionTitle.className = "discussion__title";
   const discussionTitleAtag = document.createElement("a");
-  discussionTitleAtag.href = agoraStatesDiscussions[i].url;
+  discussionTitleAtag.href = obj.url;
   discussionTitle.append(discussionTitleAtag);
-  discussionTitleAtag.textContent = agoraStatesDiscussions[i].title;
+  discussionTitleAtag.textContent = obj.title;
   const discussionInfo = document.createElement("div");
-  discussionInfo.textContent = `${
-    agoraStatesDiscussions[i].author
-  } / ${new Date(
-    agoraStatesDiscussions[i].createdAt || Date.now()
-  ).toLocaleTimeString()}`;
+  discussionInfo.textContent = `${obj.author} / ${
+    obj.createdAt
+      ? new Date(obj.createdAt).toLocaleTimeString()
+      : new Date().toLocaleTimeString()
+  }`;
 
   discussionContent.append(discussionTitle, discussionInfo);
   const discussionAnswered = document.createElement("div");
