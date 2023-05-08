@@ -1,6 +1,11 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+for (let i = 0; i < localStorage.length; i++) {
+  // 초기값 0 , 로컬스토리지에 길이에 값, 증감식
+  agoraStatesDiscussions.unshift(JSON.parse(localStorage.getItem(`${i}`)));
+}
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -56,21 +61,21 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// submit을 클릭하면 자료를 가져온다
+
 // 화면에 그리는 작업을 렌더링이라고 하는데 지금 이 함수는 렌더링함수 이렇게 호출하면서 끝난다.
 
 // 디스커션 추가 구현
-
 // 문서 내용 가져오기.
 const form = document.querySelector("form.form");
-const author = form.querySelector("div.form__input--name > input");
-const title = form.querySelector("div.form__input--title > input");
-const textbox = form.querySelector("div.form__itextbox > textarea");
+const author = form.querySelector("input#name");
+const title = form.querySelector("input#title");
+const textbox = form.querySelector("textarea#story");
 
 // submit을 클릭하면 자료를 가져온다
-
 form.addEventListener("submit", (event) => {
-  event.preventDefault(); //서브밋 이벤트로 사용시 꼭 함께 사용해주어야함
-  const obj = {
+  event.preventDefault(); //서브밋 이벤트가 될때 새로고침이 안되게 막는다.
+  const newObj = {
     id: "new id",
     createdAt: new Date().toISOString(),
     title: title.value,
@@ -80,10 +85,15 @@ form.addEventListener("submit", (event) => {
     avatarUrl:
       "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
   };
+  agoraStatesDiscussions.unshift(newObj);
+  const discussion = convertToDiscussion(newObj);
+  ul.prepend(discussion);
+
+  const objString = JSON.stringify(newObj);
+  window.localStorage.setItem(`${window.localStorage.length}`, objString);
+
+  //제출 후 리셋
+  title.value = "";
+  author.value = "";
+  textbox.value = "";
 });
-
-agoraStatesDiscussions.unshift(obj);
-
-const discussion = convertToDiscussion(obj);
-
-ul.prepend(discussion);
