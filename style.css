@@ -1,1 +1,118 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: rgb(250, 190, 211);
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(216, 148, 172);
+
+  }
+
+.head {
+    width: 100%;
+    height: 150px;
+    background-image : url(https://wallpaperaccess.com/full/8278296.gif);
+    background-position: center 30%;
+    background-size: cover;
+    color: rgb(226, 107, 170);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
+li.discussion__container {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    margin-bottom:0.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    list-style-type: none;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex : 0 0 0;
+    padding: 1rem;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100% ;
+}
+
+.discussion__avatar--image {
+    width: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(124, 105, 109);
+  }
+
+.form__input--wrapper {
+    border-radius: 5px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 95%;
+    max-width: 500px;
+    margin: 20px auto 20px auto;
+    box-shadow: 0px 0px 10px 2px rgb(252, 139, 179);
+    padding: 20px;
+}
+
+.form__submit {
+    margin-top: 10px;
+}
+
+.btn-11 {
+    border: none;
+    background: rgb(251,33,117);
+      background: linear-gradient(0deg, rgba(251,33,117,1) 0%, rgba(234,76,137,1) 100%);
+      color: #fff;
+      overflow: hidden;
+  }
+  .btn-11:hover {
+      text-decoration: none;
+      color: #fff;
+  }
+  .btn-11:before {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      top: -180px;
+      left: 0;
+      width: 30px;
+      height: 100%;
+      background-color: #fff;
+      animation: shiny-btn1 3s ease-in-out infinite;
+  }
+  .btn-11:hover{
+    opacity: .7;
+  }
+  .btn-11:active{
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  }
+  
+  
+  @keyframes shiny-btn1 {
+      0% { -webkit-transform: scale(0) rotate(180deg); opacity: 0; }
+      80% { -webkit-transform: scale(0) rotate(180deg); opacity: 0.4; }
+      81% { -webkit-transform: scale(4) rotate(180deg); opacity: 0.6; }
+      100% { -webkit-transform: scale(100) rotate(180deg); opacity: 0; }
+  }
