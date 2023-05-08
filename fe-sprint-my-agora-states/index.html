@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agora States</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+      integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <main>
+      <header class="outer-container">
+        <div
+          class="image-container"
+          style="background-image: url(img/headeriamge.png)"
+        >
+          <h1 class="section-title on-dark">
+            <span class="paralax-title">MY AGORA STATES</span>
+          </h1>
+        </div>
+        <h1 class="section-title">
+          <span class="paralax-title">MY AGORA STATES</span>
+        </h1>
+      </header>
+      <section class="form__container">
+        <button type="img" class="imgbutton">
+          <img
+            src="img/07995A22-1756-49CB-AD53-A29B8546F119.PNG"
+            class="prebutton"
+            width="510px"
+          />
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--title">
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="title"
+                  required
+                />
+              </div>
+              <div class="form__textbox">
+                <textarea
+                  id="story"
+                  name="story"
+                  placeholder="writedown your question"
+                  required
+                ></textarea>
+              </div>
+              <div class="form__input--name">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="What's your name?"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form__submit">
+              <input type="submit" value="submit" />
+            </div>
+          </form>
+        </button>
+      </section>
+      <section class="discussion__wrapper">
+        <ul class="discussions__container"></ul>
+      </section>
+    </main>
+  </body>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</html>
