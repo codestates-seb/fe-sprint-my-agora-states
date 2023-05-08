@@ -12,13 +12,13 @@
 }
 
 html {
-  width: 100vw;
+  width: 100%;
+  min-width: 1500px;
 }
 
 body {
   margin: 0px;
   padding-top: 100px;
-  padding-left: 0px;
   padding-right: 0px;
   display: flex;
   flex-direction: column;
@@ -49,7 +49,6 @@ a {
 textarea,
 input {
   width: 500px;
-  overflow: auto;
   margin: 1px;
 }
 
@@ -63,17 +62,15 @@ textarea {
 
 main {
   display: flex;
-  align-items: start;
-  width: 100%;
-  justify-content: space-around;
-  padding-left: 50px;
+  flex-grow: 1;
 }
 
 .headone {
+  min-width: 1670px;
   text-align: center;
   background-color: #f69d3c;
   margin-top: 0px;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   top: 0;
   border-bottom: 1px solid gray;
@@ -95,11 +92,6 @@ main {
   width: 48px;
   margin-right: 5px;
 }
-
-.discussion__wrapper {
-  width: 800px;
-}
-
 .discussion__information {
   text-align: right;
   width: 600px;
@@ -108,9 +100,8 @@ main {
 .input--contanier {
   width: 35rem;
   display: flex;
-  align-items: center;
-  position: fixed;
-  left: 2%;
+  align-items: start;
+  justify-content: start;
 }
 
 .discussion__information {
@@ -126,6 +117,7 @@ main {
 }
 
 .discussion__content {
+  min-width: 600px;
   width: 600px;
   text-align: center;
 }
@@ -135,7 +127,8 @@ main {
   flex-direction: column;
   background-color: yellow;
   font-size: 1rem;
-  width: 700px;
+  width: 500px;
+  min-width: 500px;
   justify-content: center;
   align-items: center;
 }
@@ -169,8 +162,9 @@ main {
   display: flex;
   margin-left: 20px;
   width: 700px;
-  position: fixed;
-  right: 50;
+  min-width: 700px;
+  position: absolute;
+  left: 50%;
 }
 
 .content__close {
@@ -242,7 +236,7 @@ main {
 .article {
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  flex-grow: 1;
 }
 
 .content__html {
@@ -253,6 +247,8 @@ main {
   align-items: start;
   justify-content: center;
   padding-left: 10px;
+  width: 700px;
+  overflow-x: auto;
 }
 
 .black {
@@ -270,4 +266,9 @@ main {
 }
 .white__line {
   border: 1px solid white;
+}
+
+.main__wrapper {
+  display: flex;
+  justify-content: start;
 }

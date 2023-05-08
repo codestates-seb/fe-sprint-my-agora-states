@@ -260,9 +260,9 @@ deleteButton.addEventListener("click", () => {
   console.log("HWE");
 });
 
-var stringToHTML = function (str) {
-  var parser = new DOMParser();
-  var doc = parser.parseFromString(str, "text/html");
+let stringToHTML = function (str) {
+  let parser = new DOMParser();
+  let doc = parser.parseFromString(str, "text/html");
   return doc.body;
 };
 

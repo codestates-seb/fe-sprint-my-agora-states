@@ -19,46 +19,49 @@
       <h1>아고라스테이츠</h1>
       <button class="dark">dark모드</button>
     </div>
-    <main>
-      <div class="input--contanier">
-        <section class="form__container">
-          <form action="" method="get" class="form">
-            <div class="form__input--wrapper">
-              <div class="form__input--name">
-                <label for="name">작성자: </label>
-                <input type="text" name="name" id="name" required />
+    <div class="main__wrapper">
+      <main>
+        <div class="input--contanier">
+          <section class="form__container">
+            <form action="" method="get" class="form">
+              <div class="form__input--wrapper">
+                <div class="form__input--name">
+                  <label for="name">작성자: </label>
+                  <input type="text" name="name" id="name" required />
+                </div>
+                <div class="form__input--title">
+                  <label for="title">제목: </label>
+                  <input type="text" name="title" id="title" required />
+                </div>
+                <div class="form__textbox">
+                  <label for="story">질문글: </label>
+                  <textarea
+                    id="story"
+                    name="story"
+                    placeholder="질문을 작성하세요"
+                    required
+                  ></textarea>
+                </div>
               </div>
-              <div class="form__input--title">
-                <label for="title">제목: </label>
-                <input type="text" name="title" id="title" required />
+              <div class="form__submit">
+                <input type="submit" value="작성 완료하기" />
               </div>
-              <div class="form__textbox">
-                <label for="story">질문글: </label>
-                <textarea
-                  id="story"
-                  name="story"
-                  placeholder="질문을 작성하세요"
-                  required
-                ></textarea>
-              </div>
-            </div>
-            <div class="form__submit">
-              <input type="submit" value="작성 완료하기" />
-            </div>
-          </form>
+            </form>
+          </section>
+        </div>
+        <section class="discussion__wrapper">
+          <ul class="discussions__container"></ul>
         </section>
-      </div>
-      <section class="discussion__wrapper">
-        <ul class="discussions__container"></ul>
-      </section>
-      <section class="discussion__answer">
-        <div class="answer__content"></div>
-      </section>
-    </main>
-    <article class="article">
-      <ul class="contents"></ul>
-      <div class="buttons"></div>
-    </article>
+        <section class="discussion__answer">
+          <div class="answer__content"></div>
+        </section>
+      </main>
+
+      <article class="article">
+        <ul class="contents"></ul>
+        <div class="buttons"></div>
+      </article>
+    </div>
   </body>
   <script src="data.js"></script>
   <script src="script.js"></script>
