@@ -59,6 +59,7 @@ const writeTitle = document.querySelector('.form__input--title > input');
 const writeName = document.querySelector('.form__input--name > input');
 const writeArea = document.querySelector('.form__textbox > textarea');
 
+// 디스커션 입력받아서 화면에 렌더링할 함수 만들기
 writeForm.addEventListener ('submit', function(event) {
   event.preventDefault();
   const obj = {
