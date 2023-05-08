@@ -46,6 +46,17 @@ main {
   width: 800px;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+footer * {
+  text-decoration: none;
+  width: 30px;
+  color: white;
+}
+
 .margin_h_10 {
   margin-top: 10px;
   margin-bottom: 10px;

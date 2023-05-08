@@ -1,6 +1,3 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
-
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = obj => {
   const li = document.createElement("li"); // li 요소 생성
@@ -112,17 +109,20 @@ const convertToDiscussion = obj => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = element => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+// ul 요소에 agoraStatesDiscussions 배열의 pagenation에 맞는 자료를 데이터를 화면에 렌더링합니다.
+let currentPage = 1;
+
+const ul = document.querySelector("ul.discussions__container");
+render(ul, currentPage);
+
+function render(element, page) {
+  for (let i = (page - 1) * 10; i < page * 10 && i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
-  return;
-};
-
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+  // 기존 pagenation을 초기화합니다.
+  document.querySelector(".pagenation").innerHTML = "";
+  pagenation(agoraStatesDiscussions);
+}
 
 // form submit
 document.querySelector("#form").submit.addEventListener("click", e => {
@@ -140,11 +140,10 @@ document.querySelector("#form").submit.addEventListener("click", e => {
       avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
     };
     agoraStatesDiscussions.unshift(discussion);
-    const ul = document.querySelector("ul.discussions__container");
     while (ul.firstChild) {
       ul.removeChild(ul.firstChild);
     }
-    render(ul);
+    render(ul, 1);
     form.title.value = "";
     form.story.value = "";
     form.querySelector(".discussion__error").classList.add("hide");
@@ -152,3 +151,55 @@ document.querySelector("#form").submit.addEventListener("click", e => {
     form.querySelector(".discussion__error").classList.remove("hide");
   }
 });
+
+function pagenation(discussions) {
+  // 현재 게시물의 전체 개수가 10개 이하면 pagination을 숨깁니다.
+  if (discussions.length <= 10) return;
+
+  const totalPage = Math.ceil(discussions.length / 10);
+  let pageGroup = Math.ceil(currentPage / 10);
+
+  let last = pageGroup * 10;
+  if (last > totalPage) last = totalPage;
+  let first = last - (10 - 1) <= 0 ? 1 : last - (10 - 1);
+  let next = last + 1;
+  let prev = first - 1;
+  const fragmentPage = document.createDocumentFragment();
+
+  //pagenation을 표시합니다.
+  if (last - 1 > 0 && currentPage != 1) {
+    let allpreli = document.createElement("li");
+    allpreli.innerText = "&lt;&lt;";
+
+    let preli = document.createElement("li");
+    preli.innerText = "&lt;";
+
+    fragmentPage.appendChild(allpreli);
+    fragmentPage.appendChild(preli);
+  }
+
+  for (let i = first; i <= last; i++) {
+    const li = document.createElement("li");
+    li.innerText = i;
+    li.addEventListener("click", () => {
+      while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+      }
+      render(ul, i);
+    });
+    fragmentPage.appendChild(li);
+  }
+
+  if (last < totalPage) {
+    let allendli = document.createElement("li");
+    allendli.innerText = "&gt;&gt;";
+
+    let endli = document.createElement("li");
+    endli.innerText = "&gt;";
+
+    fragmentPage.appendChild(endli);
+    fragmentPage.appendChild(allendli);
+  }
+
+  document.querySelector(".pagenation").appendChild(fragmentPage);
+}
