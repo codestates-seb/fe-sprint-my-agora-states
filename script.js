@@ -1,4 +1,5 @@
 console.log(agoraStatesDiscussions[0]);
+
 // 리스트에 요소 추가
 
 const convertToDiscussion = (obj) => {
@@ -107,7 +108,7 @@ const render = (element, currentPage) => {
   }
 };
 
-// First Page Rendering
+// Render First Page
 
 render(ul, currentPage);
 
