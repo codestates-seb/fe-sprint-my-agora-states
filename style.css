@@ -1,1 +1,135 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #222831;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    width: 750px;
+    height: 100%;
+    background-color: #FFF5E4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__container {
+    width: 690px;
+    height: 150px;
+    background-color: #FFD1D1;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    color: #FFF5E4;
+    font-weight: 500;
+}
+
+.form__input--wrapper {
+    text-indent: 1em;
+}
+
+input#name {
+    width: 230px;
+    height: 20px;
+    margin-left: 190px;
+    border: 1px solid #8785A2;
+    border-radius: 5px;
+}
+
+input#title {
+    width: 230px;
+    height: 20px;
+    margin-left: 200px;
+    border: 1px solid #8785A2;
+    border-radius: 5px;
+}
+
+textarea#story {
+    width: 400px;
+    height: 70px;
+    margin-left: 155px;
+    border: 1px solid #8785A2;
+    border-radius: 5px;
+}
+
+.form__submit > input {
+    height: 135px;
+    width: 100px;
+    border-radius: 5px;
+    color: #FFF5E4;
+    background-color: #FF9494;
+    border: 1px solid #8785A2;
+}
+
+.form__submit > input:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    color: red;
+}
+
+li.discussion__container {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px;
+    padding: 12px;
+    background-color: #FFE2E2;
+    border-radius: 5px;
+    width: 690px;
+}
+
+li.discussion__container:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.discussion__avatar--wrapper {
+    margin: 10px;
+    width: 64px;
+    height: 64px;
+}
+
+.discussion__avatar--image {
+    border-radius: 50%;
+}
+
+.discussion__content {  
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 100%;
+}
+
+h2.discussion__title {
+    font-size: 1rem;
+}
+
+a {
+    color: #222831;
+    text-decoration: none;
+}
+
+.discussion__information {
+    font-size: 0.8em;
+}
+
+p {
+    text-align: right;
+    font-size: 15px;
+    margin: 10px;
+}
