@@ -1,11 +1,14 @@
-// TODO:  페이지네이션, 답변 등록, 글 삭제, 이미지 업로드,코드 리팩토링,
+// TODO:  답변 등록, 글 삭제, 이미지 업로드,코드 리팩토링,
+
+// discussion 목록 컨테아너
 const ul = document.querySelector("ul.discussions__container");
 
+// page navigator
 const navLeft = document.querySelector(".navigator__left");
 const navRight = document.querySelector(".navigator__right");
 const navCenter = document.querySelector(".navigator__center");
 
-// data에 시간 포매터
+// data 시간 포매터
 function timeFormater(date) {
   const y = date.getFullYear();
   const m = date.getMonth() + 1;
@@ -55,6 +58,7 @@ const convertToDiscussion = (obj) => {
   const title = document.createElement("h2");
   title.textContent = obj.title;
   title.classList.add("discussion__title");
+
   discussionContent.append(title);
 
   // 2) discussionMain 적용
@@ -77,10 +81,12 @@ const convertToDiscussion = (obj) => {
 
   // discussionAnswered 적용
   // 1) comments
+  // TODO 답변 등록 기능 구현시 숫자를 답변 수만큼 출력으로 바꿈 (현재는 1 or 0)
   const comment = document.createElement("p");
   comment.className = "discussion__comments";
   if (obj.answer !== null) comment.textContent = `💬1`;
   else comment.textContent = "💬0";
+
   discussionAnswered.append(comment);
 
   // 2) time
@@ -106,6 +112,7 @@ const convertToDiscussion = (obj) => {
   } else {
     time.textContent = `방금 전`;
   }
+
   discussionAnswered.append(time);
 
   // 1. avatarWrapper 적용
@@ -121,6 +128,8 @@ const convertToDiscussion = (obj) => {
     discussionAnswered,
     avatarWrapper
   );
+
+  // modal open 할떄 필요한 id를 data의 id로 지정
   li.dataset.id = obj.id;
   return li;
 };
@@ -129,19 +138,26 @@ const convertToDiscussion = (obj) => {
 const render = (element) => {
   const discussionData = JSON.parse(localStorage.getItem("data"));
   pageNum = localStorage.getItem("pageNum");
+
+  // 현재 페이지 불러오기
   if (pageNum === null) {
     localStorage.setItem("pageNum", 1);
     pageNum = parseInt(localStorage.getItem("pageNum"));
   } else {
     pageNum = parseInt(pageNum);
   }
+
+  // 현재 페이지에 맞추어 렌더링
   if (pageNum === 1) {
+    navCenter.textContent = pageNum;
     navLeft.classList.add("hidden");
     navRight.classList.remove("hidden");
   } else if (pageNum === parseInt(discussionData.length / 10) + 1) {
+    navCenter.textContent = pageNum;
     navLeft.classList.remove("hidden");
     navRight.classList.add("hidden");
   } else {
+    navCenter.textContent = pageNum;
     navLeft.classList.remove("hidden");
     navRight.classList.remove("hidden");
   }
@@ -152,11 +168,17 @@ const render = (element) => {
     if (i === discussionData.length) break;
     element.append(convertToDiscussion(discussionData[i]));
   }
+
+  // 각 질문들에 모달 등록
+  const discussions = document.querySelectorAll(".discussion__container");
+  discussions.forEach((discussion) => {
+    discussion.addEventListener("click", openModal);
+  });
   return;
 };
 
+// 네비게이터 이벤트
 function handleRightNavigator() {
-  console.log(1);
   localStorage.setItem("pageNum", parseInt(pageNum) + 1);
   navCenter.textContent = Number(navCenter.textContent) + 1;
   render(ul);
@@ -167,7 +189,7 @@ function handleLeftNavigator() {
   render(ul);
 }
 
-// local storage에 초기 데이터 저장
+// 초기 데이터 불러오기
 const savedData = localStorage.getItem("data");
 let pageNum = localStorage.getItem("pageNum");
 

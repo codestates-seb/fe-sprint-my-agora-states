@@ -1,6 +1,5 @@
 const modalOverlay = document.querySelector(".modal__overlay");
 
-const discussions = document.querySelectorAll(".discussion__container");
 const modal = document.querySelector("#modal");
 const modalClose = document.querySelector(".modal__close");
 
@@ -45,22 +44,25 @@ const showContent = (targetData) => {
   modalRecordTime.textContent = modalTimeFormat(targetData.createdAt);
 
   // tag 있으면 적용, 없으면 '기타'로 적용
-  const tag = document.createElement("span");
-  tag.className = "tag";
-  if (agoraStatesDiscussions.tag) {
-    for (i of agoraStatesDiscussions.tag) {
+
+  if (targetData.tags) {
+    for (i of targetData.tags) {
+      const tag = document.createElement("span");
+      tag.className = "tag";
       tag.textContent = i;
       modalTag.append(tag);
     }
   } else {
+    const tag = document.createElement("span");
+    tag.className = "tag";
     tag.textContent = "기타";
     modalTag.append(tag);
   }
 };
 
 const showAnswer = (targetData) => {
-  if (targetData === null || answerAuthor.textContent === "") {
-    return false;
+  if (targetData === null || targetData === undefined) {
+    return true;
   } else {
     // 답변 아바타 이미지 적용
     answerAvatar.append(modalAvatarFormat(targetData));
@@ -79,7 +81,6 @@ const showAnswer = (targetData) => {
 };
 
 const openModal = (event) => {
-  isOpen = true;
   const id = event.currentTarget.dataset.id;
 
   const prevData = JSON.parse(localStorage.getItem("data"));
@@ -98,30 +99,34 @@ const openModal = (event) => {
   document.body.style.overflow = "hidden";
 };
 
+// 모달 닫기
 const closeModal = (event) => {
-  if (isOpen) {
-    isOpen = false;
-    if (showAnswer()) answerAvatar.firstChild.remove();
-    while (modalTag.firstChild) {
-      modalTag.firstChild.remove();
-    }
-    while (modalAvatar.firstChild) {
-      modalAvatar.firstChild.remove();
-    }
-    modal.classList.add("hidden");
-
-    // body 스크롤 활성화
-    document.body.style.overflow = "unset";
+  console.log(modalAvatar.childNodes);
+  while (modalAvatar.firstChild) {
+    modalAvatar.firstChild.remove();
   }
+  answerAuthor.textContent = "";
+  answerTime.textContent = "";
+  answerStory.textContent = "";
+  while (modalTag.firstChild) {
+    modalTag.firstChild.remove();
+  }
+  while (answerAvatar.firstChild) {
+    answerAvatar.firstChild.remove();
+  }
+  while (modalAvatar.firstChild) {
+    modalAvatar.firstChild.remove();
+  }
+  modal.classList.add("hidden");
+
+  // body 스크롤 활성화
+  document.body.style.overflow = "unset";
 };
 
+// 모달 영역 밖을 클릭 시 모달 닫기
 function handleOverlayClick(event) {
   if (event.currentTarget === event.target) closeModal();
 }
-
-discussions.forEach((discussion) => {
-  discussion.addEventListener("click", openModal);
-});
 
 modalClose.addEventListener("click", closeModal);
 

@@ -233,6 +233,7 @@ h1 {
   align-items: center;
 }
 .navigator__center {
+  font-size: 3rem;
   margin: 0 3rem;
 }
 

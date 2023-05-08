@@ -95,8 +95,9 @@ function closeForm(event) {
 }
 
 const reRender = (element) => {
-  const prevData = JSON.parse(localStorage.getItem("data"));
-  element.prepend(convertToDiscussion(prevData[0]));
+  localStorage.setItem("pageNum", 1);
+  navCenter.textContent = 1;
+  render(element);
   return;
 };
 
