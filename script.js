@@ -42,7 +42,18 @@ btn_submit.addEventListener('click',function(e){
   discussionContentInformation.className='discussion__information';
   discussionContentInformation.textContent=`${inputName.value} / ${todayFormat}`;
   discussionContent.appendChild(discussionContentInformation);
-
+  //agoraStatesDiscussions 배열에 요소 추가
+  const agoraStatesDiscussion = {
+    id: '012345',
+    createdAt: todayFormat,
+    title: inputTitle.value,
+    url: 'assets/images/profile.png',
+    author: inputName.value,
+    answer: '',
+    bodyHTML: '<p></p>',
+  }
+  console.log(agoraStatesDiscussions)
+  agoraStatesDiscussions.push(agoraStatesDiscussion);
   //input value 초기화
   inputName.value='';
   inputTitle.value='';
