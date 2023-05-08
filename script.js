@@ -93,3 +93,11 @@ form.addEventListener('submit',(event) => {
   FormTextbox.value = '';
 }
 )
+
+// discussions 숨기기
+const toggleBtn = document.querySelector('.toggleBtn');
+const category = ducoument.querySelector('.discussions__container');
+
+togglBtn.addEventListener('click', () => {
+  category.clasList.toggle('active');
+});
