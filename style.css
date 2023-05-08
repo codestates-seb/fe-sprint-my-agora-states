@@ -160,3 +160,6 @@ button img {
 .discussion__information {
   color: rgb(243, 210, 210);
 }
+header a {
+  padding: 1rem;
+}
