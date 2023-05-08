@@ -1,0 +1,63 @@
+.discussion__wrapper {
+	height: 53%;
+	overflow: scroll;
+}
+@media screen and (height > 900px) {
+	.discussion__wrapper {
+		height: 60%;
+	}
+}
+.discussions__container {
+	margin-left: 5px;
+	height: 95%;
+}
+
+.discussion__container {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 540px;
+	padding: 1rem;
+	background-color: var(--main-gray);
+	border: var(--item-border);
+	box-shadow: 3px 3px black;
+	margin-top: 1rem;
+	cursor: pointer;
+}
+
+.discussion__avatar--image {
+	width: 48px;
+	height: auto;
+	border-radius: 50%;
+	margin-right: 1.5rem;
+}
+
+.discussion__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.discussion__title a {
+	font-size: 1.6rem;
+	text-decoration: none;
+	color: black;
+}
+.discussion__title a:hover {
+	text-decoration: underline;
+}
+
+.discussion__information {
+	text-align: right;
+	font-size: 1.2rem;
+}
+
+.discussion__answered {
+	font-size: 2.5rem;
+	margin-left: 7rem;
+}
+
+.discussion__answered:hover {
+	transform: scale(1.3);
+}

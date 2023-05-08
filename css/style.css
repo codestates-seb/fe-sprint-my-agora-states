@@ -1,0 +1,182 @@
+@import url("discussion.css");
+
+/* 폰트 */
+@font-face {
+	/* ‘글꼴(폰트)로 도스샘물체(leedheo 제작)를 사용하였습니다’  */
+	font-family: "DOSMyungjo";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSMyungjo.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+/* 루트 */
+:root {
+	--main-gray: rgb(196, 196, 196);
+	--main-border: 5px solid black;
+	--item-border: 3px solid black;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%;
+	font-family: "DOSMyungjo";
+}
+/* 모드 변경 토글 버튼  */
+.toggle__btn {
+	display: none;
+}
+
+body {
+	width: 100vh;
+	height: 100vh;
+	background-image: url("../img/back.png");
+	background-size: 300px;
+	background-repeat: repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}
+
+main {
+	width: 600px;
+	height: 95%;
+	border: var(--main-border);
+	background-color: white;
+	padding: 0 1.5rem;
+	position: relative;
+}
+
+/* main header */
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px;
+	border-bottom: var(--main-border);
+}
+.main-header h1 {
+	font-size: 4rem;
+	font-weight: 800;
+	border-right: var(--main-border);
+	padding-right: 4rem;
+}
+
+#enter-key {
+	width: 70px;
+	height: auto;
+}
+
+section {
+	width: 555px;
+}
+/* form 섹션 */
+.form__container {
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form__input--wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	width: 540px;
+	gap: 1rem;
+}
+
+#name,
+#title,
+#story {
+	border: var(--item-border);
+	background-color: var(--main-gray);
+	font-size: 1.7rem;
+	box-shadow: 3px 3px black;
+	cursor: pointer;
+}
+#name::placeholder,
+#title::placeholder,
+#story::placeholder {
+	font-size: 1.8rem;
+	padding: 10px;
+	color: black;
+}
+
+#name:focus,
+#title:focus,
+#story:focus {
+	border: 5px solid crimson;
+	box-shadow: none;
+	background-color: white;
+}
+
+#name {
+	width: 100px;
+	height: 4rem;
+}
+#title {
+	width: 425px;
+	height: 4rem;
+}
+#story {
+	width: 540px;
+	height: 7rem;
+	resize: none;
+}
+/* NOTE : 입력칸이 모두 채워졌을 떄 display: none 제거*/
+.invisible {
+	display: none;
+}
+
+input[type="submit"] {
+	position: absolute;
+	top: 28px;
+	right: 18px;
+	font-size: 2.5rem;
+	padding: 2px;
+	border: 5px solid crimson;
+	background-color: rgb(244, 63, 63);
+	color: white;
+	box-shadow: 3px 3px crimson;
+}
+input[type="submit"]:active {
+	translate: 2px 2px;
+	box-shadow: none;
+}
+/*  구분선 */
+.separated {
+	border: var(--item-border);
+}
+
+/* 페이지네이션 */
+.pagenation {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 60px;
+}
+.pagenation a,
+.pagenation span {
+	font-size: 2rem;
+	margin-right: 1rem;
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+.pagenation a {
+	width: 2rem;
+	height: 2rem;
+	text-align: center;
+}
+.pagenation a:hover {
+	background-color: crimson;
+	color: white;
+	border-radius: 50%;
+}
+.pagenation span:hover {
+	transform: scale(1.3);
+}
