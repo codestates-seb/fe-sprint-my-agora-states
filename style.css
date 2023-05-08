@@ -1,1 +1,170 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: "omyu_pretty";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  /* 기본 스타일링을 제거하는 css 코드 */
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  box-sizing: border-box;
+  font-family: omyu_pretty;
+}
+
+.hide {
+  display: none;
+}
+
+a {
+  text-decoration-line: none;
+  color: whitesmoke;
+}
+
+button {
+  all: upset;
+  /* width: 81px; */
+  height: 50px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #edc6b1;
+  color: black;
+  font-size: large;
+}
+
+button:hover {
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  background-color: #84604c;
+  color: white;
+}
+
+button:active {
+  background-color: wheat;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #bfccb5;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #7c96ab;
+
+  height: 80px;
+  width: 100vw;
+
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: inherit;
+
+  padding: 80px;
+
+  max-width: 900px;
+}
+
+.form {
+  background-color: B7B7B7;
+
+  box-sizing: inherit;
+
+  margin: 15px;
+  padding: 20px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: rgba(128, 128, 128, 0.495);
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+
+  font-size: x-large;
+}
+
+.form__submit {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+
+.form__input--name {
+  padding: 10px;
+}
+.form__input--title {
+  padding: 10px;
+}
+.form__textbox {
+  padding: 10px;
+}
+
+.discussion__wrapper {
+  background-color: rgba(128, 128, 128, 0.495);
+
+  padding: 10px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.discussion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 10px 5px 10px 5px;
+  border-radius: 20px;
+
+  background-color: rgba(128, 128, 128, 0.795);
+}
+
+.discussion__avatar--image {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.discussion__container > div {
+  margin: 10px;
+}
+
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  flex: 5 0 0;
+}

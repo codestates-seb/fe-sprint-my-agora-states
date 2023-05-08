@@ -13,9 +13,14 @@
 </head>
 
 <body>
-  <main>
+  <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <header>
+    <button class="reset__home">제일 처음으로</button>
     <h1>My Agora States</h1>
-    <section class="form__container">
+    <button class="open__form">질문 등록하기</button>
+  </header>
+  <main>
+    <section class="form__container hide">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
@@ -45,14 +50,18 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <h2 class="discussion__title"><a
+                href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered">
+            <p>☑</p>
+          </div>
         </li>
       </ul>
     </section>
   </main>
+
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
