@@ -30,7 +30,7 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  
+  //git@github.com:greatjobcat/fe-sprint-my-agora-states.git
 
   const avatarImg = document.createElement('img');
   avatarImg.className = "discussion__avatar--image";
