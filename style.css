@@ -1,11 +1,102 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
 * {
     box-sizing: border-box;
+    color: #5c469c;
 }
 
 li {
     list-style: none;
     width: 540px;
+}
+
+main {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.38);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c134f;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header > div > button {
+    font-size: 50px;
+    background-color: transparent;
+    border: none;
+    color: beige;
+    box-shadow: 3px 3px 3px rgb(168, 162, 162);
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.header > div > button:hover {
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.header > div > button:active {
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form__container {
+    background-color: #d4adfc;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form__container > form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--name > label {
+    margin-right: 50px;
+}
+
+.form__input--name > input, .form__input--title > input {
+    border: none;
+    width: 300px;
+    border-radius: 5px;
+    background-color: #1d267d;
+}
+
+.form__input--title > label {
+    margin-right: 61px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__textbox > textarea {
+    border: none;
+    border-radius: 10px;
+    background-color: #1d267d;
+
+}
+
+.form__submit > input {
+    width: 80px;
+    height: 95px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1d267d;
 }
 
 .discussion__container { 
