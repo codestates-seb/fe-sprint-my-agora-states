@@ -23,10 +23,9 @@
  
  
  img{
-    border-radius: 50%;
+    border-radius: 10px;
     width: 80px;
     height: 80px;
-    padding: 0.5px;
  }
  
  .discussion__avatar--wrapper{
@@ -45,6 +44,8 @@
  .discussion__content{
     padding: 2px;
     float: left;
+    /* box-shadow:  8px 8px  10px #A6B4C8, 
+    -8px -8px  10px #FFFFFF; */
  }
  
  a{
@@ -184,4 +185,12 @@ p{
 .discussion__content{
    text-align : left;
    font-size: 14px;
+}
+
+.discussion__container{
+   padding: 20px;
+   margin: 20px;
+   border-radius: 15px;
+   box-shadow: inset 8px 8px  10px #FFFFFF, 
+   inset -8px -8px  10px #A6B4C8;
 }

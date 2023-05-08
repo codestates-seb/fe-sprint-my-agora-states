@@ -87,20 +87,19 @@ const inputQuestion = document.querySelector('div.form__textbox textarea');
 
 // submit 클릭하면 값 가져오기
 
-
-
-
 function newQuestion(event){
   event.preventDefault();
 
   console.log("클릭됨");
   console.log(inputTitle.value);
 
+  
 
-  agoraStatesDiscussions.unshift({
-    author : inputTitle.value,
-  });
-  render(ul);
+
+  // agoraStatesDiscussions.unshift({
+  //   author : inputTitle.value,
+  // });
+  // render(ul);
 
   // agoraStatesDiscussions.unshift({
   //   id: "null",
