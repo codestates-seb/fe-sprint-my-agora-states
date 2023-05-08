@@ -102,6 +102,7 @@ if (listCount < 10) {
 for (let i = 1; i <= pageCount; i++) {
   addPageNation(i);
 }
+
 // agoraStatesDiscussions 배열의 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   ///10개만 렌더링
@@ -161,12 +162,9 @@ function handleSubmit(event) {
 
   window.localStorage.setItem(`${window.localStorage.length}`, objString);
 
-  console.log(newQuestion.createdAt);
+  // console.log(newQuestion.createdAt);
   // 배열에 등록
   // agoraStatesDiscussions.unshift(newQuestion);
-
-  //ul을 다시 렌더...함..
-  ul.insertBefore(newQuestion);
 
   //리셋!
   name.value = "";
@@ -238,6 +236,7 @@ function showLastPage() {
 }
 lastPageButton.addEventListener("click", showLastPage);
 
+// 페이지를 눌렀을 때.. 해당 페이지로 이동..
 function movePage(event) {
   const clickPage = event.target.className;
   console.log(clickPage);
