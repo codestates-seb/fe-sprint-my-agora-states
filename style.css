@@ -1,1 +1,300 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+li {
+  list-style: none;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    height: 35vh;
+    margin-bottom: 0;
+  }
+}
+
+/* Header Contents */
+
+.header-contents {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1.4rem 0;
+
+  @media (max-width: 1024px) {
+    width: 85%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+header .big-title {
+  margin: 0 2rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: rgb(14, 0, 86);
+}
+
+header a {
+  text-decoration: none;
+}
+
+header button {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  margin: 0 2rem;
+}
+
+header button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+header button:active {
+  transform: scale(0.9);
+}
+
+/* Header Image */
+
+.header-image {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.header-image img {
+  width: 100%;
+}
+
+/* Main */
+
+main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+/* Modal */
+
+.modal-header {
+  background-color: rgb(243, 243, 243);
+  height: 50px;
+  font-size: 0.7rem;
+}
+
+.modal-title {
+  font-size: 1rem;
+  margin: 3px 0 0 5px;
+}
+
+.modal-footer {
+  margin-right: 7px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-footer button {
+  margin: 0 7px 5px 7px;
+  font-size: 0.8rem;
+}
+
+/* Modal Form */
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-el {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  font-size: 1rem;
+}
+
+.form-el input {
+  margin: 10px 0;
+  font-size: 0.9rem;
+  padding: 5px 8px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 10px;
+}
+
+.form-el textarea {
+  margin: 10px 0;
+  font-size: 0.9rem;
+  padding: 5px 8px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 10px;
+}
+
+/* Discussions */
+
+.clicked {
+  background-color: rgb(248, 248, 248);
+  border: 1px solid rgb(236, 236, 236);
+}
+
+.discussion__wrapper {
+  width: 70%;
+
+  @media (max-width: 1024px) {
+    width: 85%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.discussion__wrapper ul {
+  padding-left: 0;
+}
+
+.discussion__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+  margin: 0;
+  border-bottom: 1px solid rgb(235, 235, 235);
+
+  @media (max-width: 768px) {
+    margin: 0 1rem;
+  }
+}
+
+.discussion__container:hover {
+  cursor: pointer;
+  background-color: rgb(248, 248, 248);
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+.discussion__content {
+  width: 50vw;
+  margin: 1rem;
+}
+
+.discussion__title {
+  margin: 5px 0;
+  font-size: 1.3rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
+.discussion__title a {
+  color: black;
+  text-decoration: none;
+}
+
+.discussion__information {
+  font-size: 0.5rem;
+  font-weight: 300;
+}
+
+.discussion__answered {
+  font-size: 0.3rem;
+  border-radius: 18px;
+  padding: 7px 10px;
+  background-color: rgb(220, 60, 87);
+  color: white;
+}
+
+.isanswered {
+  background-color: rgb(224, 224, 224);
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.question__detail {
+  background-color: rgb(250, 250, 250);
+  font-size: 0.85rem;
+  padding: 0 2.5rem 1.5rem 2.5rem;
+  border: 1px solid rgb(231, 231, 231);
+}
+
+.question__content {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.043);
+}
+
+.answer__content {
+  border-top: 1.5px solid rgb(200, 200, 200);
+  margin-top: 2rem;
+  padding: 1.5rem 3rem 1rem 3rem;
+}
+
+.question__detail--close-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  margin: 1rem 0 0 0.5rem;
+}
+
+.question__detail--close-button button {
+  border: 0;
+  background-color: transparent;
+  color: rgb(72, 72, 72);
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.question__detail--close-button:hover {
+  cursor: pointer;
+  transform: scale(1.08);
+}
+
+.question__detail--close-button:active {
+  transform: scale(0.9);
+}
+
+/* Pagination */
+
+.pagination {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination button {
+  margin: 0 2rem;
+  font-size: 1rem;
+}
+
+.pagination span {
+  margin: 0.4rem 0.3rem;
+  font-size: 0.8rem;
+}
