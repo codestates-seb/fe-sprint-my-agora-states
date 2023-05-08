@@ -45,11 +45,25 @@ const convertToDiscussion = (obj) => {
   li.addEventListener('click', () => {
     if (!isClicked) {
       isClicked = true;
-      li.insertAdjacentHTML('afterend', `<div class="question__content">${obj.bodyHTML}</div>`);
+      const questionDetail = document.createElement('div');
+      questionDetail.className = 'question__detail';
+      questionDetail.insertAdjacentHTML('beforeend', `
+      <div class="question__content">
+        ${obj.bodyHTML}
+      </div>
+      `);
+      if (obj.answer) {
+        questionDetail.insertAdjacentHTML('beforeend', `
+          <div class="answer__content">
+            ${obj.answer.bodyHTML}
+          </div>
+        `);
+      }
+      li.insertAdjacentElement('afterend', questionDetail);
     } else {
       isClicked = false;
       const questionContent = li.nextElementSibling;
-      if (questionContent && questionContent.classList.contains('question__content')) {
+      if (questionContent && questionContent.classList.contains('question__detail')) {
         questionContent.remove();
       }
     }
@@ -64,7 +78,7 @@ const convertToDiscussion = (obj) => {
 
 const ul = document.querySelector("ul.discussions__container");
 let currentPage = 1;
-const perPageEl = 10;
+const perPageEl = 8;
 const totlaPage = document.querySelector('#totalPages');
 
 const render = (element, currentPage) => {
@@ -156,6 +170,7 @@ submitBtn.addEventListener('click', () => {
     "title": titleInput.value,
     "url": "https://github.com/codestates-seb/fe-sprint-my-agora-states",
     "createdAt": new Date(),
+    "bodyHTML": storyInput.value.replace(/\n/g, '<br>'),
   };
   agoraStatesDiscussions.unshift(inputData);
   ul.insertBefore(convertToDiscussion(agoraStatesDiscussions[0]), ul.firstChild);
