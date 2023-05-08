@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
+  <title>🏫코드스테이츠 코딩학교🏫</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -77,7 +77,19 @@
                 <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
                 <div class="discussion__information">닉네임: kimploo <br> 작성일: 2022-04-22T14:08:33Z</div>
               </div>
-              <div class="discussion__answered"><p>☑</p></div>
+
+              <div class="discussion__answered">
+                <p class="popupBtn">☑</p>
+                <div class="answer__container">
+                  <div calss="answer__content"> 
+                    <span id="closeBtn">&times;</span>
+                    '<p dir="auto">안녕하세요. <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/anotheranotherhoon/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/anotheranotherhoon">@anotheranotherhoon</a> 님!<br>\n코드스테이츠 교육 엔지니어 권준혁입니다. <g-emoji class="g-emoji" alias="raised_hands" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64c.png">🙌</g-emoji></p>\n<p dir="auto">스코프와 클로져에 대해 깊게 공부하는 모습 너무 너무 좋습니다 !</p>\n<p dir="auto">일단 즉시 실행 함수 표현식에 대해 질문 주셨는데요 !<br>\n함수를 정의 -&gt; 변수에 함수를 저장 하고 실행 ! 이 과정을 거치지 않고 정의하자마자 바로 호출하는 것이 즉시 실행 함수 입니다.<br>\n그렇다면 위에 코드는 즉시 실행 함수 일까요?</p>\n<p dir="auto"><a href="https://developer.mozilla.org/ko/docs/Glossary/IIFE" rel="nofollow">즉시실행함수</a><br>\n한 번 읽어보시고 한 번 더 생각해보세요 ! 직접 생각하는 것이 가장 기억에 오래 남습니다 !</p>\n<p dir="auto">두 번째 <code class="notranslate">innerFn</code>이라는 변수를 새로 선언했고 <code class="notranslate">outerFn()</code>을 할당했습니다. 즉, <code class="notranslate">outerFn()</code>을 호출 한 것입니다.<br>\n이는 위의 <code class="notranslate">innerFn</code> 함수와는 다른 녀석입니다.<code class="notranslate">innerFn</code> 함수도 마찬가지로 <code class="notranslate">outerFn</code> 내부에서 선언되었으므로 밖으로 나올 수 없기 때문이에요!</p>\n<p dir="auto"><code class="notranslate">const apple = outerFn()</code>  // innerFn은 단순한 변수명임 ! apple을 넣던 banana를 넣던 상관없음<br>\n<code class="notranslate">expect(apple()).to.equal(178)</code></p>\n<p dir="auto">답변이 되셨다면 내용을 간략하게 정리해서 코멘트를 남기고 answered를 마크해주세요 <g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji><br>\n감사합니다.<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji><br>\n코드스테이츠 교육 엔지니어 000</p>',
+
+                    
+                    
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -85,6 +97,8 @@
         
       </div>
     </section>
+
+
   </main>
 </body>
 <script src="data.js"></script>

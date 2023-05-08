@@ -24,7 +24,7 @@ html{
 
 body{
 
-    background: url("imgs/desk_image3.jpg") no-repeat center fixed;    
+    background: url("imgs/desk_image4.jpg") no-repeat center fixed;    
     background-size: cover;    
     border: 3px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -185,6 +185,8 @@ ul{
     border: 3px solid #252525;
     border-radius: 1.4rem;
     width: 25rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
     
     
     
@@ -196,6 +198,8 @@ ul{
     text-align: center;
     font-size: 1.3rem;
     font-weight: 599;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     
     
@@ -227,8 +231,7 @@ ul{
 }
 
 .question__wrapper--top{
-    background-color: #dfdfdf;
-    opacity:0.8;
+    background-color: rgba(235, 235, 235, 0.589);  
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
     
@@ -245,8 +248,8 @@ ul{
     border-radius: 1rem;
     margin: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #dfdfdf;
-    opacity:0.8;
+    background-color: rgba(235, 235, 235, 0.589); 
+    
     font-size: 1.1rem;
     padding: 0 0 0 10px;
 }
@@ -260,14 +263,12 @@ ul{
     padding: 10px;
     font-size: 1rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #dfdfdf;
-    opacity:0.8;
+    background-color: rgba(235, 235, 235, 0.589); 
     font-size: 1.1rem;
 }
 
 .form__submit{
     text-align: left;
-
     padding: 5px 0 0 9px;
 }
 
@@ -279,7 +280,7 @@ ul{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 1rem;
     letter-spacing: 0.2rem;
-    background-color: #494949;
+    background-color: rgba(61, 61, 61, 0.719);
     color: #ffffff;
     opacity:0.95;
 
@@ -295,6 +296,8 @@ ul{
     border: 3px solid #252525;
     border-radius: 1rem;
     height: 36rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
 }
 
 
@@ -311,10 +314,11 @@ ul{
     text-align: center;
     font-size: 1.3rem;
     font-weight: 599;
-    background-color: #dfdfdf;
-    opacity:0.8;
+    background-color: rgba(235, 235, 235, 0.589); 
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     
 
 }
@@ -322,6 +326,7 @@ ul{
 
 .image{
     width: 85px;
+    
     
     }
 
@@ -364,7 +369,7 @@ ul{
     padding: 7px;
     margin: 7px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #dfdfdf;
+    background-color: rgba(235, 235, 235, 0.589); 
     justify-content: space-between;
     
 }
@@ -382,6 +387,7 @@ ul{
     width: 17rem;
     margin: 0 0 0 10px;
     flex-direction: column;
+    
     
 }
 
@@ -410,6 +416,61 @@ ul{
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: hsla(0, 0%, 42%, 0.29);
+    background-color: hsla(0, 0%, 14%, 0.4);
     border-radius: 100px;
 }
+
+
+.answer__container {
+    display: none;
+}
+
+/* 모달부분 
+.discussion__answered {
+
+    width: 16px;
+    height: 16px;
+    padding: 0px;
+    margin: 0px;
+
+    
+}
+.popupBtn {
+    width: 150px;
+    height: 50px;
+    
+}
+.answer__container {
+
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.281); 
+
+    display: none;
+}
+
+.answer__content {
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+    margin: 0 auto;
+    border: 1px solid #777;
+    background-color: #fff;
+    
+}
+
+.closeBtn {
+    float:right;
+    font-weight: bold;
+    color: #777;
+    font-size:25px;
+    cursor: pointer;
+}
+
+*/
