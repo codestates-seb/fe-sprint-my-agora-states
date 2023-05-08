@@ -1,1 +1,162 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* //배경 */
+
+@keyframes gradient {
+    0% {
+       background-position: 0% 50%;
+    }
+    50% {
+       background-position: 100% 50%;
+    }
+    100% {
+       background-position: 0% 50%;
+    }
+ } 
+
+* {
+    box-sizing: border-box;
+    font-family: 'Pretendard-Regular';
+}
+
+body {
+    background: linear-gradient(-45deg, #867070, #D5B4B4, #E4D0D0, #F5EBEB);
+    background-size: 400% 400%;
+    animation: gradient 6s ease infinite;
+    display: flex;
+    justify-content: center;
+}
+
+ul { 
+    list-style: none;
+    }
+
+h1 {
+    color: rgb(134, 112, 112);
+}
+
+
+#simpleUsage {
+    justify-content: center;
+    display: flex;
+    font-size: 38px;
+}
+
+main {
+    background-color: white;
+    display: flex;
+    margin: 10px;
+}
+
+input {
+    width: 180px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    margin: 3px;
+  }
+
+  #story {
+    width: 400px;
+    height: 120px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    margin: 3px;
+    resize: none;
+  }
+
+.form__container {
+    font-family: 'Pretendard-Regular';
+    justify-content: center;
+    display: flex;
+}
+
+.discussion__container {
+    display: flex;
+    align-items: center;
+    width: 540px;
+    height: 75px;
+    margin: 20px;
+    margin-left: -10px;
+    padding: 10px;
+    font-size: 12px;
+    background-color: rgb(248, 239, 239);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px 
+}
+
+.discussion__wrapper {
+    height: 420px;
+    overFlow : auto;
+    margin-top: 10px;
+}
+
+.discussion__avatar--image {
+    border-radius: 70%;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.discussion__avatar--wrapper {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.discussion__wrapper {
+    justify-content: center;
+}
+
+
+.discussion__content >:nth-child(1) {
+    text-align: left;
+    width: 400px;
+    margin-top: 0;
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+.discussion__content >:nth-child(2) {
+    height: 30px;
+    text-align: left;
+    margin-top: -8px;
+    margin-left: 4px;
+}
+
+.discussion__content {
+    display: block;
+    width: 400px;
+}
+
+.discussion__answered {
+    padding-top: 5px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+
+.discussion__container:hover{
+    transform: translateY(-6px);
+    animation-name: hover;
+    animation-duration: 1.5s;
+    animation-delay: defaultDuration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
