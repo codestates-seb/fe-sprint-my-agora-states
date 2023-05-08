@@ -1,7 +1,6 @@
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  const li = document.createElement("li");
+  li.className = "discussion__container";
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
@@ -28,25 +27,18 @@ const convertToDiscussion = (obj) => {
 
   const information = document.createElement("div");
   information.className = "discussion__information";
-  information.innerText = `${obj.author} / ${obj.createdAt}`;
+  information.innerText = `${obj.author} / ${new Date(
+    obj.createdAt
+  ).toLocaleTimeString()}`;
   discussionContent.append(information);
 
   const answer = document.createElement("p");
-  answer.innerText = isAnswer(obj.answer);
+  answer.innerText = obj.answer ? "✅" : "❌";
   discussionAnswered.append(answer);
-
-  function isAnswer(answer) {
-    if (answer !== null) {
-      return "✅";
-    } else {
-      return "❌";
-    }
-  }
 
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
@@ -54,6 +46,34 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const form = document.querySelector("form.form");
+const author = document.querySelector("div.form__input--name > input");
+const title = document.querySelector("div.form__input--title > input");
+const textbox = document.querySelector("div.form__textbox > textarea");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const obj = {
+    id: "unique id",
+    createdAt: new Date().toISOString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4",
+  };
+
+  agoraStatesDiscussions.unshift(obj);
+
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+
+  render(ul);
+});
+
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
