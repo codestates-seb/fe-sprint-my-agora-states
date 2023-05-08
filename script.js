@@ -114,9 +114,4 @@ form.addEventListener("submit", (event) => {
   // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
   render(ul);
 
-  // 사실은.. 
-    // HTML 파일을 새로 받아오는 시절이 있었다.
-    // 폼 제출을 하면 완전히 새로운 HTML 파일을 받아와야 했다. => 새로고침
 })
-
-// an
