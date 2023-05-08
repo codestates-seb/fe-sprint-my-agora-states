@@ -1,6 +1,13 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+// 초기화: localStorage에 데이터가 없으면 agoraStatesDiscussions 배열을 초기화하고, 있으면 localStorage에서 agoraStatesDiscussions 배열을 가져옵니다.
+if (!localStorage.getItem('agoraStatesDiscussions')) {
+  localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
+} else {
+  agoraStatesDiscussions = JSON.parse(localStorage.getItem('agoraStatesDiscussions'));
+}
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -16,6 +23,7 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
+  discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
 
   // 프로필 이미지 생성
@@ -25,28 +33,22 @@ const convertToDiscussion = (obj) => {
   avatarWrapper.append(avatarImg);
 
   // 제목 링크 생성
-  const titleLink = document.createElement('h2');
-  titleLink.className = "discussion__title";
-  discussionContent.append(titleLink);
-  const titleLinkA = document.createElement('strong');
-  titleLink.append(titleLinkA);
-  titleLinkA.textContent = obj.title;
+  const titleTxt = document.createElement('strong');
+  titleTxt.className = "discussion__title";
+  titleTxt.textContent = obj.title;
 
   // 답변여부 아이콘 생성
-  const icanswerCheck = document.createElement('span');
-  discussionAnswered.append(icanswerCheck);
-  icanswerCheck.textContent = '답변';
+  discussionAnswered.textContent = '답변';
   if(obj.answer === null){
-    icanswerCheck.classList.add('null')
+    discussionAnswered.classList.add('null')
   }
 
   // 만든 이, 만든 날짜 생성
   const createDate = document.createElement('div');
   createDate.className = "discussion__information";
   createDate.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString()}`;
-  discussionContent.append(createDate);
 
-  discussionWrapper.append(avatarWrapper, discussionContent, discussionAnswered);
+  discussionContent.append(titleTxt, createDate);
 
   // 답변내용 생성
   const answerContainer = document.createElement('div');
@@ -60,15 +62,43 @@ const convertToDiscussion = (obj) => {
 
   const elQuestion = document.createElement('div');
   elQuestion.className = "discussion__questionTxt";
+  elQuestion.innerHTML = obj.bodyHTML;
 
   if(obj.answer !== null){
     elAnswer.innerHTML = obj.answer.bodyHTML;
   }else{
     elAnswer.innerHTML = '<p>등록된 답변이 없습니다 &#128546;</p>'
   }
-  if(obj.bodyHTML !== null){
-    elQuestion.innerHTML = obj.bodyHTML;
-  }
+
+  // 답변내용 슬라이드
+  let btn = document.querySelectorAll('.discussion__userbox');
+  discussionWrapper.addEventListener('click',function(){
+    let tarGet = this.nextElementSibling;
+    tarGet.style.height = 'auto';
+    let _He = tarGet.clientHeight;
+    tarGet.style.height = '0';
+
+    if(discussionWrapper.classList.contains('active')){
+        tarGet.style.height = _He +'px';
+        setTimeout(function() {
+            tarGet.style.height = '0';
+        }, 0);
+    } else {
+        setTimeout(function() {
+            tarGet.style.height = _He +'px';
+        }, 0);
+    }
+
+    btn.forEach(sEl => {
+        if(sEl !== discussionWrapper){
+            if(sEl.classList.contains('active')){
+                sEl.click();
+            }
+        }
+    });
+
+    discussionWrapper.classList.toggle("active");
+  })
 
   answerContainer.append(elQuestion, elAnswer);
   elAnswer.prepend(elAnswerTit);
@@ -91,12 +121,12 @@ let elInpQuestion = document.querySelector('#story');
 let elInpSubmit = document.querySelector('.form__submit').querySelector('input')
 let form = document.querySelector("form.form");
 
-// 초기화: localStorage에 데이터가 없으면 agoraStatesDiscussions 배열을 초기화하고, 있으면 localStorage에서 agoraStatesDiscussions 배열을 가져옵니다.
-if (!localStorage.getItem('agoraStatesDiscussions')) {
-  localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
-} else {
-  agoraStatesDiscussions = JSON.parse(localStorage.getItem('agoraStatesDiscussions'));
-}
+// // 초기화: localStorage에 데이터가 없으면 agoraStatesDiscussions 배열을 초기화하고, 있으면 localStorage에서 agoraStatesDiscussions 배열을 가져옵니다.
+// if (!localStorage.getItem('agoraStatesDiscussions')) {
+//   localStorage.setItem('agoraStatesDiscussions', JSON.stringify(agoraStatesDiscussions));
+// } else {
+//   agoraStatesDiscussions = JSON.parse(localStorage.getItem('agoraStatesDiscussions'));
+// }
 
 // form submit 이벤트 핸들러
 form.addEventListener("submit", (event) => {
@@ -106,7 +136,6 @@ form.addEventListener("submit", (event) => {
     createdAt: new Date().toISOString(),
     title: elInpTitle.value,
     answer: null,
-    url: "#",
     author: elInpName.value,
     bodyHTML: elInpQuestion.value,
     avatarUrl: "profile.jpg"
@@ -129,38 +158,38 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 // 답변 내용 슬라이드
-let btn = document.querySelectorAll('.discussion__userbox');
-let tarGetAll = document.querySelectorAll('.discussion__answeredBox');
+// let btn = document.querySelectorAll('.discussion__userbox');
+// let tarGetAll = document.querySelectorAll('.discussion__answeredBox');
 
-btn.forEach(el => {
-    el.addEventListener('click',function(){
-        let tarGet = this.nextElementSibling;
-        tarGet.style.height = 'auto';
-        let _He = tarGet.clientHeight;
-        tarGet.style.height = '0';
+// btn.forEach(el => {
+//     el.addEventListener('click',function(){
+//         let tarGet = this.nextElementSibling;
+//         tarGet.style.height = 'auto';
+//         let _He = tarGet.clientHeight;
+//         tarGet.style.height = '0';
 
-        if(el.classList.contains('active')){
-            tarGet.style.height = _He +'px';
-            setTimeout(function() {
-                tarGet.style.height = '0';
-            }, 0);
-        } else {
-            setTimeout(function() {
-                tarGet.style.height = _He +'px';
-            }, 0);
-        }
+//         if(el.classList.contains('active')){
+//             tarGet.style.height = _He +'px';
+//             setTimeout(function() {
+//                 tarGet.style.height = '0';
+//             }, 0);
+//         } else {
+//             setTimeout(function() {
+//                 tarGet.style.height = _He +'px';
+//             }, 0);
+//         }
 
-        btn.forEach(sEl => {
-            if(sEl !== el){
-                if(sEl.classList.contains('active')){
-                    sEl.click();
-                }
-            }
-        });
+//         btn.forEach(sEl => {
+//             if(sEl !== el){
+//                 if(sEl.classList.contains('active')){
+//                     sEl.click();
+//                 }
+//             }
+//         });
 
-        el.classList.toggle("active");
-    })
-});
+//         el.classList.toggle("active");
+//     })
+// });
 
 // 페이지네이션
 // const pageLength = document.querySelectorAll('.discussion__container').length;

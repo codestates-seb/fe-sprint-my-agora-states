@@ -12,7 +12,7 @@ input:autofill:active {
 
 li { list-style: none; }
 body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #cecee6; }
-main { max-width: 540px; margin: 0 auto; border-radius: 30px; overflow: hidden; box-shadow: 10px 10px 10px rgba(0,0,0,0.2); background: linear-gradient(to right, #fff 50%, #191c3b 51%); }
+main { width: 540px; margin: 0 auto; border-radius: 30px; overflow: hidden; box-shadow: 10px 10px 10px rgba(0,0,0,0.2); background: linear-gradient(to right, #fff 50%, #191c3b 51%); }
 
 .form__container { padding: 20px; border-bottom-left-radius: 70px; background-color: #191c3b; }
 .form__container * { color: #fff; }
@@ -30,7 +30,7 @@ main { max-width: 540px; margin: 0 auto; border-radius: 30px; overflow: hidden; 
 .form__submit .submit:after { content: ""; display: block; width: 0; height: 100%; background-color: #191c3b; position: absolute; left: 0; top: 0; z-index: -1; transition: 0.5s; }
 .form__submit .submit:hover:after { width: 100%; }
 
-.discussions__container { max-height: 500px; overflow: auto; background-color: #fff; border-top-right-radius: 70px; padding: 20px; }
+.discussions__container { height: 500px; overflow: auto; background-color: #fff; border-top-right-radius: 70px; padding: 20px; }
 .discussions__container::-webkit-scrollbar { width: 10px; }
 .discussions__container::-webkit-scrollbar-thumb { background-color: #2a2f59; border-radius: 10px; background-clip: padding-box; border: 3px solid transparent; }
 .discussions__container::-webkit-scrollbar-track { border-radius: 10px;}
@@ -43,8 +43,8 @@ main { max-width: 540px; margin: 0 auto; border-radius: 30px; overflow: hidden; 
 .discussion__content:hover strong { color: #4b75f4; }
 .discussion__information { color: #cbcddc; font-size: 12px; }
 
-.discussion__answered span { display: block; padding-right: 20px; background: url('icon_check.png') no-repeat right center / 16px; font-size: 12px; line-height: 16px; padding-bottom: 2px; color: #5c6471; }
-.discussion__answered span.null { background-image: url('icon_x.png') }
+.discussion__answered { display: block; padding-right: 20px; background: url('icon_check.png') no-repeat right center / 16px; font-size: 12px; line-height: 16px; padding-bottom: 2px; color: #5c6471; }
+.discussion__answered.null { background-image: url('icon_x.png') }
 
 .discussion__answeredBox { background-color: #e8ecf9; margin-top: 10px; transition: height 0.5s; overflow: hidden; height: 0; }
 .discussion__questionTxt { padding: 10px 0; margin: 0 10px; border-bottom: 1px solid #cbcddc;}
