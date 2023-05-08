@@ -31,8 +31,8 @@
 body {
 	width: 100vh;
 	height: 100vh;
-	background-image: url("../img/dot.jpg");
-	background-size: 130px;
+	background-image: url("../img/back.png");
+	background-size: 300px;
 	background-repeat: repeat;
 	display: flex;
 	justify-content: center;
