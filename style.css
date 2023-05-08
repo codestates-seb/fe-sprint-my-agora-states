@@ -13,9 +13,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: white;
+    background-color: rgb(250, 242, 254);
 }
 
+h1 {
+    color:rgb(206, 83, 189);
+}
 .form__container {
     width: 400px;
     padding: 10px;
