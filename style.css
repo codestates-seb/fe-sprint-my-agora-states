@@ -1,1 +1,109 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+  box-sizing: border-box;
+}
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 540px; 
+ }  /*가운데로 몰기 */
+.form__container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+li {
+  list-style-type: none;
+}
+h1 {
+  text-align: center;
+  background-color: rgb(224, 232, 240);
+  width: 540px;
+  margin: 0 auto;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(206, 217, 244);
+  width: 540px;
+}
+.form__input--wrapper label,
+.form__input--wrapper input,
+.form__input--wrapper textarea {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  background-color: rgb(206, 217, 244);
+  }
+.form__submit {
+  text-align: center;
+  background-color: rgb(206, 217, 244);
+}
+/* Discussion 컴포넌트 전체의 폭을 540px로 설정 */
+.discussion__wrapper {
+  width: 540px;
+  margin: 0 auto;
+    background-color: rgb(219, 223, 234);
+  }
+/* 왼쪽 아바타 */
+.discussion__avatar--image {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%; /* 동그랗게 표현 */
+}
+/* 아바타 사진이 Discussion 컴포넌트 높이의 중간에 오도록 정렬 */
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* 중간 Discussion 콘텐츠 */
+.discussion__container {
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  font-size: 15px;
+  border-radius: 5%;
+}
+.discussion__title {
+  margin: 0;
+
+}
+.discussion__information {
+  margin: 0 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.discussion__answered {
+  display: flex;
+  align-items: center;
+}
+.discussion__answered p {
+  margin: 0 10px; 
+}
+/* 체크 표시가 Discussion 컴포넌트 높이의 중간에 오도록 정렬 */
+.discussion__answered {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 20px; 
+}
+div.discussion__content{
+  flex: 1 0 0;
+}
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 15px; 
+}
