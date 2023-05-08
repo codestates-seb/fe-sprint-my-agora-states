@@ -50,17 +50,24 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-// 페이지네이션 추가
+// 페이지네이션
 const onePageMax = 10;
 let currentPage = 1;
 
 const render = (element) => {
   const contentStartIndex = (currentPage - 1) * onePageMax;
   const contentEndIndex = contentStartIndex + onePageMax;
-  const totalPage = Math.ceil(agoraStatesDiscussions.length / onePageMax);
+  element.innerHTML = "";
+  for (let i = contentStartIndex; i < contentEndIndex && i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  }
+  return;
+};
 
-  const numbering = document.querySelector(".numbering");
-  numbering.innerHTML = ""; // 렌더된 숫자 초기화
+const numbering = document.querySelector(".numbering");
+const paging = () => {
+  const totalPage = Math.ceil(agoraStatesDiscussions.length / onePageMax);
+  numbering.innerHTML = "";
   for(let i = 1; i <= totalPage; i++){
     const PageNum = document.createElement('a');
     PageNum.className = "page_num";
@@ -68,17 +75,28 @@ const render = (element) => {
 
     PageNum.addEventListener('click', () => {
       currentPage = i;
-      render(element);
+      render(ul);
     });
     numbering.append(PageNum);
   }
 
-  element.innerHTML = ""; // 렌더된 글 초기화
-  for (let i = contentStartIndex; i < contentEndIndex && i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-  }
-  return;
-};
+  const prev = document.querySelector(".prev_page")
+  prev.addEventListener('click', () => {
+    if(currentPage > 1){
+      currentPage--;
+      render(ul);
+    }
+  });
+
+  const next = document.querySelector(".next_page")
+  next.addEventListener('click', () => {
+    if(currentPage < totalPage){
+      currentPage++;
+      render(ul);
+    }
+  });
+}
+paging(numbering)
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
@@ -97,7 +115,6 @@ function CurrentTime() {
   const seconds = String(now.getSeconds()).padStart(2, '0');
 
   let AmPmHours = hours;
-  console.log(hours)
 
   const AmPm = AmPmHours >= 12 ? '오후' : '오전';
   AmPmHours %= 12;
@@ -108,7 +125,6 @@ function CurrentTime() {
 }
 
 
-
 let elSubmitButton = document.querySelector("#submit_button");
 let elTitle = document.querySelector("#title");
 let elAuthor = document.querySelector("#name");
@@ -117,44 +133,39 @@ let fail_elTitle = document.querySelector(".Fail-title-message");
 let fail_elAuthor = document.querySelector(".Fail-name-message");
 let fail_elBodyHTML = document.querySelector(".Fail-content-message");
 
-// 새로 추가된 배열만 랜더
-const renderNewDiscussion = (obj, element) => {
-  const discussion = convertToDiscussion(obj);
-  element.prepend(discussion);
-};
-
 // 컨텐츠를 agoraStatesDiscussions 배열에 추가
 function newQA(event) {
   event.preventDefault(); // 폼 제출 기본 동작 방지
-  const id = "D_kwDOHOApLM4APY9u";
-  const createdAt = CurrentTime();
-  const title = elTitle.value;
-  const url = "https://github.com/codestates-seb/agora-states-fe/discussions/"
-  const author = elAuthor.value
-  const answer = null;
-  const bodyHTML = elBodyHTML.value;
-  const avatarUrl = "https://avatars.githubusercontent.com/u/86960007?s=64&u=4863a873d78f406d658e8a50d9b91f3045006920&v=4";
-  const newObj = {id, createdAt, title, url, author, answer, bodyHTML, avatarUrl}
+  const newObj = {
+    id: "D_kwDOHOApLM4APY9u",
+    createdAt: CurrentTime(),
+    title: elTitle.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions/",
+    author: elAuthor.value,
+    answer: null,
+    bodyHTML: elBodyHTML.value,
+    avatarUrl: "https://avatars.githubusercontent.com/u/86960007?s=64&u=4863a873d78f406d658e8a50d9b91f3045006920&v=4"
+  }
   
   // 질문 작성 검사
-  if(!title){
+  if(!newObj.title){
     fail_elTitle.classList.remove('hide');
     fail_elAuthor.classList.add('hide');
     fail_elBodyHTML.classList.add('hide');
-  } else if (title && !author) {
+  } else if (newObj.title && !newObj.author) {
     fail_elTitle.classList.add('hide');
     fail_elAuthor.classList.remove('hide');
     fail_elBodyHTML.classList.add('hide');
-  } else if (title && author && !bodyHTML) {
+  } else if (newObj.title && newObj.author && !newObj.bodyHTML) {
     fail_elTitle.classList.add('hide');
     fail_elAuthor.classList.add('hide');
     fail_elBodyHTML.classList.remove('hide');
-  } else if(title && author && bodyHTML) {
+  } else if(newObj.title && newObj.author && newObj.bodyHTML) {
     agoraStatesDiscussions.unshift(newObj);
     fail_elTitle.classList.add('hide');
     fail_elAuthor.classList.add('hide');
     fail_elBodyHTML.classList.add('hide');
-    renderNewDiscussion(newObj, ul);
+    render(ul);
     elTitle.value = "";
     elAuthor.value = "";
     elBodyHTML.value = "";
