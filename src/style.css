@@ -27,7 +27,7 @@ body {
 }
 
 section {
-  margin: 2rem 0;
+  margin: 1rem 0;
   border-radius: 1rem;
 }
 
@@ -83,7 +83,7 @@ a:active {
 /* Main */
 main {
   width: 45rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 2.5rem;
   border-radius: 1rem;
   background-color: var(--color-main);
@@ -99,7 +99,6 @@ main h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
   padding: 1.5rem;
   background-color: var(--color-section);
 }
@@ -114,7 +113,7 @@ main h1 {
   flex-direction: column;
   justify-content: space-between;
   width: 34rem;
-  height: 12rem;
+  height: 10rem;
 }
 .form__container .form__input--head {
   display: flex;
@@ -135,7 +134,7 @@ main h1 {
 }
 #story {
   width: 32rem;
-  height: 6.5rem;
+  height: 5rem;
 }
 .form__container input[type='submit'] {
   width: 7rem;
@@ -186,7 +185,7 @@ main h1 {
   margin-bottom: 0;
 }
 .discussions__container {
-  height: 25rem;
+  height: 29rem;
   padding-right: 1rem;
   overflow: scroll;
 }
