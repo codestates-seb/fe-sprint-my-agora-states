@@ -21,7 +21,7 @@ const convertToDiscussion = (obj) => {
 
 
   const discussiontitle = document.createElement('h2');
-  discussiontitle.classList.add('discuttion__title');
+  discussiontitle.classList.add('discussion__title');
   const titleLink = document.createElement('a');
   titleLink.setAttribute('href',`${obj.url}`);
   titleLink.textContent = obj.title;
@@ -31,7 +31,7 @@ const convertToDiscussion = (obj) => {
 
   const discussionInformation = document.createElement('div');
   discussionInformation.classList.add('discussion__information');
-  discussionInformation.textContent = `${obj.autor} / ${obj.createdAt}`;
+  discussionInformation.textContent = `${obj.author} / ${obj.createdAt}`;
   discussionContent.appendChild(discussionInformation)
 
 
@@ -83,7 +83,8 @@ function newStory(event) {
     title : inputTitle.value,
     avatarUrl : "images.jpeg",
     bodyHTML : inputQuestion.value,
-    createAt : new Date()
+    createAt : new Date().toISOString(),
+    author : inputName.value
   }
   );
   console.dir(agoraStatesDiscussions);
