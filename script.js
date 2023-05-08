@@ -66,54 +66,41 @@ render(ul, agoraStatesDiscussions);
 
 // 디스커션 추가 기능
 
-const newForm = document.querySelector('.form__container form')
-const inputName = document.querySelector('div.form__input--name input');
-const inputTitle = document.querySelector('div.form__input--title input');
-const inputQuestion = document.querySelector('div.form__textbox textarea');
-
-
-// inputName.onkeyup = function(){
-//   console.log(inputName.value);  
-// }
-
-// inputTitle.onkeyup = function(){
-//   console.log(inputTitle.value);
-// }
-
-// inputQuestion.onkeyup = function(){
-//   console.log(inputQuestion.value);
-// }
-
-
 // submit 클릭하면 값 가져오기
 
-function newQuestion(event){
-  event.preventDefault();
+// 1. input을 불러와야 한다.
+// 2. 등록을 할때 submit이벤트를 사용해야 한다.
+// 3. 새로고침 안되게
 
-  console.log("클릭됨");
-  console.log(inputTitle.value);
+const newForm = document.querySelector('form.form');
+const inputName = document.querySelector('div.form__input--name > input');
+const inputTitle = document.querySelector('div.form__input--title > input');
+const inputQuestion = document.querySelector('div.form__textbox > textarea');
 
-  
 
+newForm.addEventListener('submit', (event) =>{
+    event.preventDefault();
 
-  // agoraStatesDiscussions.unshift({
-  //   author : inputTitle.value,
-  // });
-  // render(ul);
+    const obj = {
+      id: "unique id",
+      createdAt : new Date().toISOString(),
+      title: inputTitle.value,
+      url: "https://github.com/codestates-seb/agora-states-fe/discussions/38",
+      author: inputName.value,
+      answer: null,
+      bodyHTML: inputQuestion.value,
+      avatarUrl: "https://github.com/codestates-seb/agora-states-fe/discussions/6",
+  };
 
-  // agoraStatesDiscussions.unshift({
-  //   id: "null",
-  //   createdAt : new Date(),
-  //   title: inputTitle.value,
-  //   url: null,
-  //   author: inputName.value,
-  //   answer: null,
-  //   bodyHTML: inputQuestion.value,
-  //   avatarUrl: "https://img.icons8.com/dusk/64/000000/new.png",
-  // });
-  // render(ul);
+  // 객체 추가
+  agoraStatesDiscussions.unshift(obj);
 
-  return false;
-};
+  // 화면 지우고
+  while(ul.firstChild){
+    ul.removeChild(ul.firstChild);
+  }
 
-newForm.addEventListener('submit', newQuestion );
+  // 다시 렌더링
+  render(ul);
+
+})

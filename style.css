@@ -121,6 +121,7 @@ textarea{
    padding-top: 10px;
 } 
 
+/*  클릭 전 */
 input[type=submit]{
    margin-top: 30px;
    width: 360px;
@@ -133,6 +134,12 @@ input[type=submit]{
    font-size: 18px;
 } 
 
+/*  클릭 후 */
+/* .click{
+   box-shadow: inset 2px 2px  5px #FFFFFF, 
+   inset -2px -2px  5px #A6B4C8;
+} */
+
 
 .marginB{
    margin-bottom: 10px;
@@ -143,11 +150,7 @@ input[type=submit]{
 .discussion__wrapper{
    margin-left: 570px;
    width: 800px;
-   margin-top: 20px;
-   border-radius: 15px;
-   box-shadow:  8px 8px  10px #A6B4C8, 
-   -8px -8px  10px #FFFFFF;
-
+   margin-top: -17px;
 }
 
 .img_boxShadow{
