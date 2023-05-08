@@ -117,5 +117,35 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
-const send = document.querySelector(send)
-send.action = () => console.log(document.querySelector('form'))
+const form = document.querySelector('form')
+form.addEventListener('submit', function(event){
+  event.preventDefault()
+
+  const title = document.querySelector('.form__input--title > input')
+  const name = document.querySelector('.form__input--name > input')
+  const body = document.querySelector('.form__textbox > textarea')
+  
+  console.log(title.value, name.value, body.value);
+  // if(title.length && name.length && body.length){
+  // }else{
+  //   alert('빈칸을 채워주세요.')
+  // }
+  const obj = {
+    title: title.value,
+    author: name.value,
+    bodyHTML: body.value,
+    createdAt: `${new Date().toISOString()}`
+  }
+
+  agoraStatesDiscussions.unshift(obj)
+
+  // 화면 다 지우고 
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+
+  // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
+  render(ul);
+
+})
+
