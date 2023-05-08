@@ -1,5 +1,5 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+// console.log(agoraStatesDiscussions);
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -105,13 +105,17 @@ const convertToDiscussion = (obj) => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+const elCurrentPage = document.querySelector('.pagination__number')
 const render = (element) => {
   const objPerPage = 10
-  const pageCount = Math.ceil(agoraStatesDiscussions.length / objPerPage)
-  const elCurrentPage = document.querySelector('.pagination__number')
+  // const pageCount = Math.ceil(agoraStatesDiscussions.length / objPerPage)
 
-  for (let i = elCurrentPage.textContent * objPerPage; i < elCurrentPage.textContent*objPerPage + 10; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = (Number(elCurrentPage.textContent) - 1) * objPerPage; i < (Number(elCurrentPage.textContent) - 1) * objPerPage + 10; i += 1) {
+    if (agoraStatesDiscussions[i]) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+
+    }
+
   }
   return;
 };
@@ -122,13 +126,13 @@ render(ul);
 
 
 const form = document.querySelector('form')
-form.addEventListener('submit', function(event){
+form.addEventListener('submit', function (event) {
   event.preventDefault()
 
   const title = document.querySelector('.form__input--title > input')
   const name = document.querySelector('.form__input--name > input')
   const body = document.querySelector('.form__textbox > textarea')
-  
+
   console.log(title.value, name.value, body.value);
   // if(title.length && name.length && body.length){
   // }else{
@@ -159,3 +163,22 @@ form.addEventListener('submit', function(event){
 
 })
 
+const elPageChangers = document.querySelectorAll('.pagination__button')
+
+elPageChangers.forEach(el => {
+  el.addEventListener('click', () => {
+    elCurrentPage.textContent = Number(elCurrentPage.textContent) + 1
+
+    // 화면 다 지우고 
+    while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    }
+
+    // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
+    render(ul);
+
+    window.scrollTo(0, 0)
+  })
+
+
+});
