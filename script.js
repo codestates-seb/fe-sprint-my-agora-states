@@ -68,37 +68,43 @@ const render = (element) => {
   renderContent();
 
   const numbering = document.querySelector(".numbering");
+  const totalPage = Math.ceil(agoraStatesDiscussions.length / onePageMax);
   const paging = () => {
-    const totalPage = Math.ceil(agoraStatesDiscussions.length / onePageMax);
     numbering.innerHTML = "";
     for(let i = 1; i <= totalPage; i++){
       const PageNum = document.createElement('a');
       PageNum.className = "page_num";
       PageNum.textContent = i;
+      if(currentPage === i) {
+        PageNum.classList.add('disabled')
+      }
   
       PageNum.addEventListener('click', () => {
         currentPage = i;
         renderContent();
+        paging();
       });
       numbering.append(PageNum);
     }
-  
-    const prev = document.querySelector(".prev_page")
-    prev.addEventListener('click', () => {
-      if(currentPage > 1){
-        currentPage -= 1;
-        renderContent();
-      }
-    });
-  
-    const next = document.querySelector(".next_page")
-    next.addEventListener('click', () => {
-      if(currentPage < totalPage){
-        currentPage += 1;
-        renderContent();
-      }
-    });
   }
+  
+  const prev = document.querySelector(".prev_page")
+  prev.addEventListener('click', () => {
+    if(currentPage > 1){
+      currentPage -= 1;
+      renderContent();
+      paging();
+    }
+  });
+
+  const next = document.querySelector(".next_page")
+  next.addEventListener('click', () => {
+    if(currentPage < totalPage){
+      currentPage += 1;
+      renderContent();
+      paging();
+    }
+  });
   paging(numbering)
 };
 

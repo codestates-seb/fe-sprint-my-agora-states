@@ -70,12 +70,14 @@ form {
 }
 
 .form__input--name > input {
+    outline: none;
     width: 170px;
     margin-right: 10px;
     padding: 5px;
 }
 
 .form__input--title > input {
+    outline: none;
     width: 560px;
     padding: 5px;
 }
@@ -89,6 +91,7 @@ form {
 .form__textbox > textarea {
     overflow-y: auto;
     resize: none;
+    outline: none;
     width: 740px;
     height: 100px;
     padding: 10px;
@@ -227,4 +230,8 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.disabled {
+    color: #25b457;
 }
