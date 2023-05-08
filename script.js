@@ -117,8 +117,55 @@ while(getPageNation.hasChildNodes()){
 }
 
     renderButton();
-    click();
-}
+    // click();
+   
+    const buttons = document.querySelectorAll('.pagenation button');
+     buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      buttons.forEach((btn) => btn.classList.remove('active')); // 모든 버튼에서 active 클래스 제거
+      button.classList.add('active'); // 클릭한 버튼에 active 클래스 추가
+  
+      if(button.classList.contains('prev') && currentPage > 1){
+        buttons[parseInt(currentPage) - 1].classList.add('active');
+      }else if(currentPage == 1){
+        buttons.forEach((btn) => btn.classList.remove('active'));
+        buttons[parseInt(button.id )].classList.add('active');
+      }
+  
+      if(button.classList.contains('next')&& currentPage < totalPage){
+        buttons[parseInt(currentPage) + 1].classList.add('active');
+      }else if(currentPage == totalPage){
+        buttons.forEach((btn) => btn.classList.remove('active'));
+        buttons[parseInt(button.id )].classList.add('active');
+      }
+  
+      currentPage = button.id;
+      
+      
+      if(currentPage > 1){
+        prev.id = parseInt(currentPage);
+      }else if(currentPage == 1){
+        prev.id = parseInt(currentPage);
+      }
+  
+      if(currentPage < totalPage){
+      
+        next.id = parseInt(currentPage);
+      } else if(currentPage == totalPage){
+        next.id = parseInt(totalPage);
+      }
+  
+      while(ul.hasChildNodes()){
+        ul.removeChild(ul.firstChild);
+        j=button.id -1;
+      }
+          renderContent();
+         
+    });
+  });
+  
+    }
+
 
 submitForm.addEventListener('submit',saveSubmitData);
 
@@ -201,20 +248,21 @@ function click(){
   
       if(button.classList.contains('prev') && currentPage > 1){
         buttons[parseInt(currentPage) - 1].classList.add('active');
-      }else if(button.id == 1){
+      }else if(currentPage == 1){
         buttons.forEach((btn) => btn.classList.remove('active'));
         buttons[parseInt(button.id )].classList.add('active');
       }
   
       if(button.classList.contains('next')&& currentPage < totalPage){
         buttons[parseInt(currentPage) + 1].classList.add('active');
-      }else if(button.id == totalPage){
+      }else if(currentPage == totalPage){
         buttons.forEach((btn) => btn.classList.remove('active'));
         buttons[parseInt(button.id )].classList.add('active');
       }
   
       currentPage = button.id;
-  
+      
+      
       if(currentPage > 1){
         prev.id = parseInt(currentPage) - 1;
       }else if(currentPage == 1){
@@ -238,20 +286,3 @@ function click(){
   });
 
 }
-
-const checkbox = document.querySelector('.discussion__answered input');
-if(localStorage.getItem('myCheckbox') === 'checked'){
-  checkbox.checked = true;
-}
-
-checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    localStorage.setItem('myCheckbox', 'checked');
-  } else {
-    localStorage.removeItem('myCheckbox');
-  }
-});
-
-
-
-
