@@ -28,8 +28,6 @@ function handleFormEvent(event) {
   // 입력받은 값을 오브젝트에 저장
   // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, 태그 )
 
-  const target = event.target;
-
   // id
   const id = new IDGenerator().getID();
 
@@ -71,6 +69,8 @@ function handleFormEvent(event) {
     avatarUrl,
     tags,
   };
+
+  // local storage 동기화
   const prevData = JSON.parse(localStorage.getItem("data"));
   prevData.unshift(item);
   localStorage.setItem("data", JSON.stringify(prevData));
@@ -94,6 +94,7 @@ function closeForm(event) {
   searchContainer.classList.remove("hidden");
 }
 
+// 새 포스트 생성시 1페이지로
 const reRender = (element) => {
   localStorage.setItem("pageNum", 1);
   navCenter.textContent = 1;
@@ -101,6 +102,7 @@ const reRender = (element) => {
   return;
 };
 
+// 포스트 조건 검사기
 function titleValidator() {
   if (title.value !== "".trim()) {
     return true;

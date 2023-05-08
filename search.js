@@ -3,6 +3,7 @@ const createBtn = document.querySelector(".search--create");
 const titles = document.querySelectorAll(".discussion__title");
 const authors = document.querySelectorAll(".discussion__author");
 
+// 제목, 내용, 작성자로 검색
 function handleSearch(event) {
   const searchKey = event.target.value;
 
@@ -25,6 +26,7 @@ function handleSearch(event) {
   }
 }
 
+// 새 포스트 전환
 function changeContainer() {
   // 다시 모든 discussions 보여줌
   for (let i = 0; i < ul.childNodes.length; i++) {

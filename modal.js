@@ -105,17 +105,14 @@ const closeModal = (event) => {
   while (modalAvatar.firstChild) {
     modalAvatar.firstChild.remove();
   }
-  answerAuthor.textContent = "";
-  answerTime.textContent = "";
-  answerStory.textContent = "";
   while (modalTag.firstChild) {
     modalTag.firstChild.remove();
   }
+  answerAuthor.textContent = "";
+  answerTime.textContent = "";
+  answerStory.textContent = "";
   while (answerAvatar.firstChild) {
     answerAvatar.firstChild.remove();
-  }
-  while (modalAvatar.firstChild) {
-    modalAvatar.firstChild.remove();
   }
   modal.classList.add("hidden");
 
