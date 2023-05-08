@@ -2,17 +2,19 @@
 /* 모든 요소에 border-box */
 * {
     box-sizing: border-box;
+
 }
 
 main {
     border-radius: 20px;
-    background-color: #FEF2F4;
+
 }
 /* My Agora States 폼 만들기 */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FEF2F4;
 }
 
 h1 {
@@ -165,12 +167,21 @@ a {
     font-weight: 900;
 }
 
-@media screen and (max-height:500px) {
-    .discussions__container {
-        display: none;
-    }
 
-    .discussions__container.active {
-        display: flex;
-    }
+footer {
+    display: flex;
+    justify-content: center;
 }
+        
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+        
+.pagination li {
+    margin: 0 5px;
+}
+    

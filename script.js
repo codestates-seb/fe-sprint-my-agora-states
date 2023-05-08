@@ -7,7 +7,7 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
-  //새로운 디스커션 요소 생성
+  //li 요소 내부에 들어갈 세개의 새로운 디스커션 요소 생성
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -82,6 +82,7 @@ form.addEventListener('submit',(event) => {
 
   //agoraStatesDiscussions앞에 추가
   agoraStatesDiscussions.unshift(newObj);
+
   //convertToDiscussion요소 생성
   const discussion = convertToDiscussion(newObj);
 
@@ -94,10 +95,3 @@ form.addEventListener('submit',(event) => {
 }
 )
 
-// discussions 숨기기
-const toggleBtn = document.querySelector('.toggleBtn');
-const category = ducoument.querySelector('.discussions__container');
-
-togglBtn.addEventListener('click', () => {
-  category.clasList.toggle('active');
-});
