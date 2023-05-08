@@ -1,1 +1,95 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    margin:0;
+    font-size: 12px;
+    font-family: 'Gowun Dodum', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    background-color: #EBF5FF; 
+    box-sizing: border-box;
+}
+
+h1 {
+    padding : 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #00255A;
+    border-bottom : 3px solid #00255A;
+    width : 540px;
+}
+
+main {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    background-color: #FFF;
+    
+}
+
+.form__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    background-color: #FFF;
+    width: 540px;
+    border: solid #00255A 3px;
+    padding: 10px;
+  }
+  
+.pa4 {
+  padding: 4px;
+}
+
+
+.discussion__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 540px;
+  background-color: #f6eed0;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 36px;
+  border-radius: 10px;
+
+  }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    background-color: #00255A;
+    padding: 2px;
+    align-self: center;
+}
+
+.discussion__title {
+    font-size: 13px;
+    flex: 1;
+    text-align: center;
+}
+
+li {
+  list-style-type : none;
+  
+}
+
+.discussion__answered {
+  flex: 1; /* 1/3의 공간을 차지하도록 flex 설정 */
+  text-align: right; /* 오른쪽 정렬 */
+  font-size: 14px;
+}
