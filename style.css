@@ -221,26 +221,3 @@ main > .error__msg {
 	color: #13c664;
 	transition: ease-in 0.2s;
 }
-
-.hide {
-	display: none;
-}
-
-.error {
-	background-color: #ff0000;
-	color: #fff;
-	transition: ease-in-out 0.2s;
-}
-
-.errorOff {
-	border: 0.5px solid gray;
-	transition: ease-in-out 0.2s;
-}
-
-input::placeholder {
-	color: #000;
-}
-
-textarea::placeholder {
-	color: #000;
-}

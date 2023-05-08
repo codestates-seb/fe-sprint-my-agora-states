@@ -72,91 +72,7 @@ const inputedQuestion = document.querySelector('#story');
 const form = document.querySelector('form');
 const errMsg = document.querySelector('.error__msg');
 
-//! inputted name conditions
-inputedName.addEventListener('keyup', () => {
-	const nameValue = inputedName.value;
-
-	//if inputed name is empty or longer than 10
-	if (nameValue.length < 1) {
-		inputedName.classList = 'error';
-		errMsg.classList.remove('hide');
-		errMsg.textContent = 'Name is empty';
-	} else if (nameValue.length > 10) {
-		// alert('Name is too long. Characters Under 10');
-		inputedName.classList = 'error';
-		errMsg.classList.remove('hide');
-		errMsg.textContent = 'Name is too long';
-	} else if (nameValue >= 1 || nameValue.length <= 10) {
-		inputedName.classList = 'errorOff';
-		errMsg.classList.add('hide');
-	}
-});
-
-//! inputted title conditions
-inputedTitle.addEventListener('keyup', () => {
-	const titleValue = inputedTitle.value;
-
-	//if inputed title is empty
-	if (titleValue.length < 1) {
-		inputedTitle.classList = 'error';
-		errMsg.classList.remove('hide');
-		errMsg.textContent = 'Title is empty';
-	} else if (titleValue.length > 20) {
-		inputedTitle.classList = 'error';
-		errMsg.classList.remove('hide');
-		errMsg.textContent = 'Title is too long';
-	} else if (titleValue >= 1 || titleValue.length <= 50) {
-		inputedTitle.classList = 'errorOff';
-		errMsg.classList.add('hide');
-	}
-});
-
-//! inputted question conditions
-
-inputedQuestion.addEventListener('keyup', () => {
-	const questionValue = inputedQuestion.value;
-
-	// if inputed question is empty
-	if (questionValue.length < 1) {
-		inputedQuestion.classList = 'error';
-		errMsg.classList.remove('hide');
-		errMsg.textContent = 'Question is empty';
-	} else if (questionValue.length > 30) {
-		inputedQuestion.classList = 'error';
-		errMsg.classList.remove('hide');
-		errMsg.textContent = 'Question is too long';
-	} else if (questionValue >= 1 || questionValue.length <= 20) {
-		inputedQuestion.classList = 'errorOff';
-		errMsg.classList.add('hide');
-	}
-});
-
-// form.addEventListener('submit', (e) => {
-// 	e.preventDefault();
-
-// 	//object 생성
-// 	const obj = {
-// 		id: 'unique od',
-// 		createdAt: new Date().toISOString(),
-// 		title: inputedTitle.value,
-// 		url: 'https://github.com/codestates-seb/agora-states-fe/discussions',
-// 		author: inputedName.value,
-// 		answer: null,
-// 		bodyHTML: inputedQuestion.value,
-// 		avatarUrl: 'https://avatars.githubusercontent.com/u/87750478?s=64&v=4',
-// 	};
-
-// 	//agorastatesdiscussion 추가
-// 	agoraStatesDiscussions.unshift(obj);
-
-// 	while (ul.firstChild) {
-// 		ul.removeChild(ul.firstChild);
-// 	}
-
-// 	render(ul);
-// 	console.log(agoraStatesDiscussions.length);
-// });
-
+//form submit 기능
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 
@@ -195,18 +111,8 @@ form.addEventListener('submit', (e) => {
 	//! user info discussion information
 	const discussionInfo = document.createElement('div');
 	discussionInfo.className = 'discussion__information';
-	//current date upon submission
-	const currentDate = new Date();
-	const year = currentDate.getUTCFullYear();
-	const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0');
-	const day = String(currentDate.getUTCDate()).padStart(2, '0');
-	const hours = String(currentDate.getUTCHours()).padStart(2, '0');
-	const minutes = String(currentDate.getUTCMinutes()).padStart(2, '0');
-	const seconds = String(currentDate.getUTCSeconds()).padStart(2, '0');
-	discussionInfo.textContent = ` ${nameValue} / ${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
-	// console.log(isoDate); // output: 2023-05-06T00:00:00Z (depending on the current time in your timezone)
-
-	// discussionInfo.textContent = `${nameValue} / ${isoDate}`;
+	let newDate = new Date().toISOString();
+	discussionInfo.textContent = ` ${nameValue} / ${newDate}`;
 
 	//! checkedButton generate
 	const answeredBtn = document.createElement('div');
@@ -243,7 +149,7 @@ form.addEventListener('submit', (e) => {
 	// 새로운 agoraStatesDiscussions obj 생성하고 추가하기
 	let discussionSubmitted = {
 		id: `D_kwDOHOApLM4APfj${generateLastDigit}`,
-		createdAt: new Date().toISOString(),
+		createdAt: newDate,
 		title: titleValue,
 		url: 'https://github.com/codestates-seb/agora-states-fe/discussions/42',
 		author: nameValue,
