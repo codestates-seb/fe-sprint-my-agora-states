@@ -14,44 +14,47 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+    <header>
+      <h1>My Agora States</h1>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA+VBMVEX///8AG2hFLd3///0AFGkAFGb8//4BHGUBGmo4QXwmP3r///yRh+ksANk7INkAHGcAAFqyu8MAAGPj6OwzQHXr7/JCKd////iIfuXq6vn///VFLdkAAF8AAFcAG24AHmQvAOFFL9Orou8ACGWzqOKspOQ8IeCZk+KbkurEvOzKwuulnO/Ry/Q3EtYzCeKmoOfe2PhSPMy3ruI9G+Dt6vSFeeJHL810Yd1nVeVdSuSAbeRaQuRsWts+IuZLN8+DjLIdNXRodp0jPIRZZ4wPIl9dZo+Hka0AAE8MJltxe5mborsmMWwlNmKBi6OkscByfqNjb4sADlc7RnIHBZI6AAAEgklEQVR4nO3ccV+bRhwG8CNHgO5qoIlwCgSSxqXdumRdk666zWkWZ2syq+37fzEDXdVcgAgeg3w+z/dvz+PhfpzyuyghAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADycZpzAGWUl3IlJaHE5TQXl+W9J9Xi/OB5Tt9v1RISctBr5TPsvar6mh+NcsoOep7TyGnnNedu1Rf/KIy4P/Scft6Ajcb4Fd2SZ5H/OPYKBGz0d95sQ0KXuD+N+rlLNOZ445+jTbXqBBu4hL1tOIUCxsYv61+o/G3L6XtFE3o7L+v+Q8Pd95z82+gdx5tEhcqqTpFl/5dh8Xw3EUfvSK0fxb1JsV3mnjeZ1vpR3Dsu/Az+t4iOM6317+B7racFjDPu1/o5REIkRMLqISESImH1kBAJkbB6e8cSEvI6R3w//PWpCVvTqkNkejcq3oa6NfxA3Dq/AvODntdwCr8FO97k0M19bvX/4m9G/UbhZfRah/WOF/dL+etx8UIdHrI67zIxxjl7PimasHVEtuJwhr8fNYr0TJ36l+gtytzfJl6BiM7vdp2bbPcY4fTDOP/hU+vI3o4ljCJSwv7I2zftHx/ts3r381cwctTbyaX3Z71/lRFFOyrL91kMVvuDQ1HeemO81r18AAAAAADI4pKT0+9WnM60rBdtjdDO7l/CGClO54Rr0l8vKDmxVIF/TbIi8mk4UJviIAmU9jx6w9ckJyTnXSUM9RVGe5Z1T6ZnTVMXhkgRKu2/o1WUGo/FAU1DoAfWhZb4+kopYZ0zVRFHyBGEentOmKbJK1SXLD4Guq6s8y9I4jSM2Z+aRsIAWazraGJp/TZKFla0YmbCRNEqJg+xz9Skr5clKp94FWUljAOGYeIFh0YUUbiVlFBmL9VAV8pbRENXok2Aa5qMz3rzuETD9MmiiKvPYrTP2f+oSTUtN2T35gl5ekJKPncDIyNh4F8KQ5j9TDUzRsih395bCZX6+WMzpURvhaYQkdvLgRkGZSdUzNC6lPJDY7m54Lr2SqG+aJe5yTzkd2T09nc3J7SqSqgiIRIi4TdIWBokREIkvIOEpUFCJETCO9udUFsONiU0o/fDh82EF75ilp/R1BWj3ZHRUFxYhp7YSfzG6F6tDKDRO75hlt6n0cPAupLTMl1YmQnNrtBQ1Li9OwhKT6gE1iy5WZsXv4mYPpF/JXaDNGqfDcovU2sWt9bldIUX7bTOmaHEK7h+J+1lOyyz2xbqhp91aJITJeftlJnMm573+n2kneUgKHG7MQN/JvNwhpNzK3km6zq5Tii19UGZu40/l9Luvr9gcu4ra1VnxpXC0ybqfFKVrD5rcdF3jc+eZPS7H7q01nq8hj8nGTey80U1lDIi6kG0gpLPD+NCPek2BdY8/m9yaREp64QD1RQHSaBGd1b+v2zTKDl5JriIz7fSz9M10vkqDpFid67FE8uOGF+yYOMAKo6Qg8h+Au+uV/SYMTk/pP4o5f3BWu41ZKysNQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAdP8CZDWUDk1uQG4AAAAASUVORK5CYII=">
+    </header>
+      <section class="form__container">
+        <form action="" method="get" class="form">
+          <div class="form__input--wrapper">
+            <div class="form__input--name">
+              <label for="name">Enter your name: </label>
+              <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form__input--title">
+              <label for="title">Enter your title: </label>
+              <input type="text" name="title" id="title" required>
+            </div>
+            <div class="form__textbox">
+              <label for="story">Your question: </label>
+              <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+            </div>
           </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
+          <div class="form__submit">
+            <input class="event" onclick="" type="submit" value="보내기">
           </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input class="event" onclick="" type="submit" value="submit">
-        </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
+        </form>
+      </section>
+      <section class="discussion__wrapper">
+        <ul class="discussions__container">
+          <li class="discussion__container">
+            <div class="discussion__avatar--wrapper">
+              <img class="discussion__avatar--image"
               src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
               alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p class="answerBox">☑</p></div>
-        </li>
-      </ul>
-    </section>
+            </div>
+            <div class="discussion__content">
+              <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+              <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            </div>
+            <div class="discussion__answered"><p class="answerBox">☑</p></div>
+          </li>
+        </ul>
+      </section>
   </main>
 </body>
 <script src="data.js"></script>

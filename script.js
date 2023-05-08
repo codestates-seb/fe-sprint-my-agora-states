@@ -50,7 +50,7 @@ const titleBox = document.querySelector("#title");
 const nameBox = document.querySelector("#name");
 const questionBox = document.querySelector("#story");
 const submitBox = document.querySelector("form");
-const today = new Date();
+const today =new Date()
 
 submitBox.onsubmit = function(event){
   event.preventDefault();
@@ -58,7 +58,7 @@ submitBox.onsubmit = function(event){
   newObj.avatarUrl = "https://avatars.githubusercontent.com/u/97888923?s=64&u=12b18768cdeebcf358b70051283a3ef57be6a20f&v=4"
   newObj.title = titleBox.value;
   newObj.author = nameBox.value;
-  newObj.createdAt = today;
+  newObj.createdAt =today.toLocaleString();
   newObj.answer = null;
   agoraStatesDiscussions.unshift(newObj);
   convertToDiscussion(agoraStatesDiscussions[0]);
