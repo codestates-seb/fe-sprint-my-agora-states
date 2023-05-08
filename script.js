@@ -1,5 +1,43 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
+function storageAvailable(type) {
+  let storage;
+  try {
+    storage = window[type];
+    const x = "__storage_test__";
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return (
+      e instanceof DOMException &&
+      // everything except Firefox
+      (e.code === 22 ||
+        // Firefox
+        e.code === 1014 ||
+        // test name field too, because code might not be present
+        // everything except Firefox
+        e.name === "QuotaExceededError" ||
+        // Firefox
+        e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      storage &&
+      storage.length !== 0
+    );
+  }
+}
+
+if (storageAvailable("localStorage")) {
+  // Yippee! We can use localStorage awesomeness
+  if(!localStorage.getItem('discussions'))
+  localStorage.setItem('discussions', JSON.stringify(agoraStatesDiscussions))
+} else {
+  // Too bad, no localStorage for us
+}
+
+// const temp = JSON.parse(localStorage.getItem('discussions'))
+// localStorage.setItem('discussions', JSON.stringify(temp))
+
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -107,13 +145,14 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const elCurrentPage = document.querySelector('.pagination__number')
 const objPerPage = 10
-const pageCount = Math.ceil(agoraStatesDiscussions.length / objPerPage)
+const temp = JSON.parse(localStorage.getItem('discussions'))
+let pageCount = Math.ceil(temp.length / objPerPage)
 const render = (element) => {
-
+  const temp = JSON.parse(localStorage.getItem('discussions'))
+  pageCount = Math.ceil(temp.length / objPerPage)
   for (let i = (Number(elCurrentPage.textContent) - 1) * objPerPage; i < (Number(elCurrentPage.textContent) - 1) * objPerPage + 10; i += 1) {
-    if (agoraStatesDiscussions[i]) {
-      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
-
+    if (temp[i]) {
+      element.append(convertToDiscussion(temp[i]));
     }
 
   }
@@ -148,8 +187,10 @@ form.addEventListener('submit', function (event) {
   title.value = ''
   name.value = ''
   body.value = ''
+  const temp = JSON.parse(localStorage.getItem('discussions'))
+  temp.unshift(obj)
+  localStorage.setItem('discussions', JSON.stringify(temp))
 
-  agoraStatesDiscussions.unshift(obj)
 
   // 화면 다 지우고 
   while (ul.firstChild) {
@@ -157,6 +198,7 @@ form.addEventListener('submit', function (event) {
   }
 
   // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
+  elCurrentPage.textContent = 1
   render(ul);
 
 
@@ -167,31 +209,31 @@ const elPageChangers = document.querySelectorAll('.pagination__button')
 
 elPageChangers.forEach(el => {
   el.addEventListener('click', () => {
-    if (el.classList.contains('left')){
-      if (Number(elCurrentPage.textContent) > 1 ){
+    if (el.classList.contains('left')) {
+      if (Number(elCurrentPage.textContent) > 1) {
         elCurrentPage.textContent = Number(elCurrentPage.textContent) - 1
         // 화면 다 지우고 
         while (ul.firstChild) {
           ul.removeChild(ul.firstChild);
         }
-    
+
         // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
         render(ul);
-    
+
         window.scrollTo(0, 0)
       }
 
-    }else if(el.classList.contains('right')){
-      if (Number(elCurrentPage.textContent) < pageCount){
+    } else if (el.classList.contains('right')) {
+      if (Number(elCurrentPage.textContent) < pageCount) {
         elCurrentPage.textContent = Number(elCurrentPage.textContent) + 1
         // 화면 다 지우고 
         while (ul.firstChild) {
           ul.removeChild(ul.firstChild);
         }
-    
+
         // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
         render(ul);
-    
+
         window.scrollTo(0, 0)
       }
     }
