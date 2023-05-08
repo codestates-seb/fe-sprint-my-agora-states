@@ -14,44 +14,91 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
+    <div class="left">
+      <div class="main_title">
+        <h1>My Agora States</h1>
+      </div>
+      <div class="list">
+        <button class="Home">Home</button>
+        <button class="Ask">Ask</button>
+        <button class="Search">Search</button>
+        <button class="my_Question">My question</button>
+        <button class="my_Answer">My answer</button>
+        <button class="Setting">Setting</button>
+      </div>
+      <div class="bright">
+        <button class="Light">Light</button>
+        <button class="Dark">Dark</button>
+      </div>
+    </div>
+    <div class="right">
+      <div class="right_left">
+        <section class="discussion__wrapper">
+          <ul class="discussions__container">
+            <!-- <li class="discussion__container">
+              <div class="discussion__avatar--wrapper">
+                <img class="discussion__avatar--image"
+                  src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+                  alt="avatar of kimploo">
+              </div>
+              <div class="discussion__content">
+                <h2 class="discussion__title"><a
+                    href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+                <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+              </div>
+              <div class="discussion__answered">
+                <p>☑</p>
+                <input type="checkbox" class="" />
+              </div>
+            </li>
+            <div class="answers_box hide">
+              <div class="answer_bar">
+                <button class="answer_quit"></button>
+              </div>
+              <div class="answer_body">
+                <ul class="answer_output">
+                  <li class="answer_list">
+                    <div class="answers_img">
+                      <img class="answer_img_main" src="" alt="" />
+                    </div>
+                    <div class="answers_container">
+                      <div class="answer_title"></div>
+                      <div class="answer_contents"></div>
+                      <div class="answer_information"></div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="answers_input">
+                  <input type="text" class="answer_input_box" placeholder="댓글을 작성해주세요."></input>
+                </div>
+              </div>
+            </div> -->
+          </ul>
+          <div class="page_number"></div>
+        </section>
+        <section class="form__container hide">
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="이름을 입력해주세요" id="name" required>
+              </div>
+              <div class="form__input--title">
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="제목을 입력해 주세요" id="title" required>
+              </div>
+              <div class="form__textbox">
+                <label for="story">Contnents</label>
+                <textarea id="story" name="story" placeholder="궁금한 내용을 작성해주세요" required></textarea>
+              </div>
+            </div>
+            <div class="form__submit">
+              <input type="submit" value="submit">
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
   </main>
 </body>
 <script src="data.js"></script>
