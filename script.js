@@ -35,7 +35,7 @@ const convertToDiscussion = (obj) => {
   checked.className = "discussion__answered"
   checked.textContent = obj.answer ? '댓글 : 1' : '댓글 : 0'
   discussionAnswered.append(checked)
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어줌
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
