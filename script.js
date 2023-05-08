@@ -28,13 +28,11 @@ if (localStorage.getItem("discussions") === null) {
 } else {
   discussionsList = JSON.parse(localStorage.getItem("discussions"));
 }
-
-console.log("discussionsList", discussionsList);
+// console.log("discussionsList", discussionsList);
 
 /* discussion List */
 // create discussion list
 const ul = document.querySelector(".discussions__container");
-
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li");
   li.className = "discussion__container";
@@ -107,7 +105,6 @@ const render = (element) => {
   }
   return;
 };
-
 render(ul);
 
 // convert date 
@@ -148,9 +145,17 @@ const formSubmitBtn = document.querySelector(".form__submit button");
 // form open
 questionBtn.addEventListener("click", () => {
   questionForm.classList.toggle("close");
+  resetForm();
   changeFormText();
   resizeDiscussionsContainer();
 });
+
+// form reset
+const resetForm = () => {
+  formInputName.value = "";
+  formInputTitle.value = "";
+  formTextbox.value = "";
+}
 
 // change text
 const changeFormText = () => {
@@ -180,22 +185,18 @@ questionForm.addEventListener("submit", (e) => {
   ul.prepend(convertToDiscussion(newDiscussion));
   
   localStorage.setItem("discussions", JSON.stringify(discussionsList));
-  console.log("생성완료", discussionsList);
-
-  // form reset
-  formInputName.value = "";
-  formInputTitle.value = "";
-  formTextbox.value = "";
+  // console.log("생성완료", discussionsList);
+  
   questionForm.classList.add("close");
 
+  resetForm();
   changeFormText();
   resizeDiscussionsContainer();
-
+  loadPagination()
 });
 
 // delete list
 function deleteDiscussion(e) {
-  console.log("삭제버튼");
   const deleteItem = e.target.closest(".discussion__container");
 
   if (confirm("정말 삭제하시겠습니까?")) {
@@ -208,8 +209,9 @@ function deleteDiscussion(e) {
     // update discussionsList
     localStorage.setItem("discussions", JSON.stringify(updatedDiscussionsList));
     discussionsList = updatedDiscussionsList;
-    
-    console.log("삭제완료", discussionsList);
+    // console.log("삭제완료", discussionsList);
+
+    loadPagination()
   }
 }
 
@@ -229,10 +231,10 @@ resizeDiscussionsContainer();
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 const pageNumbers = document.querySelector(".pageNumbers");
-const discussionList = document.querySelectorAll(".discussion__container");
+let discussionList = document.querySelectorAll(".discussion__container");
 
 const contentLimit = 10;
-const pageCount = Math.ceil(discussionList.length / contentLimit);
+let pageCount = Math.ceil(discussionList.length / contentLimit);
 let currentPage = 1;
 
 // create page numbers
@@ -250,22 +252,29 @@ const getPageNumbers = () => {
   };
 };
 
-// prev, next btn 
+// handle prev, next btn 
 const disableButton = (button) => button.setAttribute("disabled", true);
 const enableButton = (button) => button.removeAttribute("disabled");
-const controlButtonsStatus = () => {
-  currentPage == 1 ? disableButton(prevBtn) : enableButton(prevBtn);
-  pageCount == currentPage ? disableButton(nextBtn) : enableButton(nextBtn);
+const handleButtonsStatus = () => {
+  currentPage === 1 ? disableButton(prevBtn) : enableButton(prevBtn);
+  currentPage === pageCount ? disableButton(nextBtn) : enableButton(nextBtn);
 };
 
+prevBtn.addEventListener("click", () => {   
+  setCurrentPage(currentPage - 1);
+});
 
-// active page number
+nextBtn.addEventListener("click", () => {
+  setCurrentPage(currentPage + 1);
+});
+
+// handle active page
 const handleActivePageNumber = () => {
   document.querySelectorAll(".pageNumbers a").forEach((pageNum) => {
     pageNum.classList.remove("active");
 
       const pageIndex = Number(pageNum.getAttribute("index"));
-      if (pageIndex == currentPage) {
+      if (pageIndex === currentPage) {
         pageNum.classList.add('active');
       }
   });
@@ -276,39 +285,43 @@ const setCurrentPage = (pageNum) => {
   currentPage = pageNum;
 
   handleActivePageNumber();
-  controlButtonsStatus();
+  handleButtonsStatus();
 
   const prevRange = (pageNum - 1) * contentLimit;
   const currRange = pageNum * contentLimit;
 
   discussionList.forEach((item, index) => {
-      item.classList.add('hidden');
-      if(index >= prevRange && index < currRange) {
-          item.classList.remove('hidden');
+      item.classList.add("hidden");
+      if (index >= prevRange && index < currRange) {
+          item.classList.remove("hidden");
       }
   });
 };
 
-prevBtn.addEventListener('click', () => {   
-  setCurrentPage(currentPage - 1);
-});
+// reload pagination
+const loadPagination = () => {
+    discussionList = document.querySelectorAll(".discussion__container");
+    pageCount = Math.ceil(discussionList.length / contentLimit);
 
-nextBtn.addEventListener("click", () => {
-  setCurrentPage(currentPage + 1);
-});
+    while (pageNumbers.firstChild) {
+      pageNumbers.removeChild(pageNumbers.firstChild);
+    }
+    
+    getPageNumbers();
+    setCurrentPage(1);
 
-window.addEventListener('load', () =>{
-  getPageNumbers();
-  setCurrentPage(1);
+    document.querySelectorAll(".pageNumbers a").forEach((pageNum) => {
+      const pageIndex = Number(pageNum.getAttribute("index"));
+    
+      if (pageIndex) {
+          pageNum.addEventListener('click', () => {
+              setCurrentPage(pageIndex);
+          });
+      };
+    });
+}
 
-  document.querySelectorAll('.pageNumbers a').forEach((pageNum) =>{
-    const pageIndex = Number(pageNum.getAttribute('index'));
-  
-    if(pageIndex) {
-        pageNum.addEventListener('click', ()=>{
-            setCurrentPage(pageIndex);
-        });
-    };
-  });
-  
+// window load
+window.addEventListener("load", () => {
+  loadPagination();
 });
