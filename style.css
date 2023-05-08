@@ -1,1 +1,222 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
+/** color template 
+#fff3e2
+#ffe5ca
+#fa9884
+#e74646
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+input {
+	border: 0.5px solid gray;
+}
+
+body {
+	background-color: #fff3e2;
+	font-family: 'Nanum Myeongjo', serif;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+main {
+	width: 700px;
+	margin: 30px;
+	border-radius: 10px;
+
+	box-shadow: rgba(0, 0, 0, 0.581) 0px 5px 15px;
+	background-color: #e74646;
+	color: #fff;
+}
+
+main > h1 {
+	text-align: center;
+	margin: 20px;
+}
+
+main > .error__msg {
+	margin-bottom: 20px;
+	font-size: 22px;
+	font-weight: 500;
+	text-decoration: underline;
+}
+
+/* *---------form ---------- */
+
+.form__container {
+	/* background-color: blue; */
+	background-color: #ffe5ca;
+	color: #e74646;
+	font-size: 22px;
+	width: 90%;
+	height: 210px;
+	margin: 0 auto;
+	padding: 16px;
+	border-radius: 10px;
+	/* outline: 0.5px solid #000; */
+	box-shadow: rgba(0, 0, 0, 0.478) 0px 3px 8px;
+}
+
+.form__container .form__input--wrapper label {
+	width: 250px;
+}
+
+/* enter name */
+.form__container .form__input--name {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+
+	margin: 0 auto;
+	width: 90%;
+
+	margin-bottom: 5px;
+}
+.form__container .form__input--name #name {
+	width: 320px;
+	height: 30px;
+	padding: 3px;
+}
+
+/* enter title */
+.form__container .form__input--title {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	text-align: left;
+	margin: 0 auto;
+	width: 90%;
+	margin-bottom: 5px;
+}
+
+.form__container .form__input--title #title {
+	width: 320px;
+	height: 30px;
+	padding: 3px;
+}
+
+/* enter question */
+.form__container .form__textbox {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+
+	margin: 0 auto;
+	width: 90%;
+	margin-bottom: 5px;
+}
+
+.form__container .form__textbox #story {
+	/* margin-left: 50px; */
+	width: 320px;
+	height: 60px;
+	padding: 3px;
+}
+
+/* submit button */
+.form__container .form__submit {
+	text-align: center;
+}
+
+.form__container .form__submit input[type='submit'] {
+	width: 60%;
+	height: 30px;
+	margin-top: 10px;
+	background-color: #fff;
+	border: 0.5px solid gray;
+	border-radius: 10px;
+}
+.form__container .form__submit input[type='submit']:hover {
+	cursor: pointer;
+}
+/* !---------end of form ---------- */
+
+/* *---------discussion container ---------- */
+
+.discussion__wrapper {
+	/* overflow-y: hidden; */
+	/* background-color: green; */
+	margin-top: 20px;
+	border: 1px solid red;
+	padding: 40px;
+}
+
+.discussion__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin-bottom: 10px;
+	height: 120px;
+	/* border: 1px solid white; */
+	background-color: #fff;
+	border-radius: 10px;
+	transition: 0.2s ease-in-out;
+}
+
+.discussion__container:hover {
+	background-color: black;
+}
+
+/* user image */
+.discussion__container .discussion__avatar--wrapper img {
+	border-radius: 50%;
+	/* border: 4px solid #000; */
+	width: 70px;
+}
+
+.discussion__container .discussion__content {
+	width: 70%;
+	height: 80%;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	/* text-align: left; */
+	background-color: #fff3e2;
+	border-radius: 10px;
+	color: #5e5e5e;
+}
+
+/* discussion title */
+.discussion__container .discussion__content .discussion__title {
+	text-align: left;
+	font-size: 20px;
+}
+.discussion__container .discussion__content .discussion__title a {
+	color: #5e5e5e;
+}
+.discussion__container .discussion__content .discussion__title a:hover {
+	color: #000;
+}
+
+/* user information */
+.discussion__container .discussion__content .discussion__information {
+	text-align: right;
+	font-size: 16px;
+}
+
+/* answer button */
+.discussion__container .discussion__answered p {
+	color: #5e5e5e;
+	font-size: 35px;
+}
+
+.discussion__container .discussion__answered p:hover {
+	cursor: pointer;
+	/* color: #13c664; */
+	transition: ease-in 0.2s;
+}
+
+.hide {
+	display: none;
+}
