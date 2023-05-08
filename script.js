@@ -99,8 +99,10 @@ const numberBtn = [...numbers.querySelectorAll('a')];
 numberBtn.forEach((item, index) => {
   item.addEventListener('click', (e) => {
     e.preventDefault();
+    pageActiveidx = index;
 
     displayRow(index);
+    displayPage(index);
   });
 });
 
@@ -128,8 +130,8 @@ function displayPage(num) {
   // for (nb of numberBtn) {
   //   nb.style.display = 'none';
   // }
+  console.log(num);
   let totalPageCount = Math.ceil(pageCount / maxPageNum);
-
   let pageArr = [...numberBtn];
   let start = num * maxPageNum;
   let end = start + maxPageNum;
@@ -138,8 +140,11 @@ function displayPage(num) {
   for (let item of pageListArr) {
     item.style.display = 'flex';
   }
-  pageActiveidx === 0 ? (prevPageBtn.style.display = 'none') : (prevPageBtn.style.display = 'flex');
-  pageActiveidx === totalPageCount - 1 ? (nextPageBtn.style.display = 'none') : (nextPageBtn.style.display = 'flex');
+
+  numberBtn[0].className === 'active' ? (prevPageBtn.style.display = 'none') : (prevPageBtn.style.display = 'flex');
+  numberBtn[totalPageCount - 1].className === 'active'
+    ? (nextPageBtn.style.display = 'none')
+    : (nextPageBtn.style.display = 'flex');
 }
 displayPage(0);
 
