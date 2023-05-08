@@ -13,8 +13,14 @@
 </head>
 
 <body>
+  
   <main>
-    <h1>My Agora States</h1>
+    <ul class="h1_container">
+      <li class="h1_wrapper">
+      <h1>My Agora States</h1>
+    </li>
+    </ul>
+    
       <ul class="form__container">
         <form action="" method="get" class="form">
           <li class ="form__wrapper"> 
@@ -32,12 +38,13 @@
                 <label for="story">Your question: </label>
                 <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
               </div>
-                    
+            </div>   
+            <div class="form__submit">
+              <input type="submit" value="submit" id="submit_button">
+            </div>     
         </form>
       </div>
-      <div class="form__submit">
-        <input type="submit" value="submit">
-      </div>
+      
     </div>
     </form>
   </li>
@@ -60,6 +67,7 @@
       </ul>
     </section>
   </main>
+  <!--<button class='nightmode'>click!</button>-->
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>

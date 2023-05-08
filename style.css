@@ -4,8 +4,8 @@
 /* li를 flex container로*/
 
 :root {
-    --background: #706C61;
-    --surface: #E1F4F3;
+    --background: #112D4E;
+    --surface: #DBE2EF; 
     --primary: #5e7c96;
     --secondary: #DA7F8F;
     --form-surface: #f6eed8;
@@ -18,15 +18,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; 
   }
+/*
+  button.nightmode{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+   
+    float : left;
+  }
+  */
 
+  li.h1_wrapper{
+    list-style-type: none;
+  }
   h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    width:540px;
+    width:600px;
     margin-bottom: 0.5rem;
-    color: #1B262C;
+    color: #3F72AF;
   }
 
   li.form__wrapper{
@@ -42,14 +56,22 @@
      list-style-type: none;
   }
 
-  div.form_input--name {
-    /* flex container display:flex */
-    display: flex;
-    /* flex direction: row; */
-    flex-direction: row;
-    justify-content: flex-start;
+  div.form__input--wrapper{
+    flex: 1 0 0;
   }
 
+  div.discussion__avatar--wrapper2{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  textarea{
+    width: 20em;
+    height: 2em;
+    border: none;
+    resize: none;
+  }
   li.discussion__content {
     /* flex container display:flex */
     display: flex;
@@ -68,14 +90,14 @@
   a:link {
     color : #333333;
     text-decoration: none;
-    font-size : 18px;
+    font-size : 15px;
   }
   a:visited {
     color : black;
     text-decoration: none;
   }
   a:hover {
-    color : #DA7F8F; 
+    color : #990000; 
     text-decoration: underline;
   }
   a:active {
@@ -85,12 +107,43 @@
 
   div.discussion__avatar--wrapper2 {
     display: flex;
-    flex-direction: column;
+    flex: 0 0 0;
+    padding: 1rem;
   }
 
-  div.form__submit{
-    display: flex;
+  #name{
+    width:70.15%;
   }
+
+  #title{
+    width:72.5%;
+  }
+
+  #story{
+    width:74.2%;
+  }
+
+  #submit_button{
+    height:40px;
+    width:100px;
+    margin:auto !important;
+    display:block;
+    border: none;
+    margin-bottom: 8px !important;
+    background-color: #3F72AF;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.3s;
+  }
+
+ 
+ 
+
   li.discussion__container {
     /* flex container display:flex */
     display: flex;
@@ -99,15 +152,18 @@
     /* 양 끝으로 붙이려면 */
     justify-content: space-between;
     width: 600px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     background-color: var(--surface);
     border-radius: 5px;
     /* li의 기본 속성 변경 */
     list-style-type: none;
   }
 
- 
- 
+  div.discussion__information{
+    display: flex;
+    justify-content: flex-end;
+  }
+
   div.discussion__avatar--wrapper {
     display: flex;
     justify-content: center;
@@ -119,4 +175,8 @@
   div.discussion__avatar--wrapper > img {
     width: 48px;
     border-radius: 100%;
+  }
+  
+  div.discussion__content{
+    flex: 1 0 0;
   }
