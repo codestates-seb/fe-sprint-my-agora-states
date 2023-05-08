@@ -1,1 +1,174 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("./img/wallpaperbetter.com_1920x1200.jpg");
+    background-attachment: fixed;
+    font-family: neon;
+    -ms-overflow-style: none;
+}
+    ::-webkit-scrollbar {
+    display: none;
+    
+}
+
+main {
+    max-width: 540px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@font-face {
+    font-family: 'neon';
+    src: url('./font/Kontakt.ttf') format('truetype');
+}
+
+a {
+    color: #2ff40a;
+    text-decoration: none;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+
+/* 입력 부분 */
+
+.question {
+    border: solid 2px #5Ce5D5;
+    padding: 10px;
+    color: #2ff40a;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* .form__container {
+    
+} */
+
+#submit {
+    font-family: neon;
+    width: 100%;
+    height: 50px;
+    background-color:transparent;
+    color: #5Ce5D5;
+    border: solid 1px white;
+    padding: 10px;
+    
+}
+
+.question__open {
+    font-family: neon;
+    width: 70px;
+    height: 30px;
+    margin: 10px;   
+    background-color:transparent;
+    color: #5Ce5D5;
+    border: solid 1px white;
+}
+
+
+/* .form__input--wrapper {
+
+} */
+
+.form__input--name > #name {
+    margin: 10px;
+}
+
+.form__input--title > #title {
+    margin: 10px;
+}
+
+.form__textbox > #story {
+    margin-top: 10px;
+    margin-left: 37px;
+    width: 171px;
+    height: 17px;
+}
+
+/* 질문 폼 */
+.discussion__wrapper {
+    width: 100%;
+}
+
+ul {
+    list-style:none;
+}
+
+/* 질문자 아바타 */
+
+.discussion__avatar--wrapper {
+    
+    display: inline-block;
+    width: 100px;
+    margin: 10px;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;    
+}
+
+/* 질문 내용 */
+
+h2 {
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.discussion__container {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    padding: 10px;
+}
+
+.discussions__container {
+    padding: 0%;
+}
+
+.discussion__content_container {
+    width: 400px;
+}
+
+
+.discussion__content{  
+    
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.discussion__content > p {
+    visibility:hidden
+}
+
+.discussion__information {
+    display: block;
+    text-align: right;
+    color: white;
+}
+
+/* 답변 내용 */
+.discussion__answered {
+    width: 100px;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
