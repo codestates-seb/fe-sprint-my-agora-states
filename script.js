@@ -39,8 +39,19 @@ const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', addingDiscusstion);
 submitButton.addEventListener('click', reRender);
 submitButton.addEventListener('click', hiding);
-submitButton.addEventListener('click', function(){currentPage = 1;
-console.log(totalCount)})
+submitButton.addEventListener('click', function(){
+  currentPage = 1;
+  totalCount = agoraStatesDiscussions.length; 
+  totalPage = Math.ceil(totalCount/limit);
+  pageGroup = Math.ceil(currentPage/pagecount);
+  lastPageNum = pageGroup * pagecount
+  if(lastPageNum > totalPage){
+    lastPageNum = totalPage;
+  }
+  firstPageNum = (lastPageNum - pagecount) + 1;
+  next = lastPageNum + 1;
+  prev = firstPageNum - 1;
+})
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -73,6 +84,10 @@ const convertToDiscussion = (obj) => {
   const answered = document.createElement('p');
   if(obj.answer!==null){
     answered.textContent = '☑';
+    const answerLink = document.createElement('a');
+    answerLink.href = obj.answer.url;
+    answerLink.textContent = '답변'
+    discussionContent.append(answerLink);
   }else {
     answered.textContent = '☒';
   }
@@ -129,8 +144,8 @@ if(lastPageNum > totalPage){
   lastPageNum = totalPage;
 }
 let firstPageNum = (lastPageNum - pagecount) + 1;
-const next = lastPageNum + 1;
-const prev = firstPageNum - 1;
+let next = lastPageNum + 1;
+let prev = firstPageNum - 1;
 
 const main = document.querySelector('#main');
 const pageWraper = document.createElement('div');
@@ -183,9 +198,13 @@ function nextPage(){
 function nextList(){
   if(currentPage > Number(pageNum[pagecount-1].textContent)){
     for(let i=0; i<pageNum.length; i++){
-      pageNum[i].textContent = currentPage + i;
-    }
-    makePostList();
+      if(currentPage + i > totalPage){
+        pageNum[i].textContent = '';
+      }else{
+        pageNum[i].textContent = currentPage + i;
+      }
+      makePostList();
+    } 
   }
 }
 

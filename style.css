@@ -100,6 +100,7 @@ label {
 li {
     margin: 10px 0px;
     background-color: white;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -156,10 +157,7 @@ p {
     background-color: #E5f9db;
 }
 .move__page {
-    font-size: 30px;
-    background-color: #E5f9db;
-}
-.move__pageList {
+    font-size: 25px;
     background-color: #E5f9db;
 }
 
