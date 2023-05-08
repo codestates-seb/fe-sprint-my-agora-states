@@ -1,9 +1,9 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
+const ul = document.querySelector("ul.discussions__container");
 
 //input하면 질문을 추가해주는 함수입니다. 
 const btn_submit = document.querySelector('.form__submit--button');
-btn_submit.addEventListener('click',function(e){
-  //console.log(document.querySelector('#name').value)
+btn_submit.addEventListener('click',function(){
   let inputName = document.querySelector('#name');
   let inputTitle = document.querySelector('#title');
   let inputStory = document.querySelector('#story');
@@ -11,49 +11,38 @@ btn_submit.addEventListener('click',function(e){
   if(inputName.value.length===0 || inputTitle.value.length===0 || inputStory.value.length===0) {
     return;
   }
+  // 입력 날짜 형식 맞추기
   let today = new Date();
-  let todayFormat = today.getFullYear() + '년 ' + (today.getMonth()+1) + '월 '+ today.getDate() + '일 ' + today.getHours() + '시' + today.getMinutes()+'분';
-  
-  const discussionsContainer = document.querySelector('.discussions__container');
-  //ul에 li요소 추가
-  const discussion_container = document.createElement('li');
-  discussion_container.className = 'discussion__container';
-  discussionsContainer.prepend(discussion_container);
-  //li 요소에 img 를 감싸는 div 태그 추가
-  const discussionAvatarWrapper = document.createElement('div');
-  discussionAvatarWrapper.className = 'discussion__avatar--wrapper';
-  discussion_container.appendChild(discussionAvatarWrapper);
-  //avatarWrapper에 img 태그 추가
-  const discussionAvatarImage = document.createElement('img');
-  discussionAvatarImage.className='discussion__avatar--image';
-  discussionAvatarImage.src='assets/images/profile.png';
-  discussionAvatarWrapper.appendChild(discussionAvatarImage);
-  //li요소에 content를 담고 있는 div태그 추가
-  const discussionContent = document.createElement('div');
-  discussionContent.className = 'discussion__content';
-  discussion_container.appendChild(discussionContent);
-  //content에 h2 태그 추가
-  const discussionContentTitle = document.createElement('h2');
-  discussionContentTitle.className='discussion__title';
-  discussionContentTitle.textContent=inputTitle.value;
-  discussionContent.appendChild(discussionContentTitle);
-  //content에 information 추가
-  const discussionContentInformation = document.createElement('div');
-  discussionContentInformation.className='discussion__information';
-  discussionContentInformation.textContent=`${inputName.value} / ${todayFormat}`;
-  discussionContent.appendChild(discussionContentInformation);
+  console.log(today)
+  let yyyy = today.getFullYear().toString();
+  let mm = (today.getMonth()+1).toString();
+  mm.length===1?mm='0'+mm:mm=mm;
+  let dd = (today.getDate()).toString();
+  dd.length===1?dd='0'+dd:dd=dd;
+  let HH = (today.getHours()).toString();
+  HH.length===1?HH='0'+HH:HH=HH;
+  let min = today.getMinutes().toString();
+  min.length===1?min='0'+min:min=min;
+  let sec = today.getSeconds().toString();
+  sec.length===1?sec='0'+sec:sec=sec;
+  todayFormat=`${yyyy}-${mm}-${dd}T${HH}:${min}:${sec}`;
+
   //agoraStatesDiscussions 배열에 요소 추가
   const agoraStatesDiscussion = {
     id: '012345',
     createdAt: todayFormat,
     title: inputTitle.value,
-    url: 'assets/images/profile.png',
+    url:null,
     author: inputName.value,
-    answer: '',
+    answer: null,
     bodyHTML: '<p></p>',
+    avatarUrl: 'assets/images/profile.png',
   }
-  console.log(agoraStatesDiscussions)
-  agoraStatesDiscussions.push(agoraStatesDiscussion);
+  agoraStatesDiscussions.unshift(agoraStatesDiscussion);
+
+  //li에 새로 등록한 데이터 1개 추가하기
+  render_new(ul);
+
   //input value 초기화
   inputName.value='';
   inputTitle.value='';
@@ -128,16 +117,37 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
+let cnt = 0; //추가할 discussions의 시작 index
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+  for (let i = cnt; i < cnt+10; i += 1) {
+    if(i>=agoraStatesDiscussions.length) {
+      btn_more.classList.add('hide');
+      break;
+    }
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
+  // li의 마지막 부분에 더보기 버튼 추가
+  const btn_more=document.createElement('button');
+  btn_more.id='btn_more';
+  btn_more.textContent='더보기'
+
+  btn_more.addEventListener('click', function(){
+    if(cnt>=agoraStatesDiscussions.length) return;
+    cnt += 10;
+    btn_more.remove();
+    render(ul);
+  })
+
+  element.append(btn_more);
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);
+//게시물 등록 시 제일 위의 하나의 데이터만 랜더링하는 함수
+const render_new = function(element) {
+  element.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+};
 
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+render(ul);
 
