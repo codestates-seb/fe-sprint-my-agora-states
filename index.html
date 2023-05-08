@@ -12,11 +12,15 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body>
+<body class="center">
   <main>
-    <h1>My Agora States</h1>
+    <header class="header">
+      <div><button>⬅️</button></div>
+      <h1>My Agora States</h1>
+      <div><button>➡️</button></div>
+    </header>
     <section class="form__container">
-      <form action="" method="get" class="form">
+      <form action="" method="get" onsubmit="return false;" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
             <label for="name">Enter your name: </label>
