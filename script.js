@@ -13,28 +13,38 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-  // const formSubmit = document.querySelector("submit")
+  li.append(avatarWrapper, discussionContent, discussionAnswered);
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-    if(obj.answer === null){
 
-      discussionAnswered.innerHTML=
-      `<p>🖤</p>`;
-    }
-    else{
-      avatarWrapper.innerHTML=
-      `<img class="discussion__avatar--image"
-      src="${obj.avatarUrl}"
-      alt="avatar of ${obj.author}">`;
-      discussionAnswered.innerHTML=
-      `<p>💗</p>`;
-    }
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = `avatar of ${obj.author}`;
+  avatarWrapper.append(avatarImg);
 
-  discussionContent.innerHTML=
-    `<h2 class="discussion__title"><a href="${obj.url}" target="contentBox">${obj.title}</a></h2>
-    <div class="discussion__information">${obj.author} / ${obj.createdAt}</div>` // author의 아바타 이미지는 왜 없는지..?
+  const titleH2 = document.createElement("h2");
+  titleH2.className = "discussion__title";
+  discussionContent.append(titleH2);
 
-  li.append(avatarWrapper, discussionContent, discussionAnswered);
+  const titleA = document.createElement("a");
+  titleA.href = obj.url;
+  titleA.target = "contentBox";
+  titleA.textContent = obj.title;
+  titleH2.append(titleA);
+  
+  const authorDiv = document.createElement("div");
+  authorDiv.className = "discussion__information";
+  authorDiv.textContent = `${obj.author} / ${obj.createdAt}`;
+  discussionContent.append(authorDiv);
+  
+  if(obj.answer === null){
+    discussionAnswered.textContent = `🖤`;
+  }
+  else{
+    discussionAnswered.textContent = `💗`;
+  }
+
   return li;
 };
 
@@ -50,4 +60,34 @@ const render = (element) => { //element를 넣으면
 const ul = document.querySelector("ul.discussions__container"); // 변수 ul은 ul박스
 render(ul);
 
-document.querySelector("input").onclick = console.log(document.getElementsByClassName(".form").value)
+// submit한 내용들을 배열 형태로 agoraStatesDiscussions에 추가
+document.querySelector("form").addEventListener("submit",(e) => {
+  e.preventDefault();
+
+  while(ul.firstChild){
+    ul.removeChild(ul.firstChild);
+  } 
+
+  const resultSubmit = {
+    author: document.querySelector("input#name").value,
+    title: document.querySelector("input#title").value,
+    createdAt: new Date(),
+    bodyHTML: document.querySelector("textarea#story").value,
+    answer: null,
+    avatarUrl: 'https://www.shutterstock.com/image-vector/cute-cat-logo-symbol-design-260nw-2225970013.jpg'
+  }
+
+  agoraStatesDiscussions.unshift(resultSubmit);
+
+  render(ul);
+})
+
+// 페이지네이션
+// ul
+const buttonBox = document.querySelector("div#buttonBox");
+
+const allContent = agoraStatesDiscussions.length;
+const showContent = 10;
+const showButton = 5;
+const maxPage = Math.ceil(allContent/showContent);
+let page = 1;

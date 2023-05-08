@@ -19,13 +19,12 @@
 
 /* 바디 요소 */
 body{
-    background-color: #FFF4D2;
+    background-color: #E3DFFD;
 }
 
 /* 배경 */
 main{
     height: 90%;
-    background-color: #674188;
 }
 
 /* 최상단 헤더 */
@@ -35,12 +34,12 @@ header{
     font-size: xx-large;
     font-weight: bold;
     background-color: #FFF4D2;
-    clip-path: polygon(0 0, 100% 0, 75% 50%, 100% 100%, 0 100%, 25% 50%);
+    clip-path: polygon(0% 0%, 10% 25%, 10% 75%, 0 100%, 50% 90%, 100% 100%, 90% 75%, 90% 25%, 100% 0, 50% 10%)
 }
 
 /* 질문 등록 박스 */
 .form__container{
-    margin: 2%;
+    margin: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,8 +53,12 @@ header{
     height: 100%;
     width: 35%;
     padding: 20px;
-    background-color: #ECF2FF;
+    background-color: rgb(236, 242, 255);
     box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+.form:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
 }
 .form__input--wrapper{
     display: flex;
@@ -77,11 +80,12 @@ header{
 .form__submit > input{
     height: 100%;
     width: 100%;
-    background-color: #FFF4D2;
+    background: linear-gradient(rgba(229, 209, 250, 0.25) 25%, rgba(229, 209, 250, 0.5) 50%, rgba(229, 209, 250, 0.75) 75%, rgba(229, 209, 250));
     transition: 0.5s;
-    clip-path: polygon(50% 100%, 100% 35%, 70% 35%, 70% 0%, 30% 0%, 30% 35%, 0% 35%);
+    clip-path: polygon(35% 0, 65% 0, 65% 50%, 100% 50%, 50% 100%, 0 50%, 35% 50%);
 }
 .form__submit > input:hover{
+    cursor: pointer;
     transition: 0.5s;
     transform: translateY(10px) scale(1.5);
 }
@@ -99,51 +103,59 @@ header{
     display: flex;
     justify-content: center;
     transition: 1s;
-    height: 61vh;
+    height: 60vh;
 }
 iframe{
     width: 0%;
-    object-fit: scale-down;;
+    object-fit: scale-down;
     transition: 1s;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 20px;
 }
 #flexP:hover iframe{
-    display: block;
     width: 50%;
-    object-fit: scale-down;;
     transition: 1s;
+    border-radius: 0px 20px 20px 0px;
 }
 .discussion__wrapper{
     padding: 8px;
     width: 50%;
     height:100%;
     transition: 1s;
-    background-color: #E5D1FA;
+    background-color: rgb(255, 244, 210);
     overflow-y: scroll;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
+}
+.discussion__wrapper::-webkit-scrollbar{
+    color: transparent;
 }
 #flexP:hover .discussion__wrapper{
     border-radius: 20px 0px 0px 20px;
+    transition: 1s;
 }
 li.discussion__container{
     margin: 8px 0px;
     padding: 8px;
+    border-radius: 20px;
     font-size: x-small;
-    background-color: #ECF2FF;
+    background-color: #E5D1FA;
     display: flex;
     justify-content: space-between;
-    transition: 1s;
 }
 .discussion__answered{
     font-size: xx-large;
-    transition: 1s;
+    align-self: center;
 }
-
+#buttonBox{
+    display: flex;
+    justify-content:space-around;
+}
 a{
     color: black;
     text-decoration: none;
 }
-
+.discussion__avatar--wrapper{
+    margin-right: 10px;
+}
 .discussion__avatar--image{
     width: 64px;
     height: 64px;
