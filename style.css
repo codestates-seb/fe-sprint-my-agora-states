@@ -1,1 +1,274 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  background-color: #fff;
+  color: #5f0080;
+  font-family: "Amatic SC", cursive;
+}
+
+.discussion__container {
+  width: 540px;
+  display: flex;
+  border-bottom: 1px solid rgba(95, 0, 128, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__container:empty {
+  border: none;
+}
+.discussion__avatar--image {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.discussion__content {
+  padding: 16px;
+}
+
+.discussion__answered {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-size: 60px;
+}
+
+/*사이드바*/
+#expand-menu {
+  display: none;
+  position: relative;
+}
+#expand-menu + label {
+  display: block;
+  width: 60px;
+  height: 40px;
+  position: fixed;
+  cursor: pointer;
+  align-items: center;
+  margin-left: 20px;
+}
+
+#expand-menu + label span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  border-radius: 30px;
+  background-color: #000;
+  transition: all 0.35s;
+}
+
+#expand-menu + label span:nth-child(1) {
+  top: 0;
+}
+#expand-menu + label span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+#expand-menu + label span:nth-child(3) {
+  bottom: 0;
+}
+
+#expand-menu + label:hover span:nth-child(1) {
+  top: 0;
+  background-color: #5f0080;
+}
+
+#expand-menu + label:hover span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #5f0080;
+}
+
+#expand-menu + label:hover span:nth-child(3) {
+  bottom: 0;
+  background-color: #5f0080;
+}
+
+#expand-menu:checked + label {
+  z-index: 2;
+}
+
+#expand-menu:checked + label span {
+  background-color: #000000;
+}
+
+#expand-menu:checked + label span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+#expand-menu:checked + label span:nth-child(2) {
+  opacity: 0;
+}
+#expand-menu:checked + label span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+.sidebar {
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  border-right: 1px solid rgba(95, 0, 128, 0.4);
+  position: fixed;
+  top: 0;
+  left: -300px;
+  z-index: 1;
+  transition: all 0.35s;
+}
+
+.sidebar ul {
+  text-align: center;
+  padding-left: 0px;
+}
+
+#expand-menu:checked + label + div {
+  left: 0;
+}
+
+.item div {
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.logo {
+  align-items: center;
+  position: absolute;
+  font-size: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*버튼스크롤*/
+.accordion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 180px;
+}
+
+input[id*="list"] {
+  display: none;
+}
+input[id*="list"] + label {
+  display: block;
+  padding: 20px;
+  bottom: 1px solid #232188;
+  border-bottom: 0;
+  color: #000000;
+  font-weight: 900;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+input[id*="list"] + label + div {
+  max-height: 0;
+  transition: all 0.35s;
+  overflow: hidden;
+  background-color: #ffffff;
+  font-size: 11px;
+}
+
+input[id*="list"] + label + div section {
+  display: inline-block;
+  padding: 20px;
+}
+input[id*="list"]:checked + label + div {
+  max-height: 360px;
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox,
+.form__submit {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 16px;
+  user-select: none;
+  color: #5f0080;
+}
+
+.write {
+  color: #000000;
+}
+.write:hover {
+  color: #5f0080;
+}
+.write:hover:before,
+.write:hover:after {
+  content: "­­―";
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+/*제출 버튼*/
+.form__submit {
+  align-items: center;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  text-align: center;
+  width: 100px;
+  border-radius: 6px;
+  background-color: #b263cd;
+  color: #ffffff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 20;
+}
+
+input[type="submit"]:hover {
+  background-color: #8e44ad;
+}
