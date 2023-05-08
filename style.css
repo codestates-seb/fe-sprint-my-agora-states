@@ -1,1 +1,165 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url('https://blog.kakaocdn.net/dn/dllYca/btqDQSCEh3w/V9O3EnfrHkZuCepy0oCHn0/img.jpg');
+  background-size: 100%;
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
+  /* background-color: #00ffca; */
+}
+main {
+  /* background-color: rgb(241, 205, 211); */
+  display: flex;
+  justify-content: space-between;
+}
+.discussion__avatar--image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+li {
+  display: flex;
+  list-style: none;
+  border: 1px solid black;
+  padding: 10px;
+  align-items: center;
+}
+li > div {
+  display: flex;
+  display: inline-block;
+}
+header {
+  margin: 5px;
+  display: flex;
+  justify-content: end;
+  height: 55px;
+  /* background-color: rgb(196, 222, 244); */
+  position: sticky;
+  top: 5px;
+  /* background: white; */
+}
+section.fixedDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  /* border:1px solid red; */
+}
+section.discussion__wrapper {
+  display: flex;
+  font-size: 10px;
+  width: 540px;
+  margin: 0px 10% 0px 0px;
+  flex-direction: column;
+}
+.discussion__avatar--image {
+  width: 48px;
+  height: 48px;
+}
+h1 {
+  font-size: 45px;
+  padding-bottom: 40px;
+  color: white;
+}
+h4 {
+  padding-bottom: 30px;
+  margin-left: 50px;
+  color: white;
+}
+div.notMoved {
+  margin: 15% 0px 0px 0px;
+  position: fixed;
+}
+label {
+  color: white;
+}
+input {
+  border: none;
+  border-bottom: 1px double blue;
+  outline: none;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  background: transparent;
+  color: white;
+}
+textarea {
+  width: 100%;
+  height: 6.25em;
+  border-color: white;
+  resize: none;
+  margin-top: 10px;
+  background: transparent;
+  color: white;
+}
+label {
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+div.form__submit {
+  margin-left: 70px;
+}
+.pagenation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagenum {
+  display: flex;
+  float: left;
+  font-size: 1.5em;
+  border: none;
+}
+.pagenum a {
+  color: white;
+}
+.pagenum a.active {
+  color: black;
+  background: white;
+}
+.hide {
+  display: none;
+}
+button {
+  background: transparent;
+  padding: 0em 2em 0em 2em;
+  border: none;
+  border-bottom: 2px solid black;
+  float: right;
+}
+.discussion__container {
+  border: none;
+  border-bottom: 1px dashed white;
+  height: 75px;
+  display: flex;
+  gap: 12px;
+}
+a img {
+  width: 130px;
+  height: 50px;
+}
+.discussion__title a {
+  margin-right: 1em;
+  text-decoration: none;
+  color: rgb(243, 210, 210);
+}
+div i {
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+}
+button img {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+.discussion__information {
+  color: rgb(243, 210, 210);
+}
+header a {
+  padding: 1rem;
+}
