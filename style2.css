@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('IMG_1619 2.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+}  
+
+.form__input--title > label {
+    word-spacing : 7px
+}
+
+.form__input--name > label {
+    word-spacing : 3px
+}
+
+h2 {
+    color: green;
+}
+section.form__container {
+    background-color: yellowgreen;
+    border-radius: 20px;
+}
+.discussion__answered {
+    padding-top: 39px;
+    font-size: 20px;
+    margin: 5px;
+    color: #FFF9CA;
+
+}
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 578px;
+    height: 150px;
+    font-size : 10px;
+    border-radius: 19px;
+    margin : 10px;
+    padding: 20px;
+}
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.discussion__content{
+    display: block;
+}
+.discussion__content >:nth-child(1){
+ width: 440px;
+ text-align: left;
+ margin-top: 0;
+}
+.discussion__content >:nth-child(2){
+    height:30px;
+    text-align: right;
+}
+li {
+    list-style-type: none;
+}
+section.discussion__wrapper{
+    display: flex;
+    flex:4;
+    width: 578px;
+    justify-content: center;
+    align-items:center;
+}
+ul {
+    padding: 0px;
+}
+li.discussion__container {
+    background-color: rgba(0, 165, 231, 0.5);
+}
+a:link {
+    color: white;
+    font-family: 'Dongle', sans-serif;
+    font-size: 22px;
+}
+a:visited {
+    color: rgb(0, 0, 0);
+}
+
+/* 폼 디자인 */
+h1 {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    color: darkcyan;
+    font-size: 40pt;
+}
+h3 {
+    text-align: center;
+    color: #99bcda;
+    margin-bottom: 20px;
+}
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    display: flex;
+
+    width: 500px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+}
+#story {
+    width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.form__input--wrapper {
+    margin: 5px;
+
+}
+.form__input--wrapper input {
+    width:300px;
+    height: 30px;
+    font-size:1.2rem;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #0078AA;
+}
+.form__submit {
+    flex:1;
+    margin:3px;
+
+}
+.form__submit input {
+    width: 448px;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-left: 25px;
+    margin-right: 0px;
+    border: 2px solid black;
+}
+textarea {
+    margin : 5px;
+}
+
+.discussion__information {
+    padding-top: 10px;
+    font-size: 14px;
+    color: #FFF9CA;
+}
+
+img {
+    width: 48px;
+    border-radius: 100%;
+}
