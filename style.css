@@ -1,1 +1,148 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF8DE;
+}
+
+main {}
+
+li {
+    list-style-type: none;
+}
+
+.form__container {
+    width: 42rem;
+    background-color: #D6E8DB;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0.3rem 0.3rem 0.5rem black;
+    margin-bottom: 1rem;
+}
+
+.form__input--wrapper{
+    display: inline-block;
+}
+
+.form__submit {
+    display: inline-block;
+
+    width:1rem;
+    height: 1rem;
+}
+
+.discussions__container {
+    background-color: #D6E8DB;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    width: 42rem;
+    border-radius: 2rem;
+    box-shadow: 0.3rem 0.3rem 0.5rem black;
+    
+}
+
+.discussion__container {
+    width: 40rem;
+    background-color: #C1D0B5;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    margin: 1rem;
+    margin-top: 0;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0.3rem 0.3rem 0.5rem black;
+}
+
+.discussion__avatar--wrapper {
+    flex: 0 0 3rem;
+    /* width: 3rem; */
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: bisque;
+    margin-right: 1rem;
+}
+
+.discussion__avatar--image {
+    width: 3rem;
+}
+
+.discussion__content {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__answered {
+    flex: 0 0 48px;
+}
+
+.center-single-content {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.discussion__answered>p {
+    font-size: 2rem;
+}
+
+.discussion__detail--container {
+    position: fixed;
+    /* text-align: center; */
+    top: 5%;
+    width: max-content;
+    min-width: 30rem;
+    max-width: 80%;
+    z-index: 1;
+    height: 90%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    background-color: rgb(223, 223, 223);
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0rem 0rem 3rem 3rem rgb(108, 108, 108);
+}
+
+.hide {
+    display: none;
+}
+
+.exit-button {
+    appearance: unset;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    background-color: unset;
+    border: unset;
+    font-size: 1.5rem;
+}
+
+.exit-button:hover {
+    cursor: pointer;
+}
+
+.discussion__title {
+    margin-bottom: 0.5rem;
+
+}
+
+.discussion__title:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.discussion__information {
+    text-align: right;
+}
