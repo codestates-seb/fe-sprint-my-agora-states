@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   background-image: url('https://blog.kakaocdn.net/dn/dllYca/btqDQSCEh3w/V9O3EnfrHkZuCepy0oCHn0/img.jpg');
   background-size: 100%;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-attachment: fixed;
   /* background-color: #00ffca; */
 }
@@ -153,8 +153,8 @@ div i {
   cursor: pointer;
 }
 button img {
-  width: 3em;
-  height: 3em;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
 }
 .discussion__information {
