@@ -27,7 +27,7 @@ a {
 
 button {
   all: upset;
-  /* width: 81px; */
+  width: 150px;
   height: 50px;
   padding: 10px;
   border-radius: 15px;
@@ -167,4 +167,15 @@ main {
   align-items: start;
 
   flex: 5 0 0;
+}
+
+.discussion__answered {
+  font-size: xx-large;
+  padding-right: 10px;
+}
+
+.buttons__container > button {
+  height: 45px;
+  width: 45px;
+  margin: 5px;
 }
