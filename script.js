@@ -28,6 +28,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.append(titleAnchor);
   discussionContent.append(discussionTitle);
 
+  //시간 표시 형식 변경
   const discussionInfo = document.createElement("div");
   discussionInfo.textContent = `${obj.author} / ${new Date(
     obj.createdAt
@@ -38,6 +39,7 @@ const convertToDiscussion = (obj) => {
   })}`;
   discussionContent.append(discussionTitle, discussionInfo);
 
+  //답변 체크
   const checked = document.createElement("p");
   checked.textContent = obj.answer ? "☑︎" : "☒";
   discussionAnswered.append(checked);
@@ -46,7 +48,7 @@ const convertToDiscussion = (obj) => {
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+//Data.js 파일에 배열에 집어 넣는 함수
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
@@ -54,6 +56,37 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+const discussionUI = document.querySelector(".discussions__container");
+
+const discussionCreate = function () {
+  const now = new Date().toISOString();
+
+  const newDiscussion = {
+    author: author.value,
+    title: title.value,
+    story: textbox.value,
+    createdAt: now,
+    avatarUrl: "myimg.png",
+  };
+  agoraStatesDiscussions.unshift(newDiscussion);
+
+  const newDiscussionEl = convertToDiscussion(newDiscussion);
+  discussionUI.prepend(newDiscussionEl);
+
+  const objToStr = JSON.stringify(newDiscussion);
+  localStorage.setItem(newDiscussion.author, objToStr);
+};
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("제출!!!!!!!!!!!!!!!!!!!!!!!");
+  console.log(author.value, title.value, textbox.value);
+  discussionCreate();
+});
