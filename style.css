@@ -1,1 +1,109 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing : border-box;
+    margin:0px;
+    padding:0px;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    }
+
+submit.btn{
+  width : 300px;
+
+}
+
+main{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: inherit;
+  outline: none;
+  letter-spacing: inherit;
+  text-decoration: none;
+  cursor: inherit;
+  font:inherit;
+ }
+
+form.form{
+  width:1101px;
+  display:flex;
+  justify-content: center;
+  text-align:center;
+}
+
+section.form__container{
+  border-width: 1px;
+  border-color:black;
+  width: 1101px;
+  height:150px;
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  background-color:whitesmoke;
+}
+
+section.discussion__wrapper{
+    display:flex;
+    background-color:rgba(151, 71, 255, .4);
+  }
+
+
+ul{
+    display:flex;   
+    flex-direction: column;
+    list-style: none; /* 모든 리스트 아이템의 기본적인 스타일 제거 */
+  }
+  
+li{
+    display:flex;
+    list-style-type: none; /* 해당 리스트 아이템의 스타일 제거 */
+    text-align:left;
+  }
+
+h1{
+    font-family:sans-serif;
+}
+
+h2.discussion__title{
+  padding : 10px;
+}
+
+li.discussion__container{
+    width:540px;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items: center;
+    border-radius:5px;
+    list-style-type:none;
+    background-color:white;
+}
+
+img{
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    align-items:center;
+    justify-content: left;
+    margin:10px 0px ; 
+  }
+
+
+.discussion__answered{
+    display:flex;
+    align-items:center;
+    justify-content: right;
+  }
+  
+a{
+    text-align:center;
+    color:black;
+    font-size: 15px;
+  }
+
+.input type.submit{
+  width:100px;
+}
