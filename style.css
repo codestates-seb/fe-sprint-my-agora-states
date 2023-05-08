@@ -18,20 +18,39 @@ main {
 
 /* form 레이아웃 */
 .form__container {
-  width: 400px;
+  width: 100%;
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
   border: 1px solid white;
   border-radius: 15px;
 }
-.form div {
-  font-size: 0.9rem;
+.form {
+  padding: 0.7rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+#name,
+#title {
+  width: 420px;
+  margin-bottom: 5px;
+}
+#story {
+  width: 422px;
+}
+.form__input--wrapper {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 5px 0;
+  align-items: stretch;
+  justify-content: center;
+}
+.submit {
+  width: 5rem;
+  height: 6rem;
+  border: none;
+  border-radius: 10px;
 }
 
 /* discussion 레이아웃 */
@@ -48,7 +67,14 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  transition-duration: 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
+
 .discussion__content {
   height: 100%;
   display: flex;
@@ -72,10 +98,12 @@ main {
 
 /* avatar  */
 .discussion__avatar--wrapper {
+  block-size: 50px;
   padding: 10px;
 }
 .discussion__avatar--image {
-  block-size: 48px;
+  width: 48px;
+  height: 48px;
   border-radius: 55%;
 }
 
