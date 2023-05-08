@@ -1,50 +1,29 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-/* 아고라스테이츠 질문 리스트가 중앙으로
-colorhunt, dribbble에서 적절한 색 조합, 디자인을 참고 */
-
 * {
     box-sizing: border-box;
     font-family: 'NeoDunggeunmoPro-Regular';
-    text-align: center;
     text-decoration: none;
+    text-align: center;
 }
 
 body {
-    position: relative;
     padding: 0px;
     margin: 0px;
     display: flex;
-    background-color: #F6F1F1;
     justify-content: center;
     align-items: center;
-}
-
-h1 {
-    text-align: center;
-}
-
-ul {
-    list-style: none;
-    padding-left: 0;
-    padding-inline-start: 0;
-    margin: 0;
+    flex-direction: column;
+    background-color: white;
 }
 
 .form__container {
     width: 400px;
     padding: 10px;
-    background-color: #146C94;
+    background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
     color: rgb(248, 252, 253);
     border-radius: 10px;
-    text-align: center;
     box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57);
     margin: 0 auto;
-}
-
-.form {
-    display: flex;
-    flex-flow: column wrap;
-    /* gap: 20px; */
 }
 
 .form__input--name {
@@ -56,7 +35,23 @@ ul {
 .form__textbox {
     margin-bottom: 10px;
 }
-
+#submit {
+    width: 90px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 300;
+    border: none;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+    background-size: 200% auto;
+    color: white;
+    transition: 0.5s;
+    box-shadow: 0 0 3px #eeddbf;
+}
+#submit:hover {
+    background-position: right center;
+    cursor: pointer;
+}
 #name,
 #title,
 #story {
@@ -70,42 +65,41 @@ ul {
     resize: none;
 }
 
-/* .form__submit {
-    margin: 0 auto;
-} */
 
-
+ul {
+    list-style: none;
+    padding-left: 0;
+    padding-inline-start: 0;
+    margin: 0;
+}
 .discussions__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .discussion__container {
-    position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-flow: row;
     width: 400px;
     margin: 20px;
     gap: 10px;
-    background-color: #AFD3E2;
+    background-image: linear-gradient(120deg, #f4e2cb 0%, #ffc0fc 100%);
     border-radius: 10px;
-    box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57);
+    box-shadow: 2px 4px 8px rgba(119, 106, 144, 0.57);
 }
-
 
 .discussion__avatar--image {
     width: 50px;
     border-radius: 100%;
     position: relative;
-    top: 20%;
-    left: 10%;
+    left: 5px;
 }
 
-.discussion__title {
-    color: #099add;
+a {
+    color:#232323;
     font-size: 18px;
 }
 .discussion__information {

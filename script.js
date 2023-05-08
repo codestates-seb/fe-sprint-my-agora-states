@@ -21,18 +21,17 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-// todo
-
+// 이미지 불러오기
   const avatarImage = document.createElement("img");
   avatarImage.className = "discussion__avatar--image";
   avatarImage.src = obj.avatarUrl;
   avatarImage.alt = `avatar of ${obj.author}`;
   avatarWrapper.append(avatarImage);
-
+// 작성자, 작성날짜 정보
   const discussionInfo = document.createElement('div');
   discussionInfo.className = 'discussion__information';
-  discussionInfo.textContent = `${obj.author} / ${obj.createdAt}`;
-
+  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt || Date.now().toISOString())}`;
+// 링크 및 제목
   const titleLink = document.createElement('a');
   titleLink.href = obj.url;
   titleLink.textContent = obj.title;
@@ -40,7 +39,7 @@ const convertToDiscussion = (obj) => {
   discussionTitle.className = 'discussion__title';
   discussionTitle.append(titleLink)
   discussionContent.append(discussionTitle, discussionInfo)
-
+// 답변
   const discussion_ans = document.createElement('p');
   discussion_ans.textContent = obj.answer != null ? '🟢' : '🔴';
   discussionAnswered.append(discussion_ans);
@@ -61,26 +60,28 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
+// input 불러오기
 const form = document.querySelector('form.form');
 const formTitle = form.querySelector(".form__input--title > input");
 const formAuthor = document.querySelector('.form__input--name > input');
 const formTextbox = form.querySelector(".form__textbox > textarea");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+form.addEventListener("submit", (event) => { // 서브밋 이벤트가 발생하면
+  event.preventDefault(); // 페이지 새로고침 방지
 
   const obj = {
     id: "hello",
-    createdAt: new Date(),
+    createdAt: new Date().toISOString(),
+    url: "https://github.com/pnr98/fe-sprint-my-agora-states",
     title: formTitle.value,
     author: formAuthor.value,
     answer: null,
     bodyHTML: formTextbox.value,
-    avatarUrl: "myIcon.jpeg",
+    avatarUrl: "https://avatars.githubusercontent.com/u/129926357?s=400&u=510f31940547e71fa8d3e5567d609148b8f9bb26&v=4",
   };
-  agoraStatesDiscussions.unshift(obj);
-  ul.prepend(convertToDiscussion(obj));
-  formAuthor.value = "";
+  agoraStatesDiscussions.unshift(obj); // 객체 추가
+  ul.prepend(convertToDiscussion(obj)); // convertToDiscussion: bj를 받아서 해당 객체를 새로운 li요소를 생성, 반환. prepend는 새로운 li요소를 ul요소의 첫번째 자식으로 추가
+  formAuthor.value = ""; // 빈칸 비우기
   formTitle.value = "";
   formTextbox.value = "";
 });
