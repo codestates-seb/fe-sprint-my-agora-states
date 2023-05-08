@@ -1,1 +1,167 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --background: #E3DFFD;
+    --form-surface: #f6eed8;
+    --visited: #E1E5EA;
+    --link: #A7BBC7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E3DFFD;
+}
+
+h1 {
+    text-align: center;
+    color: #4e4e4e;
+    margin: 2rem auto;
+}
+
+/* form */
+.form {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.form_wrapper {
+    width: 33.75rem;
+    margin: 0 auto;
+}
+
+#name::placeholder,
+#title::placeholder,
+#story::placeholder {
+    font-size: 0.75rem;
+    color: rgb(119, 116, 116);
+}
+
+.form__container {
+    width: 23.75rem;
+    padding: 2rem;
+    margin: 0 auto 2rem;
+    background: #ECF2FF;
+    border-radius: 1.3rem;
+    color: #4e4e4e;
+    box-shadow: 0px 0.25rem 0.5rem rgba(70, 35, 71, 0.5);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+#name,
+#title,
+#story {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+#story {
+    height: 6rem;
+}
+
+
+.form__submit {
+    margin: 0 auto;
+}
+
+.form__submit input {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    color: #4e4e4e;
+    background: #FFF4D2;
+    border-color: #c2bdc7;
+    box-shadow: 0px 0.15rem 0.5rem rgba(95, 82, 95, 0.5);
+}
+
+
+/* discussion */
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    background: #FFF4D2;
+    box-shadow: 0px 0.25rem 0.5rem rgba(70, 35, 71, 0.5);
+    margin-bottom: 1rem;
+}
+
+li {
+    list-style: none;
+    width: 540px;
+    border-radius: 1rem;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 100%;
+}
+
+.discussion__content {
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.discussion__title {
+    font-size: 1.2rem;
+}
+
+.discussion__information {
+    text-align: end;
+    font-size: 0.7rem;
+    color: #4e4e4e;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    color: #885cb8;
+}
+
+/* 페이지네이션 */
+.listPage {
+    text-align: center;
+    align-items: center;
+    width: 33.75rem;
+    height: 26px;
+    margin-bottom: 2rem;
+}
+
+.listPage li {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.listPage li:hover {
+    color: #7eb6eb;
+}
