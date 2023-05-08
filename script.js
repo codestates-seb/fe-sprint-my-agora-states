@@ -74,7 +74,6 @@ const convertToDiscussion = obj => {
   answer__form.children[1].addEventListener("click", e => {
     e.preventDefault();
     if (answer__form.children[0].value != "") {
-      console.log("응애");
       const answer = {
         id: "",
         createdAt: new Date(),
@@ -121,7 +120,7 @@ function render(element, page) {
   }
   // 기존 pagenation을 초기화합니다.
   document.querySelector(".pagenation").innerHTML = "";
-  pagenation(agoraStatesDiscussions);
+  pagenation(agoraStatesDiscussions, currentPage);
 }
 
 // form submit
@@ -143,7 +142,7 @@ document.querySelector("#form").submit.addEventListener("click", e => {
     while (ul.firstChild) {
       ul.removeChild(ul.firstChild);
     }
-    render(ul, 1);
+    render(ul, currentPage);
     form.title.value = "";
     form.story.value = "";
     form.querySelector(".discussion__error").classList.add("hide");
@@ -152,51 +151,90 @@ document.querySelector("#form").submit.addEventListener("click", e => {
   }
 });
 
-function pagenation(discussions) {
+function pagenation(discussions, page) {
   // 현재 게시물의 전체 개수가 10개 이하면 pagination을 숨깁니다.
   if (discussions.length <= 10) return;
 
   const totalPage = Math.ceil(discussions.length / 10);
-  let pageGroup = Math.ceil(currentPage / 10);
+  let pageGroup = Math.ceil(page / 10);
 
   let last = pageGroup * 10;
-  if (last > totalPage) last = totalPage;
   let first = last - (10 - 1) <= 0 ? 1 : last - (10 - 1);
+  if (last > totalPage) last = totalPage;
   let next = last + 1;
   let prev = first - 1;
   const fragmentPage = document.createDocumentFragment();
 
   //pagenation을 표시합니다.
-  if (last - 1 > 0 && currentPage != 1) {
+  if (currentPage != 1) {
     let allpreli = document.createElement("li");
-    allpreli.innerText = "&lt;&lt;";
+    allpreli.innerText = "<<";
+    allpreli.addEventListener("click", () => {
+      while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+      }
+      currentPage = 1;
+      render(ul, currentPage);
+    });
 
     let preli = document.createElement("li");
-    preli.innerText = "&lt;";
+    preli.innerText = "<";
+    preli.addEventListener("click", () => {
+      while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+      }
+      currentPage -= 1;
+      render(ul, currentPage);
+    });
 
     fragmentPage.appendChild(allpreli);
     fragmentPage.appendChild(preli);
+    fragmentPage.addEventListener("click", () => {
+      while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+      }
+      currentPage = 1;
+      render(ul, currentPage);
+    });
   }
 
   for (let i = first; i <= last; i++) {
     const li = document.createElement("li");
     li.innerText = i;
+    if (i === currentPage) {
+      li.classList.add("hilight");
+    }
     li.addEventListener("click", () => {
       while (ul.firstChild) {
         ul.removeChild(ul.firstChild);
       }
-      render(ul, i);
+      currentPage = i;
+      render(ul, currentPage);
     });
     fragmentPage.appendChild(li);
   }
 
-  if (last < totalPage) {
+  if (currentPage < totalPage) {
     let allendli = document.createElement("li");
-    allendli.innerText = "&gt;&gt;";
+    allendli.innerText = ">>";
+    allendli.addEventListener("click", () => {
+      while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+      }
+      currentPage = totalPage;
+      render(ul, currentPage);
+    });
 
     let endli = document.createElement("li");
-    endli.innerText = "&gt;";
+    endli.innerText = ">";
 
+    endli.addEventListener("click", () => {
+      while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+      }
+      currentPage += 1;
+      render(ul, currentPage);
+    });
     fragmentPage.appendChild(endli);
     fragmentPage.appendChild(allendli);
   }

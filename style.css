@@ -57,6 +57,10 @@ footer * {
   color: white;
 }
 
+.hilight {
+  color: black;
+}
+
 .margin_h_10 {
   margin-top: 10px;
   margin-bottom: 10px;
