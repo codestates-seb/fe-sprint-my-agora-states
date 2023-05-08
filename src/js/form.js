@@ -55,7 +55,6 @@ function handleFormEvent(event) {
   for (let i = 0; i < event.srcElement.length; i++) {
     if (event.srcElement[i].checked) {
       tags.push(event.srcElement[i].value);
-      console.log(event.srcElement[i].value);
     }
   }
   if (tags.length === 0) tags.push("기타");
