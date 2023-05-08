@@ -96,9 +96,9 @@ form.addEventListener("submit", (event) => {
   agoraStatesDiscussions.unshift(obj);
 
   // 화면 초기화
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild);
-  }
+  title.value = "";
+  author.value = "";
+  textbox.value = "";
 
   // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
   render(ul);
