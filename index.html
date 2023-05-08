@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -16,7 +20,12 @@
 
   <body>
     <main>
-      <h1>My Agora States</h1>
+      <div class="darkMode">
+        <button class="mode" for="name"></button>
+      </div>
+      <header>
+        <div class="logo">My Agora States</div>
+      </header>
       <section class="form__container">
         <form action="" method="get" class="form">
           <div class="form__input--wrapper">
@@ -33,7 +42,7 @@
               <textarea
                 id="story"
                 name="story"
-                placeholder="질문을 작성하세요"
+                placeholder="what's your question?"
                 required
               ></textarea>
             </div>
@@ -72,6 +81,11 @@
       </section>
       <nav class="pagination-button"></nav>
     </main>
+    <aside>
+      <button title="Scroll to top" class="scroll">
+        <span class="arrow-up">TOP</span>
+      </button>
+    </aside>
   </body>
   <script src="data.js"></script>
   <script src="script.js"></script>
