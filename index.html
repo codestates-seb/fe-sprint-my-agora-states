@@ -13,8 +13,29 @@
 </head>
 
 <body>
+  <h1>My Agora States</h1>
   <main>
-    <h1>My Agora States</h1>
+    <section class="discussion__wrapper">
+      <ul class="discussions__container">
+        <li class="discussion__container">
+          <div class="discussion__avatar--wrapper">
+            <img class="discussion__avatar--image"
+              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+              alt="avatar of kimploo">
+          </div>
+          <div class="discussion__content">
+            <h2 class="discussion__title"><a
+                href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+          </div>
+          <div class="discussion__answered">
+            <!-- <p>☑</p> -->
+              <img id="check" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fo9Vdj%2FbtsemCrFJKq%2FPfhiR8IqhRyANgYKBMlA5k%2Fimg.png" alt="check img">
+              <img id="not-check" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fo9Vdj%2FbtsemCrFJKq%2FPfhiR8IqhRyANgYKBMlA5k%2Fimg.png" alt="not check img">
+          </div>
+        </li>
+      </ul>
+    </section>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
@@ -34,25 +55,24 @@
         <div class="form__submit">
           <input type="submit" value="submit">
         </div>
+            <!-- 이전 페이지, 다음 페이지 화살표 -->
+            <div class="nav__wrapper">
+              <div class="nav__button-wrapper">
+                <a href="#" class="nav__button nav__button--prev">
+                  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbdygIT%2Fbtsep7cWoSF%2FlrjA5hXvfxMqZUt8yr1iT0%2Fimg.png">
+                </a>
+              </div>
+              <div class="nav__button-wrapper">
+                <a href="#" class="nav__button nav__button--next">
+                  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzQtR3%2Fbtseh7568vh%2F1iv2OXOBSLuhubfTnZJ52k%2Fimg.png">
+                </a>
+              </div>
+            </div>             
       </form>
     </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
   </main>
+
+
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>

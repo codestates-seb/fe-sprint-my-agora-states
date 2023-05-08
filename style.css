@@ -1,1 +1,254 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 공통 스타일 */
+@font-face {
+  font-family: 'SUITE-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 전체 페이지 스타일 */
+body {
+  font-family: 'SUITE-Regular', sans-serif;
+  font-size: small;
+}
+
+h1 {
+  background-color: #b2a4ff;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 100px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* 게시글 목록 스타일 */
+.discussion__wrapper {
+  flex: 7;
+  margin-right: 20px;
+}
+
+.discussion__container {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.discussion__avatar--wrapper {
+  margin-right: 10px;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.discussion__title {
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.discussion__title a {
+  text-decoration: none;
+  color: black;
+}
+
+.discussion__title a:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.discussion__information {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.discussion__answered {
+  margin-left: auto;
+  position: relative;
+}
+
+.discussion__answered img {
+  width:60px;
+  /* font-size: 40px;
+  color: gray; */
+  padding-left: 10px;
+}
+
+#not-check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+#check #not-check {
+  display: none;
+}
+
+/* 질문 작성 폼 스타일 */
+.form__container {
+  position: relative;
+  flex: 3;
+  margin-left: 20px;
+}
+
+.form {
+  background: linear-gradient(to bottom right, 
+  #ffb4b4, 20%, #ffdeb4, #fdf7c3);
+  border-radius: 20px;
+  padding: 30px;
+  position: fixed;  
+  width: 350px; /*fixed하면 부모 요소의 크기도 무시해서 직접 지정*/
+}
+
+.form__input--wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+#name,
+#title {
+  border-bottom: 1px solid black;
+  background: transparent;
+}
+
+#story {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: 2px solid #d50000;
+}
+
+input:focus {
+  outline: none;
+}
+
+.form__input--name,
+.form__input--title {
+  flex: 1 1 100%;
+  margin-bottom: 10px;
+}
+
+.form__textbox {
+  width: 100%;
+}
+
+.form__input--name label,
+.form__input--title label,
+.form__textbox label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form__input--name input,
+.form__input--title input {
+  border: none;
+  outline: none;
+}
+
+.form__input--name input,
+.form__input--title input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.form__textbox textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box; /* 추가 */
+  height: 100px;
+  resize: none;
+  padding: 10px;
+  margin: 0; /* 추가 */
+  border: none;
+  border-radius: 3px;
+}
+
+::placeholder {
+  font-family: 'SUITE-Regular', sans-serif;
+}
+
+.form__submit {
+  text-align: center;
+  padding-top: 20px;
+  /* 이하 생략 */
+}
+
+.form__submit input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.form__submit input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+/* 이전 페이지, 다음 페이지 화살표 */
+.nav__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px 0px 50px;
+
+  position: absolute; /* 자식 요소를 absolute로 지정 */
+  top: calc(100% + 20px); /* form 아래에 위치하도록 top 값을 지정 */
+  left: 0; /* 왼쪽 정렬 */
+}
+
+.nav__button-wrapper {
+  flex-basis: 50%;
+}
+
+.nav__wrapper img {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.nav__button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav__button--prev,
+.nav__button--next {
+  display: inline-block;
+}
+
+.nav__button--prev {
+  margin-right: 60px;
+}
+
+.nav__button--next {
+  margin-left: 60px;
+}
+
+.nav__button--prev img,
+.nav__button--next img {
+  width: 100%;
+}
