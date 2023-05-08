@@ -2,6 +2,10 @@
 
 // agoraStatesDiscussions is data.js
 // console.log(agoraStatesDiscussions);
+console.log(agoraStatesDiscussions.length);
+// for (const discussion in agoraStatesDiscussions) {
+// 	console.log(discussion.length);
+// }
 
 // 새로운 createElement 생성하고 , 클래스 이름 추가 함수 //
 // const createEl = (el) => (newEl = document.createElement(el));
@@ -19,7 +23,6 @@ const convertToDiscussion = (obj) => {
 
 	//avatar
 	const avatarWrapper = createEl('div', 'discussion__avatar--wrapper');
-
 	const avatarImg = createEl('img', 'discussion__avatar--image');
 	avatarImg.src = obj.avatarUrl;
 	avatarImg.alt = `avatar of` + obj.author;
@@ -27,14 +30,12 @@ const convertToDiscussion = (obj) => {
 
 	//content
 	const discussionContent = createEl('div', 'discussion__content');
-
 	//content - title
 	const discussionTitle = createEl('h2', 'discussion__title');
-
+	//content - link
 	const discussionLink = createEl('a');
 	discussionLink.href = obj.url;
 	discussionLink.textContent = obj.title;
-
 	appendEl(discussionTitle, discussionLink);
 	appendEl(discussionContent, discussionTitle);
 
@@ -78,7 +79,7 @@ const inputedQuestion = document.querySelector('#story');
 const form = document.querySelector('form');
 
 // <ul>
-const discussionContainer = document.querySelector('.discussions__container');
+const discussionUl = document.querySelector('.discussions__container');
 
 // <li>
 const newDiscussion = createEl('li', 'discussion__container');
@@ -94,10 +95,9 @@ form.addEventListener('submit', (e) => {
 
 	// avatar
 	const avatarWrapper = createEl('div', 'discussion__avatar--wrapper');
-
+	let mantrandom = Math.trunc(Math.random() * 6) + 1;
 	const avatarImage = createEl('img', 'discussion__avatar--image');
-	avatarImage.src =
-		'https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4';
+	avatarImage.src = `./avatar/avatar${mantrandom}.jpg`;
 
 	// title & question
 	const discussionContent = createEl('div', 'discussion__content');
@@ -121,12 +121,6 @@ form.addEventListener('submit', (e) => {
 	const checkedBtn = createEl('p');
 	checkedBtn.textContent = '☑';
 	answeredBtn.append(checkedBtn);
-
-	// ul appends li
-	discussionContainer.insertBefore(
-		newDiscussion,
-		discussionContainer.firstChild
-	);
 
 	// li appends div
 	appendEl(newDiscussion, avatarWrapper);
@@ -156,13 +150,19 @@ form.addEventListener('submit', (e) => {
 		author: nameValue,
 		answer: null,
 		bodyHTML: questionValue,
+		avatarUrl: avatarImage.src,
 	};
 
 	exisitingArr.unshift(discussionSubmitted);
 	console.log(agoraStatesDiscussions);
 	console.log('aafter submit form  ', agoraStatesDiscussions.length);
 
+	// 화면 다 지우고
+	while (ul.firstChild) {
+		ul.removeChild(ul.firstChild);
+	}
+
+	render(ul);
+
 	form.reset();
 });
-
-console.log('before', agoraStatesDiscussions.length);
