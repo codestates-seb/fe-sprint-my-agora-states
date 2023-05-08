@@ -142,13 +142,18 @@ section > .discussions__container{
 }
 .discussion__avatar--wrapper {
     height: 90px;
+    width: 90px;
     display: flex;
-}
-.discussion__avatar--image{
-    flex: 1 0 0;
     border-radius: 50%;
     border: 2px solid white;
-    margin: 0 0 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: white;
+}
+.discussion__avatar--image{
+    height: 90px;
 }
 .discussion__content {
     margin : 0 0 0 15px;

@@ -40,7 +40,7 @@ document.querySelector('.form__submit').addEventListener('click', function () {
   }
   newObj.createdAt = new Date().toISOString();
   newObj.url = 'https://github.com/codestates-seb/agora-states-fe/discussions/6'
-  newObj.avatarUrl = 'https://mblogthumb-phinf.pstatic.net/20160913_273/chungmanwon_1473717388747nt2Pc_PNG/%BD%BA%B6%F6.PNG?type=w2'
+  newObj.avatarUrl = 'https://ts2.mm.bing.net/th?q=%EC%95%84%EA%B8%B0%20%EB%A9%80%EB%A1%9D&w=252&h=180'
   newObj.answer = null;
   if (localStorage.getItem('key') != undefined) {
     let localData = JSON.parse(localStorage.getItem('key'));
