@@ -33,8 +33,6 @@ header {
     display: flex;
 }
 
-
-
 .button1 {
     margin-left: 30px;
     margin-bottom: 20px;
@@ -44,6 +42,8 @@ header {
     padding: 15px;
     font-size: 20px;
     color: #F6BA6F;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    transition-duration: 0.1s;
 }
 
 .button2 {
@@ -54,6 +54,14 @@ header {
     padding: 15px;
     font-size: 20px;
     color: #F6BA6F;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    transition-duration: 0.1s;
+}
+
+button:hover {
+    font-size: 20px;
+    background-color: #957ae0;
+    color:whitesmoke;
 }
 
 li.form__container {
@@ -146,12 +154,12 @@ li.discussion__container {
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
-    /* justify-content: flex-start; */
+    /* justify-content: space-around; */
 }
 
 
 p.discussion__answered {
-    float: right;
+    /* float: right; */
     margin-top: 70px;
     width: 50px;
 }
