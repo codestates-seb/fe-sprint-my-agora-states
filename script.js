@@ -34,10 +34,10 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
   const discussionInformation = document.createElement("div");
   discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${new Date(
-    obj.createdAt || Date.now()
-  ).toISOString()}`;
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleDateString()} ${new Date(obj.createdAt).toLocaleTimeString()}`;
   discussionContent.append(discussionTitle, discussionInformation);
+
+
 
   const checked = document.createElement("p");
   checked.textContent = obj.answer ? "✅" : "❎";
@@ -75,7 +75,7 @@ form.addEventListener("submit", (event) => {
 
   const obj = {
     id: "unique id",
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toLocaleDateString(),
     title: title.value,
     url: "https://github.com/codestates-seb/agora-states-fe/discussions",
     author: author.value,
