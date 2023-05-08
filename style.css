@@ -66,6 +66,7 @@ header{
     width: 100%;
 }
 .form__input--name, .form__input--title, .form__textbox {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
