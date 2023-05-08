@@ -82,7 +82,7 @@ const agoraStatesDiscussions = [
     author: "Hong-sk",
     answer: {
       id: "DC_kwDOHOApLM4AKdsX",
-      createdAt: "2022-05-13T05:20:39Z",
+      createdAt: "2022-05-13T05:20:39Z", 
       url: "https://github.com/codestates-seb/agora-states-fe/discussions/41#discussioncomment-2743063",
       author: "kimploo",
       bodyHTML:
