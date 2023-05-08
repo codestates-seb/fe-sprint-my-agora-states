@@ -1,4 +1,4 @@
-
+console.log(agoraStatesDiscussions[0]);
 // 리스트에 요소 추가
 
 const convertToDiscussion = (obj) => {
@@ -40,11 +40,22 @@ const convertToDiscussion = (obj) => {
     discussionAnswered.textContent = '답변대기';
   }
 
-  // block 전체에 링크 걸기
+  // 글 내용
+  let isClicked = false;
   li.addEventListener('click', () => {
-    location.href = obj.url;
-  })
+    if (!isClicked) {
+      isClicked = true;
+      li.insertAdjacentHTML('afterend', `<div class="question__content">${obj.bodyHTML}</div>`);
+    } else {
+      isClicked = false;
+      const questionContent = li.nextElementSibling;
+      if (questionContent && questionContent.classList.contains('question__content')) {
+        questionContent.remove();
+      }
+    }
+  });
 
+  // 목록 추가하기
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
