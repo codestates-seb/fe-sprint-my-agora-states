@@ -18,7 +18,8 @@ body{
     flex-direction: column;
 }
 main{
-    min-width: 670px;
+    width: 70%;
+    max-width: 750px;
     margin: 10vw;
     padding: 20px;
     background: rgba(255, 255, 255, 0.05);
@@ -202,4 +203,18 @@ textarea{
 }
 .submitDisabled{
     background-color: #616161;
+    color: #9E9E9E;
+}
+.fail-msg{
+    color: red;
+    font-size: 0.8rem;
+}
+#modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: red;
+    z-index: 1;
+    overflow: auto;
 }

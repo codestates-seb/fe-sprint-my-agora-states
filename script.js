@@ -20,38 +20,28 @@ const titleFailMsg = document.querySelector(".title-fail-msg")
 const storyFailMsg = document.querySelector(".story-fail-msg")
 
 inputName.onkeyup = () => {
-  if(isMoreThan1Length(inputName.value)){
-    submitChk1 = true
-    nameFailMsg.classList.add("hidden")
-  }else{
-    submitChk1 = false
-    nameFailMsg.classList.remove("hidden")
-  }
+  submitChk1 = inputOnKeyUp(inputName.value,nameFailMsg)
   formBtnDisabledChk();
 }
 
 inputTitle.onkeyup = () => {
-  if(isMoreThan1Length(inputTitle.value)){
-    submitChk2 = true
-    titleFailMsg.classList.add("hidden")
-    formBtnDisabledChk()
-  }else{
-    submitChk2 = false
-    titleFailMsg.classList.remove("hidden")
-  }
+  submitChk2 = inputOnKeyUp(inputTitle.value,titleFailMsg)
   formBtnDisabledChk();
 }
 
 inputStory.onkeyup = () => {
-  if(isMoreThan1Length(inputStory.value)){
-    submitChk3 = true
-    storyFailMsg.classList.add("hidden")
-    formBtnDisabledChk()
-  }else{
-    submitChk3 = false
-    storyFailMsg.classList.remove("hidden")
-  }
+  submitChk3 = inputOnKeyUp(inputStory.value,storyFailMsg)
   formBtnDisabledChk();
+}
+
+function inputOnKeyUp(value,msg){
+  if(isMoreThan1Length(value)){
+    msg.classList.add("hidden")
+    return true;
+  }else{
+    msg.classList.remove("hidden")
+    return false;
+  }
 }
 
 function isMoreThan1Length(value) {
@@ -60,10 +50,8 @@ function isMoreThan1Length(value) {
 
 function formBtnDisabledChk(){
   if(submitChk1&&submitChk2&&submitChk3){
-    formBtn.removeAttribute("disabled")
     formBtn.classList.remove("submitDisabled")
   }else{
-    formBtn.setAttribute("disabled",true)
     formBtn.classList.add("submitDisabled")
   }
 }
@@ -76,30 +64,44 @@ formBtn.onclick = () => {
   const formName = inputName.value
   const formStory = inputStory.value
 
-  const myObj = {
-    id: self.crypto.randomUUID(),
-    createdAt: new Date().toISOString(),
-    title: formTitle,
-    url: "",
-    author: formName,
-    answer: null,
-    bodyHTML: formStory,
-    avatarUrl:
-      "https://avatars.githubusercontent.com/u/99641988?s=64&v=4"
-  }
-
-  const arr = localStorageGet()
-  arr.push(myObj)
-  localStorageSet(arr);
-  init();
+  if(submitChk1&&submitChk2&&submitChk3){
+    const myObj = {
+      id: self.crypto.randomUUID(),
+      createdAt: new Date().toISOString(),
+      title: formTitle,
+      url: "",
+      author: formName,
+      answer: null,
+      bodyHTML: formStory,
+      avatarUrl:
+        "https://avatars.githubusercontent.com/u/99641988?s=64&v=4"
+    }
   
-  inputName.value = ""
-  inputTitle.value = ""
-  inputStory.value = ""
-  submitChk1 = false
-  submitChk2 = false
-  submitChk3 = false
-  formBtnDisabledChk()
+    const arr = localStorageGet()
+    arr.push(myObj)
+    localStorageSet(arr);
+    init();
+    
+    inputName.value = ""
+    inputTitle.value = ""
+    inputStory.value = ""
+    submitChk1 = false
+    submitChk2 = false
+    submitChk3 = false
+    formBtnDisabledChk()
+  }else{
+    if(formTitle === ""){
+      titleFailMsg.classList.remove("hidden")
+    }
+  
+    if(formName === ""){
+      nameFailMsg.classList.remove("hidden")
+    }
+  
+    if(formStory === ""){
+      storyFailMsg.classList.remove("hidden")
+    }
+  }
 }
 
 /**
@@ -194,7 +196,16 @@ const render = (element) => {
   element.innerHTML = '';
   
   let localStorageArr = localStorageGet()
-  console.log(localStorageArr)
+  localStorageArr.sort((a,b)=>{
+    if(a.answer === null){
+      return -1
+    }else if(b.answer === null){
+      return 1
+    }
+    return 0
+  })
+
+  // console.log(localStorageArr)
   for (let i = 0; i < localStorageArr.length; i += 1) {
     element.append(convertToDiscussion(localStorageArr[i]));
   }

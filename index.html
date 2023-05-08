@@ -25,10 +25,10 @@
               src="https://avatars.githubusercontent.com/u/99641988?s=64&v=4"
               alt="avatar of me">
               <input type="text" name="name" id="form_name" required placeholder="닉네임을 입력하세요." autocomplete="off" spellcheck="false">
-              <span class="name-fail-msg hidden">닉네임을 입력해주세요.</span>
+              <span class="name-fail-msg fail-msg hidden">닉네임을 입력해주세요.</span>
             </div>
               <div class="form__submit">
-                <input id="form_button" class="submitBtn submitDisabled" disabled type="button" value="Done" >
+                <input id="form_button" class="submitBtn submitDisabled" type="button" value="Done" >
               </div>
             </div>
 
@@ -36,12 +36,12 @@
           <div class="form__input--title">
             <!-- <label for="title">Enter your title: </label> -->
             <input type="text" name="title" id="form_title" placeholder="제목을 입력하세요." required autocomplete="off" spellcheck="false">
-            <span class="title-fail-msg hidden">제목을 입력해주세요.</span>
+            <span class="title-fail-msg fail-msg hidden">제목을 입력해주세요.</span>
           </div>
           <div class="form__textbox">
             <!-- <label for="story">Your question: </label> -->
             <textarea id="form_story" name="story" placeholder="질문을 작성하세요." required autocomplete="off" spellcheck="false"></textarea>
-            <span class="story-fail-msg hidden">질문을 입력해주세요.</span>
+            <span class="story-fail-msg fail-msg hidden">질문을 입력해주세요.</span>
           </div>
         <!-- </div> -->
         
@@ -80,6 +80,9 @@
       &gt;
     </button>
   </nav>
+  <div id="modal">
+    modal
+  </div>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>

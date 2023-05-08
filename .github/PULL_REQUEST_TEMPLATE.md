@@ -8,6 +8,7 @@ Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스�
 
 Github Page 배포 링크를 아래 작성합니다.
 
+https://github.com/k-impossible/fe-sprint-my-agora-states
 ## Bare Minimum Requirement Self Checklist
 
 스스로 구현 완료한 부분까지 체크하여 제출합니다.
@@ -23,11 +24,11 @@ Github Page 배포 링크를 아래 작성합니다.
     - [✅] `section.form__container` 요소에 새로운 아고라 스테이츠 질문을 추가할 수 있는 입력 폼을 제작합니다. 형식은 자유입니다.
     - [✅] 아이디, 본문을 입력하고 버튼을 누르면 실제 화면에 디스커션이 추가되어야 합니다.
     - [✅] `agoraStatesDiscussions` 배열에 추가한 데이터가 실제 쌓여야 합니다.
-- [ ] Github Page 배포
-  - [ ] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
-- [ ] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
-  - [ ] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
-  - [ ] 주어진 Pull request 형식에 따라주세요.
+- [✅] Github Page 배포
+  - [✅] Github Page 배포 기능을 이용하여 누구나 볼 수 있게 배포합니다.
+- [✅] [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)로 Pull Request
+  - [✅] 나만의 아고라 스테이츠를 코드스테이츠 깃허브에 Pull request합니다.
+  - [✅] 주어진 Pull request 형식에 따라주세요.
 
 ## Advanced Challenge Self Checklist
 
@@ -48,10 +49,9 @@ Github Page 배포 링크를 아래 작성합니다.
 
 자신이 추가로 더 구현한 기능이 있으면 아래 적어주세요.
 
-- [] 답글 없는 질문 우선 정렬
-- [] 질문 상세 페이지
-- [] 답글 달기
-- [] 질문, 답글 수정/삭제
+- [✅] 유효성 검사
+- [✅] 미답변 질문 우선 정렬
+
 
 ### 배포 시연 화면
 
@@ -61,12 +61,12 @@ Github Page 배포 링크를 아래 작성합니다.
  
 ### 가장 자랑하고 싶은 기능
 
-> 적어주세요
-
 ### 구현하고 싶었는데 하지 못한 아쉬운 기능
 
-> 적어주세요
+- 질문 상세 페이지
+- 답변 달기
+- 질문, 답변 수정/삭제
 
 ### 도움을 받고 싶은 부분
 
-> 적어주세요
+- 디자인적인 피드백
