@@ -25,6 +25,8 @@
  img{
     border-radius: 50%;
     width: 80px;
+    height: 80px;
+    padding: 0.5px;
  }
  
  .discussion__avatar--wrapper{
@@ -68,6 +70,7 @@
  /* 입력창 css */
 
  .form__container{
+   position: fixed;
    margin-top: 20px;
    margin-left: 30px;
    width: 400px;
@@ -137,7 +140,7 @@ input[type=submit]{
 /* 리스트 꾸미기 */
 
 .discussion__wrapper{
-   margin-left: 120px;
+   margin-left: 570px;
    width: 800px;
    margin-top: 20px;
    border-radius: 15px;
@@ -180,8 +183,5 @@ p{
 
 .discussion__content{
    text-align : left;
-}
-
-.discussion__information{
-   margin-top: 20px;
+   font-size: 14px;
 }

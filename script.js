@@ -61,3 +61,60 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul, agoraStatesDiscussions);
 
+
+
+
+// 디스커션 추가 기능
+
+const newForm = document.querySelector('.form__container form')
+const inputName = document.querySelector('div.form__input--name input');
+const inputTitle = document.querySelector('div.form__input--title input');
+const inputQuestion = document.querySelector('div.form__textbox textarea');
+
+
+// inputName.onkeyup = function(){
+//   console.log(inputName.value);  
+// }
+
+// inputTitle.onkeyup = function(){
+//   console.log(inputTitle.value);
+// }
+
+// inputQuestion.onkeyup = function(){
+//   console.log(inputQuestion.value);
+// }
+
+
+// submit 클릭하면 값 가져오기
+
+
+
+
+function newQuestion(event){
+  event.preventDefault();
+
+  console.log("클릭됨");
+  console.log(inputTitle.value);
+
+
+  agoraStatesDiscussions.unshift({
+    author : inputTitle.value,
+  });
+  render(ul);
+
+  // agoraStatesDiscussions.unshift({
+  //   id: "null",
+  //   createdAt : new Date(),
+  //   title: inputTitle.value,
+  //   url: null,
+  //   author: inputName.value,
+  //   answer: null,
+  //   bodyHTML: inputQuestion.value,
+  //   avatarUrl: "https://img.icons8.com/dusk/64/000000/new.png",
+  // });
+  // render(ul);
+
+  return false;
+};
+
+newForm.addEventListener('submit', newQuestion );
