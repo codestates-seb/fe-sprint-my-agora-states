@@ -6,12 +6,15 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
+  /* 현지 시간 적용 */
+  const dateNow = new Date();
 
   /* 디스커션 추가 */
-  const enterName = document.querySelector('#name');
-  const enterTitle = document.querySelector('#title');
-  const enterQuestion = document.querySelector('#story');
-  const dateNow = new Date();
+  const form = document.querySelector('form.form');
+  const enterName = form.querySelector('#name');
+  const enterTitle = form.querySelector('#title');
+  const enterQuestion = form.querySelector('#story');
+
   const submitButton = document.querySelector('#submit');
 
   // 배열에 넣을 새로운 object 설정
@@ -40,17 +43,19 @@ const convertToDiscussion = (obj) => {
       newDiscussionObject.title = enterTitle.value;
       newDiscussionObject.author = enterName.value;
       newDiscussionObject.answer.bodyHTML = enterQuestion.value;
+
       agoraStatesDiscussions.unshift(newDiscussionObject);
       let putInLi = convertToDiscussion(newDiscussionObject);
       ul.prepend(putInLi) // 요소의 내용 앞에 콘텐츠를 추가하는 메서드
+
       enterName.value = '';
       enterTitle.value = '';
-      enterQuestion.value = '';
+      enterQuestion.value = ''; // 내용 리셋
       render(ul);
     }
   }
 
-  submitButton.addEventListener('click', submitDiscussion)
+  form.addEventListener('submit', submitDiscussion); // submit
 
 
 
@@ -107,3 +112,14 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+/* 페이지네이션 */
+// 한 페이지에 링크는 5개로 보여줌
+// 한 페이지에 게시물 10개를 보여줌
+// 이전, 다음 버튼이 존재
+// 처음으로, 마지막으로 버튼 존재
+// 필요한 값 : 화면에 보여질 페이지 그룹, 화면에 보여질 첫번째 페이지, 화면에 보여질 마지막 페이지, 총 페이지 수
+
+const totalContents = agoraStatesDiscussions.length; // 전체 게시물 수
+const totalPages = Math.ceil(totalContents / 10); // 총 페이지 수
+const pageGroup = Math.ceil(1 / 10); // 화면에 보여질 페이지 그룹
