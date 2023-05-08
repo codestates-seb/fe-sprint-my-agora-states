@@ -87,22 +87,26 @@ const render = (element) => {
       numbering.append(PageNum);
     }
   }
-  
+
   const prev = document.querySelector(".prev_page")
   prev.addEventListener('click', () => {
     if(currentPage > 1){
       currentPage -= 1;
       renderContent();
       paging();
+    } else {
+      return;
     }
   });
 
   const next = document.querySelector(".next_page")
   next.addEventListener('click', () => {
-    if(currentPage < totalPage){
+    if(currentPage < Math.ceil(agoraStatesDiscussions.length / onePageMax)){
       currentPage += 1;
       renderContent();
       paging();
+    } else {
+      return;
     }
   });
   paging(numbering)
