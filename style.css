@@ -75,6 +75,7 @@ label {
     color: #dcfff5;
     border-radius: 10px;
     transition: background-color .5s;
+    cursor: pointer;
 }
 
 .form__submit > input:hover {
