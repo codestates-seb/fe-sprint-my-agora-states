@@ -786,20 +786,23 @@ const agoraStatesDiscussions = [
     avatarUrl:
       "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
   },
-].map(discussion => {
+].map((discussion) => {
   if (discussion.answer) {
     return {
       ...discussion,
       bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
       answer: {
         ...discussion.answer,
-        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML)
-      }
-    }
+        bodyHTML: DOMPurify.sanitize(discussion.answer.bodyHTML),
+      },
+    };
   }
 
   return {
     ...discussion,
-    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML)
-  }
-})
+    bodyHTML: DOMPurify.sanitize(discussion.bodyHTML),
+  };
+});
+
+// 1. 로컬 스토리지에 저장된 데이터가 있으면 리스트로 가져오고
+// 2. 저장된 데이터가 없으면 만들때마다 리스트에 넣어주기(unshift)

@@ -1,1 +1,272 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* color set */
+:root[color-theme="dark"] {
+  --main-color: rgba(0, 0, 0, 0.9);
+  /* --form-color: #6ecc94; */
+  --form-color: #17a2b8;
+  --text-color: white;
+  --button-color: #ffc107;
+}
+:root[color-theme="light"] {
+  --main-color: white;
+  --button-color: rgb(18, 51, 76);
+  /* --form-color: #17a2b8; */
+  --form-color: #6ecc94;
+}
+
+.darkMode {
+  display: flex;
+  justify-content: end;
+
+  margin-top: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", "Courier New";
+}
+
+body {
+  line-height: 1.5;
+  /* background-color: #f9f9f9; */
+  max-width: 540px;
+  margin: 0 auto;
+  background-color: var(--main-color);
+
+  /* background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 60%,
+    rgba(0, 0, 0, 0)
+  ); */
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  margin-top: 10px;
+  font-size: 50px;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  color: var(--text-color);
+}
+
+.logo:hover {
+  transform: scale3d(1.1, 1.1, 1);
+}
+
+aside {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: black;
+}
+a:hover {
+  color: rgb(18, 51, 76);
+}
+
+button {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: #ff9033;
+  /* background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  ); */
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+button:hover {
+  background-color: var(--button-color);
+}
+
+button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+textarea {
+  resize: none;
+}
+
+.pagination-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+/* 입력창 */
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 200px;
+  margin-bottom: 30px;
+
+  border: 2px solid 6ec7cc;
+  border-radius: 10px;
+
+  background-color: var(--form-color);
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+label {
+  font-size: 20px;
+}
+
+.form__input--name > label {
+  margin-right: 5px;
+}
+#name {
+  width: 180px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form__input--title > label {
+  margin-right: 20.5px;
+}
+#title {
+  width: 179px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form__textbox > label {
+  display: flex;
+}
+#story {
+  width: 335px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form__submit input {
+  cursor: pointer;
+
+  width: 100px;
+  height: 100px;
+
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: #ff9033;
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.form__submit input:hover {
+  background-color: var(--button-color);
+}
+
+/* 디스커션 */
+li {
+  display: flex;
+  flex-direction: column;
+  border-color: black;
+}
+
+li:hover {
+  border-color: #95e4e8;
+}
+
+.contentArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.buttonArea {
+  display: flex;
+  justify-content: center;
+}
+
+.discussion__container {
+  border-radius: 14px;
+  padding: 10px 10px 18px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px 12px;
+
+  background-color: #95e4e8;
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+.discussion__title a {
+  font-size: 18px;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.discussion__information {
+  text-align: right;
+  margin-top: 10px;
+}
