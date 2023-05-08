@@ -1,1 +1,274 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: "TTWanjudaedunsancheB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "TTWanjudaedunsancheB";
+}
+
+html {
+  width: 100%;
+  min-width: 1500px;
+}
+
+body {
+  margin: 0px;
+  padding-top: 100px;
+  padding-right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+label {
+  font-size: 3rem;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: blue;
+  display: inline-block;
+  text-align: left;
+  text-decoration: none;
+}
+
+textarea,
+input {
+  width: 500px;
+  margin: 1px;
+}
+
+input {
+  height: 50px;
+}
+
+textarea {
+  height: 500px;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+.headone {
+  min-width: 1670px;
+  text-align: center;
+  background-color: #f69d3c;
+  margin-top: 0px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid gray;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  box-shadow: 8px 8px black;
+  height: 200px;
+}
+
+.discussion__avatar--image {
+  margin-left: 5px;
+  border-radius: 100%;
+  width: 48px;
+  margin-right: 5px;
+}
+.discussion__information {
+  text-align: right;
+  width: 600px;
+}
+
+.input--contanier {
+  width: 35rem;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.discussion__information {
+  color: black;
+  margin-right: 10px;
+}
+
+.form__input--wrapper div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__content {
+  min-width: 600px;
+  width: 600px;
+  text-align: center;
+}
+
+.answer__content {
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  font-size: 1rem;
+  width: 500px;
+  min-width: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__answered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.5rem;
+  height: 100%;
+  width: 3rem;
+  color: white;
+}
+
+.discussion__answered p {
+  color: red;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.discussion__answered p:hover {
+  color: wheat;
+}
+
+.discussion__answered span {
+  display: none;
+}
+
+.discussion__answer {
+  display: flex;
+  margin-left: 20px;
+  width: 700px;
+  min-width: 700px;
+  position: absolute;
+  left: 50%;
+}
+
+.content__close {
+  cursor: pointer;
+}
+
+.delete {
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: red;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  padding: 0.3em 0;
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.contents {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content__title {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.buttons {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  color: #333;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.button.active,
+.button:hover {
+  color: #1f975d;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.prev {
+  position: absolute;
+  left: 45rem;
+}
+
+.next {
+  position: absolute;
+  right: 45rem;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.content__html {
+  background-color: white;
+  height: 700px;
+  display: flex;
+  padding-top: 0px;
+  align-items: start;
+  justify-content: center;
+  padding-left: 10px;
+  width: 700px;
+  overflow-x: auto;
+}
+
+.black {
+  color: white;
+  background-color: black;
+}
+
+.white {
+  color: black;
+  background-color: white;
+}
+
+.black__line {
+  border: 1px solid white;
+}
+.white__line {
+  border: 1px solid white;
+}
+
+.main__wrapper {
+  display: flex;
+  justify-content: start;
+}
