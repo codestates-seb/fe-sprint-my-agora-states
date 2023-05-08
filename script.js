@@ -14,34 +14,8 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-  
-  //아바타
-  const avatarImg = document.createElement("img");
-  avatarImg.className = "discussion__avatar--image";
-  avatarImg.src = obj.avatarUrl;
-  avatarImg.alt = "avatar of" + obj.author;
-  avatarWrapper.append(avatarImg);
 
-  // 타이틀
-  const retitle = document.createElement('h2');
-  const retitleLink = document.createElement('a'); // a 태그 링크 때문에 변수 두개 지정
-  retitleLink.href = obj.url;
-  retitleLink.textContent = obj.title; 
-  retitle.append(retitleLink);
-  discussionContent.append(retitle);
 
-  // 날짜 
-  const disinfo = document.createElement('div');
-  disinfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleTimeString()}`
-  // date 객체는 new 연산과 꼭 함꼐 써야한다
-
-  discussionContent.append(retitle, disinfo);
-
-  // 체크박스
-  const checked = document.createElement('p');
-  checked.textContent = obj.answer ? '☑︎' : '☒'; // 답변이 있는 경우 o 없으면 x
-  checked.style.color = obj.answer ? "#00927a" : "#e90f6a"; // 컬러
-  discussionAnswered.append(checked);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
