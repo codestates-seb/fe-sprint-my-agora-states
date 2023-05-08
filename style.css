@@ -1,1 +1,627 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1px solid red; */
+}
+
+main {
+    /* border: 9px solid black; */
+    background-color: rgb(42, 47, 79);
+    border-radius: 20px;
+    width: 130vh;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    /* border: 1px solid red; */
+}
+
+div.left {
+    /* border: 1px solid yellow; */
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 30px;
+    color: white;
+}
+
+/* div.left > div{
+    border: 1px solid pink;
+} */
+
+div.left > div.main_title {
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+div.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+div.list > button {
+    color: white;
+    background-color: rgb(42, 47, 79);
+    border: none;
+    border-radius: 10px;
+    width: 230px;
+    height: 70px;
+    font-size: 15px
+}
+
+div.list > button:hover {
+    background-color: rgb(120, 129, 179);
+    transition: 0.5s;
+}
+
+div.bright {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 250px;
+    height: 70px;
+    margin-bottom: 20px;
+}
+
+div.bright > button {
+    color: white;
+    background-color: rgb(42, 47, 79);
+    border: none;
+    width: 120px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+div.bright > button.Light:hover {
+    background-color: white;
+    color: black;
+    transition: 0.7s;
+}
+
+div.bright > button.Dark:hover {
+    background-color: black;
+    transition: 0.7s;
+}
+
+div.right {
+    flex: 99 1 auto;
+    background-color: rgb(70, 77, 118);
+    border-radius: 20px;
+    margin: 20px 20px 20px 0px;
+
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; center로 바꾸세요 */
+    /* border: 1px solid red; */
+
+    position: relative;
+}
+
+div.right_left {
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1px solid red; */
+}
+
+.discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 97%;
+    height: 97%;
+
+    /* border: 1px solid yellow; */
+}
+
+.discussions__container {
+    list-style: none;
+    padding-left: 0px;
+    width: 95%;
+    height: 90%;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* border: 1px solid green; */
+}
+
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 97%;
+    height: 20%;
+    margin: 5px 0px;
+    background-color: rgb(42, 47, 79);
+    border-radius: 10px;
+
+    /* border: 1px solid white; */
+}
+
+.discussion__container:hover {
+    background-color: rgb(123, 129, 165);
+    transition: 0.4s;
+}
+
+.discussion__avatar--wrapper {
+    height: 63%;
+    width: 7%;
+    margin: 0px 10px 0px 15px;
+
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+
+    /* border: 1px solid white; */
+}
+
+.discussion__avatar--image {
+    height: 90%;
+    width: 90%;
+}
+
+.discussion__content {
+    background-color: rgb(49, 57, 103);
+    border-radius: 10px;
+    height: 70%;
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 10 1 auto;
+
+    border: 1px solid orange;
+}
+
+.discussion__title {
+    font-size: 125%;
+    color: white;
+    font-weight: bold;
+    /* text-align: center; */
+    overflow: hidden;
+    margin-top: 11px;
+    padding-top: 3px;
+    width: 95%;
+    height: 38%;
+    /* border: 1px solid white; */
+}
+
+.discussion__information {
+    font-size: 70%;
+    color: white;
+    text-align: right;
+
+    margin-bottom: 1px;
+    width: 90%;
+    height: 30%;
+    /* border: 1px solid white; */
+}
+
+.discussion__answered {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* border: 1px solid white; */
+}
+
+.answers_box {
+    height: 90%;
+    width: 95%;
+    background: rgb(30, 36, 76);
+    border-radius: 15px;
+    position: absolute;
+    bottom: 7%;
+    /* right: 50%; */
+    /* opacity: 0.9; */
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.answer_bar {
+    flex: 7 1 auto;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 1%;
+    width: 100%;
+
+    border-bottom: 3px solid rgb(70, 77, 118);
+}
+
+.answer_quit {
+    border: none;
+    height: 40%;
+    width: 2%;
+    margin: 2px 15px 0px 0px;
+    border-radius: 50%;
+    background-color: rgb(248, 65, 65);
+}
+
+.answer_quit:hover {
+    background-color: rgb(255, 217, 0);
+}
+
+.answer_body {
+    flex: 95 1 auto;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 30%;
+    width: 100%;
+    /* border: 1px solid white; */
+}
+
+.answer_output {
+    flex: 90 1 auto;
+    margin: 10px 10px 5px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    list-style: none;
+    padding-left: 0px;
+
+    height: 100%;
+    width: 97%;
+    overflow: auto;
+
+    /* border: 1px solid white; */
+}
+
+.answer_list {
+    /* border: 1px solid white; */
+
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+
+    width: 97%;
+    /* height: 40%; */
+    margin: 10px 0px;
+}
+
+.answers_img {
+    /* border: 1px solid white; */
+
+    flex: 15 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    width: 7%;
+}
+
+/* .answer_img_main {
+    border: 1px solid white;
+} */
+
+.answers_container {
+    /* border: 1px solid white; */
+    flex: 85 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 10px 10px;
+    width: 80%;
+    height: auto;
+    /* height: 65%; */
+}
+
+.answer_title {
+    flex: 10 1 auto;
+    /* border: 1px solid white; */
+    color: white;
+    padding: 0px 0px 0px 10px;
+    width: 100%;
+    /* overflow: ; */
+}
+
+.answer_contents {
+    flex: 75 1 auto;
+    border: 2px solid rgb(176, 119, 14);
+    border-radius: 15px;
+    background-color: rgb(46, 52, 89);
+    color: white;
+    margin: 10px 0px;
+    width: 97%;
+    padding: 10px;
+    /* height: 100%; */
+    word-wrap: break-word;
+    /* overflow: auto; */
+
+}
+
+.answer_information {
+    /* border: 1px solid white; */
+    flex: 15 1 auto;
+    color: white;
+    text-align: right;
+    font-size: 70%;
+    width: 97%;
+}
+
+.answers_input {
+    /* border: 1px solid white; */
+    flex: 10 1 auto;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 12%;
+
+    /* padding-bottom: 15px; */
+}
+
+.answer_input_box {
+    background-color: rgb(48, 55, 94);
+    width: 90%;
+    height: 97%;
+    border: none;
+    border-radius: 10px;
+    padding-left: 15px;
+    font-size: 85%;
+    color: white;
+}
+
+.answer_input_box::placeholder {
+    color: white;
+    padding-left: 5px;
+}
+
+.page_number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 6%;
+    width: 97%;
+    /* border: 1px solid white; */
+}
+
+.page_number > button {
+    height: 90%;
+    width: 4.7%;
+    margin: 0px 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(49, 57, 103);
+    color: white;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.page_number > button:hover {
+    background-color: rgb(162, 169, 206);
+    border: 4px solid rgb(36, 43, 82);
+    color: black;
+}
+
+button.action_button {
+    background-color: rgb(162, 169, 206);
+    border: 4px solid rgb(36, 43, 82);
+    color: black;
+}
+
+/*/////////////여기부터는 Ask에서의 'form' 입니다./////////////*/
+form {
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form__container {
+    height: 90%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: rgb(36, 43, 82);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    height: 90%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__input--wrapper {
+    height: 90%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    flex: 60 1 auto;
+}
+
+.form__input--wrapper > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__input--name {
+    flex: 20 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form__input--name > label {
+    width: 88%;
+    height: 20%;
+    color: white;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.form__input--name > input {
+    background-color: white;
+    border: none;
+    width: 90%;
+    height: 50%;
+    border-radius: 15px;
+    padding-left: 25px;
+    margin-top: 5px;
+    /* color: white; */
+}
+
+.form__input--name > input::placeholder {
+    /* color: white; */
+    /* font-weight: bold; */
+}
+
+.form__input--title {
+    flex: 20 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form__input--title > label {
+    width: 88%;
+    height: 20%;
+    color: white;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.form__input--title > input {
+    background-color: white;
+    border: none;
+    width: 90%;
+    height: 50%;
+    border-radius: 15px;
+    padding-left: 25px;
+    margin-top: 5px;
+    /* color: white; */
+}
+
+.form__input--title > input::placeholder {
+    /* color: white; */
+    /* font-weight: bold; */
+}
+
+.form__textbox {
+    flex: 60 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form__textbox > label {
+    width: 88%;
+    height: 10%;
+    color: white;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.form__textbox > textarea {
+    background-color: white;
+    border: none;
+    width: 90%;
+    height: 70%;
+    border-radius: 15px;
+    padding: 30px 0px 0px 25px;
+    /* margin-top: 5px; */
+    /* color: white; */
+    font-weight: bold;
+}
+
+.form__textbox > textarea::placeholder {
+    /* color: white; */
+    font-weight: bold;
+    font-size: 93%;
+}
+
+.form__submit {
+    flex: 50 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__submit > input {
+    background-color: rgb(84, 94, 146);
+    border: 5px solid rgb(51, 61, 110);
+    border-radius: 20px;
+    height: 100%;
+    width: 400%;
+    font-size: 100%;
+    /* font-family: ; */
+    color: white;
+}
+
+.form__submit > input:hover {
+    background-color: rgb(116, 87, 164);
+    border: 5px solid rgb(69, 41, 112);
+    color: white;
+}
+
+.hide {
+    display: none;
+}
