@@ -1,10 +1,10 @@
 .discussion__wrapper {
-	height: 58%;
+	height: 53%;
 	overflow: scroll;
 }
 @media screen and (height > 900px) {
 	.discussion__wrapper {
-		height: 65%;
+		height: 60%;
 	}
 }
 .discussions__container {
@@ -23,6 +23,7 @@
 	border: var(--item-border);
 	box-shadow: 3px 3px black;
 	margin-top: 1rem;
+	cursor: pointer;
 }
 
 .discussion__avatar--image {
