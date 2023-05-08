@@ -1,1 +1,237 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+    --bodycolor: #D9E4DD;
+    --maincolor: #FBF7F0;
+    --containercolor: #CDC9C3;
+    --contentsinputcolor: #FBF7F0;
+    --submitcolor: #8b8b8b;
+    --submithovercolor: #FBF7F0;
+    --fontcolor: #555555;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration-line: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bodycolor);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 800px;
+    margin: 80px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--maincolor);
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    color: var(--fontcolor);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__container {
+    display: flex;
+    width: 760px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--containercolor);
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form__input--wrapper2 {
+    display: flex;
+}
+
+.form__input--wrapper2 div input {
+    background-color: var(--contentsinputcolor);
+    border-style: none;
+    border-radius: 2px;
+}
+
+.form__input--name > input {
+    outline: none;
+    width: 170px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.form__input--title > input {
+    outline: none;
+    width: 560px;
+    padding: 5px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.form__textbox > textarea {
+    overflow-y: auto;
+    resize: none;
+    outline: none;
+    width: 740px;
+    height: 100px;
+    padding: 10px;
+    background-color: var(--contentsinputcolor);
+    border-style: none;
+    border-radius: 2px;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.form__submit > div {
+    color: red;
+    margin-right: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+.form__submit > input {
+    width: 100px;
+    height: 30px;
+    background-color: var(--submitcolor);
+    border-style: none;
+    border-radius: 2px;
+    color: #FBF7F0;
+    -webkit-transition: color 0.5s, background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.form__submit > input:hover {
+    cursor: pointer;
+    background-color: var(--submithovercolor);
+    color: #000
+}
+
+.discussion__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 760px;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    width: 760px;
+    background-color: var(--containercolor);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.discussion__avatar--wrapper > img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+    padding: 0 20px;
+
+}
+
+.discussion__content h2 a {
+    font-size: 20px;
+    color: var(--fontcolor);
+}
+
+.discussion__content > div {
+    display: flex;
+    justify-content: end;
+    font-size: 12px;
+    color: var(--fontcolor);
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.discussion__answered > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    background-color: var(--maincolor);
+    border-radius: 50%;
+}
+
+.resolved {
+    color: green;
+}
+
+.unresolved {
+    color: red;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.numbering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disabled {
+    color: #25b457;
+}
