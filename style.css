@@ -1,1 +1,115 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+/*li 기본요소 없애기*/
+li{
+    list-style: none;
+}
+body{
+    background-color: rgb(193, 208, 181);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 540px;
+    margin: 0 auto;
+}
+/*아고라스테이츠*/
+h1{
+    color: rgb(255, 248, 222);
+    margin: 20px;
+}
+/*이미지 동그랗게*/
+.discussion__avatar--image{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+/*입력란*/
+.form__input--wrapper > div{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+}
+.form__container form{
+    color: rgb(255, 248, 234);
+    font-weight: bold;
+    background: rgb(153, 169, 143);
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+.form__input--wrapper > div > :last-child{
+    background: transparent;
+    border: 1.5px solid rgb(255, 248, 234);
+    border-radius: 5px;
+    padding: 5px;
+}
+textarea{
+    resize: none;
+}
+.form__submit{
+    display: flex;
+    justify-content: center;
+}
+#btnSubmit{
+    height: 30px;
+    width: 60px;
+    border-radius: 20px;
+    background: transparent;
+    background-color: rgb(255, 248, 234);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+#btnSubmit:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+/*discussion 디테일*/
+li.discussion__container{
+    background-color: rgb(255, 248, 222);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+li.discussion__container:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+.discussion__content{
+    flex-grow: 1;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2.discussion__title{
+    display: flex;
+    padding-bottom: 10px;
+}
+h2.discussion__title a{
+    color: rgb(89, 69, 69);
+    font-weight: bold;
+    font-size: 1rem;
+}
+h2.discussion__title a:hover{
+    color: rgb(96, 150, 180);
+}
+/*날짜*/
+.discussion__information{
+    text-align: right;
+    font-size: 0.8rem;
+    color: rgb(89, 69, 69);
+}

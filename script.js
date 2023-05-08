@@ -14,8 +14,39 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  
+  //이미지
+  const avatarImg = document.createElement('img');
+  avatarImg.className = 'discussion__avatar--image'
+  avatarImg.src = obj.avatarUrl; 
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  //내용
+  const discussionTitle = document.createElement('h2'); 
+  discussionTitle.className = 'discussion__title' 
+  const titleLink = document.createElement('a'); 
+  titleLink.href = obj.url; 
+  titleLink.textContent = obj.title; 
 
+  discussionTitle.append(titleLink); 
+  discussionContent.append(discussionTitle);
+
+  
+  const discussionInformation = document.createElement('div');
+  discussionInformation.className = 'discussion__information';
+  const discussionAuthor = document.createElement('p');
+  discussionAuthor.textContent = `${obj.author} ${new Date(obj.createdAt).toLocaleDateString()}`;
+
+  discussionInformation.append(discussionAuthor);
+  discussionContent.append(discussionInformation);
+
+  // 체크
+  const answered = document.createElement('div');
+  answered.className = 'discussion__answered';
+  answered.textContent = obj.answer ? '✔︎' : '❍'; 
+  discussionAnswered.append(answered);
+  
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
@@ -32,3 +63,33 @@ const render = (element) => {
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
+
+// 새로운 질문 추가
+const inputName = document.querySelector('#name');
+const inputTitle = document.querySelector('#title');
+const inputStory = document.querySelector('#story');
+
+const formSubmit = document.querySelector(".form__container form");
+formSubmit.addEventListener('submit', formFunc)
+
+function formFunc (event){
+  event.preventDefault();
+
+  const newObj = {
+    id: "new value",
+    createdAt: new Date(),
+    title: inputTitle.value,
+    url: "",
+    author: inputName.value,
+    answer: null,
+    bodyHTML: inputStory.value,  
+    avatarUrl: "cat.jpg"
+  }
+
+  ul.prepend(convertToDiscussion(newObj))
+
+  //질문창 초기화
+  inputName.value = "";
+  inputTitle.value = "";
+  inputStory.value = "";
+}
