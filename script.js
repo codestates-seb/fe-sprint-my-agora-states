@@ -111,7 +111,7 @@ const convertToDiscussion2 = (obj) => {
 
 }
 
-form.addEventListener("submit", (element) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   // handle submit
