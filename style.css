@@ -1,1 +1,134 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body{    
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    background-color:#F5EBEB;
+}
+main > *{
+    display: flex;
+    flex-wrap : wrap;
+     width: 800px;
+}
+h1{ 
+    font-family:'Arial', sans-serif;
+    width: 800px;        
+    display: flex;  
+    justify-content: center;;
+    background-color: #867070;
+}
+.form__container{  
+    display: flex;
+    flex-wrap: wrap;
+    background-color: bisque;
+}
+.form{
+    width: 800px;
+    display :flex;
+    flex-direction: row;       
+    border : solid red;    
+    background-color:#D5B4B4;
+}
+.form__input--wrapper{
+    width : 800px;
+    display: flex;
+    flex-wrap : wrap;   
+    flex-grow: 3; 
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form__input--name, .form__input--title{
+    display: flex;
+    flex-wrap : wrap;    
+    justify-content: space-between;
+}
+#name, #title{
+    width: 400px;
+    margin-bottom: 10px;
+}
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit{
+    flex-grow:1;
+    display: flex;
+    flex-wrap : wrap;   
+    justify-content: center;
+    margin : 5px;
+}
+#submit{
+    width: 120px;
+    height: 120px;
+    margin : 5px;
+    border-radius: 10px;    
+}
+#submit:hover{
+    background-color: rgba(221, 157, 157, 0.897);
+}
+.discussion__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border : solid green;
+    background-color: #D5B4B4; 
+       
+}
+li.discussion__container{
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;    
+    justify-content: space-between;
+    margin : 10px;
+    list-style-type: none;
+}
+.discussion__avatar--wrapper{
+    background-color: #D6E8DB;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100px;;
+}
+.discussion__avatar--image{
+    width :100px ;
+}
+    
+.discussion__content{
+    background-color: rgb(255, 255, 255);       
+    display:flex;     
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;     
+}
+.discussion__title{
+    background-color: rgb(255, 255, 255);
+    width : 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    font-size: 15px;
+    flex-direction: column;
+}
+.discussion__information{
+    
+    background-color: beige;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.discussion__answered{
+    background-color: #C1D0B5;
+    font-size: 30px;    
+    width: 90px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
