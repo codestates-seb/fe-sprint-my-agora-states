@@ -4,22 +4,80 @@
 
 h1 {
   text-align: center;
+  color: cadetblue;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .form {
   background-color: beige;
-  width: 600px;
+  position: relative;
+  width: 1000px;
   padding: 20px;
   border-radius: 10px;
 }
 
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.form__input--wrapper > div label {
+  margin: 5px;
+}
+
+#story {
+  width: 450px;
+}
+
+.form__submit {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.form__submit input {
+  width: 100px;
+  height: 140px;
+  border-radius: 10px;
+}
+
+.form__submit input:hover {
+  background-color: burlywood;
+}
+
 /* li part */
+
+.discussion__wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 1100px;
+  height: 500px;
+  overflow: scroll;
+}
 
 .discussion__container {
   display: flex;
   position: relative;
   align-items: center;
-  border-bottom: 1px solid black;
+  background-color: wheat;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 .discussion__container img {
@@ -40,6 +98,10 @@ h1 {
   margin-bottom: 10px;
 }
 
+.discussion__container .discussion__content span:hover a {
+  color: brown;
+}
+
 .discussion__container .discussion__answered {
   position: absolute;
   right: 30px;
@@ -47,4 +109,8 @@ h1 {
 
 .discussion__container .discussion__answered p {
   font-size: 25px;
+}
+
+.discussion__container .discussion__answered p:hover {
+  color: green;
 }
