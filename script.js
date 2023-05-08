@@ -69,32 +69,50 @@ const convertToDiscussion = (obj) => {
   
 };
 
-  
+  const form = document.querySelector('form.form');
+  form.addEventListener("submit" , (event) => {
+    event.preventDefault();
+    const inputName = document.querySelector('#name');
+    const inputTitle = document.querySelector('#title');
+    const inputQuestion = document.querySelector('#story');
 
+    agoraStatesDiscussions.unshift(
+      {id : inputName.value,
+      title : inputTitle.value,
+      avatarUrl : "images.jpeg",
+      bodyHTML : inputQuestion.value,
+      createAt : `${new Date()}`,
+      author : inputName.value
+      }
+    );
+    console.dir(agoraStatesDiscussions);
+  
+    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+  })
 
-function newStory(event) {
+// function newStory(event) {
   
-  const inputName = document.querySelector('#name');
-  const inputTitle = document.querySelector('#title');
-  const inputQuestion = document.querySelector('#story');
+//   const inputName = document.querySelector('#name');
+//   const inputTitle = document.querySelector('#title');
+//   const inputQuestion = document.querySelector('#story');
 
-  agoraStatesDiscussions.unshift(
-    {id : inputName.value,
-    title : inputTitle.value,
-    avatarUrl : "images.jpeg",
-    bodyHTML : inputQuestion.value,
-    createAt : new Date().toISOString(),
-    author : inputName.value
-  }
-  );
-  console.dir(agoraStatesDiscussions);
+//   agoraStatesDiscussions.unshift(
+//     {id : inputName.value,
+//     title : inputTitle.value,
+//     avatarUrl : "images.jpeg",
+//     bodyHTML : inputQuestion.value,
+//     createAt : `${new Date()}`,
+//     author : inputName.value
+//   }
+//   );
+//   console.dir(agoraStatesDiscussions);
   
-  ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
+//   ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
 
   
   
   
-}
+// }
 console.dir(agoraStatesDiscussions)
 
 
