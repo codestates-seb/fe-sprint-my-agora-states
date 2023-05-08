@@ -12,14 +12,15 @@
 	padding: 0;
 }
 main {
-	position: relative;
+	display: flex;
+	justify-content: space-between;
 	background-color: var(--background);
 }
 header {
 	display: flex;
 	align-items: center;
-	margin-bottom: 2rem;
-	padding-top: 1rem;
+	background-color: var(--discussion);
+	padding: 1rem 0;
 	height: 4rem;
 }
 #logo {
@@ -37,8 +38,6 @@ header {
 	font-weight: bold;
 }
 .form__container {
-	position: absolute;
-	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 	background-color: snow;
 	padding: 5px;
@@ -87,8 +86,8 @@ header {
 	background-color: var(--discussion);
 }
 .discussion__wrapper {
-	margin: auto;
 	background: linear-gradient(45deg, var(--form) 25%, snow 0, snow 50%, var(--form) 0, var(--form) 75%, snow 0);
+	background-size: 110rem 110rem;
 	padding: 3rem;
 	width: 60rem;
 }
@@ -104,6 +103,9 @@ header {
 }
 .discussion__container a {
 	color: var(--link);
+}
+.discussion__container a:hover {
+	color: var(--logo--color);
 }
 .discussion__avatar--wrapper {
 	margin-left: 20px;
@@ -125,3 +127,6 @@ header {
 	font-size: 20px;
 }
 /* .discussion__answered {} */
+aside {
+	width: 16rem;
+}
