@@ -41,9 +41,11 @@ li {
 .discussions__container {
     background-color: #D6E8DB;
     padding-top: 1rem;
+    padding-bottom: .5rem;
     width: 42rem;
     border-radius: 2rem;
     box-shadow: 0.3rem 0.3rem 0.5rem black;
+    
 }
 
 .discussion__container {
