@@ -4,66 +4,38 @@ const $pageBtnsContainer = document.createElement('ul');
 $pageBtnsContainer.className = 'discussion__pageButtons--wrapper';
 
 const convertToDiscussion = ({
+  id,
   createdAt,
   title,
-  url,
   author,
   answer,
   avatarUrl,
 }) => {
-  // wrapper 컴포넌트
-  const $li = document.createElement('li');
-  $li.className = 'discussion__container dark';
-
-  // avatar 컴포넌트
-  const $avatarWrapper = document.createElement('div');
-  $avatarWrapper.className = 'discussion__avatar--wrapper';
-  const $avatarImg = document.createElement('img');
-  $avatarImg.className = 'discussion__avatar--image';
-  $avatarImg.setAttribute('src', avatarUrl);
-  $avatarImg.setAttribute('alt', `avatar of ${author}`);
-
-  $avatarWrapper.append($avatarImg);
-
-  // content 컴포넌트
-  const $discussionContent = document.createElement('div');
-  $discussionContent.className = 'discussion__content';
-  const $discussionTitle = document.createElement('h2');
-  $discussionTitle.className = 'discussion__title';
-  const $discussionLink = document.createElement('a');
-  const $discussionInfo = document.createElement('div');
-  $discussionInfo.className = 'discussion__information';
-  $discussionLink.className = 'discussion__Link';
-  $discussionLink.setAttribute('href', url);
-  $discussionLink.setAttribute('target', '_blank');
-  $discussionLink.setAttribute('rel', 'noopener noreferrer');
-
-  $discussionLink.append(title);
-  $discussionTitle.append($discussionLink);
-  $discussionInfo.append(`${author} / ${createdAt}`);
-  $discussionContent.append($discussionTitle, $discussionInfo);
-
-  // answer 컴포넌트
   const CHECKED_ICON_URL = './img/checked.png';
   const UNCHECKED_ICON_URL = './img/unchecked.png';
 
-  const $discussionAnswered = document.createElement('div');
-  $discussionAnswered.className = 'discussion__answered';
-  const $discussionAnsweredIcon = document.createElement('img');
-  $discussionAnsweredIcon.setAttribute(
-    'src',
-    answer ? CHECKED_ICON_URL : UNCHECKED_ICON_URL
-  );
-  $discussionAnsweredIcon.setAttribute(
-    'alt',
+  const dicussionHtml = `
+    <li class="discussion__container dark" data-id="${id}">
+      <div class="discussion__container--wrapper">
+        <img src="${avatarUrl}" alt="avatar of ${author}" class="discussion__avatar--image" />
+      </div>
+      <div class="discussion__content">
+        <h2 class="discussion__title">
+          <a href="#" class="discussion__Link">${title}</a>
+        </h2>
+        <div class="discussion__information">
+          ${author} / ${createdAt}
+        </div>
+      </div>
+      <div class="discussion__answered">
+        <img src="${answer ? CHECKED_ICON_URL : UNCHECKED_ICON_URL}" alt="${
     answer ? '답변 완료' : '답변 미완료'
-  );
+  }" />
+      </div>
+    </li>
+  `;
 
-  $discussionAnswered.append($discussionAnsweredIcon);
-
-  $li.append($avatarWrapper, $discussionContent, $discussionAnswered);
-
-  return $li;
+  return dicussionHtml;
 };
 
 const createPageBtns = (currentPage, totalPage) => {
@@ -83,21 +55,30 @@ const createPageBtns = (currentPage, totalPage) => {
 
   for (let i = firstPage; i <= lastPage; i++) {
     pageBtnsHtml += `
-      <li><a href="#" class="pageButton" data-move="toPage">${i}</a></li>`;
+      <li>
+        <a href="#" class="pageButton" data-move="toPage">${i}</a>
+      </li>`;
   }
 
   if (firstPage - 1 > 0) {
     pageBtnsHtml =
       `
-      <li><a href="#" class="pageButton__first" data-move="toFirst">&lt;&lt;</a></li>
-      <li><a href="#" class="pageButton__prev" data-move="toPrev">&lt;</a></li>` +
-      pageBtnsHtml;
+      <li>
+        <a href="#" class="pageButton__first" data-move="toFirst">&lt;&lt;</a>
+      </li>
+      <li>
+        <a href="#" class="pageButton__prev" data-move="toPrev">&lt;</a>
+      </li>` + pageBtnsHtml;
   }
 
   if (totalPage > lastPage) {
     pageBtnsHtml += `
-    <li><a href="#" class="pageButton__next" data-move="toNext">&gt;</a></li>
-    <li><a href="#" class="pageButton__last" data-move="toLast">&gt;&gt;</a></li>`;
+      <li>
+        <a href="#" class="pageButton__next" data-move="toNext">&gt;</a>
+      </li>
+      <li>
+        <a href="#" class="pageButton__last" data-move="toLast">&gt;&gt;</a>
+      </li>`;
   }
 
   return pageBtnsHtml;
@@ -106,8 +87,7 @@ const createPageBtns = (currentPage, totalPage) => {
 const render = ({ discussions, currentPage, currentFilter }) => {
   $discussionsContainer.append($pageBtnsContainer);
 
-  $ul.innerHTML = '';
-  $pageBtnsContainer.innerHTML = '';
+  let discussionsHtml = '';
 
   const filteredDiscussions =
     currentFilter === 'unchecked'
@@ -118,9 +98,11 @@ const render = ({ discussions, currentPage, currentFilter }) => {
 
   filteredDiscussions
     .slice((currentPage - 1) * 10, currentPage * 10)
-    .forEach((discussion) => {
-      $ul.append(convertToDiscussion(discussion));
-    });
+    .forEach(
+      (discussion) => (discussionsHtml += convertToDiscussion(discussion))
+    );
+
+  $ul.innerHTML = discussionsHtml;
 
   const filteredTotalPage = Math.ceil(filteredDiscussions.length / 10);
 
