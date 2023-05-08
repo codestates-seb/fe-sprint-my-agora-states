@@ -90,7 +90,7 @@ a:link {
   font-size: 22px;
 }
 a:visited {
-  color: rgb(0, 0, 0);
+  color: blueviolet;
 }
 
 h1 {
@@ -133,7 +133,7 @@ form {
   font-size:1.2rem;
   margin: 5px;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid white;
 }
 .form__submit {
   flex:1;
@@ -146,7 +146,8 @@ form {
   font-size: 15px;
   margin-left: 25px;
   margin-right: 0px;
-  border: 2px solid black;
+  border: 1px solid white;
+  background-color: rgb(248, 178, 117);
 }
 textarea {
   margin : 5px;
