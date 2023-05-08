@@ -1,1 +1,154 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f38181;
+}
+
+a {
+  text-decoration: none;
+}
+
+.discussion__answered {
+  font-size: 24px;
+  margin: 5px;
+  color: #ecc9ee;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540px;
+  height: 120px;
+  background-color: #eaffd0;
+  font-size: 12px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.discussion__content > :nth-child(1) {
+  width: 440px;
+  text-align: left;
+  margin-top: 0;
+}
+
+.discussion__content > :nth-child(2) {
+  height: 10px;
+  text-align: right;
+}
+
+img {
+  width: 48px;
+  border-radius: 50%;
+}
+
+/* 폼디자인 */
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 150px;
+}
+
+.form__container {
+  background-color: #fce38a;
+  border-radius: 2px;
+}
+
+.form__submit {
+  padding-right: 10px;
+}
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  height: 110px;
+  justify-content: space-between;
+}
+
+.form__input--name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.form__input--title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.form__textbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+}
+#submit1 {
+  padding: 12px 10px;
+  border: 0;
+  border-radius: 3px;
+  font-size: 14px;
+  width: 150px;
+  height: 110px;
+  background-color: white;
+}
+
+#submit1:active {
+  background-color: #f38181;
+}
+
+#name {
+  height: 34px;
+  width: 200px;
+  background-color: white;
+  border: none;
+}
+
+#title {
+  height: 34px;
+  width: 200px;
+  background-color: white;
+  border: none;
+}
+
+#story {
+  width: 200px;
+  background-color: white;
+  border: none;
+}
+
+h1 {
+  color: #95e1d3;
+}
