@@ -2,10 +2,6 @@
 
 // agoraStatesDiscussions is data.js
 // console.log(agoraStatesDiscussions);
-console.log(agoraStatesDiscussions.length);
-// for (const discussion in agoraStatesDiscussions) {
-// 	console.log(discussion.length);
-// }
 
 // 새로운 createElement 생성하고 , 클래스 이름 추가 함수 //
 // const createEl = (el) => (newEl = document.createElement(el));
@@ -76,10 +72,11 @@ const submitBtn = document.querySelector('#submit');
 const inputedName = document.querySelector('#name');
 const inputedTitle = document.querySelector('#title');
 const inputedQuestion = document.querySelector('#story');
+const remove = document.querySelector('#check');
 const form = document.querySelector('form');
 
-// <ul>
-const discussionUl = document.querySelector('.discussions__container');
+// // <ul>
+// const discussionUl = document.querySelector('.discussions__container');
 
 // <li>
 const newDiscussion = createEl('li', 'discussion__container');
@@ -95,7 +92,7 @@ form.addEventListener('submit', (e) => {
 
 	// avatar
 	const avatarWrapper = createEl('div', 'discussion__avatar--wrapper');
-	let mantrandom = Math.trunc(Math.random() * 6) + 1;
+	let mantrandom = Math.trunc(Math.random() * 5) + 1;
 	const avatarImage = createEl('img', 'discussion__avatar--image');
 	avatarImage.src = `./avatar/avatar${mantrandom}.jpg`;
 
@@ -126,14 +123,15 @@ form.addEventListener('submit', (e) => {
 	appendEl(newDiscussion, avatarWrapper);
 	appendEl(newDiscussion, discussionContent);
 
-	newDiscussion.append(answeredBtn);
+	appendEl(newDiscussion, answeredBtn);
 	// div appends img
-	avatarWrapper.append(avatarImage);
+	appendEl(avatarWrapper, avatarImage);
 
-	//discussion__content appends h2 // h2 appends <a> // user infp
-	discussionContent.append(contentTitle);
-	discussionContent.append(discussionInfo);
-	contentTitle.append(contentLink);
+	//discussion__content appends h2 &v h2 appends <a>
+	appendEl(discussionContent, contentTitle);
+	appendEl(discussionContent, discussionInfo);
+
+	appendEl(contentTitle, contentLink);
 
 	//data.js
 	let exisitingArr = agoraStatesDiscussions;
@@ -154,8 +152,6 @@ form.addEventListener('submit', (e) => {
 	};
 
 	exisitingArr.unshift(discussionSubmitted);
-	console.log(agoraStatesDiscussions);
-	console.log('aafter submit form  ', agoraStatesDiscussions.length);
 
 	// 화면 다 지우고
 	while (ul.firstChild) {
