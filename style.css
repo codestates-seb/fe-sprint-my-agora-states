@@ -225,6 +225,17 @@ h1 {
   background-color: #5c67e0;
 }
 
+/* navigator section */
+.navigator__container {
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.navigator__center {
+  margin: 0 1rem;
+}
+
 /* discussion wrapper section */
 .discussions__container {
   display: grid;

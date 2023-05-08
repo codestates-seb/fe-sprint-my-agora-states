@@ -1,5 +1,9 @@
-// TODO:  페이지네이션, 답변 등록, 이미지 업로드,코드 리팩토링,
+// TODO:  페이지네이션, 답변 등록, 글 삭제, 이미지 업로드,코드 리팩토링,
 const ul = document.querySelector("ul.discussions__container");
+
+const navLeft = document.querySelector(".navigator__left");
+const navRight = document.querySelector(".navigator__right");
+const navCenter = document.querySelector(".navigator__center");
 
 // data에 시간 포매터
 function timeFormater(date) {
@@ -124,17 +128,49 @@ const convertToDiscussion = (obj) => {
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   const discussionData = JSON.parse(localStorage.getItem("data"));
+  pageNum = localStorage.getItem("pageNum");
+  if (pageNum === null) {
+    localStorage.setItem("pageNum", 1);
+    pageNum = parseInt(localStorage.getItem("pageNum"));
+  } else {
+    pageNum = parseInt(pageNum);
+  }
+  if (pageNum === 1) {
+    navLeft.classList.add("hidden");
+    navRight.classList.remove("hidden");
+  } else if (pageNum === parseInt(discussionData.length / 10) + 1) {
+    navLeft.classList.remove("hidden");
+    navRight.classList.add("hidden");
+  } else {
+    navLeft.classList.remove("hidden");
+    navRight.classList.remove("hidden");
+  }
   while (element.firstChild) {
     element.firstChild.remove();
   }
-  for (let i = 0; i < discussionData.length; i += 1) {
+  for (let i = 10 * (pageNum - 1); i < 9 + 10 * (pageNum - 1); i += 1) {
+    if (i === discussionData.length) break;
     element.append(convertToDiscussion(discussionData[i]));
   }
   return;
 };
 
+function handleRightNavigator() {
+  console.log(1);
+  localStorage.setItem("pageNum", parseInt(pageNum) + 1);
+  navCenter.textContent = Number(navCenter.textContent) + 1;
+  render(ul);
+}
+function handleLeftNavigator() {
+  localStorage.setItem("pageNum", parseInt(pageNum) - 1);
+  navCenter.textContent = Number(navCenter.textContent) - 1;
+  render(ul);
+}
+
 // local storage에 초기 데이터 저장
 const savedData = localStorage.getItem("data");
+let pageNum = localStorage.getItem("pageNum");
+
 if (savedData === null) {
   localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
   render(ul);
@@ -142,3 +178,6 @@ if (savedData === null) {
   // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
   render(ul);
 }
+
+navLeft.addEventListener("click", handleLeftNavigator);
+navRight.addEventListener("click", handleRightNavigator);
