@@ -1,1 +1,169 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'Asia신디나루M';
+    src: url("../src/font/Asia신디나루M.ttf");
+}
+
+/* 배경 */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://mblogthumb-phinf.pstatic.net/MjAyMDA0MDFfMjcx/MDAxNTg1NzIxOTU0MzIw.LBlT7fZqYUuPTHPuKWORwd32_Yv0d_TzSAALsZ6XIuAg.i1tQoxAAMCUHHLgHxxifSA-IIzYhEs9P-3okYVqF1hkg.JPEG.minarigirl/1.jpg?type=w800);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Asia신디나루M';
+}
+
+/* 메인화면 */
+
+main {
+    border: none;
+    border-radius: 30px;
+    padding: 0px 20px 0px 20px;
+    background-color: #76e1eb5d;
+}
+
+/* 제목 */
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #dcfff5;
+    text-shadow: 4px 4px 0px #528e9b;
+}
+
+/* 이름 제목 질문 */
+
+label {
+    font-size: 30px;
+    margin-left: 7px;
+    padding: 5px 5px 5px 5px;
+    color: #f1fcfa;
+    text-shadow: 2px 2px 0px #528e9b;
+}
+
+
+.form__container #name, #title, #story {
+    width: 95%;
+    margin: 10px 10px 10px 5px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #0cc6b6;
+    color: #dcfff5;
+    font-family: 'Asia신디나루M';
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* 서브밋 버튼 */
+.form__submit{
+    text-align: center;
+}
+.form__submit > input {
+    width: 30%;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #0cc6b6;
+    font-family: 'Asia신디나루M';
+    font-size: 18px;
+    font-weight: 800px;
+    color: #dcfff5;
+    border-radius: 10px;
+    transition: background-color .5s;
+    cursor: pointer;
+}
+
+.form__submit > input:hover {
+    background-color: rgb(20, 130, 234);
+  }
+
+/* 디스커션 */
+
+
+.discussion__wrapper {
+    box-sizing: border-box;
+    width : 540px;
+}
+
+.discussion__wrapper ul {
+    padding : 0px;
+}
+
+.discussion__container{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+
+.discussion__container > :nth-child(2) {
+    text-align : left;
+
+}
+
+.discussion__avatar--image {
+    border-radius: 100%;
+    width : 48px;
+    margin : 10px 10px 10px 10px;
+}
+
+.discussion__content {
+    margin-right: auto;
+    padding: 0px 10px 10px 10px;
+}
+
+li.discussion__container {
+    background-color: #feec9e;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    width: 600px;
+    height: 110px;
+}
+
+.form__input--name {
+    margin-bottom: 10px;
+}
+.form__input--name:focus {
+    color: black;
+}
+.form__input--wrapper :nth-child(2){
+    margin-bottom:  10px;
+}
+
+/* 하이퍼링크 내용 */
+
+a {
+    text-decoration: none;
+    color: #7c6839;
+    text-align: left;
+}
+
+/* 콘텐츠영역-제목 */ 
+.discussion__title {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    margin-bottom: 5px;
+    color: rgb(0, 0, 0);
+}
+
+/* 콘텐츠영역-작성자, 날짜 */ 
+.discussion__information {
+    color: #7c6839;
+    font-size: 0.8rem;
+    font-family: 'Asia신디나루M';
+}
+
+/* 콘텐츠영역-답변여부 체크박스 */ 
+.discussion__answered > p {
+    color: #7c6839;
+    font-size: 3rem;
+    margin: 0px 20px 0px 30px;
+}
