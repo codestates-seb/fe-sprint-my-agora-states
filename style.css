@@ -79,6 +79,7 @@ nav {
   align-items: center;
   margin-left: 20px;
 }
+
 #expand-menu + label span {
   display: block;
   position: absolute;
@@ -98,6 +99,22 @@ nav {
 }
 #expand-menu + label span:nth-child(3) {
   bottom: 0;
+}
+
+#expand-menu + label:hover span:nth-child(1) {
+  top: 0;
+  background-color: #5f0080;
+}
+
+#expand-menu + label:hover span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #5f0080;
+}
+
+#expand-menu + label:hover span:nth-child(3) {
+  bottom: 0;
+  background-color: #5f0080;
 }
 
 #expand-menu:checked + label {
