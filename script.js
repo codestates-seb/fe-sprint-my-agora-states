@@ -1,7 +1,7 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요. data.js를 html에서 먼저 읽히고, 그 다음에 script.js를 실행시킴.
+// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.바꿔주고 <li>에 append까지 해줘야 하는 함수
+// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
@@ -78,7 +78,15 @@ form.addEventListener("submit", (event) => {
 
 })
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다. <ul>에 append해줌
+
+const topBtn = document.querySelector('.top')
+
+topBtn.addEventListener('click',() => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+})
+
+
+// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
