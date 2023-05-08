@@ -1,1 +1,139 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 226, 0.717);
+}
+
+main {
+  max-width: 500px;
+  min-width: 500px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: 30px;
+  color: rgb(139, 144, 170);
+}
+
+.form__container {
+  border-radius: 20px 20px 0px 0px;
+  background-color: rgb(231, 237, 212);
+}
+
+.form {
+  display: flex;
+  text-align: left;
+  padding: 10px;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+#name,
+#title,
+#story {
+  min-width: 200px;
+  background-color: rgba(240, 248, 255, 0.691);
+}
+
+.form__input_title,
+.form__input_name {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0px;
+}
+
+.form__input_wrapper {
+  flex-grow: 2;
+  margin-right: 15px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  background-color: rgba(240, 248, 255, 0.691);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+ul {
+  border-radius: 0px 0px 20px 20px;
+  background-color: rgb(231, 237, 212);
+  max-width: 500px;
+  min-width: 500px;
+}
+
+li {
+  margin: 0px 10px 10px 10px;
+  max-width: 480px;
+  min-width: 480px;
+  height: 80px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: rgba(240, 248, 255, 0.691);
+}
+
+.discussion__delete {
+  margin: 10px;
+  position: absolute;
+  left: 0;
+}
+
+.discussion__answered {
+  margin: 10px;
+  position: absolute;
+  right: 0;
+}
+
+.discussion_avatar_image {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.discussion__content {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion_information {
+  position: absolute;
+  bottom: 5px;
+  right: 80px;
+  text-align: right;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+p {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.653);
+}
+
+i {
+  color: rgba(0, 0, 0, 0.653);
+}
