@@ -1,1 +1,142 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-family: "Single Day", cursive;
+  font-size: 1.2rem;
+}
+
+body {
+  background-color: #fff2cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+  margin: 1rem;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+form {
+  background-color: #ffd966;
+  border: 5px dotted #dfa67b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem;
+  width: 300px;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  justify-content: center;
+  margin: 0.2rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1rem;
+}
+
+.form__input--name > input {
+  flex: 1;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1rem;
+}
+
+.form__input--title > input {
+  flex: 1;
+}
+
+.form__textbox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1rem;
+}
+
+.form__textbox > #story {
+  flex: 1;
+}
+
+.form__submit {
+  display: flex;
+  align-items: center;
+  width: 75px;
+  height: 178px;
+  margin: 0.2px;
+}
+
+.smtbtn {
+  width: 75px;
+  height: 177px;
+  background-color: #f4b183;
+  border: #dfa67b;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  padding: 0;
+}
+
+.discussion__wrapper > .discussions__container {
+  display: flex;
+  flex-direction: column;
+  width: 540px;
+  list-style: none;
+  padding-left: 0px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff2cc;
+  margin: 0.2rem;
+  border-radius: 10px;
+  border: 5px #dfa67b dotted;
+}
+
+li > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.discussion__avatar--wrapper {
+  padding: 1rem;
+}
+
+img.discussion__avatar--image {
+  border-radius: 50%;
+  width: 48px;
+}
+
+div.discussion__answered {
+  padding: 1rem;
+}
