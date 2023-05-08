@@ -53,7 +53,10 @@ function handleFormEvent(event) {
   // 태그
   const tags = [];
   for (let i = 0; i < event.srcElement.length; i++) {
-    if (event.srcElement[i].checked) tags.push(event.srcElement[i].value);
+    if (event.srcElement[i].checked) {
+      tags.push(event.srcElement[i].value);
+      console.log(event.srcElement[i].value);
+    }
   }
   if (tags.length === 0) tags.push("기타");
 
@@ -149,6 +152,7 @@ function formValidator() {
   submitBtn.disabled = false;
 }
 
+p.textContent = "제목을 입력하세요.";
 form.addEventListener("submit", handleFormEvent);
 
 formClose.addEventListener("click", closeForm);
