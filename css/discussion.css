@@ -53,6 +53,10 @@
 }
 
 .discussion__answered {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	margin-left: 7rem;
+}
+
+.discussion__answered:hover {
+	transform: scale(1.3);
 }
