@@ -1,0 +1,14 @@
+*{
+    list-style: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.form__input--wrapper input, .form__submit input{
+    background: none;
+    border: none;
+}
+a{
+    text-decoration: none;
+}
