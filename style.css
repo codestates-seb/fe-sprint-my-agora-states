@@ -1,1 +1,117 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+
+h1 {
+    font-size: 2rem;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 252, 252);
+    width:540px;
+    height: 100px;
+    border-radius: 20px;
+    
+}
+div.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(245, 252, 252);
+    justify-content: center;
+    align-items: center;
+    width:540px;
+    border-radius: 20px ;
+}
+.form__submit {
+    flex:1;
+    margin:3px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('13568626_8.jpg');
+    background-attachment: fixed; /* 스크롤시 배경이미지 고정 */
+    background-repeat: no-repeat; /* 배경이미지 반복x */
+    background-size: cover;
+}
+section.discussion__wrapper {
+    background-color: rgb(245, 252, 252);
+    width:550px;
+    border-radius: 20px;
+    margin : 30px;
+    display: flex;
+    justify-content: center;
+    box-shadow: black;
+  }
+li.discussion__container  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;       /*양 끝으로 붙이기 */ 
+    align-items: center;
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    width: 540px;
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
+    list-style-type: none;
+    font-size: 0.7rem;
+} 
+.discussion__content >:nth-child(1){
+    width: 440px;
+    text-align: left;
+    margin-top: 0;
+}
+.discussion__content >:nth-child(2){
+        height:30px;
+        text-align: right;
+}
+
+.discussion__container:hover {
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+  }
+
+.discussion__avatar--image {  /* 아바타 이미지 */
+    border-radius: 50%;
+    width: 48px;
+  }
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+div.discussion__avatar--wraooer > img {
+    width: 48px;
+    border-radius: 100%;
+}
+
+.discussion__answered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding : 10px;
+    font-size: 20px;
+    margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
