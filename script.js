@@ -64,6 +64,11 @@ pageChange(1);
 
 let targetNode;
 
+function date_change (date) {
+  let dateChange = new Date(date).toLocaleString();
+  return dateChange;
+};
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
@@ -100,7 +105,7 @@ const convertToDiscussion = (obj) => {
 
   const name_time = document.createElement("div");
   name_time.className = "discussion__information";
-  name_time.textContent = `${obj.author} / ${obj.createdAt}`;
+  name_time.textContent = `${obj.author} / `+ date_change(obj.createdAt);
 
   discussionContent.append(title1, name_time);
 
@@ -160,7 +165,7 @@ const add_answerbox = (obj) => {
 
   const answer_information = document.createElement("div");
   answer_information.classList = "answer_information"
-  answer_information.textContent = `${obj.author} / ${obj.createdAt}`;
+  answer_information.textContent = `${obj.author} / `+ date_change(obj.createdAt);
 
   const answer_input_box = document.createElement("input");
   answer_input_box.type = "text";
@@ -200,7 +205,7 @@ const add_answerbox = (obj) => {
 
     const answer_information = document.createElement("div");
     answer_information.classList = "answer_information"
-    answer_information.textContent = `${obj.answer.author} / ${obj.answer.createdAt}`;
+    answer_information.textContent = `${obj.answer.author} / `+ date_change(obj.answer.createdAt);
 
     answer_output.append(answer_list_add);
     answer_list_add.append(answers_img);
@@ -273,7 +278,7 @@ const add = function (event) {
   const name_box = document.querySelector("#name");
   const title_box = document.querySelector("#title");
   const question_box = document.querySelector("#story");
-  let localDate = new Date().toISOString();
+  let localDate = new Date().toLocaleString;
 
   // agoraStatesDiscussions 배열 안에 form으로 입력한 내용을 unshift 삽입
   agoraStatesDiscussions.unshift({
