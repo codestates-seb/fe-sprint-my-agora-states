@@ -1,1 +1,217 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 전체 */
+:root {
+    --title-color:rgb(222, 115, 96);
+    --h1-form-background-color : #22272e;
+    --body-background-color:#22272e;
+    --discussion-container-background-color:#3e4652;
+
+    --hover-color: #ffffff;
+    --hover-background-color: rgb(222, 115, 96);
+
+    --label-color : #dee2e6;
+    
+    --discussion-title-font-size : 17px;
+    --discussion-title-color : #a8c1f8;
+
+    --discussion-Info-font-size : 13px;
+    --discussion-Info-color : #dee2e6;
+
+    --discussion-answered-font-size : 30px;
+    --discussion-answered-color : #dee2e6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-top: 202px;
+    background-color: var(--body-background-color);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* title */
+main > h1 {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 20px 0 20px 0;
+
+    background-color: var(--h1-form-background-color);
+    color: var(--title-color);
+
+    /* border: 1px solid red; */
+}
+
+/* top */
+.form {
+    /* border: 1px solid tomato; */
+    background-color: var(--h1-form-background-color);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 78px 0 0 0;
+    padding: 0 15px 0 15px;
+}
+
+.form__input--wrapper {
+    /* border: 1px solid green; */
+
+    height: 120px;
+    padding: 0 5px 0 0;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form__input--name, .form__input--title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__input--wrapper label {
+    color: var(--label-color);
+}
+
+#name, #title {
+    width: 60%;
+    padding: 0;
+}
+
+#story {
+    width: 100%;
+}
+
+.form__btn {
+    /* border: 1px solid white; */
+    height: 120px;
+    padding: 2px 0 7px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__submit, .form__reset{
+    /* border: 1px solid green; */
+
+    height: 50px;
+    width: 90px;    
+
+    display: flex;
+}
+
+#submit, #reset {
+    width: 100%;
+    border-radius: 8px;
+}
+
+#submit:hover, #reset:hover {
+    color: var(--hover-color);
+    background-color: var(--hover-background-color);
+}
+
+
+/* middle */
+/* 컴포넌트 전체 폭을 540px로 만드세요 */
+
+.discussions__container {
+    margin: 0;
+    padding: 0 15px 0 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 50%;
+}
+
+.discussion__container {
+    /* border: 1px solid red; */
+    background-color: var(--discussion-container-background-color);
+
+    height: 65px;
+    margin-bottom: 10px;
+
+    display: flex;
+}
+
+.discussion__avatar--wrapper {
+    /* border: 1px solid black; */
+
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__content {
+    
+    flex-grow: 1;
+    height: 65px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    /* border: 1px solid black; */
+}
+
+.discussion__content > :nth-child(1) {
+    margin: 0;
+    padding: 5px 0 0 10px;
+    font-size: var(--discussion-title-font-size);
+}
+
+.discussion__content a {
+    color: var(--discussion-title-color);
+}
+
+.discussion__content > :nth-child(2) {
+    display: flex;
+    justify-content: right;
+    padding: 0 10px 5px 0;
+    font-size: var(--discussion-Info-font-size);
+    color: var(--discussion-Info-color);
+}
+
+.discussion__answered {
+    /* border: 1px solid black; */
+    height: 65px;
+    width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__answered > p {
+    margin: 0;
+    font-size: var(--discussion-answered-font-size);
+    color:var(--discussion-answered-color);
+}
