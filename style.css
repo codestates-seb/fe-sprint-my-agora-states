@@ -219,3 +219,32 @@ div[data-snippet-clipboard-copy-content] pre {
   border-radius: 5px;
   cursor: pointer;
 }
+.top__btn {
+  z-index: 99;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: var(--background);
+  border: var(--border);
+  width: 3.75rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3125rem;
+  cursor: pointer;
+}
+.top__btn.hide {
+  display: none;
+}
+.top__btn:hover {
+  background: var(--hover);
+}
+.top__btn span:first-child {
+  font-size: 0.625rem;
+}
+.top__btn span {
+  line-height: 1;
+}

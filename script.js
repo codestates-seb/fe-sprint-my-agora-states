@@ -191,3 +191,19 @@ next.onclick = () => {
     discussionCount / pageCount + 1
   }`;
 };
+
+
+//top 이동 버튼 
+const topBtn = document.querySelector('.top__btn')
+
+topBtn.onclick = () => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+window.onscroll = () => {
+  if (document.documentElement.scrollTop > 20) {
+    topBtn.classList.remove('hide')
+  } else {
+    topBtn.classList.add('hide')
+  }
+}
