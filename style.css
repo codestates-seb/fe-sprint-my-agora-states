@@ -23,25 +23,16 @@ body {
 	background-color: #fff3e2;
 	font-family: 'Nanum Myeongjo', serif;
 	height: 100vh;
-}
-
-main {
-	width: 750px;
-	height: 2400px;
-	/* margin: 30px; */
-
-	border-radius: 10px;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
 
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	margin: 50px auto;
+main {
+	width: 700px;
+	margin: 30px;
+	border-radius: 10px;
 
 	box-shadow: rgba(0, 0, 0, 0.581) 0px 5px 15px;
 	background-color: #e74646;
@@ -169,13 +160,17 @@ main > .error__msg {
 	/* border: 1px solid white; */
 	background-color: #fff;
 	border-radius: 10px;
-	transition: 0.5s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+
+.discussion__container:hover {
+	background-color: black;
 }
 
 /* user image */
 .discussion__container .discussion__avatar--wrapper img {
 	border-radius: 50%;
-	border: 4px solid #e74646;
+	/* border: 4px solid #000; */
 	width: 70px;
 }
 
@@ -218,6 +213,10 @@ main > .error__msg {
 
 .discussion__container .discussion__answered p:hover {
 	cursor: pointer;
-	color: #13c664;
+	/* color: #13c664; */
 	transition: ease-in 0.2s;
+}
+
+.hide {
+	display: none;
 }
