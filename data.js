@@ -1,7 +1,7 @@
 const agoraStatesDiscussions = [
   {
     id: "D_kwDOHOApLM4APjJi",
-    createdAt: "2022-05-16T01:02:17Z",
+    createdAt: "2023-05-06T14:54:53.722Z",
     title: "koans 과제 진행 중 npm install 오류로 인해 정상 작동 되지 않습니다",
     url: "https://github.com/codestates-seb/agora-states-fe/discussions/45",
     author: "dubipy",

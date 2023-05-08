@@ -1,1 +1,224 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: 'paintthesky';
+    src: url('PainttheSky-Regular.otf')format('opentype');
+}
+
+.fullBody {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form__container{
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form__title{
+    background-image: url(https://cdn.pixabay.com/photo/2015/01/07/16/37/wood-591631__340.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+    border: 3px rgb(79, 68, 68) solid;
+}
+
+h1 {
+    font-size : 110px;
+    font-family: 'paintthesky';
+    color:rgba(151, 6, 37, 0.84);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+h5 {
+    font-size : 20px;
+    text-align: right;
+    color: rgba(17, 17, 17, 0.662);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.yang{
+    background-image: url(pngegg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    padding : 0 0 0 30px
+}
+.form {
+    height: 500px;
+    font-family: 'paintthesky';
+    background-image: url(pngwall.png);
+    background-repeat: no-repeat;
+    background-size: 328px;
+    background-color: rgb(130, 73, 23);
+    flex : 1 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#name, #title, #story{
+    background-image: url(yangdarker.jpg);
+    border:none;
+    outline: none;
+    margin: 0 0 5px 0;
+    color:rgba(151, 6, 37, 0.84);
+    font-weight: bold;
+    font-size: 17px;
+}
+#name{
+    width: 130px;
+    height: 20px;
+    border-radius: 3px;
+}
+#title{
+    width: 150px;
+    height: 20px;
+}
+#story{
+    width: 190px;
+    height: 200px;
+    resize: none;
+}
+.submit__but{
+    border: none;
+    background-color: transparent;
+    font-family: 'paintthesky';
+    color:rgba(151, 6, 37, 0.84);
+    font-size: 20px;
+    font-weight: bold;
+}
+.submit__but:hover{
+    font-size: 0;
+}
+.submit__but:hover:after{
+    content: attr(data-hover);
+    font-size: 20px;
+}
+
+.form__submit{
+    width: 180px;
+    display: flex;
+    justify-content: center;
+}
+
+.discussion__wrapper{
+    flex : 1 0 0;
+    min-width: 700px;
+    padding: 20px;
+    background-image: url('https://t1.daumcdn.net/cfile/tistory/998AFC505B42A9FA14');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+section > .discussions__container{
+    list-style: none;
+    padding: 5px;
+    height: 94vh;
+    overflow: scroll;
+}
+
+.discussions__container > li{
+    height : 110px;
+    background-color: rgba(141, 40, 40, 0.5);
+    padding: 5px;
+    margin: 0 0 5px 0;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    overflow: hidden;
+}
+.discussion__avatar--wrapper {
+    height: 90px;
+    display: flex;
+}
+.discussion__avatar--image{
+    flex: 1 0 0;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin: 0 0 0 5px;
+}
+.discussion__content {
+    margin : 0 0 0 15px;
+    flex: 7 0 0;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.discussion__title{
+    flex: 3 0 0;
+    display: flex;
+    align-items: center;
+}
+.discussion__title > a:link {
+    color : bisque;
+    font-weight: bold;
+    font-size: 25px;
+}
+.discussion__title > a:visited {
+    color : rgb(191, 88, 23);
+    font-weight: bold;
+}
+.discussion__information{
+    flex: 1 0 0;
+    text-align: end;
+    color: bisque;
+    font-size: 20px;
+}
+.discussion__answered {
+    flex: 1 0 0;
+    color:bisque;
+    font-size: 50px;
+    padding-left: 5px;
+}
+.page__container{
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+.front__but, .next__but {
+    border: none;
+    font-family: 'paintthesky';
+    color:rgba(151, 6, 37, 0.84);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    font-size: 3.7vh;
+    border-radius: 5px;
+    width : 50px
+}
+.front__but:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.next__but:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.page__now {
+    width: 30px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: bisque;
+    font-size: 2.7vh;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+::placeholder{
+    font-family: 'paintthesky';
+    color:rgba(151, 6, 37, 0.84);
+    font-size: 25px;
+    font-weight: bold;
+}
