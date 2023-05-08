@@ -93,5 +93,8 @@ window.onload = function() {
     ul.insertBefore(convertToDiscussion(storedD[i]),ul.firstChild);
     }
   };
-  dislist = storedD;
+  if (storedD !== null){
+    dislist = storedD;
+  }
+  
 };
