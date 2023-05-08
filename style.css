@@ -1,1 +1,163 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image:url(../../../../Downloads/물음표5.png);
+    background-size: 50%;
+    opacity: 0.9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+    background-color: rgb(245, 234, 214);
+    margin: 15px;
+    border: 1px solid orangered;
+    border-radius: 0.5em;
+}
+
+li:hover {
+    background-color: rgb(231, 201, 146);
+    transition-duration: 0.5s;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discussions__container {
+    padding: 0px;
+}
+
+
+.discussion__container {
+    width: 65vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.discussion__avatar--image {
+    width: 60px;
+    border-radius: 50%;
+}
+
+.discussion__wrapper {
+    /* background-color: rgb(239, 183, 202); */
+    border-radius: 1em;
+}
+
+.discussion__avatar--wrapper {
+    text-align: center;
+    flex: 1.5 0 0;
+}
+
+.avatarImage {
+    width: 70px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.discussion__content{
+    flex: 7.5 0 0;
+    padding: 10px;
+}
+
+.discussion__answered{
+    flex: 1 0 0;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(10, 48, 10);
+}
+
+.discussion__information {
+    text-align: right;
+}
+
+p {
+    text-align: center;
+    font-size: 33px;
+}
+
+.form__container {
+    background-color: rgb(237, 230, 218);
+    width: 900px;
+    height: 250px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 2em;
+    border: 1px solid orangered;
+    /* box-shadow: 1px 1px orangered; */
+}
+
+
+.form__input--wrapper > * {
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* gap: 10px; */
+    font-size: 1.3rem;
+}
+
+.form__submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form__submit > * {
+    width: 110px;
+    height: auto;
+    font-size: 1.6rem;
+    margin-top: 8px;
+    border-radius: 1.5rem;
+    color: rgb(10, 48, 10);
+    box-shadow: 1.1px 1.1px rgb(10, 48, 10);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+label {
+    flex: 3 0 0;
+    text-align: center;
+    font-size: 1.6rem;
+    text-decoration: underline;
+}
+
+#name, #title, #story {
+    flex: 7 0 0;
+    border: 1.8px solid rgb(10, 48, 10);
+    box-shadow: 1.1px 1.1px rgb(10, 48, 10);
+}
+
+.discussion__NumberContainer {
+    margin: 15px;
+}
+
+span {
+    margin: 15px;
+    font-size: 1.5rem;
+    color: rgb(10, 48, 10);
+    text-decoration: double;
+    text-shadow: 0.8px 0.8px wheat
+
+}
+
+span:hover {
+    cursor: pointer;
+}
