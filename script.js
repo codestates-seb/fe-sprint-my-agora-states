@@ -24,6 +24,7 @@ const convertToDiscussion = (obj) => {
   discussiontitle.classList.add('discussion__title');
   const titleLink = document.createElement('a');
   titleLink.setAttribute('href',`${obj.url}`);
+  
   titleLink.textContent = obj.title;
   discussiontitle.appendChild(titleLink);
   discussionContent.appendChild(discussiontitle);
@@ -43,7 +44,7 @@ const convertToDiscussion = (obj) => {
 
   
 
-
+  
   
 
   if(obj.answer){
@@ -81,13 +82,15 @@ console.dir(userData);
     const inputName = document.querySelector('#name');
     const inputTitle = document.querySelector('#title');
     const inputQuestion = document.querySelector('#story');
-
+    let newDoc = `<h2>${inputName.value}님의 질문입니다.</h2>\n<p>${inputTitle.value}</p>\n<p>${inputQuestion.value}</p>`
+    
     userData.unshift(
       {id : inputName.value,
       title : inputTitle.value,
       avatarUrl : "images.jpeg",
-      bodyHTML : inputQuestion.value,
+      bodyHTML : `<h2>${inputName.value}님의 질문입니다.</h2>\n<p>${inputTitle.value}</p>\n<p>${inputQuestion.value}</p>`,
       createdAt : new Date(),
+      url : 'data:text/html;charset=UTF-8,'+encodeURIComponent(newDoc),
       author : inputName.value
       }
     );
