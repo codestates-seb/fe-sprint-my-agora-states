@@ -55,6 +55,17 @@ const author = document.querySelector("#name");
 const title = document.querySelector("#title");
 const story = document.querySelector("#story");
 
+// local storage
+let agoraData = [...agoraStatesDiscussions];
+const storedkey = JSON.parse(localStorage.getItem("key"));
+
+if (storedkey === null) {
+  localStorage.setItem("key", JSON.stringify(agoraData));
+} else {
+  agoraData = JSON.parse(localStorage.getItem("key"));
+}
+
+// submit event listener
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const newDiscussion = {
@@ -68,13 +79,15 @@ form.addEventListener("submit", (event) => {
     answer: null,
   };
   ul.prepend(convertToDiscussion(newDiscussion));
-  discussion.unshift(newDiscussion);
+
+  agoraData.unshift(newDiscussion);
+  localStorage.setItem("key", JSON.stringify(agoraData));
 });
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = 0; i < agoraData.length; i += 1) {
+    element.append(convertToDiscussion(agoraData[i]));
   }
   return;
 };
