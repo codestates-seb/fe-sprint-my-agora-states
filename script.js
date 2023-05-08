@@ -1,5 +1,12 @@
+let discussions;
+if (localStorage.getItem("data") != null) {
+  discussions = JSON.parse(localStorage.getItem("data"));
+} else {
+  discussions = agoraStatesDiscussions;
+}
+
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = obj => {
+const convertToDiscussion = (obj, index) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container margin_h_10";
 
@@ -83,6 +90,8 @@ const convertToDiscussion = obj => {
         avatarUrl:
           "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
       };
+      discussions[index].answer = answer;
+      localStorage.setItem("data", JSON.stringify(discussions));
       answer__container.append(answer__render(answer));
       answer__form.classList.add("hide");
     }
@@ -108,19 +117,19 @@ const convertToDiscussion = obj => {
   return li;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 pagenation에 맞는 자료를 데이터를 화면에 렌더링합니다.
+// ul 요소에 discussions 배열의 pagenation에 맞는 자료를 데이터를 화면에 렌더링합니다.
 let currentPage = 1;
 
 const ul = document.querySelector("ul.discussions__container");
 render(ul, currentPage);
 
 function render(element, page) {
-  for (let i = (page - 1) * 10; i < page * 10 && i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (let i = (page - 1) * 10; i < page * 10 && i < discussions.length; i += 1) {
+    element.append(convertToDiscussion(discussions[i], i));
   }
   // 기존 pagenation을 초기화합니다.
   document.querySelector(".pagenation").innerHTML = "";
-  pagenation(agoraStatesDiscussions, currentPage);
+  pagenation(discussions, currentPage);
 }
 
 // form submit
@@ -138,7 +147,8 @@ document.querySelector("#form").submit.addEventListener("click", e => {
       bodyHTML: form.story.value,
       avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
     };
-    agoraStatesDiscussions.unshift(discussion);
+    discussions.unshift(discussion);
+    localStorage.setItem("data", JSON.stringify(discussions));
     while (ul.firstChild) {
       ul.removeChild(ul.firstChild);
     }
