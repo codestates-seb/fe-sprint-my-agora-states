@@ -20,22 +20,22 @@ const convertToDiscussion = (obj) => {
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
 
-  // discussion content
+  // discussion_content
   const discussionTitle = document.createElement("h2");
   const titleAnchor = document.createElement("a");
   titleAnchor.className = "discussion__title";
   titleAnchor.href = obj.url;
   titleAnchor.textContent = obj.title;
-  const discussionInformation = document.createElement("div");
-  discussionInformation.className = "discussion__information";
-  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleDateString()} ${new Date(obj.createdAt).toLocaleTimeString()}`;
-  discussionContent.append(discussionTitle, discussionInformation);
-
   discussionTitle.append(titleAnchor);
 
   //discussion answered
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
+  const discussionInformation = document.createElement("div");
+  discussionInformation.className = "discussion__information";
+  discussionInformation.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleDateString()} ${new Date(obj.createdAt).toLocaleTimeString()}`;
+  discussionContent.append(discussionTitle, discussionInformation);
+
   const checked = document.createElement("p");
   checked.textContent = obj.answer ? "✅" : "❎";
 
@@ -74,7 +74,6 @@ const author = form.querySelector("div.form__input--name > input");
 const title = form.querySelector("div.form__input--title > input");
 const textbox = form.querySelector("div.form__textbox > textarea");
 
-//local
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -95,10 +94,14 @@ form.addEventListener("submit", (event) => {
   // agoraStatesDiscussions 객체 추가
   agoraStatesDiscussions.unshift(obj);
 
-  // 화면 초기화
+  //input 초기화
   title.value = "";
   author.value = "";
   textbox.value = "";
+
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
 
   // 다시 agoraStatesDiscussions 기반으로 화면에 보여주기 (렌더링)
   render(ul);
@@ -111,6 +114,8 @@ let pageLimit = 8; //한 페이지에 보이는 글 수
 let list = document.querySelectorAll('.discussion__container');
 
 function loadList() {
+  let list = document.querySelectorAll('.discussion__container');
+
   let startContent = pageLimit * (thisPage - 1); // 현재 페이지에서 보여줄 첫 번째 글 인덱스 계산
   let lastContent = pageLimit * thisPage - 1; // 현재 페이지에서 보여줄 마지막 글의 인덱스를 계산 
 
