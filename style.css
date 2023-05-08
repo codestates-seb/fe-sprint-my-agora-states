@@ -1,1 +1,114 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+}
+html {
+  background-color: lightgreen;
+}
+body {
+  text-align: center;
+  background-color: white;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+h1 {
+  color: lightgreen;
+  padding-top: 25px;
+  text-shadow: -1px 0 #777, 0 1px #777, 1px 0 #777, 0 -1px #777;
+}
+ul {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  /* border: 1px solid lightslategray; */
+  border-bottom: 0px;
+  border-radius: 10px;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(119, 136, 153, 0.342);
+  margin-bottom: 5px;
+  padding: 5px 15px;
+}
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+.form__container {
+  width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.discussions__container {
+  width: 540px;
+}
+.discussion__avatar--wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+.discussion__avatar--image {
+  width: 48px;
+  height: 48px;
+  border-radius: 25px;
+  margin-right: 15px;
+}
+.discussion__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  flex-grow: 8;
+}
+a {
+  color: #777;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.discussion__title {
+  margin: 0px;
+  text-align: left;
+  line-height: 12px;
+}
+.discussion__information {
+  color: #777;
+  font-size: 12px;
+  text-align: right;
+}
+input {
+  height: 3rem;
+  border-radius: 10px;
+  border: 1px solid lightslategray;
+}
+textarea {
+  height: 80px;
+  border-radius: 10px;
+}
+label {
+  margin: 10px 0px;
+}
+.form__submit > input {
+  width: 540px;
+  margin: 10px 0px;
+  background-color: lightgreen;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+}
+.discussion__answered {
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  margin-left: 15px;
+}
