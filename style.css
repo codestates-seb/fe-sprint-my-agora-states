@@ -233,7 +233,19 @@ h1 {
   align-items: center;
 }
 .navigator__center {
-  margin: 0 1rem;
+  margin: 0 3rem;
+}
+
+.navigator__left > i,
+.navigator__right > i {
+  color: #5c67e0;
+  transition: all ease-in-out 0.2s 0s;
+}
+
+.navigator__left > i:hover,
+.navigator__right > i:hover {
+  transform: scale(130%);
+  cursor: pointer;
 }
 
 /* discussion wrapper section */
