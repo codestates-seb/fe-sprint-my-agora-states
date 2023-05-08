@@ -146,6 +146,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 1rem;
 }
 
 .discussion__avatar--image {
@@ -154,21 +155,18 @@ form {
 }
 
 .discussion__content {
-  padding: 10px;
+  flex: 1 0 0;
+  padding: 0.8rem;
 }
 
 .discussion__title {
-  display: flex;
   font-size: 1.3rem;
-  margin-bottom: 2vh;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 4vh;
 }
 
 .discussion__information {
   display: flex;
-  justify-content: end;
-  align-items: center;
+  justify-content: flex-end;
 }
 
 .discussion__answered {
