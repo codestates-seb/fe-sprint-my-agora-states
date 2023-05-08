@@ -1,1 +1,221 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+:root {
+  --border: 1px solid #d0d7de;
+  --background: #f6f8fa;
+  --hover: #e7edf1;
+  --form: #fcfcfc;
+}
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: local('Pretendard Variable'),
+    url('./font/PretendardVariable.woff2') format('woff2-variations');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+input,
+textarea,
+button {
+  font-size: 100%;
+  font-family: 'Pretendard Variable';
+  border: var(--border);
+  outline: none;
+}
+
+button {
+  background: var(--background);
+}
+
+body {
+  font-family: 'Pretendard Variable';
+  color: #333;
+}
+
+main {
+  width: 90%;
+  max-width: 50rem;
+  margin: 0 auto;
+  border-left: var(--border);
+  border-right: var(--border);
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.75rem;
+  padding: 1.25rem 1.875rem 0.625rem;
+  border-bottom: var(--border);
+}
+
+.form__container {
+  padding: 1.25rem 2.5% 1.875rem;
+}
+
+.form {
+  border: var(--border);
+  border-radius: 7.5px;
+  padding: 1.25rem;
+  background: var(--background);
+}
+
+.form__input--wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: 0.4688rem;
+}
+
+.form__input--wrapper > div {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4688rem;
+}
+
+.form__input--wrapper div.form__textbox {
+  align-items: flex-start;
+}
+
+.form__input--wrapper label {
+  /* border: var(--border); */
+  padding: 0.4688rem;
+  border-radius: 5px;
+  display: inline-block;
+  width: 20%;
+  font-weight: 700;
+}
+
+.form__input--wrapper input {
+  background: var(--form);
+  width: 80%;
+}
+
+.form__input--wrapper textarea {
+  background: var(--form);
+  width: 80%;
+  resize: none;
+  min-height: 9.375rem;
+  padding: 0.4688rem;
+  border-radius: 5px;
+}
+
+.form__input--wrapper input[type='text'] {
+  padding: 0.4688rem;
+  border-radius: 5px;
+}
+
+.form__submit input[type='submit'] {
+  cursor: pointer;
+  display: block;
+  padding: 0.625rem 1.875rem;
+  background: var(--form);
+  border-radius: 5px;
+  margin: 0.9375rem 0 0 auto;
+  font-weight: 700;
+}
+button:hover,
+.form__submit input[type='submit']:hover {
+  background: var(--hover);
+}
+
+.discussion__wrapper {
+  border-top: var(--border);
+  padding: 1.25rem 0 1.875rem;
+  margin: 0 2.5% 0;
+}
+.discussions__container {
+  display: flex;
+  flex-flow: column;
+  gap: 0.625rem;
+}
+.discussion__container {
+  border: var(--border);
+  border-radius: 7.5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.discussion__avatar--wrapper:hover,
+.discussion__avatar--wrapper.active {
+  background: var(--hover);
+}
+
+.discussion__avatar--wrapper {
+  background: var(--background);
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 0.7813rem;
+  padding: 1.25rem;
+}
+.discussion__title--wrapper {
+  max-width: 74%;
+}
+.discussion__title {
+  line-height: 1;
+  margin: 0 0 0.3125rem;
+}
+.discussion__title a {
+  line-height: 1.2;
+  color: #333;
+  font-size: 1.25rem;
+  pointer-events: none;
+}
+.discussion__avatar--image {
+  margin: 0 0 auto 0;
+  max-width: 4rem;
+}
+.discussion__content {
+  padding: 1.25rem 2.5%;
+  border-top: var(--border);
+}
+.discussion__content.hide {
+  display: none;
+}
+.discussion__answered {
+  text-align: center;
+  word-break: keep-all;
+  margin: 0 0 auto auto;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.3s;
+}
+.discussion__answered.wating {
+  background: rgb(255, 79, 79);
+}
+.discussion__answered.answered {
+  background: rgb(59, 192, 90);
+}
+
+div[data-snippet-clipboard-copy-content] {
+  background: #4e4e4e;
+  margin: 1.25rem 0;
+  padding: 1.875rem 2.5%;
+  border-radius: 7.5px;
+}
+div[data-snippet-clipboard-copy-content] pre {
+  color: #fff;
+}
+.pagination {
+  margin: 1.25rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9375rem;
+}
+.pagination .paging {
+  padding: 0.625rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
