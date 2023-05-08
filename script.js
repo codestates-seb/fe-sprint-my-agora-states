@@ -14,12 +14,49 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  //img
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatarImg";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = "avatar of " + obj.author;
+  avatarWrapper.append(avatarImg);
+  //
+  //title
+  const titleDis = document.createElement("li");
 
-
-
+  titleDis.textContent = obj.title;
+  titleDis.className = "discussion__title";
+  discussionContent.append(titleDis);
+  //id
+  const account = document.createElement("p");
+  account.textContent = obj.author;
+  account.className = "discussion__acount";
+  discussionContent.append(account);
+  //time
+  const upTime = document.createElement("p");
+  upTime.textContent = obj.createdAt;
+  discussionContent.append(upTime);
   li.append(avatarWrapper, discussionContent, discussionAnswered);
+
   return li;
 };
+
+//submit button
+
+const button = document.querySelectorAll(".submitBtn");
+function submitEvent(iD, Title, textBox) {
+  let id = document.querySelector("#name");
+  let title = document.querySelector("#title");
+  let TextBox = document.querySelector("#textbox");
+  let newli = document.querySelector(".discussions__container");
+
+  let newWrite = document.createElement("div");
+  newWrite.className = "discussions__container";
+  newWrite.textContent = id.value;
+  newli.appendChild(newWrite);
+}
+
+button[0].addEventListener("click", submitEvent);
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
