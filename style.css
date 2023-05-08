@@ -278,7 +278,6 @@ input::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-family: "nanumFlower";
 }
 .answer__title--text {
     color: white;
