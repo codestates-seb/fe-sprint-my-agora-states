@@ -1,1 +1,116 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4DDFA;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+li.discussion__container {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    background-color: #efe3f3;
+}
+
+div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+}
+input[type="text"]{
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+input[type="submit"] {
+    padding: 0.5rem;
+    background-color: #8619b1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+  }
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  .form__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 1rem;
+    
+  }
+  .discussion__answered {
+    font-size: 25px;
+  }
+  .discussion__information {
+    justify-content: right;
+    display: flex;
+  }
+  .discussion__content{
+    flex-grow: 1;
+    padding-left: 20px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+  }
+  .form{
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+    width: 600px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #de9ff5;
+    border-radius: 10px;
+  }
+  .form__submit {
+    display: flex;
+    align-items: center;
+    width: 100px;
+  }
+  .form__input--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .form__input--name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .form__input--title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .form__input--textbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
