@@ -1,1 +1,182 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* body가 flex container main이 flex item
+/* 드리블 , 컬러헌트 사이트 참고하여 만들어보기
+/* li를 flex container로*/
+
+:root {
+    --background: #112D4E;
+    --surface: #DBE2EF; 
+    --primary: #5e7c96;
+    --secondary: #DA7F8F;
+    --form-surface: #f6eed8;
+    --visited: #E1E5EA;
+    --link: #A7BBC7;
+  }
+  
+  body {
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+  }
+/*
+  button.nightmode{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+   
+    float : left;
+  }
+  */
+
+  li.h1_wrapper{
+    list-style-type: none;
+  }
+  h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:600px;
+    margin-bottom: 0.5rem;
+    color: #3F72AF;
+  }
+
+  li.form__wrapper{
+     /* flex container display:flex */
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     width: 600px;
+     margin-bottom: 0.5rem;
+     background-color: var(--surface);
+     border-radius: 5px;
+     /* li의 기본 속성 변경 */
+     list-style-type: none;
+  }
+
+  div.form__input--wrapper{
+    flex: 1 0 0;
+  }
+
+  div.discussion__avatar--wrapper2{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  textarea{
+    width: 20em;
+    height: 2em;
+    border: none;
+    resize: none;
+  }
+  li.discussion__content {
+    /* flex container display:flex */
+    display: flex;
+    /* flex direction: row; */
+    flex-direction: row;
+    /* 양 끝으로 붙이려면 */
+    justify-content: space-between;
+    width: 600px;
+    margin-bottom: 0.5rem;
+    background-color: var(--surface);
+    border-radius: 5px;
+    /* li의 기본 속성 변경 */
+    list-style-type: none;
+  
+  }
+  a:link {
+    color : #333333;
+    text-decoration: none;
+    font-size : 15px;
+  }
+  a:visited {
+    color : black;
+    text-decoration: none;
+  }
+  a:hover {
+    color : #990000; 
+    text-decoration: underline;
+  }
+  a:active {
+    color : #706C61;
+    text-decoration: none;
+  }
+
+  div.discussion__avatar--wrapper2 {
+    display: flex;
+    flex: 0 0 0;
+    padding: 1rem;
+  }
+
+  #name{
+    width:70.15%;
+  }
+
+  #title{
+    width:72.5%;
+  }
+
+  #story{
+    width:74.2%;
+  }
+
+  #submit_button{
+    height:40px;
+    width:100px;
+    margin:auto !important;
+    display:block;
+    border: none;
+    margin-bottom: 8px !important;
+    background-color: #3F72AF;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.3s;
+  }
+
+ 
+ 
+
+  li.discussion__container {
+    /* flex container display:flex */
+    display: flex;
+    /* flex direction: row; */
+    flex-direction: row;
+    /* 양 끝으로 붙이려면 */
+    justify-content: space-between;
+    width: 600px;
+    margin-bottom: 1rem;
+    background-color: var(--surface);
+    border-radius: 5px;
+    /* li의 기본 속성 변경 */
+    list-style-type: none;
+  }
+
+  div.discussion__information{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+  }
+  
+  div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+  }
+  
+  div.discussion__content{
+    flex: 1 0 0;
+  }
