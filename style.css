@@ -1,1 +1,140 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin:0 auto;
+    box-sizing: border-box;;
+    text-align: center;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+    /*  rgb(42, 47, 79);
+        rgb(145, 127, 179);
+        rgb(229, 190, 236);
+    */
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+body{
+    width:1500px;
+    position:relative;
+    background:white
+}
+header{
+    width:100%;
+    height:300px;
+    background:rgb(57, 72, 103);
+    border-radius: 30px;
+    margin-top:30px;
+    margin-bottom:30px;
+    position:relative;
+}
+header img{
+    width:100px;
+    height:100px;
+    position:absolute;
+    right:20px;
+    bottom:20px;
+}
+h1{
+    font-size:3em;
+    color:white;
+    position:absolute;
+    top:120px;
+    left:300px;
+}
+.form__container{
+    width:450px;
+    position: absolute;
+    left:0;
+    padding:20px 0 20px 0;
+    background:rgb(57, 72, 103);
+    border-radius:20px;
+    color:rgb(241, 246, 249);
+    font-weight:bold;
+}
+.form__container > form{
+    width:450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.form__container > form > div input{
+    width:400px;
+}
+.discussion__wrapper{
+    width:1000px;
+    position:absolute;
+    right:0;
+    height: 570px;
+    overflow: auto;
+    padding:20px 0 20px 0;
+    background:rgb(57, 72, 103);
+    border-radius: 20px;
+    color:rgb(241, 246, 249);
+    font-weight:bold;
+}
+.discussion__wrapper > ul{
+    width:990px;
+    border-radius:20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.discussion__wrapper > ul >li{
+    width:430px;
+    height:150px;
+    display: flex;
+    align-items: center;
+    margin-top:20px;
+    background: rgb(155, 164, 181);
+    border-radius: 25px;
+    color:black
+}
+.form__input--wrapper > div{
+    margin-bottom:10px;
+}
+.list{
+    overflow: auto;
+    height:500px;
+}
+input{
+    width:200px;
+}
+.event{
+    height:30px;
+}
+textarea{
+    width:400px;
+    height:100px;
+}
+/* ------------------ */
+.discussion__avatar--wrapper{
+
+    width:80px;
+    height:80px;
+}
+img{
+    border-radius: 50%;
+    width:100%
+}
+/* ------------------- */
+.discussion__content{
+
+    width:300px;
+}
+.discussion__content > h2{
+    font-size:1em;
+}
+.discussion__content > div{
+    width:200px;
+    height:40px;
+
+}
+/* -*------------------------- */
+.discussion__answered{
+
+    width:15px;
+    height:15px;
+    display: flex;align-items: center;
+}
