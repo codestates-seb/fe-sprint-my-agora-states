@@ -172,5 +172,22 @@ function newQA(event) {
   } else {
     alert("알수없는 오류가 발생하였습니다.");
   }
+
+  elTitle.onkeyup = () => {
+    if(elTitle.value){
+      fail_elTitle.classList.add('hide');
+    }
+  }
+  elAuthor.onkeyup = () => {
+    if(elAuthor.value){
+      fail_elAuthor.classList.add('hide');
+    }
+  }
+  elBodyHTML.onkeyup = () => {
+    if(elBodyHTML.value){
+      fail_elBodyHTML.classList.add('hide');
+    }
+  }
 }
+
 elSubmitButton.addEventListener("click", newQA);
