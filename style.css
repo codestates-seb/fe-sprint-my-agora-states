@@ -1,1 +1,236 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #202123;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.bodycontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bodycontainer #my {
+  padding-bottom: 4px;
+  margin: 0 auto;
+  border-radius: 12px;
+  width: 20%;
+  margin-top: 20px;
+  color: white;
+  background-color: #452cdd;
+  text-align: center;
+  font-size: 50px;
+}
+.bodycontainer #states {
+  padding-bottom: 4px;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 70%;
+  border-radius: 12px;
+
+  color: white;
+  background-color: #0d2259;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.form__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form__input--name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 100%;
+  background-color: #40414f;
+  color: white;
+  border: none;
+  margin-bottom: 2px;
+}
+
+.form__submit input {
+  background-color: #0d2259;
+  color: white;
+  margin-top: 2px;
+}
+textarea {
+  margin-top: -1px;
+  width: 100%;
+  background-color: #40414f;
+  color: white;
+  border: none;
+}
+
+.form__input--title {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+li.discussion__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 540px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  padding: 4px 0;
+
+  border-bottom: 1px solid #40414f;
+}
+
+.discussion__information {
+  color: #93969f;
+  flex-grow: 1;
+  display: flex;
+  text-align: right;
+  margin-left: 30px;
+}
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+  flex-grow: 1;
+  width: 70px;
+  height: 50px;
+  padding: 0;
+}
+
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 100%;
+
+  margin: 0;
+}
+
+.discussion__content {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+a.discussion__title {
+  color: #ceced2;
+  flex-grow: 9;
+  padding: 60 60;
+  width: 270px;
+  height: 60px;
+  padding-left: 5px;
+}
+
+/* :root {
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --primary: #5e7c96;
+  --secondary: #DA7F8F;
+  --form-surface: #f6eed8;
+  --visited: #E1E5EA;
+  --link: #A7BBC7;
+}
+
+/* body {
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.discussion__container {
+  /* flex container display:flex 
+  display: flex;
+  /* flex direction: row; 
+  flex-direction: row;
+  /* 양 끝으로 붙이려면 
+  justify-content: space-between;
+  width: 540px;
+  margin-bottom: 0.5rem;
+  background-color: var(--surface);
+  border-radius: 5px;
+  /* li의 기본 속성 변경 
+  list-style-type: none;
+}
+
+div.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 0;
+  padding: 1rem;
+}
+
+div.discussion__avatar--wrapper > img {
+  width: 48px;
+  border-radius: 100%;
+} */
+
+.accordion-body {
+  background-color: #0e1422;
+  color: #40414f;
+}
+
+.notice__title {
+  color: white;
+}
+
+.accordion-header {
+  background-color: #0d2259;
+  text-align: center;
+}
+.accordion-button {
+  background-color: #0d2259;
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+.accordion-button collapsed {
+  background-color: #0d2259;
+  text-align: center;
+}
+
+.accordion-item {
+  background-color: #0d2259;
+  border: none;
+  border-radius: 20%;
+  margin: 30px 0;
+}
+
+#headingOne {
+  text-align: center;
+  background-color: #0d2259;
+}
+
+.accordion-header {
+  text-align: center;
+  background-color: #0d2259;
+}
