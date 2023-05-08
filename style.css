@@ -122,8 +122,10 @@ ul > li {
   width: 430px;
 }
 
-.discussion__content .discussion__information {
+.discussion__information {
   align-self: flex-end;
+  font-size: 15px;
+  color: #12a0d7;
 }
 
 img {
@@ -134,9 +136,24 @@ img {
 
 a {
   font-size: 1rem;
+  line-height: 0.8;
+  text-decoration: none;
 }
 
 .discussion__answered {
   font-size: 25px;
   float: right;
+}
+
+.pagination__buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pagination__buttons > button {
+  font-size: 20px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px;
 }
