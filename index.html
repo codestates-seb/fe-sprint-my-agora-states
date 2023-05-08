@@ -18,15 +18,20 @@
       <h1 class="margin_h_20">Agora States</h1>
       <section class="form__container padding_20 margin_h_20">
         <form action="" method="get" id="form">
-            <input type="text" name="title" id="title" class="padding_10" placeholder="Title" required />
-            <textarea id="story" class="padding_10 margin_h_10" name="story" placeholder="질문을 작성하세요" required></textarea>
-            <input type="submit" id="submit" value="submit" />
-          </div>
+          <input type="text" name="title" id="title" class="padding_10" placeholder="제목" required />
+          <textarea
+            id="story"
+            class="padding_10 margin_h_10"
+            name="story"
+            placeholder="질문을 작성하세요"
+            required
+          ></textarea>
+          <p class="discussion__error margin_bottom_10 hide">제목 혹은 질문이 입력되지 않았습니다.</p>
+          <input type="submit" id="submit" value="submit" />
         </form>
       </section>
       <section class="discussion__wrapper">
-        <ul class="discussions__container">
-        </ul>
+        <ul class="discussions__container"></ul>
       </section>
     </main>
   </body>

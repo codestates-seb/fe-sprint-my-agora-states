@@ -77,6 +77,12 @@ main {
   padding: 20px;
 }
 
+.padding_not_top_20 {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
 .hide {
   display: none;
 }

@@ -27,7 +27,7 @@ const convertToDiscussion = obj => {
   header.append(discussion__avatar, discussion__answered, discussion__title, discussion__delete);
 
   const view = document.createElement("div");
-  view.className = "discussion__view padding_20 hide";
+  view.className = "discussion__view padding_not_top_20 hide";
   const article = document.createElement("article");
   article.className = "discussion__story margin_h_10";
   article.innerHTML = obj.bodyHTML;
@@ -43,18 +43,7 @@ const convertToDiscussion = obj => {
   const answer__container = document.createElement("ul");
   answer__container.className = "answer__container";
   if (obj.answer != null) {
-    const answer_list = document.createElement("li");
-    answer_list.className = "answer__content";
-    answer_list.innerHTML = `
-        <hr />
-        <header class="answer__header">
-        <div class="answer__delete"><p class="edit">✎</p><p class="delete">❌</p></div>
-        <div class="answer__avatar"><img class="discussion__avatar" src="${obj.answer.avatarUrl}" alt="${obj.answer.author}'s avatar" /></div>
-        <div class="answer__author">${obj.answer.author}</div>
-        </header>
-        <div class="answer__content">${obj.answer.bodyHTML}</div>
-      `;
-    answer__container.append(answer_list);
+    answer__container.append(answer__render(obj.answer));
   }
   const answer__form = document.createElement("form");
   answer__form.setAttribute("action", "");
@@ -87,7 +76,37 @@ const convertToDiscussion = obj => {
   // answer__form submit
   answer__form.children[1].addEventListener("click", e => {
     e.preventDefault();
+    if (answer__form.children[0].value != "") {
+      console.log("응애");
+      const answer = {
+        id: "",
+        createdAt: new Date(),
+        url: "",
+        author: "kimploo",
+        bodyHTML: answer__form.children[0].value,
+        avatarUrl:
+          "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+      };
+      answer__container.append(answer__render(answer));
+      answer__form.classList.add("hide");
+    }
   });
+
+  // answer__render
+  function answer__render(answer) {
+    const answer_list = document.createElement("li");
+    answer_list.className = "answer__content";
+    answer_list.innerHTML = `
+        <hr />
+        <header class="answer__header">
+        <div class="answer__delete"><p class="edit">✎</p><p class="delete">❌</p></div>
+        <div class="answer__avatar"><img class="discussion__avatar" src="${answer.avatarUrl}" alt="${answer.author}'s avatar" /></div>
+        <div class="answer__author">${answer.author}</div>
+        </header>
+        <div class="answer__content">${answer.bodyHTML}</div>
+      `;
+    return answer_list;
+  }
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   return li;
@@ -109,20 +128,27 @@ render(ul);
 document.querySelector("#form").submit.addEventListener("click", e => {
   e.preventDefault();
   const form = document.querySelector("#form");
-  const discussion = {
-    id: "",
-    createdAt: new Date(),
-    title: form.title.value,
-    url: "",
-    author: "me",
-    answer: null,
-    bodyHTML: form.story.value,
-    avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4  ",
-  };
-  agoraStatesDiscussions.unshift(discussion);
-  const ul = document.querySelector("ul.discussions__container");
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild);
+  if (form.title.value != "" && form.story.value != "") {
+    const discussion = {
+      id: "",
+      createdAt: new Date(),
+      title: form.title.value,
+      url: "",
+      author: "kimploo",
+      answer: null,
+      bodyHTML: form.story.value,
+      avatarUrl: "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+    };
+    agoraStatesDiscussions.unshift(discussion);
+    const ul = document.querySelector("ul.discussions__container");
+    while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    }
+    render(ul);
+    form.title.value = "";
+    form.story.value = "";
+    form.querySelector(".discussion__error").classList.add("hide");
+  } else {
+    form.querySelector(".discussion__error").classList.remove("hide");
   }
-  render(ul);
 });
