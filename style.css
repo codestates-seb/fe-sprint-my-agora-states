@@ -27,7 +27,7 @@ body {
 }
 
 .bodycontainer #my {
-  padding-top: 8px;
+  padding-bottom: 4px;
   margin: 0 auto;
   border-radius: 12px;
   width: 20%;
@@ -38,7 +38,7 @@ body {
   font-size: 50px;
 }
 .bodycontainer #states {
-  padding-top: 8px;
+  padding-bottom: 4px;
   margin: 0 auto;
   margin-top: 10px;
   width: 70%;
