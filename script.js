@@ -188,7 +188,7 @@ const renderButton = (currentPage) => {
   buttons.prepend(prev);
   buttons.append(next);
   
-  // 이전, 다음 페이지 버튼이 필요한지 체크
+  // 이전, 다음 페이지 버튼이 필요없을땐 숨기고, 필요할땐 보여줌
   if (currentPage - pagePerGroup < 1) buttons.removeChild(prev);
   if (currentPage + pagePerGroup > totalPage) buttons.removeChild(next);
 };
