@@ -1,1 +1,116 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+
+
+
+
+h1 {
+    text-align: center; /* 가운데 정렬 */
+    /* margin-top: 0; 기본적으로 h1 요소는 위쪽에 margin이 설정되어 있으므로, 이를 제거 */
+  }
+body {
+    display: flex; /* 요소들을 가로 방향으로 배치하기 위해 flexbox 사용 */
+    justify-content: center; /* 가로 방향 중앙 정렬 */
+    align-items: center; /* 세로 방향 중앙 정렬 */ 
+    
+}
+
+main {
+    /* background-color: aliceblue; */
+
+}
+
+.form__container {
+    display: flex;
+    /* align-items: center; */
+    background-color: whitesmoke;
+    width: 320px;
+    border-radius: 20px;
+    
+    
+}
+
+
+
+.discussion__wrapper {
+    display: flex;
+    width: 48px;
+    
+}
+
+
+ul {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+       
+
+}
+
+
+.discussion__container {
+
+    display: flex;  
+    /* flex컨테이너로만들기 */
+    flex-direction: row;
+    justify-content: space-between;
+    /* 양끝으로 붙이기 */
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    margin: 0 0 20px 10px;
+    flex-grow: 1;   
+    font-size: 12px;
+    width: 300px;
+    
+}
+
+a {
+    color: black;
+}
+
+img {
+    margin: 20px;
+    width: 30px;
+    border-radius: 80%;
+}
+
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.form__input--name {
+    display: flex;
+    align-items: center;
+  }
+
+.form__textbox {
+    display: flex;
+    align-items: center;
+  } 
+.label {
+    text-align: left;
+  }
+
+.form__submit {
+    text-align: center;
+
+  }
+
+input#name {
+    margin: 10px 10px 10px 10px;
+}
+
+input#title{
+    margin: 10px 10px 10px 10px;
+}
+
+textarea#story {
+    margin: 10px 10px 10px 10px;
+}
