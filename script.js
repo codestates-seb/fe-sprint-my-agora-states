@@ -89,7 +89,9 @@ const convertToDiscussion = (obj) => {
   //답변수, id, 날짜 데이터
   const information = document.createElement('div');
   information.className = 'discussion__information';
-  information.textContent = obj.author+' / '+obj.createdAt;
+  information.textContent = 
+  obj.author+' / '+obj.createdAt.substr(0,4)+'년 '+obj.createdAt.substr(5,2)+'월 '+obj.createdAt.substr(8,2)+'일 '
+  +obj.createdAt.substr(11,2)+'시 '+obj.createdAt.substr(14,2)+'분';
   
   //답변완료여부
   const answered = document.createElement('button');
