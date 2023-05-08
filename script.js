@@ -1,34 +1,117 @@
-// index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-console.log(agoraStatesDiscussions);
+let i = 0;
+let start = 0;
+let end = 10;
 
-// convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+let submitBox = document.querySelector("#submitbox");
+let str = {};
+
+submitBox.onclick = function () {
+  let masterName = document.querySelector(".inputbox_name");
+  let masterTitle = document.querySelector(".inputbox_title");
+  let masterQuestion = document.querySelector(".inputbox_question");
+
+  str.author = masterName.value;
+  str.title = masterTitle.value;
+  str.bodyHTML = masterQuestion.value;
+  str.createdAt = new Date().getTime();
+  agoraStatesDiscussions.unshift(str);
+  str = {};
+  const tweets = document.querySelectorAll(".discussion__container");
+  tweets.forEach(function (tweet) {
+    tweet.remove();
+  });
+  const ul = document.querySelector("ul.discussions__container");
+  render(ul);
+};
+
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
+  const li = document.createElement("li");
+  li.className = "discussion__container";
 
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
+  const avatarImg = document.createElement("img");
+  avatarImg.className = "discussion__avatar--image";
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.width = "64";
+  avatarImg.height = "64";
+  avatarWrapper.append(avatarImg);
   const discussionContent = document.createElement("div");
   discussionContent.className = "discussion__content";
+  const discussionTitle = document.createElement("h5");
+  discussionTitle.className = "discussion__title";
+  const discussionTitleAtag = document.createElement("a");
+  discussionTitleAtag.href = obj.url;
+  discussionTitle.append(discussionTitleAtag);
+  discussionTitleAtag.textContent = obj.title;
+  const discussionInfo = document.createElement("div");
+  discussionInfo.textContent = `${obj.author} / ${
+    obj.createdAt
+      ? new Date(obj.createdAt).toLocaleTimeString()
+      : new Date().toLocaleTimeString()
+  }`;
+
+  discussionContent.append(discussionTitle, discussionInfo);
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
-
-  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
-
-
+  const checkBox = document.createElement("input");
+  checkBox.className = "check";
+  checkBox.type = "checkbox";
+  discussionAnswered.append(checkBox);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
 
-// agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+  for (i = start; i < end; i += 1) {
+    if (agoraStatesDiscussions[i]) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    }
   }
+
+  const paginationBox = document.querySelector("#paginationbox");
+  const prevButton = document.createElement("button");
+  prevButton.className = "prevButton";
+  prevButton.textContent = "<";
+  prevButton.dataset.dir = "prev";
+  prevButton.disabled = start === 0;
+  const nextButton = document.createElement("button");
+  nextButton.className = "nextButton";
+  nextButton.textContent = ">";
+  nextButton.dataset.dir = "next";
+  nextButton.disabled = end >= agoraStatesDiscussions.length;
+
+  paginationBox.innerHTML = "";
+  paginationBox.append(prevButton, nextButton);
+
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
-render(ul);
+const pageButtons = document.querySelector("#paginationbox");
+
+render(ul, start, end);
+
+pageButtons.addEventListener("click", (event) => {
+  const target = event.target;
+  if (target.tagName !== "BUTTON") return;
+
+  if (target.dataset.dir === "prev" && start > 0) {
+    start -= 10;
+    end -= 10;
+  } else if (
+    target.dataset.dir === "next" &&
+    end < agoraStatesDiscussions.length
+  ) {
+    start += 10;
+    end += 10;
+  }
+
+  const tweets = document.querySelectorAll(".discussion__container");
+  tweets.forEach(function (tweet) {
+    tweet.remove();
+  });
+
+  render(ul, start, end);
+});

@@ -1,1 +1,146 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40%;
+}
+
+h1 {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 40%;
+  text-align: center;
+  background-color: aquamarine;
+  color: black;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 40%;
+  background-color: silver;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 30%;
+}
+
+.form__input--wrapper {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__input--name {
+  font-size: 20px;
+  font-weight: 500;
+  color: gray;
+}
+
+.form__input--name input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.form__input--title {
+  font-size: 20px;
+  font-weight: 500;
+  color: gray;
+  margin-top: 10px;
+  margin-right: 12px;
+}
+
+.form__input--title input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  margin-left: 13px;
+}
+
+.form__textbox {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  color: gray;
+  margin-right: 21px;
+}
+
+.form__textbox textarea {
+  width: 200px;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  margin-left: 22.5px;
+}
+
+.form__textbox label {
+  margin-bottom: 30px;
+}
+
+.form__submit {
+  margin-left: 75%;
+  margin-bottom: 10px;
+  font-weight: 600;
+  width: 30px;
+}
+
+.discussion__wrapper {
+  background-color: azure;
+  width: 40%;
+  padding-top: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.discussion__avatar--image {
+  width: 30px;
+  height: 30px;
+}
+
+.discussion__title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.discussion__content {
+  font-size: 10px;
+}
+
+#submitbox {
+  margin-left: 93px;
+  margin-bottom: 5px;
+}
+
+#paginationbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 10px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.prevButton {
+  margin-right: 100px;
+}
+
+.nextButton {
+  margin-left: 50px;
+}
