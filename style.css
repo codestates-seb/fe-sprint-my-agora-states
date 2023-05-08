@@ -63,9 +63,44 @@ div.pagination{
     justify-content: space-between;
     
 }
-div.page-btns{
-    font-size: 20px;
-}
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination button {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ddd;
+    color: #888;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* 페이지 번호 버튼 스타일 */
+  .page-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+  
+  .page-btns button {
+    margin: 0 20px;
+  }
 
 div.form__textbox{
     display: flex;
