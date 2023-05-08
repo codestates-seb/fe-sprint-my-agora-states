@@ -1,1 +1,187 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 모든 요소에 border-box */
+* {
+    box-sizing: border-box;
+
+}
+
+main {
+    border-radius: 20px;
+
+}
+/* My Agora States 폼 만들기 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FEF2F4;
+}
+
+h1 {
+    color: #D14D72;
+    display: flex;
+    justify-content: center;
+}
+/* 폼 중앙으로 */
+.form__container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #D14D72;
+
+}
+
+.form__input--wrapper{
+    width: 300px;
+}
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+.form__input--name input {
+    border-radius: 5px;
+    border: none;
+}
+.form__input--title {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+.form__input--title input {
+    border-radius: 5px;
+    border: none;
+}
+
+.form__textbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+}
+
+.form__textbox textarea {
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+
+
+.form__submit input {
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color:#FDF4F5;
+}
+.form__submit input:hover {
+    background-color: #FEF2F4;
+    color: #D14D72;
+}
+
+.discussions__container{
+    padding : 0px;
+}
+
+
+.discussions__container.active {
+    display: flex;
+}
+.discussion_category {
+    display: flex;
+    justify-content: space-between;
+    margin : 20px 5px 0px 5px;
+}
+
+.discussion_category .data_view {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color: #D14D72; 
+}
+
+.discussion_category i {
+    color: #D14D72; 
+    font-size: 20px;
+}
+
+/* 컴포넌트 폭 540px */
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    width: 540px;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 10px;
+    background-color: #FFE3E1;
+}
+/* 컴포넌트  중앙에 오게하기 */
+.discussion__avatar--wrapper {
+    display: flex;
+    align-items: center;
+}
+/* 사진 너비 48px,동그랗게 표시 */
+img {
+    display: flex;
+    width: 48px;
+    border-radius: 50%;
+}
+/* discussion 간격 */
+.discussion__content {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.discussion__content >:nth-child(1){
+    text-align: left;
+    padding-left : 5px;
+}
+a {
+    text-decoration: none;
+    color: #D14D72;
+    font-weight: 500;
+}
+
+.discussion__content >:nth-child(2) {
+    text-align: right;
+    color: #e6b0bf;
+    
+}
+.discussion__answered {
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    color: #8c193a;
+    font-weight: 900;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+        
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+        
+.pagination li {
+    margin: 0 5px;
+}
+    

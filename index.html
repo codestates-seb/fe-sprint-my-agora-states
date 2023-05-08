@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/f1adcdeb1f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,15 +20,15 @@
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">Enter your name : </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
+            <label for="title">Enter your title : </label>
             <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">Your question : </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
@@ -37,6 +38,12 @@
       </form>
     </section>
     <section class="discussion__wrapper">
+      <div class="discussion_category">
+        <span class="data_view">discussions</span>
+        <a href="#" class="toggleBtn">
+          <i class="fa-solid fa-list"></i>
+        </a>
+      </div>
       <ul class="discussions__container">
         <li class="discussion__container">
           <div class="discussion__avatar--wrapper">
@@ -45,13 +52,24 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+            <div class="discussion__title">
+              <a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a>
+            </div>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
           <div class="discussion__answered"><p>☑</p></div>
         </li>
       </ul>
     </section>
+    <footer>
+      <ul class="pagination">
+        <li class="page"><a href="">1</a></li>
+        <li class="page"><a href="">2</a></li>
+        <li class="page"><a href="">3</a></li>
+        <li class="page"><a href="">4</a></li>
+        <li class="page"><a href="">5</a></li>
+      </ul>
+    </footer>  
   </main>
 </body>
 <script src="data.js"></script>
