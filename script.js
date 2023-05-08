@@ -78,6 +78,7 @@ submitButton.addEventListener("submit" , function(event){
   }
   agoraStatesDiscussions.unshift(new_li);
   ul.insertBefore(convertToDiscussion(new_li),ul.firstChild);
+  console.log(dislist)
   dislist.push(new_li);
   localStorage.setItem("discuss",JSON.stringify(dislist));
 });
