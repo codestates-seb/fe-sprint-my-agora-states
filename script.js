@@ -84,7 +84,7 @@ console.dir(userData);
     const inputQuestion = document.querySelector('#story');
     let newDoc = `<h2>${inputName.value}님의 질문입니다.</h2>\n<p>${inputTitle.value}</p>\n<p>${inputQuestion.value}</p>`
     
-    userData.unshift(
+    agoraStatesDiscussions.unshift(
       {id : inputName.value,
       title : inputTitle.value,
       avatarUrl : "images.jpeg",
@@ -96,9 +96,10 @@ console.dir(userData);
     );
     console.dir(userData);
   
-    ul.prepend(convertToDiscussion(userData[0]));
+    ul.prepend(convertToDiscussion(agoraStatesDiscussions[0]));
    
     localStorage.setItem('agDs2',JSON.stringify(userData));
+    
   })
 
   
@@ -133,8 +134,8 @@ console.dir(agoraStatesDiscussions)
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
-  for (let i = 0; i < userData.length; i += 1) {
-    element.append(convertToDiscussion(userData[i]));
+  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
+    element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
   return;
 };
