@@ -1,4 +1,4 @@
-const agoraStatesDiscussions = [  
+let agoraStatesDiscussions = [  
   {
   id: "D_kwDOHOApLM4APXTS",
   createdAt: "2022-04-22T14:08:33Z",
