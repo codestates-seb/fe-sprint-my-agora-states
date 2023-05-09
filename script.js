@@ -140,8 +140,6 @@ function pagination(currentPage, limit) {
 }
 
 function paginationButton(element, currentPage, totalPage, pageGroup) {
-  console.log(totalPage, pageGroup);
-
   let start = pageGroup * 5 - 4;
   let last = pageGroup * 5;
 
