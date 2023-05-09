@@ -133,7 +133,7 @@ function dataSetup(data) {
 let currentPage = 1;
 let limit = 5;
 let pageCount = 5;
-let totalCount = localData.length;
+let totalCount = localData.length || 1;
 let totalPage = Math.ceil(totalCount / limit);
 let pageGroup = Math.ceil(currentPage / pageCount);
 
