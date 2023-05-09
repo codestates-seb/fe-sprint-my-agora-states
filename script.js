@@ -1,6 +1,11 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
 
+//로컬 저장소에서 데이터를 받아 내 데이터 업데이트
+if (localStorage.getItem("agoraStatesDiscussions")) {
+  agoraStatesDiscussions = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
+}
+
 function formatDate(dateString) {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -71,6 +76,12 @@ const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
 
+//로컬 저장소 업데이트 함수
+function updateLocalStorage(discussionsArray) {
+  const updatedDiscussionsArray = JSON.stringify(discussionsArray);
+  localStorage.setItem("agoraStatesDiscussions", updatedDiscussionsArray);
+}
+
 ////질문 등록하기
 // form 요소 찾기
 const form = document.querySelector("form");
@@ -87,7 +98,6 @@ form.addEventListener("submit", (event) => {
   const story = document.getElementById("story").value;
   const now = new Date();
 
-
   // 새 객체 생성
   const newDiscussion = {
     author: name,
@@ -98,7 +108,7 @@ form.addEventListener("submit", (event) => {
     answer: null,
     index: 0 // 인덱스는 0으로 설정
   };
-
+ 
   // 배열에 새 객체 추가
   agoraStatesDiscussions.splice(1, 0, newDiscussion); // 앞에서 두 번째 위치에 새 객체 삽입
   // 기존 객체들의 인덱스를 1씩 증가
@@ -109,11 +119,15 @@ form.addEventListener("submit", (event) => {
   const newListItem = convertToDiscussion(newDiscussion);
   ul.insertBefore(newListItem, ul.children[1]); // 앞에서 두 번째 위치에 새 항목 삽입
 
+  //새로운 데이터로 로컬 저장소 업데이트
+  updateLocalStorage(agoraStatesDiscussions);
+  
   // 입력 값을 지우기
   document.getElementById("name").value = "";
   document.getElementById("title").value = "";
   document.getElementById("story").value = "";
 });
+
 
 //질문하기 버튼
 const questionButton = document.getElementById("question_button");
@@ -126,6 +140,7 @@ questionButton.addEventListener("click", function () {
   else { formSection.classList.add("hide"); }
 });
 //질문하기 버튼
+
 
 //내용 불러오기
 const detailSection = document.querySelector(".discussion__detail")
@@ -238,6 +253,7 @@ ul.addEventListener('click', function (event) {
 //답변 등록하기
 const form2 = document.querySelector(".form__input--wrapper2")
 
+
 // submit 이벤트 리스너 추가function addForm2EventListener(form2) {
 function addForm2EventListener(form2) {
   form2.addEventListener("submit", (event) => {
@@ -274,6 +290,9 @@ function addForm2EventListener(form2) {
     answered_information_img.src = agoraStatesDiscussions[targetIndex].answer.avatarUrl;
     answered_information_id_date.textContent = `${agoraStatesDiscussions[targetIndex].answer.author} / ${formatDate(agoraStatesDiscussions[targetIndex].answer.createdAt)}`;
     answered_html.innerHTML = agoraStatesDiscussions[targetIndex].answer.bodyHTML;
+
+    const updatedDiscussionsArray = JSON.stringify(agoraStatesDiscussions);
+    localStorage.setItem("agoraStatesDiscussions", updatedDiscussionsArray);
 
     form2.remove();
 /*답변 등록시 체크표시로 바꾸기 - 구현중..
