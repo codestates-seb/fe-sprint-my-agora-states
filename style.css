@@ -1,1 +1,129 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'GmarketSansMedium';
+    text-decoration: none;
+    color:#333;
+}
+
+main {
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    padding: 2em;
+    justify-content: center;
+
+}
+
+h2 {
+    display: block;
+    font-size: 1.9em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    font-weight: bold;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+form.form{
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    padding: 3rem;
+    flex: 1;
+    transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.8s;
+    backdrop-filter: blur(4px);
+    font-size: 30px;
+}
+
+.form__input {
+    width: 100%;
+    padding: 10px 10px 10px 5px;
+    font-size: 1rem;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+#btnSubmit {
+    color: var(#031a67);
+    font-size: 17px;
+    font-family: inherit;
+    width: 8rem;
+    height: 2.5rem;
+    display: block;
+    margin :auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(#031a67);
+    background-color: #d3dbf8;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: color .5s;
+}
+
+li.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 2rem;
+    margin: 1.5rem;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 33px rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    border : 1px solid rgba(255, 255, 255, 0.28);
+}
+
+ul.discussion__container {
+    display: flex ;
+    flex-direction: column;
+}
+
+div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+}
+
+.discussion__avatar--image{
+    display: block;
+    width: 100%;
+}
+
+div.discussion__avatar--wrapper > img {
+    border-radius: 100%;
+    width: 80px;
+}
+
+div.discussion__content > div{
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+div.discussion__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+section.form__container {
+    display: flex;
+    align-items: center;
+    flex-basis: 30%;
+    position: sticky;
+    height: calc(100vh - 2rem);
+    top: 0;
+}
+
+.iscussion__information {
+    text-align: right;
+}
