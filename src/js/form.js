@@ -8,6 +8,8 @@ const author = document.querySelector(".form__input--name > input");
 const bodyHTML = document.querySelector("#story");
 const submitBtn = document.querySelector(".form__submit > button");
 
+const navContainer = document.querySelector(".navigator__container");
+
 const p = document.querySelector(".form__input--name > p");
 
 class IDGenerator {
@@ -28,6 +30,7 @@ function handleFormEvent(event) {
   // 입력받은 값을 오브젝트에 저장
   // 저장할 것들 (id, 시간, 제목, url, 작성자, 답변 유무, 내용, 작성자 사진, 태그 )
 
+  console.log(navContainer);
   // id
   const id = new IDGenerator().getID();
 
@@ -86,14 +89,14 @@ function handleFormEvent(event) {
   }
 
   // 다시 검색으로 창 전환
-  formContainer.classList.add("hidden");
-  searchContainer.classList.remove("hidden");
+  closeForm();
   reRender(ul);
 }
 
 function closeForm(event) {
   formContainer.classList.add("hidden");
   searchContainer.classList.remove("hidden");
+  navContainer.classList.remove("hidden");
 }
 
 // 새 포스트 생성시 1페이지로

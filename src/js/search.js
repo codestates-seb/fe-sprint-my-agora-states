@@ -33,6 +33,7 @@ function handleSearch(event) {
 
 // 새 포스트 전환
 function changeContainer() {
+  navContainer.classList.add("hidden");
   // 다시 모든 discussions 보여줌
   for (let i = 0; i < ul.childNodes.length; i++) {
     titles[i].closest("li").classList.remove("hidden");
