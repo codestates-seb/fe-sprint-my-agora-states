@@ -19,7 +19,8 @@ main {
 }
 /*입력*/
 h1 {
-  font-size: larger;
+  margin-top: 10px;
+  font-size: 40px;
   color: #40514E;
 }
 
@@ -37,6 +38,10 @@ h1 {
   justify-content: space-between;
   margin-bottom: 5px;
 }
+
+#name {
+  border: none;
+}
 .form__input--title{
   display: flex;
   justify-content: space-between;
@@ -50,19 +55,24 @@ h1 {
 #story {
   width:300px;
 }
-.form__submit{
+.buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
-#submit{
-  width: 200px;
+.form__submit,.reactivate{
+  width: 250px;
+  height: 25px;
+}
+
+#submit ,#reactivate_button{
+  width: 250px;
   height: 25px;
   background-color: #E4F9F5;
   border: 1px solid #E4F9F5;
   border-radius: 20px;
 }
-#submit:active{
+#submit:active ,#reactivate_button:active{
   background-color: #00dcb4;
 }
 /*리스트*/
@@ -101,4 +111,12 @@ ul {
 }
 .discussion__answered{
   margin-left:auto;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+}
+.page_button {
+  margin: 10px;
 }
