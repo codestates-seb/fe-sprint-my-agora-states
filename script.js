@@ -47,12 +47,14 @@ const myFunction = (event) => {
       agoraStatesDiscussions[i].id === eventTarget.firstChild.textContent
     ) {
       const contentAdd = document.querySelector(".answer__content");
+      const discussionAnswer = document.querySelector(".discussion__answer");
       const contentAuthor = document.createElement("div");
       const contentCreate = document.createElement("div");
       const contentClose = document.createElement("div");
       let contentHtml = document.createElement("div");
       contentAdd.replaceChildren();
 
+      discussionAnswer.style.display = "flex";
       contentClose.textContent = "X";
       contentClose.className = "content__close";
       contentHtml = stringToHTML(agoraStatesDiscussions[i].answer.bodyHTML);
@@ -70,6 +72,7 @@ const myFunction = (event) => {
       if (contentX) {
         contentX.addEventListener("click", () => {
           contentAdd.replaceChildren();
+          discussionAnswer.style.display = "none";
         });
       }
     }
@@ -216,7 +219,7 @@ const renderButton = (page) => {
   while (buttons.hasChildNodes()) {
     buttons.removeChild(buttons.lastChild);
   }
-  for (let id = page; id < page + showButton && id <= maxPage; id++) {
+  for (let id = page; id < page + showButton && id < maxPage; id++) {
     buttons.appendChild(makeButton(id));
   }
   buttons.children[0].classList.add("active");

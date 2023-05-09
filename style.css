@@ -27,6 +27,12 @@ body {
   width: 100%;
 }
 
+.answer__content body {
+  width: 500px;
+  overflow-y: scroll;
+  padding-top: 5rem;
+}
+
 label {
   font-size: 3rem;
 }
@@ -159,12 +165,14 @@ main {
 }
 
 .discussion__answer {
-  display: flex;
+  display: none;
   margin-left: 20px;
   width: 700px;
   min-width: 700px;
-  position: absolute;
-  left: 50%;
+  position: fixed;
+  left: 45%;
+  bottom: 25%;
+  top: 25%;
 }
 
 .content__close {
@@ -241,14 +249,10 @@ main {
 
 .content__html {
   background-color: white;
-  height: 700px;
-  display: flex;
-  padding-top: 0px;
-  align-items: start;
-  justify-content: center;
   padding-left: 10px;
   width: 700px;
   overflow-x: auto;
+  overflow-y: scroll;
 }
 
 .black {
