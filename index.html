@@ -9,30 +9,35 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-rßeferrer"></script>
 </head>
 
 <body>
   <main>
-    <h1>My Agora States</h1>
+    <h1>나의 아고라 스테이츠</h1>
     <section class="form__container">
       <form action="" method="get" class="form">
         <div class="form__input--wrapper">
           <div class="form__input--name">
-            <label for="name">Enter your name: </label>
+            <label for="name">너의 이름을 입력하세요: </label>
             <input type="text" name="name" id="name" required>
           </div>
           <div class="form__input--title">
-            <label for="title">Enter your title: </label>
+            <label for="title">너의 글의 제목을 입력하세요: </label>
             <input type="text" name="title" id="title" required>
           </div>
           <div class="form__textbox">
-            <label for="story">Your question: </label>
+            <label for="story">너의 질문: </label>
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
+        <div class="buttons">
+          <div class="form__submit">
+            <input type="submit" value="제출" id="submit">
+          </div>
+          <div class="reactivate">
+            <input type="button" value="초기화" id="reactivate_button">
+          </div>
         </div>
       </form>
     </section>
@@ -51,6 +56,9 @@
           <div class="discussion__answered"><p>☑</p></div>
         </li>
       </ul>
+    </section>
+    <section class="pagination">
+      
     </section>
   </main>
 </body>

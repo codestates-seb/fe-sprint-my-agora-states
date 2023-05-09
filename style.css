@@ -1,1 +1,122 @@
+/* https://colorhunt.co/palette/e4f9f530e3ca11999e40514e 색 참고*/
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/*기본적 구조 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: aliceblue;
+  height: 100vh;
+  width: 100vw;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/*입력*/
+h1 {
+  margin-top: 10px;
+  font-size: 40px;
+  color: #40514E;
+}
+
+.form__container { 
+  background-color: #97e4da;
+  padding: 10px;
+  border-radius: 10px;
+  color: #495e5a;
+  font-size: small;
+  width: 540px;
+}
+
+.form__input--name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+#name {
+  border: none;
+}
+.form__input--title{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.form__textbox{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+#story {
+  width:300px;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.form__submit,.reactivate{
+  width: 250px;
+  height: 25px;
+}
+
+#submit ,#reactivate_button{
+  width: 250px;
+  height: 25px;
+  background-color: #E4F9F5;
+  border: 1px solid #E4F9F5;
+  border-radius: 20px;
+}
+#submit:active ,#reactivate_button:active{
+  background-color: #00dcb4;
+}
+/*리스트*/
+.discussion__wrapper {
+  margin-top: 10px;
+  background-color: #E4F9F5;
+  width: 540px;
+  padding: 2px;
+}
+li[class ='discussion__container'] {
+  background-color: white;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  align-items: center;
+  justify-content: left;
+  border-radius: 20px;
+}
+ul {
+  list-style: none;
+}
+.discussion__avatar--image {
+  width: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5px
+}
+.discussion__content{
+  display: flex;
+  flex-direction: column;
+}
+.discussion__title  > a{
+  color: black;
+  font-size: 15px;
+}
+.discussion__answered{
+  margin-left:auto;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+}
+.page_button {
+  margin: 10px;
+}
