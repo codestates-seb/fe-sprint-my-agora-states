@@ -133,9 +133,6 @@ function dataSetup(data) {
 let currentPage = 1;
 let limit = 5;
 let pageCount = 5;
-let totalCount = localData.length || 1;
-let totalPage = Math.ceil(totalCount / limit);
-let pageGroup = Math.ceil(currentPage / pageCount);
 
 function pagination(currentPage, limit) {
   currentPage = Number(currentPage);
@@ -173,6 +170,11 @@ function paginationButton(element, currentPage, totalPage, pageGroup) {
 const ul = document.querySelector("ul.discussions__container");
 const buttonUl = document.querySelector("ul.buttons__container");
 pagination(currentPage, limit);
+
+let totalCount = localData.length;
+let totalPage = Math.ceil(totalCount / limit);
+let pageGroup = Math.ceil(currentPage / pageCount);
+
 paginationButton(buttonUl, currentPage, totalPage, pageGroup);
 
 const pageButton = document.querySelector(".page__buttons");
