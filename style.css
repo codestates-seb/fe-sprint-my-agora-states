@@ -1,1 +1,88 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* :root {
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --primary: #5e7c96;
+  --secondary: #DA7F8F;
+  --form-surface: #f6eed8;
+  --visited: #E1E5EA;
+  --link: #A7BBC7;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.discussion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  background-color: rgb(251, 251, 243);
+  border: 1px solid black;
+  border-radius: 5px;
+  list-style-type: none;
+  box-shadow: 2px 2px 2px 2px gray;
+  margin: 15px;
+}
+
+div.discussion__avatar--wrapper > img {
+  width: 47px;
+}
+
+form {
+  display: flex;
+  width: 500px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.form__input--wrapper {
+  margin: 10px;
+}
+
+.form__input--wrapper input {
+  width: 300px;
+  height: 30px;
+  font-size:1.2rem;
+  margin: 5px;
+  border-radius: 10px;
+  border: 2px solid #969da0;
+}
+
+.form__submit {
+  flex: 1;
+  margin: 3px;
+}
+
+.form__submit input {
+  width: 448px;
+  height: 43px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-left: 25px;
+  margin-right: 0px;
+  border: 2px solid black;
+  background-color: rgb(255, 242, 225);
+}
+
+textarea {
+  margin: 5px;
+}
+
+#story {
+  width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
