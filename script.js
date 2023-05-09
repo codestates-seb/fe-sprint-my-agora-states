@@ -1,7 +1,7 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
 
-let localData = JSON.parse(localStorage.getItem(agoraStatesDiscussions));
+let localData = JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 const convertToDiscussion = (obj) => {
@@ -125,9 +125,9 @@ function uuidv4() {
 }
 
 function dataSetup(data) {
-  if (data.length === 0) data = agoraStatesDiscussions;
-  localStorage.setItem(agoraStatesDiscussions, JSON.stringify(data));
-  return JSON.parse(localStorage.getItem(agoraStatesDiscussions));
+  if (data === null || data.length === 0) data = agoraStatesDiscussions;
+  localStorage.setItem("agoraStatesDiscussions", JSON.stringify(data));
+  return JSON.parse(localStorage.getItem("agoraStatesDiscussions"));
 }
 
 let currentPage = 1;
