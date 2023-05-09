@@ -14,12 +14,60 @@ const convertToDiscussion = (obj) => {
   discussionAnswered.className = "discussion__answered";
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
+  const avatarImg = document.createElement('img');
+  avatarImg.className = 'discussion__avatar--image';
+  avatarImg.src = obj.avatarUrl;
+  avatarImg.alt = 'avatar of ' + obj.author;
+  avatarWrapper.append(avatarImg);
 
+  const contentTitle = document.createElement('h2');
+  contentTitle.className = 'discussion__title'
+  const contenturl = document.createElement('a');
+  contenturl.href = obj.url
+  contenturl.textContent = obj.title;
+  contentTitle.appendChild(contenturl);
+  const contentcreatedAt = document.createElement('div');
+  contentcreatedAt.className = 'discussion__information'
+  contentcreatedAt.textContent = `${obj.author}`+ ' / ' + `${new Date(obj.createdAt). toLocaleDateString()}`;
+  discussionContent.append(contentTitle, contentcreatedAt);
 
+  const checkAnswer = document.createElement('p');
+  checkAnswer.textContent = obj.answer ? "☑" : "☒"
+  discussionAnswered.append(checkAnswer);
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
+
+
+const form = document.querySelector("form.form");
+const author = form.querySelector("div.form__input--name > input");
+const title = form.querySelector("div.form__input--title > input");
+const textbox = form.querySelector("div.form__textbox > textarea");
+
+form.addEventListener('submit', (event)=>{
+  event.preventDefault();
+
+  const obj = {
+    id: "unique id",
+    createdAt: new Date().toISOString(),
+    title: title.value,
+    url: "https://github.com/codestates-seb/agora-states-fe/discussions",
+    author: author.value,
+    answer: null,
+    bodyHTML: textbox.value,
+    avatarUrl:
+      "https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4",
+  };
+
+  agoraStatesDiscussions.unshift(obj);
+
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+
+  render(ul);
+})
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
@@ -28,6 +76,7 @@ const render = (element) => {
   }
   return;
 };
+
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
