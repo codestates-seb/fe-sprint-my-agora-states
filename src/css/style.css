@@ -371,6 +371,7 @@ h1 {
   width: 60vw;
   height: 80vh;
   padding: 2rem;
+  padding-bottom: 0;
 }
 
 .modal__close {
@@ -445,4 +446,31 @@ hr {
   height: 0.5rem;
   background-color: #494b50;
   margin: 1.5rem 0;
+}
+
+.modal__answer--form {
+  position: sticky;
+  bottom: 0px;
+  height: 4.5rem;
+  background-color: #282a2e;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__answer--form > textarea {
+  background-color: #313338;
+  width: 80%;
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.modal__answer--form > input {
+  height: 2.5rem;
+  width: 15%;
+  font-size: 1rem;
+  border-radius: 0.5rem;
 }
