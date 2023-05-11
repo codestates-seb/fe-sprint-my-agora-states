@@ -13,11 +13,9 @@ const modalAvatar = document.querySelector(".modal__avatar--wrapper");
 const modalAuthor = document.querySelector(".modal__author--name");
 const modalRecordTime = document.querySelector(".modal__record__time");
 
-const modalAnswer = document.querySelector(".modal__answer");
-const answerAvatar = document.querySelector(".modal__answer--avatar");
-const answerAuthor = document.querySelector(".modal__answer--author");
-const answerTime = document.querySelector(".modal__answer--time");
-const answerStory = document.querySelector(".modal__answer--story");
+const modalAnswerContainer = document.querySelector(
+  ".modal__answer__container"
+);
 
 const modalAnswerForm = document.querySelector(".modal__answer--form");
 
@@ -65,21 +63,55 @@ const showContent = (targetData) => {
   }
 };
 
+const makeAnswerElement = function (data) {
+  const modalAnswer = document.createElement("div");
+  modalAnswer.classList.add("modal__answer");
+  const modalAnswerHeader = document.createElement("div");
+  modalAnswerHeader.classList.add("modal__content__header");
+
+  const answerAvatar = document.createElement("div");
+  answerAvatar.classList.add("modal__answer--avatar");
+  answerAvatar.classList.add("modal__avatar--wrapper");
+
+  const answerAuthor = document.createElement("div");
+  answerAuthor.classList.add("modal__answer--author");
+  answerAuthor.classList.add("modal__author--name");
+
+  const answerTime = document.createElement("div");
+  answerTime.classList.add("modal__answer--time");
+  answerTime.classList.add("modal__record__time");
+
+  const answerStory = document.createElement("div");
+  answerStory.classList.add("modal__answer--story");
+  answerStory.classList.add("modal__story");
+
+  // 답변 아바타 이미지 적용
+  answerAvatar.append(modalAvatarFormat(data));
+  // 답변 작성자
+  answerAuthor.textContent = data.author;
+  // 답변 시간
+  answerTime.textContent = modalTimeFormat(data.createdAt);
+  // 답변 내용
+  answerStory.innerHTML = data.bodyHTML;
+
+  // 답변 적용
+  modalAnswerHeader.append(answerAvatar, answerAuthor, answerTime);
+  modalAnswer.append(modalAnswerHeader, answerStory);
+
+  return modalAnswer;
+};
+
 const showAnswer = (targetData) => {
   if (targetData === null || targetData === undefined) {
     return true;
   } else {
-    // 답변 아바타 이미지 적용
-    answerAvatar.append(modalAvatarFormat(targetData));
-
-    // 답변 작성자
-    answerAuthor.textContent = targetData.author;
-
-    // 답변 시간
-    answerTime.textContent = modalTimeFormat(targetData.createdAt);
-
-    // 답변 내용
-    answerStory.innerHTML = targetData.bodyHTML;
+    if (Array.isArray(targetData)) {
+      for (data of targetData) {
+        modalAnswerContainer.append(makeAnswerElement(data));
+      }
+    } else {
+      modalAnswerContainer.append(makeAnswerElement(targetData));
+    }
 
     return true;
   }
@@ -112,11 +144,8 @@ const closeModal = (event) => {
   while (modalTag.firstChild) {
     modalTag.firstChild.remove();
   }
-  answerAuthor.textContent = "";
-  answerTime.textContent = "";
-  answerStory.textContent = "";
-  while (answerAvatar.firstChild) {
-    answerAvatar.firstChild.remove();
+  while (modalAnswerContainer.firstChild) {
+    modalAnswerContainer.firstChild.remove();
   }
   modal.classList.add("hidden");
 
@@ -133,10 +162,35 @@ function handleOverlayClick(event) {
 function handleSubmitAnswer(event) {
   event.preventDefault();
   const story = event.target[0];
-  const targetData = agoraStatesDiscussions.find((x) => x.id === id);
-  if (Array.isArray(targetData.answer)) targetData.answer.unshift(1);
-  else targetData.answer = [1, targetData.answer];
-  console.log(targetData.answer);
+  const answerObj = {
+    id: new IDGenerator().getID(),
+    createdAt: timeFormater(new Date()),
+    url: null,
+    author: "아무개",
+    bodyHTML: `${story.value}`,
+    avatarUrl: `https://velog.velcdn.com/images/gksqls020/profile/cb03d8e1-57b8-4ec5-8471-55925ba8f8d8/image.png`,
+  };
+  const discussionDatas = JSON.parse(localStorage.getItem("data"));
+  const idx = discussionDatas.findIndex((x) => x.id === id);
+  if (Array.isArray(discussionDatas[idx].answer)) {
+    console.log("in");
+    discussionDatas[idx].answer.unshift(answerObj);
+  } else {
+    console.log("in2");
+    if (discussionDatas[idx].answer === null) {
+      discussionDatas[idx].answer = [answerObj];
+    } else {
+      console.log("in3");
+      discussionDatas[idx].answer = [answerObj, discussionDatas[idx].answer];
+    }
+  }
+  while (modalAnswerContainer.firstChild) {
+    modalAnswerContainer.firstChild.remove();
+  }
+
+  showAnswer(discussionDatas[idx].answer);
+  localStorage.setItem("data", JSON.stringify(discussionDatas));
+
   story.value = "";
 }
 
