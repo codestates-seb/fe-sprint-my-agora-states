@@ -84,9 +84,12 @@ const convertToDiscussion = (obj) => {
   // TODO 답변 등록 기능 구현시 숫자를 답변 수만큼 출력으로 바꿈 (현재는 1 or 0)
   const comment = document.createElement("p");
   comment.className = "discussion__comments";
-  if (obj.answer !== null) comment.textContent = `💬1`;
-  else comment.textContent = "💬0";
-
+  if (obj.answer === null) comment.textContent = `💬0`;
+  else {
+    obj.answer.length === undefined
+      ? (comment.textContent = "💬1")
+      : (comment.textContent = `💬${obj.answer.length}`);
+  }
   discussionAnswered.append(comment);
 
   // 2) time

@@ -151,6 +151,7 @@ const closeModal = (event) => {
 
   // body 스크롤 활성화
   document.body.style.overflow = "unset";
+  render(ul);
 };
 
 // 모달 영역 밖을 클릭 시 모달 닫기
@@ -173,14 +174,11 @@ function handleSubmitAnswer(event) {
   const discussionDatas = JSON.parse(localStorage.getItem("data"));
   const idx = discussionDatas.findIndex((x) => x.id === id);
   if (Array.isArray(discussionDatas[idx].answer)) {
-    console.log("in");
     discussionDatas[idx].answer.unshift(answerObj);
   } else {
-    console.log("in2");
     if (discussionDatas[idx].answer === null) {
       discussionDatas[idx].answer = [answerObj];
     } else {
-      console.log("in3");
       discussionDatas[idx].answer = [answerObj, discussionDatas[idx].answer];
     }
   }
