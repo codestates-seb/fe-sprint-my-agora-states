@@ -196,7 +196,7 @@ function nextPage(){
   }
 }
 function nextList(){
-  if(currentPage > Number(pageNum[pagecount-1].textContent)){
+  if(currentPage > Number(pageNum[pagecount-1].textContent)&&pageNum[pagecount-1].textContent!==''){
     for(let i=0; i<pageNum.length; i++){
       if(currentPage + i > totalPage){
         pageNum[i].textContent = '';
@@ -209,8 +209,9 @@ function nextList(){
 }
 
 NextPage.addEventListener('click', nextPage);
-NextPage.addEventListener('click', renderingPage);
 NextPage.addEventListener('click', nextList);
+NextPage.addEventListener('click', renderingPage);
+
 
 
 //이전 페이지 넘어가는 버튼 함수
@@ -240,7 +241,8 @@ function makePostList(){
     pageNum[i].addEventListener('click', function(){
       currentPage = pageNum[i].textContent;
     });
-    pageNum[i].addEventListener('click', renderingPage);
+    pageNum[i].addEventListener('click', renderingPage)
+    pageNum[i].addEventListener('click', numColoring);
   }
 }
 
@@ -256,6 +258,16 @@ function renderingPage(){
     }  
   }
 }
+function numColoring(){
+  for(let j=0; j<pageNum.length; j++){
+    if(currentPage === Number(pageNum[j].textContent)){
+      pageNum[j].classList.add('current');
+    }else {
+      pageNum[j].classList.remove('current');
+    }
+  }
+};
+
 renderingPage();
 makePostList();
 

@@ -163,3 +163,7 @@ p {
 
 a { color: #8ba866; }
 a:visited { color: #AAC8A7;}
+
+.current {
+    color: #ade4db;
+}
