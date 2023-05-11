@@ -1,5 +1,7 @@
 const modalOverlay = document.querySelector(".modal__overlay");
 
+const modalWindow = document.querySelector(".modal__window");
+
 const modal = document.querySelector("#modal");
 const modalClose = document.querySelector(".modal__close");
 
@@ -17,7 +19,10 @@ const answerAuthor = document.querySelector(".modal__answer--author");
 const answerTime = document.querySelector(".modal__answer--time");
 const answerStory = document.querySelector(".modal__answer--story");
 
+const modalAnswerForm = document.querySelector(".modal__answer--form");
+
 let isOpen = false;
+let id;
 
 const modalTimeFormat = (time) => {
   return `${Number(time.slice(0, 4))}년 ${Number(time.slice(5, 7))}월 ${Number(
@@ -81,8 +86,7 @@ const showAnswer = (targetData) => {
 };
 
 const openModal = (event) => {
-  const id = event.currentTarget.dataset.id;
-
+  id = event.currentTarget.dataset.id;
   const prevData = JSON.parse(localStorage.getItem("data"));
 
   const targetData = prevData.find((x) => x.id === id);
@@ -95,13 +99,13 @@ const openModal = (event) => {
 
   modal.classList.remove("hidden");
 
+  modalWindow.scrollTo(0, 0);
   // body 스크롤 방지
   document.body.style.overflow = "hidden";
 };
 
 // 모달 닫기
 const closeModal = (event) => {
-  console.log(modalAvatar.childNodes);
   while (modalAvatar.firstChild) {
     modalAvatar.firstChild.remove();
   }
@@ -125,6 +129,19 @@ function handleOverlayClick(event) {
   if (event.currentTarget === event.target) closeModal();
 }
 
+// 답변 등록 이벤트
+function handleSubmitAnswer(event) {
+  event.preventDefault();
+  const story = event.target[0];
+  const targetData = agoraStatesDiscussions.find((x) => x.id === id);
+  if (Array.isArray(targetData.answer)) targetData.answer.unshift(1);
+  else targetData.answer = [1, targetData.answer];
+  console.log(targetData.answer);
+  story.value = "";
+}
+
 modalClose.addEventListener("click", closeModal);
 
 modalOverlay.addEventListener("click", handleOverlayClick);
+
+modalAnswerForm.addEventListener("submit", handleSubmitAnswer);

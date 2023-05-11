@@ -1,4 +1,4 @@
-// TODO:  답변 등록, 글 삭제(수정), 이미지 업로드, 로그인, 회원가입, 답변완료 체크
+// TODO:  답변 등록(html, css완료), 글 삭제(수정), 이미지 업로드, 로그인, 회원가입, 답변완료 체크
 
 // discussion 목록 컨테아너
 const ul = document.querySelector("ul.discussions__container");

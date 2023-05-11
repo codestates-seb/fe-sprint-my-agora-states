@@ -464,8 +464,12 @@ hr {
   width: 80%;
   height: 2.5rem;
   font-size: 1rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
+}
+
+.modal__answer--form > textarea {
+  outline: none;
 }
 
 .modal__answer--form > input {
