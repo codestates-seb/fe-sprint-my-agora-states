@@ -448,6 +448,12 @@ hr {
   margin: 1.5rem 0;
 }
 
+.modal__answer {
+  margin-bottom: 2rem;
+  background-color: #313338;
+  padding: 1rem;
+}
+
 .modal__answer--form {
   position: sticky;
   bottom: 0px;
