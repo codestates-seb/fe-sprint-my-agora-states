@@ -62,19 +62,56 @@ const convertToDiscussion = (obj, idx) => {
 };
 
 
+//페이지네이션ㄱㄱ
+const prevButton = document.querySelector('.discussion__page_prevButton')
+const nextButton = document.querySelector('.discussion__page_nextButton')
+const currentPageElement = document.querySelector('#currentPage');
+
+let itemsPerPage = 10;
+let currentPage = 1;
+const totalPages = Math.ceil( agoraStatesDiscussions.length / itemsPerPage);
+
+function displayItems() {
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  render(ul, startIndex, endIndex);
+  currentPageElement.textContent = `  ${currentPage}  /  ${totalPages}  `;
+  prevButton.disabled = currentPage === 1;
+  nextButton.disabled = currentPage === totalPages;
+}
+
+
+prevButton.addEventListener('click', () => {
+  currentPage -= 1;
+  displayItems();
+});
+
+nextButton.addEventListener('click', () => {
+  currentPage += 1;
+  displayItems();
+});
+
+
+
+
+
+//페이지네이션
+
+
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = (element) => {
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
-    element.append(convertToDiscussion(agoraStatesDiscussions[i], i)); // 인덱스를 전달
+const render = (element, startIndex, endIndex) => {
+  element.innerHTML = ''; // 기존 항목을 지웁니다.
+  for (let i = startIndex; i < endIndex; i += 1) {
+    if (i < agoraStatesDiscussions.length) {
+      element.append(convertToDiscussion(agoraStatesDiscussions[i], i)); // 인덱스를 전달
+    }
   }
-  return;
 };
 
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
-
 
 //로컬 저장소 업데이트 함수
 function updateLocalStorage(discussionsArray) {
@@ -116,9 +153,10 @@ form.addEventListener("submit", (event) => {
     agoraStatesDiscussions[i].index++;
   }
   // 새 객체를 DOM 요소로 변환하고 항목 목록에 추가
-  const newListItem = convertToDiscussion(newDiscussion);
-  ul.insertBefore(newListItem, ul.children[1]); // 앞에서 두 번째 위치에 새 항목 삽입
-
+  if(currentPage===1){
+    const newListItem = convertToDiscussion(newDiscussion);
+    ul.insertBefore(newListItem, ul.children[1]); // 앞에서 두 번째 위치에 새 항목 삽입
+  }
   //새로운 데이터로 로컬 저장소 업데이트
   updateLocalStorage(agoraStatesDiscussions);
   
@@ -253,7 +291,6 @@ ul.addEventListener('click', function (event) {
 //답변 등록하기
 const form2 = document.querySelector(".form__input--wrapper2")
 
-
 // submit 이벤트 리스너 추가function addForm2EventListener(form2) {
 function addForm2EventListener(form2) {
   form2.addEventListener("submit", (event) => {
@@ -295,6 +332,7 @@ function addForm2EventListener(form2) {
     localStorage.setItem("agoraStatesDiscussions", updatedDiscussionsArray);
 
     form2.remove();
+    
 /*답변 등록시 체크표시로 바꾸기 - 구현중..
     const answeredImg = document.querySelector(`.discussion__answered__img[data-index="${targetIndex}"]`);
     answeredImg.src = "check.png";
@@ -304,4 +342,6 @@ function addForm2EventListener(form2) {
 };
 
 //페이지 로드시 강제 클릭하기
-document.querySelector('h2').click();
+displayItems();
+
+document.querySelector('.discussion__title').click()

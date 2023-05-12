@@ -19,6 +19,7 @@ body{
 
 main{
     width:1600px;
+    height:800px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -28,24 +29,16 @@ main{
 h1{
     margin-left: 20px;
     margin-top: 20px;
-
 }
 
 .discussion__wrapper{
     display: flex;
-    height: 700px;
+    flex-direction: column;
+    height: 800px;
     background-color: rgb(32,33,37);
-    overflow-y: auto;
-    -ms-overflow-style: none; /* 인터넷 익스플로러 */
-    scrollbar-width: none; /* 파이어폭스 */
 }
-
-.discussion__wrapper::-webkit-scrollbar {
-    display: none; /* 크롬, 사파리, 오페라, 엣지 */
-}
-
 .discussion__detail{
-    width:680px;
+    width:560px;
     height: 700px;
     padding: 20px;
     border-right-style: solid;
@@ -277,4 +270,35 @@ a{color:rgb(236, 236, 204);}
 .selected-title {
     color: rgb(0, 118, 214); 
     font-size:large;
-  }
+}
+
+.discussion__page{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.discussion__page_prevButton{
+    width: 20px;
+    background-color: rgb(96, 97, 100);
+}
+.discussion__page_nextButton{
+    width: 20px;
+    background-color: rgb(96, 97, 100);
+}
+.discussions__container {
+    height: 670px;
+
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    /* 인터넷 익스플로러 */
+    scrollbar-width: none;
+    /* 파이어폭스 */
+}
+.discussions__container::-webkit-scrollbar {
+    display: none;
+    /* 크롬, 사파리, 오페라, 엣지 */
+}
+#currentPage{
+    white-space: pre;
+}
