@@ -1,10 +1,10 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 // console.log(agoraStatesDiscussions);
-let data = localStorage.getItem("agoraStatesDiscussions");
-let page = data.slice();
-console.log(page)
+// let data = localStorage.getItem("agoraStatesDiscussions");
+// let page = agoraStatesDiscussions.slice();
+// console.log(page);
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
-const convertToDiscussion = (obj) => {
+const convertToDiscussion = (obj) => { // convertToDiscussion(obj) 함수 생성
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
 
@@ -49,33 +49,62 @@ const convertToDiscussion = (obj) => {
 
   return li; // 모든 것이 후손 요소로 있는 li.discussion__container 를 반환한다
 };
-/*
+
 // agoraStatesDiscussions 배열 중 1개 페이지의 데이터를 화면에 렌더링하는 함수입니다.
-const render = (pageUl, firstContent, contentLimit) => { //element를 넣으면
-  if(firstContent<=0){
-    firstContent = 1;
+let contentAll = agoraStatesDiscussions.length;
+let pageNumber = 1;
+
+let button1 = document.querySelector("button#button1");
+let button2 = document.querySelector("button#button2");
+let button3 = document.querySelector("button#button3");
+let button4 = document.querySelector("button#button4");
+let button5 = document.querySelector("button#button5");
+
+const render = (pageUl) => { // 해당 페이지의 Ul pageUl, 해당 페이지의 첫 게시글 firstContent, 페이지 당 표시되는 게시글 수 contentLimit
+
+  contentAll = agoraStatesDiscussions.length;
+  
+  while(pageUl.firstChild){
+    pageUl.removeChild(pageUl.firstChild);
+  }
+
+  console.log(pageNumber);
+
+  if(pageNumber-1 === 0){
+    pageNumber = 1;
+    for (let i = pageNumber; i < pageNumber*10; i++) {
+      pageUl.append(convertToDiscussion(agoraStatesDiscussions[i]));
+    }
   }
   else{
-    firstContent = (pageNumber*10)-9;
+    for (let i = (pageNumber-1)*10; i < (pageNumber*10)-1; i++) { //질문 갯수만큼
+      pageUl.append(convertToDiscussion(agoraStatesDiscussions[i])); //
+    }
   }
-  123124124125-
-  for (let i = 0; i < agoraStatesDiscussions.length; i += 1) { //질문 갯수만큼
-    pageUl.append(convertToDiscussion(agoraStatesDiscussions[i])); //
+
+  console.log(pageNumber);
+
+  button1.textContent = pageNumber-2; button2.textContent = pageNumber-1; button3.textContent = pageNumber; button4.textContent = pageNumber+1; button5.textContent = pageNumber+2;
+
+  if(pageNumber === 1 || pageNumber === 2 || pageNumber === 3){
+    button1.textContent = 1; button2.textContent = 2; button3.textContent = 3; button4.textContent = 4; button5.textContent = 5;
   }
+  if(pageNumber === Math.ceil(contentAll/10) || pageNumber === Math.ceil(contentAll/10)-1 || pageNumber === Math.ceil(contentAll/10)-2){
+    button1.textContent = Math.ceil(contentAll/10)-4; button2.textContent = Math.ceil(contentAll/10)-3; button3.textContent = Math.ceil(contentAll/10)-2; button4.textContent = Math.ceil(contentAll/10)-1; button5.textContent = Math.ceil(contentAll/10);
+  }
+
   return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container"); // 변수 ul은 ul박스
-render(ul);
+const pageUl = document.querySelector("ul.discussions__container"); // 변수 ul은 ul박스
+render(pageUl);
 
 // submit한 내용들을 배열 형태로 agoraStatesDiscussions에 추가
 document.querySelector("form").addEventListener("submit",(e) => {
   e.preventDefault();
 
-  while(ul.firstChild){
-    ul.removeChild(ul.firstChild);
-  } 
+  pageNumber = 1;
 
   const resultSubmit = {
     author: document.querySelector("input#name").value,
@@ -88,15 +117,80 @@ document.querySelector("form").addEventListener("submit",(e) => {
 
   agoraStatesDiscussions.unshift(resultSubmit);
 
-  render(ul);
+  render(pageUl);
 })
 
-// 페이지네이션
-// ul
-// const buttonBox = document.querySelector("div#buttonBox");
+// button 누르면 페이지넘버 변화 후 다시 렌더링
+document.querySelector("button#startButton").addEventListener("click",(e) => {
+  e.preventDefault();
 
-// const allContent = agoraStatesDiscussions.length;
-// const showContent = 10;
-// const showButton = 5;
-// const maxPage = Math.ceil(allContent/showContent);
-// let page = 1;
+  pageNumber = 1;
+  
+  render(pageUl);
+})
+document.querySelector("button#frontButton").addEventListener("click",(e) => {
+  e.preventDefault();
+
+  if(pageNumber-1 <= 0){
+    pageNumber = 1;
+  }
+  else{
+    pageNumber--;
+  }
+  
+  render(pageUl);
+})
+document.querySelector("button#button1").addEventListener("click",(e) => {
+  e.preventDefault();
+
+  pageNumber = Number(button1.textContent);
+  
+  render(pageUl);
+})
+document.querySelector("button#button2").addEventListener("click",(e) => {
+  e.preventDefault();
+
+  pageNumber = Number(button2.textContent);
+
+  render(pageUl);
+})
+document.querySelector("button#button3").addEventListener("click",(e) => {
+  e.preventDefault();
+
+  pageNumber = Number(button3.textContent);
+
+  render(pageUl);
+})
+document.querySelector("button#button4").addEventListener("click",(e) => {
+  e.preventDefault();
+
+  pageNumber = Number(button4.textContent);
+
+  render(pageUl);
+})
+document.querySelector("button#button5").addEventListener("click",(e) => {
+  e.preventDefault();
+
+  pageNumber = Number(button5.textContent);
+
+  render(pageUl);
+})
+document.querySelector("button#backButton").addEventListener("click",(e) => {
+  e.preventDefault();
+  contentAll = agoraStatesDiscussions.length;
+  if(pageNumber >= Math.ceil(contentAll/10)){
+    pageNumber = Math.ceil(contentAll/10)
+  }
+  else{
+    pageNumber++;
+  }
+
+  render(pageUl);
+})
+document.querySelector("button#endButton").addEventListener("click",(e) => {
+  e.preventDefault();
+  contentAll = agoraStatesDiscussions.length;
+  pageNumber = Math.ceil(contentAll/10);
+
+  render(pageUl);
+})
