@@ -1,1 +1,108 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #E5BEEC;
+    text-align: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #2A2F4F;
+}
+
+.form__container {
+    color: #2A2F4F;
+}
+
+.form__input--name {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+.form__input--title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.form__textbox {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+
+textarea {
+    width: 180px;
+    height: 4em;
+    resize: none;
+}
+
+.form__submit {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+    padding-bottom: 20px;;
+}
+
+.btn__submit {
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    height: 20px;
+    background: #2A2F4F;
+    color: white;
+}
+
+li.discussion__container {
+    /* flex container display:flex */
+    display: flex;
+    /* flex direction: row; */
+    flex-direction: row;
+    /* 양 끝으로 붙이려면 */
+    justify-content: space-between;
+    width: 540px;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #FDE2F3;
+    border: 2px dotted #2A2F4F;
+    border-radius: 5px;
+    /* li의 기본 속성 변경 */
+    list-style-type: none;
+  }
+  
+  div.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+    padding: 1rem;
+  }
+  
+  div.discussion__avatar--wrapper > img {
+    width: 48px;
+    border-radius: 100%;
+  }
+
+.discussion__answered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 15px;
+}
