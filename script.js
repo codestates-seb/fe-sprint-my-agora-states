@@ -2,6 +2,9 @@ const main = document.querySelector("main");
 main.addEventListener("click", () =>
   document.querySelector(".avatar-select-menu").classList.add("hide")
 );
+// search
+const inputSearch = document.querySelector(".input-search");
+const btnSearch = document.querySelector(".btn-search");
 // avatar
 const myAvatar = document.querySelector("#myAvatar");
 const defaultAvatarSrc =
@@ -24,7 +27,10 @@ const btnOpenForm = document.querySelector("#btn-open-form");
 const dialog = document.querySelector("#dialog");
 const textbox = document.querySelector(".form__textbox");
 const btnClose = document.querySelector("#btn-close");
+// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
+const ul = document.querySelector("ul.discussions__container");
 // local storage
+/*
 const localStorageDiscussions =
   "discussions" in localStorage
     ? JSON.parse(localStorage.getItem("discussions"))
@@ -34,6 +40,17 @@ const updateLocalStorage = (discussion) => {
   localStorageDiscussions.push(discussion);
   localStorage.setItem("discussions", JSON.stringify(localStorageDiscussions));
 };
+*/
+const localStorageDiscussions = [];
+const agoraStatesDiscussions = [];
+fetch("http://localhost:4000/discussions", { method: "GET" })
+  .then((res) => res.json())
+  .then((data) => {
+    for (let discussion of data) {
+      agoraStatesDiscussions.push(discussion);
+    }
+    render(ul);
+  });
 
 const loadPresetAvatar = () => {
   for (let i = 1; i < 5; i++) {
@@ -82,10 +99,19 @@ const onBtnSubmitClick = (event) => {
   discussion.bodyHTML = divQuestion.innerHTML;
   // 하나라도 null이면 진행하지 않음
   if (discussion.author && discussion.title && discussion.bodyHTML) {
-    discussion.createdAt = new Date();
-    discussion.avatarUrl = myAvatar.currentSrc;
-    addDiscussion(discussion);
-    updateLocalStorage(discussion);
+    //discussion.createdAt = new Date();
+    //discussion.avatarUrl = myAvatar.currentSrc;
+    discussion.url = "";
+    fetch("http://localhost:4000/discussions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      mode: "cors",
+      body: JSON.stringify(discussion),
+    })
+      .then((res) => res.json)
+      .then((data) => addDiscussion(Object.assign(discussion, data)));
+    // addDiscussion(discussion);
+    // updateLocalStorage(discussion);
     inputName.value = null;
     inputTitle.value = null;
     divQuestion.innerHTML = null;
@@ -169,6 +195,8 @@ const convertToDiscussion = (obj) => {
   const li = document.createElement("li"); // li 요소 생성
   li.className = "discussion__container"; // 클래스 이름 지정
   const divInformation = document.createElement("div");
+  const sponsor = document.createElement("div");
+  sponsor.classList.add("discussion__sponsor");
   const avatarWrapper = fillAvatarWrapper(obj);
   const divNameDate = fillNameDate(obj);
   divInformation.classList.add("discussion__information");
@@ -176,7 +204,7 @@ const convertToDiscussion = (obj) => {
   // obj 안에 answer 있는 경우에만 함수 호출 => undefined는 나중에 꾸밀 때 조정하기
   const discussionAnswered = obj.answer ? fillDiscussionAnswered(obj) : void 0;
   const discussionContent = fillDiscussionContent(obj);
-  divInformation.append(avatarWrapper, divNameDate);
+  divInformation.append(sponsor, avatarWrapper, divNameDate);
   if (discussionAnswered) {
     const p = document.createElement("p");
     p.textContent = "✅";
@@ -206,6 +234,17 @@ const render = (element) => {
   }
   return;
 };
+// search 버튼
+btnSearch.addEventListener("click", function () {
+  const id = inputSearch.textContent;
+  const url = `http://localhost:4000/discussions/${id}`;
+  fetch(url, { method: "GET" })
+    .then((res) => res.json())
+    .then((data) => {
+      agoraStatesDiscussions.push(data);
+      render(data);
+    });
+});
 // modal 관련
 btnOpenForm.addEventListener("click", function () {
   dialog.showModal();
@@ -241,6 +280,3 @@ const onDiscussionClick = (event) => {
 // avatar preset 불러오기
 loadPresetAvatar();
 myAvatar.src = defaultAvatarSrc;
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-const ul = document.querySelector("ul.discussions__container");
-render(ul);

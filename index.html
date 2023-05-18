@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Agora States</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="favicon" type="image/x-icon" href="favicon.ico" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
       integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -16,6 +17,10 @@
   <body>
     <header>
       <h1>My Agora States</h1>
+      <div class="header__search">
+        <input class="input-search" type="text" placeholder="글 id" />
+        <button class="btn-search">검색</button>
+      </div>
       <div class="header__avatar">
         <div class="avatar-block">
           <input type="button" class="btn" id="btn-open-form" value="글쓰기" />

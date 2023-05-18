@@ -56,6 +56,19 @@ h1 {
   flex: 1 0 0;
   margin-left: 3vw;
 }
+/* 검색 */
+.input-search {
+  width: 200px;
+  box-shadow: 0px 0px 5px 0px white;
+  color: black;
+}
+.btn-search {
+  width: 36px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 0px white;
+  color: black;
+}
+
 /* header - avatar */
 #myAvatar {
   width: 36px;
@@ -239,7 +252,7 @@ button#btn-close {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  box-shadow: 1px 2px 5px 0px blue, 0px 0px 5px 1px yellow;
+  box-shadow: 1px 2px 3px 0px blue, 0px 0px 3px 1px yellow;
   animation: sponsor 4s linear infinite;
   margin: 5px;
 }
@@ -298,14 +311,14 @@ button#btn-close {
 @keyframes sponsor {
   0% {
     transform: rotate(0deg);
-    box-shadow: 1px 2px 5px 0px blue, 0px 0px 5px 1px yellow;
+    box-shadow: 1px 2px 3px 0px blue, 0px 0px 3px 1px yellow;
   }
   50% {
     transform: rotate(360deg);
-    box-shadow: 1px 2px 20px 0px blue, 0px 0px 20px 0px yellow;
+    box-shadow: 1px 2px 10px 0px blue, 0px 0px 10px 0px yellow;
   }
   100% {
     transform: rotate(720deg);
-    box-shadow: 1px 2px 5px 0px blue, 0px 0px 5px 1px yellow;
+    box-shadow: 1px 2px 3px 0px blue, 0px 0px 3px 1px yellow;
   }
 }
