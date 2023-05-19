@@ -333,10 +333,7 @@ function addForm2EventListener(form2) {
 
     form2.remove();
     
-/*답변 등록시 체크표시로 바꾸기 - 구현중..
-    const answeredImg = document.querySelector(`.discussion__answered__img[data-index="${targetIndex}"]`);
-    answeredImg.src = "check.png";
-*/  
+    displayItems();
 
   })
 };
