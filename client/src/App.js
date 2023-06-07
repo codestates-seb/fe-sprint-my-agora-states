@@ -1,7 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
+
+const DiscussionItem = ({ avatarUrl, title, author, createdAt, answer }) => {
+  return (
+    <li className="discussion__container">
+      <div className="discussion__avatar--wrapper">
+        <img
+          className="discussion__avatar--image"
+          src={avatarUrl}
+          alt="avatar"
+        />
+      </div>
+      <div className="discussion__content">
+        <h2 className="discussion__title">
+          <a href={title}>
+            {title.length > 53 ? `${title.slice(0, 53)}...` : title}
+          </a>
+        </h2>
+        <div
+          className="discussion__information"
+          dangerouslySetInnerHTML={{
+            __html: `${author} / ${new Date(createdAt).toLocaleTimeString()}`,
+          }}
+        ></div>
+      </div>
+      <div className="discussion__answered">
+        <p>{answer ? "✅" : "❌"}</p>
+      </div>
+    </li>
+  );
+};
 
 const App = () => {
+  const [discussions, setDiscussions] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/discussions")
+      .then((response) => {
+        setDiscussions(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching discussions:", error);
+      });
+  }, []);
+
   return (
     <main>
       <div className="form__info">
@@ -36,28 +80,16 @@ const App = () => {
       <div className="form__active">
         <section className="discussion__wrapper">
           <ul className="discussions__container">
-            <li className="discussion__container">
-              <div className="discussion__avatar--wrapper">
-                <img
-                  className="discussion__avatar--image"
-                  src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-                  alt="avatar of kimploo"
-                />
-              </div>
-              <div className="discussion__content">
-                <h2 className="discussion__title">
-                  <a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">
-                    [notice] 좋은 질문하는 법
-                  </a>
-                </h2>
-                <div className="discussion__information">
-                  kimploo / 2022-04-22T14:08:33Z
-                </div>
-              </div>
-              <div className="discussion__answered">
-                <p>✅</p>
-              </div>
-            </li>
+            {discussions.map((discussion) => (
+              <DiscussionItem
+                key={discussion.id}
+                avatarUrl={discussion.avatarUrl}
+                title={discussion.title}
+                author={discussion.author}
+                createdAt={discussion.createdAt}
+                answer={discussion.answer}
+              />
+            ))}
           </ul>
         </section>
       </div>

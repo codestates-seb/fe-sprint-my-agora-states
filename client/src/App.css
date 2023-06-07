@@ -156,12 +156,12 @@ form {
 
 .discussion__content {
   flex: 1 0 0;
-  padding: 0.8rem;
+  padding: 0.3rem;
 }
 
 .discussion__title {
   font-size: 1.3rem;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
 }
 
 .discussion__information {
