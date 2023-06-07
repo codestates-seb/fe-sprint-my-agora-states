@@ -1,38 +1,47 @@
 {
-  "name": "server",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "fe-sprint-my-agora-states-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node app.js",
+    "test": "jest"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codestates-seb/fe-sprint-my-agora-states-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codestates-seb/fe-sprint-my-agora-states-server/issues"
+  },
+  "homepage": "https://github.com/codestates-seb/fe-sprint-my-agora-states-server#readme",
+  "jest": {
+    "reporters": [
+      "default",
+      [
+        "./node_modules/codestates-assignment-manager/imposter-reporter/index.js",
+        {
+          "project_id": "fe-sprint-my-agora-states-server"
+        }
+      ]
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dompurify": "^2.3.8",
+    "express": "^4.17.1",
+    "jsdom": "^19.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "codestates-assignment-manager": "^1.8.0",
+    "cross-env": "^7.0.3",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "supertest": "^6.1.3"
   }
 }
