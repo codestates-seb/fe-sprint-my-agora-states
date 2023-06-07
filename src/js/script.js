@@ -192,13 +192,19 @@ function handleLeftNavigator() {
   render(ul);
 }
 
+async function getData() {
+  await fetch("http://localhost:4000/discussions")
+    .then((res) => res.json())
+    .then((res) => localStorage.setItem("data", JSON.stringify(res)));
+  render(ul);
+}
+
 // 초기 데이터 불러오기
 const savedData = localStorage.getItem("data");
 let pageNum = localStorage.getItem("pageNum");
 
 if (savedData === null) {
-  localStorage.setItem("data", JSON.stringify(agoraStatesDiscussions));
-  render(ul);
+  getData();
 } else {
   // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
   render(ul);
