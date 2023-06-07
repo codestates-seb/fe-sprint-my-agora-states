@@ -1,1 +1,172 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+/* 브라우저 초기화 */
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://i.namu.wiki/i/7ShgAAmio7pDkTsr6ah1-6yd7YdeWGjUz5EanvtrE6m4GxijA0XublDBSpw3FYw1Ry81QxsKFv9CsqmrnN_wjw.webp');
+    background-repeat: repeat;
+    background-size: 100%;
+}  
+
+.form__input--title > label {
+    word-spacing : 7px
+}
+
+.form__input--name > label {
+    word-spacing : 3px
+}
+
+h2 {
+    font-family: 'Nanum Brush Script', cursive;
+    color: #565a41;
+}
+section.form__container {
+    background-color: rgba(255, 255, 240, 0.5);
+    border-radius: 20px;
+}
+.discussion__answered {
+    padding-top: 30px;
+    font-size: 30px;
+    margin: 0px 0px 25px 0px;
+    color: #f9f2ba;
+
+}
+.discussion__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 540px;
+    height: 120px;
+    font-size : 15px;
+    border-radius: 20px;
+    margin : 10px;
+    padding: 20px;
+}
+.discussion__avatar--image {
+    width: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.discussion__content{
+    display: block;
+}
+.discussion__content >:nth-child(1){
+ width: 400px;
+ text-align: left;
+ margin-top: 0;
+}
+.discussion__content >:nth-child(2){
+    height:30px;
+    text-align: right;
+}
+li {
+    list-style-type: none;
+}
+section.discussion__wrapper{
+    display: flex;
+    flex:4;
+    width: 540px;
+    justify-content: center;
+    align-items:center;
+}
+ul {
+    padding: 0px;
+}
+li.discussion__container {
+    background-color: rgba(251, 251, 220, 0.5);
+}
+a:link {
+    color: rgba(0, 0, 0, 0.7);
+    font-family: 'Dongle', sans-serif;
+    font-size: 20px;
+}
+a:visited {
+    color: rgba(128, 0, 128, 0.5);
+}
+
+/* 폼 디자인 */
+h1 {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    color: #c2bc9392;
+    font-size: 40pt;
+}
+
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    display: flex;
+
+    width: 540px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.form__textbox {
+    display: flex;
+    flex-direction: row;
+    word-spacing : 10px
+}
+#story {
+    width: 320px;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+.form__input--wrapper {
+    margin: 5px;
+
+}
+.form__input--wrapper input {
+    width:300px;
+    height: 30px;
+    font-size:1.2rem;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.form__submit {
+    flex:1;
+    margin:3px;
+
+}
+.form__submit input {
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 10px;
+    margin-left: 120px;
+    margin-right: 0px;
+    border: 1px solid black;
+}
+textarea {
+    margin : 5px;
+}
+
+.discussion__information {
+    padding-top: 10px;
+    font-size: 15px;
+    color: rgb(240, 175, 56);
+}
+
+img {
+    width: 48px;
+    border-radius: 100%;
+}
