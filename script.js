@@ -1,13 +1,13 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-let agoraStatesDiscussions;
-console.log(agoraStatesDiscussions);
 
+let agoraStatesDiscussions;
 fetch('http://localhost:4000/discussions')
 .then(res => res.json())
 .then(json => {
   agoraStatesDiscussions = json;
   const ul = document.querySelector("ul.discussions__container");
   render(ul);
+  console.log(agoraStatesDiscussions);
 })
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
