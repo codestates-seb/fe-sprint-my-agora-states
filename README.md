@@ -1,7 +1,3 @@
-## 배포 링크
-
-https://myungju030.github.io/fe-sprint-my-agora-states/
-
 ### 배포 시연 화면
 
 ![스크린샷, 2022-11-15 17-39-19](https://user-images.githubusercontent.com/96197310/201871100-eeb1ce22-3ff1-42a9-a45c-4aca367fccae.png)
