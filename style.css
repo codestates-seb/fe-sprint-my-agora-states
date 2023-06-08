@@ -34,6 +34,7 @@ main h1{
     color: #fff;
     font-size: 3rem;
 }
+
 .discussions__container {
     row-gap: 30px;
     display: flex;
@@ -105,10 +106,23 @@ main h1{
     width: 35px;
     border-radius: 50%;
 }
-.discussion__time {
+.discussion__time, .discussion__btn-group {
     text-align: right;
     font-size: 0.8rem;
     color: #BDBDBD;
+}
+.discussion__btn-group button{
+    color: #BDBDBD;
+    background: unset;
+    border: none;
+    outline: unset;
+    cursor: pointer;
+}
+.discussion__btn-group button:hover{
+    text-decoration: underline;
+}
+.discussion__edit-btn{
+    margin-right:10px;
 }
 .pagination-container {
     display: flex;
@@ -139,7 +153,7 @@ color: #616161;
 background: #122256;
 }
 .hidden{
-display: none;
+display: none!important;
 }
 .form__container{
 display: flex;
@@ -209,12 +223,33 @@ textarea{
     color: red;
     font-size: 0.8rem;
 }
-#modal {
-    display: none;
+.modal {
+    display: flex;
     position: fixed;
     width: 100%;
     height: 100%;
-    background: red;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    color: #fff;
     z-index: 1;
-    overflow: auto;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+}
+.modal__container{
+    /* background: linear-gradient(45deg, rgba(65,45,212,1) 0%,rgba(65,45,212,1) 26%,rgba(18,34,86,1) 71%,rgba(18,34,86,1) 100%); */
+    background-color: rgba(65,45,212,1);
+    width: 70%;
+    max-width: 750px;
+    margin: 10vw;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+}
+.modal__container .discussion__body{
+    overflow-y: scroll;
+    max-height: 500px;
 }

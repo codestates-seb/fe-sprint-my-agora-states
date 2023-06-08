@@ -1,11 +1,13 @@
 'use strict'
 
+const URL = "http://localhost:4000";
 const paginationNumbers = document.getElementById("pagination-numbers");
 const paginatedList = document.querySelector(".discussions__container");
 const nextButton = document.getElementById("next-button");
 const prevButton = document.getElementById("prev-button");
 const paginationLimit = 10;
 const ul = document.querySelector("ul.discussions__container");
+
 const formBtn = document.getElementById('form_button')
 const inputName = document.getElementById('form_name')
 const inputTitle = document.getElementById('form_title')
@@ -18,6 +20,7 @@ let listItems,pageCount;
 const nameFailMsg = document.querySelector(".name-fail-msg")
 const titleFailMsg = document.querySelector(".title-fail-msg")
 const storyFailMsg = document.querySelector(".story-fail-msg")
+const modal = document.querySelector(".modal");
 
 inputName.onkeyup = () => {
   submitChk1 = inputOnKeyUp(inputName.value,nameFailMsg)
@@ -68,6 +71,7 @@ formBtn.onclick = () => {
     const myObj = {
       id: self.crypto.randomUUID(),
       createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
       title: formTitle,
       url: "",
       author: formName,
@@ -77,18 +81,38 @@ formBtn.onclick = () => {
         "https://avatars.githubusercontent.com/u/99641988?s=64&v=4"
     }
   
-    const arr = localStorageGet()
-    arr.push(myObj)
-    localStorageSet(arr);
-    init();
+    fetch(`${URL}/discussions`,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(myObj)
+    }).then((res)=>{
     
-    inputName.value = ""
-    inputTitle.value = ""
-    inputStory.value = ""
-    submitChk1 = false
-    submitChk2 = false
-    submitChk3 = false
-    formBtnDisabledChk()
+      inputName.value = ""
+      inputTitle.value = ""
+      inputStory.value = ""
+      submitChk1 = false
+      submitChk2 = false
+      submitChk3 = false
+      formBtnDisabledChk()
+
+      getFetch();
+      init();
+  })
+    
+    // const arr = localStorageGet()
+    // arr.push(myObj)
+    // localStorageSet(arr);
+    // init();
+    
+    // inputName.value = ""
+    // inputTitle.value = ""
+    // inputStory.value = ""
+    // submitChk1 = false
+    // submitChk2 = false
+    // submitChk3 = false
+    // formBtnDisabledChk()
   }else{
     if(formTitle === ""){
       titleFailMsg.classList.remove("hidden")
@@ -103,6 +127,7 @@ formBtn.onclick = () => {
     }
   }
 }
+
 
 /**
  * convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
@@ -163,9 +188,92 @@ const convertToDiscussion = (obj) => {
   discussionTime.textContent = `${newDate.toLocaleDateString("ko-KR")}\b\b${newTime[0]}:${newTime[1]}`
   discussionContent.appendChild(discussionTime)
 
+  const discussionBtnGroup = document.createElement("div");
+  discussionBtnGroup.classList.add('discussion__btn-group');
+
+  const discussionDelBtn = document.createElement("button");
+  discussionDelBtn.classList.add('discussion__del-btn');
+  discussionDelBtn.textContent = "삭제"
+  discussionDelBtn.id = obj.id;
+
+  discussionDelBtn.addEventListener("click",discussionDel)
+
+  const discussionEditBtn = document.createElement("button");
+  discussionEditBtn.classList.add('discussion__edit-btn');
+  discussionEditBtn.textContent = "수정"
+
+  discussionBtnGroup.appendChild(discussionEditBtn);
+  discussionBtnGroup.appendChild(discussionDelBtn);
+
+  discussionContent.appendChild(discussionBtnGroup)
   li.append(avatarWrapper, discussionContent);
+  li.setAttribute("name",obj.id)
+
+  // li.onclick = (event)=> {
+  //   getDiscussionDetail(event);
+  // }
+  li.addEventListener("click",getDiscussionDetail);
   return li;
 };
+
+function getDiscussionDetail(e){
+  const id = e.currentTarget.getAttribute("name");
+  const avatar = document.querySelector(".modal img")
+  const author = document.querySelector(".modal span")
+  const time = document.querySelector(".modal .discussion__time")
+  const title = document.querySelector(".modal h2 a")
+  const answerStatus = document.querySelector(".modal .discussion__answered")
+  const content = document.querySelector(".modal .discussion__body")
+
+  modal.classList.remove("hidden")
+
+  fetch(`${URL}/discussions/${id}`,{method:"GET"})
+  .then((res)=>res.json())
+  .then((data)=>{
+    console.log(data);
+    avatar.setAttribute('src',data.avatarUrl)
+    avatar.setAttribute('alt',`avatar of ${data.author}`)
+    author.textContent = data.author
+    title.textContent = data.title
+
+    if(data.answer === null){
+      answerStatus.textContent = "미답변"
+      answerStatus.classList.add("notAnswer")
+      answerStatus.classList.remove("answered");
+    }else{
+      answerStatus.textContent =  data.answers.length
+      answerStatus.classList.add("answered");
+      answerStatus.classList.remove("notAnswer");
+    }
+
+    const newDate = convertDate(data.createdAt)
+    const newTime = newDate.toLocaleTimeString("ko-KR").split(":")
+    time.textContent = `${newDate.toLocaleDateString("ko-KR")}\b\b${newTime[0]}:${newTime[1]}`
+
+    content.innerHTML = data.bodyHTML
+  })
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.classList.add("hidden")
+  }
+}
+
+function discussionDel(e){
+  let confirmResult = confirm("삭제하시겠습니까?")
+
+  if(confirmResult){
+    fetch(`${URL}/discussions/${e.target.id}`,{method:"DELETE"})
+    .then((res)=>{
+      getFetch()
+      alert("삭제되었습니다.")
+      
+    })
+  }else{
+    return;
+  }
+}
 
 /**
  * 날짜 형식 변환 함수
@@ -358,10 +466,26 @@ function init(){
   setCurrentPageOnClick();
 }
 
-// 로컬스토리지에 저장된 배열이 없을 시 추가, init실행
-window.onload = () =>{
-  if(window.localStorage.getItem("arr") === null){
-    localStorageSet(agoraStatesDiscussions);
-  }
-  init();
+async function getFetch(){
+  await fetch(`${URL}/discussions`,{method:"GET"})
+  .then((res)=>res.json())
+  .then((data)=>{
+    localStorageSet(data);
+    init();
+  })
 }
+
+window.onload = () =>{
+  getFetch()
+}
+
+// 로컬스토리지에 저장된 배열이 없을 시 추가, init실행
+// window.onload = () =>{
+//   const data = getFetch();
+//   console.log(data);
+//   if(window.localStorage.getItem("arr") === null){
+//     // localStorageSet(agoraStatesDiscussions);
+//     localStorageSet(data);
+//   }
+//   init();
+// }
