@@ -133,7 +133,7 @@ form {
 .discussion__container {
   background-color: rgba(245, 245, 220, 0.8);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 40vw;
   height: 18vh;
   font-size: 1rem;
@@ -169,8 +169,30 @@ form {
   justify-content: flex-end;
 }
 
+.discussion__deleteButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--button-color);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 3vh;
+  font-size: 1.5rem;
+  transition: background-color 1s ease;
+}
+
+.discussion__deleteButton:hover {
+  background: linear-gradient(
+    to left,
+    rgba(245, 6, 6, 0.8),
+    rgba(245, 245, 220, 0.8)
+  );
+}
+
 .discussion__answered {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.5rem;
 }
