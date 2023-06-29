@@ -1,0 +1,69 @@
+.header{
+    position:fixed;
+}
+.header__pointcolor{
+    width:100%;
+    height: 35px;
+    background-color: var(--blue-color);
+    color:white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+    font-weight: 600;
+}
+.header__contents{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:30px;
+    font-family: 'Days One', sans-serif;
+}
+.header__logo{
+    width:20%;
+}
+.header__logo img{
+    width:124px;
+}
+.header__nav{
+    width:60%;
+    font-size: 15px;
+    font-weight: 300;
+}
+.header__nav>ul{
+    display: flex;   
+}
+.header__nav li{
+    margin:0 25px;
+    justify-content: space-between;
+}
+.header__nav-category>a{
+    transition:all .2s ease-in-out;
+}
+.header__nav-category>a:hover{
+    color:var(--blue-color);
+    text-decoration: underline;
+}
+.header__nav-icon{
+    margin-left: 8px;
+}
+.header__login{
+    display: flex;
+}
+.header__login-tap{
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+    transition:transform .2s;
+}
+
+.header__login-tap:hover{
+    transform:scale(1.02);
+}
+.header__login-icon1{
+    margin-right: 8px;
+}
+.header__login-icon2{
+    margin-left:8px;
+}

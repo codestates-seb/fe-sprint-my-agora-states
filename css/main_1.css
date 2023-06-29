@@ -1,0 +1,49 @@
+.container{
+    /* 부모요소에 넣어야 함.y 방향으로 스크롤 */
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll ;
+    overflow-x: hidden;
+    height: calc(100vh - 133.5px);
+}
+
+.main__background{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 133.5px);
+}
+.main__qna{
+    height: calc(100vh - 133.5px);
+}
+
+.main__background-title{
+    font-size: 90px;
+    margin-left: 120px;
+    margin-top: 90px;
+    margin-bottom: 45px;
+    position:relative;
+    z-index: 1;
+    font-family: 'Tilt Warp', cursive;
+    color: #1A56A7;
+    text-shadow: 2px 2px 10px #97969f;
+    left:0;
+}
+
+.main__background-answer{
+    color:var(--indigo-color);
+}
+.main__background-sub{
+    position:relative;
+    z-index: 1;
+    margin-left: 120px;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 550px;
+    color: var(--gray-color);
+    font-size: 17px;
+    line-height:1.5;
+}
+.main__background-image{
+    width:1000px;
+    height: 700px;
+    position:sticky;
+    right: 0;
+}

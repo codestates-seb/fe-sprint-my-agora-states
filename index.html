@@ -1,60 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agora States</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/color.css" />
+    <link rel="stylesheet" href="./css/main_1.css" />
+    <link rel="stylesheet" href="./css/main_2.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+      integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/b6b675a5b4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Days+One&family=Fredoka+One&family=Nanum+Gothic&family=Tilt+Warp&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
-    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
-  <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+  <body>
+    <header id="header">
+      <div class="header__pointcolor">Welcome to question page!</div>
+      <div class="header__contents">
+        <div class="header__logo">
+          <h2>
+            <a href="#"><img src="./images/codestates-logo.png" /></a>
+          </h2>
+        </div>
+        <div class="header__nav">
+          <ul>
+            <li>
+              <div class="header__nav-category">
+                <a href="#"
+                  >Home<i
+                    class="fa-solid fa-chevron-down header__nav-icon fa-xs"
+                  ></i
+                ></a>
+              </div>
+            </li>
+            <li>
+              <div class="header__nav-category">
+                <a href="#">Features</a>
+              </div>
+            </li>
+            <li>
+              <div class="header__nav-category">
+                <a href="#">Pricing</a>
+              </div>
+            </li>
+            <li>
+              <div class="header__nav-category">
+                <a href="#"
+                  >Blog<i
+                    class="fa-solid fa-chevron-down header__nav-icon fa-xs"
+                  ></i
+                ></a>
+              </div>
+            </li>
+            <li>
+              <div class="header__nav-category">
+                <a href="#"
+                  >Pages<i
+                    class="fa-solid fa-chevron-down header__nav-icon fa-xs"
+                  ></i
+                ></a>
+              </div>
+            </li>
+            <li>
+              <div class="header__nav-category">
+                <a href="#"
+                  ><i class="fa-solid fa-magnifying-glass header__nav-icon"></i
+                ></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="header__login">
+          <div class="header__login-tap">
+            <a href="#"
+              ><i class="fa-solid fa-lock header__login-icon1 fa-xs"></i>Log
+              In</a
+            >
           </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+          <div class="header__login-tap">
+            <a href="#"
+              >Sign Up<i
+                class="fa-solid fa-arrow-right header__login-icon2 fa-xs"
+              ></i
+            ></a>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
+      </div>
+    </header>
+    <main class="container">
+      <section class="main__background main-section">
+        <div class="main__txt">
+          <h2 class="main__background-title">
+            Question &<br /><span class="main__background-answer">Answer</span>
+          </h2>
+          <div class="main__background-sub">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl
+            tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem
+            ipsum
+          </div>
         </div>
-      </form>
-    </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
-    </section>
-  </main>
-</body>
-<script src="data.js"></script>
-<script src="script.js"></script>
+        <img class="main__background-image" src="./images/qna.jpeg" />
+      </section>
 
+      <section class="main__qna main-section">
+        <div class="main__qna-txt">
+          <h1 class="main__qna-title">Please enter a question.</h1>
+          <h5 class="main__qna-subtitle">My Agora States</h5>
+        </div>
+        <div class="main__qna-input">
+          <div class="form__container main__qna-contents">
+            <form class="form" action="" method="get" class="form">
+              <div class="form__input--wrapper">
+                <div class="form__input-icon">
+                  <i class="fa-solid fa-circle-question"></i>
+                </div>
+                <div class="form__input--name">
+                  <!-- <label for="name">Enter your name: </label> -->
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form__input-user"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div class="form__input--title">
+                  <!-- <label for="title"> </label> -->
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    class="form__input-user"
+                    placeholder="Enter your title"
+                    required
+                  />
+                </div>
+                <div class="form__textbox">
+                  <!-- <label for="story">Your question: </label> -->
+                  <textarea
+                    id="story"
+                    name="story"
+                    placeholder="Your question here..."
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form__submit">
+                <input type="submit" value="submit" />
+              </div>
+            </form>
+          </div>
+
+          <div class="discussion__wrapper main__qna-contents">
+            <div class="animation">
+              <ul class="discussions__container"></ul>
+            </div>
+            <ul class="listPage"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </html>

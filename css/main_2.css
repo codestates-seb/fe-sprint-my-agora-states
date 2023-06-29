@@ -1,0 +1,147 @@
+.container .main__qna .main__qna-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:30px;
+}
+.form__container{
+    width:40%;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+.discussion__wrapper{
+    opacity: 0;
+    transition:all .5s ease-in-out;
+}
+.form__container .form{
+    width:450px;
+    height: 500px;
+    border-radius: 9px;
+    border: 1px solid #c5c5cce5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.form__input-icon{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin: 50px 50px 45px 50px;
+    color:var(--blue-color);
+}
+.form__container .form .form__input-user,
+.form__container .form textarea{
+    width:380px;
+    padding:10px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.form__container .form .form__input-user{
+    height: 35px;
+    margin-bottom: 15px;
+}
+.form__container .form textarea{
+    height: 135px;
+    margin-bottom: 25px;
+    resize: none;
+}
+.form__submit {
+    height: 45px;
+}
+.form__submit input{
+    color:white;
+    background-color: var(--blue-color);
+    height: 35px;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    width:380px;
+    transition:all .2s ease-in-out;
+}
+.form__submit input:hover{
+    opacity: 0.8;
+}
+.main__qna .main__qna-txt{
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Days One', sans-serif;
+    color:black;
+    padding: 30px 0px;
+}
+.main__qna-subtitle{
+    color:var(--indigo-color);
+}
+
+.discussion__wrapper{
+    height: 450px;
+    /* overflow-y:scroll; */
+    transform: translateY(-27px);
+}
+.discussions__container{
+    width:560px;
+    margin-left: 10px;
+    padding-top: 2px;
+}
+/* li */
+.discussion__wrapper .discussion__container{ 
+    width:540px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border:1px solid #c5c5cce5;
+    border-radius: 9px;
+    margin-bottom: 10px;
+    padding:15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.discussion__wrapper .discussion__container:hover{
+    transform: scale(1.02);
+}
+/*image*/
+.discussion__avatar--wrapper .discussion__avatar--image{
+    border-radius:50%;
+    width:48px;
+    height: 48px;
+    align-items: center;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+/*text - title, author, day*/
+.discussion__content{
+    justify-content: flex-start;
+    flex-grow: 1;
+    width: 400px;
+}
+.discussion__title{
+    margin-bottom: 6px;
+    font-size: 13px;
+    width: 400px;
+}
+.discussion__information{
+    font-size:10px;
+    text-align: end;
+    margin-right: 15px;
+}
+/* answer - check */
+.discussion__answered{
+    /* margin-left: 15px; */
+    display: flex;
+    align-items: flex-start;
+}
+.listPage{
+text-align: center;
+    padding:10px;
+}
+.listPage li{
+    /* background-color: azure; */
+    padding:8px;
+    display: inline-block;
+    margin:0 10px;
+    font-size: 10px;
+    cursor: pointer;
+}
+.listPage .active{
+    background-color: #394EF5;
+    color:white;
+}
