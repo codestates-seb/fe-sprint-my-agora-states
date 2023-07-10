@@ -14,28 +14,49 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
-    </section>
+    <header>
+                <div style="padding: 30px 30px 30px 30px; font-weight: bold; border: dashed 5px #FFABAB;
+                background-color: #FCC8D1; border-radius: 20px;">
+                          <h1>My <br/> Agora States</h1>
+                        </div>
+
+                        <div class="buttonbox">
+                          <button type="button" class="button1">
+                            <p class="buttoncontent">Join the community!</p>
+                          </button>
+                          <button type="button" class="button2">
+                            <p class="buttoncontent">Search the content</p>
+                          </button>
+
+                        </div>
+
+                        <div class="line"></div>
+              
+
+
+            <section class="form__container">
+              <form action="" method="get" class="form">
+                <div class="form__input--wrapper">
+                  <div class="form__input--name">
+                    <input type="text" name="name" id="name" placeholder="이름" required>
+                  </div>
+                  <div class="form__input--title">
+                    <input type="text" name="name" id="name" placeholder="제목" required>
+                  </div>
+                  <div class="form__textbox">
+                    <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+                  </div>
+                </div>
+                <div class="form__submit">
+                  <input type="submit" value="submit">
+                  <span class="icon"></span>
+                </div>
+              </form>
+            </section>
+    </header>
+
+     <div style="padding: 30px 30px 30px 30px; font-weight: bold; border: dashed 5px #FFABAB;
+        background-color: #FCC8D1; border-radius: 20px;" class="content">
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -48,13 +69,12 @@
             <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
         </li>
       </ul>
     </section>
+          <div class="discussion__answered"><p>☑</p></div>
+  </div> 
   </main>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
-<script src="data.js"></script>
-<script src="script.js"></script>
-
-</html>
