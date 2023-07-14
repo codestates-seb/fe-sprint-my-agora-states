@@ -1,0 +1,486 @@
+/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+  box-sizing: border-box;
+  color: #f2f3f5;
+}
+
+li {
+  list-style: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+input {
+  border: none;
+  background-color: #313338;
+}
+
+input[type="submit"] {
+  background-color: #454c95;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: #313338;
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  padding: 3rem 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282a2e;
+}
+
+main {
+  width: 90vw;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* search section */
+.search__container {
+  width: 100%;
+  height: 10vh;
+  background-color: #313338;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.search--symbol {
+  font-size: 2rem;
+  color: #949ba4;
+  margin-right: 1rem;
+}
+
+.search--input {
+  font-size: 1.5rem;
+  flex-grow: 1;
+}
+
+.search--input:focus {
+  outline: none;
+}
+
+.search--create {
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  background-color: #5361f9;
+  border: none;
+  border-radius: 20px;
+}
+
+.search--create:hover {
+  background-color: #4752c4;
+}
+
+/* form section */
+
+.form__input--wrapper {
+  width: 1fr;
+  height: 40vh;
+  border-radius: 20px;
+  padding: 1rem;
+  padding-right: 2rem;
+  display: grid;
+  background-color: #313338;
+  grid-template-columns: 60px 8fr 3fr;
+  grid-template-rows: 2fr 6fr 2fr 1fr;
+  grid-template-areas:
+    "symbol title title"
+    ". main main"
+    ". tag tag"
+    ". name post";
+}
+
+.form__close--symbol {
+  grid-area: symbol;
+  font-size: 30px;
+  cursor: pointer;
+  color: #adb2b9;
+}
+.form__close--symbol:hover {
+  color: #f2f3f5;
+}
+
+.form__input--title {
+  grid-area: title;
+  padding-bottom: 1rem;
+}
+
+.form__input--title > input {
+  width: 100%;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.form__input--title > input:focus {
+  outline: none;
+}
+
+.form__textbox {
+  grid-area: main;
+}
+
+.form__textbox > textarea {
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.form__textbox > textarea:focus {
+  outline: none;
+}
+
+.form__input--tags {
+  margin-bottom: 1rem;
+  grid-area: tag;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-color: #1e1f22;
+}
+
+.form__input--tags input {
+  display: none;
+}
+
+.form__input--tags input:checked + label {
+  border: 2px solid #454c95;
+  background: transparent;
+}
+
+.form__input--tags .tag:hover {
+  cursor: pointer;
+}
+
+.form__input--name {
+  grid-area: name;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.form__input--name > input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.form__input--name > input:focus {
+  outline: none;
+}
+
+.form__input--name > p {
+  font-size: 1.2rem;
+  color: rgb(206, 90, 90);
+}
+
+.form__submit {
+  grid-area: post;
+  justify-self: end;
+}
+
+.form__submit > button {
+  background-color: #5361f9;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 24px;
+  height: 1fr;
+  cursor: pointer;
+}
+
+.form__submit > button:disabled {
+  background-color: #4b53aa !important;
+  cursor: not-allowed;
+}
+.form__submit > button:hover {
+  background-color: #5c67e0;
+}
+
+/* navigator section */
+.navigator__container {
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.navigator__center {
+  font-size: 3rem;
+  margin: 0 3rem;
+}
+
+.navigator__left > i,
+.navigator__right > i {
+  color: #5c67e0;
+  transition: all ease-in-out 0.2s 0s;
+}
+
+.navigator__left > i:hover,
+.navigator__right > i:hover {
+  transform: scale(130%);
+  cursor: pointer;
+}
+
+/* discussion wrapper section */
+.discussions__container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.discussion__container {
+  background-color: #313338;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  gap: 0.1rem;
+  grid-template-areas:
+    "tag img"
+    "title img"
+    "answer img";
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.discussion__tags {
+  grid-area: tag;
+}
+.discussion__tags > .tag {
+  margin-right: 0.3rem;
+}
+
+.discussion__content {
+  grid-area: title;
+  display: grid;
+}
+
+.discussion__title {
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  width: 60vw;
+  margin: 0.5rem 0;
+}
+
+.discussion__container {
+  cursor: pointer;
+}
+
+.discussion__container:hover h2,
+.discussion__container:hover .discussion__story,
+.discussion__container:hover .discussion__author {
+  color: #5361f9;
+}
+
+.discussion__main {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.discussion__author {
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.discussion__story {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  width: 50vw;
+  color: #adb2b9;
+}
+
+.discussion__answered {
+  grid-area: answer;
+  align-self: end;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.discussion__comments {
+  margin-right: 1rem;
+  letter-spacing: 0.4rem;
+}
+
+.discussion__avatar--wrapper {
+  grid-area: img;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+}
+.discussion__avatar--image {
+  width: 30%;
+  border-radius: 1rem;
+}
+
+/* modal section */
+
+.modal__overlay {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+}
+
+.modal__window {
+  position: fixed;
+  background-color: #282a2e;
+  box-shadow: 0 8px 32px 0 #282a2e;
+  border-radius: 1rem;
+  overflow-y: scroll;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 60vw;
+  height: 80vh;
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.modal__close {
+  position: absolute;
+  font-stretch: extra-condensed;
+  right: 3%;
+  top: 3%;
+}
+
+.modal__close--symbol {
+  font-size: 2.5rem;
+  color: #949ba4;
+}
+
+.modal__close--symbol:hover {
+  color: #f2f3f5;
+  cursor: pointer;
+}
+
+.modal__title--symbol {
+  font-size: 2.5rem;
+}
+
+.modal__title > h2 {
+  font-size: 2rem;
+  margin: 1rem 0 2rem 0;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+.modal__content__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.modal__avatar--wrapper {
+  width: 54px;
+  margin-right: 0.5rem;
+}
+.modal__avatar--wrapper > img {
+  width: 54px;
+  border-radius: 1rem;
+}
+.modal__author--name {
+  font-size: 1.5rem;
+  margin-right: 0.3rem;
+}
+.modal__record__time {
+  color: #949ba4;
+  font-size: 1rem;
+}
+
+.modal__author--tag {
+  margin-right: 0.5rem;
+  background-color: #c1c5f1;
+  color: #434db8;
+  padding: 0.3rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.modal__story {
+  font-size: 1.3rem;
+}
+.modal__story > p {
+  margin: 1rem 0;
+}
+
+.modal__line {
+  height: 0.5rem;
+  background-color: #494b50;
+  margin: 1.5rem 0;
+}
+
+.modal__answer {
+  margin-bottom: 2rem;
+  background-color: #313338;
+  padding: 1rem;
+}
+
+.modal__answer--form {
+  position: sticky;
+  bottom: 0px;
+  height: 4.5rem;
+  background-color: #282a2e;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__answer--form > textarea {
+  background-color: #313338;
+  width: 80%;
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.modal__answer--form > textarea {
+  outline: none;
+}
+
+.modal__answer--form > input {
+  height: 2.5rem;
+  width: 15%;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
