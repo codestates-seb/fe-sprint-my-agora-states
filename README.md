@@ -1,9 +1,3 @@
-# Description
-
-Section1에서 배운 내용을 총 동원하여 나만의 멋진 아고라 스테이츠를 만듭니다.
-
-- [코드스테이츠 fe-sprint-my-agora-states 리포지토리](https://github.com/codestates-seb/fe-sprint-my-agora-states)에서 자신의 리포지토리로 fork후 과제 진행합니다.
-
 ## 🖥 배포 링크
 
 [👉 배포 웹 사이트 이동](https://nalsae.github.io/fe-sprint-my-agora-states/)
