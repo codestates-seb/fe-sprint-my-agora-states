@@ -1,1 +1,184 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+/* 웹 폰투 출처 눈누 폰트명 교보문고의 네 번째 손글씨 교보손글씨 2022 김혜남 */
+@font-face {
+    font-family: 'KyoboHandwriting2022khn';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KyoboHandwriting2022khn.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 모든 요소에 적용 */
+* { 
+    font-family: 'KyoboHandwriting2022khn';
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* 바디 요소 */
+body{
+    background-color: #E3DFFD;
+}
+
+/* 배경 */
+main{
+    height: 90%;
+}
+
+/* 최상단 헤더 */
+header{
+    padding: 8px;
+    text-align-last: center;
+    font-size: xx-large;
+    font-weight: bold;
+    background-color: #FFF4D2;
+    clip-path: polygon(0% 0%, 10% 25%, 10% 75%, 0 100%, 50% 90%, 100% 100%, 90% 75%, 90% 25%, 100% 0, 50% 10%)
+}
+
+/* 질문 등록 박스 */
+.form__container{
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 35%;
+    padding: 20px;
+    background-color: rgb(236, 242, 255);
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+.form:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.form__input--name, .form__input--title, .form__textbox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.form__submit{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.form__submit > input{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(229, 209, 250, 0.25) 25%, rgba(229, 209, 250, 0.5) 50%, rgba(229, 209, 250, 0.75) 75%, rgba(229, 209, 250));
+    transition: 0.5s;
+    clip-path: polygon(35% 0, 65% 0, 65% 50%, 100% 50%, 50% 100%, 0 50%, 35% 50%);
+}
+.form__submit > input:hover{
+    cursor: pointer;
+    transition: 0.5s;
+    transform: translateY(10px) scale(1.5);
+}
+#name, #title, #story{
+    width: 100%;
+}
+#name:focus, #title:focus, #story:focus{
+    transition: 0.5s;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+/* 질문 목록 / 선택된 질문 내용 */
+#flexP {
+    width: 99%;
+    display: flex;
+    justify-content: center;
+    transition: 1s;
+    height: 75vh;
+}
+iframe{
+    width: 0%;
+    object-fit: scale-down;
+    transition: 1s;
+    border-radius: 20px;
+}
+#flexP:hover iframe{
+    width: 80%;
+    transition: 1s;
+    border-radius: 0px 20px 20px 0px;
+}
+.discussion__wrapper{
+    padding: 8px;
+    width: 85%;
+    height:100%;
+    transition: 1s;
+    background-color: rgb(255, 244, 210);
+    overflow-y: scroll;
+    border-radius: 20px;
+}
+#flexP:hover .discussion__wrapper{
+    width: 15%;
+    border-radius: 20px 0px 0px 20px;
+    transition: 1s;
+}
+.discussion__wrapper::-webkit-scrollbar{
+    width: 0;
+    color: transparent;
+}
+li.discussion__container{
+    margin: 2% 0;
+    padding: 8px;
+    border-radius: 20px;
+    font-size: x-small;
+    background-color: #E5D1FA;
+    display: flex;
+    justify-content: space-between;
+}
+.discussion__answered{
+    font-size: xx-large;
+    align-self: center;
+}
+#buttonBox{
+    display: flex;
+    justify-content:space-around;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.discussion__avatar--wrapper{
+    margin-right: 10px;
+}
+.discussion__avatar--image{
+    width: 64px;
+    height: 64px;
+}
+
+.pageButton{
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1%;
+    border: solid 1px #2200ff;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.pageButton:hover{
+    cursor: pointer;
+}
+#frontButton{
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 100% 100%, 0% 50%, 100% 0);
+}
+#backButton{
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 0% 100%, 25% 50%, 0% 0%);
+}
