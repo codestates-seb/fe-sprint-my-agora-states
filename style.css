@@ -1,1 +1,476 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'MiraeroNormal';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/MiraeroNormal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    cursor: url("imgs/cursor...png") 5 5 , auto;
+    font-family: 'MiraeroNormal';
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    
+}
+
+body{
+
+    background: url("imgs/desk_image4.jpg") no-repeat center fixed;    
+    background-size: cover;    
+    border: 3px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    
+    
+}
+
+main{
+    background-image: url("imgs/background_image3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 1.5rem 0;
+
+}
+
+
+
+
+.form__head {
+    display: grid;
+    grid-template-columns: 1.1fr 1.95fr 0.4fr;
+    grid-gap: 0;
+    align-items: stretch;
+    grid-template-rows: 40px 40px 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 900;
+    
+    
+    
+
+    
+}
+
+.grid-item {
+    
+    padding: 0px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+    letter-spacing: 0.4rem;
+
+    
+    
+    
+}
+
+
+.grid-item:nth-child(1){
+    border-right:3px solid #252525;
+    border-bottom:3px solid #252525;
+
+    
+}
+
+.grid-item:nth-child(2){
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+    justify-content: center;
+    font-size: 2.6rem;
+    border-right:3px solid #252525;
+    border-bottom:3px solid #252525;
+    
+}
+
+.grid-item:nth-child(3){
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 2;
+    justify-content: center;
+    border-bottom:3px solid #252525;
+    
+}
+
+.grid-item:nth-child(4){
+    border-right:3px solid #252525;
+    border-bottom:3px solid #252525;
+    
+}
+
+.grid-item:nth-child(5){
+    grid-column: 1 / span 3 ;
+    grid-row: 3 / span 1;
+    padding: 0 0 0 1.5rem;
+    border-bottom:3px solid #252525;
+    
+    
+    
+}
+
+.grid-item:nth-child(1),
+.grid-item:nth-child(4) {
+    justify-content: center;
+
+}
+
+.grid-item img{
+    width: 14rem;
+    height: 3.7rem;
+    padding: 0 10px 0 10px;
+    
+
+    
+
+}
+
+.form__title{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-content: center;
+    font-size: 2rem;
+}
+
+.form__title h1{
+    margin: 3rem 0rem 3rem 3rem;
+    height: 10rem;
+    line-height: 5rem; 
+    font-weight: 500;
+    letter-spacing: 0.4rem;
+}
+
+.form__title img{
+    width: 350px;
+}
+
+
+
+ul{
+    list-style:none;
+    padding-left:0px;
+}
+
+
+
+.form__main{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 5px;
+    
+    
+    
+    
+}
+
+
+/*질문상자 부모*/
+.question__wrapper{
+    margin: 0 20px 0 0;
+    PADDING: 0;
+    border: 3px solid #252525;
+    border-radius: 1.4rem;
+    width: 25rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    
+    
+    
+}
+
+.question__wrapper--top{
+    
+    padding: 3px 3px 7px 3px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 599;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    
+    
+}
+
+
+
+
+
+
+    
+
+.form__container{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 0px;   
+    border-top: 3px solid black;
+    padding: 1.5rem 1rem 1.5rem 1rem;
+
+    
+}
+
+
+
+.form__input--wrapper{
+
+    font-size: 1.1rem;  
+}
+
+.question__wrapper--top{
+    background-color: rgba(235, 235, 235, 0.589);  
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+    
+}
+
+
+
+
+
+.form__input--wrapper input{
+    width: 350px;
+    height: 50px;
+    border: 3px solid #252525;
+    border-radius: 1rem;
+    margin: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: rgba(235, 235, 235, 0.589); 
+    
+    font-size: 1.1rem;
+    padding: 0 0 0 10px;
+}
+
+.form__input--wrapper textarea{
+    width: 350px;
+    height: 200px;
+    border: 3px solid #252525;
+    border-radius: 1rem;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: rgba(235, 235, 235, 0.589); 
+    font-size: 1.1rem;
+}
+
+.form__submit{
+    text-align: left;
+    padding: 5px 0 0 9px;
+}
+
+.form__submit > input{
+    width: 350px;
+    height: 50px;
+    border: 3px solid #252525;
+    border-radius: 0.7rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    background-color: rgba(61, 61, 61, 0.719);
+    color: #ffffff;
+    opacity:0.95;
+
+    
+}
+
+
+
+
+.discussion__wrapper{
+    width: 28rem;
+    margin: 0px;
+    border: 3px solid #252525;
+    border-radius: 1rem;
+    height: 36rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+
+
+.disscussion__top{
+    /*
+    padding: 8px 3px 3px 3px;
+    margin: 0 0 0 10px;
+    height: 2.7rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 599;
+    */
+    padding: 3px 3px 7px 3px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 599;
+    background-color: rgba(235, 235, 235, 0.589); 
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+
+}
+
+
+.image{
+    width: 85px;
+    
+    
+    }
+
+
+
+
+.disscussion__main{
+    border-top: 3px solid #252525;
+    height: 32rem;
+    overflow: auto;
+    
+}
+
+.discussions__container img{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    text-align: center;
+}
+
+/*
+.form__main > div{
+    width: 22rem;
+    margin: 10px;
+    border: 1px solid #252525;
+    border-radius: 1rem;
+    padding: 1rem;
+    
+
+}
+*/
+
+
+
+.discussion__container{
+    display: flex;
+    flex-direction: row;
+    border: 3px solid black;
+    border-radius: 0.8rem;
+    padding: 7px;
+    margin: 7px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: rgba(235, 235, 235, 0.589); 
+    justify-content: space-between;
+    
+}
+
+
+.discussion__avatar--wrapper{
+    margin: 5px 0 0 0;
+    padding: 7px;
+    
+}
+
+
+.discussion__content{
+    font-size: 0.75rem;
+    width: 17rem;
+    margin: 0 0 0 10px;
+    flex-direction: column;
+    
+    
+}
+
+.discussion__title{
+    margin: 8px 0 8px 0;
+}
+
+
+.discussion__information{
+    font-size: 0.95rem;
+    
+    line-height: 1.3;
+
+    
+}
+
+.discussion__answered{
+    
+    height: 5rem;
+    text-align: right;
+
+}
+
+::-webkit-scrollbar {
+    width: 1vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 14%, 0.4);
+    border-radius: 100px;
+}
+
+
+.answer__container {
+    display: none;
+}
+
+/* 모달부분 
+.discussion__answered {
+
+    width: 16px;
+    height: 16px;
+    padding: 0px;
+    margin: 0px;
+
+    
+}
+.popupBtn {
+    width: 150px;
+    height: 50px;
+    
+}
+.answer__container {
+
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.281); 
+
+    display: none;
+}
+
+.answer__content {
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+    margin: 0 auto;
+    border: 1px solid #777;
+    background-color: #fff;
+    
+}
+
+.closeBtn {
+    float:right;
+    font-weight: bold;
+    color: #777;
+    font-size:25px;
+    cursor: pointer;
+}
+
+*/

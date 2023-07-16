@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
+  <title>🏫코드스테이츠 코딩학교🏫</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
@@ -14,44 +14,91 @@
 
 <body>
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
-          </div>
-        </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
-        </div>
-      </form>
+    <section class="form__head">
+      <div class="grid-item">구  호</div>
+      <div class="grid-item">가 정 통 신 문</div>
+      <div class="grid-item"><img alt="head__image" src="./imgs/head_image.png"></div>
+      <div class="grid-item">재밌는 코딩</div>
+      <div class="grid-item"> 제목: 학우들과 고민을 나누는 시간  </div>
     </section>
-    <section class="discussion__wrapper">
-      <ul class="discussions__container">
-        <li class="discussion__container">
-          <div class="discussion__avatar--wrapper">
-            <img class="discussion__avatar--image"
-              src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
-              alt="avatar of kimploo">
-          </div>
-          <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
-            <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
-          </div>
-          <div class="discussion__answered"><p>☑</p></div>
-        </li>
-      </ul>
+    
+    
+    <section class="form__title">
+      <h1>나만의 <br> 질문 광장</h1>    
+      <div><img alt="image" src="./imgs/discussion_image.png"></div>
     </section>
+    
+    
+    <section class="form__main">
+
+      <div class="question__wrapper">
+        <div class="question__wrapper--top"> 📁 질 문 상 자 　 　　　 　
+          <img class="image" alt="image" src="./imgs/menu_image.png"> 
+        </div> 
+        <div class="form__container"> 
+          <form action="" method="get" class="form">
+            <div class="form__input--wrapper">
+              <div class="form__input--name">
+                <label for="name">　이름이 뭐에요? </label><br>
+                <input type="text" name="name" id="name" required>
+              </div>
+              <div class="form__input--title">
+                <label for="title">　당신의 고민은? </label><br>
+                <input type="text" name="title" id="title" required>
+              </div>
+              <div class="form__textbox">
+                <label for="story">　구체적으로 말해주세요. </label><Br>
+                <textarea id="story" name="story" placeholder="고민을 작성하세요" required></textarea>
+              </div>
+            </div>
+            <div class="form__submit">
+              <input type="submit" value="제출해버리기">
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    
+
+      <div class="discussion__wrapper">
+        <div class="disscussion__top"> 📂 답 변 상 자 　　　 　　　　　
+          <img class="image" alt="image" src="./imgs/menu_image2.png">
+        </div>
+          
+        <div class="disscussion__main">
+          <ul class="discussions__container">
+            <li class="discussion__container">
+              <div class="discussion__avatar--wrapper">
+                <img class="discussion__avatar--image"
+                  src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
+                  alt="avatar of kimploo">
+              </div>
+              <div class="discussion__content">
+                <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
+                <div class="discussion__information">닉네임: kimploo <br> 작성일: 2022-04-22T14:08:33Z</div>
+              </div>
+
+              <div class="discussion__answered">
+                <p class="popupBtn">☑</p>
+                <div class="answer__container">
+                  <div calss="answer__content"> 
+                    <span id="closeBtn">&times;</span>
+                    '<p dir="auto">안녕하세요. <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/anotheranotherhoon/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/anotheranotherhoon">@anotheranotherhoon</a> 님!<br>\n코드스테이츠 교육 엔지니어 권준혁입니다. <g-emoji class="g-emoji" alias="raised_hands" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64c.png">🙌</g-emoji></p>\n<p dir="auto">스코프와 클로져에 대해 깊게 공부하는 모습 너무 너무 좋습니다 !</p>\n<p dir="auto">일단 즉시 실행 함수 표현식에 대해 질문 주셨는데요 !<br>\n함수를 정의 -&gt; 변수에 함수를 저장 하고 실행 ! 이 과정을 거치지 않고 정의하자마자 바로 호출하는 것이 즉시 실행 함수 입니다.<br>\n그렇다면 위에 코드는 즉시 실행 함수 일까요?</p>\n<p dir="auto"><a href="https://developer.mozilla.org/ko/docs/Glossary/IIFE" rel="nofollow">즉시실행함수</a><br>\n한 번 읽어보시고 한 번 더 생각해보세요 ! 직접 생각하는 것이 가장 기억에 오래 남습니다 !</p>\n<p dir="auto">두 번째 <code class="notranslate">innerFn</code>이라는 변수를 새로 선언했고 <code class="notranslate">outerFn()</code>을 할당했습니다. 즉, <code class="notranslate">outerFn()</code>을 호출 한 것입니다.<br>\n이는 위의 <code class="notranslate">innerFn</code> 함수와는 다른 녀석입니다.<code class="notranslate">innerFn</code> 함수도 마찬가지로 <code class="notranslate">outerFn</code> 내부에서 선언되었으므로 밖으로 나올 수 없기 때문이에요!</p>\n<p dir="auto"><code class="notranslate">const apple = outerFn()</code>  // innerFn은 단순한 변수명임 ! apple을 넣던 banana를 넣던 상관없음<br>\n<code class="notranslate">expect(apple()).to.equal(178)</code></p>\n<p dir="auto">답변이 되셨다면 내용을 간략하게 정리해서 코멘트를 남기고 answered를 마크해주세요 <g-emoji class="g-emoji" alias="white_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png">✅</g-emoji><br>\n감사합니다.<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji><br>\n코드스테이츠 교육 엔지니어 000</p>',
+
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        
+      </div>
+    </section>
+
+
   </main>
 </body>
 <script src="data.js"></script>
