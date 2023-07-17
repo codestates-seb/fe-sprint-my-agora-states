@@ -6,3 +6,8 @@
 |---|---|---|
 |HTML|CSS|JavaScript|
 
+# 실행 방법
+- git pages 링크 : https://hyerimkimm.github.io/fe-sprint-my-agora-states/
+
+# 문서
+- <a href="https://hyerimkim.notion.site/bd7401d3a4d44c39b45dbbbfbd5f8ec6?pvs=4">프로젝트 기능 구현 방법 정리</a>
