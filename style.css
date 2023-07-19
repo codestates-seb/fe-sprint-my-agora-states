@@ -1,1 +1,169 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #E5f9db;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.form__container {
+    background-color: #A0D8B3;
+    width: 600px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.form {
+    flex: 1 1 0;
+    background-color: #A0D8B3;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.form__input--wrapper {
+    flex: 6 1 0;
+}
+
+.form__input--name {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.form__input--title {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.form__textbox {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.form__submit {
+    flex: 1 1 0;
+    display: flex;
+}
+
+#submit {
+    flex: 1 0 0;
+    border-radius: 15px;
+    border-color: #f6f1f1;
+}
+
+label {
+    flex: 1 1 0; 
+}
+
+#name {
+    flex: 2 1 0;
+    border-radius: 10px;
+    border-color: #f6f1f1;
+}
+
+#title {
+    flex: 2 1 0;
+    border-radius: 10px;
+    border-color: #f6f1f1;
+}
+
+#story {
+    flex: 1 1 auto;
+    border-radius: 10px;
+    border-color: #f6f1f1;
+}
+
+.discussion__wrapper {
+    width: 600px;
+}
+
+li {
+    margin: 10px 0px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.discussion__avatar--image{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.discussion__content {
+    flex-basis: 480px;
+    display: flex;
+    flex-direction: column;
+}
+.discussion__title {
+    text-align: start;
+}
+.discussion__information {
+    text-align: end;
+}
+
+.discussion__answered {
+    flex-basis: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: 48px;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.page__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.pageNum {
+    font-size: 30px;
+    background-color: #E5f9db;
+}
+.move__page {
+    font-size: 25px;
+    background-color: #E5f9db;
+}
+
+a { color: #8ba866; }
+a:visited { color: #AAC8A7;}
+
+.current {
+    color: #ade4db;
+}
