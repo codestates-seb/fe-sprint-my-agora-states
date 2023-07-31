@@ -71,13 +71,14 @@ Github Page 배포 링크를 아래 작성합니다.
 - 아고라스테이츠 로고를 클릭하면 새 창이 열리면서 아고라스테이츠 홈페이지로 이동한다.
 ![아고라스테이츠만들기_로고클릭](https://user-images.githubusercontent.com/101691440/224248758-3ab46168-5275-4ede-9d41-05774559da00.gif)
 
+<br>
 
 ### 가장 자랑하고 싶은 기능
 
 > 기능은 아니지만.. CSS 디자인에 들어가는 이미지들을 피그마를 이용해서 직접 만들었다!
 ![image](https://user-images.githubusercontent.com/101691440/224247410-eb2b7fb8-4a92-4755-aa67-cb4be66fb445.png)
 
-
+<br>
 
 ### 구현하고 싶었는데 하지 못한 아쉬운 기능
 
