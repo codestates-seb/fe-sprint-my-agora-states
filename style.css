@@ -1,1 +1,400 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 0. 기본 스타일링을 제거*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NeoDunggeunmo';
+    color: #352B44;
+    text-decoration: none;
+}
+
+
+/* 1. 마우스 */
+html {
+    cursor: url("img/아이콘_마우스3.png") 5 5, auto;
+    
+}
+
+
+/* 2. 스크롤바 */
+::-webkit-scrollbar {
+    width: 26px; /* 스크롤바의 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+    height: 20%; /* 스크롤바의 길이 */
+    background: #EABDE6; /* 스크롤바의 색상 */
+    background-image: url("img/scroll.png");
+    background-position: center; /* 이미지 정중앙 */
+    background-size: contain;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    /* border-radius: 10px; */
+    margin: 0px -4px 0px 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.5);  /*스크롤바 뒷 배경 색상*/
+    /* border: 4px solid #352B44; */
+    margin: -4px -4px -4px 0px;
+}
+
+
+/* 3. 배경화면 설정 */
+body {
+    /* border: 1px solid red; */
+    display: flex;
+    background-image: url("img/배경화면.jpg");
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    padding: 45px;
+}
+
+
+/* 4. 로고와 창 전체 영역 */
+main {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* 5. 로고 (MY AGORA STATES) */
+img.agoraStates {
+    width: 700px;
+}
+
+img.agoraStates:hover {
+    position: relative;
+    top: 3px;
+    /* margin-top: 5px; */
+}
+
+img.agoraStates:active {
+    position: relative;
+    top: 5px;
+    /* margin-top: 5px; */
+}
+
+
+/* 6. 질문 창과 답변 창 영역 */
+.windowsBox {
+    display: flex;
+    /* border: 1px solid rgb(21, 128, 17); */
+    margin-top: 15px;
+    width: 1120px;
+    height: 600px;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+/* 7-1. 질문 창 전체 영역 */
+section.form__container{
+    /* border: 1px solid #2262b6; */
+    position: relative;
+    z-index: 3;
+    flex-direction: column;
+}
+
+
+/* 7-2-1. 질문 창 상단 */
+.questionBox {
+    display: flex;
+    background-color: #A2B4FE;
+    font-size: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px 0px 15px;
+    border: 4px solid #352B44;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.questionBox.top {
+    width: 440px;
+    height: 40px;
+}
+
+
+/* 7-2-2. 질문 창 상단 버튼 */
+.btns {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    /* display: flex; */
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color:transparent;
+    border: 0px solid #352B44;
+    margin: 0px 0px 0px 8px;
+}
+
+.min {
+    background-image: url("img/버튼_최소화.png");
+}
+
+.max {
+    background-image: url("img/버튼_최대화.png");
+}
+
+.close {
+    background-image: url("img/버튼_닫기.png");
+}
+
+
+
+/* 7-3-1. 질문 창 중단 */
+form.form {
+    display: flex;
+    width: 440px;
+    height: 520px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 4px solid #352B44;
+    border-radius: 0px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    /* justify-content: flex-end; */
+}
+
+/* 7-3-2. 질문 창 텍스트 설정*/
+label {
+    font-size: 24px;
+}
+
+input:focus {
+    background: linear-gradient(135deg, rgb(253, 233, 144, 0.5), rgb(245, 182, 213, 0.5), rgb(162, 180, 254, 0.5));
+    border: 4px solid #352B44;
+    outline: none;
+}
+
+textarea:focus {
+    background: linear-gradient(135deg, rgb(253, 233, 144, 0.5), rgb(245, 182, 213, 0.5), rgb(162, 180, 254, 0.5));
+    border: 4px solid #352B44;
+    outline: none;
+}
+
+/* 7-3-3. 질문 창 중단 이름 입력*/
+input#name {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    align-items: center;
+    width: 360px;
+    height: 60px;
+    border: 3px solid #352B44;
+    border-radius: 20px;
+    padding: 10px;
+    margin:  5px 0px 10px 0px;
+}
+
+
+/* 7-3-4. 질문 창 중단 제목 입력*/
+input#title {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    align-items: center;
+    width: 360px;
+    height: 60px;
+    border: 3px solid #352B44;
+    border-radius: 20px;
+    padding: 10px;
+    margin:  5px 0px 10px 0px;
+}
+
+/* 7-3-5. 질문 창 중단 질문내용 입력*/
+textarea#story {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    /* align-items: center; */
+    width: 360px;
+    height: 140px;
+    border: 3px solid #352B44;
+    border-radius: 20px;
+    padding: 10px;
+    margin:  5px 0px 10px 0px;
+}
+
+/* 7-3-6. 질문 창 중단 등록*/
+input[type="submit"] {
+    display: flex;
+    background-color: rgba(234, 161, 216, 0.5);
+    background-image: url("img/submit.png");
+    background-position: center; /* 이미지 정중앙 */
+    background-size: auto;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width: 360px;
+    height: 80px;
+    border: 3px solid #352B44;
+    border-radius: 20px;
+    padding: 10px;
+    color: rgb(255, 255, 255, 0);
+}
+
+input[type="submit"]:hover {
+    position: relative;
+    background-color: rgba(253, 233, 144, 0.5);
+}
+
+input[type="submit"]:active {
+    position: relative;
+    background-color: rgba(162, 180, 254, 0.5);
+    top: 5px;
+    margin-top: 5px;
+}
+
+/* 7-4. 질문 창 하단 */
+.questionBox.bottom {
+    width: 440px;
+    height: 20px;
+    border: 4px solid #352b44;
+    border-radius: 0px 0px 20px 20px;
+}
+
+/* 7-5. 질문 창 뒤에 이미지 */
+.imgBox {
+    position: absolute;
+    /* width: 440px; */
+    margin: 20px 0px 0px 20px;
+    opacity: 0.7; /* 투명도 */
+}
+
+
+/* 8-1. 답변 창 전체 영역 */
+section.discussion__wrapper {
+    /* border: 1px solid #b700ff; */
+    position: relative;
+    flex-direction: column;
+    z-index: 3;
+}
+
+/* 8-2. 답변 창 상단 */
+.answerBox {
+    display: flex;
+    background-color: #A2B4FE;
+    font-size: 24px;
+    border: 4px solid #352B44;
+    border-radius: 20px 20px 0px 0px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px 0px 15px;
+    position: relative;
+    z-index: 3;
+}
+
+.answerBox.top {
+    width: 600px;
+    height: 40px;
+}
+
+/* 8-3-1. 답변 창 중단 */
+ul.discussions__container {
+    display: flex;
+    width: 600px;
+    height: 520px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 4px solid #352B44;
+    border-radius: 0px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    overflow: auto;
+    z-index: 2;
+}
+
+/* 8-3-2. 질문 등록박스 */
+li.discussion__container {
+    /* border: 1px solid red; */
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.5);
+    align-items: center;
+    width: 500px;
+    height: 200px;
+    border: 3px solid #352B44;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* 8-3-3. 질문 등록박스 프로필 영역 */
+.discussion__avatar--wrapper{
+    /* border: 1px solid blue; */
+    display: flex;
+    /* justify-content:center; */
+    align-items: center;
+    margin-right: 15px;
+}
+
+/* 8-3-4. 질문 등록박스 프로필 사진 */
+.discussion__avatar--image{
+    /* border: 1px solid skyblue; */
+    display: flex;
+    width: 48px;
+    border-radius: 50px;
+}
+
+/* 8-3-5. 질문 등록박스 제목 및 저자/생성일 전체 영역 */
+.discussion__content {
+    /* border: 1px solid orange; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 380px; 
+    margin-right: 10px;
+}
+
+/* 8-3-6. 질문 등록박스 제목 */
+.discussion__title {
+    display: flex;
+    /* border: 1px solid yellow; */
+    padding: 3px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* 8-3-7. 질문 등록박스 저자/생성일 */
+.discussion__information {
+    display: flex;
+    /* border: 1px solid rgb(129, 155, 15); */
+    padding: 3px;
+    font-size: 18px;
+    /* justify-content: flex-end; */
+}
+
+/* 8-4. 답변 창 하단 */
+.answerBox.bottom {
+    width: 600px;
+    height: 20px;
+    border: 4px solid #352B44;
+    border-radius: 0px 0px 20px 20px;
+}
+
+/* 8-5. 답변 창 뒤에 이미지 */
+.imgBox2 {
+    position: absolute;
+    /* width: 440px; */
+    margin: 20px 0px 0px 540px;
+    opacity: 0.7;
+}
