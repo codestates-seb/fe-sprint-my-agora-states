@@ -1,1 +1,255 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    width: 100%;
+    background: linear-gradient(45deg, rgba(65,45,212,1) 0%,rgba(65,45,212,1) 26%,rgba(18,34,86,1) 71%,rgba(18,34,86,1) 100%);
+    font-family: 'Noto Sans KR','Roboto', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+main{
+    width: 70%;
+    max-width: 750px;
+    margin: 10vw;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+}
+main h1{
+    margin: 20px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+}
+
+.discussions__container {
+    row-gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.discussion__container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.discussion__container:hover{
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.discussion__avatar--wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.discussion__avatar--wrapper div{
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+.discussion__content{
+    width: 100%;
+    min-height: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.discussion__title{
+    font-size: 1.2rem;
+    word-break: break-all;
+    margin-bottom: 35px;
+}
+.discussion__answered{
+    font-size: 0.8rem;
+    position: relative;
+}
+.answered::before,.notAnswer::before{
+    font-size: 5px;
+    position: absolute;
+    left: -20px;
+    top: 3px;
+}
+.answered{
+    color: #BDBDBD;
+}
+.answered::before{
+    content: "💬";
+    font-size: 10px;
+}
+.notAnswer::before{
+    content: "🟠";
+}
+.discussion__avatar--image{
+    width: 35px;
+    border-radius: 50%;
+}
+.discussion__time, .discussion__btn-group {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #BDBDBD;
+}
+.discussion__btn-group button{
+    color: #BDBDBD;
+    background: unset;
+    border: none;
+    outline: unset;
+    cursor: pointer;
+}
+.discussion__btn-group button:hover{
+    text-decoration: underline;
+}
+.discussion__edit-btn{
+    margin-right:10px;
+}
+.pagination-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    justify-content: center;
+  }
+.pagination-number,
+.pagination-button{
+font-size: 1.1rem;
+background-color: transparent;
+border: none;
+margin: 0.25rem 0.25rem;
+cursor: pointer;
+height: 2.5rem;
+width: 2.5rem;
+border-radius: .2rem;
+color: #fff;
+}
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+background: #12225662;
+}
+.pagination-button.disabled{
+color: #616161;
+}
+.pagination-number.active {
+background: #122256;
+}
+.hidden{
+display: none!important;
+}
+.form__container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+gap: 20px;
+background: rgba(255, 255, 255, 0.03);
+border-radius: 10px;
+backdrop-filter: blur(7.6px);
+-webkit-backdrop-filter: blur(7.6px);
+color: #fff;
+padding: 15px;
+margin: 80px 0;
+}
+input[type="text"],textarea{
+    background: unset;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-size: 1.2rem;
+    outline: unset;
+}
+textarea{
+    resize: none;
+    width: 100%;
+    min-height: 150px;
+    font-family: 'Noto Sans KR','Roboto', sans-serif;
+}
+.form__input--name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.form__input--name div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.form__input--title,.form__textbox{
+    width: 100%;
+}
+#form_name{
+    width: 200px;
+}
+#form_title{
+    width: 100%;
+    height: 35px;
+    margin-top: 20px;
+}
+.submitBtn{
+    background: #00796B;
+    border: none;
+    outline: unset;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 15px;
+    border-radius: 10px;
+}
+.submitDisabled{
+    background-color: #616161;
+    color: #9E9E9E;
+}
+.fail-msg{
+    color: red;
+    font-size: 0.8rem;
+}
+.modal {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    color: #fff;
+    z-index: 1;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+}
+.modal__container{
+    /* background: linear-gradient(45deg, rgba(65,45,212,1) 0%,rgba(65,45,212,1) 26%,rgba(18,34,86,1) 71%,rgba(18,34,86,1) 100%); */
+    background-color: rgba(65,45,212,1);
+    width: 70%;
+    max-width: 750px;
+    margin: 10vw;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+}
+.modal__container .discussion__body{
+    overflow-y: scroll;
+    max-height: 500px;
+}
