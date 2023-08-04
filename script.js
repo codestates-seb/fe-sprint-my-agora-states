@@ -338,7 +338,6 @@ function addForm2EventListener(form2) {
   })
 };
 
-//페이지 로드시 강제 클릭하기
 displayItems();
 
 document.querySelector('.discussion__title').click()
