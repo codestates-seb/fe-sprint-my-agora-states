@@ -1,3 +1,9 @@
+## My Agora States!
+
+## 배포 시연 화면
+
+https://user-images.githubusercontent.com/113190920/224256471-3282e8c2-6d1e-46fe-9dd5-61cf682b61e3.mp4
+
 ## 배포 링크
 
 https://suemeeeee.github.io/fe-sprint-my-agora-states/
@@ -40,10 +46,6 @@ https://suemeeeee.github.io/fe-sprint-my-agora-states/
 
 - [✅] 모달 창 구현   
 - [✅] 답변 완료 버튼 클릭 시, 답변 페이지로 이동 
-
-### 배포 시연 화면
-
-https://user-images.githubusercontent.com/113190920/224256471-3282e8c2-6d1e-46fe-9dd5-61cf682b61e3.mp4
 
 ### 가장 자랑하고 싶은 기능
 
