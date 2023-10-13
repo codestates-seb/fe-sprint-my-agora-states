@@ -1,1 +1,368 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PyeongChangPeace-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+main {
+  height: 100%;
+}
+
+label {
+  margin-bottom: 0.2rem;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.input {
+  width: 100%;
+  height: 2rem;
+
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(243, 243, 243);
+  font-family: "Montserrat Alternates", sans-serif;
+
+  outline: none;
+  text-indent: 0.5em;
+}
+
+.input-textarea {
+  width: 100%;
+  height: 4rem;
+
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(243, 243, 243);
+  font-family: "Montserrat Alternates", sans-serif;
+
+  outline: none;
+  text-indent: 0.5em;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  width: 100%;
+  height: 2.5rem;
+
+  font-size: 1rem;
+
+  border-radius: 20px;
+
+  background-color: rgba(255, 255, 255, 0.612);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid #fff;
+  transition: 0.2s ease;
+
+  font-family: "Quicksand", sans-serif;
+}
+
+.submit-btn:hover {
+  font-weight: bolder;
+  transform: scale(1.02);
+}
+
+.submit-btn:active {
+  background-color: rgba(255, 255, 255, 0.612);
+  box-shadow: inset 0 15px 35px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid #fff;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(33, 33, 33);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a:hover {
+  color: #325bec;
+}
+.navigator {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+
+  background-color: #c4d18b;
+}
+
+.nav-btn {
+  margin-right: 1rem;
+  border: none;
+  width: fit-content;
+  height: 2rem;
+  border-radius: 15px;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  color: white;
+  background-color: #325bec;
+}
+
+.page-title {
+  color: rgb(26, 26, 26);
+  background-color: #fff5d1;
+  text-align: center;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.discussion__wrapper > h1 {
+  padding-top: 1rem;
+  margin-left: 1.5rem;
+  font-size: 3em;
+  font-family: "PyeongChangPeace-Bold";
+}
+
+.discussion__wrapper > h2 {
+  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  margin-left: 1.5rem;
+
+  font-size: 1em;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.form__container--answer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+
+  display: none;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+
+  display: none;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form__input--wrapper {
+  width: 100%;
+}
+.form__container.show {
+  display: block;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  width: 20rem;
+  height: 25rem;
+
+  padding: 1rem;
+  /* background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15); */
+
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.612);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.form__input--title,
+.form__input--name,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.form__submit {
+  width: 80%;
+
+  margin-top: 0.5rem;
+}
+
+.discussion__wrapper {
+  width: 100%;
+
+  background: url(img/rm218batch4-ning-34.jpg) no-repeat;
+  background-size: cover;
+}
+
+.discussions__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.discussion__container {
+  list-style-type: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1.3rem;
+
+  width: 13rem;
+  height: 16rem;
+  border-radius: 15px;
+  text-align: center;
+  font-family: "Pretendard-Regular";
+
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(5px);
+  z-index: 4;
+  transition: 0.2s ease;
+}
+
+.discussion__container:hover {
+  transform: scale(1.02);
+  background-color: rgba(16 18 27 / 10%);
+}
+
+@media (max-width: 500px) {
+  .discussion__container {
+    margin: 0.5rem;
+    width: 10rem;
+    height: 13rem;
+  }
+}
+
+.discussion__content {
+  flex: 0.25 0.25 auto;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+}
+.discussion__title {
+  width: 100%;
+  white-space: normal;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  height: 2.4em;
+
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.discussion__information {
+  font-size: 0.5rem;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  flex: 0.5 0.5 auto;
+}
+
+.discussion__avatar--image {
+  /* margin: 1rem; */
+
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50px 50px;
+  object-fit: cover;
+}
+
+.discussion__answered {
+  flex: 0.25 0.25 auto;
+  width: 100%;
+  /* padding: 1rem; */
+}
+
+.create-btn {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  border: none;
+  border-radius: 50% 50%;
+
+  font-size: 3rem;
+  color: rgb(156, 156, 156);
+
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(5px);
+  z-index: 5;
+
+  transition: 0.2s ease;
+}
+
+.create-btn:hover {
+  color: rgb(61, 61, 61);
+  transform: scale(1.04);
+}
+
+.answered-btn {
+  width: 80%;
+  height: 1.7rem;
+  border-radius: 30px;
+
+  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(5px);
+  border: 1px solid #fff;
+  z-index: 4;
+  transition: 0.2s ease;
+
+  font-family: "Pretendard-Regular";
+}
+
+.answered-btn:hover {
+  border: 1px solid rgba(16 18 27 / 10%);
+  transform: scale(1.02);
+  background-color: rgba(16 18 27 / 10%);
+}
