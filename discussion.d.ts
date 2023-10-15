@@ -5,7 +5,7 @@ interface Discussion {
   title: string;
   url: string;
   author: string;
-  answer?: Answer | null;
+  answer: Answer | null;
   bodyHTML: string;
 }
 
