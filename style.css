@@ -1,1 +1,239 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+main {
+  margin: 3rem;
+  background-image: url('https://img.itch.zone/aW1nLzQ4NzU2MzQucG5n/315x250%23c/4Ti0%2BG.png');
+  /* color: white; */
+}
+
+h1 {
+  display: flex;
+  flex-grow: 5;
+  justify-content: space-evenly;
+  background-image: url('https://i.pinimg.com/originals/30/66/57/306657b59a3a5283e596d29aaec92145.png');
+  /* background-image: url('https://wallpapers.com/images/hd/hd-pacman-qtm4064qk559tkc7.jpg'); */
+  background-size: 700px;
+  background-position: right center;
+  background-repeat: no-repeat;
+  width: 100%; /* 너비를 300px로 설정 (원하는 너비로 조절) */
+  color: #fffb00;
+  font-size: 90px;
+  text-align: center; /* 글자를 수평으로 가운데로 배치 */
+  animation: flicker 1.5s infinite alternate;
+}
+
+/* 네온 효과 */
+.neon {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+/* Flickering animation */
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+      0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+
+.discussion__wrapper {
+  margin-right: 14rem;
+  margin-left: 14rem;
+}
+
+.discussion__avatar--image {
+  /* 이미지 크기 조정 */
+  height: 80px;
+  width: 80px;
+}
+
+.discussions__container {
+  font-size: 12pt;
+}
+
+.discussion__container {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  /*공통으로 사용하니까 한쪽 블러 효과 적용 안됨*/
+  .container {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+li a {
+  color: white;
+  font-family: 'MyCustomFont', 'MyCustomFontKor', sans-serif; /* 폰트 여러개 적용 */
+}
+
+li a:hover {
+  color: rgb(210, 211, 203);
+}
+
+.discussion__content {
+  width: 80%;
+  /* 다른 스타일 속성들 */
+}
+
+.discussion__answered img {
+  /* font-size: 10px; */
+  width: 70px;
+  height: 70px;
+}
+
+.form__container {
+  color: white;
+  /* background: rgba(0, 0, 0, 0.8)l; */
+}
+
+.form {
+  display: flex;
+}
+
+.form__input--wrapper {
+  flex-grow: 4;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  font-size: 25px;
+  border-radius: 8%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .container {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+.form__input--name input[type='text'] {
+  /* input을 넣어줘야 함 */
+  margin: 0.5rem;
+  margin-left: 1rem;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  font-family: 'MyCustomFont', 'MyCustomFontKor', sans-serif; /* 폰트 여러개 적용 */
+  color: white;
+  background-image: url('https://media.istockphoto.com/id/1097384996/vector/future-retro-line-background-of-the-80s-vector-futuristic-synth-retro-wave-illustration-in.jpg?s=612x612&w=0&k=20&c=kWQ2d93PX3e8PikUJubHdeziD9ZAG9eg3T9qBDWUiJw=');
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.form__input--title input[type='text'] {
+  margin: 0.5rem;
+  margin-left: 1rem;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  font-family: 'MyCustomFont', 'MyCustomFontKor', sans-serif; /* 폰트 여러개 적용 */
+  color: white;
+  background-image: url('https://media.istockphoto.com/id/1097384996/vector/future-retro-line-background-of-the-80s-vector-futuristic-synth-retro-wave-illustration-in.jpg?s=612x612&w=0&k=20&c=kWQ2d93PX3e8PikUJubHdeziD9ZAG9eg3T9qBDWUiJw=');
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.form__textbox textarea {
+  margin: 0.5rem;
+  margin-left: 1rem;
+  width: 700px;
+  height: 200px;
+  font-size: 20px;
+  font-family: 'MyCustomFont', 'MyCustomFontKor', sans-serif; /* 폰트 여러개 적용 */
+  color: white;
+  background-image: url('https://media.istockphoto.com/id/1097384996/vector/future-retro-line-background-of-the-80s-vector-futuristic-synth-retro-wave-illustration-in.jpg?s=612x612&w=0&k=20&c=kWQ2d93PX3e8PikUJubHdeziD9ZAG9eg3T9qBDWUiJw=');
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.form__textbox label {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__submit input[type='submit'] {
+  flex-grow: 1;
+  margin: 2rem;
+  margin-right: 20rem;
+  margin-top: 5.5rem;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR55KVnSfOdu5LJ9FxDtLhL88VeE9YKw9R-iw&usqp=CAU');
+  /* background-image: url('s.png'); */
+  background-position: center;
+  background-size: contain;
+  width: 170px;
+  height: 170px;
+  font-family: 'MyCustomFontBold';
+  font-size: 30px;
+  color: white;
+  border-radius: 50%;
+}
+
+/* 버튼 클릭시 효과 */
+.form__submit input[type='submit']:hover {
+  box-shadow: 0 0 30px #ffffff;
+  outline-offset: 5px;
+  outline: 2px solid #ffffff;
+}
+
+/* 외부 폰트 사용*/
+@font-face {
+  font-family: 'MyCustomFont'; /* 사용자 정의 글꼴 이름 지정 */
+  src: url('fonts/PixelifySans-VariableFont_wght.ttf') format('truetype'); /* 글꼴 파일의 경로 및 형식 지정 */
+  font-weight: normal; /* 글꼴 두껍기 설정 */
+  font-style: normal; /* 글꼴 스타일 설정 */
+}
+
+@font-face {
+  font-family: 'MyCustomFontBold';
+  src: url('fonts/PixelifySans-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyCustomFontKor';
+  src: url('fonts/SongMyung-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'MyCustomFont', sans-serif; /* 웹 페이지의 글꼴 설정 */
+}
