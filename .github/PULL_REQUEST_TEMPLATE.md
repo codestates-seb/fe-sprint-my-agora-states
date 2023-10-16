@@ -69,3 +69,29 @@ Github Page 배포 링크를 아래 작성합니다.
 ### 도움을 받고 싶은 부분
 
 > 적어주세요
+
+
+<!-- //새로운 질문 추가 구현하기
+1.서브밋 버튼을 쿼리셀렉터로 가져온 후 변수에 할당한다.
+
+const submitButton = document.querySelector('.form__submit>input')
+
+ㅈ.버튼의 클릭 이벤트에할당할 함수를 작성한다
+
+const clickButton(event){
+
+}?,,,
+
+3.인풋에 입력된 작성자,제목,내요을 쿠러ㅣ셀렉터로 가져온다.
+const formName = document.getElementById('name').value;
+    const formTitle = document.getElementById('title').value;
+    const formStory = document.getElementById('story').value;
+4.정보들을 모아 하나의 디스커션 객체로만든다
+
+5.ul 태그 안 자식 ㅂ태그 (기존의 디스커션 )들을 모두 지운다.
+..?...............remove..?...................
+
+
+
+6.디스커션 배열에 만들어놓은 객체를 추가한다.
+7.랜더 메서드를 다시 호추ㅜㄹ하여 새로운 객체가 추가된 배열을 랜더링하게 만든다. -->
