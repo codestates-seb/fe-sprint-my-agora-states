@@ -1,1 +1,483 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    padding: 10px;
+    background-color: black;
+
+
+}
+
+.screen {
+    background: linear-gradient(90deg, #74ebd5, #ACB6E5);
+    border-radius: 50px;
+    margin: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.1px);
+    -webkit-backdrop-filter: blur(0.1px);
+}
+
+main {
+    border-radius: 0.5rem;
+    background-color: black;
+
+
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+div {
+    /* border: 1px solid black; */
+}
+
+.bar {
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(0, 0, 0);
+    margin-top: 0;
+    border-radius: 0% 0% 50% 50%;
+    width: 60%;
+    color: white;
+    padding-bottom: 20px;
+    flex-grow: 5;
+    font-size: 50pt;
+    font-family: 'Gowun Batang', serif;
+    font-weight: 1000;
+    text-shadow: 0 0 10px rgba(255, 223, 186, 0.7);
+}
+
+
+
+
+
+.onoff div {
+    display: flex;
+    gap: 16px;
+
+}
+
+.onoff>div>h2 {
+    margin: 0;
+    font-size: 35px;
+    /* animation: flameAnimation 1s ease-in-out infinite; */
+}
+
+/* @keyframes flameAnimation {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+} */
+
+.onoff {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 15%;
+    justify-content: center;
+
+}
+
+
+
+#red {
+    color: #FF5A5A;
+    filter: drop-shadow(0px 0px 1px rgb(243, 87, 87));
+
+}
+
+#yellow {
+    color: #FFE641;
+    filter: drop-shadow(0px 0px 1px rgb(255, 244, 45));
+}
+
+#green {
+    color: #49a449;
+    filter: drop-shadow(0px 0px 1px rgb(130, 180, 31));
+}
+
+h2 {
+    flex-grow: 1;
+}
+
+.form_containe {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.49);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    box-shadow: 2px 2px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gowun Batang', serif;
+    font-weight: 900;
+    margin: 5px;
+    padding: 20px;
+    font-size: 20pt;
+}
+
+.form__input--name {
+    display: flex;
+}
+
+label {
+    margin-right: 20px;
+}
+
+.form__textbox {
+    display: flex;
+    align-items: baseline;
+}
+
+
+
+
+
+
+
+
+
+input[type="text"] {
+    font-size: 15pt;
+}
+
+input[type="title"] {
+    font-size: 15pt;
+}
+
+input[type="question"] {
+    font-size: 15pt;
+}
+
+.form__container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10px;
+
+}
+
+.form__submit {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+
+}
+
+
+
+input[type="submit"] {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #2b2323;
+    background: linear-gradient(90deg, #d9a7c7, #fffcdc);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    transition: background-color 0.1s;
+}
+
+input[type="submit"]:active,
+input[type="submit"]:focus {
+    background: linear-gradient(#00b09b, #96c93d);
+    box-shadow: 0 0 10px 3px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+
+
+.discussion__wrapper {
+    display: flex;
+    margin: 1rem;
+    justify-content: space-evenly;
+
+}
+
+.discussion__avatar--wrapper {
+    flex-basis: 20%;
+    width: 160px;
+    height: 160px;
+    flex-grow: 1;
+
+
+}
+
+.discussion__content {
+    flex-basis: 60%;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-family: 'Gowun Batang', serif;
+    flex-grow: 3;
+    text-align: center;
+
+
+}
+
+.discussion__answered {
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 20%;
+    font-size: 40pt;
+
+
+
+}
+
+
+.discussion__avatar--image {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin: 5px;
+    padding: 10px;
+
+
+
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+
+.discussion__container {
+    background: rgba(255, 255, 255, 0.49);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border: 1px solid rgba(255, 255, 255, 0.29);
+    display: flex;
+    justify-content: space-between;
+    /* border : 2px solid black; */
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    margin: 20px;
+}
+
+.form__submit:hover {
+    position: relative;
+    top: 0px;
+    transition: top 0.1s;
+}
+
+.form__submit:hover {
+    top: -5px;
+}
+
+.discussion__Information {
+    font-size: 15pt;
+    font-family: 'Gowun Batang', serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
+
+}
+
+.discussion__title {
+    font-family: 'Gowun Batang', serif;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 24px;
+    color: #0174c1;
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
+    transition: font-size 0.3s;
+
+}
+
+.discussion__title :hover {
+    color: #ff684d;
+    /* 마우스를 올릴 때 글자 색상 변경 */
+
+    /* 글자 크기 애니메이션 효과를 추가합니다. */
+
+    font-size: 28px;
+}
+
+.battery {
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    background: #ddd;
+    border: 2px solid #333;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
+
+
+}
+
+.battery-body {
+    width: 90%;
+    height: 80%;
+    background: #333;
+    border-radius: 3px;
+    margin: 5%;
+    position: relative;
+}
+
+.battery-level {
+    width: 70%;
+    height: 100%;
+    background: #4CAF50;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bar {
+    display: flex;
+    flex-direction: row;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+
+.bar>h1>span {
+
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00f, 0 0 70px #00f, 0 0 80px #00f, 0 0 100px #00f, 0 0 150px #00f;
+    animation: glow 3s infinite alternate;
+    animation: blink 3s infinite alternate;
+    margin-bottom: 10px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00f, 0 0 70px #00f, 0 0 80px #00f, 0 0 100px #00f, 0 0 150px #00f;
+    }
+
+    100% {
+        text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #00f, 0 0 80px #00f, 0 0 90px #00f, 0 0 120px #00f, 0 0 170px #00f;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+#topButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s
+}
+
+#topButton:hover {
+    background-color: #ff6600;
+
+}
+
+/* CSS */
+.button-85 {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.button-85:before {
+    content: "";
+    background: linear-gradient(45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
