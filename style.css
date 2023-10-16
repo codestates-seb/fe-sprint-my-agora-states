@@ -1,1 +1,199 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: 'GmarketSansMedium';
+    background-color: #FF8080;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    gap : 10px;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width : 540px;
+    border: 1px solid gray; 
+    box-shadow: 12px 12px 5px 0.5px #FFCF96;
+    background-color: white;
+    border-radius: 15px;
+}
+
+body {
+    margin: 0px;
+}
+label {
+    display: inline-block;
+    width: 180px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__container {
+    width: 540px;
+    background-color: white;
+    border: 1px solid gray; 
+    box-shadow: 12px 12px 5px 0.5px #FFCF96;
+    border-radius: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+.form__textbox {
+    display: flex;
+    align-items: center;
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.form__input--name, .form__input--title, .form__textbox {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+input, textarea {
+    flex-grow : 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin : 0;
+}
+
+.form__submit > input{
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    width: 99%;
+    font-weight: bold;
+}
+
+/* 버튼 호버 상태 스타일 */
+.form__submit input:hover {
+    background-color: #70c2f8;
+}
+
+.pagenation-container {
+    display: flex;
+    justify-content: center;
+}
+
+.number-buttons {
+    display: flex;
+}
+
+.discussion__avatar--wrapper {
+    overflow : hidden;
+    display : flex;
+    align-items : center;
+    flex-shrink: 0;
+    width : 48px;
+    height: 48px;
+    border-radius : 70%;
+}
+
+.discussion__content {
+    flex-grow: 4;
+}
+
+.discussion__answered {
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.discussion__avatar--wrapper > img {
+    width : 48px;
+    height: 48px;
+    object-fit: cover;
+}
+
+.discussion__information {
+    display: flex;
+    justify-content: flex-end;
+}
+
+a {
+    color : inherit;
+    text-decoration: none;
+}
+
+.prev-button, .next-button {
+   display: flex;
+   align-items: center;
+}
+
+.pagenation-container {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap : 3px;
+}
+
+/* 페이지네이션 아이템(버튼) 스타일 */
+.number-button, .prev-button, .next-button {
+    margin: 5px;
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 활성화된 페이지 버튼 스타일 */
+.number-button.active {
+    background-color: #fff;
+    color: #3498db;
+    border: 1px solid #3498db;
+    box-shadow: 5px 5px 5px 0.5px gray;
+}
+
+/* Hover 상태 스타일 */
+.number-button:hover, .prev-button:hover, .next-button:hover {
+    background-color: #555;
+    border-color: #555;
+}
