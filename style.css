@@ -1,1 +1,124 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    margin: 0;
+    background-image: url(https://i.pinimg.com/originals/43/99/75/4399753f49df177166b108173415662d.jpg);
+    background-size: cover;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+div {
+    border: none;
+}
+
+ul {
+    padding: 0px;
+    list-style: none;
+}
+
+.form__container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin: 0px 420px 10px 370px;
+    border-radius: 10px;
+
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 700px;
+    /* 스크롤 가능한 영역의 너비 설정 */
+    height: 450px;
+    /* 스크롤 가능한 영역의 높이 설정 */
+    overflow: auto;
+    /* 스크롤 표시 및 스크롤 가능하게 설정 */
+    position: relative;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    border: 0.5px solid white;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #ffffff2a;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+
+}
+
+.discussion__content {
+    padding: 10px;
+    margin: 5px;
+}
+
+/* 프로필 이미지값 */
+.discussion__avatar--image {
+    width: 80px;
+    border-radius: 100px;
+    border: 1px;
+}
+
+h1 {
+    font-size: 50px;
+    color: white;
+    background-color: #d0c6e9;
+    border-radius: 50px 50px 0px 0px;
+}
+
+label {
+    display: flex;
+    font-size: 25px;
+    background: -webkit-linear-gradient(#a083e7, #5427c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.222);
+    margin: 0px 350px;
+    border-radius: 50px;
+}
+
+input[type=submit] {
+    background-color: #d0c6e9;
+    color: white;
+    border: none;
+    width: 600px;
+    height: 30px;
+
+}
+
+input[type=submit]:hover {
+    background-color: #ab96e2;
+}
+
+input[type=text] {
+    width: 598px
+}
+
+input[type=submit]:active {
+    background-color: #6e49ca;
+
+}
+
+.discussion__answered {
+    font-size: 50px;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: gray;
+}
