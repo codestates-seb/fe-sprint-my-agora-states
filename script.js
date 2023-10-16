@@ -57,7 +57,7 @@ const convertToDiscussion = (obj) => {
   const timeElement = document.createElement('span');
   timeElement.textContent = currentTime;
   timeElement.className = 'discussion__time';
-  //========================================================================================
+  //=============================================================================================
 
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
