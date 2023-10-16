@@ -1,1 +1,176 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  /* height: 100vh; */
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  /* border: 1px solid red; */
+  width: 600px;
+  /* display: flex;
+  justify-content: center; */
+  /* flex-direction: column; */
+  background-color: rgb(30, 29, 29);
+  color: white;
+  /* align-items: center; */
+
+}
+
+
+
+/* 상단 제목 */
+main > h1 {
+    color: mintcream;
+    /* border: 1px solid red; */
+    text-align: center;
+    text-shadow: 2px 1px 1px rgb(139, 8, 30) ;
+}
+
+
+/* 댓글 입력폼 부분 */
+.form__container {
+  /* border: 1px solid white; */
+  padding: 16px;
+}
+
+.form__input--name, .form__input--title, .form__textbox {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding: 2px;
+
+}
+
+.form label {
+  /* border: 1px solid white; */
+  width: 150px;
+  /* 라벨이 인라인블럭이라 가로조절이 안되서 인라인블럭으로 변경해줌 */
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+.form__container input {
+  display: inline-block;
+  width: 440px;
+  /* padding: 0; */
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 5px;
+  margin: 0;
+
+}
+
+.form__container textarea {
+  display: inline-block;
+  width: 440px;
+  min-height: 50px;
+  outline: none !important;
+  box-shadow: none !important;
+  /* !important 처리하면 다른 효과 들어가는거 방지하고 현재 규칙을 우선으로 처리함 */
+  padding: 5px;
+  margin: 0;
+  resize: none;
+  
+}
+
+/* 퀘스천부분 가운데오게 */
+.form__textbox {
+  /* display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0; */
+}
+
+
+
+/* 댓글 저장버튼 부모디브 */
+
+.form__submit {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  margin: 10px 0 2px 0;
+  
+  
+}
+
+
+/* 댓글 저장 버튼 */
+
+.form__submit input {
+  background-color: pink;
+  border: 1px dotted hotpink;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.form__submit input:hover {
+  background-color: rgb(242, 33, 138);
+}
+
+.form__submit input:focus {
+  background-color: rgb(131, 28, 80);
+}
+
+
+
+
+
+
+/* 질문창상위부분 */
+.discussion__wrapper {
+  border: 1px solid red;
+}
+
+.discussion__wrapper img {
+  width: 80px;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+/* 코치님이하신것 */
+.discussions__container{
+  margin: 1rem;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.discussions__content {
+
+}
+
+
+.discussion__container{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(255, 255, 255);
+  align-items: center;
+  padding:  3px 5px 5px 5px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.discussion__content a:link, a:visited {
+  color:rgb(234, 234, 234);
+  text-align: center;
+  text-shadow: 2px 1px 1px rgb(139, 8, 30) ;
+  text-decoration: none;
+}
