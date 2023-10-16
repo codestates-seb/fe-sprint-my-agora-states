@@ -1,1 +1,245 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+/* 모달창 만들기 */
+.modal__container {
+    display: none; /* 모달창 기본 숨기기 */
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__container.show{
+    display: flex; /* 질문하기 버튼 클릭 시 모달창 오픈*/
+}
+
+.form__container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 22px 70px 4px;
+}
+.form__input--wrapper > div{
+    display: flex;
+    flex-direction: column;
+}
+.form__input--wrapper > div > input{
+  height: 3vh;
+}
+.form__textbox > textarea{
+    width: 40vw;
+    height: 20vh;
+}
+/* 모달창 제출하기 버튼 디자인 */
+.form__submit > input{
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 10px;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 1.8em;
+}
+/* 모달창 제출하기 버튼 디자인 - 포인터 없을때 숨기기 */
+.submit:disabled {
+  pointer-events: none;
+}
+/* 모달창 제출하기 버튼 디자인 - 마우스 오버시 색변화 */
+.submit:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+/* 모달창 제출하기 버튼 디자인 - 클릭시 움직임 */
+.submit:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* 모달창 라벨 폰트 */
+div>div>label {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 1rem;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 헤더 디자인 */
+header {
+    height: 20vh;
+    border: 1px solid black;
+    background-color: #1A1A1A;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    /* font-size: 1.5em;
+    font-family: monospace;
+    font-weight: bold; */
+    width: 850px;
+}
+
+/* 헤더 내 요소(제목, 별점, 질문하기버튼) */
+header > * {
+    margin: 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 제목 - My Agora States */
+.mainTitle {
+    padding-left: 10px;
+    font-size: 3rem;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* 별점 버튼 */
+.myScore {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* 질문하기 버튼 */
+.question__btn {
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-top: 60px;
+    min-width: 10vw;
+    height: 5vh;
+    border: none;
+    background-color: #F4D160;
+    font-size: 2rem;
+}
+
+.question__btn:hover,
+.question__btn:focus{
+    background-color: #FBEEAC;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    
+}
+.discussion__avatar--wrapper>img {
+    border-radius: 100%;
+    width: 65px;
+    height: 65px;
+    
+}
+
+/* div {
+    border: 1px solid blue;
+} */
+
+.discussions__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 850px;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-basis: 200px;
+    max-width: 265px;
+    height: 265px;
+    word-wrap: break-word;
+    padding: 10%;
+    border-radius: 10%;
+    box-shadow: #8EACCD 0px 20px 20px;
+    line-height: 1.2;
+    background-color: #F7F3cc;
+}
+
+ul {
+    display: flex;
+    flex-flow: wrap;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    background-color: #D2E0FB;
+}
+
+li {
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover,
+a:focus {
+    color: #1d5d9b;
+    font-weight: bold;
+}
+
+#previousButton,
+#nextButton{
+    position: relative;
+    top: 940px;
+    font-size: 20px;
+    color: #000;
+    border: none;
+    background-color: #fff;
+}
+#previousButton:hover,
+#nextButton:hover{
+    color: red;
+}
+footer{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
