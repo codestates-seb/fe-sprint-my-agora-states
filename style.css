@@ -1,1 +1,233 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+html {
+    font-family: 'Tilt Neon', sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(11, 36, 71);
+    font-family: 'Tilt Neon', sans-serif;
+
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* div {
+    border: 1px solid blue;
+} */
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+.discussions__container {
+
+    margin: 1rem;
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    /* border: 7px solid rgb(195, 224, 247);
+    border-radius: 30px; */
+    align-items: center;
+    flex-direction: column;
+    background: rgba(155, 147, 233, 0.48);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.4px);
+    -webkit-backdrop-filter: blur(1.4px);
+    border: 1px solid rgba(155, 147, 233, 0.54);
+    border-radius: 30px;
+
+}
+
+.discussions__container {
+    display: flex;
+    gap: 3em;
+    flex-direction: column;
+
+    border-radius: 30px;
+
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    text-shadow: 4px 4px 0px #1565C0, 8px 8px 0px #42A5F5, 12px 12px 0px #E3F2FD;
+
+}
+
+img {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 30px;
+}
+
+.form__input--wrapper>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+
+}
+
+.form__input--wrapper>div:last-child {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form__textbox label {
+    display: flex;
+    flex-direction: column;
+    height: 5vh;
+}
+
+.form__submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 5vh;
+
+
+}
+
+#story {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    /* background-color: rgb(165, 215, 232); */
+    font-weight: bold;
+    background: rgba(155, 147, 233, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.4px);
+    -webkit-backdrop-filter: blur(8.4px);
+    border: 1px solid black;
+    color: rgb(195, 224, 247);
+    font-family: 'Nanum Gothic Coding', monospace;
+
+
+
+}
+
+.form__input--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: rgb(11, 36, 71);
+    flex-wrap: wrap;
+
+
+
+}
+
+/* .form__input--wrapper div:last-child {
+    flex-direction: column;
+} */
+
+.inside {
+    display: flex;
+    flex-direction: row;
+    height: 7vh;
+
+}
+
+.inside>div {
+    flex-grow: 1;
+    display: flex;
+}
+
+.inside>div>input {
+    flex-grow: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    color: white;
+    font-family: 'Nanum Gothic Coding', monospace;
+
+}
+
+.form__input--name label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__input--title label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__textbox label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#story {
+    height: 20vh;
+    background: rgba(155, 147, 233, 0.48);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.4px);
+    -webkit-backdrop-filter: blur(1.4px);
+    border: 1px solid rgba(155, 147, 233, 0.54);
+
+
+}
+
+.form__submit input {
+    width: 16vh;
+    font-weight: bold;
+    font-size: 16px;
+    background: rgba(155, 147, 233, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.4px);
+    -webkit-backdrop-filter: blur(8.4px);
+    border: 1px solid rgba(155, 147, 233, 0.32);
+    color: white;
+
+
+}
+
+.form__submit>input:hover {
+    background-color: gold;
+}
+
+input {
+
+    background: rgba(155, 147, 233, 0.48);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.4px);
+    -webkit-backdrop-filter: blur(1.4px);
+    border: 1px solid black;
+
+}
+
+.discussion__title {
+    font-size: 23px;
+    height: 23px;
+
+}
+
+.discussion__answered {
+    font-size: 30px;
+}
+
+.discussion__title>div {
+    color: white;
+    font-size: 15px;
+    text-align: end;
+}
