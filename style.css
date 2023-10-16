@@ -115,13 +115,16 @@ main > h1 {
 
 /* 질문창상위부분 */
 .discussion__wrapper {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .discussion__wrapper img {
   width: 80px;
+  height: 80px;
   padding: 10px;
   border-radius: 40px;
+  object-fit: cover;
+
 }
 
 /* 코치님이하신것 */
@@ -130,7 +133,6 @@ main > h1 {
   font-size: 16px;
   font-weight: 400;
 }
-
 
 
 .discussion__container {
@@ -143,13 +145,27 @@ main > h1 {
   border-radius: 10px;
 }
 
+.discussion__content--delete {
+  border: none;
+  display: inline-block;
+  width: 70px;
+  height: 100px;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background-color: rgb(30, 29, 29);
+  font-size: 1rem;
+}
+
+
+
 ul {
   padding: 0;
   list-style: none;
 }
 .discussion__content {
   width: 480px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
 }
 
