@@ -1,1 +1,152 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    margin: 0;
+    display: flex;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: '배달의민족 도현';
+}
+
+a {
+    color: orange;
+    text-decoration: none;
+    text-shadow: 1px 1px #ff0000;
+}
+
+input[type=text] {
+    border: none;
+    width: 42rem;
+    height: 3rem;
+    padding: 1rem;
+
+}
+
+textarea {
+    border: none;
+    width: 42rem;
+    height: 10rem;
+    padding: 1rem;
+    margin-bottom: 0;
+}
+
+input[type=submit] {
+    border: solid;
+    background-color: white;
+    width: 7rem;
+    height: 2rem;
+    padding: 1px;
+    margin: 1rem 0rem 1rem 1rem;
+    text-align: center;
+    box-shadow: 4px 4px black;
+}
+
+
+.form__submit {
+
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+
+    background-color: #ffffff00;
+    border: none;
+    border-radius: 15px;
+
+}
+
+.form__submit:active {
+    background-color: rgba(255, 0, 0, 0)(255, 255, 255);
+
+    transform: translateY(4px);
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+
+}
+
+
+h1 {
+    text-align: center;
+    color: orange;
+    font-size: 5rem;
+    text-shadow: 2px 2px #ff0000;
+}
+
+.form__container {
+    flex-grow: 1;
+
+}
+
+
+
+.form {
+    margin: 1rem 11rem;
+    font-size: 2rem;
+    border: white 4px;
+    background-color: orange;
+    color: white;
+    text-shadow: 2px 2px #ff0000;
+}
+
+
+
+.form__input--wrapper div {
+    padding: 1rem 1rem 0rem 1rem;
+
+
+
+}
+
+
+.discussions__container {
+    margin: 1rem 10rem;
+
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    border: orange dotted 4px;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+
+
+}
+
+
+img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: orange 4px solid;
+    padding: 3px;
+}
+
+li .discussion__avatar--wrapper {
+    flex-grow: 60px;
+
+
+}
+
+li .discussion__content {
+    padding: 1rem;
+    flex-basis: 7;
+    display: flex;
+    /* border: orange dotted 4px; */
+    flex-direction: column;
+    flex-grow: 1;
+
+}
+
+.nameDate {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nameDate div {
+    margin: 4px;
+}
