@@ -1,4 +1,4 @@
-{/* <li class="discussion__container">
+/* <li class="discussion__container">
 <div class="discussion__avatar--wrapper">
   <img class="discussion__avatar--image"
     src="https://avatars.githubusercontent.com/u/12145019?s=64&u=5c97f25ee02d87898457e23c0e61b884241838e3&v=4"
@@ -11,7 +11,8 @@
   <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
 </div>
 <div class="discussion__answered"><p>☑</p></div>
-</li> */}
+</li> */
+agoraStatesDiscussions.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
 
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 console.log(agoraStatesDiscussions);
@@ -25,6 +26,41 @@ console.log(agoraStatesDiscussions);
 //   answer?: Answer | null;
 //   bodyHTML: string;
 // }
+
+const deleteQuestion = (questionId) => {
+  let newDiscussions = []
+  let target;
+  for (let i = 0; i < agoraStatesDiscussions.length; i++) {
+    if (agoraStatesDiscussions[i].id !== questionId) {
+      newDiscussions.push(agoraStatesDiscussions[i])
+      // target = i;
+      // let tmp1 = agoraStatesDiscussions.slice(0, target);
+      // let tmp2 = agoraStatesDiscussions.slice(target + 1);
+      // let newArr = [...tmp1, ...tmp2];
+      // agoraStatesDiscussions = newArr;
+      // localStorage.setItem("storedData", JSON.stringify(newArr));
+      // // 페이지 수 갱신, 삭제된 데이터가 있는 페이지를 나타내게 수정
+      // totalPages = getTotalPageCount();
+      // currentPage = getPageNumber(i);
+      // // console.log({ i });
+      // // console.log({ currentPage });
+      // currentGroup = updatePageGroup();
+      // location.reload();
+      // break;
+    }
+    else {
+      target = i;
+    }
+  }
+  agoraStatesDiscussions = newDiscussions;
+  localStorage.setItem("storedData", JSON.stringify(agoraStatesDiscussions));
+  totalPages = getTotalPageCount();
+  currentPage = getPageNumber(target);
+  currentGroup = updatePageGroup();
+  setPageButtons();
+  setPageOf(currentPage);
+
+};
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 // 위 주석 코드 구조와 동일 , div 3개 생성
@@ -57,6 +93,15 @@ const convertToDiscussion = (obj) => {
   discusstionTitle.append(discussionAnchor);
     // 제목부분을 추가함
   discussionContent.append(discusstionTitle);
+
+    // 삭제 버튼
+    const deleteQuestionButton = document.createElement('input');
+    deleteQuestionButton.type = 'button';
+    deleteQuestionButton.value = '삭제'; 
+    deleteQuestionButton.className = 'deleteButton'
+  
+    deleteQuestionButton.addEventListener('click', () => deleteQuestion(obj.id));
+    discussionContent.append(deleteQuestionButton);
     
     // 3. 작성자 정보 + 작성일 담을 div 태그 생성
     const discussionInformation = document.createElement('div');
@@ -93,22 +138,21 @@ const render = (element, arr) => {
   for (let i = 0; i < arr.length; i++) {
     element.append(convertToDiscussion(arr[i]));
   }
-  return;
 };
 
 // 날짜 형식 바꿔주는 함수
 function formatDate(inputDate) {
 
-const date = new Date(inputDate);
-const options = {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: true
-};
+  const date = new Date(inputDate);
+  const options = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  };
 
-const localDateStr = new Intl.DateTimeFormat('default', options).format(date);
+  const localDateStr = new Intl.DateTimeFormat('default', options).format(date);
   return localDateStr;
 }

@@ -51,9 +51,14 @@ main {
     border-radius: 15px;
 }
 
+.deleteButton {
+    width: 100px;
+}
+
 form {
     display: flex;
     flex-direction: column;
+    padding:10px;
 }
 .form__textbox {
     display: flex;
@@ -133,7 +138,7 @@ li {
 }
 
 .discussion__content {
-    flex-grow: 4;
+    flex-grow: 1;
 }
 
 .discussion__answered {
@@ -167,7 +172,7 @@ a {
 .pagenation-container {
     display: flex;
     list-style: none;
-    padding: 0;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     gap : 3px;

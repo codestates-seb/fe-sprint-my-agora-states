@@ -25,7 +25,8 @@ let currentGroup = updatePageGroup(); // 현재 페이지 그룹
 
 // 이전 버튼 클릭 시
 document.querySelector('.prev-button').addEventListener('click', () => {
-    if (currentGroup > 1) {
+  if (currentGroup > 1) {
+    setPageButtons();
       currentGroup--;
       currentPage = (currentGroup - 1) * PAGE_PER_GROUP + 1;
       setPageButtons();
@@ -35,7 +36,8 @@ document.querySelector('.prev-button').addEventListener('click', () => {
 
 // 다음 버튼 클릭 시
 document.querySelector('.next-button').addEventListener('click', () => {
-    if (currentGroup < Math.ceil(totalPages / PAGE_PER_GROUP)) {
+  if (currentGroup < Math.ceil(totalPages / PAGE_PER_GROUP)) {
+    setPageButtons();
       currentGroup++;
       currentPage = (currentGroup - 1) * PAGE_PER_GROUP + 1;
       setPageButtons();
@@ -110,14 +112,12 @@ const setPageButtons = () => {
     }
 };
 
-let storedData = JSON.parse(localStorage.getItem("storedData") || "[]");
+let storedData = localStorage.getItem("storedData");
 const addAdditionalData = () => {
-    storedData = JSON.parse(localStorage.getItem("storedData") || "[]");
-    if (storedData.length !== 0) {
-        for (let i = 0; i < storedData.length; i++) {
-            agoraStatesDiscussions.push(storedData[i]);
-        }
-    }
+    storedData = localStorage.getItem("storedData");
+  if (storedData !== null) {
+    agoraStatesDiscussions = JSON.parse(storedData);
+  }
 };
 
 const goToLastPage = () => {
@@ -141,12 +141,18 @@ const goToFirstPage = () => {
   setPageButtons();
   setPageOf(currentPage);
 };
+
+const getPageNumber = (index) => {
+  // 페이지 번호는 1부터 시작하므로 +1을 해줍니다.
+  return Math.floor(index / PAGE_PER_GROUP) + 1;
+};
   
 window.onload = function () {
-    addAdditionalData(); // html 로드 시 바로 로컬스토리지에 추가 데이터가 있는지 검사하고 있으면 추가하도록
+  addAdditionalData(); // html 로드 시 바로 로컬스토리지에 추가 데이터가 있는지 검사하고 있으면 추가하도록
+  // 페이지 버튼 생성
+  setPageButtons();
+  // 현재 페이지 보여주기
+  setPageOf(currentPage);
 };
 
-// 초기 페이지 버튼 생성
-setPageButtons();
-// 1페이지 기본으로 보여주기
-setPageOf(1);
+

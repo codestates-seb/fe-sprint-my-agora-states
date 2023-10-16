@@ -34,13 +34,18 @@ const create = (obj) => {
     avatarUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUhXhN5wgRcVa3R6WBEoMrT9MfCsyOl4OVpXNO6t_2cw&s"
   };
   obj.push(question);
-  storedData.push(question);
+  storedData = obj;
   localStorage.setItem("storedData", JSON.stringify(storedData));
 
   // 정보가 들어갔으니 페이지 정보를 갱신
   totalPages = getTotalPageCount(); // 총 페이지 수 갱신
   currentPage = totalPages; // 가장 마지막 페이지 정보를 가지고 있음
   currentGroup = updatePageGroup(); // 가장 마지막 페이지의 그룹을 가르킴
+
+  // 입력 폼 값 초기화
+  document.getElementById('name').value = '';
+  document.getElementById('title').value = '';
+  document.getElementById('story').value = '';
 
   // 마지막 페이지를 화면에 출력
   // 페이지 버튼 업데이트
