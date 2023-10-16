@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Agora States</title>
-  <link rel="stylesheet" href="style copy.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -31,15 +31,13 @@
             <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
           </div>
         </div>
-        <button id="submit">Submit</button>
-        
-           value="submit">
+        <div class="form__submit">
+          <input type="submit" value="submit">
         </div>
       </form>
     </section>
     <section class="discussion__wrapper">
       <ul class="discussions__container">
-        
         
       
       </ul>
@@ -51,49 +49,5 @@
 <script src="script copy.js"></script>
 
 </html>
-<a href="index copy.html">다음 페이지로 이동</a>
+<a href="next-page.html">다음 페이지로 이동</a>
 <iframe src="other-page.html"></iframe>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입력 정보 저장</title>
-</head>
-<body>
-    <h1>입력 정보 저장</h1>
-    <label for="name">이름:</label>
-    <input type="text" id="name">
-    <br>
-    <label for="name">이메일:</label>
-    <input type="name" id="email">
-    <br>
-    
-    <hr>
-    <h2>저장된 정보:</h2>
-    <p>이름: <span id="savedName"></span></p>
-    <p>이메일: <span id="savedEmail"></span></p>
-
-    <script>
-        const submitButton = document.getElementById("submit");
-        const nameInput = document.getElementById("name");
-        const savedName = document.getElementById("savedName");
-        const savedname = document.getElementById("savedEmail");
-
-        
-   
-
-        // 페이지 로드 시 저장된 정보 불러오기
-        const storedName = localStorage.getItem("name");
-        const storedname = localStorage.getItem("email");
-        if (storedName) {
-            savedName.textContent = storedName;
-        }
-        if (storedname) {
-            savedname.textContent = storedEmail;
-        }
-    </script>
-</body>
-</html>
-<input type="submit" value="Submit" id="submitBtn">
-
