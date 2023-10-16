@@ -22,19 +22,15 @@ main {
   background-color: rgb(30, 29, 29);
   color: white;
   /* align-items: center; */
-
 }
-
-
 
 /* 상단 제목 */
 main > h1 {
-    color: mintcream;
-    /* border: 1px solid red; */
-    text-align: center;
-    text-shadow: 2px 1px 1px rgb(139, 8, 30) ;
+  color: mintcream;
+  /* border: 1px solid red; */
+  text-align: center;
+  text-shadow: 2px 1px 1px rgb(139, 8, 30);
 }
-
 
 /* 댓글 입력폼 부분 */
 .form__container {
@@ -42,12 +38,13 @@ main > h1 {
   padding: 16px;
 }
 
-.form__input--name, .form__input--title, .form__textbox {
+.form__input--name,
+.form__input--title,
+.form__textbox {
   display: flex;
   justify-content: space-between;
   /* border: 1px solid red; */
   padding: 2px;
-
 }
 
 .form label {
@@ -58,8 +55,6 @@ main > h1 {
   text-align: center;
   justify-content: center;
   align-items: center;
-  
-  
 }
 
 .form__container input {
@@ -70,7 +65,6 @@ main > h1 {
   box-shadow: none !important;
   padding: 5px;
   margin: 0;
-
 }
 
 .form__container textarea {
@@ -83,7 +77,6 @@ main > h1 {
   padding: 5px;
   margin: 0;
   resize: none;
-  
 }
 
 /* 퀘스천부분 가운데오게 */
@@ -94,8 +87,6 @@ main > h1 {
   margin: 0; */
 }
 
-
-
 /* 댓글 저장버튼 부모디브 */
 
 .form__submit {
@@ -103,10 +94,7 @@ main > h1 {
   justify-content: center;
   /* border: 1px solid red; */
   margin: 10px 0 2px 0;
-  
-  
 }
-
 
 /* 댓글 저장 버튼 */
 
@@ -125,11 +113,6 @@ main > h1 {
   background-color: rgb(131, 28, 80);
 }
 
-
-
-
-
-
 /* 질문창상위부분 */
 .discussion__wrapper {
   border: 1px solid red;
@@ -142,23 +125,20 @@ main > h1 {
 }
 
 /* 코치님이하신것 */
-.discussions__container{
+.discussions__container {
   margin: 1rem;
   font-size: 16px;
   font-weight: 400;
 }
 
-.discussions__content {
-
-}
 
 
-.discussion__container{
+.discussion__container {
   display: flex;
   justify-content: space-between;
   border: 1px solid rgb(255, 255, 255);
   align-items: center;
-  padding:  3px 5px 5px 5px;
+  padding: 3px 5px 5px 5px;
   margin-bottom: 20px;
   border-radius: 10px;
 }
@@ -167,10 +147,17 @@ ul {
   padding: 0;
   list-style: none;
 }
+.discussion__content {
+  width: 480px;
+  border: 1px solid red;
 
-.discussion__content a:link, a:visited {
-  color:rgb(234, 234, 234);
+}
+
+.discussion__content a:link,
+a:visited {
+  color: rgb(234, 234, 234);
   text-align: center;
-  text-shadow: 2px 1px 1px rgb(139, 8, 30) ;
+  text-shadow: 2px 1px 1px rgb(139, 8, 30);
   text-decoration: none;
 }
+
