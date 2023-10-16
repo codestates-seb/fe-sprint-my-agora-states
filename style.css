@@ -1,1 +1,209 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+body {
+    margin: 0px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    /* background-color: rgba(201, 248, 136, 0.845); */
+}
+
+/* div {
+    border: 1px solid blue;
+} */
+
+h1 {
+    height: 20vh;
+    text-align: center;
+    font-size: 80px;
+    margin: 40px;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+
+/* main {
+    flex-direction: row
+} */
+body {
+    height: 90vh;
+    /* background-color: rgba(0, 0, 255, 0.763); */
+    background-size: 100%;
+    /* background-repeat: no-repeat; */
+    background-position: top;
+    /* object-fit: cover; */
+    /* background-image: url(https://file2.nocutnews.co.kr/newsroom/image/2023/01/21/202301210408091762_0.jpg); */
+    background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbghKrc%2Fbtr2wuMtApY%2FfEC5CTnFqyE5k5ECn38xE1%2Fimg.png);
+    z-index: 1;
+}
+
+form {
+    border: 10px solid rgba(162, 163, 164, 0.621);
+    border-style: inset;
+    height: 400px;
+    width: 600px;
+    float: left;
+    margin-left: 10vh;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
+    background: linear-gradient(to bottom, rgba(222, 222, 254, 0.805), rgba(253, 218, 255, 0.647));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form__input--name {
+    width: 500px;
+    background-color: rgba(230, 230, 250, 0.90);
+    border: 2px solid #eee;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__input--title {
+    width: 500px;
+    background-color: rgba(255, 240, 245, 0.90);
+    border: 2px solid #eee;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* align-items: center; */
+}
+
+.form__textbox {
+    width: 500px;
+    background-color: rgba(230, 223, 255, 0.90);
+    border: 2px solid #eee;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img-button {
+    width: 120px;
+    height: 80px;
+    border: 2px solid lavender;
+    border-radius: 20px;
+    background-image: url(https://file.mk.co.kr/meet/neds/2023/01/image_readtop_2023_44147_16738228825316762.jpg);
+    cursor: pointer;
+    background-size: cover;
+}
+
+/* .form__submit {
+    background-image: url(https://image.board.sbs.co.kr/2023/01/16/A3E1673851507009-600.jpg);
+    z-index: 1;
+} */
+
+/* .form__submit {
+    width: 50px;
+    height: 10px;
+    border: none;
+    border-radius: 3px;
+    background: rgb(6, 6, 6);
+    cursor: pointer;
+} */
+
+/* .discussion__wrapper {
+    border: 3px double black
+} */
+
+.discussions__container {
+    overflow-y: scroll;
+    display: grid;
+    height: 400px;
+    width: 600px;
+    background: linear-gradient(to bottom, rgba(222, 222, 254, 0.805), rgba(253, 218, 255, 0.647));
+    border: 10px solid rgba(162, 163, 164, 0.621);
+    border-style: inset;
+    float: right;
+    /* grid-template-rows: repeat(3, 40vh); */
+    grid-template-columns: repeat(3, 25vh);
+    flex-flow: wrap;
+    /* align-content: center; */
+    justify-content: center;
+    margin-right: 10vh;
+
+}
+
+.discussion__container {
+    margin-right: 25px;
+    margin-left: 13px;
+    margin-top: 40px;
+    /* margin-bottom: 15px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px double black;
+    border-radius: 20px;
+    align-items: center;
+    /* background-color: rgba(201, 248, 136, 0.845); */
+    background-image: url(https://mblogthumb-phinf.pstatic.net/MjAyMjA4MDhfMjkz/MDAxNjU5OTQ5NDk5NDA1.qm01-ekXnkAgjiy7INbUutFTYXPOfN1W-dPqtJR8R2sg.4OVH4Dy7_ASIbq-JbiG_YOeL8ZRH5It5XO872cLkszwg.JPEG.underbite/IMG_3266.JPG?type=w800);
+    background-size: cover;
+    background-position: top;
+    font-size: 8px;
+    position: top;
+    /* max-width: 100%;
+    height: auto; */
+    width: 150px;
+    height: 220px;
+}
+
+.discussion__avatar--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion__avatar--image {
+    /* margin-top: 20px; */
+    width: 100%;
+    height: 77px;
+    border: 2px solid black;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.discussion__content {
+    height: 150px;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discussion__name {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 20px;
+}
+
+.discussion__time {
+    width: 130px;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 16px;
+    border-radius: 40px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+
+.discussion__container>div {
+    flex-grow: 1;
+}
