@@ -1,1 +1,321 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+* {
+  box-sizing: border-box;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: aliceblue;
+  margin-top: 12rem;
+}
+
+h1 {
+  position: fixed;
+  text-align: center;
+  top: 2rem;
+  margin: 0;
+  color: rgb(24, 185, 145);
+  font-size: 9.5rem;
+  width: max-content;
+  animation: slide 1s ease-in-out;
+  transform: rotate(8deg) skew(-10deg);
+  word-spacing: -2rem;
+}
+
+@keyframes slide {
+  0% {
+    left: -10%
+  }
+
+  65% {
+    left: 5%
+  }
+
+  75% {
+    left: -3%;
+  }
+
+  100% {
+    left: -1%;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(149, 157, 165, 0.5) 0px .5rem 3rem 0.5rem;
+  margin: 2rem;
+  align-items: stretch;
+  padding: 2rem;
+  justify-content: center;
+  /* From https://css.glass */
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+main>* {
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+main>section:first-child {
+  border-radius: .5rem;
+  box-shadow: rgba(149, 157, 165, 0.5) 0px .2rem 1rem;
+  background-color: rgba(114, 67, 255, 0.6);
+}
+
+p {
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+input,
+textarea {
+  border: none;
+  flex-grow: 1;
+  padding: .3rem;
+  border-bottom: 1.5px solid transparent;
+  transition: border .5s ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-bottom-color: rgb(24, 185, 145);
+}
+
+
+.form__input--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.form__input--wrapper>div {
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: .5rem;
+  padding: .7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.form__input--wrapper>div>label {
+  flex-basis: 20%;
+  text-align: right;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.form>div:first-child {
+  flex-grow: 6;
+}
+
+.form__submit {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__submit>input {
+  height: 6rem;
+  border-radius: 6rem;
+  box-shadow: rgb(94, 94, 94, 0.3) 0px 4px 12px;
+  color: white;
+  font-size: 1.5rem;
+  background-color: rgb(24, 185, 145);
+}
+
+.form__submit>input:hover {
+  background-color: #7243ff;
+
+}
+
+.form__submit>input:active {
+  box-shadow: inset rgba(94, 94, 94, 0.5) 0px 4px 12px;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 1rem;
+}
+
+.discussion__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussions__container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: .5rem;
+}
+
+.discussion__container {
+  display: flex;
+  /* border: 2px solid red; */
+  padding: 1rem;
+  border-radius: .5rem;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px .5rem 2rem;
+}
+
+
+.discussion__container>div {
+  /* border: 2px solid black; */
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.discussion__title:hover {
+  color: #7243ff;
+  text-shadow: rgba(149, 157, 165, 0.3) 0px 2px 2px;
+  cursor: pointer;
+}
+
+.discussion__avatar--wrapper {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  flex-basis: 10%;
+  flex-direction: column;
+}
+
+.discussion__answered {
+  flex-basis: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discussion__answered i {
+  font-size: x-large;
+}
+
+.fa-square {
+  color: gray;
+}
+
+.fa-square-check {
+  color: green;
+}
+
+.discussion__avatar--wrapper>img {
+  max-width: 3.5rem;
+  border-radius: 100%;
+  margin: auto;
+  margin-top: .5rem;
+}
+
+.discussion__content {
+  flex-basis: 80%;
+  width: 50vw;
+  overflow-x: scroll;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.discussion__content>* {
+  margin: 0
+}
+
+.discussion__content>div:last-child {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+.discussion__content>div:last-child>i:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 5%;
+  font-size: 1.25rem;
+
+  color: rgb(163, 163, 163, 0.5);
+}
+
+.discussion__content>div:last-child>i:first-of-type:hover {
+  color: grey;
+}
+
+.discussion__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answer__container {
+  display: flex;
+  gap: 2rem;
+  border-radius: .5rem;
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 1rem;
+}
+
+.answer__avatar--wrapper {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer__avatar--wrapper>img {
+  max-width: 3.5rem;
+  border-radius: 100%;
+}
+
+.pages__container {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.page_item {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+}
+
+.page_item:hover {
+  color: rgb(24, 185, 145);
+}
+
+.focus {
+  color: #7243ff;
+  font-weight: bolder;
+  margin: 0;
+}
