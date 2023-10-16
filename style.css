@@ -1,1 +1,170 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@font-face {
+    font-family: 'Orbit-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: 'Orbit-Regular';
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #E95793; 
+    align-items: center;
+    width : 540px;
+    gap: 30px;
+    padding: 15px;
+    background-color: #E95793;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px #323232;
+    margin-bottom: 15px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #610C9F;
+    gap:10px;
+}
+
+.discussions__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form{
+    display: flex;
+    gap: 30px;
+}
+.form__submit {
+    display: flex;
+    align-items: center;
+}
+
+.form__submit > input{
+    background-color: #940B92; /* 배경 색상 */
+    color: white; /* 텍스트 색상 */
+    padding: 10px 20px; /* 안쪽 여백 */
+    border: none; /* 테두리 없음 */
+    border-radius: 10px; /* 둥근 테두리 */
+    cursor: pointer; /* 커서 모양 변경 */
+    align-self: center;
+    font-family: 'Orbit-Regular';
+}
+
+.form__submit > input:hover{
+    background-color: gold;
+}
+
+.form__input--name > input{
+    background-color: #60145f; 
+    color: white; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 10px;
+    align-self: center;
+    width : 200px;
+}
+
+.form__input--title > input{
+    background-color: #60145f; 
+    color: white; 
+    padding: 10px;
+    border: none; 
+    border-radius: 10px;
+    align-self: center;
+    width : 200px;
+}
+
+.form__textbox > textarea{
+    background-color: #60145f; 
+    color: white; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 10px; 
+    align-self: center;
+    font-family: 'Orbit-Regular';
+    width : 200px;
+}
+
+.discussion__content {
+    flex-grow: 2;
+}
+
+.form__container{
+    display: flex;
+    background-color: #DA0C81;
+    border: 1px solid #DA0C81;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width : 540px;
+    padding: 1%;
+    box-shadow: 2px 2px 4px #323232;
+}
+
+.form__input--name, .form__input--title, .form__textbox{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: small;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    font-size: small;
+}
+
+.discussion__avatar--wrapper{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.discussion__avatar--image {
+    width: 45px;
+    height: 100%;
+    object-fit: cover; 
+    flex-shrink: 0;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.body {
+    margin: 0px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+
+li {
+    margin : 0;
+}
