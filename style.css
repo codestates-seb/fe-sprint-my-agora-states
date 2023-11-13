@@ -1,1 +1,304 @@
-/* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    padding:0px;
+    margin:0px;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;    
+    width:1600px;
+    height: 900px;
+    background-color:rgb(32,33,37);
+}
+
+main{
+    width:1600px;
+    height:800px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top:20px;
+}
+
+h1{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.discussion__wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    background-color: rgb(32,33,37);
+}
+.discussion__detail{
+    width:560px;
+    height: 700px;
+    padding: 20px;
+    border-right-style: solid;
+    border-width: 2px;
+    border-color: rgb(62, 81, 104);
+    overflow-y: auto;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+
+.discussion__detail::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+li > div{ 
+    margin-top:6px;
+    margin-right: 6px;
+}
+
+li.discussion__container {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    flex-wrap : nowrap;
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: rgb(62, 81, 104);
+    width: 400px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+li.discussion__answered{
+    padding: 20px;
+    width:840px;
+    height: 400px;
+}
+
+.form__container{
+    width:540px;
+    height: 700px;
+    border-radius: 14px /14px;
+    background-color: rgb(30,33,37);
+    display: flex;
+    justify-content: center;
+    padding-left:16px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__input--wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.form__input--wrapper2{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.form__textbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--name{
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input--title{
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+#title{
+    flex: 1 1 auto;
+    height: 30px;
+}
+
+.discussion__title{
+    font-size: 16px;
+}
+
+.discussion__information{
+    font-size: 14px;
+}
+
+input{ 
+    background-color:rgb(47,49,50);
+    border: none;
+    border-radius: 6px /6px;
+}
+
+
+input:focus{ 
+    outline: none;
+}
+
+#story {
+    width: 500px;
+    height: 480px;
+    margin-top: 4px;
+    background-color:rgb(47,49,50);
+    border: none;
+    border-radius: 6px /6px;
+    /*
+    border-style: solid;
+    border-radius: 4px /4px;
+    border-color: rgb(238, 231, 231);
+    */
+}
+
+#story:focus {
+    outline: none;
+  }
+
+#story2 {
+    margin-top: 4px;
+    background-color:rgb(47,49,50);    
+    border: none;
+    border-radius: 6px /6px;
+    width: 500px;
+    height: 300px;
+}
+
+#story2:focus {
+    outline: none;
+  }
+
+.sub{
+    margin-top: 8px;
+    width: 60px;
+    height: 30px;
+}
+
+#name{
+    width: 100px;
+    height: 30px;
+}
+
+#name2{
+    width: 100px;
+    height: 30px;
+}
+    
+.discussion__content{
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+}
+.discussion__information{
+    display: flex;
+    justify-content: end;
+}
+
+.discussion__answered__img{
+    margin-left: 6px;
+    width: 36px;
+}
+
+.hide{
+    display: none;
+}
+
+
+section {
+    margin:4px;
+}
+
+.discussion__avatar--image{
+    margin-left: 10px;
+    width: 48px;
+    border-radius: 70%;
+}
+
+#question_button{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(96, 97, 100);
+}
+
+.discussion__detail__question{
+    padding:6px;
+    border-bottom-style: solid;
+    border-color: rgb(62, 81, 104);
+    border-width: 2px;
+    padding-bottom: 20px;
+}
+
+.discussion__detail__answered{
+    padding:6px;
+    padding-top: 20px;
+}
+
+.answered_information{
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: rgb(62, 81, 104);
+}
+
+.discussion__detail__information__img{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 48px;
+    border-radius: 70%;
+}
+
+.discussion__detail__information__id__date{
+    display: flex;
+    justify-content: end;
+}
+
+a{color:rgb(236, 236, 204);}
+
+.selected-title {
+    color: rgb(0, 118, 214); 
+    font-size:large;
+}
+
+.discussion__page{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.discussion__page_prevButton{
+    width: 20px;
+    background-color: rgb(96, 97, 100);
+}
+.discussion__page_nextButton{
+    width: 20px;
+    background-color: rgb(96, 97, 100);
+}
+.discussions__container {
+    height: 670px;
+
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    /* 인터넷 익스플로러 */
+    scrollbar-width: none;
+    /* 파이어폭스 */
+}
+.discussions__container::-webkit-scrollbar {
+    display: none;
+    /* 크롬, 사파리, 오페라, 엣지 */
+}
+#currentPage{
+    white-space: pre;
+}
