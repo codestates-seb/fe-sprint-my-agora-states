@@ -11,31 +11,60 @@
     integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
+<!---->
+<!---->
+<!---->
 <body>
   <main>
-    <h1>My Agora States</h1>
-    <section class="form__container">
-      <form action="" method="get" class="form">
-        <div class="form__input--wrapper">
-          <div class="form__input--name">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
-          </div>
-          <div class="form__input--title">
-            <label for="title">Enter your title: </label>
-            <input type="text" name="title" id="title" required>
-          </div>
-          <div class="form__textbox">
-            <label for="story">Your question: </label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+        <!--질문작성 모달구역 시작 -->
+        <div class="modal hidden">
+          <div class="bg"></div>
+          <div class="modalBox">
+            <section class="form__container">
+              <form action="" method="get" class="form">
+                <div class="form__input--wrapper">
+                  <div class="form__input--name">
+                    <label for="name">Enter your name: </label>
+                    <input type="text" name="name" id="name" required>
+                  </div>
+                  <div class="form__input--title">
+                    <label for="title">Enter your title: </label>
+                    <input type="text" name="title" id="title" required>
+                  </div>
+                  <div class="form__textbox">
+                    <label for="story">Your question: </label>
+                    <textarea id="story" name="story" placeholder="질문을 작성하세요" required></textarea>
+                  </div>
+                </div>
+                <div class="form__submit">
+                  <button type="submit" value="submit">Save</button>
+                  
+                </div>
+              </form>
+            </section>
           </div>
         </div>
-        <div class="form__submit">
-          <input type="submit" value="submit">
+        <!--질문작성 모달구역  끝-->
+    
+        <!--질문 상세구역(모달) 시작-->
+        <div class="modal_2 hidden">
+          <div class="bg_2">
+            <div class="modalBox_2">
+              <p class="questionArea"></p>
+              <p class="answerArea"></p>
+            </div>
+          </div>
         </div>
-      </form>
+        <!--질문 상세구역(모달) 끝-->
+
+    <section class="titleAndQuestion">
+      <h1></h1>
+      <div>
+        <button class="openBtn"></button>
+      </div>
     </section>
+
+    <!--질문 리스트 구역 시작-->
     <section class="discussion__wrapper">
       <ul class="discussions__container">
         <li class="discussion__container">
@@ -45,13 +74,20 @@
               alt="avatar of kimploo">
           </div>
           <div class="discussion__content">
-            <h2 class="discussion__title"><a href="https://github.com/codestates-seb/agora-states-fe/discussions/6">[notice] 좋은 질문하는 법</a></h2>
             <div class="discussion__information">kimploo / 2022-04-22T14:08:33Z</div>
+            <h2 class="discussion__title">좋은 질문하는 법</h2>
           </div>
-          <div class="discussion__answered"><p>☑</p></div>
+          <div class="discussion__answered">
+            <p class="discussion__answered_check" style="color:green">O</p>
+            <button class="discussion__title_btn">Link</button> 
+          </div>
         </li>
       </ul>
+      <div class="pageNation"></div>
     </section>
+    <!--질문 리스트 구역 끝-->
+
+
   </main>
 </body>
 <script src="data.js"></script>
