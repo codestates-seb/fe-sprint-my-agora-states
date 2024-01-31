@@ -1,26 +1,36 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
 * {
     box-sizing: border-box;
-    font-family: 'NeoDunggeunmoPro-Regular';
+    list-style: none;
     text-decoration: none;
+    font-size: 20px;
+    font-family: 'NeoDunggeunmoPro-Regular';
     text-align: center;
 }
 
 body {
-    padding: 0px;
-    margin: 0px;
+    margin: 0 auto;
+    padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
     background-color: rgb(250, 242, 254);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
 }
 
 h1 {
     color:rgb(206, 83, 189);
 }
+
 .form__container {
-    width: 400px;
+    width: 500px;
     padding: 10px;
     background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
     color: rgb(248, 252, 253);
@@ -28,7 +38,6 @@ h1 {
     box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57);
     margin: 0 auto;
 }
-
 .form__input--name {
     margin-bottom: 10px;
 }
@@ -38,7 +47,7 @@ h1 {
 .form__textbox {
     margin-bottom: 10px;
 }
-#submit {
+.form__submit input{
     width: 90px;
     height: 30px;
     font-size: 18px;
@@ -51,7 +60,7 @@ h1 {
     transition: 0.5s;
     box-shadow: 0 0 3px #eeddbf;
 }
-#submit:hover {
+.form__submit input:hover {
     background-position: right center;
     cursor: pointer;
 }
@@ -68,50 +77,83 @@ h1 {
     resize: none;
 }
 
-
-ul {
-    list-style: none;
-    padding-left: 0;
-    padding-inline-start: 0;
-    margin: 0;
+.discussions__container{
+    padding: 0;
 }
-.discussions__wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .discussion__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-flow: row;
-    width: 400px;
-    margin: 20px;
+    cursor: pointer;
+    margin: 20px 0px;
+    padding: 10px;
     gap: 10px;
     background-image: linear-gradient(120deg, #f4e2cb 0%, #ffc0fc 100%);
     border-radius: 10px;
     box-shadow: 2px 4px 8px rgba(119, 106, 144, 0.57);
 }
 
-.discussion__avatar--image {
-    width: 50px;
-    border-radius: 100%;
+.discussion__content{
+    display: flex;
+    flex: 10;
+    flex-direction: column;
     position: relative;
-    left: 5px;
 }
 
+.discussion__title { 
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+h2{
+    margin: 0 0 25px 0;
+}
 a {
     color:#232323;
     font-size: 18px;
 }
+
 .discussion__information {
     color:#555555;
     font-size: 14px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
-.discussion__answered {
+
+.discussion__avatar--wrapper{
+    flex:2;
     display: flex;
-    align-items: center;
+}
+.discussion__avatar--image {
+    border-radius: 100%;
+    width: 50px;
+    position: relative;
+    left: 5px;
+}
+
+.discussion__answered{
+    flex:1; 
+}
+.discussion__answered--contents{
+    display: none;
+    font-size: 20px;
+}
+
+/*제목을 클릭하면 답변 토글*/
+.discussion__container.active {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__container.active .discussion__answered--checked{
+    display: none;
+}
+.discussion__container.active .discussion__answered--contents {
+    display: block;
+    margin-top: 10px;
 }
 
 @font-face {

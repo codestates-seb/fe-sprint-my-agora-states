@@ -13,33 +13,59 @@ const convertToDiscussion = (obj) => {
   const discussionAnswered = document.createElement("div");
   discussionAnswered.className = "discussion__answered";
 
-// 프로필 이미지 불러오기
-  const avatarImage = document.createElement("img");
-  avatarImage.className = "discussion__avatar--image";
-  avatarImage.src = obj.avatarUrl;
-  avatarImage.alt = `avatar of ${obj.author}`;
-  avatarWrapper.append(avatarImage);
-// 작성자 / 작성날짜 정보
-  const discussionInfo = document.createElement('div');
-  discussionInfo.className = 'discussion__information';
-  discussionInfo.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleDateString()}`;
-// 링크 및 제목
-  const titleLink = document.createElement('a');
-  titleLink.href = obj.url;
-  titleLink.textContent = obj.title;
-  const discussionTitle = document.createElement('h2');
-  discussionTitle.className = 'discussion__title';
-  discussionTitle.append(titleLink)
-  discussionContent.append(discussionTitle, discussionInfo)
-// 답변
-  const discussion_ans = document.createElement('p');
-  discussion_ans.textContent = obj.answer != null ? '✔️' : '✖️';
-  discussionAnswered.append(discussion_ans);
+  // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요. 
+  // img
+  const avatarImg = document.createElement("img");
+  avatarImg.className = 'discussion__avatar--image'
+  avatarImg.src = obj.avatarUrl
+  avatarImg.alt = 'avartar of ' + obj.author
+  avatarWrapper.append(avatarImg)
+  
+  // 시간 표현 
+  const formatDate = new Date(obj.createdAt).toLocaleString('ko-KR', { timeZone: 'UTC' });
+  // discussion info
+  const discussionTitle = document.createElement("h2")
+  const discussionLink = document.createElement("a")
+  discussionLink.href = obj.url
+  discussionLink.textContent = `${obj.title}`
+  discussionTitle.append(discussionLink)
+  const discussionInfo = document.createElement('div')
+  discussionInfo.className = 'discussion__information'
+  discussionInfo.textContent = `${obj.author} / ${formatDate}`
+  discussionContent.append(discussionTitle)
+  discussionContent.append(discussionInfo)
+
+  // answered
+  const discussionAns = document.createElement('div')
+  discussionAns.className = 'discussion__answered--checked'
+  discussionAns.textContent = obj.answer ? "✅" : "❌"
+  discussionAnswered.append(discussionAns)
+
+  // answer toggle 
+  const discussionAnsContent = document.createElement('div')
+  discussionAnsContent.className = 'discussion__answered--contents'
+  // discussionAnsContent.textContent = obj.answer ? obj.answer.bodyHTML : '';
+  // discussionAnswered.append(discussionAnsContent)
+
+  // 문자열을 DOM으로 변환.
+  if(obj.answer) {
+  const parsedHTML = new DOMParser().parseFromString(obj.answer.bodyHTML, 'text/html')
+  for (const child of parsedHTML.body.childNodes) {
+    discussionAnsContent.appendChild(child.cloneNode(true));
+  }
+  discussionAnswered.appendChild(discussionAnsContent);
+  }
+
+  // click toggle event
+  li.addEventListener('click', (e) => {
+    e.preventDefault()
+    li.classList.toggle("active")
+  })
+
 
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
-
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
@@ -52,28 +78,32 @@ const render = (element) => {
 const ul = document.querySelector("ul.discussions__container");
 render(ul);
 
-// input 불러오기
-const form = document.querySelector('form.form');
-const formTitle = form.querySelector(".form__input--title > input");
-const formAuthor = document.querySelector('.form__input--name > input');
-const formTextbox = form.querySelector(".form__textbox > textarea");
+// form
+const form = document.querySelector('.form');
+const nameInput = document.querySelector('#name');
+const titleInput = document.querySelector('#title');
+const storyInput = document.querySelector('#story');
 
-form.addEventListener("submit", (event) => { // 서브밋 이벤트가 발생하면
-  event.preventDefault(); // 페이지 새로고침 방지
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
 
-  const obj = {
-    id: "hello",
-    createdAt: new Date().toLocaleDateString(),
-    url: "https://github.com/pnr98/fe-sprint-my-agora-states",
-    title: formTitle.value,
-    author: formAuthor.value,
-    answer: null,
-    bodyHTML: formTextbox.value,
+  const newDiscussion = {
+    author: nameInput.value,
+    title: titleInput.value,
+    bodyHTML: storyInput.value,
     avatarUrl: "https://avatars.githubusercontent.com/u/129926357?s=400&u=510f31940547e71fa8d3e5567d609148b8f9bb26&v=4",
-  };
-  agoraStatesDiscussions.unshift(obj); // 객체 추가
-  ul.prepend(convertToDiscussion(obj)); // convertToDiscussion: bj를 받아서 해당 객체를 새로운 li요소를 생성, 반환. prepend는 새로운 li요소를 ul요소의 첫번째 자식으로 추가
-  formAuthor.value = ""; // 빈칸 비우기
-  formTitle.value = "";
-  formTextbox.value = "";
-});
+    answer: null,
+    createdAt: new Date(),
+  }
+
+  agoraStatesDiscussions.unshift(newDiscussion)
+  ul.innerHTML = '';
+  render(ul)
+
+  nameInput.value = '';
+  titleInput.value = '';
+  storyInput.value = '';
+})
+
+const itemsPerPage = 10
+const data = [ul]
