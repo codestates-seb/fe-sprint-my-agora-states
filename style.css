@@ -1,1 +1,164 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    text-align: center;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(250, 242, 254);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
+h1 {
+    color:rgb(206, 83, 189);
+}
+
+.form__container {
+    width: 500px;
+    padding: 10px;
+    background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    color: rgb(248, 252, 253);
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(72, 52, 112, 0.57);
+    margin: 0 auto;
+}
+.form__input--name {
+    margin-bottom: 10px;
+}
+.form__input--title {
+    margin-bottom: 10px;
+}
+.form__textbox {
+    margin-bottom: 10px;
+}
+.form__submit input{
+    width: 90px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 300;
+    border: none;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+    background-size: 200% auto;
+    color: white;
+    transition: 0.5s;
+    box-shadow: 0 0 3px #eeddbf;
+}
+.form__submit input:hover {
+    background-position: right center;
+    cursor: pointer;
+}
+#name,
+#title,
+#story {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+#story {
+    resize: none;
+}
+
+.discussions__container{
+    padding: 0;
+}
+.discussion__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin: 20px 0px;
+    padding: 10px;
+    gap: 10px;
+    background-image: linear-gradient(120deg, #f4e2cb 0%, #ffc0fc 100%);
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px rgba(119, 106, 144, 0.57);
+}
+
+.discussion__content{
+    display: flex;
+    flex: 10;
+    flex-direction: column;
+    position: relative;
+}
+
+.discussion__title { 
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+h2{
+    margin: 0 0 25px 0;
+}
+a {
+    color:#232323;
+    font-size: 18px;
+}
+
+.discussion__information {
+    color:#555555;
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.discussion__avatar--wrapper{
+    flex:2;
+    display: flex;
+}
+.discussion__avatar--image {
+    border-radius: 100%;
+    width: 50px;
+    position: relative;
+    left: 5px;
+}
+
+.discussion__answered{
+    flex:1; 
+}
+.discussion__answered--contents{
+    display: none;
+    font-size: 20px;
+}
+
+/*제목을 클릭하면 답변 토글*/
+.discussion__container.active {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion__container.active .discussion__answered--checked{
+    display: none;
+}
+.discussion__container.active .discussion__answered--contents {
+    display: block;
+    margin-top: 10px;
+}
+
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
